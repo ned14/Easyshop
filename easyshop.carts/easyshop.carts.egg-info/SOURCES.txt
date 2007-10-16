@@ -1,0 +1,14 @@
+README.txt
+setup.cfg
+setup.py
+easyshop/__init__.py
+easyshop.carts.egg-info/PKG-INFO
+easyshop.carts.egg-info/SOURCES.txt
+easyshop.carts.egg-info/dependency_links.txt
+easyshop.carts.egg-info/entry_points.txt
+easyshop.carts.egg-info/namespace_packages.txt
+easyshop.carts.egg-info/not-zip-safe
+easyshop.carts.egg-info/requires.txt
+easyshop.carts.egg-info/top_level.txt
+easyshop/carts/__init__.py
+easyshop/carts/tests.py
