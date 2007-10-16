@@ -8,7 +8,6 @@ input#save-formatter:click {
 input#add-product:click {
     evt-click-preventdefault: True;
     action-server: kss_add_product;
-    kss_add_product-portlethash: kssAttr(portlethash, True);
     kss_add_product-form: currentForm();
 }
 
