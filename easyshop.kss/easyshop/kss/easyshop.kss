@@ -1,0 +1,14 @@
+input#save-formatter:click {
+    evt-click-preventdefault: True;
+    action-server: kss_save_formatter;
+    kss_save_formatter-portlethash: kssAttr(portlethash, True);
+    kss_save_formatter-form: currentForm();
+}
+
+input#add-product:click {
+    evt-click-preventdefault: True;
+    action-server: kss_add_product;
+    kss_add_product-portlethash: kssAttr(portlethash, True);
+    kss_add_product-form: currentForm();
+}
+

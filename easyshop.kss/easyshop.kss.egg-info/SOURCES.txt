@@ -1,0 +1,14 @@
+README.txt
+setup.cfg
+setup.py
+easyshop/__init__.py
+easyshop.kss.egg-info/PKG-INFO
+easyshop.kss.egg-info/SOURCES.txt
+easyshop.kss.egg-info/dependency_links.txt
+easyshop.kss.egg-info/entry_points.txt
+easyshop.kss.egg-info/namespace_packages.txt
+easyshop.kss.egg-info/not-zip-safe
+easyshop.kss.egg-info/requires.txt
+easyshop.kss.egg-info/top_level.txt
+easyshop/kss/__init__.py
+easyshop/kss/tests.py
