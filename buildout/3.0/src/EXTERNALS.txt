@@ -1,0 +1,4 @@
+#
+# applied by: svn propset svn:externals -F ./EXTERNALS.txt .
+#
+easyshop.kss http://easyshop-for-plone.googlecode.com/easyshop.kss/trunk
