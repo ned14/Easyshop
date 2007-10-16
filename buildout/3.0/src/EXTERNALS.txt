@@ -2,3 +2,4 @@
 # applied by: svn propset svn:externals -F ./EXTERNALS.txt .
 #
 easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
+easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
