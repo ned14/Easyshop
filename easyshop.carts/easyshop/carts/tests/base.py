@@ -10,11 +10,14 @@ from Testing.ZopeTestCase.utils import setupCoreSessions
 from Products.PloneTestCase import PloneTestCase
 from Products.PloneTestCase.layer import PloneSite
 
-import easyhop.carts
+import easyshop.carts
+from plone.app import relations
 
 setupCoreSessions()
 ZopeTestCase.installProduct('SiteAccess') 
-PloneTestCase.setupPloneSite()
+
+ZopeTestCase.installProduct("EasyShop", "plone.app.relations")
+PloneTestCase.setupPloneSite(products=['EasyShop', "plone.app.relations"])
 
 class EasyShopCartsSite(PloneSite):
 
@@ -26,14 +29,20 @@ class EasyShopCartsSite(PloneSite):
         uf = app.acl_users
         user = uf.getUserById(PloneTestCase.portal_owner).__of__(uf)
         newSecurityManager(None, user)
-        zcml.load_config('configure.zcml', easyhop.carts)
+        zcml.load_config('configure.zcml', easyshop.carts)
+        zcml.load_config('configure.zcml', relations)        
 
-        portal.invokeFactory("Document", 'document', title="Document")
-        portal.portal_workflow.doActionFor(portal.document, "publish")
+        portal.invokeFactory("EasyShop", 'shop', title="EasyShop")
+        portal.portal_workflow.doActionFor(portal.shop, "publish")
+        portal.shop.at_post_create_script()
+        
+        portal.shop.products.invokeFactory("EasyShopProduct", 'product', title="Product")
+        portal.portal_workflow.doActionFor(portal.shop.products.product, "publish")
+
+        portal.product = portal.shop.products.product
         
         commit()
         ZopeTestCase.close(app)
-
 
 class EasyShopCartsTestCase(PloneTestCase.PloneTestCase):
 

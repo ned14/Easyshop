@@ -1,6 +1,3 @@
-# Zope imports
-from BTrees.OOBTree import OOBTree
-
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
@@ -8,15 +5,10 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# Archetypes imports
-from Products.Archetypes.utils import shasattr
-
 # EasyShop imports
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IItemManagement
+from Products.EasyShop.interfaces.cart import ICartManagement
+from Products.EasyShop.interfaces.item import IItemManagement
 from Products.EasyShop.interfaces import IShopContent
-
-KEY = "easyshop.carts"
 
 class CartManagement:
     """Provices cart management methods for shop content objects.
@@ -29,18 +21,10 @@ class CartManagement:
         """
         self.context = context
 
-        annotations = IAnnotations(context)
-        carts = annotations.get(KEY)
-        
-        if carts is None:
-            carts = annotations[KEY] = OOBTree()
-
-        self.carts = carts
-
     def addCart(self, id):
-        """Adds a cart
         """
-        self.context.carts.manage_addProduct["EasyShop"].addEasyShopCart(id = id)
+        """
+        self.context.carts.manage_addProduct["EasyShop"].addCart(id = id)
         return self.getCartById(id)
 
     def createCart(self):
@@ -48,7 +32,7 @@ class CartManagement:
         """
         cart_id = self._getCartId()
         
-        self.context.carts.manage_addProduct["EasyShop"].addEasyShopCart(
+        self.context.carts.manage_addProduct["EasyShop"].addCart(
             id = cart_id
         )
         
@@ -110,7 +94,7 @@ class CartManagement:
         
         query = {
             "path"        : path,
-            "portal_type" : "EasyShopCart",
+            "portal_type" : "Cart",
             "sort_on"     : sort_on,
             "sort_order"  : sort_order,
         }
