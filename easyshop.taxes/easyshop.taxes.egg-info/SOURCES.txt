@@ -1,0 +1,14 @@
+README.txt
+setup.cfg
+setup.py
+easyshop/__init__.py
+easyshop.taxes.egg-info/PKG-INFO
+easyshop.taxes.egg-info/SOURCES.txt
+easyshop.taxes.egg-info/dependency_links.txt
+easyshop.taxes.egg-info/entry_points.txt
+easyshop.taxes.egg-info/namespace_packages.txt
+easyshop.taxes.egg-info/not-zip-safe
+easyshop.taxes.egg-info/requires.txt
+easyshop.taxes.egg-info/top_level.txt
+easyshop/taxes/__init__.py
+easyshop/taxes/tests.py
