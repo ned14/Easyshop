@@ -1,0 +1,51 @@
+# zope imports
+from zope.interface import implements
+
+# Zope imports
+from DateTime import DateTime
+from AccessControl import ClassSecurityInfo
+
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
+# Archetypes imports
+from Products.Archetypes.atapi import *
+
+# EasyShop imports
+from Products.EasyShop.config import *
+from Products.EasyShop.interfaces import IPriceCriteriaContent
+
+
+schema = Schema((
+    FloatField(
+        name='price',
+        default=0.0,
+        widget=DecimalWidget(
+            label='Price Gross',
+            label_msgid='schema_value_label',
+            i18n_domain='EasyShop',
+        ),
+    ),
+
+),
+)
+
+class EasyShopPriceCriteria(BaseContent):
+    """
+    """
+    implements(IPriceCriteriaContent)    
+    security = ClassSecurityInfo()
+    _at_rename_after_creation = True
+    schema = BaseSchema.copy() + schema.copy()
+
+    def Title(self):
+        """
+        """
+        return "Price"
+        
+    def getValue(self):
+        """
+        """
+        return self.getPrice()
+
+registerType(EasyShopPriceCriteria, PROJECTNAME)
