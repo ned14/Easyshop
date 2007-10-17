@@ -1,0 +1,8 @@
+[default]
+title = 
+
+[validators]
+validators = 
+
+[actions]
+action.success = traverse_to:string:check-out-shipping-methods-select

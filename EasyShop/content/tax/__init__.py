@@ -1,0 +1,2 @@
+import EasyShopDefaultTax
+import EasyShopTax

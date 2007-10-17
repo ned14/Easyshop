@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+  
+    <utility
+        factory=".converter.NumberConverter"  
+        provides="Products.EasyShop.interfaces.INumberConverter"
+        permission="zope2.Public" />  
+
+    <utility
+        factory=".converter.AddressConverter"  
+        provides="Products.EasyShop.interfaces.IAddressConverter"
+        permission="zope2.Public" />  
+
+</configure>

@@ -1,0 +1,1022 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop\n"
+"POT-Creation-Date: 2007-06-19 19:44+0000\n"
+"PO-Revision-Date: 2007-07-07 14:21-0500\n"
+"Last-Translator: oferw <ofer@w.cm>\n"
+"Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: he\n"
+"Language-Name: Hebrew\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: EasyShop\n"
+
+#: ../skins/easyshop_overwrites/createObject.cpy:37
+msgid "${tname} has been created."
+msgstr "${tname} נוצר"
+
+#. Default: "1. Shipping Address"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "1_shipping_address_label"
+msgstr "1. כתובת משלוח"
+
+#. Default: "2. Invoice Address"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "2_invoice_address_label"
+msgstr "2. כתובת חשבונית"
+
+#. Default: "3. Payment Method"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "3_payment_method_label"
+msgstr "3. אפשרויות תשלום"
+
+#: ../skins/easyshop_misc/easyshop_change_password.py:20
+msgid "Does not match current password."
+msgstr "סיסמא נוכחית לא תואמת"
+
+#: ../skins/easyshop_manage/easyshop_manage_user_validator.vpy:19
+msgid "Firstname is required. Please correct."
+msgstr "שם נדרש. בבקשה תקן"
+
+#: ../skins/easyshop_manage/easyshop_manage_user_validator.vpy:22
+msgid "Lastname is required. Please correct."
+msgstr "שם משפחה נדרש.  בבקשה תקן."
+
+#: ../skins/easyshop_misc/easyshop_change_password.py:14
+msgid "Password change was canceled."
+msgstr "שינוי סיסמא השתנה"
+
+#: ../skins/easyshop_misc/easyshop_change_password.py:46
+msgid "Password changed."
+msgstr "סיסמא שונתה."
+
+#: ../skins/easyshop_manage/easyshop_manage_user_validator.vpy:29
+msgid "Please correct the indicated errors"
+msgstr "בבקשה תקן את השגיאות הכתובות מטה"
+
+msgid "Send invoice to this address"
+msgstr "שלח קבלה לכתובת זאת"
+
+msgid "Send products to this address"
+msgstr "שלח מוצרים לכתובת הזאת"
+
+#: ../browser/CustomerView.py:159
+msgid "The address has been deleted."
+msgstr "הכתובת נמחקה"
+
+msgid "The amount of the product has been increased."
+msgstr "כמות הפריט הועלתה"
+
+#: ../browser/CustomerView.py:178
+msgid "The payment method has been deleted."
+msgstr "שיטת התשלום נמחקה"
+
+msgid "The product has been added to the cart."
+msgstr "המוצר הוסף לעגלה"
+
+msgid "This Field is required. Please correct."
+msgstr "שדה זה נדרש.  תקן בבקשה"
+
+#: ../skins/easyshop_manage/easyshop_manage_user.cpy:14
+msgid "User informations has been changed."
+msgstr "מידע שם משתמש שונה"
+
+#: ../skins/easyshop_misc/easyshop_change_password.py:37
+msgid "While changing your password an AttributeError occurred. This is usually caused by your user being defined outside the portal."
+msgstr "כאשר שינית את סיסמתך נוצרה שגיאה.  דבר זה בדרך כלל נוצר בידי המשתמשים מחוץ לפורטל."
+
+#: ../skins/easyshop_manage/easyshop_manage_user_validator.vpy:26
+msgid "You entered an invalid email address."
+msgstr "הזנת כתובת דואר אלקטרוני שאינה תקינה"
+
+msgid "Your order has been received. Thank you!"
+msgstr "הזמנתך התקבלה.  תודה רבה!"
+
+#. Default: "My Account"
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "account_label"
+msgstr "החשבון שלי"
+
+#. Default: "Accountnumber"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "account_number_label"
+msgstr "מספר חשבון"
+
+#. Default: "Add Address"
+#: ../skins/easyshop_macros/AddressesManagementWidget.pt
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+msgid "add_address_label"
+msgstr "הוסף כתובת"
+
+#. Default: "Add"
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "add_label"
+msgstr "הוסף"
+
+#. Default: "Add To Cart"
+#: ../browser/templates/category_view_1.pt
+#: ../browser/templates/product_selector_view_1.pt
+#: ../browser/templates/product_selector_view_2.pt
+msgid "add_to_cart_label"
+msgstr "הוסף לעגלה"
+
+#. Default: "Please enter the address 1."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "address1_description"
+msgstr "בבקשה הזן את הכתובת 1"
+
+#. Default: "Address 1"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "address1_label"
+msgstr "כתובת 1"
+
+#. Default: "Please enter the address 2."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "address2_description"
+msgstr "בבקשה הזן כתובת 2"
+
+#. Default: "Address 2"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "address2_label"
+msgstr "כתובת 2"
+
+#. Default: "All"
+#: ../browser/containers/orders.pt
+msgid "all_label"
+msgstr "כל"
+
+#. Default: "All categories"
+#: ../skins/easyshop_portlets/portlet_easyshopnavigation.pt
+msgid "all_categories_label"
+msgstr "כל הקטגוריות"
+
+#. Default: "Amount"
+#: ../browser/templates/cart.pt
+#: ../browser/templates/order_preview.pt
+msgid "amount_label"
+msgstr "כמות"
+
+msgid "article_id_description"
+msgstr "Externe Artikel-ID"
+
+msgid "article_id_label"
+msgstr "Artikel ID"
+
+#. Default: "Back"
+#: ../browser/templates/cart.pt
+msgid "back_label"
+msgstr "חזרה"
+
+#. Default: "Back to Overview"
+#: ../browser/templates/order_view.pt
+#: ../skins/easyshop_templates/easyshopgroup_view.pt
+msgid "back_to_overview_label"
+msgstr "חזרה לסקירה"
+
+#. Default: "Bank Identification Code"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "bank_identification_code_label"
+msgstr "קוד זיהוי בנק"
+
+#. Default: "Base Price:"
+#: ../browser/templates/select_properties_view.pt
+msgid "base_price_label"
+msgstr "מחיר בסיס:"
+
+#. Default: "EasyShop"
+#: ../skins/easyshop_portlets/portlet_easyshopnavigation.pt
+msgid "box_categories"
+msgstr "איזישופ"
+
+#. Default: "Buy"
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+msgid "buy_label"
+msgstr "קנה"
+
+#. Default: "Cancel"
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "cancel_label"
+msgstr "בטל"
+
+#. Default: "Canceled"
+#: ../browser/containers/orders.pt
+msgid "canceled_label"
+msgstr "בוטל"
+
+#. Default: "Cart"
+#: ../browser/templates/cart.pt
+#: ../skins/easyshop_portlets/portlet_easyshopcart.pt
+msgid "cart_label"
+msgstr "עגלת קניות"
+
+msgid "categories_description"
+msgstr "Alle Kategorien, denen das Produkt zugeordnet ist."
+
+#. Default: "Categories"
+#: ../browser/containers/categories.pt
+msgid "categories_label"
+msgstr "קטגוריות"
+
+#. Default: "Change"
+#: ../browser/templates/order_preview.pt
+msgid "change_label"
+msgstr "שנה"
+
+#. Default: "Check Out"
+#: ../browser/templates/cart.pt
+#: ../skins/easyshop_portlets/portlet_easyshopcart.pt
+msgid "checkout_label"
+msgstr "סיום קניה"
+
+#. Default: "Please enter the city."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "city_description"
+msgstr "בבקשה הזן את עירך"
+
+#. Default: "City"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "city_label"
+msgstr "עיר"
+
+#. Default: "Click to close the window"
+#: ../skins/easyshop_templates/easyshopphoto_zoomview.pt
+msgid "click_to_close_window_label"
+msgstr "לחץ על מנת לסגור את החלון"
+
+#. Default: "Closed"
+#: ../browser/containers/orders.pt
+msgid "closed_label"
+msgstr "סגור"
+
+#. Default: "Please enter your company name."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "company_description"
+msgstr "בבקשה הזן את שם החברה שלך"
+
+#. Default: "Company Name"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "companyname_label"
+msgstr "שם חברה"
+
+#. Default: "Please complete the above displayed informations"
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+msgid "complete_informations_label"
+msgstr "בבקשה השלם את המידע המוצג"
+
+#. Default: "Please complete your address!"
+#: ../browser/templates/order_preview.pt
+msgid "complete_your_address_label"
+msgstr "בבקשה השלם את כתובתך!"
+
+msgid "confirm_password_description"
+msgstr "אשר סיסמא"
+
+msgid "confirm_password_label"
+msgstr "צפיה בסיסמא"
+
+#. Default: "Please enter the country."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "country_description"
+msgstr "בבקשה הזן את ארצך"
+
+#. Default: "Country"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "country_label"
+msgstr "ארץ"
+
+#. Default: "Criterias"
+#: ../skins/easyshop_templates/easyshoptaxes_view.pt
+msgid "criterias_label"
+msgstr "קריטריון"
+
+msgid "currency_description"
+msgstr "מטבע החנות"
+
+msgid "currency_label"
+msgstr "מטבע"
+
+#. Default: "Customer Taxes"
+#: ../skins/easyshop_templates/easyshoptaxes_view.pt
+msgid "customer_taxes_label"
+msgstr "מיסי לקוח"
+
+msgid "customers_label"
+msgstr "לקוחות"
+
+#. Default: "Default Taxes"
+#: ../skins/easyshop_templates/easyshoptaxes_view.pt
+msgid "default_taxes_label"
+msgstr "מיסים סטנדרטיים"
+
+#. Default: "Delete"
+#: ../browser/templates/cart.pt
+#: ../skins/easyshop_macros/AddressesManagementWidget.pt
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+msgid "delete_label"
+msgstr "מחק"
+
+#. Default: "Description"
+#: ../browser/containers/categories.pt
+#: ../browser/containers/groups.pt
+msgid "description_label"
+msgstr "תאור"
+
+#. Default: "Direct Debit"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "direct_debit_label"
+msgstr "העברה בנקאית"
+
+msgid "easyshop_products_label"
+msgstr "מוצר"
+
+#. Default: "Edit"
+#: ../browser/containers/groups.pt
+#: ../browser/containers/shipping.pt
+#: ../browser/templates/order_preview.pt
+msgid "edit_label"
+msgstr "ערוך"
+
+#. Default: "Edit Product Selector"
+#: ../browser/templates/product_selector_view_1.pt
+#: ../browser/templates/product_selector_view_2.pt
+msgid "edit_product_selector_label"
+msgstr "ערוך בחירת פריט"
+
+#. Default: "Please enter your e-mail address."
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "email_description"
+msgstr "בבקשה הזן את כתובת הדואר אלקטרוני שלך"
+
+#. Default: "E-mail"
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "email_label"
+msgstr "כתובת דואר אלקטרוני"
+
+msgid "end_label"
+msgstr "סיום"
+
+msgid "expand_all_description"
+msgstr "Anklicken um alle Kategorien ausklappen."
+
+msgid "expand_all_label"
+msgstr "הרחב הכל"
+
+#. Default: "Filter"
+#: ../browser/containers/orders.pt
+#: ../skins/easyshop_templates/_easyshoporders_view.pt
+msgid "filter_label"
+msgstr "פילטר"
+
+#. Default: "First"
+#: ../browser/templates/product_view_2.pt
+#: ../skins/easyshop_macros/dh_batch_macros.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "first_label"
+msgstr "ראשון"
+
+#. Default: "Please enter your firstname."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "firstname_description"
+msgstr "בבקשה הזן את שמך הפרטי."
+
+#. Default: "First Name"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "firstname_label"
+msgstr "שם פרטי"
+
+#. Default: "Fullname"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "fullname_label"
+msgstr "שם מלא"
+
+#. Default: "General"
+#: ../browser/templates/order_view.pt
+msgid "general_label"
+msgstr "כללי"
+
+msgid "groups_description"
+msgstr "Alle Gruppen, denen das Produkt zugeordnet ist."
+
+#. Default: "Groups"
+#: ../browser/containers/groups.pt
+msgid "groups_label"
+msgstr "קבוצות"
+
+msgid "help_description"
+msgstr "תיאור"
+
+msgid "image_label"
+msgstr "תמונה"
+
+#. Default: "Included Tax"
+#: ../browser/templates/order_preview.pt
+msgid "included_tax_label"
+msgstr "הוסף מס"
+
+#. Default: "Info & Help"
+#: ../skins/easyshop_portlets/portlet_easyshop_info.pt
+msgid "info_and_help_label"
+msgstr "מידע & עזרה"
+
+#. Default: "Invoice Address"
+#: ../browser/templates/order_preview.pt
+#: ../browser/templates/order_view.pt
+msgid "invoice_address_label"
+msgstr "כתובת חשבונית"
+
+#. Default: "Search"
+#: ../skins/easyshop_portlets/portlet_easyshop_searchbox.pt
+msgid "label_search"
+msgstr "חיפוש"
+
+msgid "label_title"
+msgstr "כותרת"
+
+#: ../browser/templates/product_view_2.pt
+#: ../skins/easyshop_macros/dh_batch_macros.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "last_label"
+msgstr "אחרון"
+
+#. Default: "Please enter your lastname."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "lastname_description"
+msgstr "בבקשה הזן את שם משפחתך"
+
+#. Default: "Last Name"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "lastname_label"
+msgstr "שם אחרון"
+
+#. Default: "Login"
+#: ../skins/easyshop_portlets/portlet_easyshop_user.pt
+msgid "login_label"
+msgstr "התחבר"
+
+#. Default: "Logout"
+#: ../skins/easyshop_portlets/portlet_easyshop_user.pt
+msgid "logout_label"
+msgstr "התנתק"
+
+msgid "long_description_description"
+msgstr "תיאור ארוך"
+
+msgid "long_description_label"
+msgstr "תאור ארוך"
+
+msgid "mail_from_description"
+msgstr "דואר מ"
+
+msgid "mail_from_label"
+msgstr "שולח"
+
+msgid "mailto_description"
+msgstr "סיסמת דואר אלקטרוני"
+
+msgid "mailto_label"
+msgstr "דואר ל"
+
+#. Default: "Manage Account"
+#: ../browser/templates/my_account.pt
+msgid "manage_account_label"
+msgstr "נהל חשבון"
+
+#. Default: "Manage Addressbook"
+#: ../browser/templates/my_account.pt
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+msgid "manage_addressbook_label"
+msgstr "נהל ספר כתובות"
+
+msgid "manage_addresses_label"
+msgstr "ניהול כתובות"
+
+#. Default: "Manage name and e-mail address"
+#: ../browser/templates/my_account.pt
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "manage_name_label"
+msgstr "נהל כתובות שם ודואר אלקטרוני"
+
+#. Default: "Manage Password"
+#: ../browser/templates/my_account.pt
+msgid "manage_password_label"
+msgstr "נהל סיסמאות"
+
+#. Default: "Manage Payment"
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "manage_payment_label"
+msgstr "ניהול חשבונות"
+
+msgid "manage_payment_methods_label"
+msgstr "נהל אפשרויות תשלום"
+
+#. Default: "Manage Payment Options"
+#: ../browser/templates/my_account.pt
+msgid "manage_payment_options_labels"
+msgstr "נהל אפשרויות תשלום"
+
+#. Default: "More orders"
+#: ../skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt
+msgid "more_orders_label"
+msgstr "הזמנות נוספות"
+
+#. Default: "My Account"
+#: ../browser/templates/my_orders.pt
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "my_account_label"
+msgstr "החשבון שלי"
+
+#. Default: "My Orders"
+#: ../browser/templates/my_orders.pt
+msgid "my_orders_label"
+msgstr "ההזמנות שלי"
+
+#. Default: "Name descending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "name-descending-label"
+msgstr "שם יורד"
+
+#. Default: "Name ascending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "name_ascending_label"
+msgstr "שם עולה"
+
+#. Default: "Name"
+#: ../browser/containers/categories.pt
+#: ../browser/containers/groups.pt
+#: ../browser/containers/shipping.pt
+msgid "name_label"
+msgstr "שם"
+
+#: ../browser/templates/product_view_2.pt
+#: ../skins/easyshop_macros/dh_batch_macros.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "next_label"
+msgstr "הבא"
+
+#. Default: "There are no addresses."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "no_addresses"
+msgstr "אין כתובות"
+
+#. Default: "There are no orders."
+#: ../browser/templates/my_orders.pt
+msgid "no_orders_label"
+msgstr "אין הזמנות."
+
+#. Default: "There are no products"
+#: ../browser/templates/order_preview.pt
+msgid "no_products_label"
+msgstr "אין מוצרים"
+
+#. Default: "Order Date"
+#: ../browser/containers/orders.pt
+#: ../skins/easyshop_templates/_easyshoporders_view.pt
+msgid "order_date_label"
+msgstr "תאריך הזמנה"
+
+#. Default: "Order ID"
+#: ../browser/containers/orders.pt
+#: ../skins/easyshop_templates/_easyshoporders_view.pt
+msgid "order_id_label"
+msgstr "מספר הזמנה"
+
+#. Default: "Your Order"
+#: ../browser/templates/order_preview.pt
+msgid "order_label"
+msgstr "הזמנתך"
+
+#. Default: "Customer Name"
+#: ../browser/containers/orders.pt
+#: ../skins/easyshop_templates/_easyshoporders_view.pt
+msgid "order_name_label"
+msgstr "שם לקוח"
+
+#. Default: "Your order <span tal:content=\"context/id\"/> has been sent."
+#: ../skins/easyshop_mail_templates/mail_order_sent.pt
+msgid "order_sent_text"
+msgstr " הזמנתך <span tal:content=\"context/id\"/> נשלחה "
+
+#. Default: "Order State"
+#: ../browser/containers/orders.pt
+#: ../skins/easyshop_templates/_easyshoporders_view.pt
+msgid "order_state_label"
+msgstr "מצב הזמנות"
+
+#. Default: "Orders"
+#: ../browser/containers/orders.pt
+#: ../browser/templates/my_account.pt
+#: ../skins/easyshop_templates/_easyshoporders_view.pt
+msgid "orders_label"
+msgstr "הזמנות"
+
+msgid "password_description"
+msgstr "תיאור סיסמא"
+
+msgid "password_label"
+msgstr "סיסמא"
+
+#. Default: "Payed Not Sent"
+#: ../browser/containers/orders.pt
+msgid "payed_not_sent_label"
+msgstr "שולם לא נשלח"
+
+#. Default: "Payment"
+#: ../browser/templates/order_preview.pt
+msgid "payment_label"
+msgstr "חשבונות"
+
+#. Default: "Payment Method"
+#: ../browser/templates/order_view.pt
+msgid "payment_method_label"
+msgstr "שיטות תשלום"
+
+msgid "paypal_id_description"
+msgstr "פיפייל מספר זהות"
+
+msgid "paypal_id_label"
+msgstr "PayPal ID"
+
+#. Default: "PayPal"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+msgid "paypal_label"
+msgstr "PayPal"
+
+#. Default: "Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you."
+#: ../browser/templates/paypal_successful_view.pt
+msgid "paypal_thank_you_text_1"
+msgstr "תודה על הזמנתך.  הפעולה הושלמה, וקבלה לקנייתך נשלחה אליך לתיבת הדואר האלקטרוני שלך"
+
+#. Default: "You may log into your account at <a href=\"http://www.paypal.com/de\"> www.paypal.com/de</a> to view details of this transaction."
+#: ../browser/templates/paypal_successful_view.pt
+msgid "paypal_thank_you_text_2"
+msgstr "BBB"
+
+#. Default: "<a href=\"#\" tal:attributes=\"href string:${context/absolute_url}\"> Go on with shopping </a>"
+#: ../browser/templates/paypal_successful_view.pt
+msgid "paypal_thank_you_text_3"
+msgstr "CCC"
+
+msgid "paypal_url_description"
+msgstr "פיפייל תאור כתובת"
+
+msgid "paypal_url_label"
+msgstr "כתובת פי פייל"
+
+#. Default: "Pending"
+#: ../browser/containers/orders.pt
+msgid "pending_label"
+msgstr "ממתין"
+
+#. Default: "Personal informations"
+#: ../browser/templates/my_account.pt
+msgid "personal_informations_label"
+msgstr "מידע אישי"
+
+#. Default: "Please enter the Phone."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "phone_description"
+msgstr "בבקשה הזן את מספר הטלפון"
+
+#. Default: "Phone"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "phone_label"
+msgstr "טלפון"
+
+#. Default: "Prepayment"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+msgid "prepayment_label"
+msgstr "תשלום מראש"
+
+#. Default: "Previous"
+#: ../browser/templates/product_view_2.pt
+#: ../skins/easyshop_macros/dh_batch_macros.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "previous_label"
+msgstr "קודם"
+
+#. Default: "Price ascending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "price_ascending"
+msgstr "מחיר עולה"
+
+#. Default: "Price descending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "price_descending_label"
+msgstr "מחיר יורד"
+
+msgid "price_gross_label"
+msgstr "מחיר (ברוטו)"
+
+#. Default: "Price"
+#: ../browser/containers/shipping.pt
+#: ../browser/templates/cart.pt
+#: ../browser/templates/my_orders.pt
+msgid "price_label"
+msgstr "מחיר"
+
+msgid "price_net_label"
+msgstr "מחיר (נטו)"
+
+#. Default: "Priority"
+#: ../browser/containers/shipping.pt
+#: ../skins/easyshop_templates/easyshoptaxes_view.pt
+msgid "priority_label"
+msgstr "חשיבות"
+
+#. Default: "Product Article ID"
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "product_article_id_label"
+msgstr "מספר זהות ID"
+
+#. Default: "Product Description"
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "product_description_label"
+msgstr "תיאור מוצר"
+
+#. Default: "Product Details"
+#: ../browser/templates/category_view_1.pt
+#: ../browser/templates/category_view_2.pt
+#: ../browser/templates/product_selector_view_1.pt
+msgid "product_details_label"
+msgstr "פרטי מוצר"
+
+#. Default: "Product"
+#: ../browser/templates/cart.pt
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_preview.pt
+msgid "product_label"
+msgstr "מחיר"
+
+msgid "product_price_gross_label"
+msgstr "מחיר (ברוטו)"
+
+#. Default: "Product Price"
+#: ../browser/templates/my_orders.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "product_price_label"
+msgstr "מחיר"
+
+msgid "product_price_net_label"
+msgstr "מחיר (נטו)"
+
+msgid "product_quantity_label"
+msgstr "כמות"
+
+msgid "product_tax_label"
+msgstr "מיסים"
+
+#. Default: "Product Title"
+#: ../skins/easyshop_macros/easyshop_macros.pt
+msgid "product_title_label"
+msgstr "כותרת"
+
+msgid "products_description"
+msgstr "תיאור מוצר"
+
+#. Default: "Products"
+#: ../browser/templates/order_preview.pt
+msgid "products_label"
+msgstr "מוצרים"
+
+#. Default: "Products Overview"
+#: ../browser/templates/product_view_related_products.pt
+#: ../browser/templates/select_properties_view.pt
+msgid "products_overview_label"
+msgstr "הגדרות מוצרים"
+
+msgid "products_per_row_description"
+msgstr "מוצרים לשורה"
+
+msgid "products_per_row_label"
+msgstr "הגדרות לשורה"
+
+#. Default: "Properties"
+#: ../browser/templates/order_preview.pt
+#: ../browser/templates/order_view.pt
+msgid "properties_label"
+msgstr "הגדרות"
+
+#. Default: "Please select the various properties of the product."
+#: ../browser/templates/select_properties_view.pt
+msgid "properties_selection_description"
+msgstr "בבקשה בחר את ההגדרות השונות של המוצר"
+
+#. Default: "Properties Selection"
+#: ../browser/templates/select_properties_view.pt
+msgid "properties_selection_label"
+msgstr "בחירת הגדרות"
+
+#. Default: "Quantity"
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_view.pt
+#: ../browser/templates/product_view_1.pt
+msgid "quantity_label"
+msgstr "כמות"
+
+#. Default: "Rate"
+#: ../skins/easyshop_templates/easyshoptaxes_view.pt
+msgid "rate_label"
+msgstr "אחוז"
+
+#. Default: "Refresh"
+#: ../browser/templates/cart.pt
+msgid "refresh_label"
+msgstr "רענן"
+
+#. Default: "Related Products"
+#: ../browser/templates/product_view_1.pt
+#: ../browser/templates/product_view_related_products.pt
+msgid "related_products_label"
+msgstr "מוצרים נלווים"
+
+#. Default: "Save"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "save_label"
+msgstr "שמור"
+
+#. Default: "Search"
+#: ../skins/easyshop_portlets/portlet_easyshop_searchbox.pt
+msgid "search_label"
+msgstr "חיפוש"
+
+#. Default: "Please select your invoice address"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "select_invoiceaddress_label"
+msgstr "בבקשה בחר את כתובת החשבונית שלך"
+
+#. Default: "Please select your payment method"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "select_paymentmethod_label"
+msgstr "בבקשה בחר את אפשרות התשלום שלך"
+
+#. Default: "Please select your shipping address"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "select_shippingaddress_label"
+msgstr "בחר בכתובת משלוח"
+
+msgid "selected_payment_method_label"
+msgstr "בחר בשיטות תשלום"
+
+#. Default: "Sent Not Payed"
+#: ../browser/containers/orders.pt
+msgid "sent_not_payed_label"
+msgstr "נשלח ולא שולם"
+
+#. Default: "Sent Not Payed Orders"
+#: ../skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt
+msgid "sent_not_payed_orders_label"
+msgstr "הזמנות שנשלחו ולא שולם"
+
+#. Default: "Shipping"
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_view.pt
+msgid "shipping_label"
+msgstr "משלוח"
+
+#. Default: "Shipping Address"
+#: ../browser/templates/order_preview.pt
+#: ../browser/templates/order_view.pt
+msgid "shipping_address_label"
+msgstr "כתובת משלוח"
+
+#. Default: "Shipping"
+#: ../browser/containers/shipping.pt
+#: ../browser/templates/order_preview.pt
+msgid "shipping_label"
+msgstr "משלוח"
+
+msgid "shipping_price_gross_label"
+msgstr "מחיר הובלה ברוטו"
+
+msgid "shipping_price_net_label"
+msgstr "מחיר הובלה נטו"
+
+msgid "shipping_tax_label"
+msgstr "אחוז מס"
+
+msgid "shipping_tax_rate_label"
+msgstr "אחוז מס משלוח "
+
+#. Default: "Shop"
+#: ../browser/containers/categories.pt
+#: ../browser/containers/groups.pt
+#: ../browser/containers/orders.pt
+msgid "shop_label"
+msgstr "חנות"
+
+msgid "show_amount_of_products_description"
+msgstr "הצג כמות מספר פריטים"
+
+msgid "show_amount_of_products_label"
+msgstr "הצג כמות מוצרים"
+
+#. Default: "Show Cart"
+#: ../skins/easyshop_portlets/portlet_easyshopcart.pt
+msgid "show_cart_label"
+msgstr "הצג עגלה"
+
+msgid "show_quantity_description"
+msgstr "Wenn ausgewählt, kann die Anzahl der Produkte gewählt werden, die zum Warenkorb hinzugefügt werden."
+
+msgid "show_quantity_label"
+msgstr "הצג כמות"
+
+#. Default: "Sorting"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "sorting_label"
+msgstr "סדר"
+
+msgid "start_label"
+msgstr "התחלה"
+
+msgid "subtitle_description"
+msgstr "תת כותרת"
+
+msgid "subtitle_label"
+msgstr "תת כותרת"
+
+#. Default: "Tax Absolute"
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_view.pt
+msgid "tax_absolute_label"
+msgstr "מס אבסולוטי"
+
+msgid "tax_label"
+msgstr "מס"
+
+#. Default: "Tax Rate"
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_view.pt
+msgid "tax_rate_label"
+msgstr "אחוז מס"
+
+#. Default: "Thank you!"
+#: ../browser/templates/paypal_successful_view.pt
+msgid "thank_you_label"
+msgstr "תודה רבה"
+
+#. Default: "Search Site"
+#: ../skins/easyshop_portlets/portlet_easyshop_searchbox.pt
+msgid "title_search_site"
+msgstr "חיפוש אתר"
+
+#. Default: "Total"
+#: ../browser/templates/cart.pt
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_preview.pt
+msgid "total_label"
+msgstr "סך הכל"
+
+#. Default: "Update Price"
+#: ../browser/templates/select_properties_view.pt
+msgid "update_price_label"
+msgstr "עדכן מחיר"
+
+msgid "user_name_description"
+msgstr "שם משתמש"
+
+msgid "user_name_label"
+msgstr "שם משתמש"
+
+msgid "value_label"
+msgstr "ערך"
+
+msgid "weight_description"
+msgstr "משקל המוצרים"
+
+msgid "weight_label"
+msgstr "משקל"
+
+#. Default: "Your Price:"
+#: ../browser/templates/select_properties_view.pt
+msgid "your_price_label"
+msgstr "המחיר שלך:"
+
+#. Default: "Please enter the zipcode."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "zipcode_description"
+msgstr "בבקשה הזן את המיקוד שלך"
+
+#. Default: "Zip Code"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "zipcode_label"
+msgstr "מיקוד"
+
+#. Default: "Zoom View"
+#: ../skins/easyshop_templates/easyshopphoto_zoomview.pt
+msgid "zoom_view_label"
+msgstr "צפייה מקורבת"
+

@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <include package=".admin" />
+    <include package=".checkout" />
+    <include package=".containers" />
+    <include package=".portlets" />
+    <include package=".skins" />
+    <include package=".templates" />
+
+    <browser:page
+        for="..interfaces.IShopContent"
+        name="paypal"
+        class=".paypal.PayPalView"        
+        attribute="receivePayment" 
+        permission="zope.Public" />
+          
+</configure>

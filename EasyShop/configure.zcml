@@ -1,0 +1,19 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <include file="profiles.zcml" />
+
+    <include package=".adapters" />
+    <include package=".browser" />    
+    <include package=".subscribers" />
+    <include package=".utilities" />  
+    <include package=".viewlets" />
+    
+    <include package="easyshop.carts" />
+    
+    <five:traversable 
+        class="Products.EasyShop.content.shop.EasyShop.EasyShop" />
+
+</configure>

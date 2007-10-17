@@ -1,0 +1,224 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="view context/@@CheckOutPaymentView;
+                                errors options/state/getErrors;">
+            
+            <h1 class="documentFirstHeading"
+                i18n:translate="select_payment_form_title">
+                Please select you payment method
+            </h1> 
+
+            <p class="check-out-description"
+                i18n:translate="select_payment_form_description_1">
+                When finished, please click on "Next".
+            </p>
+
+            <div id="payment-process">
+                <span i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span i18n:translate="addresses_label">
+                    Addresses
+                </span> -
+                <span i18n:translate="shipping_label">
+                    Shipping
+                </span> -                  
+                <span class="emphasized"
+    		          i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+                
+            <form id="select-payment-method"
+                  name="select-payment-method-form"
+                  action="#"
+                  tal:attributes="action string:${context/absolute_url}/${template/id}"
+                  method="post">
+            
+                <table>
+                    <tal:block tal:condition="view/isDirectDebitValid">
+                        <tr>
+                            <td colspan="5">
+                                <h1 i18n:translate="direct_debit_label">
+                                    Direct Debit
+                                </h1>                            
+                            </td>
+                        </tr>
+                        <tal:block tal:repeat="direct_debit view/getDirectDebits">
+                            <tr>
+                                <td>
+                                    <input type="radio"
+                                           class="noborder"                       	                             
+                                           name="id" 
+                                           value="#" 
+                                           tal:attributes="value string:direct_debit_existing:${direct_debit/id};
+                                                           checked direct_debit/checked" />
+        	                    </td>
+        	                    <td i18n:translate="bank_code_label">
+                                    Bank Code:
+                                </td>
+                                <td tal:content="direct_debit/bic">
+                                    50010010
+                                </td>
+                                <td i18n:translate="bank_name_label">
+                                    Bank Name:
+                                </td>
+                                <td tal:content="direct_debit/bankname">
+                                    Deutsche Bank
+                                </td>
+        	                </tr>
+                            <tr>
+                                <td></td>
+                                <td i18n:translate="account_no_label">
+                                    Account-No.:
+                                </td>                        
+                                <td tal:content="direct_debit/account_no">
+                                    105040302
+                                </td>  
+                                <td i18n:translate="depositor_label">
+                                    Depositor:
+                                </td>
+                                <td tal:content="direct_debit/name">John Doe</td>
+                            </tr>   
+                        </tal:block>
+
+                        <tr>
+                            <td>                                
+                                <input type="radio"
+                                       class="noborder"                                                   
+                                       name="id"
+                                       value="direct_debit_new"
+                                       tal:attributes="checked python: context.REQUEST.get('id') == 'direct_debit_new'" />
+                            </td>
+                            <td i18n:translate="bank_code_label">
+                                Bank Code:
+                            </td>
+                            <td>
+                                <input tal:define="field_value python:request.get('bank_identification_code');
+                                                   error python:errors.get('bank_identification_code')"
+                                       type="text" 
+                                       name="bank_identification_code" 
+                                       id="bank_identification_code" 
+                                       tabindex="" 
+                                       tal:attributes="tabindex tabindex/next;
+                                                       value field_value;
+                                                       class python:test(error, 'large input_error', 'large')" />
+
+                            
+                            </td>
+                            <td i18n:translate="bank_name_label">
+                                Bank Name:
+                            </td>
+                            <td>
+                                <input tal:define="field_value python:request.get('bankname');
+                                                   error python:errors.get('bankname')"
+                                       type="text" 
+                                       name="bankname" 
+                                       id="bankname" 
+                                       tabindex="" 
+                                       tal:attributes="tabindex tabindex/next;
+                                                       value field_value;
+                                                   	   class python:test(error, 'large input_error', 'large')" />
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td i18n:translate="account_no_label">
+                                Account-No.:
+                            </td>                        
+                            <td>
+                                <input tal:define="field_value python:request.get('account_number');
+                                                   error python:errors.get('account_number')"
+                                                   type="text" 
+                                                   name="account_number" 
+                                                   id="account_number" 
+                                                   tabindex="" 
+                                                   tal:attributes="tabindex tabindex/next;
+                                                                   value field_value;
+                                                               	   class python:test(error, 'large input_error', 'large')" />
+
+                           </td>
+                           <td i18n:translate="depositor_label">
+                               Depositor:
+                           </td>
+                           <td>
+                               <input tal:define="field_value python:request.get('name');
+                                                  error python:errors.get('name')"
+                                      type="text" 
+                                      name="name" 
+                                      id="name" 
+                                      tabindex="" 
+                                      tal:attributes="tabindex tabindex/next; 
+                                                      value field_value;
+                                                  	  class python:test(error, 'large input_error', 'large')" />
+                            
+                           </td>
+                        </tr>                             
+                        <tr>
+                            <td colspan="5">
+                                <hr />
+                            </td>
+                        </tr>
+                    </tal:block>
+                    <tal:block tal:repeat="method view/getShopPaymentMethods">
+                        <tr> 
+                            <td>
+                                <input type="radio"
+                                       class="noborder"                                                   
+                                       name="id"
+                                       value="method"
+                                       tal:attributes="value method/id;
+                                                       checked method/checked" />
+                                                   
+                           </td>
+                           <td colspan="4">
+                               <span tal:content="method/title"
+                                     i18n:translate="">
+                                   Prepayment 
+                               </span>    
+                               <span class="formHelp"
+                                     tal:content="method/description"
+                                     i18n:translate="">                                     
+                                   (Payment by bank transfer in advance)
+                               </span>                            
+                           </td>
+                        </tr>                    
+                        <tr>
+                            <td colspan="5">
+                                <hr />
+                            </td>
+                        </tr>   
+                    </tal:block>
+                    
+                </table>
+            
+                <input type="hidden" 
+                       name="form.submitted" 
+                       value="1" />
+           
+                <input class="standalone" 
+                       type="submit" 
+                       name="form_submit" 
+                       value="Next" 
+                       i18n:attributes="value checkout_next_label;" /> 
+                       
+                <span class="formHelp"
+                      i18n:translate="select_payment_form_description_2">
+                    (The order can be checked at the end, before it will be sent.)
+                </span>
+                
+            </form>    
+      
+        </metal:main>
+    
+    </body>
+</html>

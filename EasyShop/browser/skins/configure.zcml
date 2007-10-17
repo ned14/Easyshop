@@ -1,0 +1,39 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        name = "managePaymentMethodsView"
+        for = "...interfaces.IShopContent"
+        class = ".manage_payment_methods.ManagePaymentMethodsView"
+        allowed_interface = ".manage_payment_methods.IManagePaymentMethodsView"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name="deletePaymentMethod"        
+        for="...interfaces.IShopContent"
+        class = ".manage_payment_methods.ManagePaymentMethodsView"
+        attribute="deletePaymentMethod" 
+        permission="zope.Public" />
+
+    <browser:page
+        name = "manageAddressBookView"
+        for = "...interfaces.IShopContent"
+        class = ".manage_addressbook.ManageAddressBookView"
+        allowed_interface = ".manage_addressbook.IManageAddressBookView"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name="deleteAddress"
+        for="...interfaces.IShopContent"
+        class = ".manage_addressbook.ManageAddressBookView"
+        attribute="deleteAddress"
+        permission="zope.Public" />
+
+    <browser:page  
+        name="navigationMacroView"
+        for="*" 
+        class=".easyshop_macros.NavigationMacroView"  
+        allowed_interface=".easyshop_macros.INavigationMacroView"
+        permission="zope2.Public" />  
+    
+</configure>

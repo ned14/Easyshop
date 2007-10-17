@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+    
+    <browser:page
+        for="...interfaces.IShopContent"
+        name="export-orders-std"
+        class=".export.ExportView"
+        attribute="getOrders"
+        permission="cmf.ManagePortal" />
+       
+</configure>

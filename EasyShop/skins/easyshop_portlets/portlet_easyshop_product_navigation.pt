@@ -1,0 +1,17 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyShop">
+<body>
+<div metal:define-macro="portlet"
+     tal:condition="python: context.portal_type == 'EasyShopProduct'">
+
+    <dl class="portlet"
+         id="portlet-easyshop-product-navigation">
+        <dd class="portletItem">            
+            <metal:block metal:use-macro="here/easyshop_macros/macros/navigation" />
+        </dd>        
+    </dl>
+
+</div>
+</body>
+</html>

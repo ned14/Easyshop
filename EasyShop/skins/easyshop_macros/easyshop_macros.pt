@@ -1,0 +1,79 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyShop">
+
+<!-- ====================== -->
+<!-- = Product Navigation = -->
+<!-- ====================== -->
+<metal:block metal:define-macro="navigation">
+    <tal:block tal:define="navigationMacroView context/@@navigationMacroView"
+               tal:repeat="product_urls navigationMacroView/getProductURLs">
+               
+          <table cellpadding="0"
+                 cellspacing="3">
+              <tr>
+                <td style="vertical-align:middle">
+                  <a href="#"
+                     title="First Product"
+                     tal:omit-tag="not: product_urls/first"
+                     tal:attributes="href product_urls/first">
+
+                     <img src="navigation_first.gif" 
+                          alt="Navigation First"
+                          title="First"
+                          tal:attributes="src string:$portal_url/navigation_first_small.gif"
+                          i18n:attributes="title first_label;" />
+                  </a>                    
+                </td>
+                <td>
+                  <a href="#"
+                     title="First Product"
+                     tal:omit-tag="not: product_urls/previous"
+                     tal:attributes="href product_urls/previous">
+
+                     <img src="navigation_previous.gif" 
+                          alt="Navigation Previous"
+                          title="Previous"
+                          tal:attributes="src string:$portal_url/navigation_previous_small.gif"
+                          i18n:attributes="title previous_label;" />
+                  </a>
+                    
+                </td>
+                <td>
+                  <span tal:content="product_urls/position" /> /
+                  <span tal:content="product_urls/amount" />                    
+                </td>
+                <td>
+                  <a href="#"
+                     title="Next Product"
+                     tal:omit-tag="not: product_urls/next"
+                     tal:attributes="href product_urls/next">
+
+                      <img src="navigation_next.gif" 
+                           alt="Navigation Next"
+                           Title="Next"
+                           tal:attributes="src string:$portal_url/navigation_next_small.gif"
+                           i18n:attributes="title next_label;" />
+                  </a>
+                    
+                </td>
+                <td>
+                  <a href="#"
+                     title="Last Product"
+                     tal:omit-tag="not: product_urls/last"
+                     tal:attributes="href product_urls/last">
+
+                      <img src="navigation_last.gif" 
+                           alt="Navigation Last"
+                           Title="Last"
+                           tal:attributes="src string:$portal_url/navigation_last_small.gif"
+                           i18n:attributes="title last_label;" />
+                  </a>
+                    
+                </td>
+              </tr>
+          </table>
+    </tal:block>
+</metal:block>
+
+</html>

@@ -1,0 +1,6 @@
+[default]
+title = 
+
+[actions]
+action.success = redirect_to:string:check-out-payment-methods-form
+action.order-preview = redirect_to:string:check-out-order-preview-form

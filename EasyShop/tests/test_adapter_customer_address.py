@@ -1,0 +1,124 @@
+# EasyShop imports 
+from base import EasyShopTestCase
+from Products.EasyShop.tests import utils
+from Products.EasyShop.interfaces import IAddressManagement
+
+class TestAddressManagementWithoutAddresses(EasyShopTestCase):
+    """Tests IAddressManagement, when no address is added yet.
+    """
+    def afterSetUp(self):
+        """
+        """
+        utils.createTestEnvironment(self)
+
+        self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
+        self.customer = self.shop.customers.customer
+        self.customer.at_post_create_script()
+        
+    def testGetAddresses(self):
+        """
+        """
+        am = IAddressManagement(self.customer)
+        self.assertEqual([], am.getAddresses())
+
+    def testGetInvoiceAddress(self):
+        """
+        """
+        am = IAddressManagement(self.customer)
+        self.assertEqual(am.getInvoiceAddress(), None)
+        
+    def testGetShippingAddress(self):
+        """
+        """
+        am = IAddressManagement(self.customer)
+        self.assertEqual(am.getShippingAddress(), None)
+    
+    def testDeleteAddress(self):
+        """
+        """
+        am = IAddressManagement(self.customer)        
+        result = am.deleteAddress("address_1")
+        self.assertEqual(result, False)
+        
+        
+class TestAddressManagement(EasyShopTestCase):
+    """
+    """
+    def afterSetUp(self):
+        """
+        """
+        utils.createTestEnvironment(self)
+
+        self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
+        self.customer = self.shop.customers.customer
+        
+        self.customer.invokeFactory("EasyShopAddress", "address_1")
+        self.address_1 = self.customer.address_1
+
+        self.customer.invokeFactory("EasyShopAddress", "address_2")
+        self.address_2 = self.customer.address_2
+
+        self.customer.invokeFactory("EasyShopAddress", "address_3")
+        self.address_3 = self.customer.address_3
+
+        self.customer.setInvoiceAddressAsString("address_1")
+        self.customer.setShippingAddressAsString("address_2")
+        
+    def testGetAddresses(self):
+        """
+        """
+        am = IAddressManagement(self.customer)
+        ids = [a.getId() for a in am.getAddresses()]        
+        self.assertEqual(ids, ["address_1", "address_2", "address_3"])
+
+    def testGetInvoiceAddress(self):
+        """
+        """
+        am = IAddressManagement(self.customer)
+        self.assertEqual(am.getInvoiceAddress().getId(), "address_1")
+        
+    def testGetShippingAddress(self):
+        """
+        """
+        am = IAddressManagement(self.customer)
+        self.assertEqual(am.getShippingAddress().getId(), "address_2")
+    
+    def testDeleteAddress(self):
+        """
+        """
+        am = IAddressManagement(self.customer)        
+
+        am.deleteAddress("address_1")
+        ids = [a.getId() for a in am.getAddresses()]        
+        self.assertEqual(ids, ["address_2", "address_3"])
+
+        am.deleteAddress("address_2")
+        ids = [a.getId() for a in am.getAddresses()]        
+        self.assertEqual(ids, ["address_3"])
+
+        am.deleteAddress("address_3")
+        ids = [a.getId() for a in am.getAddresses()]
+        self.assertEqual(ids, [])
+        
+    def testAddAddress(self):
+        """
+        """
+        am = IAddressManagement(self.customer)
+        id = am.addAddress(
+            "Doe Str. 1",
+            "App. 1",
+            "4711",
+            "Doe City",
+            "Germany"
+        )
+                
+        ids = [a.getId() for a in am.getAddresses()]        
+        self.assertEqual(ids, ["address_1", "address_2", "address_3", id])
+        
+        
+def test_suite():
+    from unittest import TestSuite, makeSuite
+    suite = TestSuite()
+    suite.addTest(makeSuite(TestAddressManagement))
+    suite.addTest(makeSuite(TestAddressManagementWithoutAddresses))        
+    return suite

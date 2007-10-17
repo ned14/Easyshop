@@ -1,0 +1,59 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyShop">
+<body>
+<div metal:define-macro="portlet"
+     tal:define="view context/@@portletShopNavigationView;
+                 level python:1">
+
+    <dl class="portlet" id="portlet-navigation-tree"> 
+
+        <dt class="portletHeader">
+            <span class="portletTopLeft"></span>
+            <a href="#" 
+               class="tile"
+               tal:attributes="href view/getShopUrl"
+               i18n:translate="box_categories">EasyShop</a>
+            <span class="portletTopRight"></span>
+        </dt>
+
+        <dd class="portletItem lastItem">      
+          <tal:categories tal:repeat="category view/getCategories">
+              <ul class="portletNavigationTree navTreeLevel0">
+                <li class="navTreeItem">
+                  <div class="visualIcon contenttype-easyshopcategory">
+                    <a href="#"
+                       class="visualIconPadding"
+                       tal:attributes="href category/url;
+                                       class category/klass;
+                                       title category/description">
+                        <span tal:replace="category/title">
+                          A Category
+                        </span>
+                        <span tal:condition="view/showQuantity"
+                              tal:replace="string:(${category/amount_of_products})">
+                          (2)
+                        </span>  
+                    </a>
+                  </div>
+                </li>
+                <tal:block tal:condition="category/show_subtree">
+                    <div metal:use-macro="context/portlet_easyshopnavigation_macros/macros/navigation_subcategories" />
+                </tal:block>    
+              </ul> 
+          </tal:categories>                 
+        </dd>
+        
+        <dd class="portletFooter">
+            <a href=""
+               tal:attributes="href view/getShopUrl"
+               i18n:translate="easyshop_label">
+              EasyShop
+            </a>
+            <span class="portletBottomLeft"></span>
+            <span class="portletBottomRight"></span>
+        </dd>
+    </dl>   
+</div>
+</body>
+</html>

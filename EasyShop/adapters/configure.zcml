@@ -1,0 +1,161 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- <adapter factory=".customer.CustomerAuthentication" />     -->
+    <!-- <adapter factory=".customer.CustomerRelated" /> -->
+
+    <include package=".generic" />
+    <include package=".payment" />  
+    <include package=".criteria" />
+    
+    <!-- =========== -->
+    <!-- = generic = -->
+    <!-- =========== -->     
+
+    <adapter
+        factory=".generic.ImageConversion" />
+
+    <adapter
+        for="..interfaces.ICategoryContent"
+        factory=".generic.FormatterInfos" />
+
+    <adapter
+        for="..interfaces.IShopContent"
+        factory=".generic.FormatterInfos" />
+        
+    <!-- ============= -->
+    <!-- = Customer / Address = -->
+    <!-- ============= -->
+    
+    <adapter
+        factory=".customer.AddressCompleteness" />
+
+    <!-- =========== -->
+    <!-- = Product = -->
+    <!-- =========== -->
+    <adapter
+        factory=".product.ProductPriceCalculator" />
+
+    <adapter
+        factory=".product.ProductTaxCalculator" />
+
+    <adapter
+        for="..interfaces.IProductContent"        
+        factory=".generic.PhotoManagement" />
+
+    <adapter        
+        factory=".product.ProductCategoryManager" />
+
+    <adapter
+        factory=".product.ProductPropertyManagement" />
+
+    <adapter
+        factory=".product.ProductGroupManager" />
+
+    <adapter
+        factory=".product.ProductData" />
+
+    <!-- ============ -->
+    <!-- = Category = -->
+    <!-- ============ -->    
+    <adapter
+        factory=".category.CategoryProductManager" />
+
+    <adapter
+        factory=".category.CategoryCategoryManagement" />
+
+    <adapter
+        for="..interfaces.ICategoryContent"
+        factory=".generic.PhotoManagement" />
+
+    <!-- ============ -->
+    <!-- = CartItem = -->
+    <!-- ============ -->
+
+    <adapter
+        factory=".cartitem.CartItemPrices" />
+
+    <adapter
+        factory=".cartitem.CartItemTaxes" />
+        
+    <!-- ======== -->
+    <!-- = Cart = -->
+    <!-- ======== -->
+
+    <adapter
+        factory=".cart.CartPrices" />
+
+    <adapter
+        factory=".cart.CartTaxes" />
+
+    <!-- ========= -->
+    <!-- = Order = -->
+    <!-- ========= -->
+    <adapter 
+        factory=".order.PaymentManagement" />
+    
+    <adapter
+        factory=".order.OrderPriceCalculator" />
+
+    <adapter
+        factory=".order.OrderItemManager" />
+
+    <!-- ======== -->
+    <!-- = Customer = -->
+    <!-- ======== -->
+    <adapter
+        factory=".customer.CustomerAddressManager" />
+
+    <adapter
+        factory=".customer.CustomerPaymentManager" />
+
+    <adapter
+        factory=".customer.CustomerCompleteness" />
+
+    <!-- ======== -->
+    <!-- = Shop = -->
+    <!-- ======== -->
+    <adapter
+        factory=".shop.PaymentPrices" />
+    
+    <adapter
+        factory=".shop.CustomerManagement" />
+
+    <adapter
+        factory=".shop.CurrencyManagement" />
+
+    <adapter 
+        factory=".shop.ProductManagement" />
+
+    <adapter
+        factory=".shop.PaymentManagement" />
+
+    <adapter
+        factory=".shop.ShippingManagement" />
+
+    <adapter
+        factory=".shop.ShopCategoryManagement" />
+
+    <adapter
+        factory=".shop.ShopGroupManagement" />
+        
+    <adapter
+        factory=".shop.Taxes" />
+
+    <adapter
+        factory=".shop.TaxManagement" />
+
+    <adapter
+        for="..interfaces.IShopContent"
+        provides="..interfaces.IOrderManagement"
+        factory=".shop.OrderManagement" />
+
+    <!-- ========= -->
+    <!-- = Group = -->
+    <!-- ========= -->    
+    <adapter
+        factory=".group.GroupProductManager" />
+    
+</configure>

@@ -1,0 +1,28 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        for="...interfaces.ITaxContent"
+        factory=".validity.ValidityManagement" />
+
+    <adapter
+        for="...interfaces.IShippingPriceContent"
+        factory=".validity.ValidityManagement" />
+
+    <adapter
+        for="...interfaces.IPaymentPriceContent"
+        factory=".validity.ValidityManagement" />
+
+    <adapter
+        for="...interfaces.IShopPaymentMethod"
+        factory=".validity.ValidityManagement" />
+
+    <adapter
+        for="...interfaces.IPaymentMethodValidatorContent"
+        factory=".validity.ValidityManagement" />
+
+    <adapter
+        factory=".validity.CustomerPaymentValidityManagement" />
+
+
+
+</configure>

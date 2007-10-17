@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<object name="EasyShopGroups"
+   meta_type="Factory-based Type Information"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title">Groups</property>
+ <property
+    name="description">A folder to hold groups.</property>
+ <property name="content_icon">folder_icon.gif</property>
+ <property name="content_meta_type">EasyShopGroups</property>
+ <property name="product">EasyShop</property>
+ <property name="factory">addEasyShopGroups</property>
+ <property name="immediate_view">groups-view</property>
+ <property name="global_allow">False</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+  <element value="EasyShopGroup"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <alias from="(Default)" to="groups-view"/>
+ <alias from="view" to="groups-view"/>
+ <alias from="edit" to="atct_edit"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}/" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/base_edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/base_metadata"
+    visible="False">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Folder Listing" action_id="folderlisting" category="folder"
+    condition_expr="object/isPrincipiaFolderish"
+    url_expr="string:${folder_url}/view" visible="False">
+  <permission value="View"/>
+ </action>
+</object>

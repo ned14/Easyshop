@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop\n"
+"POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
+"PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
+"Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
+"Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+msgid "Carts"
+msgstr "Warenkörbe"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Customers"
+msgstr "Kunden"
+
+msgid "Groups"
+msgstr "Gruppen"
+
+msgid "Orders"
+msgstr "Bestellungen"
+
+msgid "Products"
+msgstr "Produkte"
+
+msgid "Shipping"
+msgstr "Lieferung"
+
+msgid "Taxes"
+msgstr "Mehrwertsteuer"
+

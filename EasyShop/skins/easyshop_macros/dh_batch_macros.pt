@@ -1,0 +1,110 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyShop">
+      
+<body metal:define-macro="navigation"
+      tal:define="request request|here/request|container/request|nothing;
+                  batch batch|nothing;
+                  template_id template_id|template/getId;
+                  mq python:modules['ZTUtils'].make_query;
+                  url batch_base_url | string:${here/absolute_url};
+                  currentpage batch/pagenumber;
+                  p batch/previous | nothing;
+                  n batch/next | nothing">
+
+    <table cellpadding="0" 
+           cellspacing="0">
+        <tr>
+            <td>
+               <a tal:condition="p"
+                  tal:attributes="href url"> 
+                  <img src="navigation_first.gif" 
+                       alt="Navigation First"
+                       title="First"
+                       tal:attributes="src string:$portal_url/navigation_first_small.gif"
+                       i18n:attributes="title first_label;" />
+               </a>
+               <a name="dummy">
+                   <img tal:condition="not: p"
+                        src="navigation_first.gif" 
+                        alt="Navigation First"
+                        title="First"
+                        tal:attributes="src string:$portal_url/navigation_first_small.gif"
+                        i18n:attributes="title first_label;" />
+               </a>
+            </td>
+
+            <td>
+               <a tal:condition="p"
+                  tal:attributes="href python: '%s?%s' % (url , mq( request.form, {batch.b_start_str:p.first} ))"> 
+                  <img src="navigation_previous_small.gif" 
+                       alt="Navigation Previous"
+                       title="Previous"
+                       tal:attributes="src string:$portal_url/navigation_previous_small.gif"
+                       i18n:attributes="title previous_label;" />
+               </a>
+               <a name="dummy">
+                   <img tal:condition="not: p"
+                        src="navigation_previous_small.gif" 
+                        alt="Navigation Previous"
+                        title="Previous"
+                        tal:attributes="src string:$portal_url/navigation_previous_small.gif"
+                        i18n:attributes="title previous_label;" />
+               </a>
+            </td>
+            <td class="navigation-position">
+                <span tal:condition="batch/navlist"
+                      tal:omit-tag="">
+                    <span tal:content="batch/pagenumber">Current page number</span> /
+                    <span tal:content="batch/numpages">Total Number of pages</span>
+                </span>
+            </td>                
+            
+            <td>
+               <a tal:condition="n"
+                  href="#"
+                  tal:attributes="href python: '%s?%s' % (url , mq( request.form, {batch.b_start_str:n.first} ))">
+                  <img src="navigation_next_small.gif" 
+                       alt="Navigation Next"
+                       Title="Next"
+                       tal:attributes="src string:$portal_url/navigation_next_small.gif"
+                       i18n:attributes="title next_label;" />
+               </a>
+               <a name="dummy">
+                   <img tal:condition="not: n"
+                        src="navigation_next_small.gif" 
+                        alt="Navigation Next"
+                        Title="Next"
+                        tal:attributes="src string:$portal_url/navigation_next_small.gif"
+                        i18n:attributes="title next_label" />
+               </a>     
+
+            </td>
+            
+            <td>
+               <a tal:condition="n"
+                  href="#"
+                  tal:attributes="href python: '%s?%s' % (url , mq( request.form, {batch.b_start_str:(batch.numpages-1) * batch.length} ))">
+                  <img src="navigation_last_small.gif" 
+                       alt="Navigation Last"
+                       Title="Last"
+                       tal:attributes="src string:$portal_url/navigation_last_small.gif"
+                       i18n:attributes="title last_label;" />
+               </a>
+               <a name="dummy">
+                   <img tal:condition="not: n"
+                        src="navigation_last_small.gif" 
+                        alt="Navigation Last"
+                        Title="Last"
+                        tal:attributes="src string:$portal_url/navigation_last_small.gif"
+                        i18n:attributes="title last_label;" />
+               </a>     
+
+            </td>
+    
+        </tr>   
+    </table>
+
+
+</body>
+</html>

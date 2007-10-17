@@ -1,0 +1,24 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyShop">
+<body>
+<div metal:define-macro="portlet">
+
+    <dl class="portlet" 
+        id="portlet-document-actions">
+
+        <dt class="portletHeader"
+            i18n:translate="document_actions_label">
+            Document actions
+        </dt>
+
+        <dd class="portletItem">                            
+            <div metal:use-macro="here/document_actions/macros/document_actions" />
+            <br clear="all" />
+        </dd>
+        
+    </dl>
+
+</div>
+</body>
+</html>

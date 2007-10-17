@@ -1,0 +1,47 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        for="*"
+        name="portletEasyShopAdministrationView"
+        class=".administration.PortletEasyShopAdministrationView"
+        allowed_interface=".administration.IPortletEasyShopAdministrationView"
+        permission="zope.Public" />
+
+    <browser:page
+        for="*"
+        name="portletUserView"
+        class=".user.PortletUserView"
+        allowed_interface=".user.IPortletUserView"
+        permission="zope.Public" />
+
+    <browser:page
+        for="*"
+        name="portletShopNavigationView"
+        class=".navigation.PortletShopNavigationView"
+        allowed_interface=".navigation.IPortletShopNavigationView"
+        permission="zope.Public" />
+
+    <browser:page
+        for="*"
+        name="portletShopCartView"
+        class=".cart.PortletShopCartView"
+        allowed_interface=".cart.IPortletShopCartView"
+        permission="zope.Public" />
+
+    <browser:page
+        for="*"
+        name="portletFormatter"
+        class=".formatter.PortletFormatterView"
+        allowed_interface=".formatter.IPortletFormatterView"
+        permission="zope.Public" />
+
+    <browser:page
+        for="*"
+        name="save-formatter"
+        class=".formatter.PortletFormatterView"
+        attribute="saveFormatter"
+        permission="zope.Public" />
+
+</configure>

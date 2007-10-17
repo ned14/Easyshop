@@ -1,0 +1,36 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyShop">
+<body>
+<div metal:define-macro="portlet"
+     tal:define="view context/@@portletShopCartView">
+
+    <dl class="portlet" 
+        id="portlet-cart"
+        tal:define="shop_url view/getShopUrl">
+                    
+        <dt class="portletHeader">
+            <a tal:attributes="href string:${shop_url}/cart"
+               i18n:translate="cart_label">
+                Cart
+             </a>
+        </dt>
+
+        <dd class="portletItem">
+            <span tal:content="view/getCartPrice">
+                42.0
+            </span>
+        </dd>
+        
+        <dd class="portletFooter">
+            <a tal:attributes="href string:${shop_url}/checkout">
+                <tal:block i18n:translate="checkout_label">
+                    Check Out
+                </tal:block>
+            </a>
+        </dd>
+    </dl>
+
+</div>
+</body>
+</html>

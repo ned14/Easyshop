@@ -1,0 +1,125 @@
+First, some set-up:
+    
+    >>> from Products.Five import zcml
+    >>> import Products
+    >>> zcml.load_config('configure.zcml', package=Products.EasyShop)
+    
+    >>> from Products.EasyShop.tests import utils
+    >>> utils.createTestEnvironment(self)
+    
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    
+Let us log all exceptions, which is useful for debugging. Also, clear portlet
+slots, to make the test browser less confused by things like the recent portlet
+and the navtree.
+
+    >>> self.portal.error_log._ignored_exceptions = ()
+    >>> workflow = self.portal.portal_workflow
+
+    >>> workflow.doActionFor(self.shop, 'publish')
+    >>> workflow.getInfoFor(self.shop, 'review_state')
+    'published'
+
+    >>> workflow.doActionFor(self.product_1, 'publish')
+    >>> workflow.getInfoFor(self.product_1, 'review_state')
+    'published'
+
+    >>> workflow.doActionFor(self.product_2, 'publish')
+    >>> workflow.getInfoFor(self.product_2, 'review_state')
+    'published'
+
+    >>> workflow.doActionFor(self.product_42, 'publish')
+    >>> workflow.getInfoFor(self.product_42, 'review_state')
+    'published'
+
+View the shop
+------------------------------
+    >>> browser.open(self.shop.absolute_url())
+    >>> browser.contents
+    '...MyShop...'
+
+Buy a product
+------------------------------
+We browse to the document, we want to buy.
+
+    >>> browser.open(self.product_42.absolute_url())
+    >>> browser.contents
+    '...19,00...'
+
+And add it to the cart     
+    >>> browser.getControl('Add to Cart').click()
+    >>> browser.contents
+    '...The product has been added to the cart...'
+
+Once again to check the portal meassage for already added products.
+        
+    >>> browser.getControl('Add to Cart').click()
+    >>> browser.contents
+    '...The amount of the product has been increased...'
+
+Buy a product with properties
+------------------------------
+
+    >>> browser.open(self.product_1.absolute_url())
+    >>> browser.contents
+    '...22,00...'
+    
+    >>> browser.getControl('Buy Product').click()
+    >>> browser.contents
+    '...Properties Selection...'
+
+Select some options and update to the new price.
+
+    >>> browser.getControl(name='property-color').value = ['Red']
+    >>> browser.getControl('Update Price').click()
+
+Is the selected option still selected?
+
+    >>> browser.contents
+    '...Red...'
+
+Is the price updated properly?
+    
+    >>> browser.contents
+    '...12,00...'
+
+    >>> browser.getControl('Add to Cart').click()
+    >>> browser.contents
+    '...The product has been added to the cart...'
+        
+Check out
+------------------------------
+    >>> self.portal.manage_changeProperties(validate_email=False)
+    >>> browser.getLink('Check Out').click()
+    >>> browser.getLink('registration form').click()
+    >>> browser.contents
+    '...Registration Form...'
+    
+    >>> browser.getControl('Full Name').value = 'John Doe'
+    >>> browser.getControl('User Name').value = 'doe'
+    >>> browser.getControl(name='email').value = 'john@doe.de'
+    >>> browser.getControl(name='password').value = 'secret'
+    >>> browser.getControl(name='password_confirm').value = 'secret'
+    >>> browser.getControl('Register').click()
+    >>> browser.contents
+    '...You have been registered...'
+    
+    >>> browser.getControl('Log in').click()
+
+Have to open the shop here again. Can't rebuild the came_form thing.
+
+    >>> browser.open(self.shop.absolute_url())
+    >>> browser.getLink('Check Out').click()
+            
+    >>> browser.getControl('First Name').value = 'John'
+    >>> browser.getControl('Last Name').value = 'Doe'
+    >>> browser.getControl(name='address1').value = 'John Doe Street 1'
+    >>> browser.getControl('Zip Code').value = '99099'
+    >>> browser.getControl('City').value = 'Los Angeles'
+    >>> browser.getControl('Phone').value = "555-47114711"
+    >>> browser.getControl('Next').click()
+    
+    >>> browser.contents
+    '...Please select you payment method...'

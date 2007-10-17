@@ -1,0 +1,27 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyNewsletter">
+<body>
+<div metal:define-macro="portlet"
+     tal:condition="python: context.portal_type == 'EasyShopCategory'">
+
+    <tal:block tal:define="category_view context/@@categoryView;
+                           products category_view/getAllProducts;
+                           Batch python:modules['Products.CMFPlone'].Batch;
+                           b_start python:request.get('b_start',0);
+                           displayed_products category_view/getAmountOfProductsForBatch;
+                           batch python:Batch(products, displayed_products, int(b_start), orphan=1);">
+
+    <dl class="portlet"
+        id="portlet-easyshop-category-navigation"
+        tal:define="shop_url python:context.portal_easyshoptool.getShop(context).absolute_url();
+                    shop_view context/@@shopView;
+                    cart shop_view/getCart">                    
+        <dd class="portletItem">
+            <metal:block metal:use-macro="here/dh_batch_macros/macros/navigation" />
+        </dd>        
+    </dl>
+    </tal:block>
+</div>
+</body>
+</html>
