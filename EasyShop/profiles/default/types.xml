@@ -64,8 +64,6 @@
  <object name="EasyShopCustomers" meta_type="Factory-based Type Information"/>
  <object name="EasyShopDateCriteria"
     meta_type="Factory-based Type Information"/>
- <object name="EasyShopDefaultTax"
-    meta_type="Factory-based Type Information"/>
 
  <object name="EasyShopGroup" meta_type="Factory-based Type Information"/>
  <object name="EasyShopGroupCriteria"
@@ -94,11 +92,6 @@
 
  <object name="EasyShopProducts"
          meta_type="Factory-based Type Information" />
-
- <object name="EasyShopTaxes"
-         meta_type="Factory-based Type Information" />
- 
- <object name="EasyShopCustomerTax" meta_type="Factory-based Type Information"/>
 
  <object name="EasyShopWeightCriteria"
     meta_type="Factory-based Type Information"/>

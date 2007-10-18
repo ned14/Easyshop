@@ -71,4 +71,4 @@ def importVarious(context):
 
     setupFormController(portal)
     installDependencies(portal)
-    installRelations(portal)
+    # installRelations(portal)

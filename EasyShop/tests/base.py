@@ -9,7 +9,8 @@ from Products.PloneTestCase.PloneTestCase import setupPloneSite
 
 ZopeTestCase.installProduct('EasyShop')
 ZopeTestCase.installProduct('easyshop.carts')
-setupPloneSite(products=['EasyShop', "easyshop.carts"])
+ZopeTestCase.installProduct('easyshop.taxes')
+setupPloneSite(products=['EasyShop', "easyshop.carts", 'easyshop.taxes'])
 
 class EasyShopTestCase(PloneTestCase):
   """Base class for integration tests for the 'iqpp.rating' product.

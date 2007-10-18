@@ -13,6 +13,9 @@ def initialize(context):
         
     # imports packages and types for registration
     import easyshop.carts.content
+    import easyshop.criteria.content
+    import easyshop.taxes.content
+    
     import content
     import catalog
 

@@ -106,22 +106,14 @@ class PaymentPrices:
     def getPaymentPrices(self):
         """
         """
-        shop = self.context.getShop()
-
-        # Todo: By interface
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            path = "/".join(shop.paymentprices.getPhysicalPath()),
-            sort_on = "getObjPositionInParent",
-        )
-
+        prices = self.context.paymentprices.objectValues("EasyShopPaymentPrice")
+        
         result = []
-        for brain in brains:
-            object = brain.getObject()
-            if IPaymentPriceContent.providedBy(object) == False:
+        for price in prices:
+            if IPaymentPriceContent.providedBy(price) == False:
                 continue
                 
-            result.append(object)    
+            result.append(price)    
         
         return result
         

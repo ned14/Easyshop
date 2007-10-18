@@ -7,7 +7,7 @@
   <type portal_type="EasyShopAddress"/> 
   <type portal_type="EasyShopCustomerCriteria"/> 
   <type portal_type="EasyShopGroup"/> 
-  <type portal_type="EasyShopDefaultTax"/> 
+  <type portal_type="DefaultTax"/> 
   <type portal_type="EasyShopCustomer"/> 
   <type portal_type="EasyShopDateCriteria"/> 
   <type portal_type="EasyShopDirectDebit"/> 
@@ -21,7 +21,7 @@
   <type portal_type="EasyShopPhoto"/> 
   <type portal_type="Cart"/> 
   <type portal_type="EasyShopGroupCriteria"/> 
-  <type portal_type="EasyShopCustomerTax"/> 
+  <type portal_type="CustomerTax"/> 
   <type portal_type="EasyShopPayPal"/> 
  </factorytypes>
 </object>

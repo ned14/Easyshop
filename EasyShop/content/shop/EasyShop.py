@@ -179,7 +179,7 @@ class EasyShop(ATFolder, EasyShopBase):
         self.manage_addProduct["EasyShop"].addEasyShopProducts(id="products", title="Products")        
         self.manage_addProduct["EasyShop"].addEasyShopCategories(id="categories", title="Categories")
         self.manage_addProduct["EasyShop"].addEasyShopGroups(id="groups", title="Groups")
-        self.manage_addProduct["EasyShop"].addEasyShopTaxes(id="taxes", title="Taxes")
+        self.manage_addProduct["EasyShop"].addTaxesContainer(id="taxes", title="Taxes")
         self.manage_addProduct["EasyShop"].addEasyShopShippingPrices(id="shippingprices", title="Shipping Prices")
         self.manage_addProduct["EasyShop"].addEasyShopShippingMethods(id="shippingmethods", title="Shipping Methods")
         self.manage_addProduct["EasyShop"].addCartsContainer(id="carts", title="Carts")

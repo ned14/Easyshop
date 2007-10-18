@@ -19,7 +19,7 @@ class TestValidityManager(EasyShopTestCase):
         """
         """
         utils.createTestEnvironment(self)
-        self.shop.taxes.invokeFactory("EasyShopDefaultTax", id="default_tax")
+        self.shop.taxes.invokeFactory("DefaultTax", id="default_tax")
         self.default_tax = self.shop.taxes.default_tax
 
     def testIsValid_1(self):

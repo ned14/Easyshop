@@ -4,5 +4,3 @@ import order
 import payment
 import shipping
 import shop
-import tax
-import criteria

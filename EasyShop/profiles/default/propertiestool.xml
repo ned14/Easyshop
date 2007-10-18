@@ -28,7 +28,7 @@
    <element value="Cart"/>
    <element value="CartItem"/>
    <element value="EasyShopCustomerTax"/>
-   <element value="EasyShopDefaultTax"/>
+   <element value="DefaultTax"/>
    <element value="EasyShopShippingPrice"/>
    <element value="EasyShopCategoryCriteria"/>
    <element value="EasyShopCountryCriteria"/>

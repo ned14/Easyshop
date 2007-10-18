@@ -19,7 +19,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
         """
         """
         utils.createTestEnvironment(self)
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", id="customer", rate=10.0)
+        self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
                 
     def testGetPriceForCustomer_1(self):
         """Test a property which is in group and product.

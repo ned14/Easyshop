@@ -21,15 +21,15 @@ class TestShopTaxManagement(EasyShopTestCase):
         """
         """
         utils.createTestEnvironment(self)
-        self.shop.taxes.invokeFactory("EasyShopDefaultTax", "d1")
-        self.shop.taxes.invokeFactory("EasyShopDefaultTax", "d2")
-        self.shop.taxes.invokeFactory("EasyShopDefaultTax", "d3")
-        self.shop.taxes.invokeFactory("EasyShopDefaultTax", "d4")
+        self.shop.taxes.invokeFactory("DefaultTax", "d1")
+        self.shop.taxes.invokeFactory("DefaultTax", "d2")
+        self.shop.taxes.invokeFactory("DefaultTax", "d3")
+        self.shop.taxes.invokeFactory("DefaultTax", "d4")
 
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", "c1", rate=10)
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", "c2")
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", "c3")
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", "c4")
+        self.shop.taxes.invokeFactory("CustomerTax", "c1", rate=10)
+        self.shop.taxes.invokeFactory("CustomerTax", "c2")
+        self.shop.taxes.invokeFactory("CustomerTax", "c3")
+        self.shop.taxes.invokeFactory("CustomerTax", "c4")
                 
     def testGetCustomerTaxes(self):
         """
@@ -81,7 +81,7 @@ class TestShopTaxes(EasyShopTestCase):
     def testGetTaxForCustomer_2(self):
         """With tax rate for customer
         """
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", id="customer", rate=10.0)        
+        self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)        
         tm = ITaxes(self.shop)
         tax = tm.getTaxForCustomer(self.product_1)
         self.assertEqual("%.2f" % tax, "1.85")
@@ -103,7 +103,7 @@ class TestShopTaxes(EasyShopTestCase):
     def testGetTaxRateForCustomer_2(self):
         """With tax rate for customer
         """
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", id="customer", rate=10.0)
+        self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
         tm = ITaxes(self.shop)
         rate = tm.getTaxRateForCustomer(self.product_1)
         self.assertEqual(rate, 10.0)

@@ -137,7 +137,7 @@ def createTestEnvironment(self):
     self.category_1.category_11.addReference(self.product_2, "easyshopcategory_easyshopproduct")
     
     # taxes    
-    self.shop.taxes.invokeFactory("EasyShopDefaultTax", id="default", rate=19.0)
+    self.shop.taxes.invokeFactory("DefaultTax", id="default", rate=19.0)
     
     self.sid = self.portal.REQUEST.SESSION = TestSession("123")
 

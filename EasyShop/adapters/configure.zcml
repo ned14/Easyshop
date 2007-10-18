@@ -8,7 +8,6 @@
 
     <include package=".generic" />
     <include package=".payment" />  
-    <include package=".criteria" />
     
     <!-- =========== -->
     <!-- = generic = -->
@@ -37,9 +36,6 @@
     <!-- =========== -->
     <adapter
         factory=".product.ProductPriceCalculator" />
-
-    <adapter
-        factory=".product.ProductTaxCalculator" />
 
     <adapter
         for="..interfaces.IProductContent"        
@@ -77,18 +73,12 @@
     <adapter
         factory=".cartitem.CartItemPrices" />
 
-    <adapter
-        factory=".cartitem.CartItemTaxes" />
-        
     <!-- ======== -->
     <!-- = Cart = -->
     <!-- ======== -->
 
     <adapter
         factory=".cart.CartPrices" />
-
-    <adapter
-        factory=".cart.CartTaxes" />
 
     <!-- ========= -->
     <!-- = Order = -->
@@ -141,12 +131,6 @@
     <adapter
         factory=".shop.ShopGroupManagement" />
         
-    <adapter
-        factory=".shop.Taxes" />
-
-    <adapter
-        factory=".shop.TaxManagement" />
-
     <adapter
         for="..interfaces.IShopContent"
         provides="..interfaces.IOrderManagement"

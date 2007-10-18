@@ -23,7 +23,7 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.ITaxFolderContent"
+        for="...interfaces.ITaxesContainer"
         name="taxes-view"
         template="taxes_view.pt"
         class=".taxes_view.TaxesView"

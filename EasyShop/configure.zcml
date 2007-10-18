@@ -11,8 +11,6 @@
     <include package=".utilities" />  
     <include package=".viewlets" />
     
-    <include package="easyshop.carts" />
-    
     <five:traversable 
         class="Products.EasyShop.content.shop.EasyShop.EasyShop" />
 

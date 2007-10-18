@@ -19,7 +19,6 @@ from Products.EasyShop.interfaces import IPaymentPricesFolderContent
 from Products.EasyShop.interfaces import IProductFolderContent
 from Products.EasyShop.interfaces import IShippingPricesFolderContent
 from Products.EasyShop.interfaces import IShippingMethodsFolderContent
-from Products.EasyShop.interfaces import ITaxFolderContent
 
 class EasyShopProducts(BaseBTreeFolder, EasyShopBase):
     """A container to hold products.
@@ -56,11 +55,6 @@ class EasyShopGroups(OrderedBaseFolder, EasyShopBase):
     """    
     implements(IGroupFolderContent)
 
-class EasyShopTaxes(OrderedBaseFolder, EasyShopBase):
-    """A simple container to hold taxes.
-    """
-    implements(ITaxFolderContent)
-
 class EasyShopOrders(BaseBTreeFolder, EasyShopBase):
     """A simple container to hold orders.
     """
@@ -80,4 +74,3 @@ registerType(EasyShopPaymentPrices, PROJECTNAME)
 registerType(EasyShopProducts, PROJECTNAME)
 registerType(EasyShopShippingPrices, PROJECTNAME)     
 registerType(EasyShopShippingMethods, PROJECTNAME)
-registerType(EasyShopTaxes, PROJECTNAME)

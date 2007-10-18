@@ -19,7 +19,7 @@ class TestProductTaxCalculation(EasyShopTestCase):
         """
         """
         utils.createTestEnvironment(self)
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", id="customer", rate=10.0)
+        self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
         
     def testGetTaxRate(self):
         """

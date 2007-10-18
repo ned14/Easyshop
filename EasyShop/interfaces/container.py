@@ -41,6 +41,6 @@ class IShippingMethodsFolderContent(Interface):
     """Marker interface to mark shipping method folder content objects.
     """
     
-class ITaxFolderContent(Interface):
-    """A marker interface for taxes folder content objects.
+class ITaxesContainer(Interface):
+    """A marker interface for taxes folder.
     """

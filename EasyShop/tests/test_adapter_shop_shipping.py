@@ -19,7 +19,7 @@ class TestShopShippingManagement(EasyShopTestCase):
         """
         """
         utils.createTestEnvironment(self)
-        self.shop.taxes.invokeFactory("EasyShopCustomerTax", id="customer", rate=10.0)
+        self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
         self.sm = IShippingManagement(self.shop)
         
     def testGetShippingPrice(self):
