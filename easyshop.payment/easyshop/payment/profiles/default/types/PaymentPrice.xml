@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<object name="PaymentPrice"
+   meta_type="Factory-based Type Information"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title">Payment Price</property>
+ <property
+    name="description">A price for payment methods</property>
+ <property name="content_icon">price_icon.png</property>
+ <property name="content_meta_type">PaymentPrice</property>
+ <property name="product">EasyShop</property>
+ <property name="factory">addPaymentPrice</property>
+ <property name="immediate_view">base_view</property>
+ <property name="global_allow">False</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+  <element value="PaymentMethodCriteria"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <alias from="(Default)" to="payment-price-view"/>
+ <alias from="base_view" to="payment-price-view"/>
+ <alias from="view" to="payment-price-view"/>
+ <alias from="edit" to="base_edit"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}/base_view" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/base_edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/base_metadata"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="References" action_id="references" category="object"
+    condition_expr="object/archetype_tool/has_graphviz"
+    url_expr="string:${object_url}/reference_graph" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Folder Listing" action_id="folderlisting" category="folder"
+    condition_expr="object/isPrincipiaFolderish"
+    url_expr="string:${folder_url}/view" visible="False">
+  <permission value="View"/>
+ </action>
+</object>

@@ -1,0 +1,44 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        factory=".shop.PaymentPrices" />
+
+    <adapter
+        factory=".shop.PaymentManagement" />
+
+    
+    <adapter
+        factory=".simple_payment.SimplePaymentType" />
+
+    <adapter
+        factory=".simple_payment.SimplePaymentProcessor" />
+
+    <adapter
+        factory=".simple_payment.SimplePaymentCompleteness" />
+
+
+    <adapter
+        factory=".direct_debit.DirectDebitType" />
+
+    <adapter
+        factory=".direct_debit.DirectDebitPaymentProcessor" />
+
+    <adapter
+        factory=".direct_debit.DirectDebitCompleteness" />
+
+
+    <adapter
+        factory=".paypal.PayPalType" />
+
+    <adapter 
+        factory=".paypal.PayPalSimplePaymentProcessor" />
+    
+    <adapter
+        factory=".paypal.PayPalCompleteness" />
+
+    <!-- 
+    <adapter 
+        factory=".payment.PayPalPaymentProcessor" /> 
+    -->
+          
+</configure>
