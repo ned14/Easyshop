@@ -17,8 +17,6 @@ from Products.EasyShop.interfaces import IOrderFolderContent
 from Products.EasyShop.interfaces import IPaymentMethodsFolderContent
 from Products.EasyShop.interfaces import IPaymentPricesFolderContent
 from Products.EasyShop.interfaces import IProductFolderContent
-from Products.EasyShop.interfaces import IShippingPricesFolderContent
-from Products.EasyShop.interfaces import IShippingMethodsFolderContent
 
 class EasyShopProducts(BaseBTreeFolder, EasyShopBase):
     """A container to hold products.
@@ -30,21 +28,11 @@ class EasyShopPaymentMethods(OrderedBaseFolder, EasyShopBase):
     """
     implements(IPaymentMethodsFolderContent)
 
-class EasyShopPaymentPrices(OrderedBaseFolder, EasyShopBase):
+class PaymentPrices(OrderedBaseFolder, EasyShopBase):
     """A simple container to hold payment prices.
     """
     implements(IPaymentPricesFolderContent)
 
-class EasyShopShippingMethods(OrderedBaseFolder, EasyShopBase):
-    """A simple container to hold shipping methods.
-    """
-    implements(IShippingMethodsFolderContent)
-
-class EasyShopShippingPrices(OrderedBaseFolder, EasyShopBase):
-    """A simple container to hold shipping prices.
-    """
-    implements(IShippingPricesFolderContent)
-                  
 class EasyShopCategories(OrderedBaseFolder, EasyShopBase):
     """A simple container to hold categories.
     """
@@ -70,7 +58,5 @@ registerType(EasyShopCustomers, PROJECTNAME)
 registerType(EasyShopGroups, PROJECTNAME)
 registerType(EasyShopOrders, PROJECTNAME)
 registerType(EasyShopPaymentMethods, PROJECTNAME)
-registerType(EasyShopPaymentPrices, PROJECTNAME)
+registerType(PaymentPrices, PROJECTNAME)
 registerType(EasyShopProducts, PROJECTNAME)
-registerType(EasyShopShippingPrices, PROJECTNAME)     
-registerType(EasyShopShippingMethods, PROJECTNAME)

@@ -96,5 +96,5 @@ class TestGroupProductManager(EasyShopTestCase):
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(TestGroupProductManager))
+    # suite.addTest(makeSuite(TestGroupProductManager))
     return suite                                               

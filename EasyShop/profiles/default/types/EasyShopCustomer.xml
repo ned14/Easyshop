@@ -11,7 +11,7 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="EasyShopDirectDebit"/>
+  <element value="DirectDebit"/>
   <element value="EasyShopAddress"/>
  </property>
  <property name="allow_discussion">False</property>

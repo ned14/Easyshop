@@ -37,14 +37,14 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.IShippingPricesFolderContent"
+        for="...interfaces.IShippingPricesContainer"
         name="shipping-prices-view"        
         template="shipping_prices.pt"
         class=".shipping_prices.ShippingPricesView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.IShippingMethodsFolderContent"
+        for="...interfaces.IShippingMethodsContainer"
         name="shipping-methods-view"
         template="shipping_methods.pt"
         class=".shipping_methods.ShippingMethodsView"

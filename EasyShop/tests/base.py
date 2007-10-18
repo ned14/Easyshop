@@ -15,7 +15,14 @@ from Products.PloneTestCase.PloneTestCase import FunctionalTestCase
 from Products.PloneTestCase.PloneTestCase import setupPloneSite
 
 ZopeTestCase.installProduct('EasyShop')
-PloneTestCase.setupPloneSite(products=['EasyShop', "easyshop.carts", 'easyshop.taxes'])
+PloneTestCase.setupPloneSite(
+    products=["EasyShop",
+              "easyshop.carts",
+              "easyshop.criteria",
+              "easyshop.payment",              
+              "easyshop.shipping",
+              "easyshop.taxes",
+              ])
 
 # EasyShop imports
 from Products.EasyShop.tests import utils

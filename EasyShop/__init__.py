@@ -12,8 +12,11 @@ def initialize(context):
     allow_module("pdb")    
         
     # imports packages and types for registration
+    
     import easyshop.carts.content
     import easyshop.criteria.content
+    import easyshop.payment.content    
+    import easyshop.shipping.content    
     import easyshop.taxes.content
     
     import content

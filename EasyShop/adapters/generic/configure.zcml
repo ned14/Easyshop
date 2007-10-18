@@ -5,11 +5,11 @@
         factory=".validity.ValidityManagement" />
 
     <adapter
-        for="...interfaces.IShippingPriceContent"
+        for="...interfaces.IShippingPrice"
         factory=".validity.ValidityManagement" />
 
     <adapter
-        for="...interfaces.IPaymentPriceContent"
+        for="...interfaces.IPaymentPrice"
         factory=".validity.ValidityManagement" />
 
     <adapter
@@ -17,7 +17,7 @@
         factory=".validity.ValidityManagement" />
 
     <adapter
-        for="...interfaces.IPaymentMethodValidatorContent"
+        for="...interfaces.IPaymentMethodValidator"
         factory=".validity.ValidityManagement" />
 
     <adapter

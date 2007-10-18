@@ -15,7 +15,7 @@ class TestPaymentManagement(EasyShopTestCase):
         self.customer = self.shop.customers.customer
         self.customer.at_post_create_script()
         
-        self.customer.invokeFactory("EasyShopDirectDebit", id="directdebit")
+        self.customer.invokeFactory("DirectDebit", id="directdebit")
         
     def testDeletePaymentMethod(self):
         """

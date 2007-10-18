@@ -41,10 +41,10 @@ def createTestEnvironment(self):
     self.shop.at_post_create_script()
 
     # Add shipping and payment price
-    self.shop.shippingprices.manage_addProduct["EasyShop"].addEasyShopShippingPrice(id="default", priceGross=10.0)
+    self.shop.shippingprices.manage_addProduct["EasyShop"].addShippingPrice(id="default", priceGross=10.0)
     self.shop.shippingprices.default.reindexObject()
     
-    self.shop.paymentprices.manage_addProduct["EasyShop"].addEasyShopPaymentPrice(id="default", priceGross=100.0)
+    self.shop.paymentprices.manage_addProduct["EasyShop"].addPaymentPrice(id="default", priceGross=100.0)
     
     self.shop.setCountries(["Germany"])
     self.shop.products.manage_addProduct["EasyShop"].addEasyShopProduct(id="product_1", priceGross=22.0)

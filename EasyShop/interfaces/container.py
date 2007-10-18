@@ -33,11 +33,11 @@ class IOrderFolderContent(Interface):
     """A marker interface for order folder content objects.
     """
         
-class IShippingPricesFolderContent(Interface):
+class IShippingPricesContainer(Interface):
     """A marker interface for shipping prices folder content objects.
     """
 
-class IShippingMethodsFolderContent(Interface):
+class IShippingMethodsContainer(Interface):
     """Marker interface to mark shipping method folder content objects.
     """
     

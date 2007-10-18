@@ -76,7 +76,7 @@
                        value="manage_payment_methods" />
 
                 <select name="type_name">  
-                    <option value="EasyShopDirectDebit" 
+                    <option value="DirectDebit" 
                             i18n:translate="direct_debit_label">
                         Direct Debit
                     </option>

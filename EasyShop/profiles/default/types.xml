@@ -2,101 +2,117 @@
 <object name="portal_types" meta_type="Plone Types Tool">
  <property
     name="title">Controls the available content types in your portal</property>
- <object name="DemmelhuberShippingPrice"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShop"
-    meta_type="Factory-based Type Information with dynamic views"/>
- <object name="EasyShopAddress" meta_type="Factory-based Type Information"/>
+
+ <object 
+     name="EasyShop"
+     meta_type="Factory-based Type Information with dynamic views"/>
+    
+ <object 
+     name="EasyShopAddress" 
+     meta_type="Factory-based Type Information"/>
  
- <object name="EasyShopCategories"
-         meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopCategories"
+     meta_type="Factory-based Type Information"/>
 
- <object name="EasyShopProductSelector"
-         meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopProductSelector"
+     meta_type="Factory-based Type Information"/>
 
-<!-- Payment Methods --> 
- <object name="EasyShopPaymentMethods"
-         meta_type="Factory-based Type Information"/>
- <object name="EasyShopDirectDebit"
-         meta_type="Factory-based Type Information"/>
- <object name="EasyShopPayPal" 
-         meta_type="Factory-based Type Information"/>    
- <object name="EasyShopSimplePaymentMethod"
-         meta_type="Factory-based Type Information"/>
- <object name="EasyShopPaymentValidator"
-         meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopCategory"
+     meta_type="Factory-based Type Information with dynamic views"/>
 
-<!-- Payment Prices -->              
- <object name="EasyShopPaymentPrices"
-         meta_type="Factory-based Type Information"/>
- <object name="EasyShopPaymentPrice"
-         meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopCategoryCriteria"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopCountryCriteria"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopCustomer"
+     meta_type="Factory-based Type Information"/>
 
-<!-- Shipping Methods -->              
- <object name="EasyShopShippingMethods"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShopShippingMethod"
-         meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopCustomerCriteria"
+     meta_type="Factory-based Type Information"/>
 
-<!-- Shipping Prices -->              
- <object name="EasyShopShippingPrices"
-    meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopPaymentMethodCriteria"
+     meta_type="Factory-based Type Information"/>
+
+ <object
+     name="EasyShopShippingMethodCriteria"
+     meta_type="Factory-based Type Information"/>
     
- <object name="EasyShopShippingPrice"
-         meta_type="Factory-based Type Information"/>    
-        
- <object name="EasyShopCategory"
-    meta_type="Factory-based Type Information with dynamic views"/>
- <object name="EasyShopCategoryCriteria"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShopCountryCriteria"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShopCustomer" meta_type="Factory-based Type Information"/>
+ <object 
+     name="EasyShopCustomers"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopDateCriteria"
+     meta_type="Factory-based Type Information"/>
 
- <object name="EasyShopCustomerCriteria"
-         meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopGroup"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopGroupCriteria"
+     meta_type="Factory-based Type Information"/>
 
- <object name="EasyShopPaymentMethodCriteria"
-         meta_type="Factory-based Type Information"/>
- <object name="EasyShopShippingMethodCriteria"
-         meta_type="Factory-based Type Information"/>
-    
- <object name="EasyShopCustomers" meta_type="Factory-based Type Information"/>
- <object name="EasyShopDateCriteria"
-    meta_type="Factory-based Type Information"/>
-
- <object name="EasyShopGroup" meta_type="Factory-based Type Information"/>
- <object name="EasyShopGroupCriteria"
-    meta_type="Factory-based Type Information"/>
-
- <object name="EasyShopGroups" 
-          meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopGroups" 
+     meta_type="Factory-based Type Information"/>
           
- <object name="EasyShopOrder" meta_type="Factory-based Type Information"/>
- <object name="EasyShopOrderItem" meta_type="Factory-based Type Information"/>
- <object name="EasyShopOrders" meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopOrder"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopOrderItem"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopOrders"
+     meta_type="Factory-based Type Information"/>
 
- <object name="EasyShopPhoto"
-    meta_type="Factory-based Type Information with dynamic views"/>
+ <object
+     name="EasyShopPhoto"
+     meta_type="Factory-based Type Information with dynamic views"/>
 
- <object name="EasyShopPriceCriteria"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShopProduct"
-    meta_type="Factory-based Type Information with dynamic views"/>
- <object name="EasyShopProductCriteria"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShopProductProperty"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShopProductPropertyelector"
-    meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopPriceCriteria"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopProduct"
+     meta_type="Factory-based Type Information with dynamic views"/>
+     
+ <object
+     name="EasyShopProductCriteria"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopProductProperty"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="EasyShopProductPropertyelector"
+     meta_type="Factory-based Type Information"/>
 
  <object name="EasyShopProducts"
          meta_type="Factory-based Type Information" />
 
- <object name="EasyShopWeightCriteria"
-    meta_type="Factory-based Type Information"/>
- <object name="EasyShopFormatter"
-    meta_type="Factory-based Type Information"/>
+ <object
+     name="EasyShopWeightCriteria"
+     meta_type="Factory-based Type Information"/>
+
+ <object
+     name="EasyShopFormatter"
+     meta_type="Factory-based Type Information"/>
     
     
 </object>

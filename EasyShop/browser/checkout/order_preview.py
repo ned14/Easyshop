@@ -147,7 +147,7 @@ class OrderPreviewView(BrowserView):
         putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
 
         # redirect
-        if pm.getSelectedPaymentMethod().portal_type != "EasyShopPayPal":
+        if pm.getSelectedPaymentMethod().portal_type != "PayPal":
             self.context.request.response.redirect(self.context.absolute_url())
 
     def getCart(self):

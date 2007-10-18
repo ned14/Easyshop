@@ -5,7 +5,7 @@
     <!-- Payment Price -->
     <browser:page  
         name="payment-price-view"
-        for="...interfaces.IPaymentPriceContent"
+        for="...interfaces.IPaymentPrice"
         class=".payment_price.PaymentPriceView"
         template="payment_price.pt"
         permission="cmf.ManagePortal" />
@@ -20,7 +20,7 @@
 
     <browser:page  
         name="payment-method-view"
-        for="...interfaces.IPaymentMethodValidatorContent"
+        for="...interfaces.IPaymentMethodValidator"
         class=".payment_method.PaymentMethodView"
         template="payment_method.pt"
         permission="cmf.ManagePortal" />
@@ -28,7 +28,7 @@
     <!-- Shipping Price -->
     <browser:page  
         name="shipping-price-view"
-        for="...interfaces.IShippingPriceContent"
+        for="...interfaces.IShippingPrice"
         class=".shipping_price.ShippingPriceView"
         template="shipping_price.pt"
         permission="cmf.ManagePortal" />
@@ -36,7 +36,7 @@
     <!-- Shipping Method -->
     <browser:page  
         name="shipping-method-view"
-        for="...interfaces.IShippingMethodContent"
+        for="...interfaces.IShippingMethod"
         class=".shipping_method.ShippingMethodView"
         template="shipping_method.pt"
         permission="cmf.ManagePortal" />

@@ -20,7 +20,7 @@ class TestShippingPriceValidityManager(EasyShopTestCase):
         """
         super(TestShippingPriceValidityManager, self).afterSetUp()                        
 
-        self.shop.shippingprices.invokeFactory("EasyShopShippingPrice", id="shipping_price")
+        self.shop.shippingprices.invokeFactory("ShippingPrice", id="shipping_price")
         self.shipping_price = self.shop.shippingprices.shipping_price
 
     def testIsValid_1(self):

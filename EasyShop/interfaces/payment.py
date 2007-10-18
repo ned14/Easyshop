@@ -18,7 +18,7 @@ class ICustomerPaymentMethod(IPaymentMethodContent):
     within customer objects. Example: direct debit
     """    
 
-class ISimplePaymentMethodContent(IShopPaymentMethod):
+class ISimplePaymentMethod(IShopPaymentMethod):
     """A marker interface for simple payment content objects.
     
     Note, that this is also a IShopPaymentMethod, means it needs no
@@ -36,21 +36,21 @@ class IPayPalContent(IShopPaymentMethod):
     further information per customer.
     """
     
-class IDirectDebitContent(ICustomerPaymentMethod):
+class IDirectDebit(ICustomerPaymentMethod):
     """A marker interface for direct debit content objects.
     
     Note, that this is also a ICustomerPaymentMethod, means it needs 
     further information (bank details) per customer.    
     """
 
-class IPaymentMethodValidatorContent(Interface):
+class IPaymentMethodValidator(Interface):
     """A corresponding validator object for a customer payment method object.
     It *can* exist within shop level to decide whether a customer payment
     method (like direct debit) is generally allowed or not. To manage this it
     holds criterion objects (just like shop payment objects).
     """
     
-class IPaymentPriceContent(Interface):
+class IPaymentPrice(Interface):
     """A marker interface for payment price content objects.
     """
 

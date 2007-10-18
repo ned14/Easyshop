@@ -7,7 +7,6 @@
     <!-- <adapter factory=".customer.CustomerRelated" /> -->
 
     <include package=".generic" />
-    <include package=".payment" />  
     
     <!-- =========== -->
     <!-- = generic = -->
@@ -108,9 +107,6 @@
     <!-- = Shop = -->
     <!-- ======== -->
     <adapter
-        factory=".shop.PaymentPrices" />
-    
-    <adapter
         factory=".shop.CustomerManagement" />
 
     <adapter
@@ -118,12 +114,6 @@
 
     <adapter 
         factory=".shop.ProductManagement" />
-
-    <adapter
-        factory=".shop.PaymentManagement" />
-
-    <adapter
-        factory=".shop.ShippingManagement" />
 
     <adapter
         factory=".shop.ShopCategoryManagement" />

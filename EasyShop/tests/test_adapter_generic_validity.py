@@ -18,16 +18,16 @@ class TestValidityAdapters(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        self.folder.manage_addProduct["EasyShop"].addEasyShopDirectDebit("cpm")
-        self.folder.manage_addProduct["EasyShop"].addEasyShopSimplePaymentMethod("spm")
-        self.folder.manage_addProduct["EasyShop"].addEasyShopPaymentValidator("pmv")
-        self.folder.manage_addProduct["EasyShop"].addEasyShopPaymentPrice("pp")
+        self.folder.manage_addProduct["EasyShop"].addDirectDebit("cpm")
+        self.folder.manage_addProduct["EasyShop"].addSimplePaymentMethod("spm")
+        self.folder.manage_addProduct["EasyShop"].addPaymentValidator("pmv")
+        self.folder.manage_addProduct["EasyShop"].addPaymentPrice("pp")
                         
         self.folder.manage_addProduct["EasyShop"].addCustomerTax("ct")
         self.folder.manage_addProduct["EasyShop"].addDefaultTax("dt")
 
-        self.folder.manage_addProduct["EasyShop"].addEasyShopShippingPrice("sp")
-        # self.folder.manage_addProduct["EasyShop"].addEasyShopShippingMethod("sm")
+        self.folder.manage_addProduct["EasyShop"].addShippingPrice("sp")
+        # self.folder.manage_addProduct["EasyShop"].addShippingMethod("sm")
                                 
     def testAdapters(self):
         """

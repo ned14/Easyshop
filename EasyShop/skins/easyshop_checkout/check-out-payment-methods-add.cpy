@@ -17,9 +17,9 @@ view = getMultiAdapter((context, context.REQUEST), name="checkOutView")
 customer = view.getAuthenticatedCustomer()
 
 if id.startswith("direct_debit_new"):
-    # add EasyShopDirectDebit
-    id = context.generateUniqueId("EasyShopDirectDebit")
-    customer.invokeFactory("EasyShopDirectDebit", id=id, title=name)
+    # add DirectDebit
+    id = context.generateUniqueId("DirectDebit")
+    customer.invokeFactory("DirectDebit", id=id, title=name)
     direct_debit = getattr(customer, id)        
     direct_debit.setAccountNumber(account_number)
     direct_debit.setBankIdentificationCode(bank_identification_code)

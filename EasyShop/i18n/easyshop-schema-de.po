@@ -15,7 +15,7 @@ msgstr ""
 "Domain: EasyShop\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_account_number_label"
 msgstr "Konto-Nummer"
 
@@ -39,11 +39,11 @@ msgstr "Externe Artikelnummer"
 msgid "schema_article_id_label"
 msgstr "Artikelnummer"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_bank_identification_code_label"
 msgstr "Bankleitzahl"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_bankname_label"
 msgstr "Bankname"
 
@@ -197,7 +197,7 @@ msgstr ""
 msgid "schema_mailto_label"
 msgstr "Empfänger"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_name_label"
 msgstr "Kontoinhaber"
 

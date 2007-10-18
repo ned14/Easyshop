@@ -1,5 +1,0 @@
-from EasyShopShippingPriceBase import EasyShopShippingPriceBase
-import DemmelhuberShippingPrice
-import EasyShopShippingPrice
-import shipping_method
-

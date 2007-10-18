@@ -28,7 +28,7 @@ class TestDirectDebit(EasyShopTestCase):
         self.customer = cm.getAuthenticatedCustomer()
         
         self.customer.invokeFactory(
-            "EasyShopDirectDebit",
+            "DirectDebit",
             id = "directdebit",
             )
         

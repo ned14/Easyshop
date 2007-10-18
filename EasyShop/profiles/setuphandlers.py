@@ -30,7 +30,7 @@ def setupFormController(portal):
                                          "redirect_to",
                                          "python: '%s/easyshoporder_preview' % object.getShop().absolute_url()")
     
-    for klass in ("EasyShopAddress", "EasyShopDirectDebit"):    
+    for klass in ("EasyShopAddress", "DirectDebit"):    
         portal_form_controller.addFormAction("validate_integrity",
                                              "success",
                                              klass,

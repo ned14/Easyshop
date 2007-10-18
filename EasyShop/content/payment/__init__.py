@@ -1,5 +1,0 @@
-import EasyShopDirectDebit
-import EasyShopPayPal
-import payment_price
-import payment_validator
-import simple_payment

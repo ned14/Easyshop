@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: EasyShop\n"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_account_number_label"
 msgstr "Numero di conto corrente"
 
@@ -38,11 +38,11 @@ msgstr "Inserisci il codice del prodotto"
 msgid "schema_article_id_label"
 msgstr "Codice prodotto"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_bank_identification_code_label"
 msgstr "Codice di identificazione della banca"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_bankname_label"
 msgstr "Nome della banca"
 
@@ -195,7 +195,7 @@ msgstr "Inserisci il destinatario delle notifiche via email"
 msgid "schema_mailto_label"
 msgstr "Destinatario notifiche email"
 
-#: schema | ../content/payment/EasyShopDirectDebit.py
+#: schema | ../content/payment/DirectDebit.py
 msgid "schema_name_label"
 msgstr "Nome"
 

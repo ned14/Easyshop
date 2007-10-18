@@ -18,25 +18,25 @@ and the navtree.
     >>> self.portal.error_log._ignored_exceptions = ()
     >>> workflow = self.portal.portal_workflow
 
-    >>> workflow.doActionFor(self.shop, 'publish')
-    >>> workflow.getInfoFor(self.shop, 'review_state')
+    >>> workflow.doActionFor(self.portal.myshop, 'publish')
+    >>> workflow.getInfoFor(self.portal.myshop, 'review_state')
     'published'
 
-    >>> workflow.doActionFor(self.product_1, 'publish')
-    >>> workflow.getInfoFor(self.product_1, 'review_state')
+    >>> workflow.doActionFor(self.portal.myshop.products.product_1, 'publish')
+    >>> workflow.getInfoFor(self.portal.myshop.products.product_1, 'review_state')
     'published'
 
-    >>> workflow.doActionFor(self.product_2, 'publish')
-    >>> workflow.getInfoFor(self.product_2, 'review_state')
+    >>> workflow.doActionFor(self.portal.myshop.products.product_2, 'publish')
+    >>> workflow.getInfoFor(self.portal.myshop.products.product_2, 'review_state')
     'published'
 
-    >>> workflow.doActionFor(self.product_42, 'publish')
-    >>> workflow.getInfoFor(self.product_42, 'review_state')
+    >>> workflow.doActionFor(self.portal.myshop.products.product_42, 'publish')
+    >>> workflow.getInfoFor(self.portal.myshop.products.product_42, 'review_state')
     'published'
 
 View the shop
 ------------------------------
-    >>> browser.open(self.shop.absolute_url())
+    >>> browser.open(self.portal.myshop.absolute_url())
     >>> browser.contents
     '...MyShop...'
 
@@ -44,7 +44,7 @@ Buy a product
 ------------------------------
 We browse to the document, we want to buy.
 
-    >>> browser.open(self.product_42.absolute_url())
+    >>> browser.open(self.portal.myshop.products.product_42.absolute_url())
     >>> browser.contents
     '...19,00...'
 
@@ -62,7 +62,7 @@ Once again to check the portal meassage for already added products.
 Buy a product with properties
 ------------------------------
 
-    >>> browser.open(self.product_1.absolute_url())
+    >>> browser.open(self.portal.myshop.products.product_1.absolute_url())
     >>> browser.contents
     '...22,00...'
     

@@ -29,7 +29,7 @@
    <element value="CartItem"/>
    <element value="EasyShopCustomerTax"/>
    <element value="DefaultTax"/>
-   <element value="EasyShopShippingPrice"/>
+   <element value="ShippingPrice"/>
    <element value="EasyShopCategoryCriteria"/>
    <element value="EasyShopCountryCriteria"/>
    <element value="EasyShopCustomerCriteria"/>
@@ -38,8 +38,8 @@
    <element value="EasyShopProductCriteria"/>
    <element value="EasyShopOrder"/>
    <element value="EasyShopOrderItem"/>
-   <element value="EasyShopDirectDebit"/>
-   <element value="EasyShopPayPal"/>
+   <element value="DirectDebit"/>
+   <element value="PayPal"/>
   </property>
  </object>
 

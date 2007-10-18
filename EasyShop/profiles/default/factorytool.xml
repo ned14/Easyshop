@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_factory" meta_type="Plone Factory Tool">
  <factorytypes>
-  <type portal_type="EasyShopShippingPrice"/> 
+  <type portal_type="ShippingPrice"/> 
   <type portal_type="EasyShopOrderItem"/> 
   <type portal_type="CartItem"/> 
   <type portal_type="EasyShopAddress"/> 
@@ -10,7 +10,7 @@
   <type portal_type="DefaultTax"/> 
   <type portal_type="EasyShopCustomer"/> 
   <type portal_type="EasyShopDateCriteria"/> 
-  <type portal_type="EasyShopDirectDebit"/> 
+  <type portal_type="DirectDebit"/> 
   <type portal_type="EasyShopProductCriteria"/> 
   <type portal_type="EasyShopCategoryCriteria"/> 
   <type portal_type="EasyShopOrder"/> 
@@ -22,6 +22,6 @@
   <type portal_type="Cart"/> 
   <type portal_type="EasyShopGroupCriteria"/> 
   <type portal_type="CustomerTax"/> 
-  <type portal_type="EasyShopPayPal"/> 
+  <type portal_type="PayPal"/> 
  </factorytypes>
 </object>

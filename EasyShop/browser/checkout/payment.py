@@ -7,7 +7,7 @@ from Products.Five.browser import BrowserView
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IDirectDebitContent
+from Products.EasyShop.interfaces import IDirectDebit
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IShopPaymentMethod
 from Products.EasyShop.interfaces import IValidity
@@ -50,7 +50,7 @@ class CheckOutPaymentView(BrowserView):
         result = []        
         pm = IPaymentManagement(customer)    
         for direct_debit in pm.getPaymentMethods(
-            interface=IDirectDebitContent, check_validity=True):
+            interface=IDirectDebit, check_validity=True):
             
             selected_payment_method = pm.getSelectedPaymentMethod(check_validity=True)
             if selected_payment_method.getId() == direct_debit.getId():

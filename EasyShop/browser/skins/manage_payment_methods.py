@@ -65,5 +65,5 @@ class ManagePaymentMethodsView(BrowserView):
         customer = cm.getAuthenticatedCustomer()
 
         pm  = IPaymentManagement(customer)
-        return pm.getPaymentMethods(("EasyShopDirectDebit",))
+        return pm.getPaymentMethods(("DirectDebit",))
 

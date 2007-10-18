@@ -166,27 +166,26 @@ class EasyShop(ATFolder, EasyShopBase):
 
     def at_post_create_script(self):
         """Overwritten to create some containers.
-        """        
-        
+        """
         # Add Content Type Registry
-        self.manage_addProduct["CMFCore"].manage_addRegistry()
-        ctr = self.content_type_registry
-        ctr.addPredicate("Photo", "extension")
-        ctr.getPredicate("Photo").edit("jpg jpeg png gif")
-        ctr.assignTypeName("Photo", "EasyShopPhoto")
+        # self.manage_addProduct["CMFCore"].manage_addRegistry()
+        # ctr = self.content_type_registry
+        # ctr.addPredicate("Photo", "extension")
+        # ctr.getPredicate("Photo").edit("jpg jpeg png gif")
+        # ctr.assignTypeName("Photo", "EasyShopPhoto")
         
         # Add containers
         self.manage_addProduct["EasyShop"].addEasyShopProducts(id="products", title="Products")        
         self.manage_addProduct["EasyShop"].addEasyShopCategories(id="categories", title="Categories")
         self.manage_addProduct["EasyShop"].addEasyShopGroups(id="groups", title="Groups")
         self.manage_addProduct["EasyShop"].addTaxesContainer(id="taxes", title="Taxes")
-        self.manage_addProduct["EasyShop"].addEasyShopShippingPrices(id="shippingprices", title="Shipping Prices")
-        self.manage_addProduct["EasyShop"].addEasyShopShippingMethods(id="shippingmethods", title="Shipping Methods")
+        self.manage_addProduct["EasyShop"].addShippingPricesContainer(id="shippingprices", title="Shipping Prices")
+        self.manage_addProduct["EasyShop"].addShippingMethodsContainer(id="shippingmethods", title="Shipping Methods")
         self.manage_addProduct["EasyShop"].addCartsContainer(id="carts", title="Carts")
         self.manage_addProduct["EasyShop"].addEasyShopOrders(id="orders", title="Orders")
         self.manage_addProduct["EasyShop"].addEasyShopCustomers(id="customers", title="Customers")
         self.manage_addProduct["EasyShop"].addEasyShopPaymentMethods(id="paymentmethods", title="Payment Methods")
-        self.manage_addProduct["EasyShop"].addEasyShopPaymentPrices(id="paymentprices", title="Payment Prices")        
+        self.manage_addProduct["EasyShop"].addPaymentPrices(id="paymentprices", title="Payment Prices")        
 
         # Add a formatter
         self.manage_addProduct["EasyShop"].addEasyShopFormatter(id="formatter", title="Formatter")
@@ -197,13 +196,13 @@ class EasyShop(ATFolder, EasyShopBase):
         self.orders.manage_permission('Add portal content', ['Member'], 1)
 
         # payment methods
-        self.paymentmethods.manage_addProduct["EasyShop"].addEasyShopPayPal(id="paypal", title="PayPal")
-        self.paymentmethods.manage_addProduct["EasyShop"].addEasyShopPaymentValidator(id="direct-debit", title="Direct Debit")
-        self.paymentmethods.manage_addProduct["EasyShop"].addEasyShopSimplePaymentMethod(id="prepayment", title="Prepayment")   
-        self.paymentmethods.manage_addProduct["EasyShop"].addEasyShopSimplePaymentMethod(id="cash-on-delivery", title="Cash on Delivery")
+        self.paymentmethods.manage_addProduct["EasyShop"].addPayPal(id="paypal", title="PayPal")
+        self.paymentmethods.manage_addProduct["EasyShop"].addPaymentValidator(id="direct-debit", title="Direct Debit")
+        self.paymentmethods.manage_addProduct["EasyShop"].addSimplePaymentMethod(id="prepayment", title="Prepayment")   
+        self.paymentmethods.manage_addProduct["EasyShop"].addSimplePaymentMethod(id="cash-on-delivery", title="Cash on Delivery")
         
         # Shipping methods
-        self.shippingmethods.manage_addProduct["EasyShop"].addEasyShopShippingMethod(id="default", title="Default")
+        self.shippingmethods.manage_addProduct["EasyShop"].addShippingMethod(id="default", title="Default")
                 
         # reindex
         for obj in self.objectValues():

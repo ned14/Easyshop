@@ -56,10 +56,10 @@ class IShippingManagement(Interface):
            tax manager
         """
 
-class IShippingPriceContent(Interface):
+class IShippingPrice(Interface):
     """Marker interface to mark shipping price content objects.
     """
 
-class IShippingMethodContent(Interface):
+class IShippingMethod(Interface):
     """Marker interface to mark shipping price content objects.
     """

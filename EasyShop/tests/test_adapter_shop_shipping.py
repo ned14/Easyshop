@@ -31,10 +31,10 @@ class TestShopShippingManagement(EasyShopTestCase):
     def testGetShippingPrices(self):
         """
         """
-        self.shop.shippingprices.invokeFactory("EasyShopShippingPrice", "s1")
-        self.shop.shippingprices.invokeFactory("EasyShopShippingPrice", "s2")
-        self.shop.shippingprices.invokeFactory("EasyShopShippingPrice", "s3")
-        self.shop.shippingprices.invokeFactory("EasyShopShippingPrice", "s4")
+        self.shop.shippingprices.invokeFactory("ShippingPrice", "s1")
+        self.shop.shippingprices.invokeFactory("ShippingPrice", "s2")
+        self.shop.shippingprices.invokeFactory("ShippingPrice", "s3")
+        self.shop.shippingprices.invokeFactory("ShippingPrice", "s4")
         
         ids = [p.getId() for p in self.sm.getShippingPrices()]
         self.assertEqual(ids, ["default", "s1", "s2", "s3", "s4"])
