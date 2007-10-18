@@ -19,7 +19,7 @@ class TestCustomerManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestCustomerManagement, self).afterSetUp()
         self.cm = ICustomerManagement(self.shop)
         
         self.shop.customers.invokeFactory("EasyShopCustomer", "c1")

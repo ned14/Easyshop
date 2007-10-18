@@ -16,11 +16,6 @@ from Products.EasyShop.interfaces import IValidity
 class TestValidity(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testCategory(self):
         """
         """
@@ -156,7 +151,10 @@ class TestValidity(EasyShopTestCase):
 
         self.assertEqual(v.isValid(), False)
         
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((
+            self.shop.products.product_1, 
+            self.shop.products.product_1.REQUEST), name="addToCart")
+            
         view.addToCart()
         self.assertEqual(v.isValid(), True)
 
@@ -166,7 +164,10 @@ class TestValidity(EasyShopTestCase):
         self.shop.c.setPrice(22.00)
         self.assertEqual(v.isValid(), False)
 
-        view = getMultiAdapter((self.product_2, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((
+            self.shop.products.product_2, 
+            self.shop.products.product_2.REQUEST), name="addToCart")
+            
         view.addToCart()
 
         self.shop.c.setPrice(40.00)
@@ -199,9 +200,16 @@ class TestValidity(EasyShopTestCase):
 
         self.assertEqual(v.isValid(), False)
         
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((
+            self.shop.products.product_1, 
+            self.shop.products.product_1.REQUEST), name="addToCart")
+
         view.addToCart()
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+
+        view = getMultiAdapter((
+            self.shop.products.product_2, 
+            self.shop.products.product_2.REQUEST), name="addToCart")
+
         view.addToCart()
         
         self.assertEqual(v.isValid(), True)

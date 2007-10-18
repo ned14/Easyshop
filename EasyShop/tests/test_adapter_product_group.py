@@ -18,7 +18,7 @@ class TestProductGroupManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestProductGroupManagement, self).afterSetUp()
         self.shop.products.invokeFactory(
             "EasyShopProduct", 
             id="product_3", 
@@ -29,23 +29,23 @@ class TestProductGroupManagement(EasyShopTestCase):
     def testHasGroups(self):
         """
         """
-        cm = IGroupManagement(self.product_1)
+        cm = IGroupManagement(self.shop.products.product_1)
         self.assertEqual(cm.hasGroups(), True)
 
-        cm = IGroupManagement(self.product_3)
+        cm = IGroupManagement(self.shop.products.product_3)
         self.assertEqual(cm.hasGroups(), False)
 
     def testGetGroups_1(self):
         """
         """
-        cm = IGroupManagement(self.product_1)
+        cm = IGroupManagement(self.shop.products.product_1)
         ids = [g.getId() for g in cm.getGroups()]
         self.assertEqual(ids, ["group_1", "group_2"])
         
     def testGetGroups_2(self):
         """
         """
-        cm = IGroupManagement(self.product_3)
+        cm = IGroupManagement(self.shop.products.product_3)
         self.assertEqual(cm.getGroups(), [])
 
         

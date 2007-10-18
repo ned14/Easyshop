@@ -18,16 +18,16 @@ class TestOrderManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestOrderManagement, self).afterSetUp()
 
     def testAddOrder(self):
         """
         """
         self.login("newmember")
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
 
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
         
         new_order = IOrderManagement(self.shop).addOrder(notify_=False)
@@ -100,10 +100,10 @@ class TestOrderManagement(EasyShopTestCase):
         """
         """
         self.login("newmember")
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
 
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
             
         om = IOrderManagement(self.shop)            
@@ -116,10 +116,10 @@ class TestOrderManagement(EasyShopTestCase):
         """
         """
         self.login("newmember")
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
 
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
             
         om = IOrderManagement(self.shop)            

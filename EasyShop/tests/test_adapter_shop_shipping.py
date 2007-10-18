@@ -18,7 +18,7 @@ class TestShopShippingManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestShopShippingManagement, self).afterSetUp()
         self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
         self.sm = IShippingManagement(self.shop)
         
@@ -73,7 +73,7 @@ class TestShopShippingManagement(EasyShopTestCase):
         """
         """
         self.login("newmember")
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         self.assertEqual("%.2f" % self.sm.getTaxForCustomer(), "0.84")
@@ -92,7 +92,7 @@ class TestShopShippingManagement(EasyShopTestCase):
         """
         """
         self.login("newmember")
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         self.assertEqual("%.2f" % self.sm.getPriceForCustomer(), "9.24")

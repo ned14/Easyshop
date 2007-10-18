@@ -18,7 +18,7 @@ class TestCartManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestCartManagement, self).afterSetUp()
         self.cm = ICartManagement(self.shop)
 
     def testAddCart(self):

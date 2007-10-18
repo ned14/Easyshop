@@ -7,7 +7,12 @@ def installDependencies(portal):
     qit = getToolByName(portal, "portal_quickinstaller")
 
     products_to_install = ["ATBackRef",
-                           "DataGridField"]
+                           "DataGridField",
+                           
+                           "easyshop.carts",
+                           "easyshop.criteria",
+                           "easyshop.taxes",
+                           ]
                            
     ids = [ x['id'] for x in qit.listInstallableProducts(skipInstalled=1) ]
     for product in products_to_install:
@@ -55,15 +60,6 @@ def setupFormController(portal):
                                          "redirect_to",
                                          "python: '%s?fieldset=%s' % (object.REQUEST.URL, object.REQUEST.form.get('fieldset'))")
                                          
-def installRelations(portal):
-    """
-    """
-    from five.intid.site import FiveIntIdsInstall, addUtility, add_intids    
-    add_intids(portal)
-    
-    from plone.app.relations.utils import add_relations
-    add_relations(portal)
-    
 def importVarious(context):
     """Import various settings.
     """
@@ -71,4 +67,4 @@ def importVarious(context):
 
     setupFormController(portal)
     installDependencies(portal)
-    # installRelations(portal)
+

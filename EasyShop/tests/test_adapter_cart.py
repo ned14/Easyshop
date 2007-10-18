@@ -6,7 +6,6 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports 
 from base import EasyShopTestCase
-from Products.EasyShop.tests import utils
 from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IAddressManagement
@@ -18,11 +17,6 @@ from Products.EasyShop.interfaces import ITaxes
 class TestCartItemManagement(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-        
     def testHasItemsAsAdmin(self):
         """
         """
@@ -170,9 +164,7 @@ class TestCartPrices(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
-        self.login("newmember")
-
+        super(TestCartPrices, self).afterSetUp()
         cm = ICartManagement(self.shop)
         self.cart = cm.createCart()
         
@@ -206,9 +198,7 @@ class TestCartTaxes(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
-        self.login("newmember")
-
+        super(TestCartTaxes, self).afterSetUp()
         cm = ICartManagement(self.shop)
         self.cart = cm.createCart()
         

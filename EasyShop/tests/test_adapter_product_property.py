@@ -18,13 +18,13 @@ class TestProductPropertyManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestProductPropertyManagement, self).afterSetUp()
         self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
                 
     def testGetPriceForCustomer_1(self):
         """Test a property which is in group and product.
         """
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
 
         price = pm.getPriceForCustomer("color", "Red")
         self.assertEqual("%.2f" % price, "-9.24")
@@ -38,7 +38,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
     def testGetPriceForCustomer_2(self):
         """Test a property which is just in group.
         """
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
 
         price = pm.getPriceForCustomer("size", "Small")
         self.assertEqual("%.2f" % price, "-10.17")
@@ -52,7 +52,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
     def testGetPriceGross_1(self):
         """Test a property which is in group and product.
         """
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
 
         price = pm.getPriceGross("color", "Red")
         self.assertEqual(price, -10.0) 
@@ -66,7 +66,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
     def testGetPriceGross_2(self):
         """Test a properties which is just in groups
         """
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
 
         price = pm.getPriceGross("size", "Small")
         self.assertEqual(price, -11.0) 
@@ -80,7 +80,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
     def testGetPriceNet_1(self):
         """Test a property which is in group and product
         """
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
 
         # Note that color prices are taken from product not from group
         price = pm.getPriceNet("color", "Red")
@@ -95,7 +95,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
     def testGetPriceNet_2(self):
         """Test a properties which is just in groups
         """
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
 
         price = pm.getPriceNet("size", "Small")
         self.assertEqual("%.2f" % price, "-9.24")
@@ -117,7 +117,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
         Note that properties are taken from group and product
         """
         
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
         ids = [p.getId() for p in pm.getProperties()]
         
         self.assertEqual(ids, ["color", "material", "quality", "size"])
@@ -125,7 +125,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
     def testGetProperty(self):
         """
         """
-        pm = IPropertyManagement(self.product_1)
+        pm = IPropertyManagement(self.shop.products.product_1)
 
         p = pm.getProperty("color")        
         self.assertEqual(p.aq_inner.aq_parent.portal_type, "EasyShopProduct")

@@ -18,7 +18,7 @@ class TestValidityManager(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestValidityManager, self).afterSetUp()                
         self.shop.taxes.invokeFactory("DefaultTax", id="default_tax")
         self.default_tax = self.shop.taxes.default_tax
 

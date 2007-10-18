@@ -5,7 +5,7 @@ First, some set-up:
     >>> zcml.load_config('configure.zcml', package=Products.EasyShop)
     
     >>> from Products.EasyShop.tests import utils
-    >>> utils.createTestEnvironment(self)
+    >>> utils.createTestEnvironment(self.portal)
     
     >>> from Products.Five.testbrowser import Browser
     >>> browser = Browser()

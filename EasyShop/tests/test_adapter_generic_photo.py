@@ -23,7 +23,7 @@ class TestPhotoManagement_1(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestPhotoManagement_1, self).afterSetUp()
         self.logout()
         
     def testGetMainPhoto(self):
@@ -50,7 +50,7 @@ class TestPhotoManagement_2(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestPhotoManagement_2, self).afterSetUp()
         self.product_1.invokeFactory("EasyShopPhoto", id="photo_1")
         self.product_1.invokeFactory("EasyShopPhoto", id="photo_2")        
         self.logout()
@@ -81,7 +81,7 @@ class TestPhotoManagement_3(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestPhotoManagement_3, self).afterSetUp()                        
                 
         img = os.path.join(package_home(product_globals), 'tests/test.jpg')
         img = open(img)
@@ -115,7 +115,7 @@ class TestPhotoManagement_4(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestPhotoManagement_4, self).afterSetUp()                    
                 
         img = os.path.join(package_home(product_globals), 'tests/test.jpg')
         img = open(img)

@@ -15,27 +15,22 @@ from Products.EasyShop.interfaces import IPrices
 class TestProductPriceCalculation_1(EasyShopTestCase):
     """Customer has same tax rate as default
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testGetPriceForCustomer(self):
         """Customer has same tax rate as default
         """
-        p = IPrices(self.product_1)
+        p = IPrices(self.shop.products.product_1)
         self.assertEqual("%.2f" % p.getPriceForCustomer(), "22.00")
 
     def testGetPriceNet(self):
         """
         """
-        p = IPrices(self.product_1)
+        p = IPrices(self.shop.products.product_1)
         self.assertEqual("%.2f" % p.getPriceNet(), "18.49")
 
     def testGetPriceGross(self):
         """
         """
-        p = IPrices(self.product_1)
+        p = IPrices(self.shop.products.product_1)
         self.assertEqual(p.getPriceGross(), 22.0)
 
 class TestProductPriceCalculation_2(EasyShopTestCase):
@@ -44,25 +39,25 @@ class TestProductPriceCalculation_2(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestProductPriceCalculation_2, self).afterSetUp()
         self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
         
     def testGetPriceForCustomer(self):
         """
         """
-        p = IPrices(self.product_1)
+        p = IPrices(self.shop.products.product_1)
         self.assertEqual("%.2f" % p.getPriceForCustomer(), "20.34")
         
     def testGetPriceNet(self):
         """
         """
-        p = IPrices(self.product_1)
+        p = IPrices(self.shop.products.product_1)
         self.assertEqual("%.2f" % p.getPriceNet(), "18.49")
 
     def testGetPriceGross(self):
         """
         """
-        p = IPrices(self.product_1)
+        p = IPrices(self.shop.products.product_1)
         self.assertEqual(p.getPriceGross(), 22.0)
         
         

@@ -9,8 +9,8 @@ class TestAddressManagementWithoutAddresses(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
-
+        super(TestAddressManagementWithoutAddresses, self).afterSetUp()
+        
         self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
         self.customer = self.shop.customers.customer
         self.customer.at_post_create_script()
@@ -47,8 +47,9 @@ class TestAddressManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
-
+        super(TestAddressManagement, self).afterSetUp()
+        self.setRoles(("Manager",))        
+        
         self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
         self.customer = self.shop.customers.customer
         

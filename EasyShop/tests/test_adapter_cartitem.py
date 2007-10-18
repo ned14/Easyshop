@@ -18,7 +18,8 @@ class TestCartItems(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestCartItems, self).afterSetUp()
+        
         self.login("newmember")
         cm = ICartManagement(self.shop)
         cart = cm.createCart()
@@ -104,7 +105,7 @@ class TestCartItemProperties(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestCartItemProperties, self).afterSetUp()
         self.login("newmember")
         cm = ICartManagement(self.shop)
         cart = cm.createCart()

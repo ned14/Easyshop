@@ -21,7 +21,7 @@ class TestDirectDebit(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestDirectDebit, self).afterSetUp()
         
         self.login("newmember")
         cm = ICustomerManagement(self.shop)

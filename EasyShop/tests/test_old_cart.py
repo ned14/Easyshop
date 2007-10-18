@@ -34,7 +34,7 @@ class TestCart(EasyShopTestCase):
         """
         """
         self.setRoles(['Manager'])
-        utils.createMember(self, "newmember")
+        utils.createMember(self.portal, "newmember")
                 
         self.folder.invokeFactory("EasyShop", 
                                   id="myshop", 
@@ -57,7 +57,7 @@ class TestCart(EasyShopTestCase):
         """
         self.login("newmember")
 
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
 
         cart = ICartManagement(self.shop).getCart()        
@@ -69,7 +69,7 @@ class TestCart(EasyShopTestCase):
         items = IItemManagement(cart).getItems()
         self.assertEqual(len(items), 1)
         
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
 
         items = IItemManagement(cart).getItems()
@@ -80,7 +80,7 @@ class TestCart(EasyShopTestCase):
         """
         self.logout()
 
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
 
         cart = ICartManagement(self.shop).getCart()
@@ -93,7 +93,7 @@ class TestCart(EasyShopTestCase):
         items = IItemManagement(cart).getItems()
         self.assertEqual(len(items), 1)
         
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         items = IItemManagement(cart).getItems()
@@ -105,7 +105,7 @@ class TestCart(EasyShopTestCase):
         """
         self.logout()
         
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
 
         cart = ICartManagement(self.shop).getCart()        
@@ -117,7 +117,7 @@ class TestCart(EasyShopTestCase):
         items = IItemManagement(cart).getItems()
         self.assertEqual(len(items), 1)
         
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         items = IItemManagement(cart).getItems()
@@ -135,7 +135,7 @@ class TestCart(EasyShopTestCase):
         """
         self.login("newmember")
     
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
 
         cart = ICartManagement(self.shop).getCart()
@@ -150,7 +150,7 @@ class TestCart(EasyShopTestCase):
         """
         self.login("newmember")
     
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
 
         cart = ICartManagement(self.shop).getCart()    

@@ -18,39 +18,36 @@ class TestSession:
         """
         return self.sid
         
-
 def createMember(self, id=None):
     """
     """    
     if id is None:
         id = 'newmember'
-
-    self.membership = self.portal.portal_membership
+    
+    self.membership = self.portal_membership
     self.membership.addMember(id, 'secret', ['Member'], [])
 
 def createTestEnvironment(self):
     """
     """
-    self.setRoles(['Manager'])
     createMember(self, "newmember")
     
-    self.folder.invokeFactory(
-        "EasyShop", 
+    self.manage_addProduct["EasyShop"].addEasyShop(
         id="myshop", 
         title="MyShop", 
         description="My test shop")
 
-    self.shop = self.folder.myshop
+    self.shop = self.myshop
     self.shop.at_post_create_script()
 
     # Add shipping and payment price
-    self.shop.shippingprices.invokeFactory("EasyShopShippingPrice", id="default", priceGross=10.0)
+    self.shop.shippingprices.manage_addProduct["EasyShop"].addEasyShopShippingPrice(id="default", priceGross=10.0)
     self.shop.shippingprices.default.reindexObject()
     
-    self.shop.paymentprices.invokeFactory("EasyShopPaymentPrice", id="default", priceGross=100.0)
+    self.shop.paymentprices.manage_addProduct["EasyShop"].addEasyShopPaymentPrice(id="default", priceGross=100.0)
     
     self.shop.setCountries(["Germany"])
-    self.shop.products.invokeFactory("EasyShopProduct", id="product_1", priceGross=22.0)
+    self.shop.products.manage_addProduct["EasyShop"].addEasyShopProduct(id="product_1", priceGross=22.0)
     self.product_1 = self.shop.products.product_1
     self.product_1.setWeight(10.0)
 
@@ -87,34 +84,34 @@ def createTestEnvironment(self):
     ]
 
     
-    self.product_1.invokeFactory("EasyShopProductProperty", id="color", title="Color")
+    self.product_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="color", title="Color")
     self.product_1.color.setOptions(color)
 
-    self.product_1.invokeFactory("EasyShopProductProperty", id="material", title="Material")
+    self.product_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="material", title="Material")
     self.product_1.material.setOptions(material)
 
-    self.product_1.invokeFactory("EasyShopProductProperty", id="quality", title="Quality")
+    self.product_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="quality", title="Quality")
     self.product_1.quality.setOptions(quality)
     
-    self.shop.products.invokeFactory("EasyShopProduct", id="product_2", priceGross=19.0)
+    self.shop.products.manage_addProduct["EasyShop"].addEasyShopProduct(id="product_2", priceGross=19.0)
     self.product_2 = self.shop.products.product_2
     self.product_2.setWeight(20.0)
 
     # A product without properties
-    self.shop.products.invokeFactory("EasyShopProduct", id="product_42", priceGross=19.0)
+    self.shop.products.manage_addProduct["EasyShop"].addEasyShopProduct(id="product_42", priceGross=19.0)
     self.product_42 = self.shop.products.product_42
     
     # Groups
-    self.shop.groups.invokeFactory("EasyShopGroup", id="group_1")
-    self.shop.groups.invokeFactory("EasyShopGroup", id="group_2")
+    self.shop.groups.manage_addProduct["EasyShop"].addEasyShopGroup(id="group_1")
+    self.shop.groups.manage_addProduct["EasyShop"].addEasyShopGroup(id="group_2")
     self.group_1 = self.shop.groups.group_1
     self.group_2 = self.shop.groups.group_2
 
     # Add properties to groups
-    self.group_1.invokeFactory("EasyShopProductProperty", id="color", title="Color")
+    self.group_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="color", title="Color")
     self.group_1.color.setOptions(color_for_groups)    
 
-    self.group_1.invokeFactory("EasyShopProductProperty", id="size", title="Size")
+    self.group_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="size", title="Size")
     self.group_1.size.setOptions(size_for_groups)    
         
     # Assign products to groups
@@ -123,31 +120,31 @@ def createTestEnvironment(self):
     self.group_2.addReference(self.product_1, "easyshopgroup_easyshopproduct")    
     
     # Categories
-    self.shop.categories.invokeFactory("EasyShopCategory", id="category_1")
-    self.shop.categories.category_1.invokeFactory("EasyShopCategory", id="category_11")
-    self.shop.categories.category_1.invokeFactory("EasyShopCategory", id="category_12")
-    self.shop.categories.category_1.category_11.invokeFactory("EasyShopCategory", id="category_111")        
-    self.shop.categories.invokeFactory("EasyShopCategory", id="category_2")
+    self.shop.categories.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_1")
+    self.shop.categories.category_1.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_11")
+    self.shop.categories.category_1.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_12")
+    self.shop.categories.category_1.category_11.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_111")
+    self.shop.categories.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_2")
     
     self.category_1 = self.shop.categories.category_1
     self.category_2 = self.shop.categories.category_2
-
+        
     # Assign products to categories
     self.category_1.category_11.addReference(self.product_1, "easyshopcategory_easyshopproduct")
     self.category_1.category_11.addReference(self.product_2, "easyshopcategory_easyshopproduct")
     
     # taxes    
-    self.shop.taxes.invokeFactory("DefaultTax", id="default", rate=19.0)
+    self.shop.taxes.manage_addProduct["EasyShop"].addDefaultTax(id="default", rate=19.0)
     
-    self.sid = self.portal.REQUEST.SESSION = TestSession("123")
+    self.sid = self.REQUEST.SESSION = TestSession("123")
 
 def createTestOrder(self):
     """
     """
-    view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+    view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
     view.addToCart()
 
-    view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+    view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
     view.addToCart()
 
     om = IOrderManagement(self.shop)

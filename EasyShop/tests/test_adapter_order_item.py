@@ -19,7 +19,7 @@ class TestOrderItemManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)        
+        super(TestOrderItemManagement, self).afterSetUp()                        
         self.login("newmember")
                 
         self.shop.orders.invokeFactory("EasyShopOrder", "order")
@@ -57,10 +57,10 @@ class TestOrderItemManagement(EasyShopTestCase):
     def testAddItemsFromCart(self):
         """
         """
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
 
-        view = getMultiAdapter((self.product_2, self.product_2.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
 
         cm = ICartManagement(self.shop)

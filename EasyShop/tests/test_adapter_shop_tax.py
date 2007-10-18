@@ -20,7 +20,7 @@ class TestShopTaxManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestShopTaxManagement, self).afterSetUp()
         self.shop.taxes.invokeFactory("DefaultTax", "d1")
         self.shop.taxes.invokeFactory("DefaultTax", "d2")
         self.shop.taxes.invokeFactory("DefaultTax", "d3")
@@ -59,11 +59,6 @@ class TestShopTaxManagement(EasyShopTestCase):
 class TestShopTaxes(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-        
     def testGetTax(self):
         """
         """

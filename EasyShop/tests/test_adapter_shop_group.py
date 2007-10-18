@@ -15,11 +15,6 @@ from Products.EasyShop.interfaces import IGroupManagement
 class TestShopGroupManagement(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testGetGroups(self):
         """
         """

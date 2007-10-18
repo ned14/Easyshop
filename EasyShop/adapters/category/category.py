@@ -60,16 +60,3 @@ class CategoryCategoryManagement:
         # Todo: Optimize
         return [brain.getObject() for brain in brains
                                   if brain.getId != self.context.getId()]
-            
-    def getTopLevelCategories(self):
-        """
-        """
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            portal_type = "EasyShopCategory",
-            path = {"query"       : "/".join(self.context.getPhysicalPath()),
-                    "depth"       : 1},
-            sort_on = "getObjPositionInParent",
-        )
-        
-        return brains

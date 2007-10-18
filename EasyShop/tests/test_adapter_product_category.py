@@ -18,7 +18,7 @@ class TestProductCategoryManager(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestProductCategoryManager, self).afterSetUp()
         self.shop.products.invokeFactory(
             "EasyShopProduct", 
             id="product_3", 
@@ -60,8 +60,9 @@ class TestProductCategoryManager(EasyShopTestCase):
             self.product_1, 
             "easyshopcategory_easyshopproduct")
                                         
-        ids = [c.getId() for c in cm.getCategories()]        
-        self.assertEqual(ids, ["category_11", "category_a", "category_b"])
+        ids = [c.getId() for c in cm.getCategories()]
+        for id in ["category_11", "category_a", "category_b"]:
+            self.failUnless(id in ids)
 
     def testGetCategories_2(self):
         """No categories there

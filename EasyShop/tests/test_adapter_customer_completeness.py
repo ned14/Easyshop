@@ -13,7 +13,7 @@ class TestCustomerCompleteness(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestCustomerCompleteness, self).afterSetUp()
 
         self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
         self.customer = self.shop.customers.customer
@@ -38,7 +38,7 @@ class TestCustomerCompleteness(EasyShopTestCase):
         self.customer.setShippingAddressAsString(id)
         self.assertEqual(c.isComplete(), False)
         
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         self.assertEqual(c.isComplete(), True)

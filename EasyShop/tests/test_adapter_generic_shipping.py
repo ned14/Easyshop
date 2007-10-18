@@ -18,7 +18,8 @@ class TestShippingPriceValidityManager(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestShippingPriceValidityManager, self).afterSetUp()                        
+
         self.shop.shippingprices.invokeFactory("EasyShopShippingPrice", id="shipping_price")
         self.shipping_price = self.shop.shippingprices.shipping_price
 
@@ -36,7 +37,7 @@ class TestShippingPriceValidityManager(EasyShopTestCase):
         self.shipping_price.invokeFactory("EasyShopPriceCriteria", id="price_criterion")
         self.shipping_price.price_criterion.setPrice(23.0)
 
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         v = IValidity(self.shop.shippingprices.shipping_price)
@@ -50,7 +51,7 @@ class TestShippingPriceValidityManager(EasyShopTestCase):
         self.shipping_price.invokeFactory("EasyShopPriceCriteria", id="price_criterion")
         self.shipping_price.price_criterion.setPrice(21.0)
 
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         v = IValidity(self.shop.shippingprices.shipping_price)
@@ -65,7 +66,7 @@ class TestShippingPriceValidityManager(EasyShopTestCase):
         # valid
         self.shipping_price.invokeFactory("EasyShopPriceCriteria", id="price_criterion")
         self.shipping_price.price_criterion.setPrice(23.0)
-        view = getMultiAdapter((self.product_1, self.product_1.REQUEST), name="addToCart")
+        view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()
         
         # invalid

@@ -17,11 +17,6 @@ from Products.EasyShop.interfaces import IType
 class TestPrepaymentType(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testGetType(self):
         """
         """
@@ -31,11 +26,6 @@ class TestPrepaymentType(EasyShopTestCase):
 class TestPrepaymentCompleteness(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testIsComplete(self):
         """
         """
@@ -45,11 +35,6 @@ class TestPrepaymentCompleteness(EasyShopTestCase):
 class TestPrepaymentPaymentProcessor(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testProcess(self):
         """
         """

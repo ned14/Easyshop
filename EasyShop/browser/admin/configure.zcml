@@ -7,5 +7,12 @@
         class=".export.ExportView"
         attribute="getOrders"
         permission="cmf.ManagePortal" />
+
+    <browser:page
+        for="*"
+        name="create-test-environment"
+        class=".test_environment.TestEnvironmentView"
+        attribute="create"
+        permission="cmf.ManagePortal" />
        
 </configure>

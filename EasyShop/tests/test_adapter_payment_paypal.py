@@ -17,11 +17,6 @@ from Products.EasyShop.interfaces import IType
 class TestPayPalType(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testGetType(self):
         """
         """
@@ -31,11 +26,6 @@ class TestPayPalType(EasyShopTestCase):
 class TestPayPalCompleteness(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testIsComplete(self):
         """
         """
@@ -45,11 +35,6 @@ class TestPayPalCompleteness(EasyShopTestCase):
 class TestPayPalPaymentProcessor(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testProcess(self):
         """
         """

@@ -17,11 +17,6 @@ from Products.EasyShop.interfaces import IType
 class TestCashOnDeliveryType(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testGetType(self):
         """
         """
@@ -31,11 +26,6 @@ class TestCashOnDeliveryType(EasyShopTestCase):
 class TestCashOnDeliveryCompleteness(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testIsComplete(self):
         """
         """
@@ -45,11 +35,6 @@ class TestCashOnDeliveryCompleteness(EasyShopTestCase):
 class TestCashOnDeliveryPaymentProcessor(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testProcess(self):
         """
         """

@@ -31,4 +31,5 @@ def addPaymentPricesToOrders(self):
 
         if obj.getPaymentTax() is None:
             obj.setPaymentTax(0.0)
+
     

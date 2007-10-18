@@ -18,31 +18,31 @@ class TestProductTaxCalculation(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestProductTaxCalculation, self).afterSetUp()
         self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
         
     def testGetTaxRate(self):
         """
         """
-        t = ITaxes(self.product_1)
+        t = ITaxes(self.shop.products.product_1)
         self.assertEqual(t.getTaxRate(), 19.0)
         
     def testGetTaxRateForCustomer(self):
         """
         """
-        t = ITaxes(self.product_1)
+        t = ITaxes(self.shop.products.product_1)
         self.assertEqual(t.getTaxRateForCustomer(), 10.0)
 
     def testGetTax(self):
         """
         """
-        t = ITaxes(self.product_1)
+        t = ITaxes(self.shop.products.product_1)
         self.assertEqual("%.2f" % t.getTax(), "3.51")
         
     def testGetTaxForCustomer(self):
         """
         """
-        t = ITaxes(self.product_1)
+        t = ITaxes(self.shop.products.product_1)
         self.assertEqual("%.2f" % t.getTaxForCustomer(), "1.85")
         
 def test_suite():

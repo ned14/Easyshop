@@ -15,11 +15,6 @@ from Products.EasyShop.interfaces import IProductManagement
 class TestShopProductManagement(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testGetAllProducts(self):
         """
         """

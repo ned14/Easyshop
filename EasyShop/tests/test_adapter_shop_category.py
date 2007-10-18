@@ -15,11 +15,6 @@ from Products.EasyShop.interfaces import ICategoryManagement
 class TestShopCategoryManagement(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        utils.createTestEnvironment(self)
-
     def testHasCategories(self):
         """
         """

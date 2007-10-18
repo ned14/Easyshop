@@ -19,7 +19,7 @@ class TestOrderPaymentManagement(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestOrderPaymentManagement, self).afterSetUp()                        
         
         self.shop.orders.invokeFactory("EasyShopOrder", "order")
         self.order = self.shop.orders.order

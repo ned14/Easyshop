@@ -20,7 +20,7 @@ class TestCurrencyManagementEUR(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestCurrencyManagementEUR, self).afterSetUp()
         self.cm = ICurrencyManagement(self.shop)
         
     def testGetLongName(self):
@@ -61,7 +61,7 @@ class TestCurrencyManagementUSD(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestCurrencyManagementUSD, self).afterSetUp()
         self.shop.setCurrency("usd")
         
         self.cm = ICurrencyManagement(self.shop)

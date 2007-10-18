@@ -15,7 +15,7 @@ class TestOrderPriceCalculation(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        utils.createTestEnvironment(self)
+        super(TestOrderPriceCalculation, self).afterSetUp()                        
         self.login("newmember")                
         utils.createTestOrder(self)
         
