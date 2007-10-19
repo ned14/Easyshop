@@ -39,7 +39,7 @@ class TestOrderPaymentManagement(EasyShopTestCase):
     def testGetSelectedPaymentMethod(self):
         """
         """
-        self.order.manage_addProduct["EasyShop"].addEasyShopCustomer("test")
+        self.order.manage_addProduct["EasyShop"].addCustomer("test")
         pm = IPaymentManagement(self.order)
         m = pm.getSelectedPaymentMethod()
         
@@ -48,7 +48,7 @@ class TestOrderPaymentManagement(EasyShopTestCase):
     def testProcessSelectedPaymentMethod(self):
         """
         """
-        self.order.manage_addProduct["EasyShop"].addEasyShopCustomer("test")
+        self.order.manage_addProduct["EasyShop"].addCustomer("test")
         pm = IPaymentManagement(self.order)
         result = pm.processSelectedPaymentMethod()
 

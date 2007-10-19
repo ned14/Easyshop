@@ -50,7 +50,7 @@ class TestValidity(EasyShopTestCase):
 
         cm = ICustomerManagement(self.shop)
         customer = cm.getAuthenticatedCustomer()        
-        customer.invokeFactory("EasyShopAddress", "address_1")
+        customer.invokeFactory("Address", "address_1")
 
         customer.address_1.setCountry("USA")
         self.assertEqual(v.isValid(), True)

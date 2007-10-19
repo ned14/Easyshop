@@ -11,7 +11,7 @@ class TestAddressManagementWithoutAddresses(EasyShopTestCase):
         """
         super(TestAddressManagementWithoutAddresses, self).afterSetUp()
         
-        self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
+        self.shop.customers.invokeFactory("Customer", "customer")
         self.customer = self.shop.customers.customer
         self.customer.at_post_create_script()
         
@@ -50,16 +50,16 @@ class TestAddressManagement(EasyShopTestCase):
         super(TestAddressManagement, self).afterSetUp()
         self.setRoles(("Manager",))        
         
-        self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
+        self.shop.customers.invokeFactory("Customer", "customer")
         self.customer = self.shop.customers.customer
         
-        self.customer.invokeFactory("EasyShopAddress", "address_1")
+        self.customer.invokeFactory("Address", "address_1")
         self.address_1 = self.customer.address_1
 
-        self.customer.invokeFactory("EasyShopAddress", "address_2")
+        self.customer.invokeFactory("Address", "address_2")
         self.address_2 = self.customer.address_2
 
-        self.customer.invokeFactory("EasyShopAddress", "address_3")
+        self.customer.invokeFactory("Address", "address_3")
         self.address_3 = self.customer.address_3
 
         self.customer.setInvoiceAddressAsString("address_1")

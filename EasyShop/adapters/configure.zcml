@@ -28,9 +28,6 @@
     <!-- ============= -->
     
     <adapter
-        factory=".customer.AddressCompleteness" />
-
-    <adapter
         for="..interfaces.IProductContent"        
         factory=".generic.PhotoManagement" />
 
@@ -68,31 +65,10 @@
         factory=".order.OrderItemManager" />
 
     <!-- ======== -->
-    <!-- = Customer = -->
-    <!-- ======== -->
-    <adapter
-        factory=".customer.CustomerAddressManager" />
-
-    <adapter
-        factory=".customer.CustomerPaymentManager" />
-
-    <adapter
-        factory=".customer.CustomerCompleteness" />
-
-    <!-- ======== -->
     <!-- = Shop = -->
     <!-- ======== -->
     <adapter
-        factory=".shop.CustomerManagement" />
-
-    <adapter
         factory=".shop.CurrencyManagement" />
-
-    <adapter 
-        factory=".shop.ProductManagement" />
-
-    <adapter
-        factory=".shop.ShopCategoryManagement" />
 
     <adapter
         factory=".shop.ShopGroupManagement" />

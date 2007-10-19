@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<object name="EasyShopCustomer" meta_type="Factory-based Type Information"
+<object name="Customer" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Customer</property>
  <property name="description">A customer buys products within a shop.</property>
  <property name="content_icon">user.gif</property>
- <property name="content_meta_type">EasyShopCustomer</property>
+ <property name="content_meta_type">Customer</property>
  <property name="product">EasyShop</property>
- <property name="factory">addEasyShopCustomer</property>
+ <property name="factory">addCustomer</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="DirectDebit"/>
-  <element value="EasyShopAddress"/>
+  <element value="Address"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="base_edit"/>

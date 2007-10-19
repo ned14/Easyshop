@@ -1,2 +1,0 @@
-import EasyShopAddress
-import EasyShopCustomer

@@ -58,12 +58,12 @@ class TestOrderManagement(EasyShopTestCase):
         self.shop.orders.invokeFactory("EasyShopOrder", "order")
         order = self.shop.orders.get("order")
         
-        self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
+        self.shop.customers.invokeFactory("Customer", "customer")
         customer = self.shop.customers.customer 
         
         om = IOrderManagement(self.shop)
         om.copyCustomerToOrder(customer, order)                
-        order_customer = order.objectValues("EasyShopCustomer")[0]        
+        order_customer = order.objectValues("Customer")[0]        
         
         self.assertEqual(customer.getId(), order_customer.getId())
         

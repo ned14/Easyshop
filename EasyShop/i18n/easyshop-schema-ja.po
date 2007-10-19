@@ -21,11 +21,11 @@ msgstr ""
 msgid "schema_account_number_label"
 msgstr "Konto-Nummer"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_address1_label"
 msgstr "Adresse"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_address2_label"
 msgstr "Adresszusatz"
 
@@ -58,11 +58,11 @@ msgstr ""
 msgid "schema_categories_label"
 msgstr "カテゴリー"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_city_label"
 msgstr "市"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_companyname_label"
 msgstr "法人"
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "schema_countries_label"
 msgstr "国"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_country_label"
 msgstr "国"
 
@@ -125,7 +125,7 @@ msgstr "チェックすると全てのカテゴリーがオープンされて表
 msgid "schema_expand_all_label"
 msgstr "カテゴリーをオープン"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_firstname_label"
 msgstr "Vorname"
 
@@ -158,11 +158,11 @@ msgstr ""
 msgid "schema_image_sizes_label"
 msgstr "Bildergröße"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_invoice_address_label"
 msgstr "Rechnungsadresse"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_lastname_label"
 msgstr "Nachname"
 
@@ -247,8 +247,8 @@ msgstr ""
 msgid "schema_paypal_url_label"
 msgstr "PayPal-URL"
 
-#: schema | ../content/customer/EasyShopAddress.py
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Address.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_phone_label"
 msgstr "Telefon"
 
@@ -315,11 +315,11 @@ msgstr "Rate"
 msgid "schema_related_products_label"
 msgstr "関連アイテム"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_selected_payment_method_label"
 msgstr "Zahlungsweise"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_shipping_address_label"
 msgstr "Lieferadresse"
 
@@ -409,11 +409,11 @@ msgstr "Mehrwertsteuer (Rate)"
 msgid "schema_title_label"
 msgstr "Titel"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_user_name_description"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_user_name_label"
 msgstr "Kundenname"
 
@@ -432,7 +432,7 @@ msgstr "　"
 msgid "schema_weight_label"
 msgstr "重さ（Kg）"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_zipcode_label"
 msgstr "郵便番号"
 

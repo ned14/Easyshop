@@ -16,8 +16,9 @@ def initialize(context):
     import easyshop.carts.content
     import easyshop.catalog.content
     import easyshop.criteria.content
-    import easyshop.payment.content    
-    import easyshop.shipping.content    
+    import easyshop.customer.content
+    import easyshop.payment.content
+    import easyshop.shipping.content
     import easyshop.taxes.content
     
     import content

@@ -1,7 +1,7 @@
 # zope imports
 from zope.interface import Interface
 
-class ICustomerContent(Interface):
+class ICustomer(Interface):
     """Marker interface for customer content objects.
     """
     

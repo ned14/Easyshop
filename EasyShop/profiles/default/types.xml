@@ -7,62 +7,10 @@
      name="EasyShop"
      meta_type="Factory-based Type Information with dynamic views"/>
     
- <object 
-     name="EasyShopAddress" 
-     meta_type="Factory-based Type Information"/>
- 
- <object
-     name="EasyShopCategories"
-     meta_type="Factory-based Type Information"/>
-
- <object
-     name="ProductSelector"
-     meta_type="Factory-based Type Information"/>
-
- <object
-     name="Category"
-     meta_type="Factory-based Type Information with dynamic views"/>
-
- <object
-     name="CategoryCriteria"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="CountryCriteria"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="EasyShopCustomer"
-     meta_type="Factory-based Type Information"/>
-
- <object
-     name="CustomerCriteria"
-     meta_type="Factory-based Type Information"/>
-
- <object
-     name="PaymentMethodCriteria"
-     meta_type="Factory-based Type Information"/>
-
- <object
-     name="ShippingMethodCriteria"
-     meta_type="Factory-based Type Information"/>
-    
- <object 
-     name="EasyShopCustomers"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="DateCriteria"
-     meta_type="Factory-based Type Information"/>
-
  <object
      name="EasyShopGroup"
      meta_type="Factory-based Type Information"/>
      
- <object
-     name="GroupCriteria"
-     meta_type="Factory-based Type Information"/>
-
  <object
      name="EasyShopGroups" 
      meta_type="Factory-based Type Information"/>
@@ -79,40 +27,4 @@
      name="EasyShopOrders"
      meta_type="Factory-based Type Information"/>
 
- <object
-     name="Photo"
-     meta_type="Factory-based Type Information with dynamic views"/>
-
- <object
-     name="PriceCriteria"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="Product"
-     meta_type="Factory-based Type Information with dynamic views"/>
-     
- <object
-     name="ProductCriteria"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="ProductProperty"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="ProductPropertyelector"
-     meta_type="Factory-based Type Information"/>
-
- <object name="Products"
-         meta_type="Factory-based Type Information" />
-
- <object
-     name="WeightCriteria"
-     meta_type="Factory-based Type Information"/>
-
- <object
-     name="EasyShopFormatter"
-     meta_type="Factory-based Type Information"/>
-    
-    
 </object>

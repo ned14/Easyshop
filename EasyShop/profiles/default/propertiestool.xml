@@ -24,10 +24,10 @@
    <element value="Product"/>
    <element value="Products"/>
    <element value="Category"/>
-   <element value="EasyShopCustomer"/>
+   <element value="Customer"/>
    <element value="Cart"/>
    <element value="CartItem"/>
-   <element value="EasyShopCustomerTax"/>
+   <element value="CustomerTax"/>
    <element value="DefaultTax"/>
    <element value="ShippingPrice"/>
    <element value="CategoryCriteria"/>

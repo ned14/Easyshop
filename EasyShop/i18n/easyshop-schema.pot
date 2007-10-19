@@ -22,11 +22,11 @@ msgstr ""
 msgid "schema_account_number_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_address1_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_address2_label"
 msgstr ""
 
@@ -59,11 +59,11 @@ msgstr ""
 msgid "schema_categories_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_city_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_companyname_label"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "schema_countries_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_country_label"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "schema_expand_all_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_firstname_label"
 msgstr ""
 
@@ -163,11 +163,11 @@ msgstr ""
 msgid "schema_image_sizes_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_invoice_address_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_lastname_label"
 msgstr ""
 
@@ -252,8 +252,8 @@ msgstr ""
 msgid "schema_paypal_url_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Address.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_phone_label"
 msgstr ""
 
@@ -323,11 +323,11 @@ msgstr ""
 msgid "schema_related_products_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_selected_payment_method_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_shipping_address_label"
 msgstr ""
 
@@ -421,11 +421,11 @@ msgstr ""
 msgid "schema_title_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_user_name_description"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_user_name_label"
 msgstr ""
 
@@ -444,6 +444,6 @@ msgstr ""
 msgid "schema_weight_label"
 msgstr ""
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_zipcode_label"
 msgstr ""

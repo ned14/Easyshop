@@ -6,7 +6,7 @@ PROJECTNAME = "EasyShop"
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
 setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 ADD_CONTENT_PERMISSIONS = {
-    'EasyShopCustomer': 'EasyShop: Add Customer',
+    'Customer': 'EasyShop: Add Customer',
 }
 
 setDefaultRoles('EasyShop: Add Customer', ('Manager',))
@@ -35,7 +35,7 @@ METATYPES_NOT_TO_LIST = ["Photo",
                          "Product", 
                          "Products",                          
                          "Category",
-                         "EasyShopCustomer",
+                         "Customer",
                          "Cart",
                          "CartItem",                         
                          "CustomerTax",

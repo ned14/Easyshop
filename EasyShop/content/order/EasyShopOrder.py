@@ -112,7 +112,7 @@ class EasyShopOrder(BaseFolder):
         """Returns the customer of the order
         """
         try:
-            return self.objectValues("EasyShopCustomer")[0]
+            return self.objectValues("Customer")[0]
         except IndexError:
             return None
 
@@ -125,7 +125,7 @@ class EasyShopOrder(BaseFolder):
         # addresses
         customer = self.getCustomer()
         if customer is not None:
-            for address in customer.objectValues("EasyShopAddress"):
+            for address in customer.objectValues("Address"):
                 text += " "
                 text += " ".join((address.getFirstname(),
                                   address.getLastname(),

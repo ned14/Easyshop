@@ -18,11 +18,11 @@ msgstr ""
 msgid "schema_account_number_label"
 msgstr "Numero di conto corrente"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_address1_label"
 msgstr "Indirizzo"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_address2_label"
 msgstr "Indirizzo (seconda linea)"
 
@@ -55,11 +55,11 @@ msgstr "Seleziona le categorie nelle quali sarà disponibile il prodotto"
 msgid "schema_categories_label"
 msgstr "Categorie"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_city_label"
 msgstr "Città"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_companyname_label"
 msgstr "Ragione sociale"
 
@@ -71,7 +71,7 @@ msgstr "Inserisci le nazioni dalle quali è possibile effettuare ordini"
 msgid "schema_countries_label"
 msgstr "Nazioni"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_country_label"
 msgstr "Nazione"
 
@@ -122,7 +122,7 @@ msgstr "Seleziona l'opzione se desideri visualizzare l'intera gerarchia di categ
 msgid "schema_expand_all_label"
 msgstr "Espandi tutte le categorie"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_firstname_label"
 msgstr "Nome"
 
@@ -154,11 +154,11 @@ msgstr "Seleziona le dimensioni disponibili per l'immagine"
 msgid "schema_image_sizes_label"
 msgstr "Dimensioni immagine"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_invoice_address_label"
 msgstr "Indirizzo di fatturazione"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_lastname_label"
 msgstr "Cognome"
 
@@ -243,8 +243,8 @@ msgstr "Inserisci la url per il pagamento con PayPal"
 msgid "schema_paypal_url_label"
 msgstr "URL PayPal"
 
-#: schema | ../content/customer/EasyShopAddress.py
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Address.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_phone_label"
 msgstr "Numero di telefono"
 
@@ -311,11 +311,11 @@ msgstr "Percentuale"
 msgid "schema_related_products_label"
 msgstr "Prodotti collegati"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_selected_payment_method_label"
 msgstr "Metodo di pagamento selezionato"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_shipping_address_label"
 msgstr "Indirizzo di spedizione"
 
@@ -405,11 +405,11 @@ msgstr "Tassa percentuale"
 msgid "schema_title_label"
 msgstr "Titolo"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_user_name_description"
 msgstr "Inserisci il tuo nome utente"
 
-#: schema | ../content/customer/EasyShopCustomer.py
+#: schema | ../content/customer/Customer.py
 msgid "schema_user_name_label"
 msgstr "Nome utente"
 
@@ -428,7 +428,7 @@ msgstr "Inserisci il peso del prodotto"
 msgid "schema_weight_label"
 msgstr "Peso"
 
-#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/Address.py
 msgid "schema_zipcode_label"
 msgstr "C.A.P."
 

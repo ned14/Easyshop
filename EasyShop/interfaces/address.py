@@ -1,7 +1,7 @@
 # zope imports
 from zope.interface import Interface
 
-class IAddressContent(Interface):
+class IAddress(Interface):
     """Marker interface to mark address content objects.
     """
     

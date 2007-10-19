@@ -17,9 +17,9 @@ view = getMultiAdapter((context, context.REQUEST), name="checkOutView")
 customer = view.getAuthenticatedCustomer()
 
 # add address
-id = context.generateUniqueId("EasyShopAddress")
+id = context.generateUniqueId("Address")
 
-customer.invokeFactory("EasyShopAddress", id=id, title=address1)
+customer.invokeFactory("Address", id=id, title=address1)
 address = getattr(customer, id)        
 
 # set data

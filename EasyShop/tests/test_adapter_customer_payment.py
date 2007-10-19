@@ -11,7 +11,7 @@ class TestPaymentManagement(EasyShopTestCase):
         """
         super(TestPaymentManagement, self).afterSetUp()
 
-        self.shop.customers.invokeFactory("EasyShopCustomer", "customer")
+        self.shop.customers.invokeFactory("Customer", "customer")
         self.customer = self.shop.customers.customer
         self.customer.at_post_create_script()
         

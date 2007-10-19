@@ -25,12 +25,12 @@ def setupFormController(portal):
     portal_form_controller = getToolByName(portal, "portal_form_controller")
     portal_form_controller.addFormAction("validate_integrity",
                                          "success",
-                                         "EasyShopCustomer",
+                                         "Customer",
                                          "checkout",
                                          "redirect_to",
                                          "python: '%s/easyshoporder_preview' % object.getShop().absolute_url()")
     
-    for klass in ("EasyShopAddress", "DirectDebit"):    
+    for klass in ("Address", "DirectDebit"):    
         portal_form_controller.addFormAction("validate_integrity",
                                              "success",
                                              klass,
@@ -47,7 +47,7 @@ def setupFormController(portal):
 
     portal_form_controller.addFormAction("validate_integrity",
                                          "success",
-                                         "EasyShopAddress",
+                                         "Address",
                                          "",
                                          "traverse_to",
                                          "string:easyshop_goto")
@@ -55,7 +55,7 @@ def setupFormController(portal):
 
     portal_form_controller.addFormAction("validate_integrity",
                                          "success",
-                                         "EasyShopCustomer",
+                                         "Customer",
                                          "",
                                          "redirect_to",
                                          "python: '%s?fieldset=%s' % (object.REQUEST.URL, object.REQUEST.form.get('fieldset'))")

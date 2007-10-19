@@ -4,11 +4,11 @@
   <type portal_type="ShippingPrice"/> 
   <type portal_type="EasyShopOrderItem"/> 
   <type portal_type="CartItem"/> 
-  <type portal_type="EasyShopAddress"/> 
+  <type portal_type="Address"/> 
   <type portal_type="CustomerCriteria"/> 
   <type portal_type="EasyShopGroup"/> 
   <type portal_type="DefaultTax"/> 
-  <type portal_type="EasyShopCustomer"/> 
+  <type portal_type="Customer"/> 
   <type portal_type="DateCriteria"/> 
   <type portal_type="DirectDebit"/> 
   <type portal_type="ProductCriteria"/> 

@@ -11,7 +11,7 @@ from Products.CMFCore.utils import getToolByName
 from base import EasyShopTestCase
 from Products.EasyShop.tests import utils
 from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import ICustomerContent
+from Products.EasyShop.interfaces import ICustomer
 
 class TestCustomerManagement(EasyShopTestCase):
     """
@@ -22,10 +22,10 @@ class TestCustomerManagement(EasyShopTestCase):
         super(TestCustomerManagement, self).afterSetUp()
         self.cm = ICustomerManagement(self.shop)
         
-        self.shop.customers.invokeFactory("EasyShopCustomer", "c1")
-        self.shop.customers.invokeFactory("EasyShopCustomer", "c2")
-        self.shop.customers.invokeFactory("EasyShopCustomer", "c3")
-        self.shop.customers.invokeFactory("EasyShopCustomer", "c4")
+        self.shop.customers.invokeFactory("Customer", "c1")
+        self.shop.customers.invokeFactory("Customer", "c2")
+        self.shop.customers.invokeFactory("Customer", "c3")
+        self.shop.customers.invokeFactory("Customer", "c4")
         
     def testGetAuthenticatedCustomer_1(self):
         """As anonymous, returns standard customer
@@ -40,7 +40,7 @@ class TestCustomerManagement(EasyShopTestCase):
         self.login("newmember")
         customer = self.cm.getAuthenticatedCustomer()
 
-        self.failUnless(ICustomerContent.providedBy(customer))
+        self.failUnless(ICustomer.providedBy(customer))
         self.assertEqual(customer.getId(), "newmember")
         
     def testGetCustomers(self):
@@ -55,7 +55,7 @@ class TestCustomerManagement(EasyShopTestCase):
         customer = self.cm.getCustomerById("c1")
 
         self.assertEqual(customer.getId(), "c1")
-        self.failUnless(ICustomerContent.providedBy(customer))
+        self.failUnless(ICustomer.providedBy(customer))
 
     def testGetCustomerById_2(self):
         """Non-existing customer
