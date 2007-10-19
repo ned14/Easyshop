@@ -44,7 +44,7 @@ class TestOrderManagement(EasyShopTestCase):
 
         # items should be overtaken (more concise tests for item managment are
         # in a seperated file)
-        self.failUnless(len(new_order.objectIds("EasyShopOrderItem")) == 2)
+        self.failUnless(len(new_order.objectIds("OrderItem")) == 2)
         
         # customer should be copied
         self.assertEqual(new_order.getCustomer().getId(), "newmember")
@@ -55,7 +55,7 @@ class TestOrderManagement(EasyShopTestCase):
     def testCopyCustomerToOrder(self):
         """
         """
-        self.shop.orders.invokeFactory("EasyShopOrder", "order")
+        self.shop.orders.invokeFactory("Order", "order")
         order = self.shop.orders.get("order")
         
         self.shop.customers.invokeFactory("Customer", "customer")
@@ -73,12 +73,12 @@ class TestOrderManagement(EasyShopTestCase):
         om = IOrderManagement(self.shop)
                 
         o = self.shop.orders
-        o.invokeFactory("EasyShopOrder", "o1")
+        o.invokeFactory("Order", "o1")
         
-        o.invokeFactory("EasyShopOrder", "o5")        
-        o.invokeFactory("EasyShopOrder", "o3")
-        o.invokeFactory("EasyShopOrder", "o4")
-        o.invokeFactory("EasyShopOrder", "o2")        
+        o.invokeFactory("Order", "o5")        
+        o.invokeFactory("Order", "o3")
+        o.invokeFactory("Order", "o4")
+        o.invokeFactory("Order", "o2")        
         o.reindexObject()
         
         wftool = getToolByName(self.shop, "portal_workflow")                

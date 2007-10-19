@@ -16,10 +16,10 @@ class EasyShopGroups(OrderedBaseFolder):
     """    
     implements(IGroupsContainer)
 
-class EasyShopOrders(BaseBTreeFolder):
+class Orders(BaseBTreeFolder):
     """A simple container to hold orders.
     """
     implements(IOrdersContainer)
                  
 registerType(EasyShopGroups, PROJECTNAME)
-registerType(EasyShopOrders, PROJECTNAME)
+registerType(Orders, PROJECTNAME)

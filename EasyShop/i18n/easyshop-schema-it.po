@@ -106,7 +106,7 @@ msgid "schema_description_label"
 msgstr "Descrizione"
 
 #: schema | ../content/cart/EasyShopCartItem.py
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_easyshop_products_label"
 msgstr "Prodotti"
 
@@ -203,11 +203,11 @@ msgstr "Nome"
 msgid "schema_payment_methods_label"
 msgstr "Metodi di pagamento"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_price_gross_label"
 msgstr "Prezzo (tasse incluse)"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_price_net_label"
 msgstr "Prezzo (senza tasse)"
 
@@ -219,11 +219,11 @@ msgstr "Lo stato del pagamento"
 msgid "schema_payment_state_label"
 msgstr "Stato"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_tax_label"
 msgstr "Tassa sul metodo di pagamento"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_tax_rate_label"
 msgstr "Tassa percentuale sul metodo di pagamento"
 
@@ -248,13 +248,13 @@ msgstr "URL PayPal"
 msgid "schema_phone_label"
 msgstr "Numero di telefono"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 #: schema | ../content/payment/payment_price.py
 #: schema | ../content/product/Product.py
 msgid "schema_price_gross_label"
 msgstr "Prezzo (tasse incluse)"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_price_net_label"
 msgstr "Prezzo (tasse escluse)"
 
@@ -266,19 +266,19 @@ msgstr "Altezza"
 msgid "schema_product_height_description"
 msgstr "Inserisci l'altezza del prodotto"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_price_gross_label"
 msgstr "Prezzo del prodotto (tasse incluse)"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_price_net_label"
 msgstr "Prezzo del prodotto (tasse escluse)"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_quantity_label"
 msgstr "Quantità del prodotto"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_tax_label"
 msgstr "Tassa sul prodotto"
 
@@ -323,19 +323,19 @@ msgstr "Indirizzo di spedizione"
 msgid "schema_shipping_methods_label"
 msgstr "Metodi di spedizione"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_price_gross_label"
 msgstr "Costo della spedizione (tasse incluse)"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_price_net_label"
 msgstr "Costo della spedizione (tasse escluse)"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_tax_label"
 msgstr "Tassa di spedizione"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_tax_rate_label"
 msgstr "Tassa di spedizione (percentuale)"
 
@@ -391,11 +391,11 @@ msgstr "Sottotitolo"
 msgid "schema_subtitle_label"
 msgstr "Sottotitolo"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_tax_label"
 msgstr "Tassa"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_tax_rate_label"
 msgstr "Tassa percentuale"
 

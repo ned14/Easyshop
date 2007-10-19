@@ -15,16 +15,4 @@
      name="EasyShopGroups" 
      meta_type="Factory-based Type Information"/>
           
- <object
-     name="EasyShopOrder"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="EasyShopOrderItem"
-     meta_type="Factory-based Type Information"/>
-     
- <object
-     name="EasyShopOrders"
-     meta_type="Factory-based Type Information"/>
-
 </object>

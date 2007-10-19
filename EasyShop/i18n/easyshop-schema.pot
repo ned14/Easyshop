@@ -110,7 +110,7 @@ msgid "schema_description_label"
 msgstr ""
 
 #: schema | ../content/cart/EasyShopCartItem.py
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_easyshop_products_label"
 msgstr ""
 
@@ -212,11 +212,11 @@ msgstr ""
 msgid "schema_payment_methods_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_price_gross_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_price_net_label"
 msgstr ""
 
@@ -228,11 +228,11 @@ msgstr ""
 msgid "schema_payment_state_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_tax_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_tax_rate_label"
 msgstr ""
 
@@ -257,14 +257,14 @@ msgstr ""
 msgid "schema_phone_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 #: schema | ../content/payment/payment_price.py
 #: schema | ../content/product/Product.py
 #: schema | ../content/shipping/ShippingPrice.py
 msgid "schema_price_gross_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_price_net_label"
 msgstr ""
 
@@ -276,19 +276,19 @@ msgstr ""
 msgid "schema_product_height_description"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_price_gross_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_price_net_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_quantity_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_tax_label"
 msgstr ""
 
@@ -335,19 +335,19 @@ msgstr ""
 msgid "schema_shipping_methods_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_price_gross_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_price_net_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_tax_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_tax_rate_label"
 msgstr ""
 
@@ -403,11 +403,11 @@ msgstr ""
 msgid "schema_subtitle_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_tax_label"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_tax_rate_label"
 msgstr ""
 

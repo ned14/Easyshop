@@ -5,7 +5,7 @@ class ICartItem(Interface):
     """Marker interface to mark cart item content objects.
     """
 
-class IOrderItemContent(Interface):
+class IOrderItem(Interface):
     """Marker interface to mark order item content objects.
     """
             

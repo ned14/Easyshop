@@ -36,8 +36,8 @@
    <element value="DateCriteria"/>
    <element value="GroupCriteria"/>
    <element value="ProductCriteria"/>
-   <element value="EasyShopOrder"/>
-   <element value="EasyShopOrderItem"/>
+   <element value="Order"/>
+   <element value="OrderItem"/>
    <element value="DirectDebit"/>
    <element value="PayPal"/>
   </property>

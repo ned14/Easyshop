@@ -1,7 +1,7 @@
 # zope imports
 from zope.interface import Interface
 
-class IOrderContent(Interface):
+class IOrder(Interface):
     """Marker interface to mark order content objects.
     """
     

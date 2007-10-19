@@ -22,7 +22,7 @@ class TestOrderItemManagement(EasyShopTestCase):
         super(TestOrderItemManagement, self).afterSetUp()                        
         self.login("newmember")
                 
-        self.shop.orders.invokeFactory("EasyShopOrder", "order")
+        self.shop.orders.invokeFactory("Order", "order")
         self.order = self.shop.orders.order
 
     def testAddItem(self):
@@ -46,8 +46,8 @@ class TestOrderItemManagement(EasyShopTestCase):
     def testGetItems(self):
         """
         """
-        self.order.invokeFactory("EasyShopOrderItem", "item_1")
-        self.order.invokeFactory("EasyShopOrderItem", "item_2")        
+        self.order.invokeFactory("OrderItem", "item_1")
+        self.order.invokeFactory("OrderItem", "item_2")        
                         
         im = IItemManagement(self.order)
         item_ids = [item.getId() for item in im.getItems()]

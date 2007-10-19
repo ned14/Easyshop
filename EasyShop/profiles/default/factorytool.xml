@@ -2,7 +2,7 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
  <factorytypes>
   <type portal_type="ShippingPrice"/> 
-  <type portal_type="EasyShopOrderItem"/> 
+  <type portal_type="OrderItem"/> 
   <type portal_type="CartItem"/> 
   <type portal_type="Address"/> 
   <type portal_type="CustomerCriteria"/> 
@@ -13,7 +13,7 @@
   <type portal_type="DirectDebit"/> 
   <type portal_type="ProductCriteria"/> 
   <type portal_type="CategoryCriteria"/> 
-  <type portal_type="EasyShopOrder"/> 
+  <type portal_type="Order"/> 
   <type portal_type="Product"/> 
   <type portal_type="Category"/> 
   <type portal_type="EasyShop"/> 

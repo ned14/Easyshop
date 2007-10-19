@@ -14,7 +14,7 @@ def addPaymentPricesToOrders(self):
     """
     catalog = getToolByName(self, "portal_catalog")
     brains = catalog.searchResults(
-        portal_type = "EasyShopOrder",
+        portal_type = "Order",
     )
     
     for brain in brains:

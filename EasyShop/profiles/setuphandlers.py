@@ -7,11 +7,7 @@ def installDependencies(portal):
     qit = getToolByName(portal, "portal_quickinstaller")
 
     products_to_install = ["ATBackRef",
-                           "DataGridField",
-                           
-                           "easyshop.carts",
-                           "easyshop.criteria",
-                           "easyshop.taxes",
+                           "DataGridField",                           
                            ]
                            
     ids = [ x['id'] for x in qit.listInstallableProducts(skipInstalled=1) ]

@@ -21,7 +21,7 @@ class TestOrderPaymentManagement(EasyShopTestCase):
         """
         super(TestOrderPaymentManagement, self).afterSetUp()                        
         
-        self.shop.orders.invokeFactory("EasyShopOrder", "order")
+        self.shop.orders.invokeFactory("Order", "order")
         self.order = self.shop.orders.order
                         
     def testDeletePaymentMethod(self):

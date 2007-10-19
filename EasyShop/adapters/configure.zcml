@@ -52,18 +52,6 @@
     <adapter
         factory=".cart.CartPrices" />
 
-    <!-- ========= -->
-    <!-- = Order = -->
-    <!-- ========= -->
-    <adapter 
-        factory=".order.PaymentManagement" />
-    
-    <adapter
-        factory=".order.OrderPriceCalculator" />
-
-    <adapter
-        factory=".order.OrderItemManager" />
-
     <!-- ======== -->
     <!-- = Shop = -->
     <!-- ======== -->
@@ -73,11 +61,6 @@
     <adapter
         factory=".shop.ShopGroupManagement" />
         
-    <adapter
-        for="..interfaces.IShopContent"
-        provides="..interfaces.IOrderManagement"
-        factory=".shop.OrderManagement" />
-
     <!-- ========= -->
     <!-- = Group = -->
     <!-- ========= -->    

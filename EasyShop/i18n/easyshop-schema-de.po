@@ -107,7 +107,7 @@ msgid "schema_description_label"
 msgstr "Beschreibung"
 
 #: schema | ../content/cart/EasyShopCartItem.py
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_easyshop_products_label"
 msgstr "Produkte"
 
@@ -205,11 +205,11 @@ msgstr "Kontoinhaber"
 msgid "schema_payment_methods_label"
 msgstr "Zahlungsweisen"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_price_gross_label"
 msgstr "Bruttopreis"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_price_net_label"
 msgstr "Nettopreis"
 
@@ -221,11 +221,11 @@ msgstr ""
 msgid "schema_payment_state_label"
 msgstr "Zahlstatus"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_tax_label"
 msgstr "Mehrwertsteuer"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_payment_tax_rate_label"
 msgstr "Mehrwertsteuersatz"
 
@@ -250,13 +250,13 @@ msgstr "PayPal-URL"
 msgid "schema_phone_label"
 msgstr "Telefon"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 #: schema | ../content/payment/payment_price.py
 #: schema | ../content/product/Product.py
 msgid "schema_price_gross_label"
 msgstr "Preis (Brutto)"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_price_net_label"
 msgstr "Preise (Netto)"
 
@@ -268,19 +268,19 @@ msgstr "Höhe"
 msgid "schema_product_height_description"
 msgstr ""
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_price_gross_label"
 msgstr "Produktpreis (Brutto)"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_price_net_label"
 msgstr "Produktpreis (Netto)"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_quantity_label"
 msgstr "Produktmenge"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_product_tax_label"
 msgstr "Produktsteuer"
 
@@ -325,19 +325,19 @@ msgstr "Lieferadresse"
 msgid "schema_shipping_methods_label"
 msgstr "Lieferarten"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_price_gross_label"
 msgstr "Lieferkosten (Brutto)"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_price_net_label"
 msgstr "Lieferkosten (Netto)"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_tax_label"
 msgstr "Mehrwertsteuer (Betrag)"
 
-#: schema | ../content/order/EasyShopOrder.py
+#: schema | ../content/order/Order.py
 msgid "schema_shipping_tax_rate_label"
 msgstr "Mehrwertsteuer  (Rate)"
 
@@ -393,11 +393,11 @@ msgstr ""
 msgid "schema_subtitle_label"
 msgstr "Untertitel"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_tax_label"
 msgstr "Mehrwertsteuer (Betrag)"
 
-#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/order/OrderItem.py
 msgid "schema_tax_rate_label"
 msgstr "Mehrwertsteuer (Rate)"
 

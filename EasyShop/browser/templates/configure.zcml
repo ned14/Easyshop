@@ -51,7 +51,7 @@
 
     <!-- Order View -->
     <browser:page
-        for="...interfaces.IOrderContent"
+        for="...interfaces.IOrder"
         name="redo-payment"
         class=".order_view.OrderView"
         attribute="redoPayment"
@@ -114,14 +114,14 @@
 
     <!-- Todo: get rid of this -->
     <browser:page
-        for="...interfaces.IOrderContent"
+        for="...interfaces.IOrder"
         name="orderView"
         class=".order_view.OrderView"
         allowed_interface=".order_view.IOrderView"
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IOrderContent"
+        for="...interfaces.IOrder"
         name="order"
         class=".order_view.OrderView"
         template="order_view.pt"
