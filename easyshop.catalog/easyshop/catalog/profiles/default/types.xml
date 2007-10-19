@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<object name="portal_types" meta_type="Plone Types Tool">
+ <property
+    name="title">Controls the available content types in your portal</property>
+
+ <object
+     name="EasyShopCategories"
+     meta_type="Factory-based Type Information"/>
+
+ <object
+     name="Category"
+     meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object name="Products"
+         meta_type="Factory-based Type Information" />
+
+ <object
+     name="Product"
+     meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object
+     name="ProductProperty"
+     meta_type="Factory-based Type Information"/>
+     
+ <object
+     name="Photo"
+     meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object
+     name="EasyShopFormatter"
+     meta_type="Factory-based Type Information"/>
+
+ <object
+     name="ProductSelector"
+     meta_type="Factory-based Type Information"/>
+        
+</object>
