@@ -1,0 +1,9 @@
+Changelog for easyshop.customer
+
+    (name of developer listed in brackets)
+
+easyshop.customer - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
