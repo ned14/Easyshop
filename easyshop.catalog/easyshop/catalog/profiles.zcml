@@ -3,7 +3,7 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="Catalog for EasyShop"
+        title="easyshop.catalog"
         directory="profiles/default"
         description="Catalog for EasyShop"
         provides="Products.GenericSetup.interfaces.EXTENSION" />

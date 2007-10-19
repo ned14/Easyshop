@@ -25,5 +25,12 @@
     <adapter
         factory=".category.CategoryCategoryManagement" />
 
+
+    <adapter 
+        factory=".shop.product.ShopProductManagement" />
+
+    <adapter
+        factory=".shop.category.ShopCategoryManagement" />
+
     
 </configure>
