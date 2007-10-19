@@ -1,6 +1,6 @@
 from zope.interface import Interface
     
-class IFormatterContent(Interface):
+class IFormatter(Interface):
     """Marker interface to mark category content objects.
     
     A formatter provides informations of how products of a shop/category/selector

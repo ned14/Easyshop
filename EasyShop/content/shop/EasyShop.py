@@ -182,13 +182,13 @@ class EasyShop(ATFolder, EasyShopBase):
         self.manage_addProduct["EasyShop"].addShippingPricesContainer(id="shippingprices", title="Shipping Prices")
         self.manage_addProduct["EasyShop"].addShippingMethodsContainer(id="shippingmethods", title="Shipping Methods")
         self.manage_addProduct["EasyShop"].addCartsContainer(id="carts", title="Carts")
-        self.manage_addProduct["EasyShop"].addOrders(id="orders", title="Orders")
-        self.manage_addProduct["EasyShop"].addCustomers(id="customers", title="Customers")
+        self.manage_addProduct["EasyShop"].addOrdersContainer(id="orders", title="Orders")
+        self.manage_addProduct["EasyShop"].addCustomersContainer(id="customers", title="Customers")
         self.manage_addProduct["EasyShop"].addPaymentMethodsContainer(id="paymentmethods", title="Payment Methods")
         self.manage_addProduct["EasyShop"].addPaymentPricesContainer(id="paymentprices", title="Payment Prices")
 
         # Add a formatter
-        self.manage_addProduct["EasyShop"].addEasyShopFormatter(id="formatter", title="Formatter")
+        self.manage_addProduct["EasyShop"].addFormatter(id="formatter", title="Formatter")
         
         # Todo: This has to be done with workflow
         # Users should be able to modify itselfs. 

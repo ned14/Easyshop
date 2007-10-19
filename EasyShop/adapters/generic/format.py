@@ -5,7 +5,7 @@ from zope.component.exceptions import ComponentLookupError
   
 # EasyShop imports
 from Products.EasyShop.config import IMAGE_SIZES
-from Products.EasyShop.interfaces import IFormatterContent
+from Products.EasyShop.interfaces import IFormatter
 from Products.EasyShop.interfaces import IFormatterInfos
 from Products.EasyShop.interfaces import IShopContent
 
@@ -80,7 +80,7 @@ class FormatterInfos:
         """
         """    
         try:
-            self.context.objectValues("EasyShopFormatter")[0]
+            self.context.objectValues("Formatter")[0]
         except IndexError:
             return False
         
@@ -93,7 +93,7 @@ class FormatterInfos:
 
         while IShopContent.providedBy(obj) == False:
             try:
-                return self.context.objectValues("EasyShopFormatter")[0]
+                return self.context.objectValues("Formatter")[0]
             except IndexError:
                 pass
             
@@ -101,7 +101,7 @@ class FormatterInfos:
 
         # For a shop
         try:
-            return obj.objectValues("EasyShopFormatter")[0]
+            return obj.objectValues("Formatter")[0]
         except IndexError:
             pass
                     
