@@ -1,0 +1,20 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five">
+
+    <adapter
+        factory=".cart_item.CartItemTaxes" />
+        
+    <adapter
+        factory=".cart.CartTaxes" />
+
+    <adapter
+        factory=".product.ProductTaxCalculator" />
+
+    <adapter
+        factory=".shop.Taxes" />
+
+    <adapter
+        factory=".shop.TaxManagement" />
+    
+</configure>
