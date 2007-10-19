@@ -11,10 +11,10 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="EasyShopGroupCriteria"/>
-  <element value="EasyShopDateCriteria"/>
+  <element value="GroupCriteria"/>
+  <element value="DateCriteria"/>
   <element value="EasyShopCategoryCriteria"/>
-  <element value="EasyShopProductCriteria"/>
+  <element value="ProductCriteria"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="shipping-method-view"/>

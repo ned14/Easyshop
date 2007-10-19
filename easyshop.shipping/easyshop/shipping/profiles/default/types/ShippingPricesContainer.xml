@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="ShippingMethodsContainer" meta_type="Factory-based Type Information"
+<object name="ShippingPricesContainer" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Shipping Prices Container</property>
  <property name="description">A container to hold shipping prices.</property>
@@ -11,7 +11,7 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="EasyShopShippingPrice" />
+  <element value="ShippingPrice" />
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="shipping-prices-view"/>

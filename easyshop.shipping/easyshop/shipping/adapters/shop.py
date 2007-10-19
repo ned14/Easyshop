@@ -13,7 +13,7 @@ from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IValidity
 from Products.EasyShop.interfaces import IShopContent
-from Products.EasyShop.content.product.EasyShopProduct import EasyShopProduct
+from easyshop.catalog.content.product import Product
 
 
 class ShippingManagement:
@@ -56,7 +56,7 @@ class ShippingManagement:
         # Todo: By interface
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            portal_type = ("EasyShopShippingPrice", "DemmelhuberShippingPrice"),
+            portal_type = ("ShippingPrice", "DemmelhuberShippingPrice"),
             path = "/".join(self.prices.getPhysicalPath()),
             sort_on = "getObjPositionInParent",
         )
@@ -78,7 +78,7 @@ class ShippingManagement:
         # Todo: By interface
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            portal_type = ("EasyShopShippingMethod",),
+            portal_type = ("ShippingMethod",),
             path = "/".join(self.methods.getPhysicalPath()),
             sort_on = "getObjPositionInParent",
         )
@@ -165,7 +165,7 @@ class ShippingManagement:
     def createTemporaryShippingProduct(self):
         """
         """
-        temp_shipping_product = EasyShopProduct("shipping")
+        temp_shipping_product = Product("shipping")
         temp_shipping_product.setPriceGross(self.getPriceGross())
         temp_shipping_product.context = self.context
         

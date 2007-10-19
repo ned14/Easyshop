@@ -5,7 +5,7 @@
         name="default"
         title="easyshop.shipping"
         directory="profiles/default"
-        description="Shipping for Plone."
+        description="Shipping managment for Plone."
         provides="Products.GenericSetup.interfaces.EXTENSION" />
   
 </configure>

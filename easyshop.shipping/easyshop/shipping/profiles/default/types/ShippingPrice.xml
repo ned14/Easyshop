@@ -12,13 +12,13 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="EasyShopCountryCriteria"/>
-  <element value="EasyShopCustomerCriteria"/>
-  <element value="EasyShopDateCriteria"/>
-  <element value="EasyShopPaymentMethodCriteria"/>
-  <element value="EasyShopPriceCriteria"/>
-  <element value="EasyShopShippingMethodCriteria"/>
-  <element value="EasyShopWeightCriteria"/>
+  <element value="CountryCriteria"/>
+  <element value="CustomerCriteria"/>
+  <element value="DateCriteria"/>
+  <element value="PaymentMethodCriteria"/>
+  <element value="PriceCriteria"/>
+  <element value="ShippingMethodCriteria"/>
+  <element value="WeightCriteria"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="shipping-price-view"/>

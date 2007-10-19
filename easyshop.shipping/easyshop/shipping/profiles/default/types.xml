@@ -5,20 +5,20 @@
  <property
      name="title">Controls the available content types in your portal</property>
 
- <object 
-     name="ShippingMethods"
-     meta_type="Factory-based Type Information"/>
-         
+ <object
+     name="ShippingPrice"
+     meta_type="Factory-based Type Information"/>    
+        
  <object
      name="ShippingMethod"
      meta_type="Factory-based Type Information"/>
 
  <object
-     name="ShippingPrices"
+     name="ShippingPricesContainer"
      meta_type="Factory-based Type Information"/>
     
- <object
-     name="ShippingPrice"
-     meta_type="Factory-based Type Information"/>    
-        
+ <object 
+     name="ShippingMethodsContainer"
+     meta_type="Factory-based Type Information"/>
+         
 </object>
