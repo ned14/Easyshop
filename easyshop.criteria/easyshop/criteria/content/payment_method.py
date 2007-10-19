@@ -14,7 +14,7 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IPaymentMethodCriteriaContent
+from Products.EasyShop.interfaces import IPaymentMethodCriteria
 
 schema = Schema((
 
@@ -43,10 +43,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopPaymentMethodCriteria(BaseContent):
+class PaymentMethodCriteria(BaseContent):
     """
     """
-    implements(IPaymentMethodCriteriaContent)
+    implements(IPaymentMethodCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -80,4 +80,4 @@ class EasyShopPaymentMethodCriteria(BaseContent):
         new_id = "PaymentMethodCriteria"
         self.setId(new_id)
         
-registerType(EasyShopPaymentMethodCriteria, PROJECTNAME)
+registerType(PaymentMethodCriteria, PROJECTNAME)

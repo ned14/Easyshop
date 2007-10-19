@@ -13,7 +13,7 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IWeightCriteriaContent
+from Products.EasyShop.interfaces import IWeightCriteria
 
 schema = Schema((
     FloatField(
@@ -30,10 +30,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopWeightCriteria(BaseContent):
+class WeightCriteria(BaseContent):
     """
     """
-    implements(IWeightCriteriaContent)
+    implements(IWeightCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -48,4 +48,4 @@ class EasyShopWeightCriteria(BaseContent):
         """
         return self.getWeight()
         
-registerType(EasyShopWeightCriteria, PROJECTNAME)
+registerType(WeightCriteria, PROJECTNAME)

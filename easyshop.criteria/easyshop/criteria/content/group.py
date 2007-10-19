@@ -15,7 +15,7 @@ from Products.Archetypes.atapi import *
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IGroupCriteriaContent
+from Products.EasyShop.interfaces import IGroupCriteria
 from Products.EasyShop.interfaces import IGroupManagement
 from Products.EasyShop.interfaces import IItemManagement
 
@@ -46,10 +46,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopGroupCriteria(BaseContent):
+class GroupCriteria(BaseContent):
     """
     """
-    implements(IGroupCriteriaContent)
+    implements(IGroupCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -83,4 +83,4 @@ class EasyShopGroupCriteria(BaseContent):
         new_id = "GroupCriteria"
         self.setId(new_id)
 
-registerType(EasyShopGroupCriteria, PROJECTNAME)
+registerType(GroupCriteria, PROJECTNAME)

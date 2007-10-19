@@ -15,7 +15,7 @@ from Products.Archetypes.atapi import *
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import IShippingManagement
-from Products.EasyShop.interfaces import IShippingMethodCriteriaContent
+from Products.EasyShop.interfaces import IShippingMethodCriteria
 
 schema = Schema((
 
@@ -44,10 +44,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopShippingMethodCriteria(BaseContent):
+class ShippingMethodCriteria(BaseContent):
     """
     """
-    implements(IShippingMethodCriteriaContent)
+    implements(IShippingMethodCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -82,4 +82,4 @@ class EasyShopShippingMethodCriteria(BaseContent):
         new_id = "ShippingMethodCriteria"
         self.setId(new_id)
         
-registerType(EasyShopShippingMethodCriteria, PROJECTNAME)
+registerType(ShippingMethodCriteria, PROJECTNAME)

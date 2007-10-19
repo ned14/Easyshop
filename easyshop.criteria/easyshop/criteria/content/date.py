@@ -14,7 +14,7 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IDateCriteriaContent
+from Products.EasyShop.interfaces import IDateCriteria
 
 schema = Schema((
 
@@ -50,10 +50,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopDateCriteria(BaseContent):
+class DateCriteria(BaseContent):
     """
     """
-    implements(IDateCriteriaContent)
+    implements(IDateCriteria)
     security = ClassSecurityInfo()    
     _at_rename_after_creation = True    
     schema = BaseSchema.copy() + schema.copy()
@@ -79,4 +79,4 @@ class EasyShopDateCriteria(BaseContent):
                         
         return "%s - %s" % (start, end) 
 
-registerType(EasyShopDateCriteria, PROJECTNAME)
+registerType(DateCriteria, PROJECTNAME)

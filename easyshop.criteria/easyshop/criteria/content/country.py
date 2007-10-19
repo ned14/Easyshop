@@ -14,7 +14,7 @@ from Products.Archetypes.atapi import *
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.content.shop import EasyShopBase
-from Products.EasyShop.interfaces import ICountryCriteriaContent
+from Products.EasyShop.interfaces import ICountryCriteria
 
 schema = Schema((
 
@@ -32,10 +32,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopCountryCriteria(BaseContent, EasyShopBase):
+class CountryCriteria(BaseContent, EasyShopBase):
     """
     """
-    implements(ICountryCriteriaContent)    
+    implements(ICountryCriteria)    
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -59,4 +59,4 @@ class EasyShopCountryCriteria(BaseContent, EasyShopBase):
 
         return dl
         
-registerType(EasyShopCountryCriteria, PROJECTNAME)
+registerType(CountryCriteria, PROJECTNAME)

@@ -14,7 +14,7 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ICustomerCriteriaContent
+from Products.EasyShop.interfaces import ICustomerCriteria
 
 schema = Schema((
 
@@ -43,10 +43,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopCustomerCriteria(BaseContent):
+class CustomerCriteria(BaseContent):
     """
     """
-    implements(ICustomerCriteriaContent)    
+    implements(ICustomerCriteria)    
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -64,7 +64,7 @@ class EasyShopCustomerCriteria(BaseContent):
         dl = DisplayList()
         catalog = getToolByName(self, "portal_catalog")
 
-        for customer in catalog.searchResults(portal_type="EasyShopCustomer"):
+        for customer in catalog.searchResults(portal_type="Customer"):
             dl.add(customer.id, customer.id)
 
         return dl
@@ -79,4 +79,4 @@ class EasyShopCustomerCriteria(BaseContent):
         """
         return ", ".join(self.getCustomers())
         
-registerType(EasyShopCustomerCriteria, PROJECTNAME)
+registerType(CustomerCriteria, PROJECTNAME)

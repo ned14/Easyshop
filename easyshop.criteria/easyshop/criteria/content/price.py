@@ -13,7 +13,7 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IPriceCriteriaContent
+from Products.EasyShop.interfaces import IPriceCriteria
 
 
 schema = Schema((
@@ -30,10 +30,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopPriceCriteria(BaseContent):
+class PriceCriteria(BaseContent):
     """
     """
-    implements(IPriceCriteriaContent)    
+    implements(IPriceCriteria)    
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -48,4 +48,4 @@ class EasyShopPriceCriteria(BaseContent):
         """
         return self.getPrice()
 
-registerType(EasyShopPriceCriteria, PROJECTNAME)
+registerType(PriceCriteria, PROJECTNAME)

@@ -14,7 +14,7 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ICategoryCriteriaContent
+from Products.EasyShop.interfaces import ICategoryCriteria
 
 schema = Schema((
 
@@ -43,10 +43,10 @@ schema = Schema((
 ),
 )
 
-class EasyShopCategoryCriteria(BaseContent):
+class CategoryCriteria(BaseContent):
     """
     """
-    implements(ICategoryCriteriaContent)
+    implements(ICategoryCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -80,4 +80,4 @@ class EasyShopCategoryCriteria(BaseContent):
         new_id = "CategoryCriteria"
         self.setId(new_id)
         
-registerType(EasyShopCategoryCriteria, PROJECTNAME)
+registerType(CategoryCriteria, PROJECTNAME)
