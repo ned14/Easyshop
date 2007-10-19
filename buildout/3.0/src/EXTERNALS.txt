@@ -3,6 +3,10 @@
 #
 
 easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
+easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/trunk
 easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
+easyshop.customer https://easyshop-for-plone.googlecode.com/svn/easyshop.customer/trunk
 easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
+easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
+easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
 easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
