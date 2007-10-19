@@ -36,7 +36,7 @@ class EasyShopCartsSite(PloneSite):
         portal.portal_workflow.doActionFor(portal.shop, "publish")
         portal.shop.at_post_create_script()
         
-        portal.shop.products.invokeFactory("EasyShopProduct", 'product', title="Product")
+        portal.shop.products.invokeFactory("Product", 'product', title="Product")
         portal.portal_workflow.doActionFor(portal.shop.products.product, "publish")
 
         portal.product = portal.shop.products.product

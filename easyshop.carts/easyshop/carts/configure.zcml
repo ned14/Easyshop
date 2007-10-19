@@ -2,13 +2,19 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five">
 
+    <five:registerPackage 
+        package="." />
+
     <adapter
         factory=".cart_management.CartManagement" />
 
     <adapter
         factory=".cartitem_management.CartItemManagement" />
 
-    <include 
+    <include
+        package=".viewlets" />
+        
+    <include
         file="profiles.zcml" />
     
 </configure>
