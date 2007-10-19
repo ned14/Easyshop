@@ -6,7 +6,7 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
-from Products.EasyShop.content.product.EasyShopProduct import EasyShopProduct
+from easyshop.catalog.content.product import Product
 from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPaymentMethodContent
@@ -106,7 +106,7 @@ class PaymentPrices:
     def getPaymentPrices(self):
         """
         """
-        prices = self.context.paymentprices.objectValues("EasyShopPaymentPrice")
+        prices = self.context.paymentprices.objectValues("PaymentPrice")
         
         result = []
         for price in prices:
@@ -177,7 +177,7 @@ class PaymentPrices:
     def createTemporaryPaymentProduct(self):
         """
         """
-        temp_payment_product = EasyShopProduct("payment")
+        temp_payment_product = Product("payment")
         temp_payment_product.setPriceGross(self.getPriceGross())
         temp_payment_product.context = self.context
         

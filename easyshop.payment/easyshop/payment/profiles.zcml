@@ -5,7 +5,7 @@
         name="default"
         title="easyshop.payment"
         directory="profiles/default"
-        description="Payment for EasyShop"
+        description="Payment management for EasyShop"
         provides="Products.GenericSetup.interfaces.EXTENSION" />
   
 </configure>
