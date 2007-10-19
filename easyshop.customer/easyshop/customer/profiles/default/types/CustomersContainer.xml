@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<object name="Customers" meta_type="Factory-based Type Information"
+<object name="CustomersContainer" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Customers</property>
+ <property name="title">Customers Container</property>
  <property name="description">A simple container to hold customers.</property>
  <property name="content_icon">folder_icon.gif</property>
- <property name="content_meta_type">Customers</property>
+ <property name="content_meta_type">CustomersContainer</property>
  <property name="product">EasyShop</property>
- <property name="factory">addCustomers</property>
+ <property name="factory">addCustomersContainer</property>
  <property name="immediate_view">customers-view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>

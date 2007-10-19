@@ -9,9 +9,9 @@ from Products.Archetypes.atapi import registerType
 from Products.EasyShop.config import PROJECTNAME
 from Products.EasyShop.interfaces import ICustomersContainer
 
-class Customers(BaseBTreeFolder):
+class CustomersContainer(BaseBTreeFolder):
     """A simple container to hold customers.
     """
     implements(ICustomersContainer)        
 
-registerType(Customers, PROJECTNAME)
+registerType(CustomersContainer, PROJECTNAME)

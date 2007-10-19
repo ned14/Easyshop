@@ -12,7 +12,7 @@
      meta_type="Factory-based Type Information"/>
 
  <object 
-     name="Customers"
+     name="CustomersContainer"
      meta_type="Factory-based Type Information"/>
      
 </object>
