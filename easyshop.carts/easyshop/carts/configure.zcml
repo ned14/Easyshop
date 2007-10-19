@@ -12,6 +12,9 @@
         factory=".cartitem_management.CartItemManagement" />
 
     <include
+        package=".portlets" />
+
+    <include
         package=".viewlets" />
         
     <include
