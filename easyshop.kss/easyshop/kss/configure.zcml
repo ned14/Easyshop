@@ -1,6 +1,13 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:browser="http://namespaces.zope.org/browser">
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
 
+    <five:registerPackage 
+        package="." />
+
+    <include 
+        file="profiles.zcml" />
+    
     <browser:resource
         name="easyshop.kss"
         file="easyshop.kss" />
@@ -18,6 +25,5 @@
         class=".easyshop.EasyShopKSSView"
         attribute="addProduct"
         permission="zope2.View" />
-
 
 </configure>

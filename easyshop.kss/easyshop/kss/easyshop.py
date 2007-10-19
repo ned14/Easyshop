@@ -1,16 +1,9 @@
 # kss imports
 from plone.app.kss.plonekssview import PloneKSSView
-from kss.core import force_unicode, kssaction
-
-# CMFPlone imports
-from Products.CMFPlone.utils import safe_unicode
+from kss.core import kssaction
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
-
-# kss imports
-from plone.app.kss.plonekssview import PloneKSSView
-from kss.core import force_unicode, kssaction
 
 # EasyShop imports
 from Products.EasyShop.interfaces import IFormatterInfos
@@ -20,7 +13,7 @@ from Products.EasyShop.interfaces import IItemManagement
 class EasyShopKSSView(PloneKSSView):
     """
     """
-    @kssaction
+    @kssaction    
     def addProduct(self, form):
         """
         """
@@ -52,19 +45,24 @@ class EasyShopKSSView(PloneKSSView):
         # returns true if the product was already within the cart
         result = IItemManagement(cart).addItem(self.context, tuple(properties), quantity)
 
+        kss_core  = self.getCommandSet("core")
+        kss_zope  = self.getCommandSet("zope")
         kss_plone = self.getCommandSet("plone")
-        kss_core = self.getCommandSet("core")
-        kss_zope = self.getCommandSet("zope")
-            
-        kss_plone.refreshPortlet("706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706f7274616c2f73686f700a41737369676e6d656e74")
 
-        self.getCommandSet('plone').issuePortalMessage("Added product to card.")
-    
-        selector = kss_core.getHtmlIdSelector("products-view")
+        kss_plone.issuePortalMessage("Added product to card.")
+
+        # refresh cart
+        selector = kss_core.getHtmlIdSelector("portlet-cart")
         kss_zope.refreshViewlet(selector,
-                                manager="iqpp.easyshop.main",
-                                name="iqpp.easyshop.product")
+                                manager="easyshop.cart-viewlet-manager",
+                                name="easyshop.cart-viewlet")
 
+        # refresh product
+        selector = kss_core.getHtmlIdSelector("myproduct")
+        kss_zope.refreshViewlet(selector,
+                                manager="iqpp.easyshop.easyshop-manager",
+                                name="iqpp.easyshop.product")
+        
     @kssaction
     def saveFormatter(self, form, portlethash):
         """
@@ -94,7 +92,7 @@ class EasyShopKSSView(PloneKSSView):
 
         selector = kss_core.getHtmlIdSelector("mycategories")
         kss_zope.refreshViewlet(selector,
-                                manager="iqpp.easyshop.products-manager",
-                                name="iqpp.easyshop.products")
+                                manager="iqpp.easyshop.easyshop-manager",
+                                name="iqpp.easyshop.categories")
          
         kss_plone.refreshPortlet(portlethash)
