@@ -4,42 +4,42 @@ class ICriteriaContent(Interface):
     """Marker interface to mark criteria content objects.
     """
 
-class ICategoryCriteriaContent(ICriteriaContent):
+class ICategoryCriteria(ICriteriaContent):
     """Marker interface to mark category criteria content objects.
     """
     
-class ICountryCriteriaContent(ICriteriaContent):
+class ICountryCriteria(ICriteriaContent):
     """Marker interface to mark country criteria content objects.
     """
             
-class ICustomerCriteriaContent(ICriteriaContent):
+class ICustomerCriteria(ICriteriaContent):
     """Marker interface to mark customer criteria content objects.
     """
 
-class IDateCriteriaContent(ICriteriaContent):
+class IDateCriteria(ICriteriaContent):
     """Marker interface to mark date criteria content objects.
     """
     
-class IGroupCriteriaContent(ICriteriaContent):
+class IGroupCriteria(ICriteriaContent):
     """Marker interface to mark group criteria content objects.
     """
 
-class IPaymentMethodCriteriaContent(ICriteriaContent):
+class IPaymentMethodCriteria(ICriteriaContent):
     """Marker interface to mark payment criteria content objects.
     """
     
-class IProductCriteriaContent(ICriteriaContent):
+class IProductCriteria(ICriteriaContent):
     """Marker interface to mark product criteria content objects.
     """
     
-class IPriceCriteriaContent(ICriteriaContent):
+class IPriceCriteria(ICriteriaContent):
     """Marker interface to mark price criteria content objects.
     """
 
-class IShippingMethodCriteriaContent(ICriteriaContent):
+class IShippingMethodCriteria(ICriteriaContent):
     """Marker interface to mark shipping method criteria content objects.
     """
     
-class IWeightCriteriaContent(ICriteriaContent):
+class IWeightCriteria(ICriteriaContent):
     """Marker interface to mark weight criteria content objects.
     """

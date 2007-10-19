@@ -6,12 +6,12 @@
  <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">EasyShopCategories</property>
  <property name="product">EasyShop</property>
- <property name="factory">addEasyShopCategories</property>
+ <property name="factory">addCategoriesContainer</property>
  <property name="immediate_view">categories-view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="EasyShopCategory"/>
+  <element value="Category"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="categories-view"/>

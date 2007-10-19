@@ -218,7 +218,7 @@ class ThankYouPageView(BrowserView):
             
         selectors = []
         # Todo: Optimize
-        for selector in self.context.objectValues("EasyShopProductSelector"):
+        for selector in self.context.objectValues("ProductSelector"):
 
             # ignore thank you selection
             if selector.getId() != "thank-you":

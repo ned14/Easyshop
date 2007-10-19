@@ -101,7 +101,7 @@ schema = Schema((
             label_msgid='schema_easyshop_products_label',
             i18n_domain='EasyShop',
         ),
-        allowed_types=('EasyShopProduct',),
+        allowed_types=('Product',),
         multiValued=0,
         relationship='easyshoporderitem_easyshopproduct'
     ),

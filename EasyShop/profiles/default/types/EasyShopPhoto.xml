@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<object name="EasyShopPhoto"
+<object name="Photo"
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Photo</property>
  <property name="description">A photo for a product.
       </property>
  <property name="content_icon">image_icon.gif</property>
- <property name="content_meta_type">EasyShopPhoto</property>
+ <property name="content_meta_type">Photo</property>
  <property name="product">EasyShop</property>
- <property name="factory">addEasyShopPhoto</property>
+ <property name="factory">addPhoto</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">False</property>

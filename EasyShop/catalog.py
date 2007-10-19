@@ -29,7 +29,7 @@ registerIndexableAttribute('total_amount_of_products',
 def countCategories(category, counter):
     """
     """
-    for category in category.objectValues("EasyShopCategory"):
+    for category in category.objectValues("Category"):
         counter += len(category.getEasyshopproducts())
         counter = countCategories(category, counter)
     return counter

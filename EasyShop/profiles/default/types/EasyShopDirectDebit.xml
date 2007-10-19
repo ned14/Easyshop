@@ -12,11 +12,11 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="EasyShopGroupCriteria"/>
-  <element value="EasyShopDateCriteria"/>
-  <element value="EasyShopCategoryCriteria"/>
-  <element value="EasyShopProductCriteria"/>
-  <element value="EasyShopCustomerCriteria"/>
+  <element value="GroupCriteria"/>
+  <element value="DateCriteria"/>
+  <element value="CategoryCriteria"/>
+  <element value="ProductCriteria"/>
+  <element value="CustomerCriteria"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="edit" to="base_edit"/>

@@ -3,7 +3,7 @@
       i18n:domain="EasyShop">
 <body>
 <div metal:define-macro="portlet"
-     tal:condition="python:context.portal_type in ('EasyShopCategory', 'EasyShopProduct')">
+     tal:condition="python:context.portal_type in ('Category', 'Product')">
 
     <dl class="portlet" id="portlet-sorting">
 

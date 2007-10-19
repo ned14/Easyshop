@@ -20,22 +20,22 @@
    <element value="Large Plone Folder"/>
   </property>
   <property name="metaTypesNotToList" type="lines">
-   <element value="EasyShopPhoto"/>
-   <element value="EasyShopProduct"/>
-   <element value="EasyShopProducts"/>
-   <element value="EasyShopCategory"/>
+   <element value="Photo"/>
+   <element value="Product"/>
+   <element value="Products"/>
+   <element value="Category"/>
    <element value="EasyShopCustomer"/>
    <element value="Cart"/>
    <element value="CartItem"/>
    <element value="EasyShopCustomerTax"/>
    <element value="DefaultTax"/>
    <element value="ShippingPrice"/>
-   <element value="EasyShopCategoryCriteria"/>
-   <element value="EasyShopCountryCriteria"/>
-   <element value="EasyShopCustomerCriteria"/>
-   <element value="EasyShopDateCriteria"/>
-   <element value="EasyShopGroupCriteria"/>
-   <element value="EasyShopProductCriteria"/>
+   <element value="CategoryCriteria"/>
+   <element value="CountryCriteria"/>
+   <element value="CustomerCriteria"/>
+   <element value="DateCriteria"/>
+   <element value="GroupCriteria"/>
+   <element value="ProductCriteria"/>
    <element value="EasyShopOrder"/>
    <element value="EasyShopOrderItem"/>
    <element value="DirectDebit"/>

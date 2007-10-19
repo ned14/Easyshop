@@ -20,7 +20,7 @@ class TestProductCategoryManager(EasyShopTestCase):
         """
         super(TestProductCategoryManager, self).afterSetUp()
         self.shop.products.invokeFactory(
-            "EasyShopProduct", 
+            "Product", 
             id="product_3", 
             priceGross=19.0)        
             
@@ -50,8 +50,8 @@ class TestProductCategoryManager(EasyShopTestCase):
         self.assertEqual(ids, ["category_11"])
 
         # adding some more
-        self.shop.categories.invokeFactory("EasyShopCategory", id="category_a")
-        self.shop.categories.invokeFactory("EasyShopCategory", id="category_b")
+        self.shop.categories.invokeFactory("Category", id="category_a")
+        self.shop.categories.invokeFactory("Category", id="category_b")
         
         self.shop.categories.category_a.addReference(
             self.product_1, 

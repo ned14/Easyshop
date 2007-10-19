@@ -8,13 +8,13 @@
   <type type_id="EasyShop">
    <bound-workflow workflow_id="easyshop_product_workflow"/>        
   </type>   
-  <type type_id="EasyShopCategory">
+  <type type_id="Category">
    <bound-workflow workflow_id="easyshop_product_workflow"/>
   </type>
   <type type_id="EasyShopOrder">
    <bound-workflow workflow_id="easyshop_order_workflow"/>
   </type>
-  <type type_id="EasyShopProduct">
+  <type type_id="Product">
    <bound-workflow workflow_id="easyshop_product_workflow"/>
   </type>
  </bindings>

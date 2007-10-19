@@ -20,7 +20,7 @@ class TestProductGroupManagement(EasyShopTestCase):
         """
         super(TestProductGroupManagement, self).afterSetUp()
         self.shop.products.invokeFactory(
-            "EasyShopProduct", 
+            "Product", 
             id="product_3", 
             priceGross=19.0)        
             

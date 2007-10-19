@@ -34,11 +34,11 @@ msgstr ""
 msgid "schema_amount_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_article_id_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_article_id_label"
 msgstr ""
 
@@ -50,12 +50,12 @@ msgstr ""
 msgid "schema_bankname_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_categories_description"
 msgstr ""
 
 #: schema | ../content/criteria/category.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_categories_label"
 msgstr ""
 
@@ -91,13 +91,13 @@ msgstr ""
 msgid "schema_customers_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_cut_image_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_cut_image_label_description"
 msgstr ""
 
@@ -130,27 +130,27 @@ msgstr ""
 msgid "schema_firstname_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_groups_description"
 msgstr ""
 
 #: schema | ../content/criteria/group.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_groups_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
 #: schema | ../content/product/EasyShopGroup.py
-#: schema | ../content/product/EasyShopProduct.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
+#: schema | ../content/product/Product.py
 msgid "schema_help_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 #: schema | ../content/shop/EasyShop.py
 msgid "schema_image_label"
 msgstr ""
@@ -179,12 +179,12 @@ msgstr ""
 msgid "schema_lines_per_page_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_long_description_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Product.py
 msgid "schema_long_description_label"
 msgstr ""
 
@@ -259,7 +259,7 @@ msgstr ""
 
 #: schema | ../content/order/EasyShopOrderItem.py
 #: schema | ../content/payment/payment_price.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 #: schema | ../content/shipping/ShippingPrice.py
 msgid "schema_price_gross_label"
 msgstr ""
@@ -292,17 +292,17 @@ msgstr ""
 msgid "schema_product_tax_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
-#: schema | ../content/product/EasyShopProduct.py
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/Product.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_products_description"
 msgstr ""
 
 #: schema | ../content/criteria/product.py
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_products_label"
 msgstr ""
 
@@ -319,7 +319,7 @@ msgstr ""
 msgid "schema_rate_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_related_products_label"
 msgstr ""
 
@@ -351,19 +351,19 @@ msgstr ""
 msgid "schema_shipping_tax_rate_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_description_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_description_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_title_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_title_label"
 msgstr ""
 
@@ -383,11 +383,11 @@ msgstr ""
 msgid "schema_show_quantity_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_showtitle_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_showtitle_label"
 msgstr ""
 
@@ -395,11 +395,11 @@ msgstr ""
 msgid "schema_start_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/Photo.py
 msgid "schema_subtitle_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/Photo.py
 msgid "schema_subtitle_label"
 msgstr ""
 
@@ -435,12 +435,12 @@ msgid "schema_value_label"
 msgstr ""
 
 #: schema | ../content/criteria/weight.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_weight_description"
 msgstr ""
 
 #: schema | ../content/criteria/weight.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_weight_label"
 msgstr ""
 

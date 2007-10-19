@@ -128,7 +128,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
         pm = IPropertyManagement(self.shop.products.product_1)
 
         p = pm.getProperty("color")        
-        self.assertEqual(p.aq_inner.aq_parent.portal_type, "EasyShopProduct")
+        self.assertEqual(p.aq_inner.aq_parent.portal_type, "Product")
 
         p = pm.getProperty("size")        
         self.assertEqual(p.aq_inner.aq_parent.portal_type, "EasyShopGroup")

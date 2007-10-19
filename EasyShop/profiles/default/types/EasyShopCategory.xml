@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
-<object name="EasyShopCategory"
+<object name="Category"
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Category</property>
  <property
     name="description"></property>
  <property name="content_icon">folder_icon.gif</property>
- <property name="content_meta_type">EasyShopCategory</property>
+ <property name="content_meta_type">Category</property>
  <property name="product">EasyShop</property>
- <property name="factory">addEasyShopCategory</property>
+ <property name="factory">addCategory</property>
  <property name="immediate_view">category-view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="EasyShopCategory"/>
-  <element value="EasyShopPhoto"/>
-  <element value="EasyShopProductSelector"/>
+  <element value="Category"/>
+  <element value="Photo"/>
+  <element value="ProductSelector"/>
   <element value="EasyShopFormatter"/>
  </property>
  <property name="allow_discussion">False</property>

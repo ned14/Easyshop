@@ -2,14 +2,14 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
-        for="...interfaces.IPaymentMethodsFolderContent"
+        for="...interfaces.IPaymentMethodsContainer"
         name="payment-methods-view"
         template="payment_methods.pt"
         class=".payment_methods.PaymentMethodsView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.IPaymentPricesFolderContent"
+        for="...interfaces.IPaymentPricesContainer"
         name="payment-prices-view"
         template="payment_prices.pt"
         class=".payment_prices.PaymentPricesView"
@@ -30,7 +30,7 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.ICustomerFolderContent"
+        for="...interfaces.ICustomersContainer"
         name="customers-view"        
         template="customers.pt"
         class=".customers.CustomersView"
@@ -51,21 +51,21 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.ICategoryFolderContent"
+        for="...interfaces.ICategoriesContainer"
         name="categories-view"
         template="categories.pt"
         class=".categories.CategoriesView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.IGroupFolderContent"
+        for="...interfaces.IGroupsContainer"
         name="groups-view"
         template="groups_view.pt"
         class=".groups_view.GroupsView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.IOrderFolderContent"
+        for="...interfaces.IOrdersContainer"
         name="orders-view"
         template="orders.pt"        
         class=".orders.OrdersView"

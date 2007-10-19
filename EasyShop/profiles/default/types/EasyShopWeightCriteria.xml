@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<object name="EasyShopWeightCriteria"
+<object name="WeightCriteria"
    meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Weight Criteria</property>
  <property name="description">Select valid weights.</property>
  <property name="content_icon">criterion_icon.png</property>
- <property name="content_meta_type">EasyShopWeightCriteria</property>
+ <property name="content_meta_type">WeightCriteria</property>
  <property name="product">EasyShop</property>
- <property name="factory">addEasyShopWeightCriteria</property>
+ <property name="factory">addWeightCriteria</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">False</property>

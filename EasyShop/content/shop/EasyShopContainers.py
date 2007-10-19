@@ -10,53 +10,27 @@ from Products.ATContentTypes.content.folder import ATFolder
 from Products.EasyShop.config import *
 from Products.EasyShop.content.shop import EasyShopBase
 from Products.EasyShop.interfaces import ICartsFolderContent
-from Products.EasyShop.interfaces import ICategoryFolderContent
-from Products.EasyShop.interfaces import ICustomerFolderContent
-from Products.EasyShop.interfaces import IGroupFolderContent
-from Products.EasyShop.interfaces import IOrderFolderContent
-from Products.EasyShop.interfaces import IPaymentMethodsFolderContent
-from Products.EasyShop.interfaces import IPaymentPricesFolderContent
-from Products.EasyShop.interfaces import IProductFolderContent
+from Products.EasyShop.interfaces import ICustomersContainer
+from Products.EasyShop.interfaces import IGroupsContainer
+from Products.EasyShop.interfaces import IOrdersContainer
+from Products.EasyShop.interfaces import IPaymentMethodsContainer
+from Products.EasyShop.interfaces import IPaymentPricesContainer
 
-class EasyShopProducts(BaseBTreeFolder, EasyShopBase):
-    """A container to hold products.
-    """
-    implements(IProductFolderContent)
-
-class EasyShopPaymentMethods(OrderedBaseFolder, EasyShopBase):
-    """A simple container to hold payment methods.
-    """
-    implements(IPaymentMethodsFolderContent)
-
-class PaymentPrices(OrderedBaseFolder, EasyShopBase):
-    """A simple container to hold payment prices.
-    """
-    implements(IPaymentPricesFolderContent)
-
-class EasyShopCategories(OrderedBaseFolder, EasyShopBase):
-    """A simple container to hold categories.
-    """
-    implements(ICategoryFolderContent)
-
-class EasyShopGroups(OrderedBaseFolder, EasyShopBase):
+class EasyShopGroups(OrderedBaseFolder):
     """A simple container to hold groups.
     """    
-    implements(IGroupFolderContent)
+    implements(IGroupsContainer)
 
-class EasyShopOrders(BaseBTreeFolder, EasyShopBase):
+class EasyShopOrders(BaseBTreeFolder):
     """A simple container to hold orders.
     """
-    implements(IOrderFolderContent)
+    implements(IOrdersContainer)
                  
-class EasyShopCustomers(BaseBTreeFolder, EasyShopBase):
+class EasyShopCustomers(BaseBTreeFolder):
     """A simple container to hold customers.
     """
-    implements(ICustomerFolderContent)        
+    implements(ICustomersContainer)        
 
-registerType(EasyShopCategories, PROJECTNAME)
 registerType(EasyShopCustomers, PROJECTNAME)
 registerType(EasyShopGroups, PROJECTNAME)
 registerType(EasyShopOrders, PROJECTNAME)
-registerType(EasyShopPaymentMethods, PROJECTNAME)
-registerType(PaymentPrices, PROJECTNAME)
-registerType(EasyShopProducts, PROJECTNAME)

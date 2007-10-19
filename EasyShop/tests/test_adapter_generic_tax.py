@@ -31,7 +31,7 @@ class TestValidityManager(EasyShopTestCase):
     def testIsValid_2(self):
         """With one invalid criterion.
         """
-        self.default_tax.invokeFactory("EasyShopDateCriteria", id="date_criterion")
+        self.default_tax.invokeFactory("DateCriteria", id="date_criterion")
         start = end = DateTime() + 1
         self.default_tax.date_criterion.setStart(start)
         self.default_tax.date_criterion.setEnd(end)
@@ -42,7 +42,7 @@ class TestValidityManager(EasyShopTestCase):
     def testIsValid_3(self):
         """With one valid criterion.
         """
-        self.default_tax.invokeFactory("EasyShopDateCriteria", id="date_criterion")
+        self.default_tax.invokeFactory("DateCriteria", id="date_criterion")
         start = DateTime() - 1
         end   = DateTime() + 1
         self.default_tax.date_criterion.setStart(start)
@@ -55,13 +55,13 @@ class TestValidityManager(EasyShopTestCase):
         """With one invalid and one valid criterion.
         """
         # invalid
-        self.default_tax.invokeFactory("EasyShopDateCriteria", id="date_criterion")    
+        self.default_tax.invokeFactory("DateCriteria", id="date_criterion")    
         start = end = DateTime() + 1
         self.default_tax.date_criterion.setStart(start)
         self.default_tax.date_criterion.setEnd(end)
         
         # valid (product_1 is in group_1; see utils.createTestEnvironment)
-        self.default_tax.invokeFactory("EasyShopGroupCriteria", id="group_criterion")
+        self.default_tax.invokeFactory("GroupCriteria", id="group_criterion")
         self.default_tax.group_criterion.setGroups(["group_1"])        
         v = IValidity(self.default_tax)
         self.assertEqual(v.isValid(self.product_1), False)
@@ -70,14 +70,14 @@ class TestValidityManager(EasyShopTestCase):
         """With two valid criteria.
         """
         # valid
-        self.default_tax.invokeFactory("EasyShopDateCriteria", id="date_criterion")    
+        self.default_tax.invokeFactory("DateCriteria", id="date_criterion")    
         start = DateTime() - 1
         end   = DateTime() + 1
         self.default_tax.date_criterion.setStart(start)
         self.default_tax.date_criterion.setEnd(end)
         
         # valid (product_1 is in group_1; see utils.createTestEnvironment)
-        self.default_tax.invokeFactory("EasyShopGroupCriteria", id="group_criterion")
+        self.default_tax.invokeFactory("GroupCriteria", id="group_criterion")
         self.default_tax.group_criterion.setGroups(["group_1"])
         v = IValidity(self.default_tax)
         self.assertEqual(v.isValid(self.product_1), True)

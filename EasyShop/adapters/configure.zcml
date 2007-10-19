@@ -30,37 +30,13 @@
     <adapter
         factory=".customer.AddressCompleteness" />
 
-    <!-- =========== -->
-    <!-- = Product = -->
-    <!-- =========== -->
-    <adapter
-        factory=".product.ProductPriceCalculator" />
-
     <adapter
         for="..interfaces.IProductContent"        
         factory=".generic.PhotoManagement" />
 
-    <adapter        
-        factory=".product.ProductCategoryManager" />
-
-    <adapter
-        factory=".product.ProductPropertyManagement" />
-
-    <adapter
-        factory=".product.ProductGroupManager" />
-
-    <adapter
-        factory=".product.ProductData" />
-
     <!-- ============ -->
     <!-- = Category = -->
     <!-- ============ -->    
-    <adapter
-        factory=".category.CategoryProductManager" />
-
-    <adapter
-        factory=".category.CategoryCategoryManagement" />
-
     <adapter
         for="..interfaces.ICategoryContent"
         factory=".generic.PhotoManagement" />

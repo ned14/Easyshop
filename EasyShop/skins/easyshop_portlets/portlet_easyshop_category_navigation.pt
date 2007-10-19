@@ -3,7 +3,7 @@
       i18n:domain="EasyNewsletter">
 <body>
 <div metal:define-macro="portlet"
-     tal:condition="python: context.portal_type == 'EasyShopCategory'">
+     tal:condition="python: context.portal_type == 'Category'">
 
     <tal:block tal:define="category_view context/@@categoryView;
                            products category_view/getAllProducts;

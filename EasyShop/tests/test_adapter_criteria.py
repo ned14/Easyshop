@@ -20,7 +20,7 @@ class TestValidity(EasyShopTestCase):
         """
         """
         # Criteria has one catogory, products have this too
-        self.folder.manage_addProduct["EasyShop"].addEasyShopCategoryCriteria("c")
+        self.folder.manage_addProduct["EasyShop"].addCategoryCriteria("c")
         self.folder.c.setCategories(("category_11",))
         v = IValidity(self.folder.c)
         
@@ -42,7 +42,7 @@ class TestValidity(EasyShopTestCase):
     def testCountry(self):
         """
         """
-        self.shop.manage_addProduct["EasyShop"].addEasyShopCountryCriteria("c")
+        self.shop.manage_addProduct["EasyShop"].addCountryCriteria("c")
         self.shop.c.setCountries(("USA",))
         v = IValidity(self.shop.c)
         
@@ -62,7 +62,7 @@ class TestValidity(EasyShopTestCase):
         """
         """
         # customer criteria needs context
-        self.folder.manage_addProduct["EasyShop"].addEasyShopCustomerCriteria("c")
+        self.folder.manage_addProduct["EasyShop"].addCustomerCriteria("c")
         v = IValidity(self.folder.c)        
 
         self.assertEqual(v.isValid(), False)
@@ -79,7 +79,7 @@ class TestValidity(EasyShopTestCase):
     def testDate(self):
         """
         """
-        self.folder.manage_addProduct["EasyShop"].addEasyShopDateCriteria("c")
+        self.folder.manage_addProduct["EasyShop"].addDateCriteria("c")
         v = IValidity(self.folder.c)
         
         self.folder.c.setStart(DateTime()-2)
@@ -97,7 +97,7 @@ class TestValidity(EasyShopTestCase):
     def testGroup(self):
         """
         """
-        self.folder.manage_addProduct["EasyShop"].addEasyShopGroupCriteria("c")
+        self.folder.manage_addProduct["EasyShop"].addGroupCriteria("c")
         v = IValidity(self.folder.c)
 
         self.assertEqual(v.isValid(self.product_1), False)
@@ -118,7 +118,7 @@ class TestValidity(EasyShopTestCase):
     def testPaymentMethod(self):
         """
         """
-        self.shop.manage_addProduct["EasyShop"].addEasyShopPaymentMethodCriteria("c")
+        self.shop.manage_addProduct["EasyShop"].addPaymentMethodCriteria("c")
         v = IValidity(self.shop.c)
         
         self.login("newmember")
@@ -144,7 +144,7 @@ class TestValidity(EasyShopTestCase):
     def testPrice(self):
         """
         """
-        self.shop.manage_addProduct["EasyShop"].addEasyShopPriceCriteria("c")
+        self.shop.manage_addProduct["EasyShop"].addPriceCriteria("c")
         v = IValidity(self.shop.c)
         
         self.login("newmember")        
@@ -179,7 +179,7 @@ class TestValidity(EasyShopTestCase):
     def testProduct(self):
         """
         """
-        self.shop.manage_addProduct["EasyShop"].addEasyShopProductCriteria("c")
+        self.shop.manage_addProduct["EasyShop"].addProductCriteria("c")
         v = IValidity(self.shop.c)
 
         self.assertEqual(v.isValid(self.product_1), False)
@@ -195,7 +195,7 @@ class TestValidity(EasyShopTestCase):
     def testWeight(self):
         """
         """
-        self.shop.manage_addProduct["EasyShop"].addEasyShopWeightCriteria("c")
+        self.shop.manage_addProduct["EasyShop"].addWeightCriteria("c")
         v = IValidity(self.shop.c)
 
         self.assertEqual(v.isValid(), False)

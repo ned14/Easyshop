@@ -51,8 +51,8 @@ class TestPhotoManagement_2(EasyShopTestCase):
         """
         """
         super(TestPhotoManagement_2, self).afterSetUp()
-        self.product_1.invokeFactory("EasyShopPhoto", id="photo_1")
-        self.product_1.invokeFactory("EasyShopPhoto", id="photo_2")        
+        self.product_1.invokeFactory("Photo", id="photo_1")
+        self.product_1.invokeFactory("Photo", id="photo_2")        
         self.logout()
         
     def testGetMainPhoto(self):
@@ -121,8 +121,8 @@ class TestPhotoManagement_4(EasyShopTestCase):
         img = open(img)
         
         self.product_1.setImage(img)
-        self.product_1.invokeFactory("EasyShopPhoto", id="photo_1")
-        self.product_1.invokeFactory("EasyShopPhoto", id="photo_2")
+        self.product_1.invokeFactory("Photo", id="photo_1")
+        self.product_1.invokeFactory("Photo", id="photo_2")
                                 
         self.logout()
         

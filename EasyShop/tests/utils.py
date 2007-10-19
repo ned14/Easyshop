@@ -47,7 +47,7 @@ def createTestEnvironment(self):
     self.shop.paymentprices.manage_addProduct["EasyShop"].addPaymentPrice(id="default", priceGross=100.0)
     
     self.shop.setCountries(["Germany"])
-    self.shop.products.manage_addProduct["EasyShop"].addEasyShopProduct(id="product_1", priceGross=22.0)
+    self.shop.products.manage_addProduct["EasyShop"].addProduct(id="product_1", priceGross=22.0)
     self.product_1 = self.shop.products.product_1
     self.product_1.setWeight(10.0)
 
@@ -84,21 +84,21 @@ def createTestEnvironment(self):
     ]
 
     
-    self.product_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="color", title="Color")
+    self.product_1.manage_addProduct["EasyShop"].addProductProperty(id="color", title="Color")
     self.product_1.color.setOptions(color)
 
-    self.product_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="material", title="Material")
+    self.product_1.manage_addProduct["EasyShop"].addProductProperty(id="material", title="Material")
     self.product_1.material.setOptions(material)
 
-    self.product_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="quality", title="Quality")
+    self.product_1.manage_addProduct["EasyShop"].addProductProperty(id="quality", title="Quality")
     self.product_1.quality.setOptions(quality)
     
-    self.shop.products.manage_addProduct["EasyShop"].addEasyShopProduct(id="product_2", priceGross=19.0)
+    self.shop.products.manage_addProduct["EasyShop"].addProduct(id="product_2", priceGross=19.0)
     self.product_2 = self.shop.products.product_2
     self.product_2.setWeight(20.0)
 
     # A product without properties
-    self.shop.products.manage_addProduct["EasyShop"].addEasyShopProduct(id="product_42", priceGross=19.0)
+    self.shop.products.manage_addProduct["EasyShop"].addProduct(id="product_42", priceGross=19.0)
     self.product_42 = self.shop.products.product_42
     
     # Groups
@@ -108,10 +108,10 @@ def createTestEnvironment(self):
     self.group_2 = self.shop.groups.group_2
 
     # Add properties to groups
-    self.group_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="color", title="Color")
+    self.group_1.manage_addProduct["EasyShop"].addProductProperty(id="color", title="Color")
     self.group_1.color.setOptions(color_for_groups)    
 
-    self.group_1.manage_addProduct["EasyShop"].addEasyShopProductProperty(id="size", title="Size")
+    self.group_1.manage_addProduct["EasyShop"].addProductProperty(id="size", title="Size")
     self.group_1.size.setOptions(size_for_groups)    
         
     # Assign products to groups
@@ -120,11 +120,11 @@ def createTestEnvironment(self):
     self.group_2.addReference(self.product_1, "easyshopgroup_easyshopproduct")    
     
     # Categories
-    self.shop.categories.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_1")
-    self.shop.categories.category_1.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_11")
-    self.shop.categories.category_1.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_12")
-    self.shop.categories.category_1.category_11.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_111")
-    self.shop.categories.manage_addProduct["EasyShop"].addEasyShopCategory(id="category_2")
+    self.shop.categories.manage_addProduct["EasyShop"].addCategory(id="category_1")
+    self.shop.categories.category_1.manage_addProduct["EasyShop"].addCategory(id="category_11")
+    self.shop.categories.category_1.manage_addProduct["EasyShop"].addCategory(id="category_12")
+    self.shop.categories.category_1.category_11.manage_addProduct["EasyShop"].addCategory(id="category_111")
+    self.shop.categories.manage_addProduct["EasyShop"].addCategory(id="category_2")
     
     self.category_1 = self.shop.categories.category_1
     self.category_2 = self.shop.categories.category_2

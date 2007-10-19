@@ -30,11 +30,11 @@ msgstr "Indirizzo (seconda linea)"
 msgid "schema_amount_label"
 msgstr "Quantità"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_article_id_description"
 msgstr "Inserisci il codice del prodotto"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_article_id_label"
 msgstr "Codice prodotto"
 
@@ -46,12 +46,12 @@ msgstr "Codice di identificazione della banca"
 msgid "schema_bankname_label"
 msgstr "Nome della banca"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_categories_description"
 msgstr "Seleziona le categorie nelle quali sarà disponibile il prodotto"
 
 #: schema | ../content/criteria/category.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_categories_label"
 msgstr "Categorie"
 
@@ -87,13 +87,13 @@ msgstr "Valuta"
 msgid "schema_customers_label"
 msgstr "Clienti"
 
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_cut_image_label"
 msgstr "Taglia immagine"
 
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_cut_image_label_description"
 msgstr "Seleziona se desideri che l'immagine venga tagliata"
 
@@ -126,23 +126,23 @@ msgstr "Espandi tutte le categorie"
 msgid "schema_firstname_label"
 msgstr "Nome"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_groups_description"
 msgstr "Inserisci i gruppi nei quali il prodotto deve essere incluso"
 
 #: schema | ../content/criteria/group.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_groups_label"
 msgstr "Gruppi"
 
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
 msgid "schema_help_description"
 msgstr "Inserisci una descrizione riassuntiva del prodotto"
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_image_label"
 msgstr "Immagine"
 
@@ -170,12 +170,12 @@ msgstr "Inserisci il numero di righe per pagina"
 msgid "schema_lines_per_page_label"
 msgstr "Righe per pagina"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_long_description_description"
 msgstr "Inserisci una descrizione dettagliata del prodotto"
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Product.py
 msgid "schema_long_description_label"
 msgstr "Descrizione estesa"
 
@@ -250,7 +250,7 @@ msgstr "Numero di telefono"
 
 #: schema | ../content/order/EasyShopOrderItem.py
 #: schema | ../content/payment/payment_price.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_price_gross_label"
 msgstr "Prezzo (tasse incluse)"
 
@@ -282,14 +282,14 @@ msgstr "Quantità del prodotto"
 msgid "schema_product_tax_label"
 msgstr "Tassa sul prodotto"
 
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_products_description"
 msgstr "Cartella prodotti"
 
 #: schema | ../content/criteria/product.py
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
 msgid "schema_products_label"
 msgstr "Prodotti"
@@ -307,7 +307,7 @@ msgstr "Prodotti per riga"
 msgid "schema_rate_label"
 msgstr "Percentuale"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_related_products_label"
 msgstr "Prodotti collegati"
 
@@ -339,19 +339,19 @@ msgstr "Tassa di spedizione"
 msgid "schema_shipping_tax_rate_label"
 msgstr "Tassa di spedizione (percentuale)"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_description_description"
 msgstr "Inserisci una descrizione riassuntiva del prodotto da visualizzare nelle schermate riepilogative."
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_description_label"
 msgstr "Breve descrizione"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_title_description"
 msgstr "Inserisci un titolo breve da utilizzare nelle schermate riepilogative; se omesso, verrà utilizzato il titolo normale."
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_title_label"
 msgstr "Titolo breve"
 
@@ -371,11 +371,11 @@ msgstr ""
 msgid "schema_show_quantity_label"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_showtitle_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_showtitle_label"
 msgstr ""
 
@@ -383,11 +383,11 @@ msgstr ""
 msgid "schema_start_label"
 msgstr "Inizio"
 
-#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/Photo.py
 msgid "schema_subtitle_description"
 msgstr "Sottotitolo"
 
-#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/Photo.py
 msgid "schema_subtitle_label"
 msgstr "Sottotitolo"
 
@@ -419,12 +419,12 @@ msgid "schema_value_label"
 msgstr "Valore"
 
 #: schema | ../content/criteria/weight.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_weight_description"
 msgstr "Inserisci il peso del prodotto"
 
 #: schema | ../content/criteria/weight.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_weight_label"
 msgstr "Peso"
 

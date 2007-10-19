@@ -15,7 +15,7 @@
  <property name="allowed_content_types">
   <element value="Document"/>
   <element value="EasyShopFormatter"/>        
-  <element value="EasyShopProductSelector"/>
+  <element value="ProductSelector"/>
   <element value="EasyShopThankYouPage"/>
   <element value="Topic"/>  
  </property>

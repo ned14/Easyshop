@@ -18,6 +18,7 @@ ZopeTestCase.installProduct('EasyShop')
 PloneTestCase.setupPloneSite(
     products=["EasyShop",
               "easyshop.carts",
+              "easyshop.catalog",              
               "easyshop.criteria",
               "easyshop.payment",              
               "easyshop.shipping",

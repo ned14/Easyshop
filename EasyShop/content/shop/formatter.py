@@ -54,7 +54,7 @@ schema = Schema((
             label_msgid="schema_image_sizes_label",
             description = "The sizes of images",
             description_msgid="schema_image_sizes_description",
-            i18n_domain="EasyShopProducts",        
+            i18n_domain="Products",        
         ),
     ),
 
@@ -79,7 +79,7 @@ schema = Schema((
             label_msgid="schema_text_label",
             description = "Which text is to be displayed.",
             description_msgid="schema_text_description",
-            i18n_domain="EasyShopProducts",        
+            i18n_domain="Products",        
         ),
     ),    
 ))    

@@ -19,7 +19,7 @@ class PhotoManagement:
 
     def getMainPhoto(self):
         """Returns the main photo. This is either the image field of the
-        product or the first EasyShopPhoto object within the product.
+        product or the first Photo object within the product.
         """ 
         # Returns the object(s), which contains the image field (not the image
         # field itself), to be able to get image_shop_large. etc.
@@ -28,7 +28,7 @@ class PhotoManagement:
             return self.context
         else:
             try:
-                return self.context.objectValues("EasyShopPhoto")[0]
+                return self.context.objectValues("Photo")[0]
             except IndexError:
                 return None
                 
@@ -40,7 +40,7 @@ class PhotoManagement:
         if len(image) != 0:
             result.append(self.context)
         
-        result.extend(self.context.objectValues("EasyShopPhoto"))
+        result.extend(self.context.objectValues("Photo"))
         return result
         
     def hasPhotos(self):

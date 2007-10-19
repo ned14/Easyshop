@@ -33,11 +33,11 @@ msgstr "Adresszusatz"
 msgid "schema_amount_label"
 msgstr "Anzahl"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_article_id_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_article_id_label"
 msgstr "アイテムID"
 
@@ -49,12 +49,12 @@ msgstr "Bankleitzahl"
 msgid "schema_bankname_label"
 msgstr "Bankname"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_categories_description"
 msgstr ""
 
 #: schema | ../content/criteria/category.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_categories_label"
 msgstr "カテゴリー"
 
@@ -90,13 +90,13 @@ msgstr "Währung"
 msgid "schema_customers_label"
 msgstr "お客さま"
 
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_cut_image_label"
 msgstr "画像をカット"
 
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_cut_image_label_description"
 msgstr ""
 
@@ -129,24 +129,24 @@ msgstr "カテゴリーをオープン"
 msgid "schema_firstname_label"
 msgstr "Vorname"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_groups_description"
 msgstr "　"
 
 #: schema | ../content/criteria/group.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_groups_label"
 msgstr "グループ"
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
 msgid "schema_help_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopPhoto.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Photo.py
+#: schema | ../content/product/Product.py
 msgid "schema_image_label"
 msgstr "画像"
 
@@ -174,12 +174,12 @@ msgstr ""
 msgid "schema_lines_per_page_label"
 msgstr "Zeilen per Seite"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_long_description_description"
 msgstr "　"
 
-#: schema | ../content/product/EasyShopCategory.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Category.py
+#: schema | ../content/product/Product.py
 msgid "schema_long_description_label"
 msgstr "詳しい説明"
 
@@ -254,7 +254,7 @@ msgstr "Telefon"
 
 #: schema | ../content/order/EasyShopOrderItem.py
 #: schema | ../content/payment/payment_price.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_price_gross_label"
 msgstr "価格"
 
@@ -286,14 +286,14 @@ msgstr "Produktmenge"
 msgid "schema_product_tax_label"
 msgstr "Produktsteuer"
 
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_products_description"
 msgstr ""
 
 #: schema | ../content/criteria/product.py
-#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/Category.py
 #: schema | ../content/product/EasyShopGroup.py
 msgid "schema_products_label"
 msgstr "アイテム"
@@ -311,7 +311,7 @@ msgstr "Produkte pro Zeile"
 msgid "schema_rate_label"
 msgstr "Rate"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_related_products_label"
 msgstr "関連アイテム"
 
@@ -343,19 +343,19 @@ msgstr "Mehrwertsteuer (Betrag)"
 msgid "schema_shipping_tax_rate_label"
 msgstr "Mehrwertsteuer  (Rate)"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_description_description"
 msgstr "　"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_description_label"
 msgstr "簡単な説明"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_title_description"
 msgstr "　"
 
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_short_title_label"
 msgstr "ショートタイトル"
 
@@ -375,11 +375,11 @@ msgstr "チェックするとアイテム数が記入できる数量フィール
 msgid "schema_show_quantity_label"
 msgstr "数量フィールド"
 
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_showtitle_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopProductSelector.py
+#: schema | ../content/product/ProductSelector.py
 msgid "schema_showtitle_label"
 msgstr "Title anzeigen"
 
@@ -387,11 +387,11 @@ msgstr "Title anzeigen"
 msgid "schema_start_label"
 msgstr "Beginn"
 
-#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/Photo.py
 msgid "schema_subtitle_description"
 msgstr ""
 
-#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/Photo.py
 msgid "schema_subtitle_label"
 msgstr "Untertitel"
 
@@ -423,12 +423,12 @@ msgid "schema_value_label"
 msgstr "Wert"
 
 #: schema | ../content/criteria/weight.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_weight_description"
 msgstr "　"
 
 #: schema | ../content/criteria/weight.py
-#: schema | ../content/product/EasyShopProduct.py
+#: schema | ../content/product/Product.py
 msgid "schema_weight_label"
 msgstr "重さ（Kg）"
 

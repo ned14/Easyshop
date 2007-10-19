@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="EasyShopProductSelector"
+<object name="ProductSelector"
    meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Selector</property>
@@ -9,9 +9,9 @@
       Used to select products which should be displayed on several views, e.g. 
       category view</property>
  <property name="content_icon">document_icon.gif</property>
- <property name="content_meta_type">EasyShopProductSelector</property>
+ <property name="content_meta_type">ProductSelector</property>
  <property name="product">EasyShop</property>
- <property name="factory">addEasyShopProductSelector</property>
+ <property name="factory">addProductSelector</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">False</property>

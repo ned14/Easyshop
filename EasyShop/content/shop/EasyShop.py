@@ -172,11 +172,11 @@ class EasyShop(ATFolder, EasyShopBase):
         # ctr = self.content_type_registry
         # ctr.addPredicate("Photo", "extension")
         # ctr.getPredicate("Photo").edit("jpg jpeg png gif")
-        # ctr.assignTypeName("Photo", "EasyShopPhoto")
+        # ctr.assignTypeName("Photo", "Photo")
         
         # Add containers
-        self.manage_addProduct["EasyShop"].addEasyShopProducts(id="products", title="Products")        
-        self.manage_addProduct["EasyShop"].addEasyShopCategories(id="categories", title="Categories")
+        self.manage_addProduct["EasyShop"].addProductsContainer(id="products", title="Products")
+        self.manage_addProduct["EasyShop"].addCategoriesContainer(id="categories", title="Categories")
         self.manage_addProduct["EasyShop"].addEasyShopGroups(id="groups", title="Groups")
         self.manage_addProduct["EasyShop"].addTaxesContainer(id="taxes", title="Taxes")
         self.manage_addProduct["EasyShop"].addShippingPricesContainer(id="shippingprices", title="Shipping Prices")
@@ -184,8 +184,8 @@ class EasyShop(ATFolder, EasyShopBase):
         self.manage_addProduct["EasyShop"].addCartsContainer(id="carts", title="Carts")
         self.manage_addProduct["EasyShop"].addEasyShopOrders(id="orders", title="Orders")
         self.manage_addProduct["EasyShop"].addEasyShopCustomers(id="customers", title="Customers")
-        self.manage_addProduct["EasyShop"].addEasyShopPaymentMethods(id="paymentmethods", title="Payment Methods")
-        self.manage_addProduct["EasyShop"].addPaymentPrices(id="paymentprices", title="Payment Prices")        
+        self.manage_addProduct["EasyShop"].addPaymentMethodsContainer(id="paymentmethods", title="Payment Methods")
+        self.manage_addProduct["EasyShop"].addPaymentPricesContainer(id="paymentprices", title="Payment Prices")
 
         # Add a formatter
         self.manage_addProduct["EasyShop"].addEasyShopFormatter(id="formatter", title="Formatter")

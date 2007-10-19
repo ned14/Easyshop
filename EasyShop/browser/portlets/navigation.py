@@ -141,14 +141,14 @@ def _showSubTree(context, category):
         return True  
                   
     # Todo: Use interface and implements            
-    elif context.portal_type == "EasyShopProduct":
+    elif context.portal_type == "Product":
         cm = ICategoryManagement(context)
         try:
             product_category = cm.getCategories()[0]
         except IndexError:
             return False
 
-        while product_category.portal_type == "EasyShopCategory":
+        while product_category.portal_type == "Category":
             if product_category.UID() == category.UID():
                 return True 
             product_category = product_category.aq_inner.aq_parent
@@ -163,7 +163,7 @@ def _getSubCategories(context, category):
     # Use catalog search directly here for speed reasons. Using 
     # ICategoryManagement() would force me to get the object out of the brain.
     catalog = getToolByName(context, "portal_catalog")
-    brains = catalog(portal_type="EasyShopCategory",
+    brains = catalog(portal_type="Category",
                      path = {"query" : category.getPath(),
                              "depth" : 1},
                      sort_on = "getObjPositionInParent")
@@ -191,7 +191,7 @@ def _getItemClass(context, category):
     
     if context_url == category_url:
         return "navTreeCurrentItem visualIconPadding"
-    elif context.portal_type == "EasyShopProduct":
+    elif context.portal_type == "Product":
         try:
             product_category =\
             context.getBRefs("easyshopcategory_easyshopproduct")[0]            

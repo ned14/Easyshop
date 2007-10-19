@@ -44,10 +44,10 @@ class TestCart(EasyShopTestCase):
         self.shop = self.folder.myshop
         self.shop.at_post_create_script()        
                         
-        self.shop.products.invokeFactory("EasyShopProduct", id="product_1", price=22.0)
+        self.shop.products.invokeFactory("Product", id="product_1", price=22.0)
         self.product_1 = self.shop.products.product_1
         
-        self.shop.products.invokeFactory("EasyShopProduct", id="product_2", price=19.0)
+        self.shop.products.invokeFactory("Product", id="product_2", price=19.0)
         self.product_2 = self.shop.products.product_2
         
         self.sid = self.portal.REQUEST.SESSION = TestSession("123")

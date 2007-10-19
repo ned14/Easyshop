@@ -5,31 +5,31 @@ class ICartsFolderContent(Interface):
     """A marker interface for carts folder content objects.
     """
 
-class ICategoryFolderContent(Interface):
+class ICategoriesContainer(Interface):
     """A marker interface for categories containers.
     """
     
-class ICustomerFolderContent(Interface):
+class ICustomersContainer(Interface):
     """A marker interface for customer folder content objects.
     """
 
-class IGroupFolderContent(Interface):
+class IGroupsContainer(Interface):
     """Marker interface for group folder content objects.
     """
 
-class IPaymentMethodsFolderContent(Interface):
+class IPaymentMethodsContainer(Interface):
     """A marker interface for payment method folder content objects.
     """
 
-class IPaymentPricesFolderContent(Interface):
+class IPaymentPricesContainer(Interface):
     """A marker interface for payment price folder objects.
     """
 
-class IProductFolderContent(Interface):
+class IProductsContainer(Interface):
     """Marker interface for product folder content objects.
     """    
     
-class IOrderFolderContent(Interface):
+class IOrdersContainer(Interface):
     """A marker interface for order folder content objects.
     """
         
