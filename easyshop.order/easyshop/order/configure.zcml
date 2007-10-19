@@ -3,5 +3,13 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="easyshop.order">
 
+    <five:registerPackage 
+        package="." />
+
+    <include 
+        package=".adapters" />
+
+    <include 
+        file="profiles.zcml" />
 
 </configure>
