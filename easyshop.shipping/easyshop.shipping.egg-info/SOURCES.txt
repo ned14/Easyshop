@@ -31,3 +31,6 @@ easyshop/shipping/profiles/default/types/ShippingMethod.xml
 easyshop/shipping/profiles/default/types/ShippingMethodsContainer.xml
 easyshop/shipping/profiles/default/types/ShippingPrice.xml
 easyshop/shipping/profiles/default/types/ShippingPricesContainer.xml
+easyshop/shipping/subscribers/__init__.py
+easyshop/shipping/subscribers/configure.zcml
+easyshop/shipping/subscribers/subscribers.py

@@ -36,6 +36,9 @@ easyshop/carts/profiles/default/types.xml
 easyshop/carts/profiles/default/types/Cart.xml
 easyshop/carts/profiles/default/types/CartItem.xml
 easyshop/carts/profiles/default/types/CartsContainer.xml
+easyshop/carts/subscribers/__init__.py
+easyshop/carts/subscribers/configure.zcml
+easyshop/carts/subscribers/subscribers.py
 easyshop/carts/tests/__init__.py
 easyshop/carts/tests/base.py
 easyshop/carts/tests/testDocTests.py

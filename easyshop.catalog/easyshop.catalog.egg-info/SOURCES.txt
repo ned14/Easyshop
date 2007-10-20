@@ -50,3 +50,6 @@ easyshop/catalog/profiles/default/types/Product.xml
 easyshop/catalog/profiles/default/types/ProductProperty.xml
 easyshop/catalog/profiles/default/types/ProductSelector.xml
 easyshop/catalog/profiles/default/types/ProductsContainer.xml
+easyshop/catalog/subscribers/__init__.py
+easyshop/catalog/subscribers/configure.zcml
+easyshop/catalog/subscribers/subscribers.py

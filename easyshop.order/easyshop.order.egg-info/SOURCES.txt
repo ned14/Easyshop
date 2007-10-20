@@ -34,3 +34,6 @@ easyshop/order/profiles/default/types.xml
 easyshop/order/profiles/default/types/Order.xml
 easyshop/order/profiles/default/types/OrderItem.xml
 easyshop/order/profiles/default/types/OrdersContainer.xml
+easyshop/order/subscribers/__init__.py
+easyshop/order/subscribers/configure.zcml
+easyshop/order/subscribers/subscribers.py

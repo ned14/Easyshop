@@ -17,8 +17,16 @@ easyshop.information.egg-info/requires.txt
 easyshop.information.egg-info/top_level.txt
 easyshop/information/__init__.py
 easyshop/information/configure.zcml
+easyshop/information/profiles.zcml
 easyshop/information/tests.py
+easyshop/information/adapters/information.py
 easyshop/information/content/__init__.py
 easyshop/information/content/containers.py
-easyshop/information/content/terms_and_conditions.py
+easyshop/information/content/information_page.py
 easyshop/information/profiles/__init__.py
+easyshop/information/profiles/default/types.xml
+easyshop/information/profiles/default/types/InformationContainer.xml
+easyshop/information/profiles/default/types/InformationPage.xml
+easyshop/information/subscribers/__init__.py
+easyshop/information/subscribers/configure.zcml
+easyshop/information/subscribers/subscribers.py

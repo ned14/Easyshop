@@ -40,3 +40,6 @@ easyshop/payment/profiles/default/types/PaymentPrice.xml
 easyshop/payment/profiles/default/types/PaymentPricesContainer.xml
 easyshop/payment/profiles/default/types/PaymentValidator.xml
 easyshop/payment/profiles/default/types/SimplePaymentMethod.xml
+easyshop/payment/subscribers/__init__.py
+easyshop/payment/subscribers/configure.zcml
+easyshop/payment/subscribers/subscribers.py

@@ -20,4 +20,9 @@ easyshop.login.egg-info/requires.txt
 easyshop.login.egg-info/top_level.txt
 easyshop/login/__init__.py
 easyshop/login/configure.zcml
+easyshop/login/profiles.zcml
 easyshop/login/tests.py
+easyshop/login/profiles/default/skins.xml
+easyshop/login/skins/easyshop.login/join_form.cpt
+easyshop/login/skins/easyshop.login/join_form.cpt.metadata
+easyshop/login/skins/easyshop.login/registered.py

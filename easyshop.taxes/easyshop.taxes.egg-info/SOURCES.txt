@@ -33,3 +33,6 @@ easyshop/taxes/profiles/default/types.xml
 easyshop/taxes/profiles/default/types/CustomerTax.xml
 easyshop/taxes/profiles/default/types/DefaultTax.xml
 easyshop/taxes/profiles/default/types/TaxesContainer.xml
+easyshop/taxes/subscribers/__init__.py
+easyshop/taxes/subscribers/configure.zcml
+easyshop/taxes/subscribers/subscribers.py

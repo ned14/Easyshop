@@ -27,3 +27,9 @@ easyshop/groups/content/__init__.py
 easyshop/groups/content/containers.py
 easyshop/groups/content/group.py
 easyshop/groups/profiles/__init__.py
+easyshop/groups/profiles/default/types.xml
+easyshop/groups/profiles/default/types/GroupsContainer.xml
+easyshop/groups/profiles/default/types/ProductGroup.xml
+easyshop/groups/subscribers/__init__.py
+easyshop/groups/subscribers/configure.zcml
+easyshop/groups/subscribers/subscribers.py
