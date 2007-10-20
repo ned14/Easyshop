@@ -102,8 +102,8 @@ def createTestEnvironment(self):
     self.product_42 = self.shop.products.product_42
     
     # Groups
-    self.shop.groups.manage_addProduct["EasyShop"].addEasyShopGroup(id="group_1")
-    self.shop.groups.manage_addProduct["EasyShop"].addEasyShopGroup(id="group_2")
+    self.shop.groups.manage_addProduct["EasyShop"].addProductGroup(id="group_1")
+    self.shop.groups.manage_addProduct["EasyShop"].addProductGroup(id="group_2")
     self.group_1 = self.shop.groups.group_1
     self.group_2 = self.shop.groups.group_2
 

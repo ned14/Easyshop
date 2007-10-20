@@ -8,11 +8,11 @@
      meta_type="Factory-based Type Information with dynamic views"/>
     
  <object
-     name="EasyShopGroup"
+     name="ProductGroup"
      meta_type="Factory-based Type Information"/>
      
  <object
-     name="EasyShopGroups" 
+     name="GroupsContainer" 
      meta_type="Factory-based Type Information"/>
           
 </object>

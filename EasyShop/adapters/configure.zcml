@@ -57,14 +57,5 @@
     <!-- ======== -->
     <adapter
         factory=".shop.CurrencyManagement" />
-
-    <adapter
-        factory=".shop.ShopGroupManagement" />
         
-    <!-- ========= -->
-    <!-- = Group = -->
-    <!-- ========= -->    
-    <adapter
-        factory=".group.GroupProductManager" />
-    
 </configure>

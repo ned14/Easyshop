@@ -138,7 +138,7 @@ msgstr "Gruppen"
 
 #: schema | ../content/product/Category.py
 #: schema | ../content/product/Category.py
-#: schema | ../content/product/EasyShopGroup.py
+#: schema | ../content/product/ProductGroup.py
 msgid "schema_help_description"
 msgstr ""
 
@@ -285,14 +285,14 @@ msgid "schema_product_tax_label"
 msgstr "Produktsteuer"
 
 #: schema | ../content/product/Category.py
-#: schema | ../content/product/EasyShopGroup.py
+#: schema | ../content/product/ProductGroup.py
 #: schema | ../content/product/Product.py
 msgid "schema_products_description"
 msgstr ""
 
 #: schema | ../content/criteria/product.py
 #: schema | ../content/product/Category.py
-#: schema | ../content/product/EasyShopGroup.py
+#: schema | ../content/product/ProductGroup.py
 msgid "schema_products_label"
 msgstr "Produkte"
 

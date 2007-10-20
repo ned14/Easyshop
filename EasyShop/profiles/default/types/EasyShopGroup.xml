@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<object name="EasyShopGroup" meta_type="Factory-based Type Information"
+<object name="ProductGroup" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Group</property>
  <property
     name="description">A group of products.</property>
  <property name="content_icon">group_icon.png</property>
- <property name="content_meta_type">EasyShopGroup</property>
+ <property name="content_meta_type">ProductGroup</property>
  <property name="product">EasyShop</property>
- <property name="factory">addEasyShopGroup</property>
+ <property name="factory">addProductGroup</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>

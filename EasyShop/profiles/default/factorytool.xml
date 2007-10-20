@@ -6,7 +6,7 @@
   <type portal_type="CartItem"/> 
   <type portal_type="Address"/> 
   <type portal_type="CustomerCriteria"/> 
-  <type portal_type="EasyShopGroup"/> 
+  <type portal_type="ProductGroup"/> 
   <type portal_type="DefaultTax"/> 
   <type portal_type="Customer"/> 
   <type portal_type="DateCriteria"/> 

@@ -131,7 +131,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
         self.assertEqual(p.aq_inner.aq_parent.portal_type, "Product")
 
         p = pm.getProperty("size")        
-        self.assertEqual(p.aq_inner.aq_parent.portal_type, "EasyShopGroup")
+        self.assertEqual(p.aq_inner.aq_parent.portal_type, "ProductGroup")
                 
 def test_suite():
     from unittest import TestSuite, makeSuite

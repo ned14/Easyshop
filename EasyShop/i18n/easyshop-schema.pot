@@ -141,8 +141,8 @@ msgstr ""
 
 #: schema | ../content/product/Category.py
 #: schema | ../content/product/Category.py
-#: schema | ../content/product/EasyShopGroup.py
-#: schema | ../content/product/EasyShopGroup.py
+#: schema | ../content/product/ProductGroup.py
+#: schema | ../content/product/ProductGroup.py
 #: schema | ../content/product/Product.py
 #: schema | ../content/product/Product.py
 msgid "schema_help_description"
@@ -293,7 +293,7 @@ msgid "schema_product_tax_label"
 msgstr ""
 
 #: schema | ../content/product/Category.py
-#: schema | ../content/product/EasyShopGroup.py
+#: schema | ../content/product/ProductGroup.py
 #: schema | ../content/product/Product.py
 #: schema | ../content/product/ProductSelector.py
 msgid "schema_products_description"
@@ -301,7 +301,7 @@ msgstr ""
 
 #: schema | ../content/criteria/product.py
 #: schema | ../content/product/Category.py
-#: schema | ../content/product/EasyShopGroup.py
+#: schema | ../content/product/ProductGroup.py
 #: schema | ../content/product/ProductSelector.py
 msgid "schema_products_label"
 msgstr ""

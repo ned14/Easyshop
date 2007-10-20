@@ -167,17 +167,17 @@ class EasyShop(ATFolder, EasyShopBase):
     def at_post_create_script(self):
         """Overwritten to create some containers.
         """
-        # Add Content Type Registry
-        # self.manage_addProduct["CMFCore"].manage_addRegistry()
-        # ctr = self.content_type_registry
-        # ctr.addPredicate("Photo", "extension")
-        # ctr.getPredicate("Photo").edit("jpg jpeg png gif")
-        # ctr.assignTypeName("Photo", "Photo")
+        Add Content Type Registry
+        self.manage_addProduct["CMFCore"].manage_addRegistry()
+        ctr = self.content_type_registry
+        ctr.addPredicate("Photo", "extension")
+        ctr.getPredicate("Photo").edit("jpg jpeg png gif")
+        ctr.assignTypeName("Photo", "Photo")
         
         # Add containers
         self.manage_addProduct["EasyShop"].addProductsContainer(id="products", title="Products")
         self.manage_addProduct["EasyShop"].addCategoriesContainer(id="categories", title="Categories")
-        self.manage_addProduct["EasyShop"].addEasyShopGroups(id="groups", title="Groups")
+        self.manage_addProduct["EasyShop"].addGroupsContainer(id="groups", title="Groups")
         self.manage_addProduct["EasyShop"].addTaxesContainer(id="taxes", title="Taxes")
         self.manage_addProduct["EasyShop"].addShippingPricesContainer(id="shippingprices", title="Shipping Prices")
         self.manage_addProduct["EasyShop"].addShippingMethodsContainer(id="shippingmethods", title="Shipping Methods")

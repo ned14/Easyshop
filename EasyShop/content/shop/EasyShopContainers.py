@@ -9,9 +9,9 @@ from Products.Archetypes.atapi import registerType
 from Products.EasyShop.config import PROJECTNAME
 from Products.EasyShop.interfaces import IGroupsContainer
 
-class EasyShopGroups(OrderedBaseFolder):
+class GroupsContainer(OrderedBaseFolder):
     """A simple container to hold groups.
     """    
     implements(IGroupsContainer)
 
-registerType(EasyShopGroups, PROJECTNAME)
+registerType(GroupsContainer, PROJECTNAME)
