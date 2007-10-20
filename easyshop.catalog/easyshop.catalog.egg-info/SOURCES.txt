@@ -36,6 +36,7 @@ easyshop/catalog/adapters/shop/product.py
 easyshop/catalog/content/__init__.py
 easyshop/catalog/content/category.py
 easyshop/catalog/content/containers.py
+easyshop/catalog/content/formatter.py
 easyshop/catalog/content/photo.py
 easyshop/catalog/content/product.py
 easyshop/catalog/content/product_property.py
