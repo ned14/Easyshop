@@ -1,0 +1,6 @@
+[default]
+title = 
+
+[actions]
+action.addresses-select-form = traverse_to:string:check-out-addresses-select-form
+action.addresses-add-form    = traverse_to:string:check-out-addresses-add-form

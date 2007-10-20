@@ -1,0 +1,5 @@
+[default]
+title = 
+
+[actions]
+action.success = redirect_to:string:check-out-thanks
