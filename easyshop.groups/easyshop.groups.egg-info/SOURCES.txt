@@ -1,6 +1,10 @@
 README.txt
 setup.cfg
 setup.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
 easyshop/__init__.py
 easyshop.groups.egg-info/PKG-INFO
 easyshop.groups.egg-info/SOURCES.txt
@@ -8,7 +12,13 @@ easyshop.groups.egg-info/dependency_links.txt
 easyshop.groups.egg-info/entry_points.txt
 easyshop.groups.egg-info/namespace_packages.txt
 easyshop.groups.egg-info/not-zip-safe
+easyshop.groups.egg-info/paster_plugins.txt
 easyshop.groups.egg-info/requires.txt
 easyshop.groups.egg-info/top_level.txt
 easyshop/groups/__init__.py
+easyshop/groups/configure.zcml
 easyshop/groups/tests.py
+easyshop/groups/content/__init__.py
+easyshop/groups/content/containers.py
+easyshop/groups/content/group.py
+easyshop/groups/profiles/__init__.py

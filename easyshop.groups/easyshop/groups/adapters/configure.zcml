@@ -1,0 +1,12 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five">
+
+
+    <adapter
+        factory=".shop.ShopGroupManagement" />
+        
+    <adapter
+        factory=".product.GroupProductManager" />
+    
+</configure>
