@@ -35,3 +35,6 @@ easyshop/customers/profiles/default/types.xml
 easyshop/customers/profiles/default/types/Address.xml
 easyshop/customers/profiles/default/types/Customer.xml
 easyshop/customers/profiles/default/types/CustomersContainer.xml
+easyshop/customers/subscribers/__init__.py
+easyshop/customers/subscribers/configure.zcml
+easyshop/customers/subscribers/subscribers.py

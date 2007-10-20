@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="view context/@@manageAddressBookView;
+                                customer view/getCustomer">
+                
+            <h1 class="documentFirstHeading"
+                i18n:translate="manage_addressbook_label">
+              Manage Addressbook
+            </h1>
+      
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href string:${context/absolute_url}/my-account"
+               i18n:translate="my_account_label">
+                My Account
+            </a>
+
+            <p class="documentDescription"
+               i18n:translate="manage_addressbook_description">
+                Add, edit and delete you addresses here. All of them can be
+                used within check out to select for invoice or shipping address. 
+            </p>
+      
+            <table class="address-book">
+                <tal:block tal:repeat="address view/getAddresses">
+                    <tr>
+                        <td>                
+                            <div class="address">
+                                <div class="name"
+                                     tal:content="address/getName">
+                                </div>                          
+                                <div tal:content="address/getCompanyName">
+                                </div>                                                    
+                                <div tal:content="address/getAddress1">
+                                </div>
+                                <div tal:content="address/getAddress2">
+                                </div>
+                                <div>
+                                    <span tal:content="address/getZipCode">
+                                    </span>
+                                    <span tal:content="address/getCity">
+                                    </span>
+                                </div>    
+                             </div>      
+                             <div tal:content="address/getCountry">
+                             </div>
+                             <div tal:content="address/getPhone" />
+                        </td>
+                        <td class="buttons">
+                      
+                            <form style="display:inline"  
+                                  action="#"
+                                  method="post"
+                                  tal:attributes="action string:${address/absolute_url}/base_edit">
+                            
+                                <input type="hidden" 
+                                       name="goto" 
+                                       value="addressbook" />
+                                  
+                                <input type="submit"
+                                       value="Edit"
+                                       i18n:attributes="value edit_label;"/>
+                             </form>
+                       
+                             <form style="display:inline"
+                                   action="#"
+                                   method="post"
+                                   tal:attributes="action context/absolute_url">
+                             
+                                 <input type="hidden" 
+                                        name="id"
+                                        value="1"
+                                        tal:attributes="value address/getId" />  
+                                     
+                                 <input type="submit" 
+                                        name="deleteAddress:method"
+                                        value="Delete"
+                                        i18n:attributes="value delete_label;" />
+                             </form>
+                        </td>            
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr />
+                        </td>    
+                    </tr>    
+                </tal:block>            
+            </table>
+            <form action="#"
+                  method="post"
+                  tal:attributes="action string:${customer/absolute_url}/createObject">
+                <input type="hidden" name="type_name" value="Address" />
+                <input type="hidden" name="goto" value="addressbook" />
+                <input type="submit" 
+                       value="Add Address"
+                       i18n:attributes="value add_address_label;" />
+            </form>              
+      
+        </metal:main>    
+    </body>
+</html>

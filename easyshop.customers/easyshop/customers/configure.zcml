@@ -4,10 +4,14 @@
     i18n_domain="easyshop.customers">
 
     <five:registerPackage 
-        package="." />
+        package="." 
+        initialize=".initialize" />        
 
     <include 
         package=".adapters" />
+
+    <include 
+        package=".portlets" />
 
     <include 
         package=".subscribers" />

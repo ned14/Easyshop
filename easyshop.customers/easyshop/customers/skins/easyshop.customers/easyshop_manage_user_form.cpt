@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+       
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="errors options/state/getErrors;">
+                    
+            <h1 class="documentFirstHeading"
+                i18n:translate="manage_name_label">
+                Manage name and e-mail address
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href string:${context/absolute_url}/my-account"
+               i18n:translate="my_account_label">
+                My Account
+            </a>
+
+            <form action="#"
+                  tal:attributes="action string:${context/absolute_url}/${template/id}"
+                  name="change_user_name"
+                  method="post">
+      
+                <div tal:define="field_value python:request.get('firstname', member.getProperty('firstname', ''));
+                                 error python:errors.get('firstname')"
+                     tal:attributes="class python:test(error, 'field error', 'field')">             
+                                 
+                    <label for="firstname" 
+                           i18n:translate="firstname_label"> 
+                           First Name </label> 
+
+                    <span title='Required' 
+                          class='fieldRequired'> (Required) </span> 
+
+                    <div tal:condition="error">
+                        <span tal:replace="error" />
+                       <br />
+                    </div>
+                          
+                    <input type="text" 
+                           name="firstname" 
+                           id="firstname" 
+                           tabindex="" 
+                           tal:attributes="tabindex 
+                                           tabindex/next;
+                                           value field_value" /> 
+                </div>
+
+                <div tal:define="field_value python:request.get('lastname', member.getProperty('lastname', ''));
+                                 error python:errors.get('lastname')"
+                     tal:attributes="class python:test(error, 'field error', 'field')">             
+                                 
+                    <label for="lastname" 
+                           i18n:translate="lastname_label"> 
+                           Last Name </label> 
+
+                    <span title='Required' 
+                          class='fieldRequired'> (Required) </span> 
+
+                    <div tal:condition="error">
+                        <span tal:replace="error" />
+                       <br />
+                    </div>
+                          
+                    <input type="text" 
+                           name="lastname" 
+                           id="lastname" 
+                           tabindex="" 
+                           tal:attributes="tabindex 
+                                           tabindex/next;
+                                           value field_value" /> 
+                </div>
+            
+                <div tal:define="field_value python:request.get('email', member.getProperty('email',''));
+                                 error python:errors.get('email')"
+                     tal:attributes="class python:test(error, 'field error', 'field')">             
+                                 
+                    <label for="email" 
+                           i18n:translate="email_label"> 
+                           E-mail </label> 
+
+                    <span title='Required' 
+                          class='fieldRequired'> (Required) </span> 
+
+                    <div tal:condition="error">
+                        <span tal:replace="error" />
+                       <br />
+                    </div>
+                          
+                    <input type="text" 
+                           name="email" 
+                           id="email" 
+                           tabindex="" 
+                           tal:attributes="tabindex 
+                                           tabindex/next;
+                                           value field_value" /> 
+                </div>
+
+                <input type="hidden" 
+                       name="form.submitted"
+                       value="1" />
+
+                <input class="context" 
+                       type="submit" 
+                       name="form_submit" 
+                       value="Save"
+                       i18n:attributes="value save_label;" /> 
+
+                <input class="standalone" 
+                       type="submit" 
+                       name="form.button.Cancel" 
+                       value="Cancel"
+                       i18n:attributes="value cancel_label;" /> 
+                
+            </form>
+       
+                
+        </metal:main>    
+        
+  </body>
+</html>
