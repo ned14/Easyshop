@@ -9,24 +9,24 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 
 class ShopInformation:
     """Provices currency related methods.
     """
     implements(IShopInformation)
-    adapts(IShopContent)
+    adapts(IShop)
     
     def __init__(self, context):
         """
         """
         self.shop = context.getShop()
 
-    def getTermsAndConditions(self):
+    def getInformationPage(self):
         """Returns terms and conditions as file and text.
         """        
         try:
-            toc = self.context.information.objectValues("TermsAndConditions")[0]
+            toc = self.context.information.objectValues("InformationPage")[0]
             toc_url  = toc_url.absolute_url()
             toc_text = toc_url.getText()                
         except IndexError:

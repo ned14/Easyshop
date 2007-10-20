@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<object name="TermsAndConditions"
+<object name="InformationPage"
    meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="plone" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Terms and Conditions</property>
+ <property name="title" i18n:translate="">Information Page</property>
  <property name="description"
-      i18n:translate="">Terms and Conditions of the shop.</property>
+           i18n:translate="">Provides information like Terms and Conditions.</property>
  <property name="content_icon">document_icon.gif</property>
- <property name="content_meta_type">TermsAndConditions</property>
+ <property name="content_meta_type">InformationPage</property>
  <property name="product">EasyShop</property>
- <property name="factory">addTermsAndConditions</property>
+ <property name="factory">addInformationPage</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>

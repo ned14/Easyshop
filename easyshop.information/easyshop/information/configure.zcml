@@ -2,9 +2,13 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="easyshop.information">
+
     <five:registerPackage 
         package="." />
 
+    <include
+        package=".subscribers" />
+        
     <include 
         file="profiles.zcml" />
         

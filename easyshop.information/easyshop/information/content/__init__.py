@@ -1,2 +1,2 @@
 import containers
-import terms_and_conditions
+import information_page

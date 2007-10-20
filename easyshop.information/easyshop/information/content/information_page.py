@@ -14,7 +14,7 @@ from Products.ATContentTypes.content.document import ATDocumentSchema
 
 # drako.knowledgebase imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ITermsAndConditions
+from Products.EasyShop.interfaces import IInformationPage
 
 schema = ATDocumentSchema.copy() + Schema ((    
     FileField(
@@ -26,18 +26,15 @@ schema = ATDocumentSchema.copy() + Schema ((
             description_msgid = "schema_terms_and_conditions_description",            
             i18n_domain="EasyShop",
         ),
-    ),        
-    
+    ),            
 ))
 
 finalizeATCTSchema(schema, moveDiscussion=False)
-class TermsAndConditions(ATDocument):
+class InformationPage(ATDocument):
     """
     """
-    implements(ITermsAndConditions)
-    security = ClassSecurityInfo()
-    
+    implements(IInformationPage)
     _at_rename_after_creation = True
     schema = schema
 
-registerType(TermsAndConditions, PROJECTNAME)
+registerType(InformationPage, PROJECTNAME)
