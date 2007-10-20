@@ -1,6 +1,13 @@
+CHANGES
+HISTORY
 README.txt
+VERSION
 setup.cfg
 setup.py
+docs/HISTORY.txt
+docs/INSTALL.txt
+docs/LICENSE.GPL
+docs/LICENSE.txt
 easyshop/__init__.py
 easyshop.login.egg-info/PKG-INFO
 easyshop.login.egg-info/SOURCES.txt
@@ -8,7 +15,9 @@ easyshop.login.egg-info/dependency_links.txt
 easyshop.login.egg-info/entry_points.txt
 easyshop.login.egg-info/namespace_packages.txt
 easyshop.login.egg-info/not-zip-safe
+easyshop.login.egg-info/paster_plugins.txt
 easyshop.login.egg-info/requires.txt
 easyshop.login.egg-info/top_level.txt
 easyshop/login/__init__.py
+easyshop/login/configure.zcml
 easyshop/login/tests.py
