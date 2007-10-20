@@ -8,13 +8,13 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces.cart import ICartManagement
 from Products.EasyShop.interfaces.item import IItemManagement
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 
 class CartManagement:
     """Provices cart management methods for shop content objects.
     """
     implements(ICartManagement)
-    adapts(IShopContent)
+    adapts(IShop)
     
     def __init__(self, context):
         """

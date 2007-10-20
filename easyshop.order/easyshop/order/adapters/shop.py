@@ -21,7 +21,7 @@ from Products.EasyShop.interfaces import IShippingManagement
 from Products.EasyShop.interfaces import IAddressManagement
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPaymentPrices
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.events import OrderSubmitted
 
 class UnrestrictedUser(BaseUnrestrictedUser):
@@ -34,7 +34,7 @@ class OrderManagement:
     """An adapter, which provides order management for shop content objects.
     """
     implements(IOrderManagement)
-    adapts(IShopContent)
+    adapts(IShop)
 
     def __init__(self, context):
         """

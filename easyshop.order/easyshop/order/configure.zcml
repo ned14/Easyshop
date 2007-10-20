@@ -7,9 +7,12 @@
         package="." />
 
     <include 
+        file="profiles.zcml" />
+
+    <include 
         package=".adapters" />
 
     <include 
-        file="profiles.zcml" />
+        package=".subscribers" />
 
 </configure>

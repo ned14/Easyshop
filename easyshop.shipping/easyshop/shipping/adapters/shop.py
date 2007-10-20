@@ -12,7 +12,7 @@ from Products.EasyShop.interfaces import IShippingManagement
 from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 from easyshop.catalog.content.product import Product
 
 
@@ -20,7 +20,7 @@ class ShippingManagement:
     """An adapter, which provides shipping management for shop content objects.
     """    
     implements(IShippingManagement)
-    adapts(IShopContent)
+    adapts(IShop)
 
     def __init__(self, context):
         """

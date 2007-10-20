@@ -14,9 +14,12 @@
     <include
         package=".portlets" />
 
+    <include 
+        package=".subscribers" />
+        
     <include
         package=".viewlets" />
-        
+
     <include
         file="profiles.zcml" />
     

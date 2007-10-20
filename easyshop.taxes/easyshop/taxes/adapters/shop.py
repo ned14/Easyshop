@@ -6,7 +6,7 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.interfaces import ITaxes
 from Products.EasyShop.interfaces import ITaxManagement
 from Products.EasyShop.interfaces import IValidity
@@ -16,7 +16,7 @@ class TaxManagement:
     context objects
     """
     implements(ITaxManagement)
-    adapts(IShopContent)
+    adapts(IShop)
 
     def __init__(self, context):
         """
@@ -74,7 +74,7 @@ class Taxes:
     """An adapter, which provides taxes for shop content objects.
     """
     implements(ITaxes)
-    adapts(IShopContent)
+    adapts(IShop)
 
     def __init__(self, context):
         """

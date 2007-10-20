@@ -7,13 +7,13 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 
 class ShopCategoryManagement:
     """An adapter which provides ICategoryManagement for shop content objects.
     """
     implements(ICategoryManagement)
-    adapts(IShopContent)
+    adapts(IShop)
     
     def __init__(self, context):
         """

@@ -12,7 +12,7 @@ from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPaymentMethodContent
 from Products.EasyShop.interfaces import IPaymentPrices
 from Products.EasyShop.interfaces import IPaymentPrice
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.interfaces import IShopPaymentMethod
 from Products.EasyShop.interfaces import ITaxes
 from Products.EasyShop.interfaces import IValidity
@@ -21,7 +21,7 @@ class PaymentManagement:
     """An adapter which provides IPaymentManagement for shop content objects.
     """
     implements(IPaymentManagement)
-    adapts(IShopContent)
+    adapts(IShop)
     
     def __init__(self, context):
         """
@@ -96,7 +96,7 @@ class PaymentPrices:
     """
     """
     implements(IPaymentPrices)
-    adapts(IShopContent)
+    adapts(IShop)
 
     def __init__(self, context):
         """
