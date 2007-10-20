@@ -71,7 +71,7 @@ class GroupCriteria(BaseContent):
         dl = DisplayList()
         catalog = getToolByName(self, "portal_catalog")
 
-        for group in catalog.searchResults(portal_type="EasyShopGroup"):
+        for group in catalog.searchResults(portal_type="ProductGroup"):
             dl.add(group.id, group.Title)
 
         return dl

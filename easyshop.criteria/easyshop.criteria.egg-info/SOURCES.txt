@@ -17,9 +17,11 @@ easyshop.criteria.egg-info/requires.txt
 easyshop.criteria.egg-info/top_level.txt
 easyshop/criteria/__init__.py
 easyshop/criteria/configure.zcml
+easyshop/criteria/profiles.zcml
 easyshop/criteria/tests.py
 easyshop/criteria/adapters/__init__.py
 easyshop/criteria/adapters/category.py
+easyshop/criteria/adapters/configure.zcml
 easyshop/criteria/adapters/country.py
 easyshop/criteria/adapters/customer.py
 easyshop/criteria/adapters/date.py
@@ -40,3 +42,14 @@ easyshop/criteria/content/price.py
 easyshop/criteria/content/product.py
 easyshop/criteria/content/shipping_method.py
 easyshop/criteria/content/weight.py
+easyshop/criteria/profiles/default/types.xml
+easyshop/criteria/profiles/default/types/CategoryCriteria.xml
+easyshop/criteria/profiles/default/types/CountryCriteria.xml
+easyshop/criteria/profiles/default/types/CustomerCriteria.xml
+easyshop/criteria/profiles/default/types/DateCriteria.xml
+easyshop/criteria/profiles/default/types/GroupCriteria.xml
+easyshop/criteria/profiles/default/types/PaymentMethodCriteria.xml
+easyshop/criteria/profiles/default/types/PriceCriteria.xml
+easyshop/criteria/profiles/default/types/ProductCriteria.xml
+easyshop/criteria/profiles/default/types/ShippingMethodCriteria.xml
+easyshop/criteria/profiles/default/types/WeightCriteria.xml
