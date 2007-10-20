@@ -23,10 +23,11 @@ easyshop/shipping/adapters/__init__.py
 easyshop/shipping/adapters/configure.zcml
 easyshop/shipping/adapters/shop.py
 easyshop/shipping/content/__init__.py
+easyshop/shipping/content/containers.py
 easyshop/shipping/content/shipping_method.py
 easyshop/shipping/content/shipping_price.py
 easyshop/shipping/profiles/default/types.xml
 easyshop/shipping/profiles/default/types/ShippingMethod.xml
-easyshop/shipping/profiles/default/types/ShippingMethods.xml
+easyshop/shipping/profiles/default/types/ShippingMethodsContainer.xml
 easyshop/shipping/profiles/default/types/ShippingPrice.xml
-easyshop/shipping/profiles/default/types/ShippingPrices.xml
+easyshop/shipping/profiles/default/types/ShippingPricesContainer.xml
