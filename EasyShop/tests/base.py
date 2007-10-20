@@ -20,7 +20,7 @@ PloneTestCase.setupPloneSite(
               "easyshop.carts",
               "easyshop.catalog",              
               "easyshop.criteria",
-              "easyshop.customer",
+              "easyshop.customers",
               "easyshop.groups",
               "easyshop.order",              
               "easyshop.payment",              

@@ -1,7 +1,0 @@
-[default]
-title = 
-
-[actions]
-action.payment_methods = redirect_to:string:check-out-shipping-methods-form
-action.addresses_add   = redirect_to:string:check-out-addresses-add-form
-action.order_preview   = redirect_to:string:check-out-order-preview-form

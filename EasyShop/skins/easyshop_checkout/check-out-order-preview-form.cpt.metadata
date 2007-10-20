@@ -1,8 +1,0 @@
-[default]
-title = 
-
-[validators]
-validators = check-out-order-preview-validate
-
-[actions]
-action.success = traverse_to:string:check-out-order-preview

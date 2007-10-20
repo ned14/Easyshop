@@ -8,6 +8,7 @@ from currency import *
 from customer import *
 from formatter import *
 from group import *
+from information import *
 from item import *
 from misc import *
 from order import *

@@ -33,6 +33,17 @@ schema = Schema((
     ),
 
     StringField(
+        name="shopOwner",
+        widget=StringWidget(
+            label="Shop Owner",
+            label_msgid="schema_shop_owner_label",
+            description = "",
+            description_msgid="schema_shop_owner_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+        
+    StringField(
         name="currency",
         schemata = "misc",
         vocabulary="_getCurrenciesAsDL",
@@ -167,7 +178,7 @@ class EasyShop(ATFolder, EasyShopBase):
     def at_post_create_script(self):
         """Overwritten to create some containers.
         """
-        Add Content Type Registry
+        # Add Content Type Registry
         self.manage_addProduct["CMFCore"].manage_addRegistry()
         ctr = self.content_type_registry
         ctr.addPredicate("Photo", "extension")
