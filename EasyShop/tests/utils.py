@@ -1,5 +1,9 @@
 # zope imports
 from zope.component import getMultiAdapter
+from zope import event
+
+# Archetypes imports
+from Products.Archetypes.event import ObjectInitializedEvent
 
 # EasyShop imports 
 from Products.EasyShop.interfaces import ICartManagement
@@ -36,6 +40,8 @@ def createTestEnvironment(self):
         id="myshop", 
         title="MyShop", 
         description="My test shop")
+
+    event.notify(ObjectInitializedEvent(self.myshop))
 
     self.shop = self.myshop
     self.shop.at_post_create_script()

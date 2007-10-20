@@ -1,8 +1,12 @@
 # zope imports
 from zope.component import getMultiAdapter
+from zope import event
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+
+# Archetypes imports
+from Products.Archetypes.event import ObjectInitializedEvent
 
 # EasyShop imports 
 from base import EasyShopTestCase
@@ -40,7 +44,8 @@ class TestCart(EasyShopTestCase):
                                   id="myshop", 
                                   title="MyShop", 
                                   description="My test shop")
-                                      
+
+        event.notify(ObjectInitializedEvent(self.folder.myshop))
         self.shop = self.folder.myshop
         self.shop.at_post_create_script()        
                         

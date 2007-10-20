@@ -1,5 +1,0 @@
-[default]
-title = 
-
-[actions]
-action.success = traverse_to:string:my-account
