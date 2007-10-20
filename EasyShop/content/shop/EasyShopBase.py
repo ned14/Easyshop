@@ -9,7 +9,7 @@ from Products.Archetypes.atapi import *
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.config import *
 
 class EasyShopBase:
@@ -38,7 +38,7 @@ class EasyShopBase:
             # - adapters/shop/shipping/createTemporaryShippingProduct.            
             # I'm not sure whether this is clean, I assume it is not.
             
-            if IShopContent.providedBy(self.context):
+            if IShop.providedBy(self.context):
                 return self.context
             else:
                 return None

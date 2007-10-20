@@ -7,7 +7,7 @@ from zope.component.exceptions import ComponentLookupError
 from Products.EasyShop.config import IMAGE_SIZES
 from Products.EasyShop.interfaces import IFormatter
 from Products.EasyShop.interfaces import IFormatterInfos
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 
 class FormatterInfos:
     """Provides IFormaterInfos for shipping price content objects.
@@ -91,7 +91,7 @@ class FormatterInfos:
         """
         obj = self.context
 
-        while IShopContent.providedBy(obj) == False:
+        while IShop.providedBy(obj) == False:
             try:
                 return self.context.objectValues("Formatter")[0]
             except IndexError:

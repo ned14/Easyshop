@@ -9,7 +9,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 
 class CurrencyManagement:
     """Provices currency related methods.

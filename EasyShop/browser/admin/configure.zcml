@@ -2,7 +2,7 @@
            xmlns:browser="http://namespaces.zope.org/browser">
     
     <browser:page
-        for="...interfaces.IShopContent"
+        for="...interfaces.IShop"
         name="export-orders-std"
         class=".export.ExportView"
         attribute="getOrders"

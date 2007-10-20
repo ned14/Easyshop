@@ -20,7 +20,7 @@
         factory=".generic.FormatterInfos" />
 
     <adapter
-        for="..interfaces.IShopContent"
+        for="..interfaces.IShop"
         factory=".generic.FormatterInfos" />
         
     <!-- ============= -->

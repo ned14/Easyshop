@@ -5,6 +5,6 @@ class IInformationContainer(Interface):
     """Marker interface to mark information containers.
     """
     
-class ITermsAndConditions(Interface):
+class IInformationPage(Interface):
     """Marker interface to mark terms and conditions.
     """

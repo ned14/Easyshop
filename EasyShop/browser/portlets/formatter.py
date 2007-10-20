@@ -11,7 +11,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import ICategoryContent
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.interfaces import IFormatterInfos
 
 class IPortletFormatterView(Interface):    
@@ -120,7 +120,7 @@ class PortletFormatterView(BrowserView):
             return False
              
         if (ICategoryContent.providedBy(self.context) or \
-            IShopContent.providedBy(self.context)) == False:
+            IShop.providedBy(self.context)) == False:
             return False
 
         if IFormatterInfos(self.context).hasFormatter() == False:

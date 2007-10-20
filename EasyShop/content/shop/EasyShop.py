@@ -11,7 +11,7 @@ from Products.ATContentTypes import ATCTMessageFactory as _
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IShopContent
+from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.interfaces import IImageConversion
 from Products.EasyShop.content.shop import EasyShopBase
 
@@ -170,13 +170,12 @@ schema = Schema((
 class EasyShop(ATFolder, EasyShopBase):
     """An shop where one can offer products for sale.
     """
-    implements(IShopContent)
+    implements(IShop)
     _at_rename_after_creation = True
-
     schema = ATFolder.schema.copy() + schema
 
     def at_post_create_script(self):
-        """Overwritten to create some containers.
+        """Overwritten to create some objects.
         """
         # Add Content Type Registry
         self.manage_addProduct["CMFCore"].manage_addRegistry()
@@ -185,39 +184,9 @@ class EasyShop(ATFolder, EasyShopBase):
         ctr.getPredicate("Photo").edit("jpg jpeg png gif")
         ctr.assignTypeName("Photo", "Photo")
         
-        # Add containers
-        self.manage_addProduct["EasyShop"].addProductsContainer(id="products", title="Products")
-        self.manage_addProduct["EasyShop"].addCategoriesContainer(id="categories", title="Categories")
-        self.manage_addProduct["EasyShop"].addGroupsContainer(id="groups", title="Groups")
-        self.manage_addProduct["EasyShop"].addTaxesContainer(id="taxes", title="Taxes")
-        self.manage_addProduct["EasyShop"].addShippingPricesContainer(id="shippingprices", title="Shipping Prices")
-        self.manage_addProduct["EasyShop"].addShippingMethodsContainer(id="shippingmethods", title="Shipping Methods")
-        self.manage_addProduct["EasyShop"].addCartsContainer(id="carts", title="Carts")
-        self.manage_addProduct["EasyShop"].addOrdersContainer(id="orders", title="Orders")
-        self.manage_addProduct["EasyShop"].addCustomersContainer(id="customers", title="Customers")
-        self.manage_addProduct["EasyShop"].addPaymentMethodsContainer(id="paymentmethods", title="Payment Methods")
-        self.manage_addProduct["EasyShop"].addPaymentPricesContainer(id="paymentprices", title="Payment Prices")
-
         # Add a formatter
         self.manage_addProduct["EasyShop"].addFormatter(id="formatter", title="Formatter")
-        
-        # Todo: This has to be done with workflow
-        # Users should be able to modify itselfs. 
-        self.customers.manage_permission('Modify portal content', ['Owner'], 1)
-        self.orders.manage_permission('Add portal content', ['Member'], 1)
-
-        # payment methods
-        self.paymentmethods.manage_addProduct["EasyShop"].addPayPal(id="paypal", title="PayPal")
-        self.paymentmethods.manage_addProduct["EasyShop"].addPaymentValidator(id="direct-debit", title="Direct Debit")
-        self.paymentmethods.manage_addProduct["EasyShop"].addSimplePaymentMethod(id="prepayment", title="Prepayment")   
-        self.paymentmethods.manage_addProduct["EasyShop"].addSimplePaymentMethod(id="cash-on-delivery", title="Cash on Delivery")
-        
-        # Shipping methods
-        self.shippingmethods.manage_addProduct["EasyShop"].addShippingMethod(id="default", title="Default")
-                
-        # reindex
-        for obj in self.objectValues():
-            obj.reindexObject()
+        self.formatter.reindexObject()
             
     def setImage(self, data):
         """

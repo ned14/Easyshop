@@ -58,7 +58,7 @@
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IShopContent"
+        for="...interfaces.IShop"
         name="shop-view"
         template="shop_view.pt"
         permission="zope.Public" />
@@ -128,14 +128,14 @@
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IShopContent"
+        for="...interfaces.IShop"
         name="my-orders"
         class=".my_orders.MyOrdersView"
         template="my_orders.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IShopContent"
+        for="...interfaces.IShop"
         name="my-account"
         template="my_account.pt"
         permission="zope.Public" />
@@ -144,21 +144,21 @@
     <!-- = Cart Form = -->
     <!-- ============= -->
     <browser:page
-        for="...interfaces.IShopContent"
+        for="...interfaces.IShop"
         name="cart"
         class=".cart.CartFormView"
         template="cart.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IShopContent"
+        for="...interfaces.IShop"
         name="deleteItem"
         class=".cart.CartFormView"
         attribute="deleteItem" 
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IShopContent"
+        for="...interfaces.IShop"
         name="refreshCart"
         class=".cart.CartFormView"
         attribute="refreshCart" 

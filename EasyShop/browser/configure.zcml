@@ -3,14 +3,13 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <include package=".admin" />
-    <include package=".checkout" />
     <include package=".containers" />
     <include package=".portlets" />
     <include package=".skins" />
     <include package=".templates" />
 
     <browser:page
-        for="..interfaces.IShopContent"
+        for="..interfaces.IShop"
         name="paypal"
         class=".paypal.PayPalView"        
         attribute="receivePayment" 
