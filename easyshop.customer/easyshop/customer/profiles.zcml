@@ -3,7 +3,7 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="easyshop.customer"
+        title="easyshop.customers"
         directory="profiles/default"
         description="Customer Management for Plone"
         provides="Products.GenericSetup.interfaces.EXTENSION" />

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 version = '0.1'
 
-setup(name='easyshop.customer',
+setup(name='easyshop.customers',
       version=version,
       description="Customer management for EasyShop",
       long_description="""\

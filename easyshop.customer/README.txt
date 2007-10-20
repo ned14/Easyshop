@@ -1,4 +1,4 @@
-easyshop.customer Package Readme
+easyshop.customers Package Readme
 =========================
 
 Overview

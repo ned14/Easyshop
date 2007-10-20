@@ -1,8 +1,8 @@
-Changelog for easyshop.customer
+Changelog for easyshop.customers
 
     (name of developer listed in brackets)
 
-easyshop.customer - 0.1 Unreleased
+easyshop.customers - 0.1 Unreleased
 
     - Initial package structure.
       [zopeskel]
