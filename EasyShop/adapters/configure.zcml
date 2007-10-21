@@ -3,9 +3,6 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:browser="http://namespaces.zope.org/browser">
 
-    <!-- <adapter factory=".customer.CustomerAuthentication" />     -->
-    <!-- <adapter factory=".customer.CustomerRelated" /> -->
-
     <include package=".generic" />
     
     <!-- =========== -->
@@ -23,10 +20,6 @@
         for="..interfaces.IShop"
         factory=".generic.FormatterInfos" />
         
-    <!-- ============= -->
-    <!-- = Customer / Address = -->
-    <!-- ============= -->
-    
     <adapter
         for="..interfaces.IProduct"        
         factory=".generic.PhotoManagement" />
@@ -37,20 +30,6 @@
     <adapter
         for="..interfaces.ICategory"
         factory=".generic.PhotoManagement" />
-
-    <!-- ============ -->
-    <!-- = CartItem = -->
-    <!-- ============ -->
-
-    <adapter
-        factory=".cartitem.CartItemPrices" />
-
-    <!-- ======== -->
-    <!-- = Cart = -->
-    <!-- ======== -->
-
-    <adapter
-        factory=".cart.CartPrices" />
 
     <!-- ======== -->
     <!-- = Shop = -->

@@ -44,7 +44,7 @@ class ICartManagement(Interface):
         """Returns True if the current user has a cart.
         """
         
-class ICartsFolderContent(Interface):
+class ICartsContainer(Interface):
     """A marker interface for carts folder content objects.
     """
 

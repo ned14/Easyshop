@@ -3,10 +3,14 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <include package=".admin" />
-    <include package=".containers" />
     <include package=".portlets" />
     <include package=".skins" />
-    <include package=".templates" />
+
+    <browser:page
+        for="..interfaces.IShop"
+        name="shop-view"
+        template="shop_view.pt"
+        permission="zope.Public" />
 
     <browser:page
         for="..interfaces.IShop"
