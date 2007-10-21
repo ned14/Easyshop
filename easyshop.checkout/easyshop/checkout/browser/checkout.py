@@ -11,7 +11,6 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IShopManagement
 
 class ICheckOutView(Interface):    

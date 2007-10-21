@@ -1,7 +1,3 @@
-# Zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -16,47 +12,9 @@ from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IShippingManagement
 from Products.EasyShop.interfaces import IShopManagement
 
-class ICartFormView(Interface):
-    """A view to show the cart of the current user.
-    """
-    def deleteItem():
-        """Deletes a item for the cart.
-        """
-        
-    def getCartItems():
-        """Returns the items of the current cart.
-        """
-    
-    def getCartPrice():
-        """Returns the price of the current cart.
-        """
-        
-    def getGoto():
-        """Returns the url to which it should redirect after pushing the back 
-        button.
-        """
-
-    def getShippingPrice():
-        """Returns the shipping price for the current cart.
-        """
-        
-    def refresh():
-        """Refreshes the cart.
-        """
-
-    def showCheckOutButton():
-        """Returns True if the checkout button is to be displayed.
-        """
-
-    def showShippingNote():        
-        """Returns True if the shipping price can't calculated
-        """
-        
 class CartFormView(BrowserView):
     """
     """
-    implements(ICartFormView)
-
     def deleteItem(self):
         """
         """        

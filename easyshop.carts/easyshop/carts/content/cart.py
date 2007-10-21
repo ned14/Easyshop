@@ -1,9 +1,6 @@
 # zope imports 
 from zope.interface import implements
 
-# Zope imports
-from AccessControl import ClassSecurityInfo
-
 # Archetypes imports
 from Products.Archetypes.atapi import BaseFolder
 from Products.Archetypes.atapi import BaseFolderSchema
@@ -17,7 +14,6 @@ class Cart(BaseFolder):
     """A cart is a container for cart items.
     """
     implements(ICart)
-    security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseFolderSchema.copy()
 

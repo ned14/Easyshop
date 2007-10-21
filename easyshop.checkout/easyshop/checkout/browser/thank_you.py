@@ -249,7 +249,7 @@ class ThankYouPageView(BrowserView):
                 else:    
                     showSelectPropertiesView = False
 
-                t = f.get("text")
+                t = fi.get("text")
                 if t == "description":
                     text = product.getDescription()
                 elif t == "short_text":

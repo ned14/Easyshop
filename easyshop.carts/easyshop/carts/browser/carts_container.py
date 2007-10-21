@@ -1,7 +1,3 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -15,18 +11,9 @@ from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IShopManagement
 
-class ICartsView(Interface):    
-    """Provides methods which can be used in context of customer folder.
-    """
-    def getCarts():
-        """Returns carts depending on parameters given by request.
-        """
-       
 class CartsView(BrowserView):
     """
     """
-    implements(ICartsView)
-    
     def getCarts(self):
         """
         """

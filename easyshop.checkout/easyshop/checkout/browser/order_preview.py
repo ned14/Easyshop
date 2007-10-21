@@ -143,7 +143,7 @@ class OrderPreviewView(BrowserView):
                     
         if result == "PAYED":
             wftool = getToolByName(self, "portal_workflow")
-            wftool.doActionFor(order, "pay")
+            wftool.doActionFor(new_order, "pay")
 
         putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
 

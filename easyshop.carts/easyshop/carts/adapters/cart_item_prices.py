@@ -1,6 +1,3 @@
-# Python imports
-import re
-
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
@@ -8,7 +5,6 @@ from zope.component import adapts
 # EasyShop imports
 from Products.EasyShop.interfaces import ICartItem
 from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IProductManagement
 from Products.EasyShop.interfaces import IPropertyManagement
 
 class CartItemPrices:
