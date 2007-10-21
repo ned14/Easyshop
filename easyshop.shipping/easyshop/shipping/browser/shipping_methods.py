@@ -7,6 +7,7 @@ from Products.Five.browser import BrowserView
 
 # EasyShop imports
 from Products.EasyShop.interfaces import IShippingManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class IShippingMethodsView(Interface):    
     """
@@ -23,7 +24,7 @@ class ShippingMethodsView(BrowserView):
     def getShippingMethods(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         pm = IShippingManagement(shop)
                 
         result = []

@@ -5,7 +5,7 @@
       
     <body>
         <div metal:fill-slot="main">
-            <div tal:replace="structure provider:iqpp.easyshop.easyshop-manager" />
+            <div tal:replace="structure provider:easyshop.easyshop-manager" />
         </div>    
     </body>
     

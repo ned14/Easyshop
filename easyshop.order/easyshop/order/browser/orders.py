@@ -12,6 +12,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces import IOrderManagement
 from Products.EasyShop.interfaces import IAddressManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class IOrdersView(Interface):
     """
@@ -30,7 +31,7 @@ class OrdersView(BrowserView):
         """
         tool = getToolByName(self.context, 'translation_service')
                 
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
                 
         wftool = getToolByName(self.context, "portal_workflow")
         filter = self.request.get("filter", "all")        

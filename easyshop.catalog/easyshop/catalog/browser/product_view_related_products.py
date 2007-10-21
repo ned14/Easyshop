@@ -14,6 +14,7 @@ from Products.EasyShop.interfaces import IData
 from Products.EasyShop.interfaces import IPhotoManagement
 from Products.EasyShop.interfaces import IPropertyManagement
 from Products.EasyShop.interfaces import IPrices
+from Products.EasyShop.interfaces import IShopManagement
 
 class IProductRelatedProductsView(Interface):    
     """
@@ -94,7 +95,7 @@ class ProductRelatedProductsView(BrowserView):
     def getShowAddQuantity(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         return shop.getShowAddQuantity()
 
     def showSelectPropertiesView(self):

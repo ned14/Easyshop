@@ -19,5 +19,18 @@
         attribute="saveFormatter"
         permission="cmf.ManagePortal" />
 
+    <plone:portlet
+        name="portlets.ShopNavigation"
+        interface=".shop_navigation.IShopNavigationPortlet"
+        assignment=".shop_navigation.Assignment"
+        renderer=".shop_navigation.Renderer"
+        addview=".shop_navigation.AddForm" />
+
+    <plone:portlet
+        name="portlets.Sorting"
+        interface=".sorting.ISortingPortlet"
+        assignment=".sorting.Assignment"
+        renderer=".sorting.Renderer"
+        addview=".sorting.AddForm" />
 
 </configure>

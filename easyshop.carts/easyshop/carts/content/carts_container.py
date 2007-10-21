@@ -9,7 +9,7 @@ from Products.Archetypes.atapi import registerType
 from easyshop.carts.config import *
 from Products.EasyShop.interfaces.carts import ICartsContainer
 
-class CartsContainer(BaseBTreeFolder, EasyShopBase):
+class CartsContainer(BaseBTreeFolder):
     """A simple container to hold carts.
     """
     implements(ICartsContainer)

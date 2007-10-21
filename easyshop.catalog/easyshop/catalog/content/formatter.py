@@ -7,7 +7,6 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.content.shop import EasyShopBase
 from Products.EasyShop.interfaces import IFormatter
 
 schema = Schema((
@@ -84,7 +83,7 @@ schema = Schema((
     ),    
 ))    
 
-class Formatter(BaseContent, EasyShopBase):
+class Formatter(BaseContent):
     """
     """
     implements(IFormatter)

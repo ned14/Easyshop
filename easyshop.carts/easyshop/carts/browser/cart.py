@@ -14,6 +14,7 @@ from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IPropertyManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IShippingManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class ICartFormView(Interface):
     """A view to show the cart of the current user.
@@ -75,7 +76,7 @@ class CartFormView(BrowserView):
     def getCartItems(self):
         """
         """    
-        shop = self.context.getShop()        
+        shop = IShopManagement(self.context).getShop()        
         cm   = ICartManagement(shop)
 
         cart = cm.getCart()
@@ -136,7 +137,7 @@ class CartFormView(BrowserView):
     def getCartPrice(self):
         """Returns the price of the current cart.
         """        
-        shop = self.context.getShop()        
+        shop = IShopManagement(self.context).getShop()        
         cm   = ICartManagement(shop)
 
         cart = cm.getCart()
@@ -151,7 +152,7 @@ class CartFormView(BrowserView):
     def getShippingPrice(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         sm = IShippingManagement(shop)
         shipping_price = sm.getPriceForCustomer()
 
@@ -210,7 +211,7 @@ class CartFormView(BrowserView):
         """
         """
         # Todo Shipping price should return a message.
-        cm = ICustomerManagement(self.context.getShop())
+        cm = ICustomerManagement(IShopManagement(self.context).getShop())
         customer = cm.getAuthenticatedCustomer()
 
         am = IAddressManagement(customer)

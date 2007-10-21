@@ -13,6 +13,7 @@ from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import ICustomer
+from Products.EasyShop.interfaces import IShopManagement
 
 class CustomerCompleteness:
     """
@@ -35,7 +36,7 @@ class CustomerCompleteness:
              4. There a items in the cart            
         """        
         # Get shop
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         
         # Get shipping and invoice address
         adressman = IAddressManagement(self.context)

@@ -7,6 +7,7 @@ from Products.EasyShop.interfaces import IAddressManagement
 from Products.EasyShop.interfaces import ICountryCriteria
 from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 
 class CountryCriteriaValidity:
     """Adapter which provides IValidity for country criteria content
@@ -24,7 +25,7 @@ class CountryCriteriaValidity:
         """Returns True if the selected invoice address of the current customer
         has one of the selected countries.
         """
-        cm = ICustomerManagement(self.context.getShop())
+        cm = ICustomerManagement(IShopManagement(self.context).getShop())
         customer = cm.getAuthenticatedCustomer()
         
         am = IAddressManagement(customer)

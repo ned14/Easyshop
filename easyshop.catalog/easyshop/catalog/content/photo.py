@@ -12,7 +12,6 @@ from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.image import ATImage
 
 # EasyShop imports
-from Products.EasyShop.content.shop import EasyShopBase
 from Products.EasyShop.interfaces import IProductPhoto
 from Products.EasyShop.interfaces import IImageConversion
 from Products.EasyShop.config import *
@@ -61,7 +60,7 @@ schema = Schema((
 ),
 )
 
-class Photo(BaseContent, EasyShopBase):
+class Photo(BaseContent):
     """A photo for a product.
     """
     implements(IProductPhoto)

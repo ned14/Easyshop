@@ -11,6 +11,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IPaymentPrices
+from Products.EasyShop.interfaces import IShopManagement
 
 class IPaymentPricesView(Interface):    
     """
@@ -27,7 +28,7 @@ class PaymentPricesView(BrowserView):
     def getPaymentPrices(self):
         """
         """
-        shop = self.context.getShop()        
+        shop = IShopManagement(self.context).getShop()        
         pp = IPaymentPrices(shop)
         cm = ICurrencyManagement(shop)
                 

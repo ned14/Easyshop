@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICategoryManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class ICategoriesView(Interface):    
     """
@@ -26,7 +27,7 @@ class CategoriesView(BrowserView):
     def getTopLevelCategories(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         
         cm = ICategoryManagement(shop)
         

@@ -13,6 +13,9 @@ from plone.portlets.interfaces import IPortletDataProvider
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+# EasyShop imports
+from Products.EasyShop.interfaces import IShopManagement
+
 # create message factory
 _ = MessageFactory("EasyShop")
 
@@ -50,7 +53,7 @@ class Renderer(base.Renderer):
     def getMyAccountUrl(self):
         """
         """
-        return "%s/my-account" % self.context.getShop().absolute_url()
+        return "%s/my-account" % IShopManagement(self.context).getShop().absolute_url()
 
     @memoize
     def getPortalUrl(self):

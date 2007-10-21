@@ -57,4 +57,11 @@
         template="category_view.pt"
         permission="zope.Public" /> 
 
+    <browser:page  
+        name="navigationMacroView"
+        for="*" 
+        class=".easyshop_macros.NavigationMacroView"  
+        allowed_interface=".easyshop_macros.INavigationMacroView"
+        permission="zope2.Public" />  
+    
 </configure>

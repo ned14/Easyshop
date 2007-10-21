@@ -5,7 +5,7 @@
     <!-- Shipping Price -->
     <browser:page  
         name="shipping-price-view"
-        for="...interfaces.IShippingPrice"
+        for="Products.EasyShop.interfaces.IShippingPrice"
         class=".shipping_price.ShippingPriceView"
         template="shipping_price.pt"
         permission="cmf.ManagePortal" />
@@ -13,21 +13,21 @@
     <!-- Shipping Method -->
     <browser:page  
         name="shipping-method-view"
-        for="...interfaces.IShippingMethod"
+        for="Products.EasyShop.interfaces.IShippingMethod"
         class=".shipping_method.ShippingMethodView"
         template="shipping_method.pt"
         permission="cmf.ManagePortal" />
 
     <!-- Shipping Containers -->
     <browser:page
-        for="...interfaces.IShippingPricesContainer"
+        for="Products.EasyShop.interfaces.IShippingPricesContainer"
         name="shipping-prices-view"        
         template="shipping_prices.pt"
         class=".shipping_prices.ShippingPricesView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="...interfaces.IShippingMethodsContainer"
+        for="Products.EasyShop.interfaces.IShippingMethodsContainer"
         name="shipping-methods-view"
         template="shipping_methods.pt"
         class=".shipping_methods.ShippingMethodsView"

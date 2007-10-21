@@ -14,6 +14,7 @@ from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IValidity
 from Products.EasyShop.interfaces import IShop
 from easyshop.catalog.content.product import Product
+from Products.EasyShop.interfaces import IShopManagement
 
 
 class ShippingManagement:
@@ -32,7 +33,7 @@ class ShippingManagement:
     def getSelectedShippingMethod(self):
         """
         """
-        cm = ICustomerManagement(self.context.getShop())
+        cm = ICustomerManagement(IShopManagement(self.context).getShop())
         customer = cm.getAuthenticatedCustomer()        
         shipping_method_id = customer.getSelectedShippingMethod()
         
@@ -51,7 +52,7 @@ class ShippingManagement:
         """
         return self.prices.objectValues()
         
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         
         # Todo: By interface
         catalog = getToolByName(self.context, "portal_catalog")

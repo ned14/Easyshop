@@ -3,8 +3,9 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="easyshop.catalog">
 
-    <five:registerPackage 
-        package="." />
+    <five:registerPackage
+        package="." 
+        initialize=".initialize" />
 
     <include 
         file="profiles.zcml" />
@@ -20,5 +21,8 @@
 
     <include
         package=".subscribers" />
+
+    <include
+        package=".viewlets" />
 
 </configure>

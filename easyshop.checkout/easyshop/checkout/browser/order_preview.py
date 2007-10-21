@@ -25,6 +25,7 @@ from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IShippingManagement
 from Products.EasyShop.interfaces import IType
 from Products.EasyShop.interfaces import ITaxes
+from Products.EasyShop.interfaces import IShopManagement
 
 _ = MessageFactory("EasyShop")
 
@@ -328,7 +329,7 @@ class OrderPreviewView(BrowserView):
     def getTotalTax(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
 
         t = ITaxes(cart)

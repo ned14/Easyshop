@@ -164,8 +164,6 @@
                   </tr>
                 </table>          
             </tal:block>    
- 
-            <div tal:replace="structure provider:plone.belowcontentbody" />
             
         </metal:main>    
         

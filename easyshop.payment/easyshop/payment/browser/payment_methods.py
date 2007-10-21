@@ -11,6 +11,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IPaymentManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class IPaymentMethodsView(Interface):    
     """
@@ -27,7 +28,7 @@ class PaymentMethodsView(BrowserView):
     def getPaymentMethods(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         pm = IPaymentManagement(shop)
                 
         result = []

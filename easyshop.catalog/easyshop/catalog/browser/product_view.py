@@ -20,6 +20,7 @@ from Products.EasyShop.interfaces import INumberConverter
 from Products.EasyShop.interfaces import IPhotoManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IPropertyManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 from Products.EasyShop.config import MESSAGES
 
@@ -96,7 +97,7 @@ class ProductView(BrowserView):
     def addToCart(self):
         """
         """
-        shop = self.context.getShop()        
+        shop = IShopManagement(self.context).getShop()        
         cm = ICartManagement(shop)
         
         cart = cm.getCart()
@@ -275,7 +276,7 @@ class ProductView(BrowserView):
     def showAddQuantity(self):
         """
         """
-        shop = self.context.getShop()                
+        shop = IShopManagement(self.context).getShop()                
         return shop.getShowAddQuantity()
         
     def showSelectPropertiesView(self):

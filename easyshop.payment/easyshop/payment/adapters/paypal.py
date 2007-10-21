@@ -14,6 +14,7 @@ from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IPayPal
 from Products.EasyShop.interfaces import ICompleteness
 from Products.EasyShop.interfaces import IType
+from Products.EasyShop.interfaces import IShopManagement
 
 class PayPalType:
     """Provides IType for paypal content objects.
@@ -128,7 +129,7 @@ class PayPalSimplePaymentProcessor:
         """    
         info = dict()
 
-        shop = self.context.getShop()                        
+        shop = IShopManagement(self.context).getShop()                        
         notify_url = "%s/paypal?order=%s" % (shop.absolute_url(), order.UID())
         return_url = "%s/check-out-thanks" % shop.absolute_url()
         

@@ -7,6 +7,7 @@ from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IShippingManagement
 from Products.EasyShop.interfaces import IShippingMethodCriteria
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 
 class ShippingMethodCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content
@@ -24,7 +25,7 @@ class ShippingMethodCriteriaValidity:
         """Checks whether the selected shipping method of the current customer
         is within selected shipping methods of this criterion.
         """        
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         sm = IShippingManagement(shop)
         selected_method = sm.getSelectedShippingMethod()
                 

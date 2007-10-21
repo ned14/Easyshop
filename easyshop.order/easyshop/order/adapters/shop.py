@@ -23,6 +23,7 @@ from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPaymentPrices
 from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.events import OrderSubmitted
+from Products.EasyShop.interfaces import IShopManagement
 
 class UnrestrictedUser(BaseUnrestrictedUser):
     """Unrestricted user that still has an id."""
@@ -46,7 +47,7 @@ class OrderManagement:
         """Adds a new order on base of the current customer and current cart.        
            It should be called after the payment process is completed.
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         cartmanager = ICartManagement(self.context)
         if customer is None:
             customer = ICustomerManagement(shop).getAuthenticatedCustomer()

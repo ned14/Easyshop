@@ -14,7 +14,6 @@ from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import ICategory
 from Products.EasyShop.interfaces import IImageConversion
 from Products.EasyShop.interfaces import IProduct
-from Products.EasyShop.content.shop import EasyShopBase
 
 schema = Schema((
 
@@ -101,17 +100,6 @@ schema = Schema((
             i18n_domain='EasyShop',
         ),
         storage=AttributeStorage()
-    ),
-
-    BooleanField(
-        name = "cutImage",
-        widget = BooleanWidget(
-            label="Cut Image",
-            label_msgid="schema_cut_image_label",
-            description = "Select, to cut the image.",  
-            description_msgid="schema_cut_image_label_description",
-            i18n_domain="EasyShop",
-        ),
     ),
 
     FloatField(
@@ -207,7 +195,7 @@ schema = Schema((
 ),
 )
 
-class Product(ATFolder, EasyShopBase):
+class Product(ATFolder):
     """A Product is offered for sale.
     """
     implements(IProduct)

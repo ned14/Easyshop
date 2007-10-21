@@ -13,8 +13,8 @@ from Products.Archetypes.atapi import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.content.shop import EasyShopBase
 from Products.EasyShop.interfaces import ICountryCriteria
+from Products.EasyShop.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -32,7 +32,7 @@ schema = Schema((
 ),
 )
 
-class CountryCriteria(BaseContent, EasyShopBase):
+class CountryCriteria(BaseContent):
     """
     """
     implements(ICountryCriteria)    
@@ -54,7 +54,7 @@ class CountryCriteria(BaseContent, EasyShopBase):
         """
         """
         dl = DisplayList()
-        for country in self.context.getShop().getCountries():
+        for country in IShopManagement(self.context).getShop().getCountries():
             dl.add(country, country)
 
         return dl

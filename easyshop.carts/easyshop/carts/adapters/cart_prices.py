@@ -6,6 +6,7 @@ from zope.component import adapts
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import ICart
 from Products.EasyShop.interfaces import IShippingManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class CartPrices:
     """Adapter which provides IPrices for cart content objects.
@@ -35,7 +36,7 @@ class CartPrices:
             price += IPrices(cart_item).getPriceForCustomer()
         
         if with_shipping == True:
-            sm = IShippingManagement(self.context.getShop())
+            sm = IShippingManagement(IShopManagement(self.context).getShop())
             shipping_price = sm.getPriceForCustomer()
             price += shipping_price
 
@@ -50,7 +51,7 @@ class CartPrices:
             price += IPrices(cart_item).getPriceGross()
 
         if with_shipping == True:
-            sm = IShippingManagement(self.context.getShop())
+            sm = IShippingManagement(IShopManagement(self.context).getShop())
             shipping_price = sm.getPriceGross()
             price += shipping_price        
     
@@ -65,7 +66,8 @@ class CartPrices:
             price += IPrices(cart_item).getPriceNet()
 
         if with_shipping == True:
-            sm = IShippingManagement(self.context.getShop())
+            sm = IShippingManagement(
+                IShopManagement(self.context).getShop())
             shipping_price = sm.getPriceNet()
             price += shipping_price        
 

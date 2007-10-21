@@ -7,6 +7,7 @@ from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPaymentMethodCriteria
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 
 class PaymentMethodCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content
@@ -24,7 +25,7 @@ class PaymentMethodCriteriaValidity:
         """Checks whether the selected payment method of the current customer
         is within selected payment methods.
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         
         cm = ICustomerManagement(shop)
         customer = cm.getAuthenticatedCustomer()

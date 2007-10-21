@@ -13,6 +13,7 @@ from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IPrices
+from Products.EasyShop.interfaces import IShopManagement
 
 class ICartsView(Interface):    
     """Provides methods which can be used in context of customer folder.
@@ -32,7 +33,7 @@ class CartsView(BrowserView):
         sort_on    = self.request.get("sort_on", "modified")
         sort_order = self.request.get("sort_order", "descending")
 
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         cm = ICartManagement(shop)
 
         ttool = getToolByName(self.context, 'translation_service')

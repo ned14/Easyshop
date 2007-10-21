@@ -1,10 +1,19 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+    <!-- PayPal receiving -->       
+    <browser:page
+        for="Products.EasyShop.interfaces.IShop"
+        name="paypal"
+        class=".paypal.PayPalView"        
+        attribute="receivePayment" 
+        permission="zope.Public" />
+          
+
     <!-- Payment Price -->
     <browser:page  
         name="payment-price-view"
-        for="...interfaces.IPaymentPrice"
+        for="Products.EasyShop.interfaces.IPaymentPrice"
         class=".payment_price.PaymentPriceView"
         template="payment_price.pt"
         permission="cmf.ManagePortal" />
@@ -12,14 +21,14 @@
     <!-- Payment Method -->
     <browser:page  
         name="payment-method-view"
-        for="...interfaces.IShopPaymentMethod"
+        for="Products.EasyShop.interfaces.IShopPaymentMethod"
         class=".payment_method.PaymentMethodView"
         template="payment_method.pt"
         permission="cmf.ManagePortal" />
 
     <browser:page  
         name="payment-method-view"
-        for="...interfaces.IPaymentMethodValidator"
+        for="Products.EasyShop.interfaces.IPaymentMethodValidator"
         class=".payment_method.PaymentMethodView"
         template="payment_method.pt"
         permission="cmf.ManagePortal" />

@@ -12,6 +12,9 @@
         package=".adapters" />
 
     <include
+        package=".browser" />
+
+    <include
         package=".subscribers" />
 
 </configure>

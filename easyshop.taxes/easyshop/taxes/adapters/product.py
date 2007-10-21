@@ -8,6 +8,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces import ITaxes
 from Products.EasyShop.interfaces import IProduct
+from Products.EasyShop.interfaces import IShopManagement
 
 class ProductTaxCalculator:
     """Provides ITaxes for product content objects.
@@ -19,8 +20,7 @@ class ProductTaxCalculator:
         """
         """
         self.context = context
-
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         self.taxes = ITaxes(shop)
 
     def getTaxRate(self):

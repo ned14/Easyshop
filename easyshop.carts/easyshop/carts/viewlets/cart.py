@@ -9,6 +9,7 @@ from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IItemManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class CartViewlet(ViewletBase):
     """
@@ -25,7 +26,7 @@ class CartViewlet(ViewletBase):
     def getCartPrice(self):
         """
         """        
-        cart_manager = ICartManagement(self.context.getShop())
+        cart_manager = ICartManagement(IShopManagement(self.context).getShop())
         currency_manager = ICurrencyManagement(self.context)
         
         if cart_manager.hasCart():
@@ -38,13 +39,13 @@ class CartViewlet(ViewletBase):
     def getShopUrl(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         return shop.absolute_url()
         
     def showCheckOutLink(self):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
         
         if cart is None:

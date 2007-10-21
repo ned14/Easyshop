@@ -7,6 +7,7 @@ from Products.EasyShop.interfaces import IValidity
 from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IWeightCriteria
+from Products.EasyShop.interfaces import IShopManagement
 
 class WeightCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content
@@ -24,7 +25,7 @@ class WeightCriteriaValidity:
         """Checks whether the total weight of the cart is greater than the
         entered price.
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
                 
         if cart is None:

@@ -10,6 +10,7 @@ from Products.EasyShop.interfaces import IValidity
 from Products.EasyShop.interfaces import IPriceCriteria
 from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import IPrices
+from Products.EasyShop.interfaces import IShopManagement
 
 class PriceCriteriaValidity:
     """Adapter which provides IValidity for price criteria content
@@ -25,7 +26,7 @@ class PriceCriteriaValidity:
         """Checks whether the total price of the cart is greater than the
         entered price.
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
         
         if cart is None:

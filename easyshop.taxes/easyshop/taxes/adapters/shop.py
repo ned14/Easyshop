@@ -10,6 +10,7 @@ from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.interfaces import ITaxes
 from Products.EasyShop.interfaces import ITaxManagement
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 
 class TaxManagement:
     """An adapter, which provides methods to manage tax objects for shop 
@@ -43,7 +44,7 @@ class TaxManagement:
         """
         """
         return self.context.taxes.objectValues("DefaultTax")
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(

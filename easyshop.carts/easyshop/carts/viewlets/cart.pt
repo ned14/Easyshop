@@ -1,5 +1,4 @@
-<div id="portlet-cart">
-     
+<div id="portlet-cart">     
         <dt class="portletHeader">
             <a tal:attributes="href string:${view/getShopUrl}/cart"
                i18n:translate="cart_label">

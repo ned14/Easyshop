@@ -12,6 +12,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IAddressManagement
 from Products.EasyShop.interfaces import IPaymentManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class ICheckOutView(Interface):    
     """Provides methods for all checkout forms
@@ -138,7 +139,7 @@ class CheckOutView(BrowserView):
         """
         """
         selected_country = self.request.get("country", "Deutschland")
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         
         result = []
         for country in shop.getCountries():
@@ -152,7 +153,7 @@ class CheckOutView(BrowserView):
     def customerHasAddresses(self):
         """
         """
-        cm = ICustomerManagement(self.context.getShop())
+        cm = ICustomerManagement(IShopManagement(self.context).getShop())
         customer = cm.getAuthenticatedCustomer()
         
         am = IAddressManagement(customer)

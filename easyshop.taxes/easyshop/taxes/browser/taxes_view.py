@@ -12,6 +12,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces import ITaxManagement
 from Products.EasyShop.interfaces import INumberConverter
+from Products.EasyShop.interfaces import IShopManagement
 
 class ITaxesView(Interface):    
     """
@@ -32,7 +33,7 @@ class TaxesView(BrowserView):
     def getDefaultTaxes(self):
         """
         """
-        tm = ITaxManagement(self.context.getShop())
+        tm = ITaxManagement(IShopManagement(self.context).getShop())
         nc = queryUtility(INumberConverter)
         
         result = []
@@ -52,7 +53,7 @@ class TaxesView(BrowserView):
     def getCustomerTaxes(self):
         """
         """    
-        tm = ITaxManagement(self.context.getShop())
+        tm = ITaxManagement(IShopManagement(self.context).getShop())
         nc = queryUtility(INumberConverter)
                 
         result = []

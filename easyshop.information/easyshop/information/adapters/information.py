@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IShop
+from Products.EasyShop.interfaces import IShopManagement
 
 class ShopInformation:
     """Provices currency related methods.
@@ -20,7 +21,7 @@ class ShopInformation:
     def __init__(self, context):
         """
         """
-        self.shop = context.getShop()
+        self.shop = IShopManagement(context).getShop()
 
     def getInformationPage(self):
         """Returns terms and conditions as file and text.

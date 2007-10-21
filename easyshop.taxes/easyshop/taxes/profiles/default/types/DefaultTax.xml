@@ -19,9 +19,8 @@
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="tax-view"/>
- <alias from="base_view" to="tax-view"/>
- <alias from="view" to="tax-view"/> 
- <alias from="edit" to="base_edit"/>
+ <alias from="view" to="tax-view"/>
+ <alias from="edit" to="atct_edit"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}/base_view" visible="True">
   <permission value="View"/>

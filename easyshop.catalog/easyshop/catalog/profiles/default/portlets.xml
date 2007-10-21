@@ -6,4 +6,14 @@
      title="EasyShop: Formatter"
      description="Portlet to format views." />
 
+ <portlet 
+     addview="portlets.ShopNavigation"
+     title="EasyShop: Navigation"
+     description="Portlet to browse through the shop's catalog." />
+
+ <portlet 
+     addview="portlets.Sorting"
+     title="EasyShop: Sorting"
+     description="Portlet to sort products." />
+
 </portlets>

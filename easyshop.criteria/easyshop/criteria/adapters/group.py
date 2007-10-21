@@ -8,6 +8,7 @@ from Products.EasyShop.interfaces import IGroupCriteria
 from Products.EasyShop.interfaces import IGroupManagement
 from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 
 class GroupCriteriaValidity:
     """Adapter which provides IValidity for group criteria content
@@ -32,7 +33,7 @@ class GroupCriteriaValidity:
         products = []
         if product is None:
             
-            cm = ICartManagement(self.context.getShop())
+            cm = ICartManagement(IShopManagement(self.context).getShop())
             cart = cm.getCart()
             
             im = IItemManagement(cart)

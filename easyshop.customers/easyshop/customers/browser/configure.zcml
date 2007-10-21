@@ -10,7 +10,7 @@
     <browser:page
         for="Products.EasyShop.interfaces.ICustomersContainer"
         name="customers-view"        
-        template="customers.pt"
+        template="customers_container.pt"
         class=".customers_container.CustomersContainerView"
         permission="cmf.ManagePortal" />
 

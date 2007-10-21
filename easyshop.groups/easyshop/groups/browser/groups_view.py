@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import IGroupManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class IGroupsView(Interface):    
     """
@@ -26,7 +27,7 @@ class GroupsView(BrowserView):
     def getGroups(self):
         """Returns groups of the shop.
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         
         gm = IGroupManagement(shop)
         return gm.getGroups()

@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICurrencyManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class IPaymentPriceView(Interface):    
     """
@@ -50,5 +51,5 @@ class PaymentPriceView(BrowserView):
     def getPrice(self):
         """
         """        
-        cm = ICurrencyManagement(self.context.getShop())
+        cm = ICurrencyManagement(IShopManagement(self.context).getShop())
         return cm.priceToString(self.context.getPriceGross())

@@ -9,6 +9,7 @@ from Products.EasyShop.interfaces import IOrder
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IPropertyManagement
 from Products.EasyShop.interfaces import ITaxes
+from Products.EasyShop.interfaces import IShopManagement
 
 class OrderItemManager:
     """Provides IItemManagement for order content objects.
@@ -43,7 +44,7 @@ class OrderItemManager:
     def addItemsFromCart(self, cart):
         """Adds all items from a given cart to the order
         """
-        shop = self.context.getShop()        
+        shop = IShopManagement(self.context).getShop()        
 
         if cart is None:
             cartmanager = ICartManagement(shop)
@@ -60,7 +61,7 @@ class OrderItemManager:
         """Sets the item by given CartItem
 
         """
-        shop = self.context.getShop()                
+        shop = IShopManagement(self.context).getShop()                
         taxes = ITaxes(shop)
                 
         self.context.manage_addProduct["EasyShop"].addOrderItem(id=id)

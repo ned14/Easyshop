@@ -68,8 +68,6 @@
                 </td>
               </tr>
             </table>          
-
-            <div tal:replace="structure provider:plone.belowcontentbody" />
      
         </metal:main>    
         

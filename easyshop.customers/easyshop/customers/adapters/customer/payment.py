@@ -7,6 +7,7 @@ from Products.EasyShop.interfaces import ICustomer
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPaymentMethod
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 
 class CustomerPaymentManager:
     """
@@ -78,7 +79,7 @@ class CustomerPaymentManager:
                 self.context.getSelectedPaymentMethod())
                 
         except AttributeError:
-            shop = self.context.getShop()
+            shop = IShopManagement(self.context).getShop()
             pm = IPaymentManagement(shop)
             selected_method = pm.getSelectedPaymentMethod()
         
@@ -88,7 +89,7 @@ class CustomerPaymentManager:
             return selected_method
         else:
             if IValidity(selected_method).isValid() == False:
-                shop = self.context.getShop()
+                shop = IShopManagement(self.context).getShop()
                 pm = IPaymentManagement(shop)
                 return pm.getSelectedPaymentMethod(check_validity)
             else:

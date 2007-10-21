@@ -15,7 +15,7 @@ from Products.CMFCore.utils import getToolByName
 
 # get customer
 view = getMultiAdapter((
-    context.getShop(), 
+    context,
     context.REQUEST), 
     name="checkOutView")
     

@@ -6,9 +6,11 @@ from kss.core import kssaction
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
+from Products.EasyShop.config import MESSAGES
 from Products.EasyShop.interfaces import IFormatterInfos
 from Products.EasyShop.interfaces import ICartManagement
 from Products.EasyShop.interfaces import IItemManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class EasyShopKSSView(PloneKSSView):
     """
@@ -17,7 +19,7 @@ class EasyShopKSSView(PloneKSSView):
     def addProduct(self, form):
         """
         """
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         cm = ICartManagement(shop)
         
         cart = cm.getCart()
@@ -43,25 +45,31 @@ class EasyShopKSSView(PloneKSSView):
         quantity = int(form.get("quantity", 1))
 
         # returns true if the product was already within the cart
-        result = IItemManagement(cart).addItem(self.context, tuple(properties), quantity)
+        already_exist = IItemManagement(cart).addItem(
+            self.context, 
+            tuple(properties), 
+            quantity)
 
         kss_core  = self.getCommandSet("core")
         kss_zope  = self.getCommandSet("zope")
         kss_plone = self.getCommandSet("plone")
 
-        kss_plone.issuePortalMessage("Added product to card.")
-
+        if already_exist == True:
+            kss_plone.issuePortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])
+        else:
+            kss_plone.issuePortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
+            
         # refresh cart
         selector = kss_core.getHtmlIdSelector("portlet-cart")
         kss_zope.refreshViewlet(selector,
                                 manager="easyshop.cart-viewlet-manager",
                                 name="easyshop.cart-viewlet")
-
+                                
         # refresh product
         selector = kss_core.getHtmlIdSelector("myproduct")
         kss_zope.refreshViewlet(selector,
-                                manager="iqpp.easyshop.easyshop-manager",
-                                name="iqpp.easyshop.product")
+                                manager="easyshop.easyshop-manager",
+                                name="easyshop.product")
         
     @kssaction
     def saveFormatter(self, form, portlethash):

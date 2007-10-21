@@ -11,6 +11,7 @@ from Products.EasyShop.interfaces import IDirectDebit
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IShopPaymentMethod
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 
 class ICheckOutPaymentView(Interface):    
     """Provides methods for all payment forms
@@ -81,7 +82,7 @@ class CheckOutPaymentView(BrowserView):
     def getShopPaymentMethods(self):
         """
         """        
-        shop = self.context.getShop()
+        shop = IShopManagement(self.context).getShop()
         spm = IPaymentManagement(shop)
         selected_payment = spm.getSelectedPaymentMethod(check_validity=True)                
         result = []
@@ -119,7 +120,7 @@ class CheckOutPaymentView(BrowserView):
         """
         # This decides whether the form for new direct debit is to be
         # displayed or not.
-        spm = IPaymentManagement(self.context.getShop())
+        spm = IPaymentManagement(IShopManagement(self.context).getShop())
         dd = spm.getPaymentMethod("direct-debit")
         
         if dd is None or IValidity(dd).isValid() == False:
