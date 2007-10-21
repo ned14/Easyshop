@@ -16,7 +16,7 @@
         attribute="redoPayment"
         permission="zope.Public" />
 
-    <!-- Todo: get rid of this -->
+    <!-- TODO: get rid of this -->
     <browser:page
         for="Products.EasyShop.interfaces.IOrder"
         name="orderView"
