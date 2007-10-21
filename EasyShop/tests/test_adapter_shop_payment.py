@@ -4,7 +4,7 @@ from Products.EasyShop.tests import utils
 from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPaymentPrices
-from Products.EasyShop.interfaces import IPayPalContent
+from Products.EasyShop.interfaces import IPayPal
 
 class TestPaymentManagement(EasyShopTestCase):
     """
@@ -64,7 +64,7 @@ class TestPaymentManagement(EasyShopTestCase):
         """
         pm = IPaymentManagement(self.shop)
 
-        ids = [p.getId() for p in pm.getPaymentMethods(interface=IPayPalContent)]
+        ids = [p.getId() for p in pm.getPaymentMethods(interface=IPayPal)]
         self.assertEqual(["paypal"], ids)
 
     def testGetSelectedPaymentMethod_1(self):

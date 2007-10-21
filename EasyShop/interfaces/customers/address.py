@@ -2,7 +2,7 @@
 from zope.interface import Interface
 
 class IAddress(Interface):
-    """Marker interface to mark address content objects.
+    """A address.
     """
     
 class IAddressManagement(Interface):
@@ -46,4 +46,4 @@ class IAddressManagement(Interface):
         
     def hasAddresses():
         """Returns True if context has at least one address.
-        """        
+        """

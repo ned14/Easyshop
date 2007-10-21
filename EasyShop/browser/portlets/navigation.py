@@ -12,8 +12,8 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop imports
 from Products.EasyShop.interfaces import ICategoryManagement
 from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IProductContent
-from Products.EasyShop.interfaces import ICategoryContent
+from Products.EasyShop.interfaces import IProduct
+from Products.EasyShop.interfaces import ICategory
 
 class IPortletShopNavigationView(Interface):
     """
@@ -82,14 +82,14 @@ class PortletShopNavigationView(BrowserView):
     def showPortlet(self):
         """
         """
-        if ICategoryContent.providedBy(self.context) == False and \
-           IProductContent.providedBy(self.context) == False:
+        if ICategory.providedBy(self.context) == False and \
+           IProduct.providedBy(self.context) == False:
             return False
         
-        if ICategoryContent.providedBy(self.context):
+        if ICategory.providedBy(self.context):
             category = self.context
             
-        elif IProductContent.providedBy(self.context):
+        elif IProduct.providedBy(self.context):
             try:
                 category = ICategoryManagement(self.context).getCategories()[0]
             except IndexError:

@@ -1,10 +1,6 @@
 # zope imports
 from zope.interface import Interface
 
-class ICartItem(Interface):
-    """Marker interface to mark cart item content objects.
-    """
-
 class IOrderItem(Interface):
     """Marker interface to mark order item content objects.
     """

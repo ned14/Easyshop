@@ -20,7 +20,7 @@ class ITaxes(Interface):
        """Returns tax for a customer
        """
 
-class ITaxContent(Interface):
+class ITax(Interface):
     """A marker interface to mark tax content objects.
     """
     
@@ -38,4 +38,7 @@ class ITaxManagement(Interface):
     def getTax(id):
         """Returns tax object by given id.
         """
-        
+                
+class ITaxesContainer(Interface):
+    """A container which holds tax content objects.
+    """

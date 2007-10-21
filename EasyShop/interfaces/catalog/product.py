@@ -1,6 +1,6 @@
 from zope.interface import Interface
 
-class IProductContent(Interface):
+class IProduct(Interface):
     """Marker interface to mark product content objects.
     """
 
@@ -24,6 +24,7 @@ class IProductManagement(Interface):
         """Returns the amount of products of all subcategories.
         """
         
-class IProductSelectorContent(Interface):
-    """A marker interface for product selector content objects.
-    """
+class IProductsContainer(Interface):
+    """Marker interface for product folder content objects.
+    """    
+    

@@ -2,9 +2,8 @@
 from zope.interface import Interface
 
 class IData(Interface):
-    """Provides methods to return data in several formats.
+    """Provides methods to return content objects in several formats.
     """
     def asDict():
-        """Returns context data as dict.
+        """Returns context's attributes as dict.
         """
-        # Used in serveral Views.

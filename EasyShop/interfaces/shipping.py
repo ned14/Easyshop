@@ -57,9 +57,17 @@ class IShippingManagement(Interface):
         """
 
 class IShippingPrice(Interface):
-    """Marker interface to mark shipping price content objects.
+    """A price for shipping.
     """
 
 class IShippingMethod(Interface):
-    """Marker interface to mark shipping price content objects.
+    """A shipping method.
     """
+    
+class IShippingPricesContainer(Interface):
+    """A container to hold shipping prices
+    """
+
+class IShippingMethodsContainer(Interface):
+    """A container to hold shipping methods
+    """    

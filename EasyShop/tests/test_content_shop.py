@@ -34,10 +34,10 @@ class TestInitialize(EasyShopTestCase):
             "shippingprices",
             "taxes"
         ]
-        
+
         object_ids = self.shop.objectIds()
         for container in containers:
-            self.failUnless(container in objectIds)
+            self.failUnless(container in object_ids)
 
 def test_suite():
     from unittest import TestSuite, makeSuite

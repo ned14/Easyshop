@@ -2,7 +2,7 @@
 from zope.interface import Interface
 
 class IOrder(Interface):
-    """Marker interface to mark order content objects.
+    """An order of products.
     """
     
 class IOrderManagement(Interface):
@@ -31,3 +31,7 @@ class IOrderManagement(Interface):
     def getOrderByUID(uid):
         """Returns order by given uid.        
         """
+        
+class IOrdersContainer(Interface):
+    """A container to hold orders.
+    """

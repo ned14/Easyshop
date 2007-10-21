@@ -121,9 +121,9 @@ def createTestEnvironment(self):
     self.group_1.size.setOptions(size_for_groups)    
         
     # Assign products to groups
-    self.group_1.addReference(self.product_1, "easyshopgroup_easyshopproduct")
-    self.group_1.addReference(self.product_2, "easyshopgroup_easyshopproduct")  
-    self.group_2.addReference(self.product_1, "easyshopgroup_easyshopproduct")    
+    self.group_1.addReference(self.product_1, "group_product")
+    self.group_1.addReference(self.product_2, "group_product")  
+    self.group_2.addReference(self.product_1, "group_product")    
     
     # Categories
     self.shop.categories.manage_addProduct["EasyShop"].addCategory(id="category_1")

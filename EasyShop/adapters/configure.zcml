@@ -16,7 +16,7 @@
         factory=".generic.ImageConversion" />
 
     <adapter
-        for="..interfaces.ICategoryContent"
+        for="..interfaces.ICategory"
         factory=".generic.FormatterInfos" />
 
     <adapter
@@ -28,14 +28,14 @@
     <!-- ============= -->
     
     <adapter
-        for="..interfaces.IProductContent"        
+        for="..interfaces.IProduct"        
         factory=".generic.PhotoManagement" />
 
     <!-- ============ -->
     <!-- = Category = -->
     <!-- ============ -->    
     <adapter
-        for="..interfaces.ICategoryContent"
+        for="..interfaces.ICategory"
         factory=".generic.PhotoManagement" />
 
     <!-- ============ -->

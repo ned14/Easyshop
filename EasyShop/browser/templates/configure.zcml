@@ -44,7 +44,7 @@
     <!-- Tax -->
     <browser:page  
         name="tax-view"
-        for="...interfaces.ITaxContent"
+        for="...interfaces.ITax"
         class=".tax.TaxView"
         template="tax.pt"
         permission="cmf.ManagePortal" />
@@ -64,21 +64,21 @@
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IProductContent"
+        for="...interfaces.IProduct"
         name="product-zoom-view"
         class=".product_zoom_view.ProductZoomView"
         template="product_zoom_view.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IProductContent"
+        for="...interfaces.IProduct"
         name="select-properties-view"
         class=".product_view.ProductView"        
         template="select_properties_view.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IProductContent"
+        for="...interfaces.IProduct"
         name="product-view"
         class=".product_view.ProductView"
         template="product_view.pt"
@@ -92,21 +92,21 @@
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IProductContent"
+        for="...interfaces.IProduct"
         name="product-view-related-products"
         class=".product_view_related_products.ProductRelatedProductsView"
         template="product_view_related_products.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="...interfaces.IProductContent"
+        for="...interfaces.IProduct"
         name="addToCart"
         class=".product_view.ProductView"
         attribute="addToCart" 
         permission="zope.Public" />
 
     <browser:page 
-        for="...interfaces.ICategoryContent"
+        for="...interfaces.ICategory"
         name="category-view" 
         class=".category_view.CategoryView" 
         template="category_view.pt"

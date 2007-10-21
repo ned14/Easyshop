@@ -12,13 +12,6 @@ class ICartsContainer(Interface):
     """A container which hold carts.
     """
 
-class ICartItem(Interface):
-    """A cart item holds a selected product and its amount an properties.
-    """
-    amount     = Attribute("The selected amount of the product")
-    product    = Attribute("The selected product.")
-    properties = Attribute("The selected attributes of the product")
-    
 class ICartManagement(Interface):
     """Provides methods to manage cart content objects
     """
@@ -50,3 +43,9 @@ class ICartManagement(Interface):
     def hasCart(id):
         """Returns True if the current user has a cart.
         """
+        
+class ICartsFolderContent(Interface):
+    """A marker interface for carts folder content objects.
+    """
+
+        

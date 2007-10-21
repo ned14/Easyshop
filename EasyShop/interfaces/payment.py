@@ -2,17 +2,17 @@
 from zope.interface import Interface
 from zope.interface import Attribute
 
-class IPaymentMethodContent(Interface):
+class IPaymentMethod(Interface):
     """A marker interface for payment content objects.
     """
 
-class IShopPaymentMethod(IPaymentMethodContent):
+class IShopPaymentMethod(IPaymentMethod):
     """A marker interface for shop payment content objects, means payment
     methods which doesn't need any customer related information and hence 
     live just once within shop level. Example: PayPal.
     """    
 
-class ICustomerPaymentMethod(IPaymentMethodContent):
+class ICustomerPaymentMethod(IPaymentMethod):
     """A marker interface for customer payment content objects, means
     payment methods which holds information per customer and hence live 
     within customer objects. Example: direct debit
@@ -29,7 +29,7 @@ class ISimplePaymentMethod(IShopPaymentMethod):
         If checked an order gets the "payed"-state after processing this
         payment method, otherwhise "not payed" """)
         
-class IPayPalContent(IShopPaymentMethod):
+class IPayPal(IShopPaymentMethod):
     """A marker interface for paypal content objects. 
     
     Note, that this is also a IShopPaymentMethod, means it needs no
@@ -85,3 +85,12 @@ class IPaymentProcessing(Interface):
     def process(order):
         """Processes a payment.
         """
+
+class IPaymentMethodsContainer(Interface):
+    """A marker interface for payment method folder content objects.
+    """
+
+class IPaymentPricesContainer(Interface):
+    """A marker interface for payment price folder objects.
+    """
+

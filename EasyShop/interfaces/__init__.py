@@ -1,23 +1,26 @@
-from address import *
-from cart import *
-from category import *
-from data import *
-from container import *
+from carts import *
+
+from catalog.category import *
+from catalog.formatter import *
+from catalog.photo import *
+from catalog.product import *
+from catalog.property import *
+from catalog.selector import *
+
 from criteria import *
 from currency import *
-from customer import *
-from formatter import *
-from group import *
+
+from customers import *
+
+from data import *
+from groups import *
 from information import *
 from item import *
 from misc import *
-from order import *
+from orders import *
 from payment import *
-from photo import *
 from price import *
-from product import *
-from property import *
 from shipping import *
 from shop import *
-from tax import *
-from utility import *
+from taxes import *
+from utilities import *

@@ -1,7 +1,6 @@
-# zope imports
 from zope.interface import Interface
-
-class ICategoryContent(Interface):
+        
+class ICategory(Interface):
     """Marker interface to mark category content objects. 
 
     A Category groups arbitrary Products together.
@@ -39,3 +38,8 @@ class ICategoryManagement(Interface):
     def getTopLevelCategories(self):
         """Returns the top level categories of context.
         """
+        
+class ICategoriesContainer(Interface):
+    """A marker interface for categories containers.
+    """
+    

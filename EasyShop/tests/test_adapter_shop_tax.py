@@ -11,7 +11,7 @@ from Products.CMFCore.utils import getToolByName
 from base import EasyShopTestCase
 from Products.EasyShop.tests import utils
 from Products.EasyShop.interfaces import ITaxes
-from Products.EasyShop.interfaces import ITaxContent
+from Products.EasyShop.interfaces import ITax
 from Products.EasyShop.interfaces import ITaxManagement
 
 class TestShopTaxManagement(EasyShopTestCase):
@@ -54,7 +54,7 @@ class TestShopTaxManagement(EasyShopTestCase):
         tax = tm.getTax("c2")
         
         self.assertEqual(tax.getId(), "c2")
-        self.failUnless(ITaxContent.providedBy(tax))
+        self.failUnless(ITax.providedBy(tax))
         
 class TestShopTaxes(EasyShopTestCase):
     """

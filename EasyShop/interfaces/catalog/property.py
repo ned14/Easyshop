@@ -1,7 +1,7 @@
 # zope imports
 from zope.interface import Interface
 
-class IPropertyContent(Interface):
+class IProperty(Interface):
     """A marker interface for a property content objects.
     """
     

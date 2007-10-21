@@ -9,14 +9,14 @@
 
     <browser:viewlet
         name="iqpp.easyshop.categories"
-        for="..interfaces.ICategoryContent"
+        for="..interfaces.ICategory"
         manager=".interfaces.IEasyShopViewletManager"
         class=".categories.CategoriesViewlet"
         permission="zope.Public" />
 
     <browser:viewlet
         name="iqpp.easyshop.product"
-        for="..interfaces.IProductContent"
+        for="..interfaces.IProduct"
         manager=".interfaces.IEasyShopViewletManager"
         class=".product.ProductViewlet"
         permission="zope.Public" />

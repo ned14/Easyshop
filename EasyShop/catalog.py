@@ -2,7 +2,7 @@
 from zope.component.exceptions import ComponentLookupError
 
 # iqpp.rating imports
-from Products.EasyShop.interfaces import ICategoryContent
+from Products.EasyShop.interfaces import ICategory
 
 # CMFPlone imports
 from Products.CMFPlone.CatalogTool import registerIndexableAttribute
@@ -14,7 +14,7 @@ def total_amount_of_products(object, portal, **kwargs):
         # least the case for Advanced/Update Catalog.
         counter = 0
         # It has to be catalog independent
-        if ICategoryContent.providedBy(object):
+        if ICategory.providedBy(object):
             counter += len(object.getEasyshopproducts())
             counter = countCategories(object, counter)
                 

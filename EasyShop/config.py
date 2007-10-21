@@ -1,3 +1,7 @@
+# MessageFactory
+from zope.i18nmessageid import MessageFactory
+_ = MessageFactory("EasyShop")
+
 # coding=utf-8
 from Products.CMFCore.permissions import setDefaultRoles
 PROJECTNAME = "EasyShop"

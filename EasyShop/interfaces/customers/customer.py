@@ -1,8 +1,12 @@
 # zope imports
 from zope.interface import Interface
 
+class ICustomersContainer(Interface):
+    """A marker interface for customer folder content objects.
+    """
+
 class ICustomer(Interface):
-    """Marker interface for customer content objects.
+    """A customer can buy products from the shop.
     """
     
 class ICustomerManagement(Interface):

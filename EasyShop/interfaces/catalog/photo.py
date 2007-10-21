@@ -1,7 +1,7 @@
 # Zope imports
 from zope.interface import Interface
 
-class IProductPhotoContent(Interface):
+class IProductPhoto(Interface):
     """Marker interface for a product photo content objects.
     """                                       
     

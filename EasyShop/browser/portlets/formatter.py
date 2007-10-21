@@ -10,7 +10,7 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ICategoryContent
+from Products.EasyShop.interfaces import ICategory
 from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.interfaces import IFormatterInfos
 
@@ -119,7 +119,7 @@ class PortletFormatterView(BrowserView):
         if not mtool.checkPermission("Manage portal", self.context):
             return False
              
-        if (ICategoryContent.providedBy(self.context) or \
+        if (ICategory.providedBy(self.context) or \
             IShop.providedBy(self.context)) == False:
             return False
 

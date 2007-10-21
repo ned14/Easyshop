@@ -1,45 +1,45 @@
 from zope.interface import Interface
 
-class ICriteriaContent(Interface):
+class ICriteria(Interface):
     """Marker interface to mark criteria content objects.
     """
 
-class ICategoryCriteria(ICriteriaContent):
+class ICategoryCriteria(ICriteria):
     """Marker interface to mark category criteria content objects.
     """
     
-class ICountryCriteria(ICriteriaContent):
+class ICountryCriteria(ICriteria):
     """Marker interface to mark country criteria content objects.
     """
             
-class ICustomerCriteria(ICriteriaContent):
+class ICustomerCriteria(ICriteria):
     """Marker interface to mark customer criteria content objects.
     """
 
-class IDateCriteria(ICriteriaContent):
+class IDateCriteria(ICriteria):
     """Marker interface to mark date criteria content objects.
     """
     
-class IGroupCriteria(ICriteriaContent):
+class IGroupCriteria(ICriteria):
     """Marker interface to mark group criteria content objects.
     """
 
-class IPaymentMethodCriteria(ICriteriaContent):
+class IPaymentMethodCriteria(ICriteria):
     """Marker interface to mark payment criteria content objects.
     """
     
-class IProductCriteria(ICriteriaContent):
+class IProductCriteria(ICriteria):
     """Marker interface to mark product criteria content objects.
     """
     
-class IPriceCriteria(ICriteriaContent):
+class IPriceCriteria(ICriteria):
     """Marker interface to mark price criteria content objects.
     """
 
-class IShippingMethodCriteria(ICriteriaContent):
+class IShippingMethodCriteria(ICriteria):
     """Marker interface to mark shipping method criteria content objects.
     """
     
-class IWeightCriteria(ICriteriaContent):
+class IWeightCriteria(ICriteria):
     """Marker interface to mark weight criteria content objects.
     """
