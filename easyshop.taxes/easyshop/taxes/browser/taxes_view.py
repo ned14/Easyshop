@@ -1,35 +1,17 @@
 # zope imports
-from zope.interface import Interface
-from zope.interface import implements
 from zope.component import queryUtility
 
 # Five imports
 from Products.Five.browser import BrowserView
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ITaxManagement
 from Products.EasyShop.interfaces import INumberConverter
 from Products.EasyShop.interfaces import IShopManagement
 
-class ITaxesView(Interface):    
-    """
-    """
-    def getDefaultTaxes():
-        """Returns the default taxes for the country.
-        """    
-
-    def getCustomerTaxes():
-        """Returns special taxes for the customers.
-        """
-        
 class TaxesView(BrowserView):
     """
     """
-    implements(ITaxesView)
-
     def getDefaultTaxes(self):
         """
         """
@@ -79,4 +61,3 @@ class TaxesView(BrowserView):
             return 0
             
         return len(tax.objectIds())
-    

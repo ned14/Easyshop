@@ -1,8 +1,7 @@
+# Zope imports
 from AccessControl import Unauthorized
 
 # zope imports
-from zope.interface import Interface
-from zope.interface import implements
 from zope.component import queryUtility
 
 # Five imports
@@ -15,86 +14,15 @@ from Products.CMFCore.utils import getToolByName
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import IAddressManagement
 from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import INumberConverter
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IType
 
-class IOrderView(Interface):
-    """View for order content objects.
-    """
-    def disable_border():
-        """Returns True if the border is meant to be disabled.
-        """
-        
-    def getCreationDate():
-        """Returns the creation date.
-        """
-        
-    def getCustomerFullname():
-        """Returns the customer name.        
-        It is taken from the invoice address of the order.
-        """
-
-    def getEmail():
-        """Returns email of the order's customer.
-        """
-        
-    def getItems():
-        """Returns the items.
-        """
-
-    def getPaymentValues():
-        """Returns prices and taxes for selectec payment method.
-        """    
-        
-    def getPaymentMethod():
-        """Returns the payment method of the current customer.
-        """
-        
-    def getPaymentMethodType():
-        """Returns the type of the payment method.
-        """
-
-    def getPriceForCustomer():
-        """Returns the total price for the customer.
-        """
-
-    def getInvoiceAddress():
-        """Returns the invoice address.
-        """    
-    
-    def getShippingAddress():
-        """Returns the shipping address.
-        """    
-
-    def getShipping():
-        """Returns the shipping prices as dict.
-        """
-
-    def getState():
-        """Returns the workflow state of the order.
-        """
-
-    def isRedoPaymentAllowed():
-        """Returns True if the redo of a payment is allowed.
-        """
-            
-    def redoPayment():
-        """Does the payment process again.
-
-        This is used for payment with paypal, at the moment, when the customer
-        knows that something has gone wrong (broken connection, etc.) for the 
-        first time.
-        """    
-        
 class OrderView(BrowserView):
     """
     """
-    implements(IOrderView)
-
     def disable_border(self):
         """
         """

@@ -1,22 +1,9 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
-class IShippingMethodView(Interface):    
-    """
-    """
-    def getCriteria():
-        """Returns all criteria.
-        """
-    
 class ShippingMethodView(BrowserView):
     """
     """
-    implements(IShippingMethodView)
-    
     def getCriteria(self):
         """
         """

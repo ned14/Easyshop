@@ -1,33 +1,13 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IShopManagement
 
-class IPaymentPriceView(Interface):    
-    """
-    """
-    def getCriteria():
-        """Returns all criteria.
-        """
-    
-    def getPrice():
-        """Returns the price gross of the payment price object.
-        """   
-
 class PaymentPriceView(BrowserView):
     """
     """
-    implements(IPaymentPriceView)
-    
     def getCriteria(self):
         """
         """

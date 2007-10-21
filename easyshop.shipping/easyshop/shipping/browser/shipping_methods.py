@@ -1,7 +1,3 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -9,18 +5,9 @@ from Products.Five.browser import BrowserView
 from Products.EasyShop.interfaces import IShippingManagement
 from Products.EasyShop.interfaces import IShopManagement
 
-class IShippingMethodsView(Interface):    
-    """
-    """
-    def getShippingMethods():
-        """Returns the shipping methods of the shop.
-        """
-    
 class ShippingMethodsView(BrowserView):
     """
     """
-    implements(IShippingMethodsView)
-
     def getShippingMethods(self):
         """
         """

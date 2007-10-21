@@ -1,22 +1,9 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
-class IPaymentMethodView(Interface):    
-    """
-    """
-    def getCriteria():
-        """Returns all criteria.
-        """
-    
 class PaymentMethodView(BrowserView):
     """
     """
-    implements(IPaymentMethodView)
-    
     def getCriteria(self):
         """
         """

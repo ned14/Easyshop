@@ -1,7 +1,3 @@
-# zope imports
-from zope.interface import implements
-from zope.interface import Interface
-
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
@@ -10,21 +6,10 @@ from Products.Five.browser import BrowserView
 
 # EasyShop imports
 from Products.EasyShop.interfaces import IOrderManagement
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import ICartManagement
 
-class IPayPalView(Interface):
-    """
-    """
-    def receivePayment():
-        """
-        """
-        
 class PayPalView(BrowserView):
     """
     """
-    implements(IPayPalView)
-    
     def receivePayment(self):
         """
         """

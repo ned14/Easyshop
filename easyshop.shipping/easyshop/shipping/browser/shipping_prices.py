@@ -1,30 +1,14 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IShippingManagement
 from Products.EasyShop.interfaces import IShopManagement
 
-class IShippingPricesView(Interface):    
-    """
-    """
-    def getShippingPrices():
-        """Returns the shipping prices of the shop.
-        """
-    
 class ShippingPricesView(BrowserView):
     """
     """
-    implements(IShippingPricesView)
-
     def getShippingPrices(self):
         """
         """
@@ -58,4 +42,3 @@ class ShippingPricesView(BrowserView):
             return 0
             
         return len(tax.objectIds())
-    

@@ -1,33 +1,15 @@
 # zope imports
-from zope.interface import Interface
-from zope.interface import implements
 from zope.component import queryUtility
 
 # Five imports
 from Products.Five.browser import BrowserView
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # EasyShop imports
 from Products.EasyShop.interfaces import INumberConverter
-
-class ITaxView(Interface):    
-    """
-    """
-    def getCriteria():
-        """Returns all criteria.
-        """
-    
-    def getRate():
-        """Returns the rate of the tax.
-        """   
 
 class TaxView(BrowserView):
     """
     """
-    implements(ITaxView)
-    
     def getCriteria(self):
         """
         """

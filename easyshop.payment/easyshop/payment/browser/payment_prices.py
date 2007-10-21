@@ -1,30 +1,14 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IPaymentPrices
 from Products.EasyShop.interfaces import IShopManagement
 
-class IPaymentPricesView(Interface):    
-    """
-    """
-    def getPaymentPrices():
-        """Returns the payment prices of the shop.
-        """
-    
 class PaymentPricesView(BrowserView):
     """
     """
-    implements(IPaymentPricesView)
-
     def getPaymentPrices(self):
         """
         """
@@ -58,4 +42,3 @@ class PaymentPricesView(BrowserView):
             return 0
             
         return len(tax.objectIds())
-    

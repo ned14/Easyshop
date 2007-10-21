@@ -1,8 +1,3 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-from zope.component import getMultiAdapter
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -14,18 +9,9 @@ from Products.EasyShop.interfaces import IOrderManagement
 from Products.EasyShop.interfaces import IAddressManagement
 from Products.EasyShop.interfaces import IShopManagement
 
-class IOrdersView(Interface):
-    """
-    """
-    def getOrders():
-        """Returns orders of the shop. Dependent on given filter. As dict.
-        """    
-        
 class OrdersView(BrowserView):
     """
     """
-    implements(IOrdersView)
-
     def getOrders(self):
         """
         """

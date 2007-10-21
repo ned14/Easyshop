@@ -1,29 +1,15 @@
 # zope imports
-from zope.interface import Interface
-from zope.interface import implements
 from zope.component import getMultiAdapter
 
 # Five imports
 from Products.Five.browser import BrowserView
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # EasyShop imports
 from Products.EasyShop.interfaces import IOrderManagement
 
-class IMyOrdersView(Interface):    
-    """
-    """
-    def getOrders():
-        """Returns the orders for the authenticated customer as dict.
-        """
-       
 class MyOrdersView(BrowserView):
     """
     """
-    implements(IMyOrdersView)
-    
     def getOrders(self):
         """
         """
@@ -46,4 +32,3 @@ class MyOrdersView(BrowserView):
             result.append(temp)
 
         return result
-        
