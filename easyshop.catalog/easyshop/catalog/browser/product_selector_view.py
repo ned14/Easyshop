@@ -1,7 +1,3 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -10,33 +6,15 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import ICategoryManagement
 from Products.EasyShop.interfaces import IFormatterInfos
 from Products.EasyShop.interfaces import IPhotoManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IPropertyManagement
 
 
-class IProductSelectorView(Interface):    
-    """
-    """
-    def getFormatInfo(self):
-        """Returns the info of the responsible formatter.
-        """
-    
-    def getSelectors():
-        """Returns all selectors
-        """
-
-    def showEditLink():
-        """
-        """
-                    
 class ProductSelectorView(BrowserView):
     """
     """
-    implements(IProductSelectorView)
-
     def getFormatInfo(self):
         """
         """

@@ -1,32 +1,12 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports 
 from Products.EasyShop.interfaces import IPhotoManagement
 
-class IProductZoomView(Interface):    
-    """
-    """
-    def getCurrentPhoto():
-        """
-        """
-        
-    def getPhotoUrls():
-        """
-        """
-        
 class ProductZoomView(BrowserView):
     """
     """
-    implements(IProductZoomView)
-
     def getCurrentPhoto(self):
         """
         """

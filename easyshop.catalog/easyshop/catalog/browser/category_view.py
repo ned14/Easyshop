@@ -1,11 +1,6 @@
 # Zoper imports
 from ZTUtils import make_query       
 
-# Zope imports
-from zope.interface import Interface
-from zope.interface import implements
-from zope.component import getMultiAdapter
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -16,7 +11,6 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import Batch      
 
 # Easyshop imports
-from Products.EasyShop.interfaces import ICategoryManagement
 from Products.EasyShop.interfaces import IPhotoManagement
 from Products.EasyShop.interfaces import IProductManagement
 from Products.EasyShop.interfaces import IPropertyManagement
@@ -24,35 +18,9 @@ from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IFormatterInfos
 
-class ICategoryView(Interface):
-    """A view to display several products of a category.
-    """
-    def getFormatInfo():
-        """Returns all infos on a formatter as dict.
-        """
-
-    def getInfo():
-        """Returns all needed info for category_view.pt. This is for speed
-        reasons.
-        
-        Returns products as lol, which can be considered as lines and
-        products per lines:
-           
-               [["P3", "P2", "P3"],
-               ["P4", "P5", "P6"]]
-            
-        Means two lines with three products per line.
-        """
-
-    def getTdWidth():
-        """Returns the td width dependend on the amount of products.
-        """
-        
 class CategoryView(BrowserView):
     """
     """
-    implements(ICategoryView)
-
     def __init__(self, context, request):
         """
         """

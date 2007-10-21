@@ -1,7 +1,3 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -16,42 +12,9 @@ from Products.EasyShop.interfaces import IPropertyManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IShopManagement
 
-class IProductRelatedProductsView(Interface):    
-    """
-    """
-    def hasPhotos():
-        """
-        """
-
-    def getPriceForCustomer():
-        """
-        """    
-        
-    def getMainPhoto():
-        """
-        """   
-
-    def getProduct():
-        """
-        """
-        
-    def getRelatedProducts():
-        """
-        """
-
-    def getShowAddQuantity():
-        """
-        """        
-
-    def showSelectPropertiesView():
-        """
-        """
-        
 class ProductRelatedProductsView(BrowserView):
     """
     """
-    implements(IProductRelatedProductsView)
-    
     def hasPhotos(self):
         """
         """
