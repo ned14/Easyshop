@@ -7,7 +7,7 @@ from Products.Archetypes.atapi import registerType
 
 # EasyShop imports
 from easyshop.carts.config import *
-from Products.EasyShop.interfaces.cart import ICartsContainer
+from Products.EasyShop.interfaces.carts import ICartsContainer
 
 class CartsContainer(BaseBTreeFolder, EasyShopBase):
     """A simple container to hold carts.

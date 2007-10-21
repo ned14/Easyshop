@@ -5,7 +5,7 @@ from zope.component import adapts
 # EasyShop imports
 from Products.EasyShop.interfaces import ICustomer
 from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPaymentMethodContent
+from Products.EasyShop.interfaces import IPaymentMethod
 from Products.EasyShop.interfaces import IValidity
 
 class CustomerPaymentManager:
@@ -48,7 +48,7 @@ class CustomerPaymentManager:
         # interface index (IIRC).
         
         if interface is None:
-            interface = IPaymentMethodContent        
+            interface = IPaymentMethod        
 
         result = []
         for object in self.context.objectValues():

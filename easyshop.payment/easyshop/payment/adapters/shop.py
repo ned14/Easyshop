@@ -9,7 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.catalog.content.product import Product
 from Products.EasyShop.interfaces import ICustomerManagement
 from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPaymentMethodContent
+from Products.EasyShop.interfaces import IPaymentMethod
 from Products.EasyShop.interfaces import IPaymentPrices
 from Products.EasyShop.interfaces import IPaymentPrice
 from Products.EasyShop.interfaces import IShop

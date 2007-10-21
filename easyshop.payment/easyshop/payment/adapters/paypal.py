@@ -11,7 +11,7 @@ from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IAddressManagement
 from Products.EasyShop.interfaces import IProductManagement
 from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IPayPalContent
+from Products.EasyShop.interfaces import IPayPal
 from Products.EasyShop.interfaces import ICompleteness
 from Products.EasyShop.interfaces import IType
 
@@ -19,7 +19,7 @@ class PayPalType:
     """Provides IType for paypal content objects.
     """
     implements(IType)
-    adapts(IPayPalContent)
+    adapts(IPayPal)
 
     def __init__(self, context):
         self.context = context                  
@@ -33,7 +33,7 @@ class PayPalCompleteness:
     """Provides ICompleteness for paypal content objects.
     """
     implements(ICompleteness)
-    adapts(IPayPalContent)
+    adapts(IPayPal)
         
     def __init__(self, context):
         """
@@ -51,7 +51,7 @@ class PayPalPaymentProcessor:
     content is passed via GET-REQUEST)
     """
     implements(IPaymentProcessing)
-    adapts(IPayPalContent)
+    adapts(IPayPal)
 
     def __init__(self, context):
         """
@@ -116,7 +116,7 @@ class PayPalSimplePaymentProcessor:
     Passes just a value for the whole cart to papal.
     """
     implements(IPaymentProcessing)
-    adapts(IPayPalContent)
+    adapts(IPayPal)
 
     def __init__(self, context):
         """

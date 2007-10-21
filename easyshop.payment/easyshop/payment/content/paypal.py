@@ -12,12 +12,12 @@ from Products.ATContentTypes.content.base import ATCTMixin
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IPayPalContent
+from Products.EasyShop.interfaces import IPayPal
 
 class PayPal(OrderedBaseFolder):
     """Holds all relevant informations for a paypal payment.
     """
-    implements(IPayPalContent)
+    implements(IPayPal)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = ATCTMixin.schema.copy()

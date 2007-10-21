@@ -7,13 +7,13 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop importss
 from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IGroupContent
+from Products.EasyShop.interfaces import IGroup
 
 class GroupProductManager:
     """
     """
     implements(IProductManagement)
-    adapts(IGroupContent)
+    adapts(IGroup)
     
     def __init__(self, context):
         """
@@ -27,7 +27,7 @@ class GroupProductManager:
 
         result = []
         # Returns just "View"-able products.
-        for product in self.context.getRefs('easyshopgroup_easyshopproduct'):
+        for product in self.context.getRefs('group_product'):
             if mtool.checkPermission("View", product) is not None:
                 result.append(product)
             

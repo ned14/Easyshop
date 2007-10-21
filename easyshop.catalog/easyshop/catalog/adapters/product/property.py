@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import IGroupManagement
-from Products.EasyShop.interfaces import IProductContent
+from Products.EasyShop.interfaces import IProduct
 from Products.EasyShop.interfaces import IPropertyManagement
 from Products.EasyShop.interfaces import ITaxes
 
@@ -15,7 +15,7 @@ class ProductPropertyManagement:
     """Provides IPropertyManagement for product content objects.
     """
     implements(IPropertyManagement)
-    adapts(IProductContent)
+    adapts(IProduct)
 
     def __init__(self, context):
         """

@@ -12,7 +12,7 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IProductSelectorContent
+from Products.EasyShop.interfaces import IProductSelector
 from Products.EasyShop.interfaces import ICategoryManagement
 from Products.EasyShop.interfaces import IProductManagement
 
@@ -63,7 +63,7 @@ class ProductSelector(BaseContent):
     Used to select products which should be displayed on several views, e.g. 
     category view"""
     
-    implements(IProductSelectorContent)    
+    implements(IProductSelector)    
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = ProductSelector_schema

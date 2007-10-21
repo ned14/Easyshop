@@ -10,7 +10,7 @@ from Products.Archetypes.atapi import *
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import ITaxContent
+from Products.EasyShop.interfaces import ITax
 
 schema = Schema((
 
@@ -35,7 +35,7 @@ class CustomerTax(OrderedBaseFolder):
     It is able to hold criteria which let the tax manager decide which tax is
     taken for a customer / product / category / group / date / ...
     """
-    implements(ITaxContent)
+    implements(ITax)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = OrderedBaseFolderSchema.copy() + schema.copy()

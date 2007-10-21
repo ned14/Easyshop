@@ -7,13 +7,13 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import IGroupManagement
-from Products.EasyShop.interfaces import IProductContent
+from Products.EasyShop.interfaces import IProduct
 
 class ProductGroupManager:
     """Provides IGroupManagement for product content objects.
     """
     implements(IGroupManagement)
-    adapts(IProductContent)
+    adapts(IProduct)
 
     def __init__(self, context):
         """
@@ -33,6 +33,6 @@ class ProductGroupManager:
         # Need this here, because the shipping product is a temporary product 
         # and has no context and could not get reference_catalog
         try:
-            return self.context.getBRefs("easyshopgroup_easyshopproduct")
+            return self.context.getBRefs("group_product")
         except AttributeError:
             return []

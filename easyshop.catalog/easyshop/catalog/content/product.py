@@ -11,9 +11,9 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import Reference
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ICategoryContent
+from Products.EasyShop.interfaces import ICategory
 from Products.EasyShop.interfaces import IImageConversion
-from Products.EasyShop.interfaces import IProductContent
+from Products.EasyShop.interfaces import IProduct
 from Products.EasyShop.content.shop import EasyShopBase
 
 schema = Schema((
@@ -185,7 +185,7 @@ schema = Schema((
     BackReferenceField( 
         name='easyshopgroups',
         multiValued=1,
-        relationship='easyshopgroup_easyshopproduct',
+        relationship='group_product',
         allowed_types=("ProductGroup",),
         widget=BackReferenceBrowserWidget(
             label="Groups",
@@ -210,7 +210,7 @@ schema = Schema((
 class Product(ATFolder, EasyShopBase):
     """A Product is offered for sale.
     """
-    implements(IProductContent)
+    implements(IProduct)
     schema = ATFolder.schema.copy() + schema.copy()
 
     def setImage(self, data):
@@ -256,13 +256,13 @@ class Product(ATFolder, EasyShopBase):
         # Todo: Reindex categories which are kept only once.
         for category in old_categories:
             obj = category
-            while ICategoryContent.providedBy(obj):
+            while ICategory.providedBy(obj):
                 obj.reindexObject()
                 obj = obj.aq_inner.aq_parent
         
         for category in self.getEasyshopcategories():
             obj = category
-            while ICategoryContent.providedBy(obj):
+            while ICategory.providedBy(obj):
                 obj.reindexObject()
                 obj = obj.aq_inner.aq_parent
         

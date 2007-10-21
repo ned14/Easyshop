@@ -13,7 +13,7 @@ from Products.ATContentTypes.content.image import ATImage
 
 # EasyShop imports
 from Products.EasyShop.content.shop import EasyShopBase
-from Products.EasyShop.interfaces import IProductPhotoContent
+from Products.EasyShop.interfaces import IProductPhoto
 from Products.EasyShop.interfaces import IImageConversion
 from Products.EasyShop.config import *
 
@@ -64,7 +64,7 @@ schema = Schema((
 class Photo(BaseContent, EasyShopBase):
     """A photo for a product.
     """
-    implements(IProductPhotoContent)
+    implements(IProductPhoto)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()

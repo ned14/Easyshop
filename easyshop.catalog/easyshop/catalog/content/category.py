@@ -14,7 +14,7 @@ from Products.ATContentTypes.content.folder import ATFolder
 # EasyShop imports
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import IImageConversion
-from Products.EasyShop.interfaces import ICategoryContent
+from Products.EasyShop.interfaces import ICategory
 
 schema = Schema((
     TextField(
@@ -83,7 +83,7 @@ schema = Schema((
 class Category(ATFolder):
     """
     """
-    implements(ICategoryContent)
+    implements(ICategory)
     schema = ATFolder.schema.copy() + schema.copy()
 
     def setImage(self, data):
@@ -110,7 +110,7 @@ class Category(ATFolder):
         self.getField("easyshopproducts").set(self, value)
         
         obj = self
-        while ICategoryContent.providedBy(obj):
+        while ICategory.providedBy(obj):
             obj.reindexObject()
             obj = obj.aq_inner.aq_parent
         

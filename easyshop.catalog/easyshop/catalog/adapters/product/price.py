@@ -7,14 +7,14 @@ from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
 from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IProductContent
+from Products.EasyShop.interfaces import IProduct
 from Products.EasyShop.interfaces import ITaxes
 
 class ProductPriceCalculator:
     """Provides IPrices for product content object
     """
     implements(IPrices)
-    adapts(IProductContent)
+    adapts(IProduct)
     
     def __init__(self, context):
         """

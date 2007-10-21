@@ -6,7 +6,7 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
-from Products.EasyShop.interfaces.cart import ICartManagement
+from Products.EasyShop.interfaces.carts import ICartManagement
 from Products.EasyShop.interfaces.item import IItemManagement
 from Products.EasyShop.interfaces import IShop
 

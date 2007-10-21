@@ -7,14 +7,14 @@ from Products.EasyShop.interfaces import IData
 from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import IPhotoManagement
 from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IProductContent
+from Products.EasyShop.interfaces import IProduct
 from Products.EasyShop.interfaces import IPropertyManagement
 
 class ProductData:
     """An adapter which provides IData for product content objects.
     """    
     implements(IData)
-    adapts(IProductContent)
+    adapts(IProduct)
 
     def __init__(self, context):
         """

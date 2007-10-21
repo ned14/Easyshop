@@ -13,7 +13,7 @@ from Products.DataGridField.Column import Column
 
 # EasyShop imports
 from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IPropertyContent
+from Products.EasyShop.interfaces import IProperty
 
 schema = Schema((
        DataGridField('Options',
@@ -32,7 +32,7 @@ schema = Schema((
 class ProductProperty(BaseContent):
     """
     """
-    implements(IPropertyContent)    
+    implements(IProperty)    
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
