@@ -9,9 +9,10 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop imports
-from Products.EasyShop.interfaces import IOrderManagement
-from Products.EasyShop.interfaces import IItemManagement
 from Products.EasyShop.interfaces import IAddressManagement
+from Products.EasyShop.interfaces import IItemManagement
+from Products.EasyShop.interfaces import IOrderManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 class IExportView(Interface):    
     """
@@ -28,7 +29,7 @@ class ExportView(BrowserView):
     def getOrders(self):
         """
         """
-        om = IOrderManagement(self.context.getShop())
+        om = IOrderManagement(IShopManagement(self.context).getShop())
         
         result = []
         for order in om.getOrders():

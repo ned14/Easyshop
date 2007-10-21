@@ -20,6 +20,7 @@ from Products.EasyShop.interfaces import INumberConverter
 from Products.EasyShop.interfaces import IPhotoManagement
 from Products.EasyShop.interfaces import IPrices
 from Products.EasyShop.interfaces import IPropertyManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 from Products.EasyShop.config import MESSAGES
 
@@ -29,50 +30,6 @@ class ProductViewlet(ViewletBase):
     """
     """
     render = ViewPageTemplateFile('product.pt')
-
-    def addToCart(self):
-        """
-        """
-        shop = self.context.getShop()
-        cm = ICartManagement(shop)
-        
-        cart = cm.getCart()
-        if cart is None:
-            cart = cm.createCart()
-                
-        properties = []
-        for property_id, selected_option in self.request.form.items():
-            if property_id.startswith("property") == False:
-                continue
-                
-            if selected_option == "please_select":
-                continue
-                    
-            properties.append(
-                {"id" : property_id[9:], 
-                 "selected_option" : selected_option 
-                }
-            )
-
-        # get quantity
-        quantity = int(self.context.request.get("quantity", 1))
-
-        # returns true if the product was already within the cart    
-        result = IItemManagement(cart).addItem(self.context, tuple(properties), quantity)
-        
-        # Set portal message
-        putils = getToolByName(self.context, "plone_utils")        
-        if result == True:
-            putils.addPortalMessage(_(MESSAGES["CART_INCREASED_AMOUNT"]))
-        else:
-            putils.addPortalMessage(_(MESSAGES["CART_ADDED_PRODUCT"]))
-
-        if len(self.getRelatedProducts()) > 0:
-            url = "%s/product-view-related-products" % self.context.absolute_url()
-        else:
-            url = self.context.absolute_url()
-        
-        self.context.request.response.redirect(url)
 
     def getProperties(self):
         """
@@ -212,7 +169,7 @@ class ProductViewlet(ViewletBase):
     def showAddQuantity(self):
         """
         """
-        shop = self.context.getShop()                
+        shop = IShopManagement(self.context).getShop()
         return shop.getShowAddQuantity()
         
     def showSelectPropertiesView(self):

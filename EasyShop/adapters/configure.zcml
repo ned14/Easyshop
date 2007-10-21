@@ -1,14 +1,12 @@
 <configure 
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    xmlns:browser="http://namespaces.zope.org/browser">
+    xmlns="http://namespaces.zope.org/zope">
 
-    <include package=".generic" />
+    <include
+        package=".generic" />
+
+    <include
+        package=".shop" />
     
-    <!-- =========== -->
-    <!-- = generic = -->
-    <!-- =========== -->     
-
     <adapter
         factory=".generic.ImageConversion" />
 
@@ -24,17 +22,8 @@
         for="..interfaces.IProduct"        
         factory=".generic.PhotoManagement" />
 
-    <!-- ============ -->
-    <!-- = Category = -->
-    <!-- ============ -->    
     <adapter
         for="..interfaces.ICategory"
         factory=".generic.PhotoManagement" />
 
-    <!-- ======== -->
-    <!-- = Shop = -->
-    <!-- ======== -->
-    <adapter
-        factory=".shop.CurrencyManagement" />
-        
 </configure>

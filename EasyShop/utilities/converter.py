@@ -5,12 +5,7 @@ import re
 from zope.interface import implements
 
 # EasyShop imports
-from Products.EasyShop.interfaces import IAddressConverter
-from Products.EasyShop.interfaces import ICurrencyManagement
 from Products.EasyShop.interfaces import INumberConverter
-from Products.EasyShop.interfaces import IPhotoManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IPropertyManagement
 
 class NumberConverter:
     """
@@ -59,23 +54,3 @@ class NumberConverter:
             return 0.0
 
         return myfloat
-
-
-class AddressConverter:
-    """
-    """
-    implements(IAddressConverter)
-    
-    def addressToDict(self, address):
-        """
-        """
-        return {
-            "name" : address.getName(),
-            "company_name" : address.getCompanyName(),
-            "address1" : address.getAddress1(),
-            "address2" : address.getAddress2(),
-            "zipcode" : address.getZipCode(),
-            "city": address.getCity(),
-            "country" : address.getCountry(),
-            "phone" : address.getPhone()            
-        }

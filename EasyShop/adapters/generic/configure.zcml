@@ -23,6 +23,4 @@
     <adapter
         factory=".validity.CustomerPaymentValidityManagement" />
 
-
-
 </configure>

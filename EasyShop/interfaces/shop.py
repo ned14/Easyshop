@@ -10,3 +10,10 @@ class IShopInformation(Interface):
     def getTermsAndConditions():
         """Returns terms and conditions as file and text.
         """
+        
+class IShopManagement(Interface):
+    """
+    """
+    def getShop():
+        """Returns the parent shop
+        """

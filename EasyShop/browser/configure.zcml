@@ -3,8 +3,6 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <include package=".admin" />
-    <include package=".portlets" />
-    <include package=".skins" />
 
     <browser:page
         for="..interfaces.IShop"
@@ -12,11 +10,4 @@
         template="shop_view.pt"
         permission="zope.Public" />
 
-    <browser:page
-        for="..interfaces.IShop"
-        name="paypal"
-        class=".paypal.PayPalView"        
-        attribute="receivePayment" 
-        permission="zope.Public" />
-          
 </configure>

@@ -6,6 +6,7 @@ from zope.component import adapts
 from Products.EasyShop.interfaces import ICustomerPaymentMethod
 from Products.EasyShop.interfaces import IPaymentManagement
 from Products.EasyShop.interfaces import IValidity
+from Products.EasyShop.interfaces import IShopManagement
 from Products.EasyShop.interfaces import IType
 
 class ValidityManagement(object):
@@ -57,7 +58,7 @@ class CustomerPaymentValidityManagement(ValidityManagement):
         # First we check the general validity. For that we try to get the
         # corresponding payment validator.
         type   = IType(self.context).getType()
-        pm     = IPaymentManagement(self.context.getShop())
+        pm     = IPaymentManagement(IShopManagement(self.context).getShop())
         method = pm.getPaymentMethod(type)
         
         # Only if we find one, we check validity. If we didn't find one, we

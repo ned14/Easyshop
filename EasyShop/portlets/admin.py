@@ -15,6 +15,9 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 # create message factory
 _ = MessageFactory("EasyShop")
 
+# EasyShop imports
+from Products.EasyShop.interfaces import IShopManagement
+
 class IAdminPortlet(IPortletDataProvider):
     """
     """
@@ -51,7 +54,7 @@ class Renderer(base.Renderer):
     def getShopURL(self):
         """
         """
-        return self.context.getShop().absolute_url()
+        return IShopManagement(self.context).getShop().absolute_url()
         
 class AddForm(base.NullAddForm):
     """

@@ -13,7 +13,6 @@ from Products.ATContentTypes import ATCTMessageFactory as _
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import IShop
 from Products.EasyShop.interfaces import IImageConversion
-from Products.EasyShop.content.shop import EasyShopBase
 
 schema = Schema((
 
@@ -167,7 +166,7 @@ schema = Schema((
 ),
 )
 
-class EasyShop(ATFolder, EasyShopBase):
+class EasyShop(ATFolder):
     """An shop where one can offer products for sale.
     """
     implements(IShop)
