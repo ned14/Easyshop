@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        for="Products.EasyShop.interfaces.IGroupsContainer"
+        name="groups-view"
+        template="groups_view.pt"
+        class=".groups_view.GroupsView"
+        permission="cmf.ManagePortal" />
+
+</configure>

@@ -1,0 +1,148 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <head>
+        <metal:block fill-slot="top_slot"
+                     tal:define="dummy python:request.set('disable_border',1)" />    
+    </head>
+
+    <body>
+        
+        <div metal:fill-slot="main"
+             tal:define="goto request/goto | nothing">
+
+            <h1>
+                <span i18n:translate="cart_label"
+                      class="documentFirstHeading">Cart</span>
+            </h1>
+      
+            <form action="#"
+                  tal:attributes="action context/absolute_url"
+                  method="post">
+
+                <table class="cart shop-default">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th i18n:translate="product_label">
+                                Product
+                            </th>
+                            <th i18n:translate="properties_label">
+                                Properties
+                            </th>            
+                            <th i18n:translate="price_label">
+                                Price
+                            </th>
+                            <th i18n:translate="total_label">
+                                Total
+                            </th>                        
+                            <th i18n:translate="amount_label">
+                                Amount
+                            </th>            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tal:block tal:repeat="cart_item view/getCartItems">                    
+                            <tr tal:define="number repeat/cart_item/number"> 
+
+                                <td class="text">
+                                    <input class="context"  
+                                           value="Delete" 
+                                           type="button" 
+                                           tal:attributes="onclick string:window.location='${context/absolute_url}/deleteItem?toDeleteItem=${cart_item/id}'"                         
+                                           i18n:attributes="value delete_label;" />
+                                </td>
+                
+                                <td class="text">
+                                    <span tal:content="cart_item/product_title" />
+                                </td>    
+                                <td class="text">
+                                    <div tal:repeat="property cart_item/properties">
+                                        <span tal:content="property/title" /> :
+                                        <span tal:content="property/selected_option" />
+                                        (<span tal:content="property/price" />)
+                                    </div>                  
+                                </td>      
+                                <td class="number"
+                                    nowrap="nowrap"
+                                    tal:content="cart_item/product_price">
+                                    42.0
+                                </td>        
+                  
+                                <td class="number"
+                                    nowrap="nowrap"
+                                    tal:content="cart_item/price" />        
+
+                                <td class="number">
+                                    <input type="text"
+                                           size="2" 
+                                           tal:attributes="name string:cart_item_$number;
+                                                           value cart_item/amount" />                
+                               </td>                                       
+              
+                           </tr>  
+                        </tal:block>
+                        <tr tal:condition="view/getCartItems">
+                            <td></td>
+                            <td nowrap="nowrap"
+                                class="text"
+            		            i18n:translate="shipping_label">Shipping</td> 
+                            <td colspan="2">
+                            </td>
+                            <td nowrap="nowrap"
+                                class="number"
+                                tal:content="view/getShippingPrice" />
+                        </tr>  
+
+                        <tr>
+                            <td colspan="6"><hr /></td>
+                        </tr>                  
+          
+                        <tr>
+                            <td class="text" 
+                                i18n:translate="total_label">
+                                Total
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td nowrap="nowrap"
+                                class="number"
+                                tal:content="view/getCartPrice" />
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="buttons"
+                                colspan="6">              
+
+                   	            <input type="hidden"
+                				   	   name="goto"
+                					   value="#"
+                					   tal:attributes="value goto" />
+			                                          
+                                <input class="context"  
+                                        name="refreshCart:method" 
+                                        value="Refresh" 
+                                        type="submit"
+                                        i18n:attributes="value refresh_label;" />
+
+                                <input tal:condition="not:goto"
+                                       class="context"  
+                                       name="checkout:method"
+                                       value="Check Out" 
+                                       type="button"
+                                       tal:attributes="onclick string:window.location='${context/absolute_url}/checkout'"
+                                       i18n:attributes="value checkout_label;" />
+
+                            </td>
+            
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+   </body>
+</html>

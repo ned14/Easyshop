@@ -1,0 +1,33 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        for="Products.EasyShop.interfaces.ICartsContainer"
+        name="carts-view"
+        template="carts_container.pt"
+        class=".carts_container.CartsView"
+        permission="cmf.ManagePortal" />
+
+
+    <browser:page
+        for="Products.EasyShop.interfaces.IShop"
+        name="cart"
+        class=".cart.CartFormView"
+        template="cart.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        for="Products.EasyShop.interfaces.IShop"
+        name="deleteItem"
+        class=".cart.CartFormView"
+        attribute="deleteItem" 
+        permission="zope.Public" />
+
+    <browser:page
+        for="Products.EasyShop.interfaces.IShop"
+        name="refreshCart"
+        class=".cart.CartFormView"
+        attribute="refreshCart" 
+        permission="zope.Public" />
+  
+</configure>

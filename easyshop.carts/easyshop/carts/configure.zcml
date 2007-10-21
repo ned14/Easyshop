@@ -5,11 +5,15 @@
     <five:registerPackage 
         package="." />
 
-    <adapter
-        factory=".cart_management.CartManagement" />
+    <include
+        file="profiles.zcml" />
+    
 
-    <adapter
-        factory=".cartitem_management.CartItemManagement" />
+    <include
+        package=".adapters" />
+
+    <include
+        package=".browser" />
 
     <include
         package=".portlets" />
@@ -20,7 +24,4 @@
     <include
         package=".viewlets" />
 
-    <include
-        file="profiles.zcml" />
-    
 </configure>

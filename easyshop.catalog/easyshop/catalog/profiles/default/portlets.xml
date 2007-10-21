@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets>
+  
+ <portlet 
+     addview="portlets.Formatter"
+     title="EasyShop: Formatter"
+     description="Portlet to format views." />
+
+</portlets>

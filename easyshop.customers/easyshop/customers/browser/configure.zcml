@@ -1,0 +1,47 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        for="Products.EasyShop.interfaces.IShop"
+        name="my-account"
+        template="my_account.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        for="Products.EasyShop.interfaces.ICustomersContainer"
+        name="customers-view"        
+        template="customers.pt"
+        class=".customers_container.CustomersContainerView"
+        permission="cmf.ManagePortal" />
+
+
+    <browser:page
+        name = "managePaymentMethodsView"
+        for = "Products.EasyShop.interfaces.IShop"
+        class = ".manage_payment_methods.ManagePaymentMethodsView"
+        allowed_interface = ".manage_payment_methods.IManagePaymentMethodsView"
+        permission = "zope.Public" />
+
+    <browser:page
+        name="deletePaymentMethod"        
+        for="Products.EasyShop.interfaces.IShop"
+        class = ".manage_payment_methods.ManagePaymentMethodsView"
+        attribute="deletePaymentMethod" 
+        permission="zope.Public" />
+
+    <browser:page
+        name = "manageAddressBookView"
+        for = "Products.EasyShop.interfaces.IShop"
+        class = ".manage_addressbook.ManageAddressBookView"
+        allowed_interface = ".manage_addressbook.IManageAddressBookView"
+        permission = "zope.Public" />
+
+    <browser:page
+        name="deleteAddress"
+        for="Products.EasyShop.interfaces.IShop"
+        class = ".manage_addressbook.ManageAddressBookView"
+        attribute="deleteAddress"
+        permission="zope.Public" />
+
+
+</configure>

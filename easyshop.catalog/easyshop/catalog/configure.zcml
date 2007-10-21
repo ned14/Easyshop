@@ -13,6 +13,12 @@
         package=".adapters" />
 
     <include
+        package=".browser" />
+
+    <include
+        package=".portlets" />
+
+    <include
         package=".subscribers" />
 
 </configure>

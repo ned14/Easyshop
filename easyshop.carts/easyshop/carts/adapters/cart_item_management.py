@@ -6,8 +6,8 @@ from zope.component import adapts
 from Products.Archetypes.utils import shasattr
 
 # EasyShop imports
-from Products.EasyShop.interfaces.item import IItemManagement
-from Products.EasyShop.interfaces.carts import ICart
+from Products.EasyShop.interfaces import IItemManagement
+from Products.EasyShop.interfaces import ICart
 
 class CartItemManagement:
     """Adapter which provides IItemManagement for cart content objects.

@@ -3,7 +3,7 @@
   
  <portlet 
      addview="portlets.Cart"
-     title="Cart"
+     title="EasyShop: Cart"
      description="Portlet to display a cart." />
 
 </portlets>
