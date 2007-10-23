@@ -14,6 +14,7 @@ from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import ICategory
 from Products.EasyShop.interfaces import IImageConversion
 from Products.EasyShop.interfaces import IProduct
+from Products.EasyShop.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -211,19 +212,19 @@ class Product(ATFolder):
     def getStartupDirectoryForProducts(self):
         """
         """
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
         
     def getStartupDirectoryForCategories(self):
         """
         """
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/categories"
         
     def getStartupDirectoryForGroups(self):
         """
         """
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/groups"
 
     def setEasyshopcategories(self, value):

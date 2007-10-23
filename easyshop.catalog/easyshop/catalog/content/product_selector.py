@@ -15,6 +15,7 @@ from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import IProductSelector
 from Products.EasyShop.interfaces import ICategoryManagement
 from Products.EasyShop.interfaces import IProductManagement
+from Products.EasyShop.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -71,7 +72,7 @@ class ProductSelector(BaseContent):
     def getStartupDirectoryForProducts(self):
         """
         """
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
             
 registerType(ProductSelector, PROJECTNAME)

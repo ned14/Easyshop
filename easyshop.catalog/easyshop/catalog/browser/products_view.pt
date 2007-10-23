@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="products view/getProducts">
+  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="products_label">
+                Products
+            </h1>
+
+            <p class="documentDescription"
+               i18n:translate="products_view_description">
+                This is an overview over all existing products.
+            </p>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+    
+            <div class="letters">
+                <a tal:repeat="letter view/getLetters"
+                   tal:attributes="href string:${context/absolute_url}?letter=$letter"
+                   tal:content="letter">
+                   A
+                </a>
+                <form action="."
+                      method="post"
+                      style="display:inline">
+                    <input type="text"
+                           name="searchable_text" />
+                    <input type="submit"
+                           value="OK" />
+                </form>              
+            </div>
+                
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+  
+            <div tal:repeat="product products">
+                <a class="product-details"
+                   href="."
+                   tal:define="letter context/REQUEST/letter|nothing"
+                   tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&letter=$letter;
+                                   class string:product-details kssattr-uid-${product/UID}">
+                    [Details]
+                </a>    
+                
+                <a href="."
+                   tal:attributes="href product/getURL"
+                   tal:content="product/Title">
+                    Product Title
+                </a>    
+            </div>
+                
+            <div tal:condition="not:products"
+                 i18n:translate="no_products_label">
+                There are no products.
+            </div>    
+            
+            <br/> <br/>
+            <div id="product-details-box">
+                <tal:block tal:define="product view/getProduct"
+                           tal:condition="product">
+                    <h1 tal:content="product/title" />
+                    <div tal:content="product/short_title" />                    
+                    <div tal:content="product/article_id" />
+                    <img tal:attributes="src string:${product/url}/image_mini" />
+                    <div tal:content="structure product/text" />
+                    <div tal:content="structure product/short_text" />
+                    <div tal:content="structure product/price" />
+                </tal:block>    
+            </div>
+                
+            <div tal:replace="structure provider:plone.belowcontentbody" />
+  
+          </metal:main>
+    
+    </body>
+</html>

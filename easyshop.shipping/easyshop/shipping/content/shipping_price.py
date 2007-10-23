@@ -25,7 +25,7 @@ class ShippingPriceBase(OrderedBaseFolder):
     def getCart(self):
         """Provides the cart of authenticated customer.
         """        
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         return ICartManagement(shop).getCart()
             
     def getCartItems(self):

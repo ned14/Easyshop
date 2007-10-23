@@ -61,7 +61,7 @@ class ProductGroup(BaseFolder):
     def getStartupDirectoryForProducts(self):
         """
         """
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
 
 registerType(ProductGroup, PROJECTNAME)

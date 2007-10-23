@@ -28,7 +28,7 @@
                                                 Deep Thought    
                                             </metal:field>                                            
                                         </td>
-                                        <!-- <td class="product-navigation">
+                                        <td class="product-navigation">
                                             <div tal:repeat="product_url product_urls">
                                                 <a href="#"
                                                    title="First Product"
@@ -38,7 +38,7 @@
                                                     <img src="navigation_first.gif" 
                                                          alt="Navigation First"
                                                          title="First"
-                                                         tal:attributes="src string:$portal_url/navigation_first_small.gif"
+                                                         tal:attributes="src string:navigation_first_small.gif"
                                                          i18n:attributes="title first_label;" />
                                                  </a>                    
 
@@ -50,7 +50,7 @@
                                                     <img src="navigation_previous.gif" 
                                                          alt="Navigation Previous"
                                                          title="Previous"
-                                                         tal:attributes="src string:$portal_url/navigation_previous_small.gif"
+                                                         tal:attributes="src string:navigation_previous_small.gif"
                                                          i18n:attributes="title previous_label;" />
                                                  </a>
         
@@ -66,7 +66,7 @@
                                                     <img src="navigation_next.gif" 
                                                          alt="Navigation Next"
                                                          Title="Next"
-                                                         tal:attributes="src string:$portal_url/navigation_next_small.gif"
+                                                         tal:attributes="src string:navigation_next_small.gif"
                                                          i18n:attributes="title next_label;" />
                                                  </a>
         
@@ -78,11 +78,11 @@
                                                     <img src="navigation_last.gif" 
                                                          alt="Navigation Last"
                                                          Title="Last"
-                                                         tal:attributes="src string:$portal_url/navigation_last_small.gif"
+                                                         tal:attributes="src string:navigation_last_small.gif"
                                                          i18n:attributes="title last_label;" />
                                                  </a>        
                                             </div>
-                                        </td> -->
+                                        </td>
                                     </tr>
                                 </table>
                             </td>

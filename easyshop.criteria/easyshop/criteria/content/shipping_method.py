@@ -67,7 +67,7 @@ class ShippingMethodCriteria(BaseContent):
         """
         dl = DisplayList()
         
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         sm = IShippingManagement(shop)
         
         for shipping_method in sm.getShippingMethods():

@@ -15,6 +15,7 @@ from Products.ATContentTypes.content.folder import ATFolder
 from Products.EasyShop.config import *
 from Products.EasyShop.interfaces import IImageConversion
 from Products.EasyShop.interfaces import ICategory
+from Products.EasyShop.interfaces import IShopManagement
 
 schema = Schema((
     TextField(
@@ -96,7 +97,7 @@ class Category(ATFolder):
     def getStartupDirectoryForProducts(self):
         """
         """
-        shop = self.getShop()
+        shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
 
     def getCategories(self):

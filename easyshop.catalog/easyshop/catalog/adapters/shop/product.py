@@ -33,7 +33,14 @@ class ShopProductManagement:
     def getProducts(self):
         """
         """
-        raise Exception
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            object_provides = "Products.EasyShop.interfaces.catalog.product.IProduct",
+            path = "/".join(self.context.products.getPhysicalPath()),
+            sort_on = "sortable_title",
+        )
+
+        return brains
         
     def getTotalAmountOfProducts(self):
         """

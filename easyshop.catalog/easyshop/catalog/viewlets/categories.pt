@@ -14,13 +14,13 @@
                         <td tal:content="context/Description">
                             Description                                        
                         </td>
-                        <!-- <td class="category-navigation">
+                        <td class="category-navigation">
                             <a tal:omit-tag="not:batch_info/previous"
                                tal:attributes="href context/absolute_url"> 
                                <img src="navigation_first.gif" 
                                     alt="Navigation First"
                                     title="First"
-                                    tal:attributes="src string:$portal_url/navigation_first_small.gif"
+                                    tal:attributes="src string:navigation_first_small.gif"
                                     i18n:attributes="title first_label;" />
                             </a>
                             <a tal:omit-tag="not:batch_info/previous"
@@ -28,7 +28,7 @@
                                 <img src="navigation_previous_small.gif" 
                                      alt="Navigation Previous"
                                      title="Previous"
-                                     tal:attributes="src string:$portal_url/navigation_previous_small.gif"
+                                     tal:attributes="src string:navigation_previous_small.gif"
                                      i18n:attributes="title previous_label;" />
                             </a>
                             <span tal:condition="batch_info/navigation_list"
@@ -42,7 +42,7 @@
                                 <img src="navigation_next_small.gif" 
                                      alt="Navigation Next"
                                      Title="Next"
-                                     tal:attributes="src string:$portal_url/navigation_next_small.gif"
+                                     tal:attributes="src string:navigation_next_small.gif"
                                      i18n:attributes="title next_label;" />
                             </a>
                             <a tal:omit-tag="not:batch_info/next"
@@ -51,10 +51,10 @@
                               <img src="navigation_last_small.gif" 
                                    alt="Navigation Last"
                                    Title="Last"
-                                   tal:attributes="src string:$portal_url/navigation_last_small.gif"
+                                   tal:attributes="src string:navigation_last_small.gif"
                                    i18n:attributes="title last_label;" />
                             </a>
-                        </td> -->
+                        </td>
                     </tr>
                 </table>    
             </td>

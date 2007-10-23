@@ -57,11 +57,25 @@
         template="category_view.pt"
         permission="zope.Public" /> 
 
+    <browser:page 
+        for="Products.EasyShop.interfaces.ICategory"
+        name="category-manage-view" 
+        class=".category_manage.CategoryManageView"
+        template="category_manage.pt"
+        permission="zope.Public" /> 
+
     <browser:page  
         name="navigationMacroView"
         for="*" 
         class=".easyshop_macros.NavigationMacroView"  
         allowed_interface=".easyshop_macros.INavigationMacroView"
         permission="zope2.Public" />  
+
+    <browser:page
+        for="Products.EasyShop.interfaces.IProductsContainer"
+        name="products-view"
+        template="products_view.pt"
+        class=".products_view.ProductsView"
+        permission="cmf.ManagePortal" />
     
 </configure>

@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="categories view/getTopLevelCategories;
+                                products view/getProducts">
+  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="categories_label">
+                Categories
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+    
+            <p class="documentDescription"
+               tal:content="context/Description">
+                Description
+            </p>
+    
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <div tal:repeat="category view/getTopLevelCategories">
+                <a tal:attributes="href category/url"
+                   tal:content="category/title" />
+            </div>
+                
+            <tal:block tal:condition="products">
+                <h1>Products</h1>
+                <div tal:repeat="product products">
+                    <div tal:content="product/title" />
+                    <img tal:attributes="src product/image;
+                                         alt product/title" />
+                </div>    
+            </tal:block>
+            
+            <div tal:replace="structure provider:plone.belowcontentbody" />
+  
+          </metal:main>
+    
+    </body>
+</html>

@@ -100,7 +100,7 @@ class EasyShopKSSView(PloneKSSView):
 
         selector = kss_core.getHtmlIdSelector("mycategories")
         kss_zope.refreshViewlet(selector,
-                                manager="iqpp.easyshop.easyshop-manager",
-                                name="iqpp.easyshop.categories")
+                                manager="easyshop.easyshop-manager",
+                                name="easyshop.categories")
          
         kss_plone.refreshPortlet(portlethash)

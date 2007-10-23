@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+   <object name="navtree_properties" meta_type="Plone Property Sheet">
+       <property name="title">NavigationTree properties</property>
+       <property name="metaTypesNotToList" type="lines">
+           <type portal_type="Cart" />   
+           <type portal_type="Order" />         
+           <type portal_type="Product" />
+   </object>
+</object>

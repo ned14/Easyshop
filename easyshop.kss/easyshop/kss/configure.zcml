@@ -26,4 +26,11 @@
         attribute="addProduct"
         permission="zope2.View" />
 
+    <browser:page
+        name="kss_show_product_details"
+        for="*"
+        class=".catalog.CatalogKSSView"
+        attribute="showProductDetails"
+        permission="cmf.ManagePortal" />
+
 </configure>
