@@ -33,4 +33,11 @@
         attribute="showProductDetails"
         permission="cmf.ManagePortal" />
 
+    <browser:page
+        name="kss_show_products"
+        for="*"
+        class=".catalog.CatalogKSSView"
+        attribute="showProducts"
+        permission="cmf.ManagePortal" />
+
 </configure>
