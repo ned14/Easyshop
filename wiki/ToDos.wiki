@@ -1,3 +1,4 @@
+#labels Featured
 == Short Term (Needs to be done before 1.0 beta 1) ==
 
    * Nicer view for catagories (something similar to products_view).
