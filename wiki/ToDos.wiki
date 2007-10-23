@@ -6,4 +6,4 @@
 == Middle Term == 
 
    * Product Variants
-   * IO-package for import and export of the catalog, could be used for ebay, etc. too.
+   * IO-package for import and export of the catalog, should be usable for backup and for ebay, etc. too.
