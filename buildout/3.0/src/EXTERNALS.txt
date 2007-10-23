@@ -2,16 +2,16 @@
 # applied by: svn propset svn:externals -F ./EXTERNALS.txt .
 #
 
-easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
-easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/trunk
-easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/trunk
-easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
-easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
-easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/trunk
-easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/trunk
-easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
-easyshop.login https://easyshop-for-plone.googlecode.com/svn/easyshop.login/trunk
-easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/trunk
-easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
-easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
-easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
+easyshop.carts http://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
+easyshop.catalog http://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/trunk
+easyshop.checkout http://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/trunk
+easyshop.criteria http://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
+easyshop.customers http://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
+easyshop.groups http://easyshop-for-plone.googlecode.com/svn/easyshop.groups/trunk
+easyshop.information http://easyshop-for-plone.googlecode.com/svn/easyshop.information/trunk
+easyshop.kss http://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
+easyshop.login http://easyshop-for-plone.googlecode.com/svn/easyshop.login/trunk
+easyshop.order http://easyshop-for-plone.googlecode.com/svn/easyshop.order/trunk
+easyshop.payment http://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
+easyshop.shipping http://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
+easyshop.taxes http://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
