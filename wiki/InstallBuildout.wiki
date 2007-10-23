@@ -1,3 +1,4 @@
+#labels Featured
 == How to install the buildout ==
 
    * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ es.buildout
