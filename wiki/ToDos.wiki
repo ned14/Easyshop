@@ -1,0 +1,4 @@
+= Todos =
+
+   * Nicer view for catagories (something similar to products_view).
+   * IO-package for import and export of the catalog, could be used for ebay, etc. too.
