@@ -26,44 +26,51 @@
                 Shop
             </a>  
     
-            <div class="letters">
+            <div id="letters">
                 <a tal:repeat="letter view/getLetters"
-                   tal:attributes="href string:${context/absolute_url}?letter=$letter"
+                   tal:attributes="href string:${context/absolute_url}?letter=$letter;
+                                   class string:kssattr-letter-$letter"
                    tal:content="letter">
                    A
                 </a>
-                <form action="."
+                <form id="search-products-form"
+                      action="."
                       method="post"
                       style="display:inline">
+
                     <input type="text"
                            name="searchable_text" />
-                    <input type="submit"
+
+                    <input id="search-products"
+                           type="submit"
                            value="OK" />
                 </form>              
             </div>
                 
             <div tal:replace="structure provider:plone.abovecontentbody" />
   
-            <div tal:repeat="product products">
-                <a class="product-details"
-                   href="."
-                   tal:define="letter context/REQUEST/letter|nothing"
-                   tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&letter=$letter;
-                                   class string:product-details kssattr-uid-${product/UID}">
-                    [Details]
-                </a>    
+            <div id="products">
+                <div tal:repeat="product products">
+                    <a class="product-details"
+                       href="."
+                       tal:define="letter context/REQUEST/letter|nothing"
+                       tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&letter=$letter;
+                                       class string:product-details kssattr-uid-${product/UID}">
+                        [Details]
+                    </a>    
                 
-                <a href="."
-                   tal:attributes="href product/getURL"
-                   tal:content="product/Title">
-                    Product Title
-                </a>    
+                    <a href="."
+                       tal:attributes="href product/getURL"
+                       tal:content="product/Title">
+                        Product Title
+                    </a>    
+                </div>    
+                <div tal:condition="not:products"
+                     i18n:translate="no_products_label">
+                    There are no products.
+                </div>                    
             </div>
                 
-            <div tal:condition="not:products"
-                 i18n:translate="no_products_label">
-                There are no products.
-            </div>    
             
             <br/> <br/>
             <div id="product-details-box">
