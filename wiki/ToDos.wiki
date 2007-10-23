@@ -1,4 +1,9 @@
-= Todos =
+== Short Term ==
 
    * Nicer view for catagories (something similar to products_view).
+   * Nicer forms to administrate customers
+
+== Middle Term == 
+
+   * Product Variants
    * IO-package for import and export of the catalog, could be used for ebay, etc. too.
