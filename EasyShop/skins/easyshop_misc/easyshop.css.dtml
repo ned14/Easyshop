@@ -224,6 +224,10 @@ fieldset.address {
     width:1%;
     cursor:pointer;
 }
+
+.letters {
+    padding-bottom:20px;
+}
 /* </dtml-with> */
 
 
