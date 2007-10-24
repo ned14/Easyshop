@@ -10,9 +10,9 @@ from Products.Archetypes.atapi import *
 # ATContentTypes imports
 from Products.ATContentTypes.content.base import ATCTMixin
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ISimplePaymentMethod
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import ISimplePaymentMethod
 
 schema = Schema((
     BooleanField(

@@ -11,15 +11,15 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import INumberConverter
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IType
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IType
 
 class IOrderView(Interface):
     """View for order content objects.

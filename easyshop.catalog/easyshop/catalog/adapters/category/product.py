@@ -5,11 +5,11 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import ICategory
-from Products.EasyShop.interfaces import IPrices
+# easyshop imports
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import ICategory
+from easyshop.core.interfaces import IPrices
 
 class CategoryProductManager:
     """An adapter which provides IProductManagement for category content

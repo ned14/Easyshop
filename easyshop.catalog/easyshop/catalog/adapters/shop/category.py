@@ -5,9 +5,9 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IShop
 
 class ShopCategoryManagement:
     """An adapter which provides ICategoryManagement for shop content objects.

@@ -10,9 +10,9 @@ from Products.Archetypes.atapi import *
 # ATContentTypes imports
 from Products.ATContentTypes.content.base import ATCTMixin
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IPayPal
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IPayPal
 
 class PayPal(OrderedBaseFolder):
     """Holds all relevant informations for a paypal payment.

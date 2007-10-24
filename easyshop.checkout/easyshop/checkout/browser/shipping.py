@@ -5,9 +5,9 @@ from zope.interface import implements
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IShippingManagement
+# easyshop imports
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShippingManagement
 
 class ICheckOutShippingView(Interface):    
     """Provides methods for the selection of shipping methods within the

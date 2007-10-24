@@ -6,7 +6,7 @@
  <property name="description">Select valid customers</property>
  <property name="content_icon">criterion_icon.png</property>
  <property name="content_meta_type">CustomerCriteria</property>
- <property name="product">EasyShop</property>
+ <property name="product">easyshop.shop</property>
  <property name="factory">addCustomerCriteria</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>

@@ -15,12 +15,12 @@ from Products.CMFCore.permissions import ManageUsers
 # membrane imports
 # from Products.membrane.interfaces import IUserAuthProvider
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import ICustomer
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IShippingManagement
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICustomer
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IShippingManagement
 
 schema = Schema((
 

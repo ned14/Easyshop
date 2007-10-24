@@ -7,9 +7,9 @@ from AccessControl import ClassSecurityInfo
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IAddress
-from Products.EasyShop.config import *
+# easyshop imports
+from easyshop.core.interfaces import IAddress
+from easyshop.core.config import *
 
 schema = Schema((
 

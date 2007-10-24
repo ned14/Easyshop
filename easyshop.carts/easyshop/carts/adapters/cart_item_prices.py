@@ -2,10 +2,10 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICartItem
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IPropertyManagement
+# easyshop imports
+from easyshop.core.interfaces import ICartItem
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IPropertyManagement
 
 class CartItemPrices:
     """Adapter which provides IPrices for cart item content objects.

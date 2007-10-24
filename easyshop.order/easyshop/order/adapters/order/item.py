@@ -2,14 +2,14 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import IOrder
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import ITaxes
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IOrder
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import IShopManagement
 
 class OrderItemManager:
     """Provides IItemManagement for order content objects.
@@ -64,7 +64,7 @@ class OrderItemManager:
         shop = IShopManagement(self.context).getShop()                
         taxes = ITaxes(shop)
                 
-        self.context.manage_addProduct["EasyShop"].addOrderItem(id=id)
+        self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=id)
         new_item = getattr(self.context, id)
         
         # Todo: use the adapters here

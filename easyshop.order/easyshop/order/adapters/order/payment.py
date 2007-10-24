@@ -8,10 +8,10 @@ from Products.CMFCore.utils import getToolByName
 # Archetypes
 from Products.Archetypes.utils import shasattr
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPaymentProcessing
-from Products.EasyShop.interfaces import IOrder
+# easyshop imports
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentProcessing
+from easyshop.core.interfaces import IOrder
 
 class PaymentManagement:
     """Provides IPaymentManagement for order content objects.

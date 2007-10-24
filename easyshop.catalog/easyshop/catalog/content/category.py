@@ -11,11 +11,11 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 # ATContentTypes imports
 from Products.ATContentTypes.content.folder import ATFolder
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IImageConversion
-from Products.EasyShop.interfaces import ICategory
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IImageConversion
+from easyshop.core.interfaces import ICategory
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
     TextField(

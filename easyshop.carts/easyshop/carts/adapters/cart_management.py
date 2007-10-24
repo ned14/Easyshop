@@ -5,10 +5,10 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces.carts import ICartManagement
-from Products.EasyShop.interfaces.item import IItemManagement
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.interfaces.carts import ICartManagement
+from easyshop.core.interfaces.item import IItemManagement
+from easyshop.core.interfaces import IShop
 
 class CartManagement:
     """Provices cart management methods for shop content objects.
@@ -24,7 +24,7 @@ class CartManagement:
     def addCart(self, id):
         """
         """
-        self.context.carts.manage_addProduct["EasyShop"].addCart(id = id)
+        self.context.carts.manage_addProduct["easyshop.shop"].addCart(id = id)
         return self.getCartById(id)
 
     def createCart(self):
@@ -32,7 +32,7 @@ class CartManagement:
         """
         cart_id = self._getCartId()
         
-        self.context.carts.manage_addProduct["EasyShop"].addCart(
+        self.context.carts.manage_addProduct["easyshop.shop"].addCart(
             id = cart_id
         )
         

@@ -5,9 +5,9 @@ from zope.interface import implements
 from Products.Archetypes.atapi import OrderedBaseFolder
 from Products.Archetypes.atapi import registerType
 
-# EasyShop imports
-from Products.EasyShop.config import PROJECTNAME
-from Products.EasyShop.interfaces import IShippingMethod
+# easyshop imports
+from easyshop.core.config import PROJECTNAME
+from easyshop.core.interfaces import IShippingMethod
 
 schema = OrderedBaseFolder.schema.copy()
 schema["description"].schemata = "default"

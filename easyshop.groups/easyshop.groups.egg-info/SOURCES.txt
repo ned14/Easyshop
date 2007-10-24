@@ -23,10 +23,15 @@ easyshop/groups/adapters/__init__.py
 easyshop/groups/adapters/configure.zcml
 easyshop/groups/adapters/product.py
 easyshop/groups/adapters/shop.py
+easyshop/groups/browser/__init__.py
+easyshop/groups/browser/configure.zcml
+easyshop/groups/browser/groups_view.pt
+easyshop/groups/browser/groups_view.py
 easyshop/groups/content/__init__.py
 easyshop/groups/content/containers.py
 easyshop/groups/content/group.py
 easyshop/groups/profiles/__init__.py
+easyshop/groups/profiles/default/factorytool.xml
 easyshop/groups/profiles/default/types.xml
 easyshop/groups/profiles/default/types/GroupsContainer.xml
 easyshop/groups/profiles/default/types/ProductGroup.xml

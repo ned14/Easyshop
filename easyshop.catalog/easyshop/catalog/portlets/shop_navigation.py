@@ -11,12 +11,12 @@ from Products.CMFCore.utils import getToolByName
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-# EasyShop imports
-from Products.EasyShop.config import _
-from Products.EasyShop.interfaces import ICategory
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IProduct
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.config import _
+from easyshop.core.interfaces import ICategory
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IShopManagement
 
 class IShopNavigationPortlet(IPortletDataProvider):
     """

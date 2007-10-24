@@ -4,8 +4,8 @@ from zope.component import getMultiAdapter
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IOrderManagement
+# easyshop imports
+from easyshop.core.interfaces import IOrderManagement
 
 class MyOrdersView(BrowserView):
     """

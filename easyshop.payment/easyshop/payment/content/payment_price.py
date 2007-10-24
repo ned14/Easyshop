@@ -7,9 +7,9 @@ from zope.interface import implements
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IPaymentPrice
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IPaymentPrice
 
 schema = Schema((
 

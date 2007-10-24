@@ -3,7 +3,7 @@ from zope.interface import Interface
 from zope import schema
 
 # Message factory
-from Products.EasyShop.config import _
+from easyshop.core.config import _
 
 class IInformationContainer(Interface):
     """A container to hold information like terms and conditions.

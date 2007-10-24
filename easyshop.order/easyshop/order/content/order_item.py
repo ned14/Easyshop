@@ -14,11 +14,11 @@ from Products.CMFCore.utils import getToolByName
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ITaxes
-from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IOrderItem
-from Products.EasyShop.config import *
+# easyshop imports
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IOrderItem
+from easyshop.core.config import *
 
 schema = Schema((
 

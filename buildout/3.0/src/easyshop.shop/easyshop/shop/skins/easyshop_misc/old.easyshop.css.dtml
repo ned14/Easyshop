@@ -1,0 +1,366 @@
+/*
+** Plone style sheet - Base Elements
+**
+** Style sheet documentation can be found at http://plone.org/documentation
+**
+** You should preferrably use ploneCustom.css to add your own CSS classes and to
+** customize your portal, as these are the base fundaments of Plone, and will
+** change and be refined in newer versions. Keeping your changes in
+** ploneCustom.css will make it easier to upgrade.
+**
+** Feel free to use whole or parts of this for your own designs, but give credit
+** where credit is due.
+**
+*/
+
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+.address-book {
+    width:100%;
+}
+
+.address-book td.buttons {
+    vertical-align:top;
+}
+
+#address_table {
+    width:100px;
+}
+
+#address_table td.address_label {
+    text-align: right;
+    padding: 5px;    
+}
+
+#address_table select.large,
+#address_table input.large {
+    width:300px;
+}
+
+table.products {
+    width: 100%;
+    padding: 0;    
+}
+
+table.products th,
+table.products td {
+    vertical-align:top;
+    text-align:right;
+}
+
+table.products th.left,
+table.products td.left {
+    text-align:left !important;
+}
+
+
+#mail-order-submitted table {
+    width:100%;
+    border:1px solid black;
+    border-collapse: collapse;
+}
+
+#mail-order-submitted th {
+    border:1px solid black;
+}
+
+#mail-order-submitted td {
+    border:1px solid black;
+    text-align:right;
+    vertical-align:right;
+}
+
+#portlet-easyshop-formatter .field {
+    margin-bottom: 10px;
+}
+
+#portlet-easyshop-formatter .field label {
+    text-align: left;    
+    display:block;
+    margin-bottom: 5px;
+}
+
+#portlet-easyshop-formatter .field input {
+    text-align:right;
+}
+
+#portlet-easyshop-formatter .button {
+    text-align:right;
+}
+
+#category-description {
+    background-color: &dtml-globalBackgroundColor;;
+    height:40px;
+    padding: 0 10px;
+}
+
+#category-description h1 {
+    float: left;
+    color: black;
+    font-size: 130%;
+    border-bottom:none;
+    font-weight:bold;
+}
+
+.product-control {
+    background-color: &dtml-globalBackgroundColor;;
+    color: black;
+    padding: 10px;
+    text-align:right;    
+}
+
+.price {
+    font-weight:bold;
+}
+
+.product-control form {
+    padding-right: 10px;
+    display:inline;
+}
+
+.navigation {
+    text-align:right;
+}
+
+.selector {
+    text-align:left;
+}
+
+.product-description {
+    padding: 2px 0 0 4px !important;
+}
+
+.product-image {
+    border-collapse: collapse;    
+}
+
+.product-image td {
+    vertical-align:top;
+    padding:0;
+}
+
+#left {
+    float:left;
+}
+
+#title {
+    background-color: #DDD;
+}
+
+#price {
+    background-color: #DDD;    
+}
+
+/*  ######################### */
+
+#manage-payment-methods td {
+    vertical-align: bottom;
+}
+
+.payment-process .emphasized {
+    font-weight:bold;
+}
+
+#easyshop-product-title {
+    text-align: center;
+    line-height:40px;
+    background-color: &dtml-globalBackgroundColor;;  
+    color: black;
+    font-weight: bold;
+}
+
+#easyshop-shipping-prices th {
+    text-align:left;
+}
+
+.easyshop-shipping-note {
+    font-weight: bold;
+}
+
+/*product-view*/
+#product-view-1 .quantity {
+    width: 50px;
+}
+
+#product-view-1 .easyshop-form {
+    text-align: right;
+}
+
+#product-view-1 .easyshop-image {
+    vertical-align: top;
+    width: 307px;
+}
+
+#product-view-1 .easyshop-navigation {
+    color: black;
+}
+
+#product-view-1 .easyshop-info-right {
+    vertical-align: top;
+}
+
+#product-view-1 .easyshop-description {
+    height: 357px;
+    border: 1px solid &dtml-globalBorderColor;;
+    padding: 0 5px;
+    overflow: auto;
+}
+
+#portlet-easyshop-product-navigation table {
+    text-align: center;
+    width: 100%;
+}
+
+#product-view-1 .magnifier {
+    cursor: pointer;
+}
+
+#category-view-1 .easyshop-price {
+    text-align:right;
+    font-size: 110%;
+    font-weight: bold;    
+}
+
+#category-view-1 .easyshop-info-left {
+    background-color: &dtml-globalBackgroundColor;;
+    color: black;
+    padding: 0 5px;    
+}
+
+#category-view-2 .easyshop-info-left,
+#product-view-1 .easyshop-info-left {
+    background-color: &dtml-globalBackgroundColor;;
+    color: black;
+    padding: 0 10px;
+}
+
+#category-view-1 .easyshop-info-left table,
+#category-view-2 .easyshop-info-left table,
+#product-view-1 .easyshop-info-left table {
+    width: 100%;
+    height: 40px;    
+}
+
+#category-view-1 .easyshop-info-left table {
+    width: 100%;
+    height: 25px;        
+}
+
+
+#category-view-2 .easyshop-price,
+#product-view-1 .easyshop-price {
+    text-align:right;
+    font-size: 130%;
+    font-weight: bold;
+}
+
+#product-view-1 .easyshop-cart {
+    background-color: &dtml-globalBackgroundColor;;
+    padding-right: 10px;
+    color: black;
+}
+
+#product-view-1 .easyshop-cart table {
+    height: 40px;
+}
+
+#product-view-1 .easyshop-cart table td {
+    padding-right: 5px;
+}
+
+
+#product-view-1 .easyshop-cart .add {
+    border: none;
+    background: transparent;
+}
+
+#product-view-1 .easyshop-cart .quantity {
+    text-align: right;
+    padding-right: 10px;
+}
+
+img.es-main {
+    border: 1px solid &dtml-globalBorderColor; !important;
+}
+
+#portlet-easyshop-searchbox #searchGadget {
+    background-color: black;
+    width: 100%;
+}
+
+#portlet-easyshop-searchbox .searchButton {
+    padding: 0;
+}
+
+#portlet-easyshop-category-navigation table {
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+
+#portlet-easyshop-product-navigation .navigation-position {
+    text-align: center;
+}
+
+/*.portletItem input {
+    background: transparent;
+    border: none;
+}
+*/
+#category-view-1 a,
+#category-view-2 a {
+    font-size:100%;
+    color: black;
+    text-decoration: none;
+}
+
+#category-view-1 .title,
+#product-view-1 .title,
+#category-view-2 .title {
+    text-align: left;
+    line-height:40px;
+    padding: 0 6px;
+    background-color: &dtml-globalBackgroundColor; !important;
+    color: black;
+}
+
+#category-view-1 .title {
+    font-size:90%;
+}
+
+#category-view-1 .title {
+    line-height: 25px;    
+}
+
+
+#category-view-1 .icon,
+#category-view-2 .icon {
+    text-align: left;
+    width: 1px;
+}
+
+#category-view-2 .price {
+    padding-right: 2px;
+}
+
+#category-overview-navigation {
+    vertical-align: middle;
+    width: 130px;
+}    
+
+#category-overview-navigation td {
+    padding: 2px;
+}    
+
+.navigation-position {
+    font-size:100%;
+    font-weight:bold;
+    color:black;
+    text-align: center;    
+}
+
+
+/* </dtml-with> */
+
+

@@ -12,8 +12,8 @@ from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop Products
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IAddressManagement
 
 class IManageAddressBookView(Interface):    
     """

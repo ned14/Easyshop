@@ -5,12 +5,12 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import IPriceCriteria
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IPriceCriteria
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
 
 class PriceCriteriaValidity:
     """Adapter which provides IValidity for price criteria content

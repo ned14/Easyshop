@@ -7,7 +7,7 @@
       </property>
  <property name="content_icon">image_icon.gif</property>
  <property name="content_meta_type">Photo</property>
- <property name="product">EasyShop</property>
+ <property name="product">easyshop.shop</property>
  <property name="factory">addPhoto</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>

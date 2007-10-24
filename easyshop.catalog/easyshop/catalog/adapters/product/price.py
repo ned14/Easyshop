@@ -5,10 +5,10 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IProduct
-from Products.EasyShop.interfaces import ITaxes
+# easyshop imports
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import ITaxes
 
 class ProductPriceCalculator:
     """Provides IPrices for product content object

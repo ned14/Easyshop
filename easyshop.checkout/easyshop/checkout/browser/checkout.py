@@ -8,10 +8,10 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ICheckOutView(Interface):    
     """Provides methods for all checkout forms

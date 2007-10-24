@@ -3,13 +3,13 @@
 
     <browser:page  
         name="tax-view"
-        for="Products.EasyShop.interfaces.ITax"
+        for="easyshop.core.interfaces.ITax"
         class=".tax.TaxView"
         template="tax.pt"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.ITaxesContainer"
+        for="easyshop.core.interfaces.ITaxesContainer"
         name="taxes-view"
         template="taxes_view.pt"
         class=".taxes_view.TaxesView"

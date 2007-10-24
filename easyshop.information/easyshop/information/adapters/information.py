@@ -6,11 +6,11 @@ from zope.interface import Interface
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IShop
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import IShopManagement
 
 class ShopInformation:
     """Provices currency related methods.

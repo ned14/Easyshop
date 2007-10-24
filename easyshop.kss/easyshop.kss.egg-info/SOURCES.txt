@@ -16,6 +16,7 @@ easyshop.kss.egg-info/paster_plugins.txt
 easyshop.kss.egg-info/requires.txt
 easyshop.kss.egg-info/top_level.txt
 easyshop/kss/__init__.py
+easyshop/kss/catalog.py
 easyshop/kss/configure.zcml
 easyshop/kss/easyshop.kss
 easyshop/kss/easyshop.py

@@ -5,10 +5,10 @@ from zope.interface import implements
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ICheckOutAddressView(Interface):
     """

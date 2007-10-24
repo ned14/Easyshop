@@ -11,8 +11,8 @@ from Products.Archetypes.atapi import *
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICartItem
+# easyshop imports
+from easyshop.core.interfaces import ICartItem
 from easyshop.carts.config import PROJECTNAME
 
 schema = Schema((

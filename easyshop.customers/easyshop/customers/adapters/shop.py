@@ -5,9 +5,9 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShop
 
 class CustomerManagement:
     """Provides customer management for shop content objects.
@@ -35,13 +35,13 @@ class CustomerManagement:
             if self.hasCustomer("standard-customer"):
                 customer = getattr(self.context.customers, "standard-customer")
             else:
-                self.customers.manage_addProduct["EasyShop"].addCustomer("standard-customer")
+                self.customers.manage_addProduct["easyshop.shop"].addCustomer("standard-customer")
                 customer = getattr(self.customers, "standard-customer")
                 customer.setTitle("standard-customer")
                 customer.setInvoiceAddressAsString("standard-address")
                 customer.setShippingAddressAsString("standard-address")
                                 
-                customer.manage_addProduct["EasyShop"].addAddress("standard-address")
+                customer.manage_addProduct["easyshop.shop"].addAddress("standard-address")
                 address = getattr(customer, "standard-address")
                 address.setCountry("Deutschland")
                 
@@ -53,7 +53,7 @@ class CustomerManagement:
             else:
                 # Todo: Change to invokeFactory
                 # self.customers.invokeFactory("Customer", id="member_id", title="member_id")
-                self.customers.manage_addProduct["EasyShop"].addCustomer(member_id)
+                self.customers.manage_addProduct["easyshop.shop"].addCustomer(member_id)
                 customer = getattr(self.customers, member_id)
                 customer.setTitle(member_id)
                 customer.at_post_create_script()

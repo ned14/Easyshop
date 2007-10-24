@@ -13,8 +13,8 @@ from plone.portlets.interfaces import IPortletDataProvider
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import IShopManagement
 
 # create message factory
 _ = MessageFactory("EasyShop")

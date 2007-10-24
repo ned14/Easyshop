@@ -1,9 +1,9 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IShopManagement
 
 class PaymentMethodsView(BrowserView):
     """

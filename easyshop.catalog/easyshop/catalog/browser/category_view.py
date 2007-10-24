@@ -11,12 +11,12 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import Batch      
 
 # Easyshop imports
-from Products.EasyShop.interfaces import IPhotoManagement
-from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IFormatterInfos
 
 class CategoryView(BrowserView):
     """

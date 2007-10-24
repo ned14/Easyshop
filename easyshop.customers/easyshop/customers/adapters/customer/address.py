@@ -8,9 +8,9 @@ from Products.CMFCore.utils import getToolByName
 # Archetypes imports
 from Products.Archetypes.utils import shasattr
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import ICustomer
+# easyshop imports
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICustomer
 
 class CustomerAddressManager:
     """An adapter which provides address management for customers.

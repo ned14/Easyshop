@@ -1,0 +1,29 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope">
+
+    <include
+        package=".generic" />
+
+    <include
+        package=".shop" />
+    
+    <adapter
+        factory=".generic.ImageConversion" />
+
+    <adapter
+        for="easyshop.core.interfaces.ICategory"
+        factory=".generic.FormatterInfos" />
+
+    <adapter
+        for="easyshop.core.interfaces.IShop"
+        factory=".generic.FormatterInfos" />
+        
+    <adapter
+        for="easyshop.core.interfaces.IProduct"        
+        factory=".generic.PhotoManagement" />
+
+    <adapter
+        for="easyshop.core.interfaces.ICategory"
+        factory=".generic.PhotoManagement" />
+
+</configure>

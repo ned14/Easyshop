@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <include package=".admin" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IShop"
+        name="shop-view"
+        template="shop_view.pt"
+        permission="zope.Public" />
+
+</configure>

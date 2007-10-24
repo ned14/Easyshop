@@ -9,23 +9,23 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.config import MESSAGES
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import ICompleteness
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IOrderManagement
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPaymentPrices
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import IShippingManagement
-from Products.EasyShop.interfaces import IType
-from Products.EasyShop.interfaces import ITaxes
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICompleteness
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IOrderManagement
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IType
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import IShopManagement
 
 _ = MessageFactory("EasyShop")
 

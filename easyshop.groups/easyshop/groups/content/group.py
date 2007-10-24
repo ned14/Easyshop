@@ -8,9 +8,9 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IGroup
-from Products.EasyShop.config import *
+# easyshop imports
+from easyshop.core.interfaces import IGroup
+from easyshop.core.config import *
 
 schema = Schema((
     TextField(

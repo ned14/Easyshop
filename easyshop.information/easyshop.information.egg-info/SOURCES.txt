@@ -24,6 +24,7 @@ easyshop/information/content/__init__.py
 easyshop/information/content/containers.py
 easyshop/information/content/information_page.py
 easyshop/information/profiles/__init__.py
+easyshop/information/profiles/default/factorytool.xml
 easyshop/information/profiles/default/types.xml
 easyshop/information/profiles/default/types/InformationContainer.xml
 easyshop/information/profiles/default/types/InformationPage.xml

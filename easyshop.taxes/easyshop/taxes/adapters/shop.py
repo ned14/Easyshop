@@ -5,12 +5,12 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IShop
-from Products.EasyShop.interfaces import ITaxes
-from Products.EasyShop.interfaces import ITaxManagement
-from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import ITaxManagement
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IShopManagement
 
 class TaxManagement:
     """An adapter, which provides methods to manage tax objects for shop 

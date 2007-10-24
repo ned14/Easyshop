@@ -6,5 +6,6 @@
            <type portal_type="Cart" />   
            <type portal_type="Order" />         
            <type portal_type="Product" />
+       </property> 
    </object>
 </object>

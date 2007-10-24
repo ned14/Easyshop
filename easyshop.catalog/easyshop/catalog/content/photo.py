@@ -11,10 +11,10 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.image import ATImage
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IProductPhoto
-from Products.EasyShop.interfaces import IImageConversion
-from Products.EasyShop.config import *
+# easyshop imports
+from easyshop.core.interfaces import IProductPhoto
+from easyshop.core.interfaces import IImageConversion
+from easyshop.core.config import *
 
 schema = Schema((
 

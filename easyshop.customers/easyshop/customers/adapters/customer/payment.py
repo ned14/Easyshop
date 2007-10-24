@@ -2,12 +2,12 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICustomer
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPaymentMethod
-from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICustomer
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethod
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IShopManagement
 
 class CustomerPaymentManager:
     """

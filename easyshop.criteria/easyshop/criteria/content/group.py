@@ -12,12 +12,12 @@ from Products.CMFCore.utils import getToolByName
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IGroupCriteria
-from Products.EasyShop.interfaces import IGroupManagement
-from Products.EasyShop.interfaces import IItemManagement
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IGroupCriteria
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IItemManagement
 
 schema = Schema((
 

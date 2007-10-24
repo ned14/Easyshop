@@ -13,12 +13,12 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolde
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IOrder
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IShippingManagement
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IAddressManagement
+# easyshop imports
+from easyshop.core.interfaces import IOrder
+from easyshop.core.config import *
+from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IAddressManagement
 
 schema = Schema((
 

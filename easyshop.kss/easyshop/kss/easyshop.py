@@ -5,12 +5,12 @@ from kss.core import kssaction
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.config import MESSAGES
-from Products.EasyShop.interfaces import IFormatterInfos
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+# from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IShopManagement
 
 class EasyShopKSSView(PloneKSSView):
     """

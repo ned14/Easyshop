@@ -2,12 +2,12 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import IWeightCriteria
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IWeightCriteria
+from easyshop.core.interfaces import IShopManagement
 
 class WeightCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content

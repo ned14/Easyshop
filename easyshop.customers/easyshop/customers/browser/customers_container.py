@@ -2,8 +2,8 @@
 from Products.Five.browser import BrowserView
 
 # Easyshop imports
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IShopManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShopManagement
 
 class CustomersContainerView(BrowserView):
     """

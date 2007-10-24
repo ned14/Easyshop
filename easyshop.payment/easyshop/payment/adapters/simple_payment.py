@@ -2,11 +2,11 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICompleteness
-from Products.EasyShop.interfaces import IPaymentProcessing
-from Products.EasyShop.interfaces import IType
-from Products.EasyShop.interfaces import ISimplePaymentMethod
+# easyshop imports
+from easyshop.core.interfaces import ICompleteness
+from easyshop.core.interfaces import IPaymentProcessing
+from easyshop.core.interfaces import IType
+from easyshop.core.interfaces import ISimplePaymentMethod
 
 class SimplePaymentType:
     """Provides IType for simple payment content objects.

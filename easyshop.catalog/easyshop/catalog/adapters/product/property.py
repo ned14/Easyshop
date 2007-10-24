@@ -5,11 +5,11 @@ from zope.component import adapts
 # CMF imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IGroupManagement
-from Products.EasyShop.interfaces import IProduct
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import ITaxes
+# easyshop imports
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import ITaxes
 
 class ProductPropertyManagement:
     """Provides IPropertyManagement for product content objects.

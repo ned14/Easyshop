@@ -4,13 +4,13 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IData
-from Products.EasyShop.interfaces import IPhotoManagement
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IData
+from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
 
 class ProductRelatedProductsView(BrowserView):
     """

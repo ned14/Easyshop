@@ -11,9 +11,9 @@ from Products.Archetypes.atapi import *
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IProperty
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IProperty
 
 schema = Schema((
        DataGridField('Options',

@@ -2,10 +2,10 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import IOrder
+# easyshop imports
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IOrder
 
 class OrderPriceCalculator:
     """Provides IPrices for order content objects.

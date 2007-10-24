@@ -5,9 +5,9 @@ from zope.component import adapts
 # CMF imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IGroupManagement
-from Products.EasyShop.interfaces import IProduct
+# easyshop imports
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IProduct
 
 class ProductGroupManager:
     """Provides IGroupManagement for product content objects.

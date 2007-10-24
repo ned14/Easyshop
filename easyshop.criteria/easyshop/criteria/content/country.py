@@ -11,10 +11,10 @@ from Products.CMFCore.utils import getToolByName
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import ICountryCriteria
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import ICountryCriteria
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 

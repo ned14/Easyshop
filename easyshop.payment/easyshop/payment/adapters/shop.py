@@ -5,17 +5,17 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
+# easyshop imports
 from easyshop.catalog.content.product import Product
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPaymentMethod
-from Products.EasyShop.interfaces import IPaymentPrices
-from Products.EasyShop.interfaces import IPaymentPrice
-from Products.EasyShop.interfaces import IShop
-from Products.EasyShop.interfaces import IShopPaymentMethod
-from Products.EasyShop.interfaces import ITaxes
-from Products.EasyShop.interfaces import IValidity
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethod
+from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPaymentPrice
+from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import IShopPaymentMethod
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import IValidity
 
 class PaymentManagement:
     """An adapter which provides IPaymentManagement for shop content objects.

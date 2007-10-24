@@ -10,12 +10,12 @@ from Products.Archetypes.atapi import *
 # ReferenceBrowserWidget imports
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IProductSelector
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IProductSelector
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 

@@ -5,9 +5,9 @@ from DateTime import DateTime
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import IDateCriteria
+# easyshop imports
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IDateCriteria
 
 class DateCriteriaValidity:
     """Adapter which provides IValidity for date criteria content

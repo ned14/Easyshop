@@ -13,8 +13,8 @@ from Products.ATContentTypes.content.document import ATDocument
 from Products.ATContentTypes.content.document import ATDocumentSchema
 
 # drako.knowledgebase imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IInformationPage
+from easyshop.core.config import *
+from easyshop.core.interfaces import IInformationPage
 
 schema = ATDocumentSchema.copy() + Schema ((    
     FileField(

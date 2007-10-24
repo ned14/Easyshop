@@ -2,34 +2,34 @@
 from zope.component import adapter
 from Products.Archetypes.interfaces import IObjectInitializedEvent
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.interfaces import IShop
 
 @adapter(IShop, IObjectInitializedEvent)
 def createContainers(shop, event):
     """
     """
-    shop.manage_addProduct["EasyShop"].addPaymentMethodsContainer(
+    shop.manage_addProduct["easyshop.shop"].addPaymentMethodsContainer(
         id="paymentmethods", 
         title="Payment Methods")
         
-    shop.manage_addProduct["EasyShop"].addPaymentPricesContainer(
+    shop.manage_addProduct["easyshop.shop"].addPaymentPricesContainer(
         id="paymentprices", 
         title="Payment Prices")
         
-    shop.paymentmethods.manage_addProduct["EasyShop"].addPayPal(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addPayPal(
         id="paypal", 
         title="PayPal")
         
-    shop.paymentmethods.manage_addProduct["EasyShop"].addPaymentValidator(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addPaymentValidator(
         id="direct-debit", 
         title="Direct Debit")
         
-    shop.paymentmethods.manage_addProduct["EasyShop"].addSimplePaymentMethod(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addSimplePaymentMethod(
         id="prepayment", 
         title="Prepayment")   
         
-    shop.paymentmethods.manage_addProduct["EasyShop"].addSimplePaymentMethod(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addSimplePaymentMethod(
         id="cash-on-delivery",
         title="Cash on Delivery")
         

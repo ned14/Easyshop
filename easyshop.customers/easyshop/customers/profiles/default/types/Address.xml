@@ -6,7 +6,7 @@
       </property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">Address</property>
- <property name="product">EasyShop</property>
+ <property name="product">easyshop.shop</property>
  <property name="factory">addAddress</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>

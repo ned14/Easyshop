@@ -4,10 +4,10 @@ from zope.component import queryUtility
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ITaxManagement
-from Products.EasyShop.interfaces import INumberConverter
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ITaxManagement
+from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import IShopManagement
 
 class TaxesView(BrowserView):
     """

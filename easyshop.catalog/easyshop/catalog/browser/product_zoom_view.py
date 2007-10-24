@@ -1,8 +1,8 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports 
-from Products.EasyShop.interfaces import IPhotoManagement
+# easyshop imports 
+from easyshop.core.interfaces import IPhotoManagement
 
 class ProductZoomView(BrowserView):
     """

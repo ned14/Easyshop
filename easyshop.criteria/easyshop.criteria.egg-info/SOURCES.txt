@@ -42,6 +42,7 @@ easyshop/criteria/content/price.py
 easyshop/criteria/content/product.py
 easyshop/criteria/content/shipping_method.py
 easyshop/criteria/content/weight.py
+easyshop/criteria/profiles/default/factorytool.xml
 easyshop/criteria/profiles/default/types.xml
 easyshop/criteria/profiles/default/types/CategoryCriteria.xml
 easyshop/criteria/profiles/default/types/CountryCriteria.xml

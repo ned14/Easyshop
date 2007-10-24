@@ -2,7 +2,7 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
-        for="Products.EasyShop.interfaces.IGroupsContainer"
+        for="easyshop.core.interfaces.IGroupsContainer"
         name="groups-view"
         template="groups_view.pt"
         class=".groups_view.GroupsView"

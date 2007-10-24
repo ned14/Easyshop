@@ -1,10 +1,10 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IPaymentPrices
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IShopManagement
 
 class PaymentPricesView(BrowserView):
     """

@@ -2,10 +2,10 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICategoryCriteria
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IValidity
+# easyshop imports
+from easyshop.core.interfaces import ICategoryCriteria
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IValidity
 
 class CategoryCriteriaValidity:
     """Adapter which provides IValidity for category criteria content

@@ -5,15 +5,15 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICompleteness
-from Products.EasyShop.interfaces import IAddress
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import ICustomer
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICompleteness
+from easyshop.core.interfaces import IAddress
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import ICustomer
+from easyshop.core.interfaces import IShopManagement
 
 class CustomerCompleteness:
     """

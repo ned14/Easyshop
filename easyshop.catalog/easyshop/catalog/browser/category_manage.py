@@ -4,11 +4,11 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IPhotoManagement
-from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IShopManagement
 
 class CategoryManageView(BrowserView):
     """

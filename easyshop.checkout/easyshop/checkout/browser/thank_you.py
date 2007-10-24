@@ -8,18 +8,18 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IFormatterInfos
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import IOrderManagement
-from Products.EasyShop.interfaces import IPhotoManagement
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import IPrices
+# easyshop imports
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IOrderManagement
+from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IPrices
 
-from Products.EasyShop.subscribers.mailing import sendMultipartMail
+from easyshop.shop.subscribers.mailing import sendMultipartMail
 
 class IThankYouPageView(Interface):
     """

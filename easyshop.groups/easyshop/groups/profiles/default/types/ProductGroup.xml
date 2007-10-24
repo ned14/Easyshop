@@ -6,7 +6,7 @@
     name="description">A group of products.</property>
  <property name="content_icon">group_icon.png</property>
  <property name="content_meta_type">ProductGroup</property>
- <property name="product">EasyShop</property>
+ <property name="product">easyshop.shop</property>
  <property name="factory">addProductGroup</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>

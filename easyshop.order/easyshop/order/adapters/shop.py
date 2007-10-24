@@ -13,17 +13,18 @@ from zope.event import notify
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop import
-from Products.EasyShop.interfaces import IItemManagement 
-from Products.EasyShop.interfaces import IOrderManagement
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IShippingManagement
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import IPaymentManagement
-from Products.EasyShop.interfaces import IPaymentPrices
-from Products.EasyShop.interfaces import IShop
-from Products.EasyShop.events import OrderSubmitted
-from Products.EasyShop.interfaces import IShopManagement
+from easyshop.core.interfaces import IItemManagement 
+from easyshop.core.interfaces import IOrderManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import IShopManagement
+
+from easyshop.order.events import OrderSubmitted
 
 class UnrestrictedUser(BaseUnrestrictedUser):
     """Unrestricted user that still has an id."""

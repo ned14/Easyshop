@@ -3,49 +3,49 @@
 
     <browser:page
         name = "CheckOutPaymentView"
-        for = "Products.EasyShop.interfaces.IShop"
+        for = "easyshop.core.interfaces.IShop"
         class = ".payment.CheckOutPaymentView"
         allowed_interface = ".payment.ICheckOutPaymentView"
         permission = "zope2.Public" />
 
     <browser:page
         name = "checkOutView"
-        for = "Products.EasyShop.interfaces.IShop"
+        for = "easyshop.core.interfaces.IShop"
         class = ".checkout.CheckOutView"
         allowed_interface = ".checkout.ICheckOutView"
         permission = "zope2.Public" />
 
     <browser:page
         name = "thankYouPageView"
-        for = "Products.EasyShop.interfaces.IShop"
+        for = "easyshop.core.interfaces.IShop"
         class = ".thank_you.ThankYouPageView"
         allowed_interface = ".thank_you.IThankYouPageView"
         permission = "zope2.Public" />
 
     <browser:page
         name = "orderPreviewView"
-        for = "Products.EasyShop.interfaces.IShop"
+        for = "easyshop.core.interfaces.IShop"
         class = ".order_preview.OrderPreviewView"
         allowed_interface = ".order_preview.IOrderPreviewView"
         permission = "zope2.Public" />
 
     <browser:page
         name = "checkOutAddressView"
-        for = "Products.EasyShop.interfaces.IShop"
+        for = "easyshop.core.interfaces.IShop"
         class = ".address.CheckOutAddressView"
         allowed_interface = ".address.ICheckOutAddressView"
         permission = "zope2.Public" />
 
     <browser:page
         name = "checkout"
-        for = "Products.EasyShop.interfaces.IShop"
+        for = "easyshop.core.interfaces.IShop"
         class = ".checkout.CheckOutView"
         attribute="checkOut" 
         permission = "zope2.Public" />
 
     <browser:page
         name = "CheckOutShippingView"
-        for = "Products.EasyShop.interfaces.IShop"
+        for = "easyshop.core.interfaces.IShop"
         class = ".shipping.CheckOutShippingView"
         allowed_interface = ".shipping.ICheckOutShippingView"
         permission = "zope2.Public" />

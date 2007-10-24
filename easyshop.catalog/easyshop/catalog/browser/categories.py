@@ -1,9 +1,9 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IShopManagement
 
 class CategoriesView(BrowserView):
     """

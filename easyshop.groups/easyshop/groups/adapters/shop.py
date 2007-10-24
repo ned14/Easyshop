@@ -5,9 +5,9 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IGroupManagement
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IShop
 
 class ShopGroupManagement:
     """An adapter, which provides group management for shop content objects.

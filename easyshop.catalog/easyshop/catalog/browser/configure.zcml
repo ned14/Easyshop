@@ -2,21 +2,21 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
-        for="Products.EasyShop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         name="product-zoom-view"
         class=".product_zoom_view.ProductZoomView"
         template="product_zoom_view.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         name="select-properties-view"
         class=".product_view.ProductView"        
         template="select_properties_view.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         name="product-view"
         class=".product_view.ProductView"
         template="product_view.pt"
@@ -30,35 +30,35 @@
         permission="zope.Public" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         name="product-view-related-products"
         class=".product_view_related_products.ProductRelatedProductsView"
         template="product_view_related_products.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         name="addToCart"
         class=".product_view.ProductView"
         attribute="addToCart" 
         permission="zope.Public" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.ICategoriesContainer"
+        for="easyshop.core.interfaces.ICategoriesContainer"
         name="categories-view"
         template="categories.pt"
         class=".categories.CategoriesView"
         permission="cmf.ManagePortal" />
 
     <browser:page 
-        for="Products.EasyShop.interfaces.ICategory"
+        for="easyshop.core.interfaces.ICategory"
         name="category-view" 
         class=".category_view.CategoryView" 
         template="category_view.pt"
         permission="zope.Public" /> 
 
     <browser:page 
-        for="Products.EasyShop.interfaces.ICategory"
+        for="easyshop.core.interfaces.ICategory"
         name="category-manage-view" 
         class=".category_manage.CategoryManageView"
         template="category_manage.pt"
@@ -72,7 +72,7 @@
         permission="zope2.Public" />  
 
     <browser:page
-        for="Products.EasyShop.interfaces.IProductsContainer"
+        for="easyshop.core.interfaces.IProductsContainer"
         name="products-view"
         template="products_view.pt"
         class=".products_view.ProductsView"

@@ -5,16 +5,16 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import ITaxes
-from Products.EasyShop.interfaces import IShippingManagement
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IShop
 from easyshop.catalog.content.product import Product
-from Products.EasyShop.interfaces import IShopManagement
+from easyshop.core.interfaces import IShopManagement
 
 
 class ShippingManagement:

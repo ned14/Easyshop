@@ -2,7 +2,7 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
-        for="Products.EasyShop.interfaces.ICartsContainer"
+        for="easyshop.core.interfaces.ICartsContainer"
         name="carts-view"
         template="carts_container.pt"
         class=".carts_container.CartsView"
@@ -10,21 +10,21 @@
 
 
     <browser:page
-        for="Products.EasyShop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="cart"
         class=".cart.CartFormView"
         template="cart.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="deleteItem"
         class=".cart.CartFormView"
         attribute="deleteItem" 
         permission="zope.Public" />
 
     <browser:page
-        for="Products.EasyShop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="refreshCart"
         class=".cart.CartFormView"
         attribute="refreshCart" 

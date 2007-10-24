@@ -12,12 +12,12 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.config import _
-from Products.EasyShop.config import TEXTS, IMAGE_SIZES
-from Products.EasyShop.interfaces import ICategory
-from Products.EasyShop.interfaces import IFormatterInfos
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.config import _
+from easyshop.core.config import TEXTS, IMAGE_SIZES
+from easyshop.core.interfaces import ICategory
+from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IShop
 
 
 class IFormatterPortlet(IPortletDataProvider):

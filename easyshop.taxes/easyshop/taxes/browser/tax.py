@@ -4,8 +4,8 @@ from zope.component import queryUtility
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import INumberConverter
+# easyshop imports
+from easyshop.core.interfaces import INumberConverter
 
 class TaxView(BrowserView):
     """

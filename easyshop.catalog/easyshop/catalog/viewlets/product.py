@@ -11,18 +11,18 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IData
-from Products.EasyShop.interfaces import IItemManagement
-from Products.EasyShop.interfaces import INumberConverter
-from Products.EasyShop.interfaces import IPhotoManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IData
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IShopManagement
 
-from Products.EasyShop.config import MESSAGES
+from easyshop.core.config import MESSAGES
 
 _ = MessageFactory("EasyShop")
 

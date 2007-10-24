@@ -10,9 +10,9 @@ from Products.Archetypes.atapi import *
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IDirectDebit
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IDirectDebit
 
 schema = Schema((
 

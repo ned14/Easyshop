@@ -1,16 +1,16 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IAddressManagement
-from Products.EasyShop.interfaces import ICartManagement
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import ICustomerManagement
-from Products.EasyShop.interfaces import IItemManagement 
-from Products.EasyShop.interfaces import IPropertyManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IShippingManagement
-from Products.EasyShop.interfaces import IShopManagement
+# easyshop imports
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IItemManagement 
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShopManagement
 
 class CartFormView(BrowserView):
     """

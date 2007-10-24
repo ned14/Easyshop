@@ -5,9 +5,9 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IValidity
-from Products.EasyShop.interfaces import ICustomerCriteria
+# easyshop imports
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import ICustomerCriteria
 
 class CustomerCriteriaValidity:
     """Adapter which provides IValidity for customer criteria content

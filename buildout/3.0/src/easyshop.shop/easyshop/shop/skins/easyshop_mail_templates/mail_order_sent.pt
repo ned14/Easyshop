@@ -1,0 +1,7 @@
+<div i18n:domain="EasyShop">
+
+    <h1 i18n:translate="order_sent_text">
+        Your order <span tal:content="context/id" /> has been sent.
+    </h1>
+    
+</div>

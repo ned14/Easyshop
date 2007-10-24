@@ -4,12 +4,12 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICurrencyManagement
-from Products.EasyShop.interfaces import IFormatterInfos
-from Products.EasyShop.interfaces import IPhotoManagement
-from Products.EasyShop.interfaces import IPrices
-from Products.EasyShop.interfaces import IPropertyManagement
+# easyshop imports
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IPropertyManagement
 
 
 class ProductSelectorView(BrowserView):

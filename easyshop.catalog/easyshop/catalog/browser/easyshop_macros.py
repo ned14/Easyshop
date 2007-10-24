@@ -8,9 +8,9 @@ from Products.Five.browser import BrowserView
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import ICategoryManagement
-from Products.EasyShop.interfaces import IProductManagement
+# easyshop imports
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IProductManagement
 
 # Todo: Find out how an macro could be a template of a view.
 class INavigationMacroView(Interface):    

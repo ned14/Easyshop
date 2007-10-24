@@ -5,9 +5,9 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop imports
-from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IShop
+# easyshop imports
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IShop
 
 class ShopProductManagement:
     """An adapter, which provides product management for shop content objects.
@@ -35,7 +35,7 @@ class ShopProductManagement:
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides = "Products.EasyShop.interfaces.catalog.product.IProduct",
+            object_provides = "easyshop.core.interfaces.catalog.product.IProduct",
             path = "/".join(self.context.products.getPhysicalPath()),
             sort_on = "sortable_title",
         )

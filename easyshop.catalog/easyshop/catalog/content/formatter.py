@@ -5,9 +5,9 @@ from AccessControl import ClassSecurityInfo
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# EasyShop imports
-from Products.EasyShop.config import *
-from Products.EasyShop.interfaces import IFormatter
+# easyshop imports
+from easyshop.core.config import *
+from easyshop.core.interfaces import IFormatter
 
 schema = Schema((
 

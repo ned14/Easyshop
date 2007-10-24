@@ -1,2 +1,2 @@
-# EasyShop imports
-from Products.EasyShop.config import *
+# easyshop imports
+from easyshop.core.config import *

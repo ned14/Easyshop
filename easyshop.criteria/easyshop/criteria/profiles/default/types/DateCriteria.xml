@@ -6,7 +6,7 @@
  <property name="description">Select valid start and end date</property>
  <property name="content_icon">criterion_icon.png</property>
  <property name="content_meta_type">DateCriteria</property>
- <property name="product">EasyShop</property>
+ <property name="product">easyshop.shop</property>
  <property name="factory">addDateCriteria</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>

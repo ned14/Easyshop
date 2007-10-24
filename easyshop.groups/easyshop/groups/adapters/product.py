@@ -5,9 +5,9 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# EasyShop importss
-from Products.EasyShop.interfaces import IProductManagement
-from Products.EasyShop.interfaces import IGroup
+# easyshop importss
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IGroup
 
 class GroupProductManager:
     """
