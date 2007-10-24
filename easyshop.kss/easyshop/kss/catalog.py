@@ -45,7 +45,15 @@ class CatalogKSSView(PloneKSSView):
             kss_core.replaceHTML("#search-products-form", form)
             
         else:
-            if letter == "0-9":
+            if letter == "All":
+                products = catalog.searchResults(
+                    path = "/".join(self.context.getPhysicalPath()),
+                    portal_type = "Product",
+                    sort_on = "sortable_title",
+                )
+            
+            
+            elif letter == "0-9":
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
                     portal_type = "Product",
@@ -67,13 +75,20 @@ class CatalogKSSView(PloneKSSView):
                     if brain.Title.upper().startswith(letter):
                         products.append(brain)
         
-        html = ""
-        for product in products:
-            html += """<div>"""
-            html += """<a href="." class="product-details kssattr-uid-%s">[Details]</a> """ % product.UID
-            html += """<a href="%s">%s</a>""" % (product.getURL(), product.Title)
-            html += """</div>"""
-            
+        html = "<table><tr>"
+        
+        for i, product in enumerate(products):
+            html += "<td>"            
+            # html += """<a href="." class="product-details kssattr-uid-%s">[Details]</a> """ % product.UID            
+            html += """<img class="product-details kssattr-uid-%s" alt="info" src="info_icon.gif" />""" % product.UID
+            html += """<div><a href="%s">%s</a></div>""" % (product.getURL(), product.Title)
+            html += """<img src="%s/image_tile" /> """  % product.getURL()
+            html += """</td>"""
+            if (i+1) % 8 == 0:
+                html += "</tr><tr>"
+                
+        html += "</tr></table>"
+        
         kss_core.replaceInnerHTML('#products', html)    
         kss_core.replaceInnerHTML('#product-details-box', "")
                         

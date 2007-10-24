@@ -11,7 +11,7 @@ input#add-product:click {
     kss_add_product-form: currentForm();
 }
 
-a.product-details:click {
+img.product-details:click {
     evt-click-preventdefault: True;
     action-server: kss_show_product_details;
     kss_show_product_details-uid: kssAttr('uid');

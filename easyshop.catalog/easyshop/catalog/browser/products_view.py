@@ -13,7 +13,7 @@ class ProductsView(BrowserView):
     def getLetters(self):
         """
         """
-        return  ("0-9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
+        return  ("All", "0-9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", 
                  "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W",
                  "X", "Y", "Z")
 
@@ -49,7 +49,7 @@ class ProductsView(BrowserView):
         }
         
     def getProducts(self):
-        """
+        """Returns products as a list of brains.
         """
         catalog = getToolByName(self.context, "portal_catalog")
                 
@@ -69,7 +69,14 @@ class ProductsView(BrowserView):
             return []
         
         result = []
-        if letter == "0-9":
+        if letter == "All":
+            result = catalog.searchResults(
+                path = "/".join(self.context.getPhysicalPath()),
+                portal_type = "Product",
+                sort_on = "sortable_title",
+            )
+            
+        elif letter == "0-9":
             brains = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
                 portal_type = "Product",
@@ -90,5 +97,16 @@ class ProductsView(BrowserView):
             for brain in brains:
                 if brain.Title.upper().startswith(letter):
                     result.append(brain)
+        
+        lines = []
+        line = []
+        for i, product in enumerate(result):
+            line.append(product)
+            if (i+1) % 8 == 0:
+                lines.append(line)
+                line = []
+        
+        if len(line) > 0:
+            lines.append(line)        
 
-        return result
+        return lines

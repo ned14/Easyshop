@@ -5,7 +5,7 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="products view/getProducts">
+                    tal:define="lines view/getProducts">
   
             <div tal:replace="structure provider:plone.abovecontenttitle" />
   
@@ -49,30 +49,47 @@
                 
             <div tal:replace="structure provider:plone.abovecontentbody" />
   
+            <table border="1px" class="shop-default">
+                <tr>
+                    <td width="50%">
             <div id="products">
-                <div tal:repeat="product products">
+
+                <table>
+                    <tr tal:repeat="line lines">
+                        <td tal:repeat="product line" >
+
                     <a class="product-details"
                        href="."
                        tal:define="letter context/REQUEST/letter|nothing"
                        tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&letter=$letter;
                                        class string:product-details kssattr-uid-${product/UID}">
-                        [Details]
+
+                        <img alt="info"
+                             src="info_icon.gif" />
                     </a>    
-                
-                    <a href="."
-                       tal:attributes="href product/getURL"
-                       tal:content="product/Title">
-                        Product Title
-                    </a>    
-                </div>    
-                <div tal:condition="not:products"
+                    
+                    <div>
+                        <a href="."
+                           tal:attributes="href product/getURL"
+                           tal:content="product/Title">
+                            Product Title
+                        </a>
+                    </div>
+                    <img src="."
+                         tal:attributes="src string:${product/getURL}/image_tile" />    
+                            
+                        </td>
+                    </tr>
+                </table>
+                    
+                <div tal:condition="not:lines"
                      i18n:translate="no_products_label">
                     There are no products.
                 </div>                    
             </div>
-                
-            
-            <br/> <br/>
+                        
+                    </td>
+                    <td>
             <div id="product-details-box">
                 <tal:block tal:define="product view/getProduct"
                            tal:condition="product">
@@ -85,9 +102,13 @@
                     <div tal:content="structure product/price" />
                 </tal:block>    
             </div>
+                               
+                    </td>
+                </tr>
                 
-            <div tal:replace="structure provider:plone.belowcontentbody" />
-  
+            
+
+         
           </metal:main>
     
     </body>
