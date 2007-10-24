@@ -7,5 +7,6 @@
 
 == Middle Term == 
 
+   * KSS-ify Views (Payment, Shipping, Taxes, etc.) 
    * Product Variants
    * IO-package for import and export of the catalog, should be usable for backup and for ebay, etc. too.
