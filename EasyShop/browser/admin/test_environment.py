@@ -1,11 +1,18 @@
 # Python imports
 import random
+import os 
+
+# Zope imports
+from Globals import package_home
 
 # Five imports
 from Products.Five.browser import BrowserView
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+
+# EasyShop imports
+from Products.EasyShop.config import *
 
 LETTERS = [chr(i) for i in range(65, 91)]
 
@@ -55,11 +62,16 @@ class TestEnvironmentView(BrowserView):
         wftool = getToolByName(self.context, "portal_workflow")
         wftool.doActionFor(category, "publish")
 
-        for i in range(1, 101):
+        for i in range(1, 21):
             title = self.createTitle()
             id = title.lower()
             shop.products.manage_addProduct["EasyShop"].addProduct(id, title=title)
-            product = shop.products.get(id)            
+            product = shop.products.get(id)
+
+            img = os.path.join(package_home(product_globals), 'tests/test_2.jpg')
+            img = open(img)
+        
+            product.setImage(img)
 
             category.addReference(product, "easyshopcategory_easyshopproduct")            
             wftool.doActionFor(product, "publish")
