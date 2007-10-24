@@ -225,7 +225,11 @@ fieldset.address {
     cursor:pointer;
 }
 
-.letters {
+img.product-details {
+    cursor:pointer;
+}
+
+#letters {
     padding-bottom:20px;
 }
 /* </dtml-with> */
