@@ -5,6 +5,7 @@
 easyshop.carts http://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
 easyshop.catalog http://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/trunk
 easyshop.checkout http://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/trunk
+easyshop.core http://easyshop-for-plone.googlecode.com/svn/easyshop.core/trunk
 easyshop.criteria http://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
 easyshop.customers http://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
 easyshop.groups http://easyshop-for-plone.googlecode.com/svn/easyshop.groups/trunk
@@ -14,4 +15,5 @@ easyshop.login http://easyshop-for-plone.googlecode.com/svn/easyshop.login/trunk
 easyshop.order http://easyshop-for-plone.googlecode.com/svn/easyshop.order/trunk
 easyshop.payment http://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
 easyshop.shipping http://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
+easyshop.shop http://easyshop-for-plone.googlecode.com/svn/easyshop.shop/trunk
 easyshop.taxes http://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
