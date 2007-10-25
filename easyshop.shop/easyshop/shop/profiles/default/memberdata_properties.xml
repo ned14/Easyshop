@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<object name="portal_memberdata" meta_type="PlonePAS MemberData Tool">
+ <property name="firstname" type="string"></property>
+ <property name="lastname" type="string"></property>
+</object>

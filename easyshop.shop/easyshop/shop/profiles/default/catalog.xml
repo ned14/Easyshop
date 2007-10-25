@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+    <index name="fullname" meta_type="FieldIndex">
+        <indexed_attr value="fullname"/>
+    </index>
+
+    <index name="total_amount_of_products" meta_type="FieldIndex">
+        <indexed_attr value="total_amount_of_products"/>
+    </index>
+
+    <index name="getShortText" meta_type="FieldIndex">
+        <indexed_attr value="getShortText"/>
+    </index>
+
+    <column value="fullname"/>
+    <column value="total_amount_of_products" />
+    <column value="getShortText" />
+ 
+</object>

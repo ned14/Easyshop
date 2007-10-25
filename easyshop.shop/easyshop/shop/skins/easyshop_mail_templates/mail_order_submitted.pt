@@ -1,0 +1,362 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      i18n:domain="EasyShop">
+    <head>
+        <meta http-equiv="Content-Type"
+             content="text/html;charset=utf-8" />    
+    
+        <style type="text/css">
+            table.shop-default {
+                width:100%;
+            }
+            fieldset.address { 
+                height:100px;
+            }
+            td.text {
+                text-align:left;
+            }
+            td.number {
+                text-align:right;
+            }
+            h1 {
+                margin:0;
+            }
+            div.link-label {
+                padding: 10px 0 20px 0;
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+        <div tal:define="view context/@@orderView;
+                         invoice_address view/getInvoiceAddress;
+                         shipping_address view/getShippingAddress">
+
+            <h1 tal:content="context/id">
+                47114711
+            </h1>
+            <div class="link-label">
+                <a href="."
+                   tal:attributes="href context/absolute_url"
+                   i18n:translate="order_link_label">
+                    The order can be found here.
+                </a>
+            </div>        
+            <fieldset>
+                <legend i18n:translate="general_label">
+                    General
+                </legend>
+               <table class="shop-default">
+                    <tr>
+                        <td width="50%">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label>
+                                            <tal:block i18n:translate="customer_name_label">
+                                                Customer Name</tal:block>:
+                                        </label> 
+                                    </td>
+                                    <td tal:content="view/getCustomerFullname">
+                                        John Doe
+                                    </td>
+                                </tr>                    
+                                <tr tal:define="email view/getEmail">
+                                    <td>
+                                        <label tal:condition="email"
+                                               i18n:translate="order_email_label">
+                                            E-mail:
+                                        </label>    
+                                    </td>
+                                    <td>
+                                        <a href="."
+                                           tal:condition="email"
+                                           tal:content="email"
+                                           tal:attributes="href string:mailto:${view/getEmail}">
+                                           usenet@diefenba.ch
+                                        </a>
+                                    </td>                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label i18n:translate="order_phone_label">
+                                            Phone:
+                                        </label>    
+                                    </td>
+                                    <td i18n:translate=""
+                                        tal:content="shipping_address/phone">
+                                        555.474747
+                                    </td>                    
+                                </tr>
+
+                            </table>                        
+                        </td>                
+                        <td width="50%">
+                            <table>                        
+                                <tr>
+                                    <td>
+                                        <label>
+                                            <tal:block i18n:translate="order_date_label">
+                                                Date</tal:block>:
+                                        </label>
+                                    </td>
+                                    <td tal:content="view/getCreationDate">
+                                        2000/01/01
+                                    </td>
+                                </tr>    
+
+                                <tr>
+                                    <td>
+                                        <label>
+                                            <tal:block i18n:translate="order_state_label">
+                                                Order State</tal:block>:
+                                        </label>    
+                                    </td>
+                                    <td i18n:translate=""
+                                        tal:content="view/getState">
+                                        Pending
+                                    </td>                    
+                                </tr>
+
+                                <tr>                    
+                                    <td>
+                                        <label i18n:translate="order_total_label">
+                                            Total:
+                                        </label>
+                                    </td>
+                                    <td tal:content="view/getPriceForCustomer">
+                                        42.00
+                                    </td>
+                                </tr>
+                                                
+                            </table>                            
+                        </td>
+                    </tr>
+                </table>    
+             </fieldset>                                       
+             <table class="shop-default">
+                <tr>
+                    <td>
+                        <fieldset class="address">
+                            <legend i18n:translate="invoice_address_label">
+                                Invoice Address
+                            </legend>           
+                            <div tal:content="invoice_address/name">
+                                John Doe
+                            </div>    
+                            <div tal:content="invoice_address/address1">
+                                John-Doe-Str. 1
+                            </div>    
+                            <div tal:content="invoice_address/address2">
+                                c/o Doe
+                            </div>    
+                            <div>
+                                <span tal:content="invoice_address/zipcode">
+                                    99999
+                                </span>    
+                                <span tal:content="invoice_address/city">
+                                    L.A.
+                                </span>    
+                            </div>             
+                            <div tal:content="invoice_address/country">           
+                                Wonderland
+                            </div>
+                        </fieldset>                    
+                    </td>
+                    <td>
+                        <fieldset class="address">
+                            <legend i18n:translate="shipping_address_label">
+                                Shipping Address
+                            </legend>           
+                            <div tal:content="shipping_address/name">
+                                John Doe                                
+                            </div>
+                            <div tal:content="shipping_address/address1">
+                                John-Doe-Str. 1                                
+                            </div>
+                            <div tal:content="shipping_address/address2">
+                                c/o Doe                                
+                            </div>    
+                            <div>
+                                <span tal:content="shipping_address/zipcode">
+                                    99999                                    
+                                </span>    
+                                <span tal:content="shipping_address/city">
+                                    L.A.                                    
+                                </span>    
+                            </div>             
+                            <div tal:content="shipping_address/country">
+                                Wonderland                                
+                            </div>    
+                        </fieldset>                    
+                    </td>
+                    <td>
+                        <fieldset class="address">
+                           <legend i18n:translate="payment_method_label">
+                               Payment Method
+                           </legend>
+                            <tal:block tal:define="payment_method_type view/getPaymentMethodType;
+                                                   payment_method view/getPaymentMethod">
+                                <div metal:use-macro="python: path('context/easyshop_payment_macros/macros/%s' % payment_method_type)">
+                                    Payment macro goes here
+                                </div>
+                            </tal:block>
+                        </fieldset>                
+                    </td>
+                </tr>
+            </table>
+            <table border="1"
+                   width="100%"
+                   cellpadding="0"
+                   cellspacing="0">
+                <tr>               
+                    <th i18n:translate="product_label">
+                        Product
+                    </th>        
+                    <th i18n:translate="properties_label">
+                        Properties
+                    </th>                  
+                    <th i18n:translate="quantity_label">
+                        Quantity
+                    </th>        
+                    <th i18n:translate="price_label">
+                        Price
+                    </th>
+                    <th i18n:translate="tax_rate_label">
+                        Tax Rate
+                    </th>
+                    <th i18n:translate="tax_absolute_label">
+                        Tax Absolute
+                    </th>                
+                    <th i18n:translate="total_label">
+                        Total
+                    </th>                         
+                </tr>
+                <tr tal:repeat="item view/getItems">
+                    <td class="text" 
+                        tal:content="item/product_title">
+                        A Product
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="text"> 
+                        <div tal:repeat="property item/properties">
+                            <span tal:content="property/title">
+                                Color
+                            </span> : 
+                            <span tal:content="property/selected_option">
+                                Red
+                            </span>
+                        </div>
+                    </td>  
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="item/product_quantity">
+                        1.0
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="item/price_net">        
+                        42.0
+                    </td>    
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="item/tax_rate">
+                        42.0
+                    </td>    
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="item/tax">
+                        42.0
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="item/price_gross">
+                        42.0
+                    </td>
+                </tr>
+
+                <tr tal:define="payment view/getPaymentValues"
+                    tal:condition="payment/display">
+                    <td class="text"
+                        i18n:translate=""
+                        tal:content="payment/title">
+                        Cash On Delivery
+                    </td>
+                    <td></td>
+                    <td nowrap="nowrap" 
+                        class="number">
+                        1.0
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="payment/price_net">
+                        42.0
+                    </td>    
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="payment/tax_rate">
+                        42.0
+                    </td>            
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="payment/tax">
+                        42.0            
+                    </td>    
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="payment/price_gross">
+                        42.0
+                    </td>
+                </tr>                                                                                                   
+                
+                <tr tal:define="shipping view/getShipping">
+                    <td class="text"
+                        i18n:translate="shipping_label">
+                        Shipping
+                    </td>
+                    <td></td>
+                    <td nowrap="nowrap" 
+                        class="number">
+                        1.0
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="shipping/price_net">
+                        42.0
+                    </td>    
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="shipping/tax_rate">
+                        42.0
+                    </td>            
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="shipping/tax">
+                        42.0            
+                    </td>    
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="shipping/price_gross">
+                        42.0
+                    </td>
+                </tr>                                                                                                   
+                <tr>
+                    <td i18n:translate="total_label">
+                        Total
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="view/getPriceForCustomer">
+                        42.0
+                    </td>    
+                </tr> 
+            </table>         
+       </div> 
+    </body>
+</html>

@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: easyshop.shop
+Version: 0.1dev
+Summary: UNKNOWN
+Home-page: http://svn.plone.org/svn/plone/plone.example
+Author: Plone Foundation
+Author-email: plone-developers@lists.sourceforge.net
+License: GPL
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
