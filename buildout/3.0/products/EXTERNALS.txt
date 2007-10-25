@@ -1,6 +1,6 @@
 #
 # applied by: svn propset svn:externals -F ./EXTERNALS.txt .
 #
-EasyShop https://easyshop-for-plone.googlecode.com/svn/EasyShop/trunk
+
 ATBackRef https://svn.plone.org/svn/archetypes/MoreFieldsAndWidgets/ATBackRef/branches/diefenbach-easyshop
 DataGridField https://svn.plone.org/svn/archetypes/MoreFieldsAndWidgets/DataGridField/trunk
