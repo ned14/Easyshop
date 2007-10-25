@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<import-steps>
-  <import-step id="easyshop" version="20070511-01"
-               handler="easyshop.shop.profiles.setuphandlers.importVarious"
-               title="Various EasyShop Settings">               
-     Setup FormController
-     Install Dependencies
- </import-step>
-</import-steps>
