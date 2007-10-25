@@ -2,11 +2,10 @@
 # applied by: svn propset svn:externals -F ./EXTERNALS.txt .
 #
 
-easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/trunk
-
 easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
 easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/trunk
 easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/trunk
+easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/trunk
 easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
 easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
 easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/trunk
@@ -16,4 +15,5 @@ easyshop.login https://easyshop-for-plone.googlecode.com/svn/easyshop.login/trun
 easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/trunk
 easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
 easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
+easyshop.shop https://easyshop-for-plone.googlecode.com/svn/easyshop.shop/trunk
 easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
