@@ -15,14 +15,14 @@
     <browser:page
         name="kss_save_formatter"
         for="*"
-        class=".easyshop.EasyShopKSSView"
+        class=".formatter.FormatterKSSView"
         attribute="saveFormatter"
         permission="zope2.View" />
 
     <browser:page
         name="kss_add_product"
         for="*"
-        class=".easyshop.EasyShopKSSView"
+        class=".catalog.CatalogKSSView"
         attribute="addProduct"
         permission="zope2.View" />
 
