@@ -10,6 +10,7 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
 # easyshop imports
 from easyshop.core.interfaces import IGroup
+from easyshop.core.interfaces import IShopManagement
 from easyshop.core.config import *
 
 schema = Schema((
