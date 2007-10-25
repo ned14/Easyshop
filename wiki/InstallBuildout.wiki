@@ -14,3 +14,7 @@
    * python bootstrap.py
    * bin/buildout -v
    * bin/instance fg
+
+== Running tests ==
+
+   * bin/instance test -m easyshop.shop
