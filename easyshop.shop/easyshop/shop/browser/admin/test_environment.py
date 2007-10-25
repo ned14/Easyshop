@@ -53,8 +53,7 @@ class TestEnvironmentView(BrowserView):
         """Add all products to one category.
         """                            
         shop = self.context
-        
-        
+                
         id = "category"
         shop.categories.manage_addProduct["easyshop.shop"].addCategory(id, title="Category")        
         category = shop.categories.get(id)
@@ -68,7 +67,7 @@ class TestEnvironmentView(BrowserView):
             shop.products.manage_addProduct["easyshop.shop"].addProduct(id, title=title)
             product = shop.products.get(id)
 
-            img = os.path.join(package_home(product_globals), 'tests/test_2.jpg')
+            img = os.path.join(package_home(globals()), '../../tests/test_2.jpg')
             img = open(img)
         
             product.setImage(img)
