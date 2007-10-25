@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+easyshop/__init__.py
+easyshop.catalog.reference.egg-info/PKG-INFO
+easyshop.catalog.reference.egg-info/SOURCES.txt
+easyshop.catalog.reference.egg-info/dependency_links.txt
+easyshop.catalog.reference.egg-info/entry_points.txt
+easyshop.catalog.reference.egg-info/namespace_packages.txt
+easyshop.catalog.reference.egg-info/not-zip-safe
+easyshop.catalog.reference.egg-info/requires.txt
+easyshop.catalog.reference.egg-info/top_level.txt
+easyshop/catalog/__init__.py
+easyshop/catalog/reference/__init__.py
