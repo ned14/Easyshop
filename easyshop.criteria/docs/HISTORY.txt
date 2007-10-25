@@ -1,9 +1,0 @@
-Changelog for easyshop.criteria
-
-    (name of developer listed in brackets)
-
-easyshop.criteria - 0.1 Unreleased
-
-    - Initial package structure.
-      [zopeskel]
-
