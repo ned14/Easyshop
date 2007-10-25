@@ -34,48 +34,53 @@
             </div>    
         
             <table tal:condition="groups"
-                   width="100%"
-                   id="sortable"
-                   class="listing">
+                   class="shop-default">
                 <tr>
-                    <th i18n:translate="name_label">
-                        Name
-                    </th>
-                    <th i18n:translate="description_label">
-                        Description
-                    </th>
-                    <th i18n:translate="edit_label">
-                        Edit
-                    </th>                               
-                </tr>  
-                <tr tal:repeat="group groups">
-                    <td>
-                                        
-                        <img src="."
-                             tal:attributes="src string:$portal_url/group_icon.png"
-                             alt="Group Icon"
-                             title="Group"
-                             i18n:attributes="title group_label;" />
+                    <td width="50%">
+                        <div tal:repeat="group groups">
+                            <img src="."
+                                 tal:attributes="src string:$portal_url/group_icon.png"
+                                 alt="Group Icon"
+                                 title="Group"
+                                 i18n:attributes="title group_label;" />
                     
-                        <a tal:content="group/Title"
-                           tal:attributes="href string:${group/absolute_url}/edit">
-                            Group Title
-                        </a>
+                            <a tal:content="group/Title"
+                               tal:attributes="href string:${context/absolute_url}?group_id=${group/id}">
+                                Group Title
+                            </a>
+                        </div>
                     </td>
-                    <td class="es_category_description"
-                     tal:content="group/getDescription">                     
-                     Group Description
-                    </td>
-                    <td>
-                        <a tal:attributes="href string:${group/absolute_url}/edit"
-                           i18n:translate="edit_label">
-                           Edit
-                        </a>            
+                    <td tal:define="group view/getGroup"
+                        tal:condition="group">
+                        <h1 class="documentFirstHeading">
+                            <a href="."
+                               tal:attributes="href group/url"
+                                tal:content="group/title">
+                                Title
+                            </a>
+                        </h1>
+                        <p tal:content="group/description">
+                            Description
+                        </p>
+                        <h1 i18n:translate="products_label">
+                            Products
+                        </h1>        
+                        <tal:block tal:repeat="product group/products">
+                            <div class="label">
+                                <a href="."
+                                   tal:attributes="href product/url"
+                                   tal:content="product/title">
+                                    Product Title
+                                </a>
+                            </div>
+                            <div>
+                                <img src="."
+                                    tal:attributes="src string:${product/url}/image_thumb" />
+                            </div>        
+                        </tal:block>
                     </td>                      
                 </tr>
             </table>        
-
-            <div tal:replace="structure provider:plone.belowcontentbody" />
             
         </metal:main>
     

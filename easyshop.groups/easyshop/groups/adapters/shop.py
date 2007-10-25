@@ -20,8 +20,28 @@ class ShopGroupManagement:
         """
         self.context = context
 
+    def addGroup(group):
+        """
+        """
+        raise Exception
+        
+    def deleteGroup(id):
+        """
+        """
+        raise Exception
+                
+    def getGroup(self, group_id):
+        """
+        """
+        return self.context.groups.get(group_id)
+        
     def getGroups(self):
         """Returns all groups
         """
         # XXX: Optimize
         return self.context.groups.objectValues("ProductGroup")
+        
+    def hasGroups():
+        """
+        """
+        raise Exception

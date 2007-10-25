@@ -24,7 +24,11 @@ class IGroupManagement(Interface):
     def deleteGroup(id):
         """Deletes group with given id.
         """
-
+        
+    def getGroup(group_id):
+        """Returns a group by given id.
+        """
+        
     def getGroups():
         """Returns all Groups
         """
