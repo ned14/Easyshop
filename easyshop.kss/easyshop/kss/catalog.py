@@ -8,6 +8,9 @@ from kss.core import kssaction
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
+# easyshop.kss imports
+from snippets import *
+
 class CatalogKSSView(PloneKSSView):
     """
     """
@@ -140,7 +143,7 @@ class CatalogKSSView(PloneKSSView):
             html += """<div><a href="%s">%s</a></div>""" % (product.getURL(), product.Title)
             html += """<img src="%s/image_tile" /> """  % product.getURL()
             html += """</td>"""
-            if (i+1) % 8 == 0:
+            if (i+1) % 5 == 0:
                 html += "</tr><tr>"
                 
         html += "</tr></table>"
@@ -162,13 +165,50 @@ class CatalogKSSView(PloneKSSView):
         except IndexError:
             return
 
-        pd  = "<h1>%s</h1>" % product.Title()
-        pd += "<div>%s</div>" % product.getShortTitle()        
-        pd += "<div>%s</div>" % product.getArticle_id()       
-        pd += "<img src='%s/image_mini'/>" % product.absolute_url()
-        pd += "<div>%s</div>" % product.getText()
-        pd += "<div>%s</div>" % product.getShortText()
-        pd += "<div>%s</div>" % product.getPriceGross()
+        info = {
+            "title"       : product.Title(),
+            "short_title" : product.getShortTitle(),
+            "short_text"  : product.getShortText(),
+            "url"         : product.absolute_url(),
+            "article_id"  : product.getArticle_id(),
+            "price"       : product.getPriceGross(),            
+        }
+        
+        pd = PRODUCT_DETAILS % info
 
+        # Related products
+        related_products = product.getRelatedProducts()
+        if len(related_products) > 0:
+            pd += RELATED_PRODUCTS_HEADER
+            for related_product in related_products:
+                pd += RELATED_PRODUCTS_BODY % {
+                    "title"      : related_product.Title(),
+                    "article_id" : related_product.getArticle_id(),
+                    "url"        : related_product.absolute_url()
+                }            
+            pd += RELATED_PRODUCTS_FOOTER
+        
+        # Categories
+        categories = product.getEasyshopcategories()
+        if len(categories) > 0: 
+            pd += CATEGORIES_HEADER
+            for category in categories:
+                pd += CATEGORIES_BODY % {
+                    "title"      : category.Title(),
+                    "url"        : category.absolute_url()
+                }            
+            pd += CATEGORIES_FOOTER
+
+        # Groups
+        groups = product.getEasyshopgroups()
+        if len(groups) > 0: 
+            pd += GROUPS_HEADER
+            for group in groups:
+                pd += GROUPS_BODY % {
+                    "title"      : group.Title(),
+                    "url"        : group.absolute_url()
+                }            
+            pd += GROUPS_FOOTER
+        
         kss_core  = self.getCommandSet("core")
         kss_core.replaceInnerHTML('#product-details-box', pd)
