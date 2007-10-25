@@ -36,16 +36,41 @@ class ProductsView(BrowserView):
         
         product = brain.getObject()
 
+        related_products = []
+        for related_product in product.getRelatedProducts():
+            related_products.append({
+                "title"      : related_product.Title(),
+                "article_id" : related_product.getArticle_id(),
+                "url"        : related_product.absolute_url()
+            })
+
+        categories = []
+        for category in product.getEasyshopcategories():
+            categories.append({
+                "title" : category.Title(),
+                "url"   : category.absolute_url()
+            })
+
+        groups = []
+        for group in product.getEasyshopgroups():
+            groups.append({
+                "title" : group.Title(),
+                "url"   : group.absolute_url()
+            })
+                
         return {
-            "id"          : product.getId(),
-            "article_id"  : product.getArticle_id(),
-            "description" : product.Description(),
-            "title"       : product.Title(),
-            "short_title" : product.getShortTitle(),
-            "url"         : product.absolute_url(),
-            "text"        : product.getText(),
-            "short_text"  : product.getShortText(),
-            "price"       : product.getPriceGross(),
+            "id"               : product.getId(),
+            "article_id"       : product.getArticle_id(),
+            "description"      : product.Description(),
+            "title"            : product.Title(),
+            "short_title"      : product.getShortTitle() or product.Title(),
+            "url"              : product.absolute_url(),
+            "text"             : product.getText(),
+            "short_text"       : product.getShortText(),
+            "price"            : product.getPriceGross(),
+            "related_products" : related_products,
+            "categories"       : categories,
+            "groups"           : groups,
         }
         
     def getProducts(self):
@@ -102,7 +127,7 @@ class ProductsView(BrowserView):
         line = []
         for i, product in enumerate(result):
             line.append(product)
-            if (i+1) % 8 == 0:
+            if (i+1) % 5 == 0:
                 lines.append(line)
                 line = []
         
