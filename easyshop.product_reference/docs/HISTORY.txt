@@ -1,0 +1,9 @@
+Changelog for easyshop.product_reference
+
+    (name of developer listed in brackets)
+
+easyshop.product_reference - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
