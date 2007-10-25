@@ -7,6 +7,9 @@ from easyshop.core.config import *
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
+    from AccessControl import allow_module
+    allow_module('zope.component')
+    allow_module("pdb")    
     
     # Register skin directory
     DirectoryView.registerDirectory('skins', globals())
