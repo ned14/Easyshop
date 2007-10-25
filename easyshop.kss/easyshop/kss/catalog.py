@@ -11,6 +11,12 @@ from Products.CMFCore.utils import getToolByName
 # easyshop.kss imports
 from snippets import *
 
+# easyshop.core imports
+from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IShopManagement
+
 class CatalogKSSView(PloneKSSView):
     """
     """
