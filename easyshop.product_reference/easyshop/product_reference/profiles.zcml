@@ -3,9 +3,9 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="easyshop.catalog.reference"
+        title="easyshop.product_reference"
         directory="profiles/default"
-        description="Make Plone content objects buyable."
+        description="Makes arbitrary objects buyable."
         provides="Products.GenericSetup.interfaces.EXTENSION" />
   
 </configure>
