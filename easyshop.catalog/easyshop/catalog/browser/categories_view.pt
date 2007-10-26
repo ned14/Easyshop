@@ -26,10 +26,40 @@
             </p>
     
             <div tal:replace="structure provider:plone.abovecontentbody" />
-  
-     
-            <div tal:replace="structure provider:plone.belowcontentbody" />
-  
+            
+            <table class="shop-default">
+                <tr>
+                    <td width="50%">
+                        <span tal:repeat="category view/getCategories">
+                            <div metal:use-macro="context/categories_macros/macros/category" />
+                        </span>                        
+                    </td>
+                    <td tal:define="products view/getProducts"
+                        tal:condition="products">
+                        <h1 class="documentFirstHeading"
+                            tal:content="products/category_title">
+                            Category Title
+                        </h1>    
+                        <table>
+                            <tr tal:repeat="line products/products">
+                                <td tal:repeat="product line">
+                                    <div>
+                                        <a href="."
+                                           tal:attributes="href product/url"
+                                           tal:content="product/title">
+                                           Product Title
+                                        </a>
+                                        <img src="."
+                                             tal:attributes="src string:${product/url}/image_tile" />   
+                                    </div>
+                                </td>
+                            </tr>                            
+                        </table>    
+                    </td>
+                </tr>
+            </table>    
+    
+            
           </metal:main>
     
     </body>

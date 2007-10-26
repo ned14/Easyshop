@@ -45,9 +45,8 @@ class CategoryCategoryManagement:
                     "depth"       : 1},
         )
 
-        # Todo: Optimize
-        return [b.getObject() for b in brains]
-        
+        return brains
+
     def getTotalCategories(self):
         """
         """

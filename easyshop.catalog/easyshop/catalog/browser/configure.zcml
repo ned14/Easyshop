@@ -57,13 +57,6 @@
         template="category_view.pt"
         permission="zope.Public" /> 
 
-    <browser:page 
-        for="easyshop.core.interfaces.ICategory"
-        name="category-manage-view" 
-        class=".category_manage.CategoryManageView"
-        template="category_manage.pt"
-        permission="zope.Public" /> 
-
     <browser:page  
         name="navigationMacroView"
         for="*" 
