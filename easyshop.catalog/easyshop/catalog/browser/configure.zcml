@@ -46,8 +46,8 @@
     <browser:page
         for="easyshop.core.interfaces.ICategoriesContainer"
         name="categories-view"
-        template="categories.pt"
-        class=".categories.CategoriesView"
+        template="categories_view.pt"
+        class=".categories_view.CategoriesView"
         permission="cmf.ManagePortal" />
 
     <browser:page 
