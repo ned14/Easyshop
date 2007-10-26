@@ -9,7 +9,7 @@ from Products.Archetypes.atapi import *
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
 # easyshop imports
-from easyshop.core.interfaces import IGroup
+from easyshop.core.interfaces import IProductGroup
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.config import *
 
@@ -54,7 +54,7 @@ class ProductGroup(BaseFolder):
     """Arrange products to a group, which can be associated with taxes, 
     discounts, etc. A group is invisible for customers.
     """
-    implements(IGroup)
+    implements(IProductGroup)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()

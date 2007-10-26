@@ -7,13 +7,13 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop importss
 from easyshop.core.interfaces import IProductManagement
-from easyshop.core.interfaces import IGroup
+from easyshop.core.interfaces import IProductGroup
 
 class GroupProductManager:
     """
     """
     implements(IProductManagement)
-    adapts(IGroup)
+    adapts(IProductGroup)
     
     def __init__(self, context):
         """

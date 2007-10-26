@@ -2,7 +2,7 @@
 from zope.interface import Interface
 from zope.interface import Attribute
 
-class IGroup(Interface):
+class IProductGroup(Interface):
     """A group combines arbitrary products.
     o Groups may then assigned special taxes, shipping prices, discounts and 
       similiar.
