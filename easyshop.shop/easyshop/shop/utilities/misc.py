@@ -14,3 +14,4 @@ def getObjectByUID(context, uid):
         return brains[0]
     except IndexError:
         return None
+        

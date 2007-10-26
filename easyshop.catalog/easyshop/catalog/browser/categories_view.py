@@ -71,7 +71,8 @@ class CategoriesView(BrowserView):
             products.append(line)
         
         return {
-            "category_title" : category.Title(),
-            "products"       : products,
+            "category_title"       : category.Title(),
+            "category_description" : category.Description(),
+            "products"             : products,
         }
         

@@ -77,8 +77,13 @@
                                         </a>
                                     </div>
                                     <div>
-                                        <img src="."
-                                            tal:attributes="src string:${product/url}/image_tile" />
+                                        <a href="."
+                                           target="_blank"
+                                           tal:attributes="href product/url">
+                                        
+                                            <img src="."
+                                                tal:attributes="src string:${product/url}/image_tile" />                                            
+                                        </a>    
                                     </div>                                            
                                 </td>
                             </tr>

@@ -30,6 +30,10 @@
             <table class="shop-default">
                 <tr>
                     <td width="50%">
+                        <h1 class="documentFirstHeading"
+                            i18n:translate="catgories_tree_label">
+                                Categories Tree
+                        </h1>                        
                         <span tal:repeat="category view/getCategories">
                             <div metal:use-macro="context/categories_macros/macros/category" />
                         </span>                        
@@ -38,9 +42,19 @@
                         tal:condition="products">
                         <h1 class="documentFirstHeading"
                             tal:content="products/category_title">
-                            Category Title
-                        </h1>    
-                        <table>
+                                Category Title
+                        </h1>
+                        <div tal:content="structure products/category_description">
+                            Category Description
+                        </div>
+                        <h1 i18n:translate="products_label">
+                            Products
+                        </h1>
+                        <div tal:condition="not:products/products"
+                             i18n:translate="no_products_for_category_label">
+                             There are no products for the selected catagory
+                        </div>    
+                        <table tal:condition="products/products">
                             <tr tal:repeat="line products/products">
                                 <td tal:repeat="product line">
                                     <div>
