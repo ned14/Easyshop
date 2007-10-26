@@ -8,14 +8,16 @@
  <property name="content_meta_type">ProductGroup</property>
  <property name="product">easyshop.shop</property>
  <property name="factory">addProductGroup</property>
- <property name="immediate_view">base_view</property>
+ <property name="immediate_view">group_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="ProductProperty"/>
  </property>
  <property name="allow_discussion">False</property>
- <alias from="edit" to="base_edit"/>
+ <alias from="(Default)" to="group-view"/>
+ <alias from="view" to="group-view"/>
+ <alias from="edit" to="atct_edit"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}/base_view" visible="True">
   <permission value="View"/>

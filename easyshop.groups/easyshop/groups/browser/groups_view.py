@@ -22,12 +22,20 @@ class GroupsView(BrowserView):
         group = IGroupManagement(shop).getGroup(group_id)        
 
         products = []
-        for product in IProductManagement(group).getProducts():
-            products.append({
+        line = []
+        for i, product in enumerate(IProductManagement(group).getProducts()):
+            line.append({
                 "title"  : product.Title(),
                 "id"     : product.getId(),
                 "url"    : product.absolute_url(),
             })
+            
+            if (i+1) % 5 == 0:
+                products.append(line)
+                line = []
+                
+        if len(line) > 0:
+            products.append(line)
             
         return {
             "title"       : group.Title(),

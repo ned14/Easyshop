@@ -65,19 +65,24 @@
                         <h1 i18n:translate="products_label">
                             Products
                         </h1>        
-                        <tal:block tal:repeat="product group/products">
-                            <div class="label">
-                                <a href="."
-                                   tal:attributes="href product/url"
-                                   tal:content="product/title">
-                                    Product Title
-                                </a>
-                            </div>
-                            <div>
-                                <img src="."
-                                    tal:attributes="src string:${product/url}/image_thumb" />
-                            </div>        
-                        </tal:block>
+
+                        <table>
+                            <tr tal:repeat="line group/products">
+                                <td tal:repeat="product line">
+                                    <div class="label">
+                                        <a href="."
+                                           tal:attributes="href product/url"
+                                           tal:content="product/title">
+                                            Product Title
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <img src="."
+                                            tal:attributes="src string:${product/url}/image_tile" />
+                                    </div>                                            
+                                </td>
+                            </tr>
+                        </table>    
                     </td>                      
                 </tr>
             </table>        
