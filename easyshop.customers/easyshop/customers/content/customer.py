@@ -21,6 +21,7 @@ from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomer
 from easyshop.core.interfaces import IPaymentManagement
 from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -138,7 +139,7 @@ class Customer(BaseFolder):
         """
         dl = DisplayList()
 
-        pm = IShippingManagement(self.getShop())
+        pm = IShippingManagement(IShopManagement(self).getShop())
         for shipping_method in pm.getShippingMethods():
             dl.add(shipping_method.getId(), shipping_method.Title())
 
@@ -149,7 +150,7 @@ class Customer(BaseFolder):
         """
         dl = DisplayList()
 
-        pm = IPaymentManagement(self)
+        pm = IPaymentManagement(IShopManagement(self).getShop())
         for payment_method in pm.getPaymentMethods():
             dl.add(payment_method.getId(), payment_method.Title())
 

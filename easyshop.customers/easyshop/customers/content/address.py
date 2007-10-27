@@ -8,8 +8,9 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.interfaces import IAddress
 from easyshop.core.config import *
+from easyshop.core.interfaces import IAddress
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -143,7 +144,7 @@ class Address(BaseContent):
         """
         dl = DisplayList()
         
-        countries = self.getShop().getCountries()
+        countries = IShopManagement(self).getShop().getCountries()
 
         for country in countries:
             dl.add(country, country)
