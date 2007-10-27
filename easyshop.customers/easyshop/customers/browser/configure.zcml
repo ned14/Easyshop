@@ -3,6 +3,18 @@
 
     <browser:page
         for="easyshop.core.interfaces.IShop"
+        name="add-address"
+        class=".address.AddressAddForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IAddress"
+        name="edit"
+        class=".address.AddressEditForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IShop"
         name="my-account"
         template="my_account.pt"
         permission="zope.Public" />
@@ -42,6 +54,5 @@
         class = ".manage_addressbook.ManageAddressBookView"
         attribute="deleteAddress"
         permission="zope.Public" />
-
 
 </configure>

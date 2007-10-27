@@ -56,7 +56,7 @@
                             <form style="display:inline"  
                                   action="#"
                                   method="post"
-                                  tal:attributes="action string:${address/absolute_url}/base_edit">
+                                  tal:attributes="action string:${address/absolute_url}/@@edit">
                             
                                 <input type="hidden" 
                                        name="goto" 
@@ -93,7 +93,7 @@
             </table>
             <form action="#"
                   method="post"
-                  tal:attributes="action string:${customer/absolute_url}/createObject">
+                  tal:attributes="action string:${context/absolute_url}/@@add-address">
                 <input type="hidden" name="type_name" value="Address" />
                 <input type="hidden" name="goto" value="addressbook" />
                 <input type="submit" 
