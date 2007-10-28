@@ -130,7 +130,6 @@ class Order(BaseFolder):
                 text += " ".join((address.getFirstname(),
                                   address.getLastname(),
                                   address.getAddress1(),
-                                  address.getAddress2(),
                                   address.getZipCode(),
                                   address.getCity()))            
         return text

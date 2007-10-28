@@ -6,7 +6,8 @@
     <div metal:fill-slot="main"
          tal:define="orders view/getOrders">
 
-        <h1 i18n:translate="my_orders_label">
+        <h1 class="documentFirstHeading"
+            i18n:translate="my_orders_label">
             My Orders
         </h1>
 
@@ -30,8 +31,27 @@
                    tal:attributes="href order/url">
                     The Title
                 </a>
-            </h2>      
-  
+            </h2>
+                  
+            <table class="order_header">
+                <tr>
+                    <td>
+                        <tal:block i18n:translate="reveived_at_label">
+                            Received at</tal:block>:
+                    </td>
+                    <td tal:content="order/creation_date">
+                        2007/07/07    
+                    </td>
+                </tr>
+                <tr>
+                    <td><tal:block i18n:translate="state_label">
+                        State</tal:block>:
+                    </td>
+                    <td tal:content="order/state">
+                        Send
+                    </td>
+                </tr>
+            </table>    
             <table class="listing" 
                    border="1" 
                    width="100%">
