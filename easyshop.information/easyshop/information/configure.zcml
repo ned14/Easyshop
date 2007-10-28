@@ -7,9 +7,12 @@
         package="." />
 
     <include
+        package=".browser" />
+
+    <include
         package=".subscribers" />
         
-    <include 
+    <include
         file="profiles.zcml" />
         
 </configure>

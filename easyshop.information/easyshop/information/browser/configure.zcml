@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        for="*"
+        name="information-page"
+        class=".information_page.InformationPageView"
+        template="information_page.pt"
+        permission="zope.Public" />
+
+</configure>
