@@ -1,6 +1,20 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+    <!-- Direct Debit -->
+    <browser:page
+        for="easyshop.core.interfaces.IShop"
+        name="add-direct-debit"
+        class=".direct_debit.DirectDebitAddForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IDirectDebit"
+        name="edit"
+        class=".direct_debit.DirectDebitEditForm"
+        permission="cmf.ModifyPortalContent" />
+
+
     <!-- PayPal receiving -->       
     <browser:page
         for="easyshop.core.interfaces.IShop"

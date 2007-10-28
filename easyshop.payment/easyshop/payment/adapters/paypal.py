@@ -131,7 +131,7 @@ class PayPalSimplePaymentProcessor:
 
         shop = IShopManagement(self.context).getShop()                        
         notify_url = "%s/paypal?order=%s" % (shop.absolute_url(), order.UID())
-        return_url = "%s/check-out-thanks" % shop.absolute_url()
+        return_url = "%s/thank-you" % shop.absolute_url()
         
         pc = IPrices(order)
         price_net = "%.2f" % pc.getPriceNet()
