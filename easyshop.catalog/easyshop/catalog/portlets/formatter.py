@@ -135,7 +135,7 @@ class FormatterView(BrowserView):
         f.setText(text)
                 
         referer = self.request.get("HTTP_REFERER", "")
-        if referer.find("check-out-thanks") != -1:
+        if referer.find("thank-you") != -1:
             url = referer
         else:
             url = self.context.absolute_url()

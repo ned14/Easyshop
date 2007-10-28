@@ -11,7 +11,7 @@
               method="post"
               tal:attributes="action context/absolute_url">
 
-            <div  tal:condition="python: template.id == 'check-out-thanks'"> 
+            <div  tal:condition="python: template.id == 'thank-you'"> 
                 <input type="hidden"
                        name="lines_per_page"
                        value="42"
@@ -25,7 +25,7 @@
                 </span> -->
             </div>       
                      
-            <div tal:condition="python: template.id != 'check-out-thanks'" 
+            <div tal:condition="python: template.id != 'thank-you'" 
                 class="field">
                 <label i18n:translate="lines_per_page_label">
                     Lines Per Page
