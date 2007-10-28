@@ -53,6 +53,25 @@ a.link-parent {
     font-weight: bold;
 }
 
+table#manage-address-book,
+table#manage-payment-methods {
+    width:50%;
+}
+
+table#manage-address-book .buttons,
+table#manage-payment-methods .buttons {
+    width:20%;
+    vertical-align:top;
+}
+
+table.order_header {
+    border-collapse: collapse;
+}
+
+table.order_header td {
+    padding:0;
+}
+
 #order-preview-information {
     width: 100%;
 }
@@ -173,7 +192,7 @@ td.product-control form {
 
 /* address book */
 table.address-book td.buttons {
-    vertical-align: bottom;
+    vertical-align: top;
     padding-left: 20px;
 }
 
@@ -194,7 +213,7 @@ table.cart td {
 
 table.cart td.buttons {
     height:40px;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 table.shop-default {

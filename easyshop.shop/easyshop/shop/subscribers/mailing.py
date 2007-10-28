@@ -1,17 +1,12 @@
 # utils imports
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
 
 # easyshop imports
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShopManagement
 
 # email imports
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
-from email.MIMEImage import MIMEImage
-from email import Encoders
 
 def sendMultipartMail(context, from_, to, cc=[], bcc=[], subject="", text="", charset="utf-8"):
     """
@@ -36,7 +31,7 @@ def sendMultipartMail(context, from_, to, cc=[], bcc=[], subject="", text="", ch
     html_part.attach(html_code)       
     mail.attach(html_part)
 
-    context.MailHost.send( mail.as_string() )
+    context.MailHost.send(mail.as_string())
     # except:
     #     # catch and do nothing, so that the user doesn't notice an error
     #     pass
@@ -47,7 +42,7 @@ def mailOrderSubmitted(event):
     # Todo: Check possibility of TemplateFields, especially ZPTField in 
     # another context as the field owner.
     order = event.context
-    shop = order.IShopManagement(order).getShop()
+    shop = IShopManagement(order).getShop()
     
     if shop.getMailFrom() and shop.getMailTo():
         text = order.mail_order_submitted()
