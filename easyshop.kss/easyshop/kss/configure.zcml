@@ -5,6 +5,9 @@
     <five:registerPackage 
         package="." />
 
+    <include
+        package=".customers" />
+        
     <include 
         file="profiles.zcml" />
     

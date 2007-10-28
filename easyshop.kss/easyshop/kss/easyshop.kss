@@ -29,3 +29,17 @@ input#search-products:click {
     kss_show_products-form: currentForm();
     
 }
+
+
+/* Address */
+
+input#add-address-form-button:click {
+    evt-click-preventdefault: True;
+    action-server: kss_show_add_address_form;
+}
+
+input#add-address:click {
+    evt-click-preventdefault: True;
+    action-server: kss_add_address;
+    kss_add_address-form: currentForm();
+}
