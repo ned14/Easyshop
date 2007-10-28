@@ -29,7 +29,7 @@ class ManagePaymentMethodsView(BrowserView):
         putils.addPortalMessage("The payment method has been deleted.")
                                         
         # Redirect to overview
-        url = "%s/manage-payment" % self.context.absolute_url()
+        url = "%s/manage-payment-methods" % self.context.absolute_url()
         self.context.request.response.redirect(url)
             
     def getCustomer(self):

@@ -17,7 +17,7 @@
     
     <!-- Payment Methods -->       
     <browser:page
-        name="manage-payment"
+        name="manage-payment-methods"
         for="easyshop.core.interfaces.IShop"
         template="manage_payment_methods.pt"
         class=".manage_payment_methods.ManagePaymentMethodsView"        

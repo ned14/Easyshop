@@ -46,9 +46,9 @@
             </a>
         </li>
         <li>
-            <a href="easyshop_manage_payment_methods"
-               i18n:translate="manage_payment_options_labels">
-                Manage Payment Options
+            <a href="manage-payment-methods"
+               i18n:translate="manage_payment_methods_label">
+                Manage Payment Methods
             </a>
         </li>
       </ul>          

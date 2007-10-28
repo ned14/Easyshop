@@ -94,16 +94,11 @@ class AddressAddForm(base.AddForm):
         address = getattr(customer, id)
 
         # set data
-        address.setFirstname(data.get("firstname"))
-        address.setLastname(data.get("lastname"))
-        address.setAddress1(data.get("address1"))
-        address.setAddress2(data.get("address2"))
-        address.setZipCode(data.get("zipCode"))
-        address.setCity(data.get("city"))
-        address.setCountry(data.get("country"))
-        address.setPhone(data.get("phone"))
-
-        shop = IShopManagement(self.context).getShop()
-        url = "%s/manage-addressbook" % shop.absolute_url()
-        self.request.response.redirect(url)
-
+        address.setFirstname(data.get("firstname", ""))
+        address.setLastname(data.get("lastname", ""))
+        address.setAddress1(data.get("address1", ""))
+        address.setAddress2(data.get("address2", ""))
+        address.setZipCode(data.get("zipCode", ""))
+        address.setCity(data.get("city", ""))
+        address.setCountry(data.get("country", ""))
+        address.setPhone(data.get("phone", ""))

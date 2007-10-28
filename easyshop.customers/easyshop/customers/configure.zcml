@@ -20,6 +20,9 @@
         package=".subscribers" />
 
     <include 
+        package=".viewlets" />
+
+    <include 
         file="profiles.zcml" />
 
 </configure>
