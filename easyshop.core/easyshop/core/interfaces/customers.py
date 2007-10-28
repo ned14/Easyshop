@@ -1,13 +1,77 @@
 # zope imports
 from zope.interface import Interface
+from zope import schema
+
+# easyshop.core imports
+from easyshop.core.config import _
 
 ################################################################################
 # Address
 ################################################################################
         
 class IAddress(Interface):
-    """A address.
+    """A address of a customer.
     """
+    firstname = schema.TextLine(
+        title=_(u'Firstname'),
+        description=_(u"Please enter your firstname"),
+        default=u'',
+        required=True,
+    )
+
+    lastname = schema.TextLine(
+        title=_(u'Lastname'),
+        description=_(u"Please enter your lastname"),
+        default=u'',
+        required=True,
+    )
+
+    companyName = schema.TextLine(
+        title=_(u'Company Name'),
+        description=_(u"Please enter your company name"),
+        default=u'',
+        required=False,
+    )
+
+    address1 = schema.TextLine(
+        title=_(u'Address 1'),
+        description=_(u"Please enter your address."),
+        default=u'',
+        required=True,
+    )
+
+    address2 = schema.TextLine(
+        title=_(u'Address 2'),
+        description=_(u"Please enter your address."),
+        default=u'',
+        required=False,
+    )
+
+    zipCode = schema.TextLine(
+        title=_(u'Zip Code'),
+        description=_(u"Please enter your zip code."),
+        default=u'',
+        required=True,
+    )
+
+    city = schema.TextLine(
+        title=_(u'City'),
+        description=_(u"Please enter your city."),
+        default=u'',
+        required=True,
+    )
+
+    country = schema.Choice(
+        title=_(u'Country'),
+        description=_(u"Please enter your country."),
+        vocabulary = "easyshop.countries")
+            
+    phone = schema.TextLine(
+        title=_(u'Phone'),
+        description=_(u"Please enter your phone number."),
+        default=u'',
+        required=False,
+    )
     
 class IAddressManagement(Interface):
     """Provides methods to manage address content objects.

@@ -3,5 +3,9 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="easyshop.core">
 
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
+        component=".vocabularies.countries"
+        name="easyshop.countries" />
 
 </configure>

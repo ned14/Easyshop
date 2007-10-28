@@ -17,3 +17,7 @@ class IShopManagement(Interface):
     def getShop():
         """Returns the parent shop
         """
+
+class ICountryVocabulary(Interface):
+    """
+    """

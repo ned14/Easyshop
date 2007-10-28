@@ -1,25 +1,30 @@
+# coding=utf-8
+import os
+from Globals import package_home
+from Products.CMFCore.permissions import setDefaultRoles
+
 # MessageFactory
 from zope.i18nmessageid import MessageFactory
 _ = MessageFactory("EasyShop")
 
-# coding=utf-8
-from Products.CMFCore.permissions import setDefaultRoles
 PROJECTNAME = "easyshop.shop"
 
 # Permissions
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
 setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 ADD_CONTENT_PERMISSIONS = {
-    'Customer' : 'EasyShop: Add Customer',
-    "EasyShop" : 'EasyShop: Add EasyShop',
+    "Customer" : "EasyShop: Add Customer",
+    "Address"  : "EasyShop: Add Address",
+    "EasyShop" : "EasyShop: Add EasyShop",
 }
 
 setDefaultRoles('EasyShop: Add Customer', ('Manager',))
 
+# Create path to default shop form
 product_globals = globals()
+home = package_home(product_globals)
+DEFAULT_SHOP_FORM = os.path.sep.join([home, "browser", "default_shop_form.pt"])
 
-DEPENDENCIES = []
-PRODUCT_DEPENDENCIES = []
 
 MESSAGES = {
     "CART_ADDED_PRODUCT"    : "The product has been added to the cart.",

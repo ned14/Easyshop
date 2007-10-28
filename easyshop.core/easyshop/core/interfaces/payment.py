@@ -1,6 +1,10 @@
 # zope imports
 from zope.interface import Interface
 from zope.interface import Attribute
+from zope import schema
+
+# easyshop.core imports
+from easyshop.core.config import _
 
 class IPaymentMethod(Interface):
     """A marker interface for payment content objects.
@@ -31,17 +35,40 @@ class ISimplePaymentMethod(IShopPaymentMethod):
         
 class IPayPal(IShopPaymentMethod):
     """A marker interface for paypal content objects. 
-    
-    Note, that this is also a IShopPaymentMethod, means it needs no
-    further information per customer.
     """
     
 class IDirectDebit(ICustomerPaymentMethod):
-    """A marker interface for direct debit content objects.
-    
-    Note, that this is also a ICustomerPaymentMethod, means it needs 
-    further information (bank details) per customer.    
+    """A marker interface for direct debit content objects. Note, that this is 
+    also a ICustomerPaymentMethod, means it needs information (bank details) 
+    per customer.    
     """
+    accountNumber = schema.TextLine(
+        title=_(u'Account Number'),
+        description=_(u"Please enter your account number"),
+        default=u'',
+        required=True,
+    )
+    
+    bankIdentificationCode = schema.TextLine(
+        title=_(u'Bank Information Code'),
+        description=_(u"Please enter your bank information code"),
+        default=u'',
+        required=True,
+    )
+    
+    name = schema.TextLine(
+        title=_(u'Name'),
+        description=_(u"Please enter the owner of the account"),
+        default=u'',
+        required=True,
+    )
+    
+    bankName = schema.TextLine(
+        title=_(u'Bank Name'),
+        description=_(u"Please enter the bank name"),
+        default=u'',
+        required=True,
+    )
 
 class IPaymentMethodValidator(Interface):
     """A corresponding validator object for a customer payment method object.
