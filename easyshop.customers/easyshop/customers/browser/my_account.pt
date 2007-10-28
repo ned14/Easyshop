@@ -34,13 +34,13 @@
             </a>    
         </li>
         <li>
-            <a href="easyshop_manage_password"
+            <a href="manage-password"
                i18n:translate="manage_password_label">
                 Manage Password
             </a>    
         </li>            
         <li>
-            <a href="easyshop_manage_addressbook"
+            <a href="manage-addressbook"
                 i18n:translate="manage_addressbook_label">
                 Manage Addressbook
             </a>

@@ -14,8 +14,6 @@ def createContainer(shop, event):
         title="Customers")    
 
     # TODO: Should be done with workflow
-    shop.customers.manage_permission(
-        'Modify portal content',
-        ['Owner'], 1)
+    shop.customers.manage_permission('Modify portal content', ['Owner'], 1)
         
     shop.customers.reindexObject()

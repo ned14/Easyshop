@@ -1,7 +1,3 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -11,27 +7,11 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop Products
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IPaymentManagement 
+from easyshop.core.interfaces import IDirectDebit
 
-class IManagePaymentMethodsView(Interface):    
-    """
-    """
-    def deletePaymentMethod():
-        """Deletes payment method with id given by request.
-        """
-    
-    def getCustomer():
-        """Returns authenticated customer.
-        """
-
-    def getDirectDebitAccounts():
-        """Returns direct debit accounts.
-        """   
-        
 class ManagePaymentMethodsView(BrowserView):
     """
     """
-    implements(IManagePaymentMethodsView)
-
     def deletePaymentMethod(self):
         """
         """
@@ -48,8 +28,8 @@ class ManagePaymentMethodsView(BrowserView):
         # add message
         putils.addPortalMessage("The payment method has been deleted.")
                                         
-        # redirect to addressbook
-        url = "%s/manage_payment_methods" % self.context.absolute_url()
+        # Redirect to overview
+        url = "%s/manage-payment" % self.context.absolute_url()
         self.context.request.response.redirect(url)
             
     def getCustomer(self):
@@ -65,5 +45,5 @@ class ManagePaymentMethodsView(BrowserView):
         customer = cm.getAuthenticatedCustomer()
 
         pm  = IPaymentManagement(customer)
-        return pm.getPaymentMethods(("DirectDebit",))
+        return pm.getPaymentMethods(IDirectDebit)
 

@@ -5,14 +5,8 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="view context/@@managePaymentMethodsView;
-                                customer view/getCustomer">
-        
-        
-            <div metal:use-macro="here/document_actions/macros/document_actions">
-                Document actions (print, sendto etc)
-            </div>
-
+                    tal:define="customer view/getCustomer">
+                
             <h1 class="documentFirstHeading"
                 i18n:translate="manage_payment_label">
                 Manage Payment
@@ -29,13 +23,16 @@
                 <tal:block tal:repeat="payment_method view/getDirectDebitAccounts">
                 <tr> 
                     <td>
-                         <metal:block metal:use-macro="context/easyshop_payment_macros/macros/directdebit" />
+                        <div tal:content="payment_method/getAccountNumber">Account-Number</div>  
+                        <div tal:content="payment_method/getBankIdentificationCode">Bank</div>      
+                        <div tal:content="payment_method/getBankName">Bank Name</div>                        
+                        <div tal:content="payment_method/getName">Owner Name</div>
                     </td>
                     <td class="buttons">
                         <form style="display:inline"  
                               action="#"
                               method="post"
-                              tal:attributes="action string:${payment_method/absolute_url}/base_edit">
+                              tal:attributes="action string:${payment_method/absolute_url}/@@edit">
                             <input type="hidden" name="goto" value="manage_payment_methods" />                                
 
                             <input type="submit" 
@@ -46,7 +43,7 @@
                         <form style="display:inline"
                               action="#"
                               method="post"
-                              tal:attributes="action customer/absolute_url">
+                              tal:attributes="action context/absolute_url">
                               
                             <input type="hidden" 
                                    name="id" 
@@ -68,21 +65,16 @@
                 </tal:block>    
             </table>        
        
-            <form action="#"
-                  tal:attributes="action string:${customer/absolute_url}/createObject">                  
+            <form method="post"
+                  action="#"
+                  tal:attributes="action string:${context/absolute_url}/add-direct-debit">
                   
                 <input type="hidden"
                        name="goto"
                        value="manage_payment_methods" />
 
-                <select name="type_name">  
-                    <option value="DirectDebit" 
-                            i18n:translate="direct_debit_label">
-                        Direct Debit
-                    </option>
-                </select>       
                 <input type="submit" 
-                       value="Add"
+                       value="Add Bank information"
                        i18n:attributes="value add_label;" />
             </form>      
                 

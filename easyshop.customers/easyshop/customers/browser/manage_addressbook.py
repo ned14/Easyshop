@@ -51,7 +51,7 @@ class ManageAddressBookView(BrowserView):
         putils.addPortalMessage(_("The address has been deleted."))
                                         
         # redirect to addressbook
-        url = "%s/easyshop_manage_addressbook" % self.context.absolute_url()
+        url = "%s/manage-addressbook" % self.context.absolute_url()
         self.context.request.response.redirect(url)
             
     def getCustomer(self):

@@ -5,8 +5,7 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="view context/@@manageAddressBookView;
-                                customer view/getCustomer">
+                    tal:define="customer view/getCustomer">
                 
             <h1 class="documentFirstHeading"
                 i18n:translate="manage_addressbook_label">

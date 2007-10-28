@@ -14,13 +14,14 @@ from plone.app.form.events import EditCancelledEvent, EditSavedEvent
 
 # easyshop imports
 from easyshop.core.config import _
+from easyshop.core.config import DEFAULT_SHOP_FORM
 from easyshop.core.interfaces import IAddress
 from easyshop.core.interfaces import IShopManagement
 
 class AddressEditForm(base.EditForm):
     """
     """
-    template = pagetemplatefile.ZopeTwoPageTemplateFile("address.pt")
+    template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)
     form_fields = form.Fields(IAddress)
     
     label = _(u"Edit Address")
@@ -43,7 +44,7 @@ class AddressEditForm(base.EditForm):
 
         # Return to overview
         shop = IShopManagement(self.context).getShop()    
-        url = "%s/easyshop_manage_addressbook" % shop.absolute_url()
+        url = "%s/manage-addressbook" % shop.absolute_url()
         self.request.response.redirect(url)
 
     @form.action(_(u"label_cancel", default=u"Cancel"),
@@ -54,17 +55,30 @@ class AddressEditForm(base.EditForm):
         """                
         zope.event.notify(EditCancelledEvent(self.context))
         shop = IShopManagement(self.context).getShop()    
-        url = "%s/easyshop_manage_addressbook" % shop.absolute_url()
+        url = "%s/manage-addressbook" % shop.absolute_url()
         self.request.response.redirect(url)
         
 class AddressAddForm(base.AddForm):
     """
     """
-    template = pagetemplatefile.ZopeTwoPageTemplateFile("address.pt")    
+    template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)    
     form_fields = form.Fields(IAddress)
     
     label = _(u"Add Address")
     form_name = _(u"Add Address")
+
+    @form.action(_(u"label_save", default=u"Save"),
+                 condition=form.haveInputWidgets,
+                 name=u'save')
+    def handle_save_action(self, action, data):
+        self.createAndAdd(data)
+    
+    @form.action(_(u"label_cancel", default=u"Cancel"),
+                 validator=null_validator,
+                 name=u'cancel')
+    def handle_cancel_action(self, action, data):
+        url = "%s/manage-addressbook" % self.context.absolute_url()
+        self.request.response.redirect(url)
     
     def createAndAdd(self, data):
         """
@@ -90,5 +104,6 @@ class AddressAddForm(base.AddForm):
         address.setPhone(data.get("phone"))
 
         shop = IShopManagement(self.context).getShop()
-        url = "%s/easyshop_manage_addressbook" % shop.absolute_url()
+        url = "%s/manage-addressbook" % shop.absolute_url()
         self.request.response.redirect(url)
+
