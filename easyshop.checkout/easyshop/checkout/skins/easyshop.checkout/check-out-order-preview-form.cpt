@@ -291,7 +291,7 @@
                         </tal:block>    
                         <a class="terms-and-conditions"
                            i18n:translate="terms_and_conditions_label_2"
-                           onclick="easyShopZoomWindow('agb_view', '800', '800')">
+                           onclick="easyShopZoomWindow('information-page?page_id=terms-and-conditions', '800', '800')">
                            terms and conditions</a>
                         <tal:block i18n:translate="terms_and_conditions_label_3">                           
                            of

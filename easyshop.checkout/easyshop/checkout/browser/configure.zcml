@@ -2,6 +2,27 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
+        name = "thank-you"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".thank_you.ThankYouPageView"
+        template = "thank_you.pt"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "send-recommendation"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".thank_you.ThankYouPageView"
+        attribute="sendRecommendation"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "send-recommendation-template"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".send_recommendation.SendRecommendationView"
+        template="send_recommendation.pt"
+        permission = "zope2.Public" />
+
+    <browser:page
         name = "CheckOutPaymentView"
         for = "easyshop.core.interfaces.IShop"
         class = ".payment.CheckOutPaymentView"
@@ -13,13 +34,6 @@
         for = "easyshop.core.interfaces.IShop"
         class = ".checkout.CheckOutView"
         allowed_interface = ".checkout.ICheckOutView"
-        permission = "zope2.Public" />
-
-    <browser:page
-        name = "thankYouPageView"
-        for = "easyshop.core.interfaces.IShop"
-        class = ".thank_you.ThankYouPageView"
-        allowed_interface = ".thank_you.IThankYouPageView"
         permission = "zope2.Public" />
 
     <browser:page

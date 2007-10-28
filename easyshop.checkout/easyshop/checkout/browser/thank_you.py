@@ -1,6 +1,5 @@
-# Zope imports
-from zope.interface import Interface
-from zope.interface import implements
+# zope imports
+from zope.component import getMultiAdapter
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -9,9 +8,9 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
+from easyshop.core.config import _
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IFormatterInfos
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrderManagement
@@ -21,42 +20,9 @@ from easyshop.core.interfaces import IPrices
 
 from easyshop.shop.subscribers.mailing import sendMultipartMail
 
-class IThankYouPageView(Interface):
-    """
-    """
-    def getFormatInfo():
-        """
-        """
-
-    def getLatestOrder():
-        """Returns the last order id of authenticated customer
-        """
-
-    def getMailInfo():
-        """
-        """
-
-    def getProducts():
-        """Returns selected products.
-        """
-
-    def getSelectors():
-        """
-        """
-
-    def sendRecommendation():
-        """
-        """
- 
-    def showEditLink():
-        """
-        """
-        
 class ThankYouPageView(BrowserView):
     """
     """
-    implements(IThankYouPageView)
-
     def getFormatInfo(self):
         """
         """
@@ -159,38 +125,24 @@ class ThankYouPageView(BrowserView):
 
         return result
 
-    def getMailInfo(self):
-        """
-        """
-        cm = ICustomerManagement(self.context)
-        customer = cm.getAuthenticatedCustomer()
-        am = IAddressManagement(customer)
-        shipping_address = am.getShippingAddress()
-
-        mtool = getToolByName(self.context, "portal_membership")        
-        member = mtool.getAuthenticatedMember()
-        
-        name  = shipping_address.getFirstname() + " "
-        name += shipping_address.getLastname()
-                
-        return {
-            "email" : member.getProperty("email"),
-            "name"  : name,
-        }
-                
     def sendRecommendation(self):
         """
         """
         if self.request.get("email", "") == "":        
-            url = "%s/check-out-thanks" % self.context.absolute_url()
-            url += "?portal_status_message=Bitte geben Sie eine E-Mail Adresse ein."
+            utool = getToolByName(self.context, "plone_utils")
+            utool.addPortalMessage(_("Please add a e-mail address."))                        
+            url = "%s/thank-you" % self.context.absolute_url()
 
         else:
-            # get charset
+            # Get charset
             props = getToolByName(self.context, "portal_properties").site_properties
             charset = props.getProperty("default_charset")
 
-            text = self.context.mail_recommend_shop()
+            template = getMultiAdapter(
+                (self.context, self.request),
+                name="send-recommendation-template")
+                
+            text = template()
             
             sendMultipartMail(
                 context = self.context,
@@ -200,9 +152,9 @@ class ThankYouPageView(BrowserView):
                 text    = text,
                 charset = charset)
 
-                
-            url = "%s/check-out-thanks" % self.context.absolute_url()
-            url += "?portal_status_message=Ihre Mail wurde versendet."
+            utool = getToolByName(self.context, "plone_utils")
+            utool.addPortalMessage(_("Your mail has been sent."))
+            url = "%s/thank-you" % self.context.absolute_url()
 
         self.request.response.redirect(url)
         

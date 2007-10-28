@@ -2,4 +2,4 @@
 title = 
 
 [actions]
-action.success = redirect_to:string:check-out-thanks
+action.success = redirect_to:string:thank-you

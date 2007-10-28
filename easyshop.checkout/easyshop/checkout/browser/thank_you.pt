@@ -5,11 +5,10 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="view context/@@thankYouPageView;
-                                order view/getLatestOrder;
+                    tal:define="order view/getLatestOrder;
                                 format_info view/getFormatInfo">
 
-            <h1 class="check-out-title"
+            <h1 class="documentFirstHeading"
                 i18n:translate="thank_you_title">
                 Thank you for your shopping!
             </h1> 
@@ -22,13 +21,13 @@
             <div id="checkout-last-order">
 
                 <tal:block i18n:translate="thank_you_description_2">
-                    We have accepted you order with number:   
+                    We have accepted you order with number
                 </tal:block>
 
                 <a href="."
                    tal:content="order/id"
                    tal:attributes="href order/url">
-                   4711</a>
+                   4711</a>.
 
                 <tal:block i18n:translate="thank_you_description_3">
                     You will get a confirmation via e-mail soon. You can see the status of your order at 
@@ -55,7 +54,7 @@
                         Please enter your friend's email address:
                     </tal:block>
                     <form action="."
-                          tal:attributes="action string:${context/absolute_url}/@@thankYouPageView"
+                          tal:attributes="action string:${context/absolute_url}/@@send-recommendation"
                           style="display:inline"
                           method="post">
 
@@ -64,7 +63,6 @@
                                name="email" />
 
                         <input type="submit"
-                               name="sendRecommendation:method"
                                value="Absenden" /> 
                     </form>           
                 </div> 
@@ -199,7 +197,8 @@
                 __utmSetTrans();
             </script>
 -->    
-        <div tal:replace="structure provider:plone.belowcontentbody" />                                    
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+        
         </metal:main> 
     </body>
 </html>
