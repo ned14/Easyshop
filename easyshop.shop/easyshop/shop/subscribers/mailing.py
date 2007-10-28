@@ -5,6 +5,7 @@ from Products.CMFPlone.utils import safe_unicode
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShopManagement
 
 # email imports
 from email.MIMEText import MIMEText
@@ -46,7 +47,7 @@ def mailOrderSubmitted(event):
     # Todo: Check possibility of TemplateFields, especially ZPTField in 
     # another context as the field owner.
     order = event.context
-    shop = order.getShop()
+    shop = order.IShopManagement(order).getShop()
     
     if shop.getMailFrom() and shop.getMailTo():
         text = order.mail_order_submitted()
@@ -69,7 +70,7 @@ def mailOrderSent(event):
     # Todo: Check possibility of TemplateFields, especially ZPTField in 
     # another context as the field owner.
     order = event.context
-    shop = order.getShop()
+    shop = IShopManagement(order).getShop()
 
     text = order.mail_order_sent()
     
