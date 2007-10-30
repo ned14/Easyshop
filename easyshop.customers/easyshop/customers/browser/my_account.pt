@@ -28,7 +28,8 @@
       </h2>
       <ul>
         <li>
-            <a href="easyshop_manage_user_form"
+            <a href="."
+               tal:attributes="href view/getCustomerEditURL"
                i18n:translate="manage_name_label">
                Manage name and e-mail address
             </a>    

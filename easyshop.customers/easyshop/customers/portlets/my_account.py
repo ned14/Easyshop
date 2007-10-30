@@ -14,6 +14,7 @@ from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
+from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShopManagement
 
 # create message factory
@@ -66,13 +67,9 @@ class Renderer(base.Renderer):
     def getUserName(self):
         """
         """
-        mtool = getToolByName(self.context, "portal_membership")        
-        m = mtool.getAuthenticatedMember()
-        
-        if m.getProperty("firstname") and m.getProperty("lastname"):
-            return m.getProperty("firstname") + " " + m.getProperty("lastname")
-        else:    
-            return m.getId()
+        shop = IShopManagement(self.context).getShop()
+        customer = ICustomerManagement(shop).getAuthenticatedCustomer()        
+        return customer.Title()
 
     @memoize
     def isAnonymous(self):

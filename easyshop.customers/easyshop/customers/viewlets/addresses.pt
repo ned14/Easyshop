@@ -36,10 +36,6 @@
                                name="uid"
                                tal:attributes="value address/UID" />
                                
-                        <input type="hidden" 
-                               name="goto" 
-                               value="addressbook" />
-                      
                         <input class="edit-address-form-button"
                                type="submit"
                                value="Edit"

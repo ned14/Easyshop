@@ -9,54 +9,50 @@ from Products.Archetypes.atapi import *
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.permissions import SetOwnPassword
-from Products.CMFCore.permissions import ManageUsers
-
-# membrane imports
-# from Products.membrane.interfaces import IUserAuthProvider
 
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomer
+from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import IPaymentManagement
 from easyshop.core.interfaces import IShippingManagement
 from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
-    StringField('id',
-        languageIndependent=True,
-        required=True,
-        write_permission=ManageUsers,
+    StringField(
+        name="firstname",
         widget=StringWidget(
-            label=u'User name',
-            label_msgid='schema_user_name_label',
-            description=u"Please select a username.",
-            description_msgid="schema_user_name_description",
-            i18n_domain='EasyShop',            
+            label="Firstname",
+            label_msgid="schema_firstname_label",
+            description = "",
+            description_msgid = "schema_firstname_description",
+            i18n_domain="EasyShop",
         ),
     ),
 
     StringField(
-        name='title',
+        name="lastname",
         widget=StringWidget(
-            visible={'edit':'invisible', 'view':'invisible'},
+            label="Lastname",
+            label_msgid="schema_lastname_label",
+            description = "",
+            description_msgid = "schema_lastname_description",
+            i18n_domain="EasyShop",
         ),
-        required=0,        
-        schemata="default"
     ),
 
     StringField(
-        name='phone',
+        name="email",
         widget=StringWidget(
-        schemata="name",
-            label_msgid='schema_phone_label',
-            i18n_domain='EasyShop',
+            label="E-mail",
+            label_msgid="schema_email_label",
+            description = "",
+            description_msgid = "schema_email_description",
+            i18n_domain="EasyShop",
         ),
-        schemata="name",
     ),
-
+    
     StringField(
         name='invoiceAddressAsString',
         default="default",
@@ -110,6 +106,9 @@ schema = Schema((
 ),
 )
 
+schema = BaseFolderSchema.copy() + schema.copy()
+schema["title"].widget.visible = {'view':'invisible', 'edit':'invisible'}
+
 class Customer(BaseFolder):
     """A customer can buy products from a shop. A customer has addresses and 
     payment methods. 
@@ -121,12 +120,35 @@ class Customer(BaseFolder):
     implements(ICustomer)    
     security = ClassSecurityInfo()
     _at_rename_after_creation = False
-    schema = BaseFolderSchema.copy() + schema.copy()
+    schema = schema
     
     def Title(self):
         """
         """
-        return self.getId()
+        if self.getFirstname() and self.getLastname():
+            return self.getFirstname() + " " + self.getLastname()
+        else:
+            return self.getId()
+
+    def SearchableText(self):
+        """
+        """
+        text = []
+        
+        text.append(self.getFirstname())
+        text.append(self.getLastname())
+        text.append(self.getEmail())
+        
+        am = IAddressManagement(self)
+        for address in am.getAddresses():
+            text.append(address.getFirstname())
+            text.append(address.getLastname())
+            text.append(address.getAddress1())
+            text.append(address.getZipCode())            
+            text.append(address.getCity())
+            text.append(address.getCountry())
+                        
+        return " ".join(text)
         
     def _getAddressesAsDL(self):
         """Returns all addresses as DisplayList.

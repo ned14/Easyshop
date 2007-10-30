@@ -1,5 +1,6 @@
 # Python imports
 import re
+import urllib
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -19,6 +20,47 @@ from easyshop.core.interfaces import IShopManagement
 class CustomersContainerView(BrowserView):
     """
     """
+    def getAddresses(self):
+        """
+        """
+        customer = self._getCustomer()
+        if customer is None:
+            return None
+            
+        goto  = self.context.absolute_url()
+        goto += "?letter=%s" % self.request.get("letter")
+        goto += "&uid=%s" % customer.UID()
+        goto  = urllib.quote(goto)
+        
+        am = IAddressManagement(customer)
+        
+        addresses = []
+        for address in am.getAddresses():
+            
+            # create name 
+            name = address.getFirstname() + " " + address.getLastname()
+            
+            # create address 1
+            address1 = address.getAddress1()
+            if address.getAddress2():
+                address1 += " / "
+                address1 += address.getAddress2()
+
+            # create address 2
+            address2 = address.getZipCode()  + " " + \
+                       address.getCity()     + " - " + \
+                       address.getCountry()
+            
+            addresses.append({
+                "name"     : name,
+                "address1" : address1,
+                "address2" : address2,                             
+                "phone"    : address.getPhone(),
+                "url"      : address.absolute_url() + "/@@edit?goto=" + goto
+            })
+
+        return addresses
+            
     def getCart(self):
         """
         """
@@ -46,6 +88,7 @@ class CustomersContainerView(BrowserView):
         return {
             "name" : self._getCustomerName(customer.getId()),
             "url"  : customer.absolute_url(),
+            "uid"  : customer.UID()
         }
                 
     def getCustomers(self):

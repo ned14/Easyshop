@@ -6,6 +6,7 @@
     <browser:page
         name="my-account"
         for="easyshop.core.interfaces.IShop"        
+        class=".my_account.MyAccountView"
         template="my_account.pt"
         permission="cmf.ModifyPortalContent" />
 
@@ -13,6 +14,12 @@
         name="manage-password"
         for="easyshop.core.interfaces.IShop"        
         template="manage_password.pt"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        name="edit"
+        for="easyshop.core.interfaces.ICustomer"
+        class=".manage_customer.CustomerEditForm"
         permission="cmf.ModifyPortalContent" />
     
     <!-- Payment Methods -->       

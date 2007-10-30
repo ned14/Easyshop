@@ -4,7 +4,6 @@ from zope.formlib import form
 import zope.event
 import zope.lifecycleevent
 
-
 from Products.Five.browser import pagetemplatefile
 
 # plone imports
@@ -42,10 +41,7 @@ class AddressEditForm(base.EditForm):
             zope.event.notify(EditCancelledEvent(self.context))
             self.status = "No changes"
 
-        # Return to overview
-        shop = IShopManagement(self.context).getShop()    
-        url = "%s/manage-addressbook" % shop.absolute_url()
-        self.request.response.redirect(url)
+        self.goto()
 
     @form.action(_(u"label_cancel", default=u"Cancel"),
                  validator=null_validator,
@@ -53,11 +49,21 @@ class AddressEditForm(base.EditForm):
     def handle_cancel_action(self, action, data):
         """
         """                
-        zope.event.notify(EditCancelledEvent(self.context))
-        shop = IShopManagement(self.context).getShop()    
-        url = "%s/manage-addressbook" % shop.absolute_url()
-        self.request.response.redirect(url)
-        
+        zope.event.notify(EditCancelledEvent(self.context))        
+        self.goto()
+
+    def goto(self):
+        """
+        """
+        url = self.request.get("goto", "")
+        if url != "":
+            self.request.response.redirect(url)
+        else:
+            shop = IShopManagement(self.context).getShop()    
+            url = "%s/manage-addressbook" % shop.absolute_url()
+            self.request.response.redirect(url)
+            
+            
 class AddressAddForm(base.AddForm):
     """
     """

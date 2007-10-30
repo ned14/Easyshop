@@ -73,6 +73,7 @@
                         <div id="customer-details-box"                          
                              tal:define="customer view/getCustomer;
                                          cart view/getCart;
+                                         addresses view/getAddresses;
                                          orders view/getOrders"
                              tal:condition="customer">
                             <h1 class="documentFirstHeading">
@@ -83,23 +84,54 @@
                                     </span>
                                 </a>    
                             </h1>
+                            <h1 i18n:translate="addresses_label">
+                                Addresses
+                            </h1>
+                            <ul tal:repeat="address addresses">                                
+                                <li>
+                                    <div tal:content="address/name">
+                                        Name
+                                    </div>    
+                                    <div tal:content="address/address1">
+                                        Address 1
+                                    </div>                                        
+                                    <div tal:content="address/address2">
+                                        Address 2
+                                    </div>                                        
+                                    <div tal:content="address/phone">
+                                        Address 1
+                                    </div>                                        
+                                </li>
+                                <a href="."
+                                   tal:attributes="href address/url"
+                                   i18n:translate="edit_label">
+                                   Edit
+                                </a>
+                                <hr/>
+                            </ul>    
+                            <div tal:condition="not:addresses"
+                                 i18n:translate="no_addresses_label">
+                                 There are no addresses
+                            </div>    
                             <h1 i18n:translate="orders_label">
                                 Orders
                             </h1>
-                            <div tal:repeat="order orders">
-                                <a href="."
-                                   tal:attributes="href order/url">
-                                    <span tal:content="order/created" />                                    
-                                    / <span tal:content="order/id" />
-                                    / <span tal:content="order/review_state" /> 
-                                </a>                                
-                                <!-- <div style="cursor:pointer; text-decoration:underline"
-                                     tal:define="url order/url"
-                                     tal:attributes="onclick string:easyShopZoomWindow('$url', '935', '805')">
-                                    <span tal:content="order/id" />
-                                    (<span tal:content="order/review_state" />)
-                                </div> -->
-                            </div>
+                            <ul>
+                                <li tal:repeat="order orders">
+                                    <a href="."
+                                       tal:attributes="href order/url">
+                                        <span tal:content="order/created" />                                    
+                                        / <span tal:content="order/id" />
+                                        / <span tal:content="order/review_state" /> 
+                                    </a>                                
+                                    <!-- <div style="cursor:pointer; text-decoration:underline"
+                                         tal:define="url order/url"
+                                         tal:attributes="onclick string:easyShopZoomWindow('$url', '935', '805')">
+                                        <span tal:content="order/id" />
+                                        (<span tal:content="order/review_state" />)
+                                    </div> -->
+                                </li>
+                            </ul>
                             <div tal:condition="not: orders"
                                  i18n:translate="no_orders_label">
                                 There are no orders.
