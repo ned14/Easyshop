@@ -150,6 +150,16 @@ class OrderManagement:
 
         return orders
 
+    def getOrdersForCustomer(self, customer_id):
+        """
+        """
+        orders = []
+        for order in self.getOrders():
+            if order.getCustomer().getId() == customer_id:
+                orders.append(order)
+
+        return orders
+        
     def createOrderId(self):
         """Creates a new unique order id
         """

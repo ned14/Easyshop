@@ -17,7 +17,7 @@ class MyOrdersView(BrowserView):
         """
         """
         om = IOrderManagement(self.context)
-        orders = om.getOrdersForAuthenticatedCustomer()        
+        orders = om.getOrdersForAuthenticatedCustomer()
         wftool = getToolByName(self.context, "portal_workflow")
         ttool  = getToolByName(self.context, 'translation_service')
         
