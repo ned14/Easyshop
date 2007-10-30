@@ -202,6 +202,9 @@ td.product-navigation,
 td.category-navigation {
     text-align:right;
 }
+a.current-category {
+    color: red;
+}
 
 table.cart th {    
     height:30px;
