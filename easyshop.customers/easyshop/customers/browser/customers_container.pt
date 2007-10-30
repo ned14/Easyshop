@@ -6,43 +6,123 @@
 
         <metal:main fill-slot="main"
                     tal:define="customers view/getCustomers">
-                    
+  
             <div tal:replace="structure provider:plone.abovecontenttitle" />
-   
+  
             <h1 class="documentFirstHeading"
-                 i18n:translate="customers_label">
-                 Customers
+                i18n:translate="customers_label">
+                Customers
             </h1>
- 
+
+            <p class="documentDescription"
+               i18n:translate="customers_view_description">
+                This is an overview over all existing customers.
+            </p>
+
             <a href="#"
                class="link-parent"
                tal:attributes="href context/aq_parent/absolute_url"
                i18n:translate="shop_label">
                 Shop
             </a>  
-   
-            <div tal:condition="not:customers"
-                 i18n:translate="no_customers_label">
-                There are no customers.
+    
+            <div id="letters">
+                <a tal:repeat="letter view/getLetters"
+                   tal:attributes="href string:${context/absolute_url}?letter=$letter;
+                                   class string:kssattr-letter-$letter"
+                   tal:content="letter">
+                   A
+                </a>
+                <form id="search-customers-form"
+                      action="."
+                      method="post"
+                      style="display:inline">
+
+                    <input type="text"
+                           name="searchable_text" />
+
+                    <input id="search-customers"
+                           type="submit"
+                           value="OK" />
+                </form>              
             </div>
                 
-            <table tal:condition="customers">
-                <tr tal:repeat="customer customers">
-                    <td tal:content="customer/id">
-                        id
-                    </td>
-                                        
-                    <!-- <td tal:content="customer/fullname" />
-                    <td tal:content="customer/email" /> -->
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+            
+            <table class="shop-default">
+                <tr>
+                    <td width="50%">
+                        <div id="customers">
+                            <ul>
+                                <li tal:repeat="customer customers">
+                                    <a href="."
+                                       tal:attributes="href string:${context/absolute_url}?letter=${request/letter}&uid=${customer/uid}"
+                                       tal:content="customer/name">
+                                        Name
+                                    </a>
+                                </li>
+                            </ul>
                     
+                            <div tal:condition="not:customers"
+                                 i18n:translate="no_products_label">
+                                There are no customers.
+                            </div>                    
+                        </div>                        
+                    </td>
                     <td>
-                        <a tal:attributes="href string:${customer/url}/base_edit">[Edit]</a>
-                    </td>                    
+                        <div id="customer-details-box"                          
+                             tal:define="customer view/getCustomer;
+                                         cart view/getCart;
+                                         orders view/getOrders"
+                             tal:condition="customer">
+                            <h1 class="documentFirstHeading">
+                                <a href="."
+                                   tal:attributes="href customer/url">
+                                    <span tal:replace="customer/name">
+                                        John Doe
+                                    </span>
+                                </a>    
+                            </h1>
+                            <h1 i18n:translate="orders_label">
+                                Orders
+                            </h1>
+                            <div tal:repeat="order orders">
+                                <a href="."
+                                   tal:attributes="href order/url">
+                                    <span tal:content="order/created" />                                    
+                                    / <span tal:content="order/id" />
+                                    / <span tal:content="order/review_state" /> 
+                                </a>                                
+                                <!-- <div style="cursor:pointer; text-decoration:underline"
+                                     tal:define="url order/url"
+                                     tal:attributes="onclick string:easyShopZoomWindow('$url', '935', '805')">
+                                    <span tal:content="order/id" />
+                                    (<span tal:content="order/review_state" />)
+                                </div> -->
+                            </div>
+                            <div tal:condition="not: orders"
+                                 i18n:translate="no_orders_label">
+                                There are no orders.
+                            </div>    
+                            <tal:block tal:condition="cart">
+                                <h1 i18n:translate="orders_label">
+                                    Cart
+                                </h1>
+                                <a href="."
+                                   tal:attributes="href cart/url"
+                                   i18n:translate="go_to_cart_label">
+                                   Go to Cart
+                                </a>    
+                            </tal:block>
+                            <div tal:condition="not:cart"
+                                 i18n:translate="no_cart_label">
+                                 This customer has no cart yet.
+                            </div>
+                        </div>        
+                    </td>
                 </tr>
             </table>
-            
-            <div tal:replace="structure provider:plone.belowcontentbody" />
-                
-        </metal:main>            
+        </metal:main>
+    
     </body>
 </html>

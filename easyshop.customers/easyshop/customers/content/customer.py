@@ -122,7 +122,12 @@ class Customer(BaseFolder):
     security = ClassSecurityInfo()
     _at_rename_after_creation = False
     schema = BaseFolderSchema.copy() + schema.copy()
-
+    
+    def Title(self):
+        """
+        """
+        return self.getId()
+        
     def _getAddressesAsDL(self):
         """Returns all addresses as DisplayList.
         """
@@ -155,5 +160,5 @@ class Customer(BaseFolder):
             dl.add(payment_method.getId(), payment_method.Title())
 
         return dl
-
+    
 registerType(Customer, PROJECTNAME)
