@@ -10,10 +10,31 @@
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
+        name="kss_show_edit_address_form"
+        for="*"
+        class=".address.AddressKSSView"
+        attribute="showEditAddressForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
         name="kss_add_address"
         for="*"
         class=".address.AddressKSSView"
         attribute="addAddress"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        name="kss_edit_address"
+        for="*"
+        class=".address.AddressKSSView"
+        attribute="editAddress"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        name="kss_cancel_address"
+        for="*"
+        class=".address.AddressKSSView"
+        attribute="cancelAddress"
         permission="cmf.ModifyPortalContent" />
 
 </configure>

@@ -1,13 +1,51 @@
-ADDRESS_ADD_FORM = """
-    <form id="add-address-form">
-        <label>
-            Name
-        </label>    
+from easyshop.core.config import _
 
-        <input name="firstname" 
-               type="text" />
+def FORM_HEADER(form_id):
+    return """
+        <form id="%s">
+            <table>
+    """ % form_id
+    
+def FORM_TEXT_FIELD(label, name, required=False, value=""):
+    """
+    """
+    result = """
+        <tr>
+            <td>
+                <label>
+                    %s
+                </label>    
+    """ % label
+    
+    if required == True:
+        result += """
+                <span class="fieldRequired"
+                      title="Required">
+                    (Required)
+                </span>
+        """
+    result += """                        
+            </td>
+            <td>
+                <input name="%s"
+                       value="%s"
+                       type="text" />                
+            </td>
+        </tr>
+    """ % (name, value)
+    
+    return result
 
-        <input id="add-address" 
+def FORM_BUTTON(id, value="Save", klass="context"):
+    return """
+        <input class="%s" 
+               value="%s"
+               id="%s" 
                type="submit" />
-    </form>
-"""
+    """ % (klass, _(value), id)
+
+def FORM_FOOTER():
+    return """
+            </table>    
+        </form>
+    """
