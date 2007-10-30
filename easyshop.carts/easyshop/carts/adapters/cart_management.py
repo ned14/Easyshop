@@ -107,10 +107,7 @@ class CartManagement:
     def getCartById(self, id):
         """Returns a cart by given id.        
         """
-        try:
-            return self.context.carts[id]
-        except KeyError:
-            return None
+        return self.context.carts.get(id)
 
     def getCartByUID(self, uid):
         """Returns a cart by given uid.        
