@@ -196,8 +196,7 @@
                         </div>                               
                     </td>
                 </tr>
-         
-          </metal:main>
-    
+            </table>
+        </metal:main>    
     </body>
 </html>

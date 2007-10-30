@@ -20,7 +20,7 @@
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">category-view</property>
- <property name="view_methods">
+ <property name="view_methods">     
   <element value="category-view"/>
   <element value="product-selector-view"/>
  </property>
@@ -29,7 +29,7 @@
  <alias from="edit" to="atct_edit"/>
  <alias from="sharing" to="@@sharing"/>
  <alias from="view" to="(selected layout)"/>
- <alias from="manage" to="@@category-manage-view"/>
+ <alias from="manage" to="@@categories-view"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${folder_url}/" visible="True"
     i18n:attributes="title">

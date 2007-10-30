@@ -44,11 +44,19 @@
         permission="zope.Public" />
 
     <browser:page
-        for="easyshop.core.interfaces.ICategoriesContainer"
         name="categories-view"
+        for="*"
         template="categories_view.pt"
         class=".categories_view.CategoriesView"
         permission="cmf.ManagePortal" />
+
+    <browser:viewlet
+        name="plone.contentactions"
+        for="*"
+        view=".categories_view.ICategoriesView"
+        manager="plone.app.layout.viewlets.interfaces.IContentViews"
+        class="plone.app.layout.viewlets.common.ContentActionsViewlet"  
+        permission="zope2.View" />
 
     <browser:page 
         for="easyshop.core.interfaces.ICategory"
