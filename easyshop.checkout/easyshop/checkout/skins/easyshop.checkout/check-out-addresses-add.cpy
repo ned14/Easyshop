@@ -32,19 +32,17 @@ address.setCity(city)
 address.setCountry(country)
 address.setPhone(phone)
 
-# set appropriate address type    
+# set appropriate address type
 if address_type=="shipping":
     customer.setShippingAddressAsString(id)
     if also_invoice_address == "yes":
         customer.setInvoiceAddressAsString(id)
-        
-    # member=context.portal_membership.getAuthenticatedMember()
-    # if member.getProperty('firstname') == "":
-    #     member.setProperties({
-    #         "firstname" : firstname,
-    #         "lastname"  : lastname,
-    #     })
 
+    # Set name on customer object (if it's empty)
+    if customer.getFirstname() == "":
+        customer.setFirstname(firstname)
+        customer.setLastname(lastname)
+        
 else:
     customer.setInvoiceAddressAsString(id)
 
