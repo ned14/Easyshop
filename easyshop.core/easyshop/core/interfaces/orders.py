@@ -22,9 +22,13 @@ class IOrderManagement(Interface):
         """
 
     def getOrdersForAuthenticatedCustomer():
-        """Returns all orders for the actual customer
+        """Returns all orders for the current customer
         """
 
+    def getOrdersForCustomer(customer_id):
+        """Returns orders for customer with given id.
+        """
+        
     def createOrderId():
         """Creates a new unique order id
         """

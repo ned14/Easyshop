@@ -72,15 +72,19 @@
                     </tr>
                     </tal:block>               
                 </table>
-  
-              <div id="actionsView">
-                  <span class="actionButtons"
-                        tal:condition="view/availableActions"
-                        metal:define-slot="bottom_buttons">
-                      <input tal:repeat="action view/actions"
-                             tal:replace="structure action/render" />
-                  </span>
-              </div>
+                
+                <input type="hidden"
+                       name="goto"
+                       tal:attributes="value context/REQUEST/goto|nothing" />
+                       
+                <div id="actionsView">
+                    <span class="actionButtons"
+                          tal:condition="view/availableActions"
+                          metal:define-slot="bottom_buttons">
+                        <input tal:repeat="action view/actions"
+                               tal:replace="structure action/render" />
+                    </span>
+                </div>
             </form>
 
         </div>

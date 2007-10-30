@@ -1,5 +1,6 @@
 # zope imports
 from zope.interface import Interface
+from zope.interface import Attribute
 from zope import schema
 
 # easyshop.core imports
@@ -127,7 +128,31 @@ class ICustomersContainer(Interface):
 class ICustomer(Interface):
     """A customer can buy products from the shop.
     """
-    
+    firstname = schema.TextLine(
+        title=_(u'Firstname'),
+        description=_(u"Please enter your firstname."),
+        default=u'',
+        required=True,
+    )
+
+    lastname = schema.TextLine(
+        title=_(u'Lastname'),
+        description=_(u"Please enter your lastname."),
+        default=u'',
+        required=True,
+    )
+
+    email = schema.TextLine(
+        title=_(u'E-mail'),
+        description=_(u"Please enter your e-mail."),
+        default=u'',
+        required=True,
+    )
+
+    invoiceAddressAsString  = Attribute("The selected invoice address.")
+    shippingAddressAsString = Attribute("The selected shipping address.")
+    selectedPaymentMethod   = Attribute("The selected payment method.")
+    selectedShippingMethod  = Attribute("The selected shipping method.")
 class ICustomerManagement(Interface):
     """Provides methods to manage customer content objects.
     """
