@@ -56,7 +56,8 @@
                             <ul>
                                 <li tal:repeat="customer customers">
                                     <a href="."
-                                       tal:attributes="href string:${context/absolute_url}?letter=${request/letter}&uid=${customer/uid}"
+                                       tal:define="letter context/REQUEST/letter|nothing"
+                                       tal:attributes="href string:${context/absolute_url}?letter=$letter&uid=${customer/uid}"
                                        tal:content="customer/name">
                                         Name
                                     </a>
@@ -84,13 +85,20 @@
                                     </span>
                                 </a>    
                             </h1>
+                            <div tal:content="customer/email">
+                                E-mail
+                            </div>                                
                             <h1 i18n:translate="addresses_label">
                                 Addresses
                             </h1>
                             <ul tal:repeat="address addresses">                                
                                 <li>
-                                    <div tal:content="address/name">
-                                        Name
+                                    <div>
+                                        <a href="."
+                                           tal:attributes="href address/url"
+                                           tal:content="address/name">
+                                           Name
+                                        </a>
                                     </div>    
                                     <div tal:content="address/address1">
                                         Address 1
@@ -102,12 +110,6 @@
                                         Address 1
                                     </div>                                        
                                 </li>
-                                <a href="."
-                                   tal:attributes="href address/url"
-                                   i18n:translate="edit_label">
-                                   Edit
-                                </a>
-                                <hr/>
                             </ul>    
                             <div tal:condition="not:addresses"
                                  i18n:translate="no_addresses_label">

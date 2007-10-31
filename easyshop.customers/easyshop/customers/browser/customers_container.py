@@ -84,18 +84,26 @@ class CustomersContainerView(BrowserView):
         customer = self._getCustomer()
         if customer is None:
             return None
+        
+        goto  = self.context.absolute_url()
+        goto += "?letter=%s" % self.request.get("letter")
+        goto += "&uid=%s" % customer.UID()
+        goto  = urllib.quote(goto)
             
         return {
-            "name" : self._getCustomerName(customer.getId()),
-            "url"  : customer.absolute_url(),
-            "uid"  : customer.UID()
+            "name"  : customer.Title(),
+            "email" : customer.getEmail(),
+            "url"   : customer.absolute_url() + "/@@edit?goto=" + goto,
+            "uid"   : customer.UID()
         }
                 
     def getCustomers(self):
         """
         """
         catalog = getToolByName(self.context, "portal_catalog")
-                
+        letter = self.request.get("letter", "")
+        result = []
+                            
         searchable_text = self.request.get("searchable_text", "")
         if searchable_text != "":
             result = catalog.searchResults(
@@ -104,15 +112,11 @@ class CustomersContainerView(BrowserView):
                 SearchableText = searchable_text,
                 sort_on = "sortable_title",
             )
-        
-            return result
-        
-        letter = self.request.get("letter", "")
-        if letter == "":
+                    
+        elif letter == "":
             return []
         
-        result = []
-        if letter == "All":
+        elif letter == "All":
             result = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
                 portal_type = "Customer",
@@ -130,22 +134,18 @@ class CustomersContainerView(BrowserView):
                 if re.match("\d", brain.Title):
                     result.append(brain)
         else:
-            brains = catalog.searchResults(
+            result = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
                 portal_type = "Customer",
-                Title = "%s*" % letter,
-                sort_on = "sortable_title",
+                lastname = "%s*" % letter,
+                sort_on = "sortable_lastname",
             )
             
-            for brain in brains:
-                if brain.Title.upper().startswith(letter):
-                    result.append(brain)
-
         temp = []
         for customer in result:
 
             temp.append({
-                "name" : self._getCustomerName(customer.getId),
+                "name" : customer.Title,
                 "uid"  : customer.UID,
                 "url"  : customer.getURL(),
             })
@@ -211,16 +211,3 @@ class CustomersContainerView(BrowserView):
             return brains[0].getObject()
         except:
             return None
-                    
-    def _getCustomerName(self, customer_id):
-        """
-        """
-        mtool = getToolByName(self.context, "portal_membership")            
-        member = mtool.getMemberById(customer_id)
-        if member and member.getProperty('firstname') and member.getProperty('lastname'):
-            name = member.getProperty('firstname') + " " + \
-                   member.getProperty('lastname')
-        else:
-            name = customer_id
-            
-        return name

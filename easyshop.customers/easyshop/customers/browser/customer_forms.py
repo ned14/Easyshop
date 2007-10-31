@@ -44,7 +44,8 @@ class CustomerEditForm(base.EditForm):
         else:
             zope.event.notify(EditCancelledEvent(self.context))
 
-        self._redirect()
+        self.context.reindexObject()
+        self._nextUrl()
         
     @form.action(_(u"label_cancel", default=u"Cancel"),
                  validator=null_validator,
@@ -55,13 +56,12 @@ class CustomerEditForm(base.EditForm):
         utils = getToolByName(self.context, "plone_utils")
         utils.addPortalMessage(_(u"Edit canceled"), "info")
         
-        zope.event.notify(EditCancelledEvent(self.context))
-        self._redirect()
-        
-    def _redirect(self):
+        zope.event.notify(EditCancelledEvent(self.context))        
+        self._nextUrl()        
+
+    def _nextUrl(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
-        url = "%s/my-account" % shop.absolute_url()
-        self.context.request.response.redirect(url)
-        return ""
+        url = self.request.get("goto", "")
+        if url != "":
+            self.request.response.redirect(url)

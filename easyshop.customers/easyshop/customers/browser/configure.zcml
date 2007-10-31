@@ -19,7 +19,7 @@
     <browser:page
         name="edit"
         for="easyshop.core.interfaces.ICustomer"
-        class=".manage_customer.CustomerEditForm"
+        class=".customer_forms.CustomerEditForm"
         permission="cmf.ModifyPortalContent" />
     
     <!-- Payment Methods -->       
