@@ -75,11 +75,12 @@
                              tal:define="customer view/getCustomer;
                                          cart view/getCart;
                                          addresses view/getAddresses;
-                                         orders view/getOrders"
+                                         orders view/getOrders;
+                                         bank_information view/getBankInformation"
                              tal:condition="customer">
                             <h1 class="documentFirstHeading">
                                 <a href="."
-                                   tal:attributes="href customer/url">
+                                   tal:attributes="href string:${customer/url}/@@edit?goto=${customer/goto}">
                                     <span tal:replace="customer/name">
                                         John Doe
                                     </span>
@@ -88,15 +89,15 @@
                             <div tal:content="customer/email">
                                 E-mail
                             </div>                                
-                            <h1 i18n:translate="addresses_label">
-                                Addresses
+                            <h1>
+                                <a href="."
+                                   tal:attributes="href string:${customer/url}/manage-addressbook"
+                                   i18n:translate="addresses_label">
+                                    Addresses
+                                </a>
                             </h1>
-                            <a href="."
-                               tal:attributes="href string:${view/getShopURL}/manage-addressbook?customer_id=${customer/id}">
-                               Manage Addressbook
-                            </a>
-                            <ul tal:repeat="address addresses">                                
-                                <li>
+                            <ul>
+                                <li tal:repeat="address addresses">
                                     <div>
                                         <a href="."
                                            tal:attributes="href address/url"
@@ -118,7 +119,38 @@
                             <div tal:condition="not:addresses"
                                  i18n:translate="no_addresses_label">
                                  There are no addresses
-                            </div>    
+                            </div> 
+                            <h1>
+                                <a href="."
+                                   tal:attributes="href string:${customer/url}/manage-payment-methods"
+                                   i18n:translate="bank_information_label">
+                                    Bank Information
+                                </a>
+                            </h1>
+                            <ul>
+                                <li tal:repeat="bi bank_information">
+                                    <div>
+                                        <a href="."
+                                           tal:attributes="href string:${bi/url}/@@edit?goto=${customer/goto}"
+                                           tal:content="bi/account_number">
+                                          Account Number
+                                        </a>
+                                    </div>
+                                    <div tal:content="bi/bic">
+                                        Bank Information Code
+                                    </div>                   
+                                    <div tal:content="bi/bank_name">
+                                        Bank Name
+                                    </div>                   
+                                    <div tal:content="bi/name">
+                                        Account Owner
+                                    </div>                                                                            
+                                </li>
+                            </ul>    
+                            <div tal:condition="not:bank_information"
+                                 i18n:translate="no_bank_information_label">
+                                 There are no bank information
+                            </div>  
                             <h1 i18n:translate="orders_label">
                                 Orders
                             </h1>

@@ -28,9 +28,7 @@ class AddressEditForm(base.EditForm):
     description = _("To change your address edit the form and press save.")
     form_name = _(u"Edit Address")
 
-    @form.action(_(u"label_save", default="Save"),
-                 condition=form.haveInputWidgets,
-                 name=u'save')
+    @form.action(_(u"label_save", default="Save"), condition=form.haveInputWidgets, name=u'save')
     def handle_save_action(self, action, data):
         """
         """
@@ -42,11 +40,12 @@ class AddressEditForm(base.EditForm):
             zope.event.notify(EditCancelledEvent(self.context))
             self.status = "No changes"
 
+        self.context.reindexObject()
+        self.context.aq_inner.aq_parent.reindexObject()
+
         self.goto()
 
-    @form.action(_(u"label_cancel", default=u"Cancel"),
-                 validator=null_validator,
-                 name=u'cancel')
+    @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
     def handle_cancel_action(self, action, data):
         """
         """                
@@ -55,7 +54,7 @@ class AddressEditForm(base.EditForm):
 
     def goto(self):
         """
-        """
+        """        
         url = self.request.get("goto", "")
         if url != "":
             self.request.response.redirect(url)
@@ -74,16 +73,16 @@ class AddressAddForm(base.AddForm):
     label = _(u"Add Address")
     form_name = _(u"Add Address")
 
-    @form.action(_(u"label_save", default=u"Save"),
-                 condition=form.haveInputWidgets,
-                 name=u'save')
+    @form.action(_(u"label_save", default=u"Save"), condition=form.haveInputWidgets, name=u'save')
     def handle_save_action(self, action, data):
+        """
+        """
         self.createAndAdd(data)
     
-    @form.action(_(u"label_cancel", default=u"Cancel"),
-                 validator=null_validator,
-                 name=u'cancel')
+    @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
     def handle_cancel_action(self, action, data):
+        """
+        """
         self.goto()
     
     def createAndAdd(self, data):
@@ -104,7 +103,10 @@ class AddressAddForm(base.AddForm):
         address.setCity(data.get("city", ""))
         address.setCountry(data.get("country", ""))
         address.setPhone(data.get("phone", ""))
-        
+
+        address.reindexObject()
+        self.context.reindexObject()
+                
         self.goto()
         
     def goto(self):

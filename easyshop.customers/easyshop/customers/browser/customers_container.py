@@ -14,7 +14,9 @@ from plone.memoize.instance import memoize
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IDirectDebit
 from easyshop.core.interfaces import IOrderManagement
+from easyshop.core.interfaces import IPaymentManagement
 from easyshop.core.interfaces import IShopManagement
 
 class CustomersContainerView(BrowserView):
@@ -60,7 +62,28 @@ class CustomersContainerView(BrowserView):
             })
 
         return addresses
+
+    def getBankInformation(self):
+        """
+        """
+        
+        customer = self._getCustomer()
+        if customer is None:
+            return []
+        
+        result = []
+        pm = IPaymentManagement(customer)
+        for payment_method in pm.getPaymentMethods(IDirectDebit):
+            result.append({
+                "url"            : payment_method.absolute_url(),
+                "account_number" : payment_method.getAccountNumber(),
+                "bic"            : payment_method.getBankIdentificationCode(),
+                "name"           : payment_method.getName(),
+                "bank_name"      : payment_method.getBankName(),
+            })
             
+        return result
+        
     def getCart(self):
         """
         """
@@ -68,8 +91,7 @@ class CustomersContainerView(BrowserView):
         if customer is None:
             return None
             
-        shop = IShopManagement(self.context).getShop()
-        cart = ICartManagement(shop).getCartById(customer.getId())
+        cart = ICartManagement(self._getShop()).getCartById(customer.getId())
         
         if cart is None:
             return None
@@ -93,9 +115,10 @@ class CustomersContainerView(BrowserView):
         return {
             "name"  : customer.Title(),
             "email" : customer.getEmail(),
-            "url"   : customer.absolute_url() + "/@@edit?goto=" + goto,
+            "url"   : customer.absolute_url(),
             "uid"   : customer.UID(),
             "id"    : customer.getId(),
+            "goto"  : goto,
         }
                 
     def getCustomers(self):
@@ -170,8 +193,7 @@ class CustomersContainerView(BrowserView):
         if customer is  None:
             return []
             
-        shop = IShopManagement(self.context).getShop()
-        om = IOrderManagement(shop)
+        om = IOrderManagement(self._getShop())
         
         orders = []                
         for order in om.getOrdersForCustomer(customer.getId()):
@@ -212,3 +234,9 @@ class CustomersContainerView(BrowserView):
             return brains[0].getObject()
         except:
             return None
+            
+    @memoize
+    def _getShop(self):
+        """
+        """
+        return IShopManagement(self.context).getShop()        
