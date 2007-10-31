@@ -70,8 +70,7 @@
           method="post"
           action="#"                  
           tal:attributes="action string:${context/absolute_url}/@@add-address">
-        <input type="hidden" name="type_name" value="Address" />
-        <input type="hidden" name="goto" value="addressbook" />
+
         <input id="add-address-form-button"
                type="submit" 
                value="Add Address"

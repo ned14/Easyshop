@@ -54,7 +54,8 @@ class Renderer(base.Renderer):
     def getMyAccountUrl(self):
         """
         """
-        return "%s/my-account" % IShopManagement(self.context).getShop().absolute_url()
+        customer = self.getCustomer()
+        return "%s/my-account" % customer.absolute_url()
 
     @memoize
     def getPortalUrl(self):
@@ -67,8 +68,7 @@ class Renderer(base.Renderer):
     def getUserName(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
-        customer = ICustomerManagement(shop).getAuthenticatedCustomer()        
+        customer = self.getCustomer()
         return customer.Title()
 
     @memoize
@@ -78,7 +78,13 @@ class Renderer(base.Renderer):
         mtool = getToolByName(self.context, "portal_membership")
         return mtool.isAnonymousUser()
 
-
+    @memoize
+    def getCustomer(self):
+        """
+        """
+        shop = IShopManagement(self.context).getShop()
+        return ICustomerManagement(shop).getAuthenticatedCustomer()
+        
 class AddForm(base.NullAddForm):
     """
     """

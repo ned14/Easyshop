@@ -65,3 +65,8 @@ class CustomerEditForm(base.EditForm):
         url = self.request.get("goto", "")
         if url != "":
             self.request.response.redirect(url)
+        else:
+            url =  self.context.absolute_url()
+            url += "/my-account"
+            self.request.response.redirect(url)
+            

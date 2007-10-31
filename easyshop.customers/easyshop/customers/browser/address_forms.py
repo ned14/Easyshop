@@ -15,6 +15,7 @@ from plone.app.form.events import EditCancelledEvent, EditSavedEvent
 from easyshop.core.config import _
 from easyshop.core.config import DEFAULT_SHOP_FORM
 from easyshop.core.interfaces import IAddress
+from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShopManagement
 
 class AddressEditForm(base.EditForm):
@@ -59,8 +60,8 @@ class AddressEditForm(base.EditForm):
         if url != "":
             self.request.response.redirect(url)
         else:
-            shop = IShopManagement(self.context).getShop()    
-            url = "%s/manage-addressbook" % shop.absolute_url()
+            customer = self.context.aq_inner.aq_parent
+            url = "%s/manage-addressbook" % customer.absolute_url()
             self.request.response.redirect(url)
             
             
@@ -83,21 +84,16 @@ class AddressAddForm(base.AddForm):
                  validator=null_validator,
                  name=u'cancel')
     def handle_cancel_action(self, action, data):
-        url = "%s/manage-addressbook" % self.context.absolute_url()
-        self.request.response.redirect(url)
+        self.goto()
     
     def createAndAdd(self, data):
         """
         """
-        # get customer
-        view = getMultiAdapter((self.context, self.context.REQUEST), name="checkOutView")
-        customer = view.getAuthenticatedCustomer()
-
         # add address
         id = self.context.generateUniqueId("Address")
 
-        customer.invokeFactory("Address", id=id, title=data.get("address1"))
-        address = getattr(customer, id)
+        self.context.invokeFactory("Address", id=id, title=data.get("address1"))
+        address = getattr(self.context, id)
 
         # set data
         address.setFirstname(data.get("firstname", ""))
@@ -108,3 +104,15 @@ class AddressAddForm(base.AddForm):
         address.setCity(data.get("city", ""))
         address.setCountry(data.get("country", ""))
         address.setPhone(data.get("phone", ""))
+        
+        self.goto()
+        
+    def goto(self):
+        """
+        """
+        url = self.request.get("goto", "")
+        if url != "":
+            self.request.response.redirect(url)
+        else:            
+            url = "%s/manage-addressbook" % self.context.absolute_url()
+            self.request.response.redirect(url)

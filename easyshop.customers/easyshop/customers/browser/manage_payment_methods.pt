@@ -4,8 +4,7 @@
       i18n:domain="EasyShop">
     <body>
 
-        <metal:main fill-slot="main"
-                    tal:define="customer view/getCustomer">
+        <metal:main fill-slot="main">
                 
             <h1 class="documentFirstHeading"
                 i18n:translate="manage_payment_label">
@@ -33,7 +32,6 @@
                               action="#"
                               method="post"
                               tal:attributes="action string:${payment_method/absolute_url}/@@edit">
-                            <input type="hidden" name="goto" value="manage_payment_methods" />                                
 
                             <input type="submit" 
                                    value="Edit"
@@ -69,11 +67,7 @@
                   action="#"
                   tal:attributes="action string:${context/absolute_url}/add-direct-debit">
                   
-                <input type="hidden"
-                       name="goto"
-                       value="manage_payment_methods" />
-
-                <input type="submit" 
+                <input type="submit"
                        value="Add Bank information"
                        i18n:attributes="value add_label;" />
             </form>      

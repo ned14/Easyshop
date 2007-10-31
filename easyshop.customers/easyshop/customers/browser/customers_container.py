@@ -94,7 +94,8 @@ class CustomersContainerView(BrowserView):
             "name"  : customer.Title(),
             "email" : customer.getEmail(),
             "url"   : customer.absolute_url() + "/@@edit?goto=" + goto,
-            "uid"   : customer.UID()
+            "uid"   : customer.UID(),
+            "id"    : customer.getId(),
         }
                 
     def getCustomers(self):

@@ -17,12 +17,9 @@ class ManageAddressBookView(BrowserView):
     def deleteAddress(self):
         """
         """
-        cm = ICustomerManagement(self.context)
-        customer = cm.getAuthenticatedCustomer()
-                
         # delete address
         toDeleteAddressId = self.context.request.get("id")
-        am = IAddressManagement(customer)
+        am = IAddressManagement(self.context)
         am.deleteAddress(toDeleteAddressId)
         
         # add message

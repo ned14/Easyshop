@@ -91,6 +91,10 @@
                             <h1 i18n:translate="addresses_label">
                                 Addresses
                             </h1>
+                            <a href="."
+                               tal:attributes="href string:${view/getShopURL}/manage-addressbook?customer_id=${customer/id}">
+                               Manage Addressbook
+                            </a>
                             <ul tal:repeat="address addresses">                                
                                 <li>
                                     <div>

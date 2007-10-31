@@ -29,7 +29,7 @@
       <ul>
         <li>
             <a href="."
-               tal:attributes="href view/getCustomerEditURL"
+               tal:attributes="href string:${context/absolute_url}/@@edit"
                i18n:translate="manage_name_label">
                Manage name and e-mail address
             </a>    

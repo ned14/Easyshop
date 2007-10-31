@@ -1,18 +1,16 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
-    <!-- Customer's forms -->        
-
+    <!-- Customer's forms -->
     <browser:page
         name="my-account"
-        for="easyshop.core.interfaces.IShop"        
-        class=".my_account.MyAccountView"
+        for="easyshop.core.interfaces.ICustomer"
         template="my_account.pt"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="manage-password"
-        for="easyshop.core.interfaces.IShop"        
+        for="easyshop.core.interfaces.ICustomer"
         template="manage_password.pt"
         permission="cmf.ModifyPortalContent" />
 
@@ -25,14 +23,14 @@
     <!-- Payment Methods -->       
     <browser:page
         name="manage-payment-methods"
-        for="easyshop.core.interfaces.IShop"
+        for="easyshop.core.interfaces.ICustomer"
         template="manage_payment_methods.pt"
         class=".manage_payment_methods.ManagePaymentMethodsView"        
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="deletePaymentMethod"
-        for="easyshop.core.interfaces.IShop"
+        for="easyshop.core.interfaces.ICustomer"
         class = ".manage_payment_methods.ManagePaymentMethodsView"
         attribute="deletePaymentMethod" 
         permission="cmf.ModifyPortalContent" />
@@ -40,14 +38,14 @@
     <!-- Addresses -->    
     <browser:page
         name = "manage-addressbook"
-        for = "easyshop.core.interfaces.IShop"
+        for = "easyshop.core.interfaces.ICustomer"
         class = ".manage_addressbook.ManageAddressBookView"
         template="manage_addressbook.pt"
         permission="cmf.ModifyPortalContent" />
     
     <browser:page
         name="add-address"        
-        for="easyshop.core.interfaces.IShop"
+        for="easyshop.core.interfaces.ICustomer"
         class=".address_forms.AddressAddForm"
         permission="cmf.ModifyPortalContent" />
 
@@ -59,7 +57,7 @@
 
     <browser:page
         name="deleteAddress"
-        for="easyshop.core.interfaces.IShop"
+        for="easyshop.core.interfaces.ICustomer"
         class = ".manage_addressbook.ManageAddressBookView"
         attribute="deleteAddress"
         permission="cmf.ModifyPortalContent" />
