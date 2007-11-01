@@ -24,13 +24,11 @@ class DirectDebitEditForm(base.EditForm):
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)    
     form_fields = form.Fields(IDirectDebit)
     
-    label = _(u"Edit Bank Information")
+    label       = _(u"Edit Bank Information")
     description = _("To change your bank information edit the form and press save.")
-    form_name = _(u"Edit Bank Information")
+    form_name   = _(u"Edit Bank Information")
 
-    @form.action(_(u"label_save", default="Save"),
-                 condition=form.haveInputWidgets,
-                 name=u'save')
+    @form.action(_(u"label_save", default="Save"), condition=form.haveInputWidgets, name=u'save')
     def handle_save_action(self, action, data):
         """
         """
@@ -42,66 +40,73 @@ class DirectDebitEditForm(base.EditForm):
             zope.event.notify(EditCancelledEvent(self.context))
             self.status = "No changes"
 
-        # Return to overview
-        shop = IShopManagement(self.context).getShop()
-        url = "%s/manage-payment-methods" % shop.absolute_url()
-        self.request.response.redirect(url)
+        self.context.reindexObject()
+        self.nextUrl()
 
-    @form.action(_(u"label_cancel", default=u"Cancel"),
-                 validator=null_validator,
-                 name=u'cancel')
+    @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
     def handle_cancel_action(self, action, data):
         """
         """                
         zope.event.notify(EditCancelledEvent(self.context))
+        self.nextUrl()
         
-        # Return to overview
-        shop = IShopManagement(self.context).getShop()
-        url = "%s/manage-payment-methods" % shop.absolute_url()
-        self.request.response.redirect(url)
-        
+    def nextUrl(self):
+        """
+        """
+        url = self.request.get("goto", "")
+        if url != "":
+            self.request.response.redirect(url)
+        else:
+            parent = self.context.aq_inner.aq_parent
+            url = parent.absolute_url() + "/manage-payment-methods"
+            self.request.response.redirect(url)
+                    
 class DirectDebitAddForm(base.AddForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)
     form_fields = form.Fields(IDirectDebit)
     
-    label = _(u"Add Bank Information")
+    label     = _(u"Add Bank Information")
     form_name = _(u"Add Bank Information")
 
-    @form.action(_(u"label_save", default=u"Save"),
-                 condition=form.haveInputWidgets,
-                 name=u'save')
+    @form.action(_(u"label_save", default=u"Save"), condition=form.haveInputWidgets, name=u'save')
     def handle_save_action(self, action, data):
+        """
+        """
         self.createAndAdd(data)
     
-    @form.action(_(u"label_cancel", default=u"Cancel"),
-                 validator=null_validator,
-                 name=u'cancel')
+    @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
     def handle_cancel_action(self, action, data):
-        url = "%s/manage-payment-methods" % self.context.absolute_url()
-        self.request.response.redirect(url)
+        """
+        """
+        self.context.reindexObject()
+        self.nextUrl()
     
     def createAndAdd(self, data):
         """
         """
-        # get customer
-        cm = ICustomerManagement(self.context)
-        customer = cm.getAuthenticatedCustomer()
-
         # add address
         id = self.context.generateUniqueId("DirectDebit")
 
-        customer.invokeFactory("DirectDebit", id=id, title=data.get("address1"))
-        direct_debit = getattr(customer, id)
+        self.context.invokeFactory("DirectDebit", id=id, title=data.get("address1"))
+        direct_debit = getattr(self.context, id)
 
         # set data
         direct_debit.setAccountNumber(data.get("accountNumber"))
         direct_debit.setBankIdentificationCode(data.get("bankIdentificationCode"))
         direct_debit.setName(data.get("name"))
         direct_debit.setBankName(data.get("bankName"))
+        
+        direct_debit.reindexObject()
+        self.nextUrl()
 
-        # Return to overview
-        url = "%s/manage-payment-methods" % self.context.absolute_url()
-        self.request.response.redirect(url)
-
+    def nextUrl(self):
+        """
+        """
+        url = self.request.get("goto", "")
+        if url != "":
+            self.request.response.redirect(url)
+        else:
+            url = self.context.absolute_url() + "/manage-payment-methods"
+            self.request.response.redirect(url)

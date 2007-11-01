@@ -51,7 +51,6 @@ class PaymentManagement:
         """
         # Todo: This can be optimized with Plone 3.0 because there will be an
         # interface index (IIRC).
-
         result = []
         for object in self.context.paymentmethods.objectValues():
 

@@ -3,7 +3,7 @@
 
     <!-- Direct Debit -->
     <browser:page
-        for="easyshop.core.interfaces.IShop"
+        for="easyshop.core.interfaces.ICustomer"
         name="add-direct-debit"
         class=".direct_debit.DirectDebitAddForm"
         permission="cmf.ModifyPortalContent" />
