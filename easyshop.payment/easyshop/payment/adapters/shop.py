@@ -9,11 +9,9 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.catalog.content.product import Product
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IPaymentManagement
-from easyshop.core.interfaces import IPaymentMethod
 from easyshop.core.interfaces import IPaymentPrices
 from easyshop.core.interfaces import IPaymentPrice
 from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IShopPaymentMethod
 from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import IValidity
 
@@ -51,6 +49,8 @@ class PaymentManagement:
         """
         # Todo: This can be optimized with Plone 3.0 because there will be an
         # interface index (IIRC).
+        mtool = getToolByName(self.context, "portal_membership")
+            
         result = []
         for object in self.context.paymentmethods.objectValues():
 
@@ -60,8 +60,9 @@ class PaymentManagement:
             if check_validity and\
                IValidity(object).isValid(object) == False:
                 continue                    
-                
-            result.append(object)
+            
+            if mtool.checkPermission("View", object) is not None:
+                result.append(object)
         
         return result
         

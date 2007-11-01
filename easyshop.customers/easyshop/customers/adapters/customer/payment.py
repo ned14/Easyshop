@@ -2,6 +2,9 @@
 from zope.interface import implements
 from zope.component import adapts
 
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
 # easyshop imports
 from easyshop.core.interfaces import ICustomer
 from easyshop.core.interfaces import IPaymentManagement
@@ -47,7 +50,8 @@ class CustomerPaymentManager:
         """
         # Todo: This can be optimized with Plone 3.0 because there will be an
         # interface index (IIRC).
-        
+        mtool = getToolByName(self.context, "portal_membership")
+            
         if interface is None:
             interface = IPaymentMethod        
 
@@ -61,7 +65,8 @@ class CustomerPaymentManager:
                IValidity(object).isValid(object) == False:
                 continue                    
 
-            result.append(object)
+            if mtool.checkPermission("View", object) is not None:
+                result.append(object)
                 
         return result        
         
