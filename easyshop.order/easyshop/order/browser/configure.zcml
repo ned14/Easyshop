@@ -32,7 +32,7 @@
         permission="zope.Public" />
 
     <browser:page
-        for="easyshop.core.interfaces.IShop"
+        for="easyshop.core.interfaces.ICustomer"
         name="my-orders"
         class=".my_orders.MyOrdersView"
         template="my_orders.pt"

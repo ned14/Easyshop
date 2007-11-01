@@ -9,6 +9,7 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
 from easyshop.core.interfaces import IOrderManagement
+from easyshop.core.interfaces import IShopManagement
 
 class MyOrdersView(BrowserView):
     """
@@ -16,7 +17,8 @@ class MyOrdersView(BrowserView):
     def getOrders(self):
         """
         """
-        om = IOrderManagement(self.context)
+        shop = IShopManagement(self.context).getShop()
+        om = IOrderManagement(shop)
         orders = om.getOrdersForAuthenticatedCustomer()
         wftool = getToolByName(self.context, "portal_workflow")
         ttool  = getToolByName(self.context, 'translation_service')

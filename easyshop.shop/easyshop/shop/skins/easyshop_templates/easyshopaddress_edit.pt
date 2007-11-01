@@ -2,18 +2,18 @@
      filename -->
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-    <head> 
+    <head>
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
     </head>
+    
     <body i18n:domain="EasyShop">
 
         <!-- Note the AT magic:                   
              Include return_to_preview parameter into the default body-macro, to 
              get back to preview, using a slot of the default macro. Look also 
              inside the form-controller and easyshopaddress_go_back.cpy  -->
-
-        <div metal:define-macro="topslot">
-            <tal:block tal:define="dummy python:request.set('disable_border', 1)" />                        
-        </div>  
 
         <div metal:define-macro="body">        
             <metal:use_body use-macro="here/edit_macros/macros/body">                          

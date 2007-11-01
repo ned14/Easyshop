@@ -15,19 +15,17 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.config import *
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPaymentManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IType
 
 class IOrderView(Interface):
     """View for order content objects.
     """
-    def disable_border():
-        """Returns True if the border is meant to be disabled.
-        """
-        
     def getCreationDate():
         """Returns the creation date.
         """
@@ -94,14 +92,6 @@ class OrderView(BrowserView):
     """
     implements(IOrderView)
 
-    def disable_border(self):
-        """
-        """
-        mtool = getToolByName(self.context, "portal_membership")
-        if mtool.checkPermission('Manage portal', self.context):
-            return False
-        return True
-        
     def getCreationDate(self):
         """
         """
@@ -287,6 +277,13 @@ class OrderView(BrowserView):
             return False
 
         return True
+
+    def getOverviewURL(self):
+        """
+        """
+        shop = IShopManagement(self.context).getShop()
+        customer = ICustomerManagement(shop).getAuthenticatedCustomer()
+        return "%s/my-orders" % customer.absolute_url()
         
     def redoPayment(self):
         """

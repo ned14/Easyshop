@@ -3,6 +3,13 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="EasyShop">
 <body>
+    
+    <head> 
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+    
     <div metal:fill-slot="main"
          tal:define="orders view/getOrders">
 

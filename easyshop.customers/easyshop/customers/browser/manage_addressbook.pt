@@ -2,6 +2,13 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="EasyShop">
+
+    <head> 
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+    
     <body>
 
         <metal:main fill-slot="main">

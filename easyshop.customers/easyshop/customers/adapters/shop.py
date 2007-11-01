@@ -1,3 +1,9 @@
+# Zope imports
+from AccessControl.SecurityManagement import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import setSecurityManager
+from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
+
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
@@ -8,6 +14,12 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShop
+
+class UnrestrictedUser(BaseUnrestrictedUser):
+    """Unrestricted user that still has an id."""
+    def getId(self):
+        """Return the ID of the user."""
+        return self.getUserName()
 
 class CustomerManagement:
     """Provides customer management for shop content objects.
@@ -51,13 +63,28 @@ class CustomerManagement:
             if self.hasCustomer(member_id):
                 customer = getattr(self.context.customers, member_id)
             else:
-                # Todo: Change to invokeFactory
-                # self.customers.invokeFactory("Customer", id="member_id", title="member_id")
-                self.customers.manage_addProduct["easyshop.shop"].addCustomer(member_id)
-                customer = getattr(self.customers, member_id)
-                customer.setTitle(member_id)
-                customer.at_post_create_script()
+                portal = getToolByName(self.context, 'portal_url').getPortalObject()
 
+                # Only Manager should add customers, hence we create temporay 
+                # user to 
+                old_sm = getSecurityManager()
+                tmp_user = UnrestrictedUser(
+                    old_sm.getUser().getId(),
+                    '', ['Manager'], 
+                    ''
+                )
+        
+                tmp_user = tmp_user.__of__(portal.acl_users)
+                newSecurityManager(None, tmp_user)
+
+                # Create Customer
+                self.customers.invokeFactory("Customer", id=member_id, title=member_id)
+                customer = self.customers[member_id]
+                
+                ## Reset security manager
+                setSecurityManager(old_sm)
+
+                
         return customer
 
     def getCustomers(self):
