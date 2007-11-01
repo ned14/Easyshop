@@ -60,7 +60,11 @@
                                        tal:attributes="href string:${context/absolute_url}?letter=$letter&uid=${customer/uid}"
                                        tal:content="customer/name">
                                         Name
-                                    </a>
+                                    </a> |
+                                    <a href="."
+                                      tal:attributes="href string:${customer/url}/my-account">
+                                      Manage account
+                                    </a>  
                                 </li>
                             </ul>
                     
@@ -116,6 +120,10 @@
                                     </div>                                        
                                 </li>
                             </ul>    
+                            <a href="."
+                               tal:attributes="href string:${customer/url}/@@add-address?goto=${customer/goto}">
+                                Add Address
+                            </a>
                             <div tal:condition="not:addresses"
                                  i18n:translate="no_addresses_label">
                                  There are no addresses
