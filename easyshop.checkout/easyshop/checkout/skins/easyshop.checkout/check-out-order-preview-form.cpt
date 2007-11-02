@@ -55,12 +55,14 @@
                                 <tal:block i18n:translate="shipping_label">
                                     Shipping
                                 </tal:block>
-                                <input type="button" 
-                                       class="context"                 
-                                       value="Edit"
-                                       tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-addresses-select-form?goto=order-preview'"
-                                       i18n:attributes="value edit_label;"/>
-                  
+                                <!-- need form tag here, otherwise testbrowser complains about input before form -->
+                                <form>
+                                    <input type="button" 
+                                           class="context"                 
+                                           value="Edit"
+                                           tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-addresses-select-form?goto=order-preview'"
+                                           i18n:attributes="value edit_label;"/>
+                                </form>
                             </legend>
                             <div tal:content="shipping_address/name" />
                             <div tal:content="shipping_address/address1" />        
@@ -77,11 +79,13 @@
                                 <span i18n:translate="invoice_label">
                                     Invoice
                                 </span>
-                                <input type="button"
-                                       class="context"
-                                       value="Edit"
-                                       tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-addresses-select-form?goto=order-preview'"
-                                       i18n:attributes="value edit_label;"/>
+                                <form>
+                                    <input type="button"
+                                           class="context"
+                                           value="Edit"
+                                           tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-addresses-select-form?goto=order-preview'"
+                                           i18n:attributes="value edit_label;"/>
+                                </form>       
                                    
                             </legend>              
                             <div tal:content="invoice_address/name" />
@@ -98,13 +102,14 @@
                             <legend>
                                 <span i18n:translate="shipping_label">
                                    Shipping
-                               </span>       
-                               <input type="button"   
-    	                              class="context"
-    	                              value="Edit"
-    	                              tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-shipping-methods-form?goto=order-preview'"
-    	                              i18n:attributes="value edit_label;"/>
-                    
+                               </span>
+                               <form>       
+                                   <input type="button"   
+        	                              class="context"
+        	                              value="Edit"
+        	                              tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-shipping-methods-form?goto=order-preview'"
+        	                              i18n:attributes="value edit_label;"/>
+                                </form>
                             </legend>            
                             <div tal:define="shipping_information view/getShippingMethodInfo">
                                 <div tal:content="shipping_information/title">
@@ -126,12 +131,14 @@
                             <legend>
                                 <span i18n:translate="payment_label">
                                    Payment
-                               </span>       
-                               <input type="button"   
-    	                              class="context"
-    	                              value="Edit"
-    	                              tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-payment-methods-form?goto=order-preview'"
-    	                              i18n:attributes="value edit_label;"/>
+                               </span>
+                               <form>       
+                                   <input type="button"   
+        	                              class="context"
+        	                              value="Edit"
+        	                              tal:attributes="onclick string:location.href='${context/absolute_url}/check-out-payment-methods-form?goto=order-preview'"
+        	                              i18n:attributes="value edit_label;"/>
+    	                        </form>      
                     
                             </legend>            
                             
@@ -151,13 +158,15 @@
                 <legend>
                     <span i18n:translate="cart_label">  
                         Cart
-                    </span>            
-                    <input class="context" 
-                           type="button"                    
-                           name="edit" 
-                           value="Edit"
-                           i18n:attributes="value edit_label;"
-                           tal:attributes="onclick string:location.href='${context/absolute_url}/cart?goto=order-preview'" />           
+                    </span> 
+                    <form>           
+                        <input class="context" 
+                               type="button"                    
+                               name="edit" 
+                               value="Edit"
+                               i18n:attributes="value edit_label;"
+                               tal:attributes="onclick string:location.href='${context/absolute_url}/cart?goto=order-preview'" />           
+                    </form>       
                 </legend>
 
                 <div tal:condition="not: view/hasCartItems"
