@@ -37,6 +37,8 @@ class CheckOutShippingView(BrowserView):
 
             if selected_shipping_id == shipping.getId():
                 checked = True
+            elif selected_shipping_id == "" and shipping.getId() == "default":
+                checked = True
             else:
                 checked = False
                             
