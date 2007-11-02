@@ -3,11 +3,7 @@ from Products.CMFCore.utils import getToolByName
 
 utool = getToolByName(context, "portal_url")
 portal_url = utool.getPortalObject().absolute_url()
-
-# came_from  = context.REQUEST.get("came_from", "")
-# came_from += "?portal_status_message=Sie sind nun registriert und angemeldet."
-
-came_from = "%s/laden/check-out-addresses-add-form" % portal_url
+came_from  = context.REQUEST.get("came_from", "")
 
 parameters = {
     "came_from"       : came_from,
@@ -25,5 +21,5 @@ for key, value in parameters.items():
     if value != "":
         temp.append("%s=%s" % (key, value))
 
-url = "%s/laden/logged_in?%s" % (portal_url, "&".join(temp))
+url = "%s/logged_in?%s" % (portal_url, "&".join(temp))
 context.REQUEST.RESPONSE.redirect(url)
