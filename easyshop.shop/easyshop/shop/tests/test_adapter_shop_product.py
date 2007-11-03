@@ -32,7 +32,6 @@ class TestShopProductManagement(EasyShopTestCase):
         """
         """
         pm = IProductManagement(self.shop)
-        import pdb; pdb.set_trace()
         self.failIf(pm.getProducts() == 0)
 
     def testGetTotalAmountOfProducts(self):

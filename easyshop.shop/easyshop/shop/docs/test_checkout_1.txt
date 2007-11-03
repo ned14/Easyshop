@@ -83,8 +83,6 @@ the form details.
     >>> browser.getControl(name="account_number").value = "111111"
     >>> browser.getControl(name="bankname").value = "German Bank"
     >>> browser.getControl(name="name").value = "John Doe"
-
-    >>> import pdb; pdb.set_trace()
     
     >>> browser.getControl(name='id').getControl(value='direct_debit_new').selected = True
     >>> browser.getControl('Next').click()
