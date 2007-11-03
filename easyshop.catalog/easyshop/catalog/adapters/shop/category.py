@@ -46,7 +46,7 @@ class ShopCategoryManagement:
             portal_type="Category",
             sort_on = "getObjPositionInParent")
 
-        return [brain.getObject() for brain in brains]
+        return brains
     
     def getTopLevelCategories(self):
         """
@@ -57,13 +57,3 @@ class ShopCategoryManagement:
                                  "depth" : 1},
                          sort_on = "getObjPositionInParent")
         return brains
-
-    def getCategories(self):
-        """
-        """
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog(portal_type="Category",
-                         path = {"query" : "/".join(self.categories.getPhysicalPath()),
-                                 "depth" : 1},
-                         sort_on = "getObjPositionInParent")
-        return brains        
