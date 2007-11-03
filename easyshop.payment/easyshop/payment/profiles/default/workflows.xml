@@ -8,7 +8,7 @@
   <type type_id="PaymentValidator"/>
   
   <type type_id="DirectDebit">
-   <bound-workflow workflow_id="easyshop_default_workflow"/>
+   <bound-workflow workflow_id="easyshop_customer_payment_workflow"/>
   </type>
 
   <type type_id="PaymentPrice">
