@@ -1,0 +1,78 @@
+# ArchGenXML generated POT File
+# Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop\n"
+"POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
+"PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
+"Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
+"Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ascii\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: EasyShop\n"
+
+#: extras | config.py
+msgid "The product has been added to the cart."
+msgstr ""
+
+#: extras | config.py
+msgid "The amount of the product has been increased."
+msgstr ""
+
+#: extras | config.py
+msgid "Your order has been received. Thank you!"    
+msgstr ""
+
+#: extras | browser/checkout/checkout.py
+msgid "Send products to this address"
+msgstr ""
+
+#: extras | browser/checkout/checkout.py
+msgid "Send invoice to this address"
+msgstr ""
+
+#: extras | browser/templates/product_view.py
+msgid "Buy Product"
+msgstr ""
+
+#: extras | browser/templates/product_view.py
+msgid "Add to Cart"
+msgstr ""
+
+#: extras | workflow state
+msgid "pending"
+msgstr ""
+
+#: extras | workflow state
+msgid "closed"
+msgstr ""
+
+#: extras | workflow state
+msgid "canceled"
+msgstr ""
+
+#: extras | workflow state
+msgid "payed (not sent)"
+msgstr ""
+
+#: extras | workflow state
+msgid "sent (not payed)"
+msgstr ""
+
+#: extras | checkout-order-preview-view.py
+msgid "Prepayment"
+msgstr ""
+
+#: extras | checkout-order-preview-view.py
+msgid "Cash on delivery"
+msgstr ""
+
+#: extras | checkout-order-preview-view.py
+msgid "Direct Debit"
+msgstr ""
+

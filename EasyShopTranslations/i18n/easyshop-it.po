@@ -1,0 +1,1151 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop VERSION\n"
+"POT-Creation-Date: 2007-08-27 19:42+0000\n"
+"PO-Revision-Date: 2007-09-03 17:33+0100\n"
+"Last-Translator: Fabio Corneti <info@corneti.com>\n"
+"Language-Team: Italiano <info@corneti.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: Italiano\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: EasyShop\n"
+
+#: extras | browser/templates/product_view.py
+msgid "Add to Cart"
+msgstr "Nel carrello"
+
+#: extras | browser/templates/product_view.py
+msgid "Buy Product"
+msgstr "Acquista prodotto"
+
+#: extras | checkout-order-preview-view.py
+msgid "Cash on delivery"
+msgstr "Pagamento in contanti alla consegna"
+
+#: extras | checkout-order-preview-view.py
+msgid "Direct Debit"
+msgstr "Pagamento con bonifico anticipato"
+
+#. Default: "Next"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "Next"
+msgstr "Avanti"
+
+#. Default: "No"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "No"
+msgstr "No"
+
+#: extras | checkout-order-preview-view.py
+msgid "Prepayment"
+msgstr "Pagamento anticipato"
+
+#: extras | browser/checkout/checkout.py
+msgid "Send invoice to this address"
+msgstr "Indirizzo per la fatturazione"
+
+#: extras | browser/checkout/checkout.py
+msgid "Send products to this address"
+msgstr "Indirizzo per la spedizione"
+
+#: extras | config.py
+msgid "The amount of the product has been increased."
+msgstr "La quantitả del prodotto é stata aumentata."
+
+#: extras | config.py
+msgid "The product has been added to the cart."
+msgstr "Prodotto aggiunto al carrello"
+
+#. Default: "Yes"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "Yes"
+msgstr "Sỉ"
+
+#: extras | config.py
+msgid "Your order has been received. Thank you!"
+msgstr "Il tuo ordine é stato registrato correttamente. Grazie per avere utilizzato i nostri servizi."
+
+#. Default: "Account-No.:"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "account_no_label"
+msgstr "Numero di conto:"
+
+#. Default: "When you are finish, please click on \"Next\"."
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "add_address_form_description"
+msgstr "Clicca su \"Avanti\" dopo avere inserito i dati."
+
+#. Default: "Please add a new addresses"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "add_address_form_title"
+msgstr "Aggiungi un nuovo indirizzo"
+
+#. Default: "Add Address"
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+msgid "add_address_label"
+msgstr "Aggiungi Indirizzo"
+
+#. Default: "When you are finish, please click on \"Next\"."
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "add_form_description"
+msgstr "Clicca su \"Avanti\" dopo avere inserito i dati."
+
+#. Default: "Add"
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "add_label"
+msgstr "Aggiungi"
+
+#. Default: "Add to Cart"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+#: ../browser/templates/category_view.pt
+#: ../browser/templates/product_selector_view.pt
+msgid "add_to_cart_label"
+msgstr "Nel carrello"
+
+#. Default: "Address"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "address1_label"
+msgstr "Indirizzo"
+
+#. Default: "Address 2"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "address2_label"
+msgstr "Indirizzo (seconda linea)"
+
+#. Default: "Addresses"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "addresses_label"
+msgstr "Indirizzi"
+
+#. Default: "All"
+#: ../browser/containers/orders.pt
+msgid "all_label"
+msgstr "Tutti"
+
+#. Default: "(If not, we will ask you soon)"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "also_invoice_address_description"
+msgstr "Se no, verrà richiesto successivamente"
+
+#. Default: "This is also the invoice address"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+msgid "also_invoice_address_label"
+msgstr "L'indirizzo di spedizione corrisponde a quello di fatturazione"
+
+#. Default: "Amount"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+#: ../browser/templates/cart.pt
+msgid "amount_label"
+msgstr "Totale"
+
+#. Default: "Amount of Criteria"
+#: ../browser/containers/payment_methods.pt
+#: ../browser/containers/payment_prices.pt
+#: ../browser/containers/shipping_methods.pt
+msgid "amount_of_criteria_label"
+msgstr "Criterio sulla quantità"
+
+#. Default: "Amount of Items"
+#: ../browser/containers/carts.pt
+msgid "amount_of_items_label"
+msgstr "Numero di elementi"
+
+#. Default: "Ascending"
+#: ../browser/containers/carts.pt
+#: ../browser/containers/orders.pt
+msgid "ascending_label"
+msgstr "Crescente"
+
+#. Default: "Back to Overview"
+#: ../browser/templates/order_view.pt
+#: ../browser/templates/payment_method.pt
+#: ../browser/templates/payment_price.pt
+msgid "back_to_overview_label"
+msgstr "Torna alla schermata principale"
+
+#. Default: "Bank Code:"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "bank_code_label"
+msgstr "Codice della banca:"
+
+#. Default: "Bank Name:"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "bank_name_label"
+msgstr "Nome della banca:"
+
+#. Default: "Base Price:"
+#: ../browser/templates/select_properties_view.pt
+msgid "base_price_label"
+msgstr "Prezzo base:"
+
+#. Default: "EasyShop"
+#: ../skins/easyshop_portlets/portlet_easyshopnavigation.pt
+msgid "box_categories"
+msgstr "Categorie"
+
+#. Default: "Buy"
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+msgid "buy_label"
+msgstr "Acquista"
+
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+#: ../browser/templates/category_view.pt
+#: ../browser/templates/product_view.pt
+msgid "buy_product_label"
+msgstr "Acquista prodotto"
+
+#. Default: "Cancel"
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "cancel_label"
+msgstr "Annulla"
+
+#: extras | workflow state
+msgid "canceled"
+msgstr "annullato"
+
+#. Default: "Canceled"
+#: ../browser/containers/orders.pt
+msgid "canceled_label"
+msgstr "Annullato"
+
+#. Default: "Cart ID"
+#: ../browser/containers/carts.pt
+msgid "cart_id_label"
+msgstr "Id del carrello"
+
+#. Default: "Cart"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+#: ../skins/easyshop_portlets/portlet_easyshopcart.pt
+#: ../browser/containers/carts.pt
+msgid "cart_label"
+msgstr "Carrello"
+
+#. Default: "Carts"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/carts.pt
+msgid "carts_label"
+msgstr "Carrelli"
+
+#. Default: "Categories"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/categories.pt
+msgid "categories_label"
+msgstr "Categories"
+
+#. Default: "Check Out"
+#: ../skins/easyshop_portlets/portlet_easyshopcart.pt
+#: ../browser/templates/cart.pt
+msgid "checkout_label"
+msgstr "Acquista"
+
+#. Default: "Next"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+#: ../skins/easyshop_checkout/check-out-shipping-methods-form.cpt
+msgid "checkout_next_label"
+msgstr "Avanti"
+
+#. Default: "Please enter your friend's email address:"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+msgid "checkout_recommendation_2"
+msgstr "Inserisci l'indiizzo del tuo amico"
+
+#. Default: "Total Sum:"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "checkout_total_sum_label"
+msgstr "Totale:"
+
+#. Default: "City"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "city_label"
+msgstr "Città"
+
+#. Default: "Click to close the window"
+#: ../skins/easyshop_templates/easyshopphoto_zoomview.pt
+msgid "click_to_close_window_label"
+msgstr "Clicca qui per chiudere la finestra"
+
+#: extras | workflow state
+msgid "closed"
+msgstr "chiuso"
+
+#. Default: "Closed"
+#: ../browser/containers/orders.pt
+msgid "closed_label"
+msgstr "Chiuso"
+
+#. Default: "Company Name"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "companyname_label"
+msgstr "Ragione sociale"
+
+#. Default: "Complete Order"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "complete_order_label"
+msgstr "Completa l'ordine"
+
+#. Default: "Country"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "country_label"
+msgstr "Nazione"
+
+#. Default: "Creation Date"
+#: ../browser/containers/carts.pt
+msgid "creation_date_label"
+msgstr "Data di creazione"
+
+#. Default: "Criteria"
+#: ../browser/templates/payment_method.pt
+#: ../browser/templates/payment_price.pt
+#: ../browser/templates/shipping_method.pt
+msgid "criteria_label"
+msgstr "Criterio"
+
+#. Default: "Customer Name"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/containers/orders.pt
+msgid "customer_name_label"
+msgstr "Nome del cliente"
+
+#. Default: "Customer Taxes"
+#: ../browser/containers/taxes_view.pt
+msgid "customer_taxes_label"
+msgstr "Tasse del cliente"
+
+#. Default: "Customers"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+msgid "customers_label"
+msgstr "Clienti"
+
+#. Default: "Date"
+#: ../browser/containers/orders.pt
+msgid "date_label"
+msgstr "Data"
+
+#. Default: "Default Taxes"
+#: ../browser/containers/taxes_view.pt
+#: ../browser/containers/taxes_view_old.pt
+msgid "default_taxes_label"
+msgstr "Tasse predefinite"
+
+#. Default: "Delete"
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+#: ../browser/templates/cart.pt
+msgid "delete_label"
+msgstr "Cancella"
+
+#. Default: "Depositor:"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+#, fuzzy
+msgid "depositor_label"
+msgstr "Correntista"
+
+#. Default: "Descending"
+#: ../browser/containers/carts.pt
+#: ../browser/containers/orders.pt
+msgid "descending_label"
+msgstr "Decrescente"
+
+#. Default: "Description"
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+#: ../browser/containers/categories.pt
+#: ../browser/containers/groups_view.pt
+msgid "description_label"
+msgstr "Descrizione"
+
+#. Default: "Details"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+#: ../browser/templates/category_view.pt
+#: ../browser/templates/product_selector_view.pt
+msgid "details_label"
+msgstr "Dettagli"
+
+#. Default: "Direct Debit"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "direct_debit_label"
+msgstr "Pagamento con bonifico"
+
+#. Default: "Document actions"
+#: ../skins/easyshop_portlets/portlet_document_actions.pt
+msgid "document_actions_label"
+msgstr "Azioni sul documento"
+
+#. Default: "EasyShop"
+#: ../skins/easyshop_portlets/portlet_easyshopnavigation.pt
+msgid "easyshop_label"
+msgstr "EasyShop"
+
+#. Default: "Please edit your address:"
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "edit_address_form_title"
+msgstr "Modifica il tuo indirizzo:"
+
+#. Default: "Edit"
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+msgid "edit_label"
+msgstr "Modifica"
+
+#. Default: "E-mail"
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "email_label"
+msgstr "Email"
+
+#. Default: "First"
+#: ../skins/easyshop_macros/dh_batch_macros.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+#: ../browser/templates/category_view.pt
+msgid "first_label"
+msgstr "Primo"
+
+#. Default: "First Name"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "firstname_label"
+msgstr "Nome"
+
+#. Default: "Formatter"
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+msgid "formatter_label"
+msgstr "Visualizzatore"
+
+#. Default: "Name"
+#: ../browser/containers/orders.pt
+msgid "fullname_label"
+msgstr "Nome"
+
+#. Default: "General"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/order_view.pt
+msgid "general_label"
+msgstr "Generale"
+
+#. Default: "Go"
+#: ../browser/containers/carts.pt
+#: ../browser/containers/orders.pt
+msgid "go_label"
+msgstr "Vai"
+
+#. Default: "Group"
+#: ../browser/containers/groups_view.pt
+msgid "group_label"
+msgstr "Gruppo"
+
+#. Default: "Groups"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/groups_view.pt
+msgid "groups_label"
+msgstr "Gruppi"
+
+#. Default: "ID"
+#: ../browser/containers/carts.pt
+#: ../browser/containers/orders.pt
+msgid "id_label"
+msgstr "ID"
+
+#. Default: "Image Size"
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+msgid "image_size_label"
+msgstr "Dimensione immagine"
+
+#. Default: "incl. Tax ="
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "incl_tax_label"
+msgstr "Tasse incluse ="
+
+#. Default: "Invoice Address"
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/order_view.pt
+msgid "invoice_address_label"
+msgstr "Indirizzo di fatturazione"
+
+#. Default: "Invoice"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "invoice_label"
+msgstr "Ricevuta"
+
+#: ../skins/easyshop_macros/dh_batch_macros.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+#: ../browser/templates/category_view.pt
+msgid "last_label"
+msgstr "Ultimo"
+
+#. Default: "Last Modification"
+#: ../browser/containers/carts.pt
+msgid "last_modification_label"
+msgstr "Ultima modifica"
+
+#. Default: "Last Name"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+msgid "lastname_label"
+msgstr "Cognome"
+
+#. Default: "Lines Per Page"
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+msgid "lines_per_page_label"
+msgstr "Linee per pagina"
+
+#. Default: "Login"
+#: ../skins/easyshop_portlets/portlet_easyshop_user.pt
+msgid "login_label"
+msgstr "Accedi"
+
+#. Default: "Logout"
+#: ../skins/easyshop_portlets/portlet_easyshop_user.pt
+msgid "logout_label"
+msgstr "Esci"
+
+#. Default: "Manage Account"
+#: ../browser/templates/my_account.pt
+msgid "manage_account_label"
+msgstr "Gestione profilo"
+
+#. Default: "Add, edit and delete you addresses here. All of them can be used within check out to select for invoice or shipping address."
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+msgid "manage_addressbook_description"
+msgstr "Tramite questa schermata puoi aggiungere, modificare ed eliminare i tuoi indirizzi. Ognuno di essi può essere utilizzato come indirizzo di spedizione e/o di fatturazione."
+
+#. Default: "Manage Addressbook"
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+#: ../browser/templates/my_account.pt
+msgid "manage_addressbook_label"
+msgstr "Gestione indirizzi"
+
+#. Default: "Manage name and e-mail address"
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+#: ../browser/templates/my_account.pt
+msgid "manage_name_label"
+msgstr "Modifica nome ed indirizzo email"
+
+#. Default: "Manage Password"
+#: ../browser/templates/my_account.pt
+msgid "manage_password_label"
+msgstr "Modifica password"
+
+#. Default: "Manage Payment"
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "manage_payment_label"
+msgstr "Modifica metodi di pagamento"
+
+#. Default: "Manage Payment Options"
+#: ../browser/templates/my_account.pt
+msgid "manage_payment_options_labels"
+msgstr "Modifica opzioni di pagamento"
+
+#. Default: "More orders"
+#: ../skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt
+msgid "more_orders_label"
+msgstr "Altri ordini"
+
+#. Default: "Move Down"
+#: ../browser/containers/payment_prices.pt
+#: ../browser/containers/shipping_prices.pt
+#: ../browser/containers/taxes_view.pt
+msgid "move_down_label"
+msgstr "Elementi successivi"
+
+#. Default: "Move Up"
+#: ../browser/containers/payment_prices.pt
+#: ../browser/containers/shipping_prices.pt
+#: ../browser/containers/taxes_view.pt
+msgid "move_up_label"
+msgstr "Elementi precedenti"
+
+#. Default: "My Account"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+#: ../skins/easyshop_manage/easyshop_manage_addressbook.pt
+#: ../skins/easyshop_manage/easyshop_manage_payment_methods.pt
+msgid "my_account_label"
+msgstr "Il mio profilo"
+
+#. Default: "My Orders"
+#: ../browser/templates/my_orders.pt
+msgid "my_orders_label"
+msgstr "I miei ordini"
+
+#. Default: "Name descending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "name-descending-label"
+msgstr "Nome decrescente"
+
+#. Default: "Name ascending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "name_ascending_label"
+msgstr "Nome crescente"
+
+#. Default: "Name"
+#: ../browser/containers/categories.pt
+#: ../browser/containers/groups_view.pt
+#: ../browser/containers/payment_methods.pt
+msgid "name_label"
+msgstr "Nome"
+
+#. Default: "Next"
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "next_label"
+msgstr "Avanti"
+
+#. Default: "There are no addresses."
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "no_addresses"
+msgstr "Non sono stati salvati indirizzi."
+
+#. Default: "There are no categories."
+#: ../browser/containers/categories.pt
+msgid "no_categories_label"
+msgstr "Non sono presenti categorie."
+
+#. Default: "There are no criteria."
+#: ../browser/templates/payment_method.pt
+#: ../browser/templates/payment_price.pt
+#: ../browser/templates/shipping_method.pt
+msgid "no_criteria_label"
+msgstr "Non sono presenti criteri."
+
+#. Default: "There are no orders."
+#: ../browser/containers/orders.pt
+#: ../browser/templates/my_orders.pt
+msgid "no_orders_label"
+msgstr "Non sono presenti ordini."
+
+#. Default: "There are no payment methods."
+#: ../browser/containers/payment_methods.pt
+msgid "no_payment_methods_label"
+msgstr "Non sono presenti metodi di pagamento."
+
+#. Default: "There are no payment prices."
+#: ../browser/containers/payment_prices.pt
+msgid "no_payment_prices_label"
+msgstr "Non sono presenti prezzi relativi ai metodi di pagamento."
+
+#. Default: "There are no products"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "no_products_label"
+msgstr "Non sono presenti prodotti."
+
+#. Default: "There are no shipping methods."
+#: ../browser/containers/shipping_methods.pt
+msgid "no_shipping_methods_label"
+msgstr "Non sono presenti metodi di spedizione."
+
+#. Default: "There are no shipping prices."
+#: ../browser/containers/shipping_prices.pt
+msgid "no_shipping_price_label"
+msgstr "Non sono presenti prezzi relativi ai metodi di spedizione."
+
+#. Default: "There are no taxes."
+#: ../browser/containers/taxes_view.pt
+#: ../browser/containers/taxes_view_old.pt
+msgid "no_taxes_label"
+msgstr "Non sono presenti tasse."
+
+#. Default: "Date"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/order_view.pt
+msgid "order_date_label"
+msgstr "Data"
+
+#. Default: "E-mail:"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/order_view.pt
+msgid "order_email_label"
+msgstr "Email"
+
+#. Default: "Order ID"
+#: ../browser/containers/orders.pt
+msgid "order_id_label"
+msgstr "ID ordine"
+
+#. Default: "The order can be found here."
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+msgid "order_link_label"
+msgstr "Clicca qui per visualizzare i dettagli dell'ordine"
+
+#. Default: "Name:"
+#: ../browser/templates/order_view.pt
+msgid "order_name_label"
+msgstr "Nome:"
+
+#. Default: "Phone:"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/order_view.pt
+msgid "order_phone_label"
+msgstr "Telefono:"
+
+#. Default: "Please check the order. If you finished, confirm our terms and conditions and click on \"Complete order\"."
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "order_preview_description"
+msgstr "Controlla i dettagli dell'ordine; per inoltrarlo, accetta le condizioni di vendita e clicca su \"Conferma ordine\"."
+
+#. Default: "Your order <span tal:content=\"context/id\"/> has been sent."
+#: ../skins/easyshop_mail_templates/mail_order_sent.pt
+msgid "order_sent_text"
+msgstr "L'ordine <span tal:content=\"context/id\"/> é stato inoltrato e verrà processato al più presto."
+
+#. Default: "Order State"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/containers/orders.pt
+msgid "order_state_label"
+msgstr "Stato dell'ordine"
+
+#. Default: "Total:"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+msgid "order_total_label"
+msgstr "Totale:"
+
+#. Default: "Orders"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/orders.pt
+#: ../browser/templates/my_account.pt
+msgid "orders_label"
+msgstr "Ordini"
+
+#: extras | workflow state
+msgid "payed (not sent)"
+msgstr "Pagato (non spedito)"
+
+#. Default: "Payed Not Sent"
+#: ../browser/containers/orders.pt
+msgid "payed_not_sent_label"
+msgstr "Pagato ma non spedito"
+
+#. Default: "Payment"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "payment_label"
+msgstr "Pagamento"
+
+#. Default: "Payment Method"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/containers/payment_methods.pt
+#: ../browser/templates/order_view.pt
+msgid "payment_method_label"
+msgstr "Metodo di pagamento"
+
+#. Default: "Payment Methods"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/payment_methods.pt
+msgid "payment_methods_label"
+msgstr "Metodi di pagamento"
+
+#. Default: "Payment Price"
+#: ../browser/containers/payment_prices.pt
+msgid "payment_price_label"
+msgstr "Prezzo relativo al metodo di pagamento"
+
+#. Default: "Payment Prices"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/payment_prices.pt
+msgid "payment_prices_label"
+msgstr "Prezzi relativi ai metodi di pagamnto"
+
+#. Default: "PayPal"
+#: ../skins/easyshop_macros/easyshop_payment_macros.pt
+msgid "paypal_label"
+msgstr "PayPal"
+
+#: extras | workflow state
+msgid "pending"
+msgstr "da processare"
+
+#. Default: "Pending"
+#: ../browser/containers/orders.pt
+msgid "pending_label"
+msgstr "Da processare"
+
+#. Default: "Personal informations"
+#: ../browser/templates/my_account.pt
+msgid "personal_informations_label"
+msgstr "Informazioni personali"
+
+#. Default: "Phone"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "phone_label"
+msgstr "Telefono"
+
+#. Default: "Please Select"
+#: ../browser/templates/select_properties_view.pt
+msgid "please_select_label"
+msgstr "Seleziona"
+
+#. Default: "Complete Order"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "preview_order_form_title"
+msgstr "Conferma ordine"
+
+#. Default: "Previous"
+#: ../skins/easyshop_macros/dh_batch_macros.pt
+#: ../skins/easyshop_macros/easyshop_macros.pt
+#: ../browser/templates/category_view.pt
+msgid "previous_label"
+msgstr "Indietro"
+
+#. Default: "Price ascending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "price_ascending"
+msgstr "Prezzo crescente"
+
+#. Default: "Price descending"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "price_descending_label"
+msgstr "Prezzo decrescente"
+
+#. Default: "Price"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/containers/carts.pt
+msgid "price_label"
+msgstr "Prezzo"
+
+#. Default: "Priority"
+#: ../browser/containers/payment_prices.pt
+#: ../browser/containers/shipping_prices.pt
+#: ../browser/containers/taxes_view.pt
+msgid "priority_label"
+msgstr "Priorità"
+
+#. Default: "Product Height"
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+msgid "product_height_label"
+msgstr "Altezza del prodotto"
+
+#. Default: "Product"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/cart.pt
+msgid "product_label"
+msgstr "Prodotto"
+
+#. Default: "Product Price"
+#: ../browser/templates/my_orders.pt
+msgid "product_price_label"
+msgstr "Prezzo del prodotto"
+
+#. Default: "Products"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+msgid "products_label"
+msgstr "Prodotti"
+
+#. Default: "Products Overview"
+#: ../browser/templates/product_view.pt
+#: ../browser/templates/product_view_related_products.pt
+#: ../browser/templates/select_properties_view.pt
+msgid "products_overview_label"
+msgstr "Panoramica dei prodotti"
+
+#. Default: "Products Per Line"
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+msgid "products_per_line_label"
+msgstr "Prodotti per linea"
+
+#. Default: "Properties"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/cart.pt
+msgid "properties_label"
+msgstr "Proprietà"
+
+#. Default: "Please select the various properties of the product."
+#: ../browser/templates/select_properties_view.pt
+msgid "properties_selection_description"
+msgstr "Seleziona le proprietà del prodotto"
+
+#. Default: "Properties Selection"
+#: ../browser/templates/select_properties_view.pt
+msgid "properties_selection_label"
+msgstr "Selezione proprietà"
+
+#. Default: "Quantity"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_view.pt
+msgid "quantity_label"
+msgstr "Quantità"
+
+#. Default: "Rate"
+#: ../browser/containers/taxes_view.pt
+#: ../browser/containers/taxes_view_old.pt
+msgid "rate_label"
+msgstr "Vota"
+
+#. Default: "Redo payment"
+#: ../browser/templates/order_view.pt
+msgid "redo_label"
+msgstr "Effettua nuovamente il pagamento"
+
+#. Default: "Refresh"
+#: ../browser/templates/cart.pt
+msgid "refresh_label"
+msgstr "Aggiorna"
+
+#. Default: "Related Products"
+#: ../browser/templates/product_view_related_products.pt
+msgid "related_products_label"
+msgstr "Prodotti collegati"
+
+#. Default: "Save"
+#: ../skins/easyshop_manage/easyshop_manage_user_form.cpt
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+msgid "save_label"
+msgstr "Salva"
+
+#. Default: "Search"
+#: ../skins/easyshop_portlets/portlet_easyshop_searchbox.pt
+msgid "search_label"
+msgstr "Cerca"
+
+#. Default: "Please select your addresses"
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "select_address_form_title"
+msgstr "Selezione i tuoi indirizzi"
+
+#. Default: "Select your shipping and invoice address and click on \"Next\". Or click on \"Add Address\" to add a new one."
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "select_form_description"
+msgstr "Seleziona gli indirizzi di spedizione e di fatturazione e clicca su \"Avanti\"; per aggiungere un nuovo indirizzo clicca su \"Aggiungi indirizzo\"."
+
+#. Default: "When finished, please click on \"Next\"."
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "select_payment_form_description_1"
+msgstr "Quando hai finito, clicca su \"Avanti\"."
+
+#. Default: "(The order can be checked at the end, before it will be sent.)"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "select_payment_form_description_2"
+msgstr "(L'ordine può essere ricontrollato al termine della procedura prima di essere confermato)"
+
+#. Default: "Please select you payment method"
+#: ../skins/easyshop_checkout/check-out-payment-methods-form.cpt
+msgid "select_payment_form_title"
+msgstr "Seleziona il metodo di pagamento"
+
+#. Default: "When finished, please click on \"Next\"."
+#: ../skins/easyshop_checkout/check-out-shipping-methods-form.cpt
+msgid "select_shipping_form_description_1"
+msgstr "Quando hai finito, clicca su \"Avanti\"."
+
+#. Default: "Please select you shipping method"
+#: ../skins/easyshop_checkout/check-out-shipping-methods-form.cpt
+msgid "select_shipping_form_title"
+msgstr "Seleziona il metodo di spedizione"
+
+#. Default: "Selected Products:"
+#: ../skins/easyshop_portlets/portlet_easyshop_formatter.pt
+msgid "selected_products_label"
+msgstr "Prodotti selezionati:"
+
+#: extras | workflow state
+msgid "sent (not payed)"
+msgstr "spedito (non pagato)"
+
+#. Default: "Sent Not Payed"
+#: ../browser/containers/orders.pt
+msgid "sent_not_payed_label"
+msgstr "Spedito ma non pagato"
+
+#. Default: "Sent Not Payed Orders"
+#: ../skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt
+msgid "sent_not_payed_orders_label"
+msgstr "Ordini spediti ma non pagati"
+
+#. Default: "Shipping Address"
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/order_view.pt
+msgid "shipping_address_label"
+msgstr "Indirizzo di spedizione"
+
+#. Default: "Shipping"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "shipping_label"
+msgstr "Spedizione"
+
+#. Default: "Shipping Method"
+#: ../browser/containers/shipping_methods.pt
+msgid "shipping_method_label"
+msgstr "Metodo di spedizione"
+
+#. Default: "Shipping Methods"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/shipping_methods.pt
+msgid "shipping_methods_label"
+msgstr "Metodi di spedizione"
+
+#. Default: "Shipping Price"
+#: ../browser/containers/shipping_prices.pt
+#: ../browser/templates/shipping_price.pt
+msgid "shipping_price_label"
+msgstr "Prezzo di spedizione"
+
+#. Default: "Shipping Prices"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+#: ../browser/containers/shipping_prices.pt
+msgid "shipping_prices_label"
+msgstr "Prezzi relativi ai metodi di spedizione"
+
+#. Default: "Shop"
+#: ../browser/containers/carts.pt
+#: ../browser/containers/categories.pt
+#: ../browser/containers/customers.pt
+msgid "shop_label"
+msgstr "Acquista"
+
+#. Default: "If you are contented with our service you can recommend us to a friend."
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+msgid "shop_recommendation_1"
+msgstr "Se il servizio ti ha soddisfatto, puoi segnarlo ad un amico."
+
+#. Default: "Sorting"
+#: ../skins/easyshop_portlets/portlet_easyshopsorting.pt
+msgid "sorting_label"
+msgstr "Ordinamento"
+
+#. Default: "State"
+#: ../browser/containers/orders.pt
+msgid "state_label"
+msgstr "Provincia"
+
+#. Default: "Tax Absolute"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_view.pt
+msgid "tax_absolute_label"
+msgstr "Tassa assoluta"
+
+#. Default: "Tax Rate"
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/my_orders.pt
+#: ../browser/templates/order_view.pt
+msgid "tax_rate_label"
+msgstr "Tassa percentuale"
+
+#. Default: "Taxes"
+#: ../skins/easyshop_portlets/portlet_easyshop_administration.pt
+msgid "taxes_label"
+msgstr "Tasse"
+
+#. Default: "Yes, I accept"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "terms_and_conditions_label_1"
+msgstr "Accetto"
+
+#. Default: "terms and conditions"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "terms_and_conditions_label_2"
+msgstr "termini e condizioni"
+
+#. Default: "of"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+msgid "terms_and_conditions_label_3"
+msgstr "di"
+
+#. Default: "Your order has been successfully completed."
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+msgid "thank_you_description_1"
+msgstr "Il tuo ordine è stato inoltrato correttamente."
+
+#. Default: "We have accepted you order with number:"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+msgid "thank_you_description_2"
+msgstr "Abbiamo registrato il tuo ordine con il seguente numero:"
+
+#. Default: "You will get a confirmation via e-mail soon. You can see the status of your order at"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+msgid "thank_you_description_3"
+msgstr "Riceverai a breve una conferma via email. Puoi visualizzare in ogni momento lo stato dell'ordine all'indirizzo "
+
+#. Default: "Thank you!"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+msgid "thank_you_description_4"
+msgstr "Grazie!"
+
+#. Default: "Thank you for your shopping!"
+#: ../skins/easyshop_checkout/check-out-thanks.pt
+msgid "thank_you_title"
+msgstr "Grazie per avere acquistato i nostri prodotti!"
+
+#. Default: "Search Site"
+#: ../skins/easyshop_portlets/portlet_easyshop_searchbox.pt
+msgid "title_search_site"
+msgstr "Cerca nel sito"
+
+#. Default: "Total"
+#: ../skins/easyshop_checkout/check-out-order-preview-form.cpt
+#: ../skins/easyshop_mail_templates/mail_order_submitted.pt
+#: ../browser/templates/cart.pt
+msgid "total_label"
+msgstr "Totale"
+
+#. Default: "Update Price"
+#: ../browser/templates/select_properties_view.pt
+msgid "update_price_label"
+msgstr "Aggiorna prezzo"
+
+#. Default: "User"
+#: ../skins/easyshop_portlets/portlet_easyshop_user.pt
+msgid "user_label"
+msgstr "Utente"
+
+#. Default: "Value"
+#: ../browser/templates/payment_method.pt
+#: ../browser/templates/payment_price.pt
+#: ../browser/templates/shipping_method.pt
+msgid "value_label"
+msgstr "Valore"
+
+#. Default: "Welcome"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-select-form.cpt
+msgid "welcome_label"
+msgstr "Benvenuto"
+
+#. Default: "Your Price:"
+#: ../browser/templates/select_properties_view.pt
+msgid "your_price_label"
+msgstr "Il tuo prezzo:"
+
+#. Default: "Zip Code"
+#: ../skins/easyshop_checkout/check-out-addresses-add-form.cpt
+#: ../skins/easyshop_checkout/check-out-addresses-edit-form.cpt
+msgid "zipcode_label"
+msgstr "C.A.P."
+
+#. Default: "Zoom"
+#: ../browser/templates/product_view.pt
+#: ../browser/templates/product_view_related_products.pt
+#: ../browser/templates/select_properties_view.pt
+msgid "zoom_label"
+msgstr "Zoom"
+
+#. Default: "Zoom View"
+#: ../skins/easyshop_templates/easyshopphoto_zoomview.pt
+msgid "zoom_view_label"
+msgstr "Vista dettagliata"
+

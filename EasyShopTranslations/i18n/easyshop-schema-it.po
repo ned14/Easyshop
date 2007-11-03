@@ -1,0 +1,435 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop 1.0\n"
+"POT-Creation-Date: 2007-05-09 16:00+0000\n"
+"PO-Revision-Date: 2007-09-03 17:57+0100\n"
+"Last-Translator: Fabio Corneti <info@corneti.com>\n"
+"Language-Team: Italiano <info@corneti.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italiano\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: EasyShop\n"
+
+#: schema | ../content/payment/EasyShopDirectDebit.py
+msgid "schema_account_number_label"
+msgstr "Numero di conto corrente"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_address1_label"
+msgstr "Indirizzo"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_address2_label"
+msgstr "Indirizzo (seconda linea)"
+
+#: schema | ../content/cart/EasyShopCartItem.py
+msgid "schema_amount_label"
+msgstr "Quantità"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_article_id_description"
+msgstr "Inserisci il codice del prodotto"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_article_id_label"
+msgstr "Codice prodotto"
+
+#: schema | ../content/payment/EasyShopDirectDebit.py
+msgid "schema_bank_identification_code_label"
+msgstr "Codice di identificazione della banca"
+
+#: schema | ../content/payment/EasyShopDirectDebit.py
+msgid "schema_bankname_label"
+msgstr "Nome della banca"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_categories_description"
+msgstr "Seleziona le categorie nelle quali sarà disponibile il prodotto"
+
+#: schema | ../content/criteria/category.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_categories_label"
+msgstr "Categorie"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_city_label"
+msgstr "Città"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_companyname_label"
+msgstr "Ragione sociale"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_countries_description"
+msgstr "Inserisci le nazioni dalle quali è possibile effettuare ordini"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_countries_label"
+msgstr "Nazioni"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_country_label"
+msgstr "Nazione"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_currency_description"
+msgstr "Seleziona la valuta nella quale sono espressi i prezzi"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_currency_label"
+msgstr "Valuta"
+
+#: schema | ../content/criteria/customer.py
+msgid "schema_customers_label"
+msgstr "Clienti"
+
+#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_cut_image_label"
+msgstr "Taglia immagine"
+
+#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_cut_image_label_description"
+msgstr "Seleziona se desideri che l'immagine venga tagliata"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_description_description"
+msgstr "Inserisci la descrizione del prodotto"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_description_label"
+msgstr "Descrizione"
+
+#: schema | ../content/cart/EasyShopCartItem.py
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_easyshop_products_label"
+msgstr "Prodotti"
+
+#: schema | ../content/criteria/date.py
+msgid "schema_end_label"
+msgstr "Fine"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_expand_all_description"
+msgstr "Seleziona l'opzione se desideri visualizzare l'intera gerarchia di categorie."
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_expand_all_label"
+msgstr "Espandi tutte le categorie"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_firstname_label"
+msgstr "Nome"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_groups_description"
+msgstr "Inserisci i gruppi nei quali il prodotto deve essere incluso"
+
+#: schema | ../content/criteria/group.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_groups_label"
+msgstr "Gruppi"
+
+#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/EasyShopGroup.py
+msgid "schema_help_description"
+msgstr "Inserisci una descrizione riassuntiva del prodotto"
+
+#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/EasyShopPhoto.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_image_label"
+msgstr "Immagine"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_image_sizes_description"
+msgstr "Seleziona le dimensioni disponibili per l'immagine"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_image_sizes_label"
+msgstr "Dimensioni immagine"
+
+#: schema | ../content/customer/EasyShopCustomer.py
+msgid "schema_invoice_address_label"
+msgstr "Indirizzo di fatturazione"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_lastname_label"
+msgstr "Cognome"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_lines_per_page_description"
+msgstr "Inserisci il numero di righe per pagina"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_lines_per_page_label"
+msgstr "Righe per pagina"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_long_description_description"
+msgstr "Inserisci una descrizione dettagliata del prodotto"
+
+#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_long_description_label"
+msgstr "Descrizione estesa"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_mail_from_description"
+msgstr "Inserisci l'indirizzo dal quale verranno spedite le email di notifica"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_mail_from_label"
+msgstr "Mittente email"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_mailto_description"
+msgstr "Inserisci il destinatario delle notifiche via email"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_mailto_label"
+msgstr "Destinatario notifiche email"
+
+#: schema | ../content/payment/EasyShopDirectDebit.py
+msgid "schema_name_label"
+msgstr "Nome"
+
+#: schema | ../content/criteria/payment_method.py
+msgid "schema_payment_methods_label"
+msgstr "Metodi di pagamento"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_payment_price_gross_label"
+msgstr "Prezzo (tasse incluse)"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_payment_price_net_label"
+msgstr "Prezzo (senza tasse)"
+
+#: schema | ../content/payment/simple_payment.py
+msgid "schema_payment_state_description"
+msgstr "Lo stato del pagamento"
+
+#: schema | ../content/payment/simple_payment.py
+msgid "schema_payment_state_label"
+msgstr "Stato"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_payment_tax_label"
+msgstr "Tassa sul metodo di pagamento"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_payment_tax_rate_label"
+msgstr "Tassa percentuale sul metodo di pagamento"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_paypal_id_description"
+msgstr "Il tuo id PayPal"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_paypal_id_label"
+msgstr "ID PayPal"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_paypal_url_description"
+msgstr "Inserisci la url per il pagamento con PayPal"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_paypal_url_label"
+msgstr "URL PayPal"
+
+#: schema | ../content/customer/EasyShopAddress.py
+#: schema | ../content/customer/EasyShopCustomer.py
+msgid "schema_phone_label"
+msgstr "Numero di telefono"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+#: schema | ../content/payment/payment_price.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_price_gross_label"
+msgstr "Prezzo (tasse incluse)"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_price_net_label"
+msgstr "Prezzo (tasse escluse)"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_product_height"
+msgstr "Altezza"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_product_height_description"
+msgstr "Inserisci l'altezza del prodotto"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_product_price_gross_label"
+msgstr "Prezzo del prodotto (tasse incluse)"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_product_price_net_label"
+msgstr "Prezzo del prodotto (tasse escluse)"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_product_quantity_label"
+msgstr "Quantità del prodotto"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_product_tax_label"
+msgstr "Tassa sul prodotto"
+
+#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/EasyShopGroup.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_products_description"
+msgstr "Cartella prodotti"
+
+#: schema | ../content/criteria/product.py
+#: schema | ../content/product/EasyShopCategory.py
+#: schema | ../content/product/EasyShopGroup.py
+msgid "schema_products_label"
+msgstr "Prodotti"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_products_per_line_description"
+msgstr "Numero di prodotti da visualizzare su ogni riga"
+
+#: schema | ../content/shop/formatter.py
+msgid "schema_products_per_line_label"
+msgstr "Prodotti per riga"
+
+#: schema | ../content/tax/EasyShopDefaultTax.py
+#: schema | ../content/tax/EasyShopTax.py
+msgid "schema_rate_label"
+msgstr "Percentuale"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_related_products_label"
+msgstr "Prodotti collegati"
+
+#: schema | ../content/customer/EasyShopCustomer.py
+msgid "schema_selected_payment_method_label"
+msgstr "Metodo di pagamento selezionato"
+
+#: schema | ../content/customer/EasyShopCustomer.py
+msgid "schema_shipping_address_label"
+msgstr "Indirizzo di spedizione"
+
+#: schema | ../content/criteria/shipping_method.py
+msgid "schema_shipping_methods_label"
+msgstr "Metodi di spedizione"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_shipping_price_gross_label"
+msgstr "Costo della spedizione (tasse incluse)"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_shipping_price_net_label"
+msgstr "Costo della spedizione (tasse escluse)"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_shipping_tax_label"
+msgstr "Tassa di spedizione"
+
+#: schema | ../content/order/EasyShopOrder.py
+msgid "schema_shipping_tax_rate_label"
+msgstr "Tassa di spedizione (percentuale)"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_short_description_description"
+msgstr "Inserisci una descrizione riassuntiva del prodotto da visualizzare nelle schermate riepilogative."
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_short_description_label"
+msgstr "Breve descrizione"
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_short_title_description"
+msgstr "Inserisci un titolo breve da utilizzare nelle schermate riepilogative; se omesso, verrà utilizzato il titolo normale."
+
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_short_title_label"
+msgstr "Titolo breve"
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_show_amount_of_products_description"
+msgstr ""
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_show_amount_of_products_label"
+msgstr ""
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_show_quantity_description"
+msgstr ""
+
+#: schema | ../content/shop/EasyShop.py
+msgid "schema_show_quantity_label"
+msgstr ""
+
+#: schema | ../content/product/EasyShopProductSelector.py
+msgid "schema_showtitle_description"
+msgstr ""
+
+#: schema | ../content/product/EasyShopProductSelector.py
+msgid "schema_showtitle_label"
+msgstr ""
+
+#: schema | ../content/criteria/date.py
+msgid "schema_start_label"
+msgstr "Inizio"
+
+#: schema | ../content/product/EasyShopPhoto.py
+#, fuzzy
+msgid "schema_subtitle_description"
+msgstr "Sottotitolo"
+
+#: schema | ../content/product/EasyShopPhoto.py
+msgid "schema_subtitle_label"
+msgstr "Sottotitolo"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_tax_label"
+msgstr "Tassa"
+
+#: schema | ../content/order/EasyShopOrderItem.py
+msgid "schema_tax_rate_label"
+msgstr "Tassa percentuale"
+
+#: schema | ../content/criteria/category.py
+#: schema | ../content/criteria/customer.py
+#: schema | ../content/criteria/date.py
+msgid "schema_title_label"
+msgstr "Titolo"
+
+#: schema | ../content/customer/EasyShopCustomer.py
+msgid "schema_user_name_description"
+msgstr "Inserisci il tuo nome utente"
+
+#: schema | ../content/customer/EasyShopCustomer.py
+msgid "schema_user_name_label"
+msgstr "Nome utente"
+
+#: schema | ../content/criteria/country.py
+#: schema | ../content/criteria/price.py
+msgid "schema_value_label"
+msgstr "Valore"
+
+#: schema | ../content/criteria/weight.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_weight_description"
+msgstr "Inserisci il peso del prodotto"
+
+#: schema | ../content/criteria/weight.py
+#: schema | ../content/product/EasyShopProduct.py
+msgid "schema_weight_label"
+msgstr "Peso"
+
+#: schema | ../content/customer/EasyShopAddress.py
+msgid "schema_zipcode_label"
+msgstr "C.A.P."
+
