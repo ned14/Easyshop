@@ -1,39 +1,14 @@
 First, some set-up:
     
-    >>> from Products.Five import zcml
-    >>> import Products
-    >>> zcml.load_config('configure.zcml', package=Products.EasyShop)
-    
-    >>> from easyshop.shop.tests import utils
-    >>> utils.createTestEnvironment(self.portal)
-    
     >>> from Products.Five.testbrowser import Browser
     >>> browser = Browser()
     >>> browser.handleErrors = False
-    
-Let us log all exceptions, which is useful for debugging. Also, clear portlet
-slots, to make the test browser less confused by things like the recent portlet
-and the navtree.
+        
+Let us log all exceptions, which is useful for debugging.
 
     >>> self.portal.error_log._ignored_exceptions = ()
-    >>> workflow = self.portal.portal_workflow
-
-    >>> workflow.doActionFor(self.portal.myshop, 'publish')
-    >>> workflow.getInfoFor(self.portal.myshop, 'review_state')
-    'published'
-
-    >>> workflow.doActionFor(self.portal.myshop.products.product_1, 'publish')
-    >>> workflow.getInfoFor(self.portal.myshop.products.product_1, 'review_state')
-    'published'
-
-    >>> workflow.doActionFor(self.portal.myshop.products.product_2, 'publish')
-    >>> workflow.getInfoFor(self.portal.myshop.products.product_2, 'review_state')
-    'published'
-
-    >>> workflow.doActionFor(self.portal.myshop.products.product_42, 'publish')
-    >>> workflow.getInfoFor(self.portal.myshop.products.product_42, 'review_state')
-    'published'
-
+    >>> self.logout()
+    
 View the shop
 ------------------------------
     >>> browser.open(self.portal.myshop.absolute_url())
@@ -91,35 +66,64 @@ Is the price updated properly?
         
 Check out
 ------------------------------
-    >>> self.portal.manage_changeProperties(validate_email=False)
+To check out we click on the check out link.
+
     >>> browser.getLink('Check Out').click()
+    
+Since we not logged in yet, we get the login form.
+    
+    >>> browser.contents
+    '...registration form...'
+
+As we have no login yet we click on registration form 
+
     >>> browser.getLink('registration form').click()
     >>> browser.contents
     '...Registration Form...'
     
+And join the site.
+    
     >>> browser.getControl('Full Name').value = 'John Doe'
     >>> browser.getControl('User Name').value = 'doe'
-    >>> browser.getControl(name='email').value = 'john@doe.de'
-    >>> browser.getControl(name='password').value = 'secret'
-    >>> browser.getControl(name='password_confirm').value = 'secret'
+    >>> browser.getControl('E-mail').value = 'john@doe.com'
+    >>> browser.getControl('Password').value = '11111'
+    >>> browser.getControl('Confirm password').value = '11111'
     >>> browser.getControl('Register').click()
+                
     >>> browser.contents
-    '...You have been registered...'
+    '...You are now logged in...'
+
+Now we add a new address.
+
+    >>> browser.contents
+    '...Please add a new addresses...'
     
-    >>> browser.getControl('Log in').click()
-
-Have to open the shop here again. Can't rebuild the came_form thing.
-
-    >>> browser.open(self.shop.absolute_url())
-    >>> browser.getLink('Check Out').click()
-            
     >>> browser.getControl('First Name').value = 'John'
     >>> browser.getControl('Last Name').value = 'Doe'
     >>> browser.getControl(name='address1').value = 'John Doe Street 1'
     >>> browser.getControl('Zip Code').value = '99099'
-    >>> browser.getControl('City').value = 'Los Angeles'
-    >>> browser.getControl('Phone').value = "555-47114711"
+    >>> browser.getControl('City').value = 'Doe City'
+    >>> browser.getControl('Phone').value = '555 1112222'    
+    >>> browser.getControl('Next').click()
+
+Confirm default shipping method.    
+    >>> browser.contents
+    '...Please select you shipping method...'
+    
     >>> browser.getControl('Next').click()
     
+Confirm default payment method.
+
     >>> browser.contents
     '...Please select you payment method...'
+    
+    >>> browser.getControl('Next').click()
+    
+Confirm terms and condition and complete order.
+    >>> browser.contents
+    '...Complete Order...'
+
+    >>> browser.getControl(name='confirmation').value = True
+    >>> browser.getControl('Complete Order').click()
+    >>> browser.contents
+    '...Your order has been successfully completed...'

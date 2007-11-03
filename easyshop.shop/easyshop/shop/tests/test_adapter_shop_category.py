@@ -35,8 +35,8 @@ class TestShopCategoryManagement(EasyShopTestCase):
         """
         """        
         cm = ICategoryManagement(self.shop)
-        ids = [c.getId() for c in cm.getCategories()]
-            
+        ids = [c.id for c in cm.getCategories()]
+
         self.failUnless("category_1"   in ids)
         self.failUnless("category_2"   in ids)        
         self.failUnless("category_11"  in ids)

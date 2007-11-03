@@ -35,13 +35,13 @@ class TestCategoryCategoryManagement(EasyShopTestCase):
         """
         """
         cm = ICategoryManagement(self.portal.myshop.categories.category_1)
-        category_ids = [c.getId() for c in cm.getCategories()]
+        category_ids = [c.getId for c in cm.getCategories()]
         
         for id in ["category_11", "category_12"]:
             self.failUnless(id in category_ids)
 
         cm = ICategoryManagement(self.category_2)
-        self.assertEqual(cm.getCategories(), [])
+        self.failUnless(len(cm.getCategories()) == 0)
         
     def testGetTotalCategories(self):
         """

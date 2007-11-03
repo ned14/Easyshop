@@ -12,6 +12,7 @@ from base import EasyShopTestCase
 from easyshop.shop.tests import utils
 from easyshop.core.interfaces import IProductManagement
 
+# TODO: Be more concise here
 class TestShopProductManagement(EasyShopTestCase):
     """
     """
@@ -31,7 +32,8 @@ class TestShopProductManagement(EasyShopTestCase):
         """
         """
         pm = IProductManagement(self.shop)
-        self.assertRaises(Exception, pm.getProducts)
+        import pdb; pdb.set_trace()
+        self.failIf(pm.getProducts() == 0)
 
     def testGetTotalAmountOfProducts(self):
         """
