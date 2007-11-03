@@ -129,7 +129,7 @@ class Customer(BaseFolder):
             return self.getFirstname() + " " + self.getLastname()
         else:
             return self.getId()
-
+    
     def SearchableText(self):
         """
         """
