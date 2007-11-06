@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="easyshop.customers"
+        directory="profiles/default"
+        description="Customer Management for Plone"
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+  
+</configure>

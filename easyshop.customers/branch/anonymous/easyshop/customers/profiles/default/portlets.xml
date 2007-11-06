@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets>
+  
+ <portlet 
+     addview="portlets.MyAccount"
+     title="EasyShop: My Account"
+     description="Portlet to display a 'My Account'." />
+
+</portlets>

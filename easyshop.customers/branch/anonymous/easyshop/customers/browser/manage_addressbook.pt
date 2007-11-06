@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <head> 
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+    
+    <body>
+
+        <metal:main fill-slot="main">
+                
+            <h1 class="documentFirstHeading"
+                i18n:translate="manage_addressbook_label">
+              Manage Addressbook
+            </h1>
+      
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href string:${context/absolute_url}/my-account"
+               i18n:translate="my_account_label">
+                My Account
+            </a>
+            
+            <div tal:replace="structure provider:easyshop.manager.addresses" />
+                  
+        </metal:main>    
+    </body>
+</html>

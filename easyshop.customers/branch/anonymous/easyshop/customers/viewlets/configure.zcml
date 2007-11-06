@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+            
+    <browser:viewletManager
+        name="easyshop.manager.addresses"
+        provides=".interfaces.IAddressesViewletManager"
+        for="easyshop.core.interfaces.ICustomer"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:viewlet
+        name="easyshop.addresses"
+        for="easyshop.core.interfaces.ICustomer"
+        manager=".interfaces.IAddressesViewletManager"
+        class=".addresses.AddressesViewlet"
+        permission="cmf.ModifyPortalContent" />
+
+</configure>
