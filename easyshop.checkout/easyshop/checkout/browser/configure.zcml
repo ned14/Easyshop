@@ -1,0 +1,67 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        name = "thank-you"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".thank_you.ThankYouPageView"
+        template = "thank_you.pt"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "send-recommendation"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".thank_you.ThankYouPageView"
+        attribute="sendRecommendation"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "send-recommendation-template"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".send_recommendation.SendRecommendationView"
+        template="send_recommendation.pt"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "CheckOutPaymentView"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".payment.CheckOutPaymentView"
+        allowed_interface = ".payment.ICheckOutPaymentView"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "checkOutView"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".checkout.CheckOutView"
+        allowed_interface = ".checkout.ICheckOutView"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "orderPreviewView"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".order_preview.OrderPreviewView"
+        allowed_interface = ".order_preview.IOrderPreviewView"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "checkOutAddressView"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".address.CheckOutAddressView"
+        allowed_interface = ".address.ICheckOutAddressView"
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "checkout"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".checkout.CheckOutView"
+        attribute="checkOut" 
+        permission = "zope2.Public" />
+
+    <browser:page
+        name = "CheckOutShippingView"
+        for = "easyshop.core.interfaces.IShop"
+        class = ".shipping.CheckOutShippingView"
+        allowed_interface = ".shipping.ICheckOutShippingView"
+        permission = "zope2.Public" />
+
+</configure>

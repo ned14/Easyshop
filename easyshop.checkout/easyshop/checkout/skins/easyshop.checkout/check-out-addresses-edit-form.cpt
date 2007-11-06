@@ -1,0 +1,282 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main">
+    
+            <h1 class="documentFirstHeading"
+                i18n:translate="edit_address_form_title">
+                Please edit your address:
+            </h1> 
+            
+            <p i18n:translate="add_address_form_description">
+                When you are finish, please click on "Next".
+            </p>
+            
+            <div id="payment-process">
+                <span i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span class="emphasized"
+    		          i18n:translate="addresses_label">
+                    Addresses
+                </span> - 
+                <span i18n:translate="shipping_label">
+                    Shipping
+                </span> -                 
+                <span i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+  	
+            <div tal:define="view context/@@checkOutAddressView;
+        				     address_info view/getAddressInfo;
+                             errors options/state/getErrors;">
+  
+                <form id="edit-address-form"
+                      name="add-address-form"
+                      action="#"
+                      tal:attributes="action string:${context/absolute_url}/${template/id}"
+                      method="post"
+                      enctype="multipart/form-data">
+  
+                      <table id="add-address-table">
+                          <tr>
+                              <td class="address_label"> 
+                                  <label for="firstname"
+                                         i18n:translate="firstname_label"> 
+                                         First Name
+                                  </label> 
+                                  <span class="fieldRequired" title="Erforderlich"></span>                                  
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/firstname;
+                                                     error python:errors.get('firstname')"
+                                         type="text"
+                                         class="large" 
+                                         name="firstname" 
+                                         id="firstname" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>    
+                          </tr>    
+                          <tr>                        
+                              <td class="address_label">
+                                  <label for="lastname" 
+                                         i18n:translate="lastname_label"> 
+                                         Last Name
+                                  </label>
+                                  <span class="fieldRequired" title="Erforderlich"></span>                                                                     
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/lastname;
+                                                     error python:errors.get('lastname')"
+                                         type="text"
+                                         class="text" 
+                                         name="lastname" 
+                                         id="lastname" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>                    
+                          </tr>
+                          <tr>
+                              <td class="address_label"> 
+                                  <label for="company_name" 
+                                         i18n:translate="companyname_label"> 
+                                         Company Name
+                                  </label> 
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/companyname;
+                                                     error python:errors.get('company_name')"
+                                         type="text"
+                                         class="text" 
+                                         name="companyname" 
+                                         id="companyname" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>    
+  
+                          </tr>
+                          <tr>
+                              <td class="address_label">
+                                  <label for="address1" 
+                                         i18n:translate="address1_label"> 
+                                         Address
+                                  </label>
+                                  <span class="fieldRequired" title="Erforderlich"></span>                                                                     
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/address1;
+                                                     error python:errors.get('address1')"
+                                         type="text"
+                                         class="text" 
+                                         name="address1" 
+                                         id="address1" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>    
+                          </tr>
+                          <tr>
+                              <td class="address_label"> 
+                                  <label for="address2" 
+                                         i18n:translate="address2_label"> 
+                                         Address 2
+                                  </label> 
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/address2;
+                                                     error python:errors.get('address2')"
+                                         type="text"
+                                         class="text" 
+                                         name="address2" 
+                                         id="address2" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>    
+                          </tr>    
+                          <tr>
+                              <td class="address_label"> 
+                                  <label for="zipcode" 
+                                         i18n:translate="zipcode_label"> 
+                                         Zip Code
+                                  </label>
+                                  <span class="fieldRequired" title="Erforderlich"></span>                                                                     
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/zipcode;
+                                                     error python:errors.get('zipcode')"
+                                         type="text"
+                                         class="text" 
+                                         name="zipcode" 
+                                         id="zipcode" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="address_label"> 
+                                  <label for="city" 
+                                         i18n:translate="city_label"> 
+                                         City
+                                  </label>
+                                  <span class="fieldRequired" title="Erforderlich"></span>                                                                     
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/city;
+                                                     error python:errors.get('city')"
+                                         type="text"
+                                         class="text" 
+                                         name="city" 
+                                         id="city" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>    
+                  
+                          </tr>
+                          <tr>
+                              <td class="address_label">             
+                                  <label for="name" 
+                                         i18n:translate="country_label"> 
+                                         Country</label> 
+                                   <span class="fieldRequired" title="Erforderlich"></span>                                                                  
+                              </td>
+
+                              <td>
+                                  <select tal:define="field_value address_info/country;
+                                                      error python:errors.get('country')"
+                                          id="country"
+                                          name="country"
+                                          tal:attributes="tabindex
+                                                          tabindex/next;
+                                                          class python:test(error, 'large input_error', 'large')">
+                      
+                                      <option tal:repeat="country view/getCountries"
+                                              tal:content="country/name"
+                                              tal:attributes="value country/name;
+                                                              selected country/selected">
+                                          Deutschland
+                                      </option>
+                                  </select>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td class="address_label"> 
+                                  <label for="phone" 
+                                         i18n:translate="phone_label"> 
+                                         Phone
+                                  </label> 
+                                  <span class="fieldRequired" title="Erforderlich"></span>                                                                                                  
+                              </td>
+                              <td>
+                                  <input tal:define="field_value address_info/phone;
+                                                     error python:errors.get('phone')"
+                                         type="text"
+                                         class="text" 
+                                         name="phone" 
+                                         id="phone" 
+                                         tabindex="" 
+                                         tal:attributes="tabindex 
+                                                         tabindex/next;
+                                                         value field_value;
+                                                         class python:test(error, 'large input_error', 'large')" />
+                              </td>    
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td>
+                                  <input class="standalone" 
+                                         type="submit" 
+                                         name="form_submit" 
+                                         value="Next" 
+                                         i18n:attributes="value" />
+                              </td>
+                          </tr>                    
+                      </table>
+      
+                  <input type="hidden" 
+                         name="form.submitted"
+                         value="1" />
+  
+                  <input type="hidden" 
+                         name="id"
+                         value="#" 
+                         tal:attributes="value address_info/id" />
+  
+                  <input type="hidden" 
+                         name="goto"
+                         value="#" 
+                         tal:attributes="value request/goto | nothing" />
+  
+                </form>
+  
+          </div>      
+      </metal:main>    
+    </body>
+</html>
