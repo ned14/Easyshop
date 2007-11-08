@@ -1,11 +1,8 @@
-# Zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
 # easyshop imports
+from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IDirectDebit
 from easyshop.core.interfaces import IPaymentManagement
@@ -13,31 +10,9 @@ from easyshop.core.interfaces import IShopPaymentMethod
 from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
 
-class ICheckOutPaymentView(Interface):    
-    """Provides methods for all payment forms
-    (Which are all in context of a shop content object)
-    """    
-
-    def getDirectDebits():
-        """Returns all direct debits of authenticated customer.
-        """    
-
-    def getSelectedPaymentMethod():
-        """Returns selected payment method of authenticated customer.
-        """
-
-    def getShopPaymentMethods():
-        """Returns all shop payment content objects.
-        """
-
-    def isDirectDebitValid(self):
-        """Returns True if direct debit is a valid payment method.
-        """        
-        
-class CheckOutPaymentView(BrowserView):
+class PaymentForm(BrowserView):
     """
     """
-    implements(ICheckOutPaymentView)
 
     def getDirectDebits(self):
         """
@@ -81,7 +56,7 @@ class CheckOutPaymentView(BrowserView):
         
     def getShopPaymentMethods(self):
         """
-        """        
+        """
         shop = IShopManagement(self.context).getShop()
         spm = IPaymentManagement(shop)
         selected_payment = spm.getSelectedPaymentMethod(check_validity=True)                
@@ -127,3 +102,36 @@ class CheckOutPaymentView(BrowserView):
             return False
         else:
             return True
+            
+    def test(self, a, b, c):
+        """
+        """
+        return False
+        
+    def selectPaymentMethod(self):
+        """
+        """
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        
+        name = self.request.get("name", "")
+        account_number = self.request.get("account_number", "")
+        bank_identification_code = self.request.get("bank_identification_code", "")
+        bankname = self.request.get("bankname", "")
+        
+        id = self.request.get("id")
+        if id.startswith("direct_debit_new"):
+            # add DirectDebit
+            id = self.context.generateUniqueId("DirectDebit")
+            customer.invokeFactory("DirectDebit", id=id, title=name)
+            direct_debit = getattr(customer, id)        
+            direct_debit.setAccountNumber(account_number)
+            direct_debit.setBankIdentificationCode(bank_identification_code)
+            direct_debit.setBankName(bankname)
+            direct_debit.setName(name)
+        elif id.startswith("direct_debit_existing"):
+            id = id.split(":")[1]
+
+        customer.selectedPaymentMethod = id
+        
+        cm = ICheckoutManagement(self.context)
+        cm.redirectToNextURL("SELECTED_PAYMENT_METHOD")        

@@ -11,12 +11,11 @@
       
     <body>
         <div metal:fill-slot="main"
-             tal:define="view context/@@orderPreviewView;
-                         payment_method_info view/getPaymentMethodInfo;
+             tal:define="payment_method_info view/getPaymentMethodInfo;
                          payment_method_type payment_method_info/type;
                          invoice_address view/getInvoiceAddress;
                          shipping_address view/getShippingAddress;
-                         errors options/state/getErrors;">
+                         errors python:{};">
       
             <h1 class="documentFirstHeading"
                 i18n:translate="preview_order_form_title">

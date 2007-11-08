@@ -1,5 +1,0 @@
-[default]
-title = 
-
-[actions]
-action.addresses_select = traverse_to:string:check-out-addresses-select-form

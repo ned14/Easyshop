@@ -1,34 +1,19 @@
-# Zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
 # easyshop imports
+from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShippingManagement
 
-class ICheckOutShippingView(Interface):    
-    """Provides methods for the selection of shipping methods within the
-    checkout process.
+class ShippingSelectForm(BrowserView):
+    """
     """    
-    
-    def getShippingMethods():
-        """
-        """
-        
-class CheckOutShippingView(BrowserView):
-    """
-    """
-    implements(ICheckOutShippingView)
-    
     def getShippingMethods(self):
         """
         """
-        cm = ICustomerManagement(self.context)
-        customer = cm.getAuthenticatedCustomer()
-        selected_shipping_id = customer.getSelectedShippingMethod()
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        selected_shipping_id = customer.selectedShippingMethod
         
         sm = IShippingManagement(self.context)
         
@@ -50,3 +35,14 @@ class CheckOutShippingView(BrowserView):
             })
             
         return shipping_methods
+        
+    def selectShippingMethod(self):
+        """
+        """
+        # Set the selected shipping mehtod
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()        
+        customer.selectedShippingMethod = self.request.get("id")
+
+        # Go to next url
+        cm = ICheckoutManagement(self.context)
+        cm.redirectToNextURL("SELECTED_SHIPPING_METHOD")

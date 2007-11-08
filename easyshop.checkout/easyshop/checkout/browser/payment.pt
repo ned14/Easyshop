@@ -5,8 +5,7 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="view context/@@CheckOutPaymentView;
-                                errors options/state/getErrors;">
+                    tal:define="errors python:{}">
             
             <h1 class="documentFirstHeading"
                 i18n:translate="select_payment_form_title">
@@ -40,7 +39,7 @@
             <form id="select-payment-method"
                   name="select-payment-method-form"
                   action="#"
-                  tal:attributes="action string:${context/absolute_url}/${template/id}"
+                  tal:attributes="action context/absolute_url"
                   method="post">
             
                 <table>
@@ -56,13 +55,13 @@
                             <tr>
                                 <td>
                                     <input type="radio"
-                                           class="noborder"                       	                             
+                                           class="noborder"                                                      
                                            name="id" 
                                            value="#" 
                                            tal:attributes="value string:direct_debit_existing:${direct_debit/id};
                                                            checked direct_debit/checked" />
-        	                    </td>
-        	                    <td i18n:translate="bank_code_label">
+                                </td>
+                                <td i18n:translate="bank_code_label">
                                     Bank Code:
                                 </td>
                                 <td tal:content="direct_debit/bic">
@@ -74,7 +73,7 @@
                                 <td tal:content="direct_debit/bankname">
                                     Deutsche Bank
                                 </td>
-        	                </tr>
+                            </tr>
                             <tr>
                                 <td></td>
                                 <td i18n:translate="account_no_label">
@@ -110,7 +109,7 @@
                                        tabindex="" 
                                        tal:attributes="tabindex tabindex/next;
                                                        value field_value;
-                                                       class python:test(error, 'large input_error', 'large')" />
+                                                       class python:view.test(error, 'large input_error', 'large')" />
 
                             
                             </td>
@@ -126,7 +125,7 @@
                                        tabindex="" 
                                        tal:attributes="tabindex tabindex/next;
                                                        value field_value;
-                                                   	   class python:test(error, 'large input_error', 'large')" />
+                                                   	   class python:view.test(error, 'large input_error', 'large')" />
                             
                             </td>
                         </tr>
@@ -144,7 +143,7 @@
                                                    tabindex="" 
                                                    tal:attributes="tabindex tabindex/next;
                                                                    value field_value;
-                                                               	   class python:test(error, 'large input_error', 'large')" />
+                                                               	   class python:view.test(error, 'large input_error', 'large')" />
 
                            </td>
                            <td i18n:translate="depositor_label">
@@ -159,7 +158,7 @@
                                       tabindex="" 
                                       tal:attributes="tabindex tabindex/next; 
                                                       value field_value;
-                                                  	  class python:test(error, 'large input_error', 'large')" />
+                                                  	  class python:view.test(error, 'large input_error', 'large')" />
                             
                            </td>
                         </tr>                             
@@ -201,13 +200,9 @@
                     
                 </table>
             
-                <input type="hidden" 
-                       name="form.submitted" 
-                       value="1" />
-           
                 <input class="standalone" 
                        type="submit" 
-                       name="form_submit" 
+                       name="select-payment-method:method" 
                        value="Next" 
                        i18n:attributes="value checkout_next_label;" /> 
                        

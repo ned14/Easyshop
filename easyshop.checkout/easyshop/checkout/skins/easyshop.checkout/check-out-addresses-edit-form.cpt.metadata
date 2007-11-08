@@ -1,8 +1,0 @@
-[default]
-title = 
-
-[validators]
-validators = check-out-addresses-validate
-
-[actions]
-action.success = traverse_to:string:check-out-addresses-edit

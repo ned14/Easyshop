@@ -4,8 +4,7 @@
       i18n:domain="EasyShop">
     <body>
 
-        <metal:main fill-slot="main"
-                    tal:define="view context/@@CheckOutShippingView">
+        <metal:main fill-slot="main">
                     
             <h1 class="documentFirstHeading"
                 i18n:translate="select_shipping_form_title">
@@ -39,7 +38,7 @@
             <form id="select-payment-method"
                   name="select-payment-method-form"
                   action="#"
-                  tal:attributes="action string:${context/absolute_url}/${template/id}"
+                  tal:attributes="action context/absolute_url"
                   method="post">
 
                 <table>                  
@@ -79,13 +78,9 @@
                        value="#" 
                        tal:attributes="value request/goto|nothing" />
 
-                <input type="hidden" 
-                       name="form.submitted" 
-                       value="1" />
-           
                 <input class="standalone" 
                        type="submit" 
-                       name="form_submit" 
+                       name="select-shipping-method:method" 
                        value="Next" 
                        i18n:attributes="value checkout_next_label;" /> 
                 

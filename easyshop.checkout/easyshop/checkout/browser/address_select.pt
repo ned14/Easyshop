@@ -5,16 +5,14 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="view context/@@checkOutView;
-                                lines view/getAddressesPerLine;
-                                errors options/state/getErrors;
-                                goto request/goto | nothing">        
+                    tal:define="lines view/getAddressesPerLine;
+                                goto request/goto | nothing">
     
             <h1 class="documentFirstHeading"
                 i18n:translate="select_address_form_title">
                 Please select your addresses
             </h1> 
-          
+            <span>new</span>
             <p class="check-out-description"
                i18n:translate="select_form_description">
                  Select your shipping and invoice address and click on "Next". Or click on "Add Address" to add a new one.
@@ -177,7 +175,7 @@
                 <input class="standalone"
                        tabindex=""
                        type="submit"
-                       name="form.button.select"
+                       name="select-addresses:method"
                        value="Next"
                        i18n:attributes="value next_label;"
                        tal:attributes="tabindex tabindex/next;" />

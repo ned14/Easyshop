@@ -1,5 +1,0 @@
-[default]
-title = 
-
-[actions]
-action.success = redirect_to:string:thank-you

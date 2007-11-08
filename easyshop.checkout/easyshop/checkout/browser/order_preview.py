@@ -1,6 +1,4 @@
 # Zope imports
-from zope.interface import Interface
-from zope.interface import implements
 from zope.i18nmessageid import MessageFactory
 
 # Five imports
@@ -29,90 +27,9 @@ from easyshop.core.interfaces import IShopManagement
 
 _ = MessageFactory("EasyShop")
 
-class IOrderPreviewView(Interface):    
-    """
-    """
-    def buy():
-        """Buys a cart
-        """
-
-    def getCart():
-        """Returns current cart.
-        """
-        
-    def getCartItems():
-        """Returns the items of the current cart.
-        """
-
-    def getInvoiceAddress():
-        """Returns invoice address of the current customer.
-        """
-
-    def getSelectedPaymentMethod():
-        """Returns the selected payment method.
-        """
-        
-    def getPaymentMethodInfo():
-        """Returns some info of the current payment method of the current
-        customer
-        """
-
-    def getPaymentMethodType():
-        """Returns the type of the selected payment method of current customer.
-        Note: This is also part of the returned info of getPaymentMethodInfo.
-        """
-        
-    def getShippingAddress():
-        """Returns shipping address of the current customer.
-        """
-
-    def getShippingMethodInfo():
-        """Returns some info of the selected payment method of the current
-        customer
-        """
-
-    def showShippingNote():
-        """Returns True if a note to shipping price is meant to be displayed.
-        """
-        
-    def getShippingPrice():
-        """Returns the shipping price for current cart of current customer.
-        """
-
-    def getTotalPrice():
-        """Returns product price (the total price of the cart) plus shipping.
-        price
-        """
-        
-    def getTotalTax():
-        """Returns product tax plus shipping tax.
-        """
-
-    def hasCartItems():
-        """Returns True if the current cart has items.
-        """        
-
-    def isCustomerComplete():
-        """Returns True if current customer is ready to check out.
-        """
-
-    def isPaymentComplete():
-        """Returns True if the information for the current payment method is
-        complete entered.
-        """    
-        
-    def showPaymentMethodEditButton():
-        """Returns True if the button is meant to be displayed.
-        """
-
-    def showPayPalForm():
-        """Returns True if the paypal form is meant to be displayed.
-        """
-        
 class OrderPreviewView(BrowserView):
     """
     """
-    implements(IOrderPreviewView)
 
     def __init__(self, context, request):
         """
@@ -121,7 +38,7 @@ class OrderPreviewView(BrowserView):
         self.shop = self.context
                 
     def buy(self):
-        """
+        """Buys a cart
         """
         putils = getToolByName(self.shop, "plone_utils")
                 
@@ -158,8 +75,8 @@ class OrderPreviewView(BrowserView):
         return cm.getCart()
 
     def getCartItems(self):
+        """Returns the items of the current cart.
         """
-        """            
         cm = ICartManagement(self.shop)
         cart = cm.getCart()
 
@@ -213,7 +130,7 @@ class OrderPreviewView(BrowserView):
         return result
         
     def getInvoiceAddress(self):
-        """
+        """Returns invoice address of the current customer.
         """
         cm = ICustomerManagement(self.shop)
         customer = cm.getAuthenticatedCustomer()
@@ -398,17 +315,24 @@ class OrderPreviewView(BrowserView):
         if self.getPaymentMethodType() == "paypal":
             return True
         return False
-        
+
+    def test(self, a, b, c):
+        """
+        """
+        return False
+                
 def addressToDict(address):
     """
     """
     return {
         "name"        : address.getName(),
-        "address1"    : address.getAddress1(),
-        "address2"    : address.getAddress2(),        
-        "zipcode"     : address.getZipCode(),
-        "city"        : address.getCity(),
-        "country"     : address.getCountry(),
+        "address1"    : address.address_1,
+        "address2"    : address.address_2,        
+        "zipcode"     : address.zip_code,
+        "city"        : address.city,
+        "country"     : address.country,
         "url"         : address.absolute_url(),
         "is_complete" : ICompleteness(address).isComplete(),
     }
+    
+    
