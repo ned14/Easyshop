@@ -18,11 +18,14 @@ from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import IShopManagement
 
 class AddressEditForm(base.EditForm):
+    """This form let anonymous users edit their already entered invoice and 
+    shipping address. This happens when they click checkout again and they have 
+    already entered addresses within the same sessions. 
     """
-    """
+    
     template = pagetemplatefile.ZopeTwoPageTemplateFile("address_form.pt")
     form_fields = form.Fields(IAddress)
-    
+
     label = _(u"Edit Address")
     description = _("To change your address edit the form and press save.")
     form_name = _(u"Edit Address")
