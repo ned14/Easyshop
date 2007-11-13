@@ -1,9 +1,3 @@
-# Zope imports
-from AccessControl.SecurityManagement import getSecurityManager
-from AccessControl.SecurityManagement import newSecurityManager
-from AccessControl.SecurityManagement import setSecurityManager
-from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
-
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
@@ -20,13 +14,6 @@ from easyshop.customers.content import Customer
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ISessionManagement
 from easyshop.core.interfaces import IShop
-
-class UnrestrictedUser(BaseUnrestrictedUser):
-    """Unrestricted user that still has an id."""
-    def getId(self):
-        """Return the ID of the user."""
-        return self.getUserName()
-
 
 class CustomerManagement:
     """Provides customer management for shop content objects.
@@ -53,9 +40,8 @@ class CustomerManagement:
 
     # TODO: Rename it to getCustomer        
     def getAuthenticatedCustomer(self):
-        """Returns the customer or a session customer for anonymous user.
-
-           If it doesn't already exist, creates a new one
+        """Returns the customer or a session customer for anonymous user. If it 
+        doesn't already exist, creates a new one
         """
         mtool = getToolByName(self.context, "portal_membership")
         mid = mtool.getAuthenticatedMember().getId()
@@ -63,7 +49,7 @@ class CustomerManagement:
         sm = getUtility(ISessionManagement)
         sid = sm.getSID(self.context.REQUEST)
         
-        if mid is None:            
+        if mid is None:
             if base_hasattr(self.sessions, sid) == False:
                 customer = Customer(id=sid)
                 self.sessions._setObject(sid, customer)
@@ -114,29 +100,21 @@ class CustomerManagement:
         if base_hasattr(self.sessions, sid) == False:
             return False
 
-        ## The current user may not be allowed to copy and paste so we
-        ## temporarily change the security context to use a temporary
-        ## 'Manager' user.
-        portal = getToolByName(self.context, 'portal_url').getPortalObject()
-
-        old_sm = getSecurityManager()
-        tmp_user = UnrestrictedUser(
-            old_sm.getUser().getId(),
-            '', ['Manager'], 
-            ''
-        )
+        session_customer = self.sessions[sid]
         
-        tmp_user = tmp_user.__of__(portal.acl_users)
-        newSecurityManager(None, tmp_user)
-
-        # Copy Customer to Order         
-        import pdb; pdb.set_trace()        
-        data = self.sessions.manage_cutObjects(ids=[sid])
-        self.customers.manage_pasteObjects(data)
+        # "Copy" customers in this way (not using cut'n paste) has the advantage
+        # that we don't have any problems with permissions. First I tried it 
+        # with newSecurityManager and buddies. In addition the owner is set 
+        # automatically correctly.
         
-        self.customers.manage_renameObjects((sid,), (mid,))
-
-        ## Reset security manager
-        setSecurityManager(old_sm)
+        # TODO: Go through all fields automatically.
+        
+        new_customer = Customer(mid)
+        new_customer.firstname = session_customer.firstname
+        new_customer.lastname  = session_customer.lastname
+        new_customer.email     = session_customer.email
+        
+        self.customers._setObject(mid, new_customer)
+        self.sessions.manage_delObjects([sid])
 
         return True
