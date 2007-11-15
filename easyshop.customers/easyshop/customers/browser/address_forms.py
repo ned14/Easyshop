@@ -43,16 +43,16 @@ class AddressEditForm(base.EditForm):
         self.context.reindexObject()
         self.context.aq_inner.aq_parent.reindexObject()
 
-        self.goto()
+        self.redirectToNextURL()
 
     @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
     def handle_cancel_action(self, action, data):
         """
         """                
         notify(EditCancelledEvent(self.context))        
-        self.goto()
+        self.redirectToNextURL()
 
-    def goto(self):
+    def redirectToNextURL(self):
         """
         """        
         url = self.request.get("goto", "")
@@ -83,7 +83,7 @@ class AddressAddForm(base.AddForm):
     def handle_cancel_action(self, action, data):
         """
         """
-        self.goto()
+        self.redirectToNextURL()
     
     def createAndAdd(self, data):
         """
@@ -91,9 +91,9 @@ class AddressAddForm(base.AddForm):
         am = IAddressManagement(self.context)
         am.addAddress(data)
         
-        self.goto()
+        self.redirectToNextURL()
         
-    def goto(self):
+    def redirectToNextURL(self):
         """
         """
         url = self.request.get("goto", "")

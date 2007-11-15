@@ -1,12 +1,13 @@
 # zope imports
+from zope.component.factory import Factory
 from zope.interface import implements
 from zope.schema.fieldproperty import FieldProperty
 
 # plone imports
 from plone.app.content.container import Container
-from plone.app.content.item import Item
 
 # easyshop imports
+from easyshop.core.config import _
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomer
 
@@ -59,3 +60,5 @@ class Customer(OrderSupport, Container):
             text.append(address.country)
                         
         return " ".join(text)
+
+customerFactory = Factory(Customer, title=_(u"Create a new customer"))

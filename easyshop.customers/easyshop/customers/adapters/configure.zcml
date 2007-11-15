@@ -4,6 +4,9 @@
     xmlns:browser="http://namespaces.zope.org/browser">
 
     <adapter
+        factory=".customer.copy.CustomerCopyManagement" />
+
+    <adapter
         factory=".customer.address.CustomerAddressManager" />
 
     <adapter

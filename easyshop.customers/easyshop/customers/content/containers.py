@@ -19,6 +19,6 @@ class SessionsContainer(BaseBTreeFolder):
     """A simple container to hold session data.
     """
     implements(ISessionsContainer)
-    
+        
 registerType(CustomersContainer, PROJECTNAME)
 registerType(SessionsContainer, PROJECTNAME)

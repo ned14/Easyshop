@@ -79,24 +79,22 @@ class CustomerPaymentManager:
         # for more information.)
         
         try:
-            self.context[self.context.selected_payment_method]                 
+            selected_method = self.context[self.context.selected_payment_method]
         except KeyError:
             shop = IShopManagement(self.context).getShop()
             pm = IPaymentManagement(shop)
-            selected_method = pm.getSelectedPaymentMethod()
+            return pm.getSelectedPaymentMethod()
         
         # if selected payment method is not valid return default
         # Todo: Make default manageable    
-        if check_validity == False:
+        if check_validity == False or \
+           IValidity(selected_method).isValid() == True:
             return selected_method
         else:
-            if IValidity(selected_method).isValid() == False:
-                shop = IShopManagement(self.context).getShop()
-                pm = IPaymentManagement(shop)
-                return pm.getSelectedPaymentMethod(check_validity)
-            else:
-                return selected_method
-
+            shop = IShopManagement(self.context).getShop()
+            pm = IPaymentManagement(shop)
+            return pm.getSelectedPaymentMethod(check_validity)
+                
     def getSimplePaymentMethods(self, check_validity=False):
         """Get simple payment content objects.
         """

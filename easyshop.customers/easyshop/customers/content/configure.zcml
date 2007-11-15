@@ -1,6 +1,8 @@
 <configure 
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    xmlns:browser="http://namespaces.zope.org/browser">
+    xmlns="http://namespaces.zope.org/zope">
+
+    <utility
+        component=".customer.customerFactory"
+        name="easyshop.Customer" />
 
 </configure>

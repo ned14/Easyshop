@@ -38,7 +38,7 @@ class CustomerAddressManager:
         address.country      = data.get("country", u"")
         address.phone        = data.get("phone", u"")
         
-        self.context._setObject(id, address)        
+        self.context._setObject(id, address)
 
         return id
         
@@ -65,7 +65,7 @@ class CustomerAddressManager:
             portal_type = "Address",
             path = "/".join(self.context.getPhysicalPath())
         )
-        
+
         return [brain.getObject() for brain in brains]
 
     def getInvoiceAddress(self):
@@ -94,5 +94,3 @@ class CustomerAddressManager:
         """
         """
         return len(self.getAddresses()) > 0
-            
-            
