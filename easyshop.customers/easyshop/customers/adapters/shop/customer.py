@@ -10,11 +10,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import base_hasattr
 
 # easyshop imports
-from easyshop.customers.content import Address
 from easyshop.customers.content import Customer
-from easyshop.core.interfaces import IAddress
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import ICustomer
+from easyshop.core.interfaces import ICopyManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ISessionManagement
 from easyshop.core.interfaces import IShop
@@ -104,32 +101,8 @@ class CustomerManagement:
         if base_hasattr(self.sessions, sid) == False:
             return False
 
-        wftool = getToolByName(self.context, "portal_workflow")
         session_customer = self.sessions[sid]
-        
-        # "Copy" customers in this way (not using Zope's cut'n paste) has the 
-        # advantage that we don't have any problems with permissions. First I 
-        # tried it with newSecurityManager and buddies. In addition the owner is
-        # set automatically correctly.
-        
-        new_customer = Customer(mid)
-        for field in ICustomer.names():
-            setattr(new_customer, field, getattr(session_customer, field))
-
-        self.customers._setObject(mid, new_customer)
-        new_customer = self.customers[mid]
-        wftool.notifyCreated(new_customer)
-        
-        # Copy addresses
-        session_addresses = IAddressManagement(session_customer).getAddresses()
-        for session_address in session_addresses:
-            new_address = Address(session_address.id)
-            for field in IAddress.names():
-                setattr(new_address, field, getattr(session_address, field))
-            new_customer._setObject(new_address.id, new_address)
-            address = new_customer[new_address.id]
-            wftool.notifyCreated(address)
-            
+        ICopyManagement(session_customer).copyTo(self.customers, mid)
         self.sessions.manage_delObjects([sid])
 
         return True
