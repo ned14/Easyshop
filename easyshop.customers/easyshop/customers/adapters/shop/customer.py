@@ -33,7 +33,7 @@ class CustomerManagement:
         """
         """
         if base_hasattr(self.customers, id) == False:
-            customer = Customer(id=id, title=id)
+            customer = Customer(id=id)
             self.customers._setObject(id, customer)
             return True
         else:
@@ -43,7 +43,7 @@ class CustomerManagement:
     def getAuthenticatedCustomer(self):
         """Returns the customer or a session customer for anonymous user. If it 
         doesn't already exist, creates a new one
-        """
+        """        
         mtool = getToolByName(self.context, "portal_membership")
         mid = mtool.getAuthenticatedMember().getId()
 
@@ -54,7 +54,7 @@ class CustomerManagement:
             if base_hasattr(self.sessions, sid) == False:
                 customer = Customer(id=sid)
                 self.sessions._setObject(sid, customer)
-            customer = self.sessions[sid]    
+            customer = self.sessions[sid]
         else:
             if base_hasattr(self.sessions, sid) == True:
                 self.transformCustomer(mid, sid)
@@ -64,6 +64,10 @@ class CustomerManagement:
                 self.customers._setObject(mid, customer)
 
             customer = self.customers[mid]        
+
+        # Update roles and mappings
+        wftool = getToolByName(self.context, "portal_workflow")
+        wftool.notifyCreated(customer)
 
         return customer
 

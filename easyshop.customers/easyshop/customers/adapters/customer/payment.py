@@ -4,6 +4,7 @@ from zope.component import adapts
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.exceptions import BadRequest
 
 # easyshop imports
 from easyshop.core.interfaces import ICustomer
@@ -28,7 +29,7 @@ class CustomerPaymentManager:
         """
         try:    
             self.context.manage_delObjects(id)
-        except AttributeError:
+        except BadRequest:
             return False
 
             # Shop level methods shouldn't deleted here. So we do nothing
