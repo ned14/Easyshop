@@ -1,13 +1,15 @@
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
+from zope.component import getUtility
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces.carts import ICartManagement
-from easyshop.core.interfaces.item import IItemManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import ISessionManagement
 from easyshop.core.interfaces import IShop
 
 class CartManagement:
@@ -51,35 +53,42 @@ class CartManagement:
     def getCart(self):
         """
         """
+        # Note: generally, carts aren't created until a product is put into the 
+        # cart. We create a cart here only when a member logs in and has haved 
+        # already anonymous cart.
+        
         mtool = getToolByName(self.context, "portal_membership")
-                
-        try:
-            sid = self.context.REQUEST.SESSION.getId()
-        except AttributeError:
-            sid = "DUMMY_SESSION"
+        sid = getUtility(ISessionManagement).getSID(self.context.REQUEST)                
             
-        # get anonymous cart
+        # Get anonymous cart here, because we need it in any case.
         try:
             anonymous_cart = self.context.carts[sid]
         except KeyError:
             anonymous_cart = None
+
+        # Note: Using this instead of mtool.isAnonymousUser() because this works
+        # even if we exchange the SecurityManager. See here:
+        # easyshop.orders.adapters.shop.order_management
         
-        if mtool.isAnonymousUser():
+        if mtool.getAuthenticatedMember().getId() is None:
             cart = anonymous_cart
         else:
-            # If there is a anonymous cart for the actual session, add this
-            # cart to the member cart and delete the anonymous cart
             mid = mtool.getAuthenticatedMember().getId()
+            
+            # If there is no anonymous cart we just return the member cart if 
+            # there is one, otherwise we return nothing.
             if anonymous_cart is None:
                 try:
                     cart = self.context.carts[mid]
                 except KeyError:
                     cart = None
-
+                    
+            # If there is already an anonymous cart we create a member cart and 
+            # copy the items from anonymous to member cart.
             else:
-                if self.hasCart():
+                try:
                     cart = self.context.carts[mid]
-                else:
+                except KeyError:
                     cart = self.createCart()
                             
                 im = IItemManagement(cart).addItemsFromCart(anonymous_cart)
@@ -100,12 +109,12 @@ class CartManagement:
         }
 
         catalog = getToolByName(self.context, "portal_catalog")
-        brains  = catalog.searchResults(query)
-
+        brains  = catalog.unrestrictedSearchResults(query)
+        
         return brains
         
     def getCartById(self, id):
-        """Returns a cart by given id.        
+        """
         """
         return self.context.carts.get(id)
 
@@ -139,15 +148,5 @@ class CartManagement:
         cart_id = mtool.getAuthenticatedMember().getId()
         if cart_id is not None:
             return cart_id
-        
-        try:
-            cart_id = self.context.REQUEST.SESSION.getId()
-        except AttributeError:
-            # Todo: This is only needed for test purposes. I'm sure this is
-            # not very clean but I'm not able to manage to create a (test)
-            # session within functional tests. OTOH this is not very invasive
-            # and there should be always a SESSION in "normal" browser
-            # sessions.
-            cart_id = "DUMMY_SESSION"            
-        
-        return cart_id
+        else:
+            return getUtility(ISessionManagement).getSID(self.context.REQUEST)

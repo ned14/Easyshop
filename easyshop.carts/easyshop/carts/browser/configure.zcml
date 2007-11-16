@@ -8,7 +8,6 @@
         class=".carts_container.CartsView"
         permission="cmf.ManagePortal" />
 
-
     <browser:page
         for="easyshop.core.interfaces.IShop"
         name="cart"
