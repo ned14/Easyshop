@@ -16,13 +16,11 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import IItemManagement 
 from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICopyManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShippingManagement
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import IPaymentManagement
 from easyshop.core.interfaces import IPaymentPrices
 from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IShopManagement
 
 from easyshop.order.events import OrderSubmitted
 
@@ -48,59 +46,19 @@ class OrderManagement:
         """Adds a new order on base of the current customer and current cart.        
            It should be called after the payment process is completed.
         """
-        shop = IShopManagement(self.context).getShop()
         cartmanager = ICartManagement(self.context)
         if customer is None:
-            customer = ICustomerManagement(shop).getAuthenticatedCustomer()
+            cm = ICustomerManagement(self.context)
+            customer = cm.getAuthenticatedCustomer()
 
         if cart is None:
             cart = cartmanager.getCart()
-  
-        # Add a new order
-        new_id = self.createOrderId()
-        self.orders.invokeFactory("Order", id=new_id)
-        new_order = getattr(self.orders, new_id)
 
-        # Add shipping values to order
-        sm = IShippingManagement(shop)
-        new_order.setShippingPriceNet(sm.getPriceNet())
-        new_order.setShippingPriceGross(sm.getPriceGross())
-        new_order.setShippingTax(sm.getTaxForCustomer())
-        new_order.setShippingTaxRate(sm.getTaxRateForCustomer())
-
-        # Add cart items to order
-        IItemManagement(new_order).addItemsFromCart(cart)
-
-        # Add payment price values to order 
-        pp = IPaymentPrices(shop)
-        new_order.setPaymentPriceGross(pp.getPriceGross())
-        new_order.setPaymentPriceNet(pp.getPriceNet())
-        new_order.setPaymentTax(pp.getTaxForCustomer())
-        new_order.setPaymentTaxRate(pp.getTaxRateForCustomer())
-        
-        # Copy the customer object to the order 
-        self.copyCustomerToOrder(customer, new_order)
-        
-        # Delete cart
-        cartmanager.deleteCart(cart.getId())
-
-        # Index with customer again
-        new_order.reindexObject()
-        
-        # Fire up event
-        if notify_ == True:
-            notify(OrderSubmitted(new_order))
-                    
-        return new_order
-
-    def copyCustomerToOrder(self, customer, order):
-        """
-        """
-        ## The current user may not be allowed to copy and paste so we
-        ## temporarily change the security context to use a temporary
-        ## 'Manager' user.
         portal = getToolByName(self.context, 'portal_url').getPortalObject()
 
+        ## The current user may not be allowed to create an order, so we
+        ## temporarily change the security context to use a temporary
+        ## user with manager role.
         old_sm = getSecurityManager()
         tmp_user = UnrestrictedUser(
             old_sm.getUser().getId(),
@@ -110,14 +68,49 @@ class OrderManagement:
         
         tmp_user = tmp_user.__of__(portal.acl_users)
         newSecurityManager(None, tmp_user)
+  
+        # Add a new order
+        new_id = self.createOrderId()
+        self.orders.invokeFactory("Order", id=new_id)
+        new_order = getattr(self.orders, new_id)
 
-        # Copy Customer to Order         
-        data = self.context.customers.manage_copyObjects(ids=[customer.getId()])
-        order.manage_pasteObjects(data)        
+        # Add shipping values to order
+        sm = IShippingManagement(self.context)
+        new_order.setShippingPriceNet(sm.getPriceNet())
+        new_order.setShippingPriceGross(sm.getPriceGross())
+        new_order.setShippingTax(sm.getTaxForCustomer())
+        new_order.setShippingTaxRate(sm.getTaxRateForCustomer())
+
+        # Add cart items to order
+        IItemManagement(new_order).addItemsFromCart(cart)
+
+        # Add payment price values to order 
+        pp = IPaymentPrices(self.context)
+        new_order.setPaymentPriceGross(pp.getPriceGross())
+        new_order.setPaymentPriceNet(pp.getPriceNet())
+        new_order.setPaymentTax(pp.getTaxForCustomer())
+        new_order.setPaymentTaxRate(pp.getTaxRateForCustomer())
+        
+        # Copy Customer to Order
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        cm = ICopyManagement(customer)
+        cm.copyTo(new_order)
+            
+        # Delete cart
+        cartmanager.deleteCart(cart.getId())
 
         ## Reset security manager
         setSecurityManager(old_sm)
         
+        # Index with customer again
+        new_order.reindexObject()
+        
+        # Fire up event
+        if notify_ == True:
+            notify(OrderSubmitted(new_order))
+                    
+        return new_order
+
     def getOrders(self, filter=None, sorting="created", sort_order="reverse"):
         """Returns orders filtered by given filter.
         """
@@ -175,3 +168,28 @@ class OrderManagement:
         lazy_cat = uid_catalog(UID=uid)
         o = lazy_cat[0].getObject()
         return o
+        
+    def _copyCustomerToOrder(self, customer, order):
+        """NOT USED AT THE MOMENT
+        """
+        ## The current user may not be allowed to copy and paste, so we
+        ## temporarily change the security context to use a temporary
+        ## user with manager role.
+        portal = getToolByName(self.context, 'portal_url').getPortalObject()
+
+        old_sm = getSecurityManager()
+        tmp_user = UnrestrictedUser(
+            old_sm.getUser().getId(),
+            '', ['Manager'], 
+            ''
+        )
+        
+        tmp_user = tmp_user.__of__(portal.acl_users)
+        newSecurityManager(None, tmp_user)
+
+        # Copy Customer to Order         
+        data = self.context.customers.manage_copyObjects(ids=[customer.getId()])
+        order.manage_pasteObjects(data)        
+
+        ## Reset security manager
+        setSecurityManager(old_sm)

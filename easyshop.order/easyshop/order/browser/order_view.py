@@ -209,13 +209,13 @@ class OrderView(BrowserView):
         
         return {
             "name" : address.getName(),
-            "company_name" : address.getCompanyName(),
-            "address1" : address.getAddress1(),
-            "address2" : address.getAddress2(),
-            "zipcode" : address.getZipCode(),
-            "city": address.getCity(),
-            "country" : address.getCountry(),
-            "phone" : address.getPhone()            
+            "company_name" : address.company_name,
+            "address1" : address.address_1,
+            "address2" : address.address_2,
+            "zipcode" : address.zip_code,
+            "city": address.city,
+            "country" : address.country,
+            "phone" : address.phone           
         }
         
     def getShippingAddress(self):
@@ -228,13 +228,13 @@ class OrderView(BrowserView):
         
         return {
             "name" : address.getName(),
-            "company_name" : address.getCompanyName(),
-            "address1" : address.getAddress1(),
-            "address2" : address.getAddress2(),
-            "zipcode" : address.getZipCode(),
-            "city": address.getCity(),
-            "country" : address.getCountry(),
-            "phone" : address.getPhone(),
+            "company_name" : address.company_name,
+            "address1" : address.address_1,
+            "address2" : address.address_2,
+            "zipcode" : address.zip_code,
+            "city": address.city,
+            "country" : address.country,
+            "phone" : address.phone           
         }
 
     def getShipping(self):

@@ -7,17 +7,12 @@ from zope.interface import implements
 # CMF imports
 from Products.CMFCore.utils import getToolByName
 
-# Plone imports
-from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
-                                       
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.interfaces import IOrder
 from easyshop.core.config import *
-from easyshop.core.interfaces import IShippingManagement
-from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IAddressManagement
 
 schema = Schema((
@@ -111,8 +106,14 @@ class Order(BaseFolder):
     def getCustomer(self):
         """Returns the customer of the order
         """
+        catalog = getToolByName(self, "portal_catalog")
+        brains = catalog.searchResults(
+            path = "/".join(self.getPhysicalPath()),
+            portal_type = "Customer",
+        )
+        
         try:
-            return self.objectValues("Customer")[0]
+            return brains[0].getObject()
         except IndexError:
             return None
 
@@ -127,11 +128,11 @@ class Order(BaseFolder):
         if customer is not None:
             for address in customer.objectValues("Address"):
                 text += " "
-                text += " ".join((address.getFirstname(),
-                                  address.getLastname(),
-                                  address.getAddress1(),
-                                  address.getZipCode(),
-                                  address.getCity()))            
+                text += " ".join((address.firstname,
+                                  address.lastname,
+                                  address.address_1,
+                                  address.zip_code,
+                                  address.city))
         return text
 
     def Description(self):
@@ -145,11 +146,11 @@ class Order(BaseFolder):
         if address is None:
             return ""
 
-        description  = address.getFirstname() + " " 
-        description += address.getLastname()  + " - "
-        description += address.getAddress1() + ", "
-        description += address.getZipCode()  + " "
-        description += address.getCity()
+        description  = address.firstname + " " 
+        description += address.lastname  + " - "
+        description += address.address_1 + ", "
+        description += address.zip_code  + " "
+        description += address.city
 
         return description
 
@@ -164,8 +165,6 @@ class Order(BaseFolder):
         if address is None:
             return ""
         
-        name = address.getLastname() + " " + address.getFirstname()
-        name = unicode(name, "utf-8")
-        return name
+        return address.lastname + " " + address.firstname
         
 registerType(Order, PROJECTNAME)
