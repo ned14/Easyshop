@@ -12,19 +12,22 @@ View the shop
     >>> browser.contents
     '...MyShop...'
     
-    >>> browser.getLink('Payment Methods').click()
 
-Now we add a new payment method
-        
-    >>> browser.getLink("Add Simple Payment Method").click()
-    >>> browser.getControl('Title').value = 'My Payment Method'
-    >>> browser.getControl('Payed').selected = True
+Now we add a new payment price.
+
+    >>> browser.getLink('Payment Prices').click()
+    
+    >>> browser.getLink('Add Payment Price').click()
+    >>> browser.getControl('Title').value = 'Default'
+    >>> browser.getControl('Pricegross').value = '42.00'
     >>> browser.getControl('Save').click()
-
+    
+The inital state should be private.
+    
     >>> browser.contents
-    '...There are no criteria...'
-
-Now we publish the payment method.
+    '...Private...'    
+    
+Now we publish the payment price.
 
     >>> browser.getLink('Publish').click()
     >>> browser.contents
@@ -37,5 +40,4 @@ Now we go back to the overview and test whether the new payment method is there.
 
     >>> browser.getLink('Back to Overview').click()    
     >>> browser.contents
-    '...My Payment Method...'
-    
+    '...Default...'

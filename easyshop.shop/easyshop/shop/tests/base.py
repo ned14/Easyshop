@@ -31,10 +31,14 @@ PloneTestCase.setupPloneSite(
 # easyshop imports
 from easyshop.shop.tests import utils
 
-
 class Browser(BaseBrowser):
     """
     """
+    def addAuthorizationHeader(self, user=PloneTestCase.default_user, password=PloneTestCase.default_password):
+        """ add an authorization header using the given or default credentials """
+        self.addHeader('Authorization', 'Basic %s:%s' % (user, password))
+        return self
+    
     def dc(self, filename="/Users/Kai/Temp/test-output.html"):
         open(filename, 'w').write(self.contents)
 
@@ -98,7 +102,7 @@ class EasyShopFunctionalMixin(EasyShopMixin):
         workflow.doActionFor(self.portal.myshop.products.product_1, 'publish')
         workflow.doActionFor(self.portal.myshop.products.product_2, 'publish')
         workflow.doActionFor(self.portal.myshop.products.product_42, 'publish')
-
+        
 class EasyShopTestCase(EasyShopMixin, PloneTestCase.PloneTestCase):
     """Base class for integration tests for the 'iqpp.rating' product.
     """

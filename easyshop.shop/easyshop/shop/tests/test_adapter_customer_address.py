@@ -36,7 +36,7 @@ class TestAddressManagementWithoutAddresses(EasyShopTestCase):
     def testDeleteAddress(self):
         """
         """
-        am = IAddressManagement(self.customer)        
+        am = IAddressManagement(self.customer)
         result = am.deleteAddress("address_1")
         self.assertEqual(result, False)
         
@@ -62,8 +62,8 @@ class TestAddressManagement(EasyShopTestCase):
         self.customer.invokeFactory("Address", "address_3")
         self.address_3 = self.customer.address_3
 
-        self.customer.setInvoiceAddressAsString("address_1")
-        self.customer.setShippingAddressAsString("address_2")
+        self.customer.selected_invoice_address= u"address_1"
+        self.customer.selected_shipping_address = u"address_2"
         
     def testGetAddresses(self):
         """
@@ -87,7 +87,7 @@ class TestAddressManagement(EasyShopTestCase):
     def testDeleteAddress(self):
         """
         """
-        am = IAddressManagement(self.customer)        
+        am = IAddressManagement(self.customer)
 
         am.deleteAddress("address_1")
         ids = [a.getId() for a in am.getAddresses()]        
@@ -105,13 +105,15 @@ class TestAddressManagement(EasyShopTestCase):
         """
         """
         am = IAddressManagement(self.customer)
-        id = am.addAddress(
-            "Doe Str. 1",
-            "App. 1",
-            "4711",
-            "Doe City",
-            "Germany"
-        )
+        id = am.addAddress({
+            "firstname" : u"John",
+            "lastname" : u"Doe",
+            "address_1" : u"Doe Str. 1",            
+            "address_2" : u"App. 1",
+            "zip_code" : u"4711",
+            "city" : u"Doe City",
+            "country" : u"Germany"
+        })
                 
         ids = [a.getId() for a in am.getAddresses()]        
         self.assertEqual(ids, ["address_1", "address_2", "address_3", id])

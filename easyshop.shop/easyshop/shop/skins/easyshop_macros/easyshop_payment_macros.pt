@@ -86,10 +86,10 @@
 </metal:default_payment_cancel_form>
 
 <div metal:define-macro="direct-debit">
-  <div tal:content="payment_method/getBankName">Bank</div>
-  <div tal:content="payment_method/getBankIdentificationCode">Bank</div>      
-  <div tal:content="payment_method/getAccountNumber">Account-Number</div>  
-  <div tal:content="payment_method/getName">Lastname</div>        
+  <div tal:content="payment_method/bank_name">Bank</div>
+  <div tal:content="payment_method/bank_identification_code">Bank</div>      
+  <div tal:content="payment_method/account_number">Account-Number</div>  
+  <div tal:content="payment_method/depositor">Depositor</div>
 </div> 
 
 <div metal:define-macro="direct-debit-management">

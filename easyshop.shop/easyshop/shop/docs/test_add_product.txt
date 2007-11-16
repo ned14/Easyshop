@@ -1,8 +1,7 @@
 First, some set-up:
     
-    >>> from Products.Five.testbrowser import Browser
+    >>> from easyshop.shop.tests.base import Browser
     >>> browser = Browser()
-    >>> browser.handleErrors = False
         
 Let us log all exceptions, which is useful for debugging.
 
@@ -71,7 +70,7 @@ To check out we click on the check out link.
     >>> browser.getLink('Check Out').click()
     
 Since we not logged in yet, we get the login form.
-    
+
     >>> browser.contents
     '...registration form...'
 
@@ -98,15 +97,18 @@ Now we add a new address.
     >>> browser.contents
     '...Please add a new addresses...'
     
-    >>> browser.getControl('First Name').value = 'John'
-    >>> browser.getControl('Last Name').value = 'Doe'
-    >>> browser.getControl(name='address1').value = 'John Doe Street 1'
+    >>> browser.dc()
+    
+    >>> browser.getControl('Firstname').value = 'John'
+    >>> browser.getControl('Lastname').value = 'Doe'
+    >>> browser.getControl('Address 1').value = 'John Doe Street 1'
     >>> browser.getControl('Zip Code').value = '99099'
     >>> browser.getControl('City').value = 'Doe City'
     >>> browser.getControl('Phone').value = '555 1112222'    
     >>> browser.getControl('Next').click()
 
 Confirm default shipping method.    
+
     >>> browser.contents
     '...Please select you shipping method...'
     
@@ -126,4 +128,4 @@ Confirm terms and condition and complete order.
     >>> browser.getControl(name='confirmation').value = True
     >>> browser.getControl('Complete Order').click()
     >>> browser.contents
-    '...Your order has been successfully completed...'
+    '...Your order has been received. Thank you!...'

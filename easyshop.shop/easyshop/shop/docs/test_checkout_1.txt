@@ -2,7 +2,6 @@ First, some set-up:
     
     >>> from easyshop.shop.tests.base import Browser
     >>> browser = Browser()
-    >>> browser.handleErrors = False
         
 Let us log all exceptions, which is useful for debugging.
 
@@ -23,7 +22,8 @@ We browse to the document, we want to buy.
     >>> browser.contents
     '...19,00...'
 
-And add it to the cart     
+And add it to the cart
+     
     >>> browser.getControl('Add to Cart').click()
     >>> browser.contents
     '...The product has been added to the cart...'
@@ -61,9 +61,9 @@ Now we add a new address.
     >>> browser.contents
     '...Please add a new addresses...'
     
-    >>> browser.getControl('First Name').value = 'John'
-    >>> browser.getControl('Last Name').value = 'Doe'
-    >>> browser.getControl(name='address1').value = 'John Doe Street 1'
+    >>> browser.getControl('Firstname').value = 'John'
+    >>> browser.getControl('Lastname').value = 'Doe'
+    >>> browser.getControl('Address 1').value = 'John Doe Street 1'
     >>> browser.getControl('Zip Code').value = '99099'
     >>> browser.getControl('City').value = 'Doe City'
     >>> browser.getControl('Phone').value = '555 1112222'    
@@ -79,12 +79,12 @@ Confirm default shipping method.
 Now we select the payment method. This time we choose Direct Debit and fill in 
 the form details.
 
-    >>> browser.getControl(name="bank_identification_code").value = "1000000"
-    >>> browser.getControl(name="account_number").value = "111111"
-    >>> browser.getControl(name="bankname").value = "German Bank"
-    >>> browser.getControl(name="name").value = "John Doe"
+    >>> browser.getControl(name="form.bank_identification_code").value = "1000000"
+    >>> browser.getControl(name="form.account_number").value = "111111"
+    >>> browser.getControl(name="form.bank_name").value = "German Bank"
+    >>> browser.getControl(name="form.depositor").value = "John Doe"
     
-    >>> browser.getControl(name='id').getControl(value='direct_debit_new').selected = True
+    >>> browser.getControl(name='form.id').getControl(value='direct_debit_new').selected = True
     >>> browser.getControl('Next').click()
     
 Now we find our inputs within the overview.
@@ -107,4 +107,4 @@ Now we confirm terms and conditions and complete the order.
     >>> browser.getControl('Complete Order').click()
 
     >>> browser.contents
-    '...Your order has been successfully completed...'
+    '...Your order has been received. Thank you!...'

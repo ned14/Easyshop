@@ -79,7 +79,7 @@ class TestPaymentManagement(EasyShopTestCase):
         """
         cm = ICustomerManagement(self.shop)
         customer = cm.getAuthenticatedCustomer()        
-        customer.setSelectedPaymentMethod("paypal")
+        customer.selected_payment_method = "paypal"
         
         pm = IPaymentManagement(self.shop)
         result = pm.getSelectedPaymentMethod().getId()
@@ -89,7 +89,7 @@ class TestPaymentManagement(EasyShopTestCase):
         """Customer has selected a non existing. Returns default, which is 
         prepayment atm.
         """
-        self.customer.setSelectedPaymentMethod("dummy")
+        self.customer.selected_payment_method = "dummy"
         pm = IPaymentManagement(self.shop)
         result = pm.getSelectedPaymentMethod().getId()
         self.assertEqual(result, "prepayment")

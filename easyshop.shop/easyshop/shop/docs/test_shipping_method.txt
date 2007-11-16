@@ -12,18 +12,20 @@ View the shop
     >>> browser.contents
     '...MyShop...'
     
-    >>> browser.getLink('Payment Methods').click()
+Now we add a new shipping method
 
-Now we add a new payment method
-        
-    >>> browser.getLink("Add Simple Payment Method").click()
-    >>> browser.getControl('Title').value = 'My Payment Method'
-    >>> browser.getControl('Payed').selected = True
+    >>> browser.getLink('Shipping Methods').click()
+    
+    >>> browser.getLink('Add Shipping Method').click()
+    >>> browser.getControl('Title').value = 'Express'
+    >>> browser.getControl('Description').value = 'Delivery within 24 hours.'
     >>> browser.getControl('Save').click()
-
+    
+The inital state should be private.
+    
     >>> browser.contents
-    '...There are no criteria...'
-
+    '...Private...'    
+    
 Now we publish the payment method.
 
     >>> browser.getLink('Publish').click()
@@ -37,5 +39,4 @@ Now we go back to the overview and test whether the new payment method is there.
 
     >>> browser.getLink('Back to Overview').click()    
     >>> browser.contents
-    '...My Payment Method...'
-    
+    '...Express...'

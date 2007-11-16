@@ -1,6 +1,3 @@
-# Zope imports
-from DateTime import DateTime
-
 # zope imports
 from zope.component import getMultiAdapter
 
@@ -9,8 +6,8 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop imports 
 from base import EasyShopTestCase
-from easyshop.shop.tests import utils
 from easyshop.core.interfaces import IOrderManagement
+from easyshop.core.interfaces import ICopyManagement
 
 class TestOrderManagement(EasyShopTestCase):
     """
@@ -61,9 +58,8 @@ class TestOrderManagement(EasyShopTestCase):
         self.shop.customers.invokeFactory("Customer", "customer")
         customer = self.shop.customers.customer 
         
-        om = IOrderManagement(self.shop)
-        om.copyCustomerToOrder(customer, order)                
-        order_customer = order.objectValues("Customer")[0]        
+        ICopyManagement(customer).copyTo(order)
+        order_customer = order.objectValues("Customer")[0]
         
         self.assertEqual(customer.getId(), order_customer.getId())
         

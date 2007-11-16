@@ -41,25 +41,25 @@ class TestDirectDebit(EasyShopTestCase):
     def testIsComplete(self):
         """
         """
-        dd = self.customer["directdebit"]                
+        dd = self.customer["directdebit"]
         self.assertEqual(ICompleteness(dd).isComplete(), False)
                     
-        dd.setAccountNumber("47114711")
+        dd.account_number = u"47114711"
         self.assertEqual(ICompleteness(dd).isComplete(), False)
                 
-        dd.setBankIdentificationCode("50010000")
+        dd.bank_identification_code= u"50010000"
         self.assertEqual(ICompleteness(dd).isComplete(), False)
         
-        dd.setName("John Doe")
+        dd.depositor = u"John Doe"
         self.assertEqual(ICompleteness(dd).isComplete(), False)
                 
-        dd.setBankName("Deutsche Bank")
+        dd.bank_name = u"Deutsche Bank"
         self.assertEqual(ICompleteness(dd).isComplete(), True)        
         
     def testProcess(self):
         """
         """
-        dd = self.customer["directdebit"]                
+        dd = self.customer["directdebit"]
         self.assertEqual(IPaymentProcessing(dd).process(), "NOT_PAYED")
         
 def test_suite():

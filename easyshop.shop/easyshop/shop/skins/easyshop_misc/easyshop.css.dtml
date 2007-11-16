@@ -81,7 +81,7 @@ table.order_header td {
 }
 
 #order-preview-information fieldset {
-    height: 100px;
+    height: 120px;
 }
 
 #check-out-cart table {
@@ -255,5 +255,3 @@ img.product-details {
     padding-bottom:20px;
 }
 /* </dtml-with> */
-
-

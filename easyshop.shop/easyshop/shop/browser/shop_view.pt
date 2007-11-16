@@ -12,8 +12,7 @@
     <metal:main-macro define-macro="main"
                       tal:define="kssClassesView context/@@kss_field_decorator_view;
                                   getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                                  templateId template/getId;
-                                  text here/getText;">
+                                  templateId template/getId;">
 
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -31,16 +30,6 @@
         </p>
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
-
-        <p tal:condition="python: not text and is_editable"
-           i18n:translate="no_body_text"
-           class="discreet">
-            This item does not have any body text, click the edit tab to change it.
-        </p>
-
-        <metal:field use-macro="python:here.widget('text', mode='view')">
-            Body text
-        </metal:field>
 
         <div metal:use-macro="here/document_relateditems/macros/relatedItems">
             show related items if they exist

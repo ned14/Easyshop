@@ -12,48 +12,43 @@ from base import EasyShopTestCase
 from easyshop.shop.tests import utils
 from easyshop.core.interfaces import IValidity
 
+from easyshop.payment.content import DirectDebit
+from easyshop.taxes.content import CustomerTax
+from easyshop.taxes.content import DefaultTax
+from easyshop.payment.content import PaymentPrice
+from easyshop.payment.content import PaymentValidator
+from easyshop.payment.content import SimplePaymentMethod
+from easyshop.shipping.content import ShippingPrice
+from easyshop.shipping.content import ShippingMethod
+
 class TestValidityAdapters(EasyShopTestCase):
     """
     """
-    def afterSetUp(self):
-        """
-        """
-        self.folder.manage_addProduct["easyshop.shop"].addDirectDebit("cpm")
-        self.folder.manage_addProduct["easyshop.shop"].addSimplePaymentMethod("spm")
-        self.folder.manage_addProduct["easyshop.shop"].addPaymentValidator("pmv")
-        self.folder.manage_addProduct["easyshop.shop"].addPaymentPrice("pp")
-                        
-        self.folder.manage_addProduct["easyshop.shop"].addCustomerTax("ct")
-        self.folder.manage_addProduct["easyshop.shop"].addDefaultTax("dt")
-
-        self.folder.manage_addProduct["easyshop.shop"].addShippingPrice("sp")
-        # self.folder.manage_addProduct["easyshop.shop"].addShippingMethod("sm")
-                                
     def testAdapters(self):
         """
         """
-        adapter = IValidity(self.folder.cpm)
+        adapter = IValidity(DirectDebit("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.CustomerPaymentValidityManagement'>")
 
-        adapter = IValidity(self.folder.spm)
+        adapter = IValidity(SimplePaymentMethod("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
 
-        adapter = IValidity(self.folder.pmv)
+        adapter = IValidity(PaymentValidator("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
 
-        adapter = IValidity(self.folder.pp)
+        adapter = IValidity(PaymentPrice("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
 
-        adapter = IValidity(self.folder.ct)
+        adapter = IValidity(CustomerTax("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
 
-        adapter = IValidity(self.folder.dt)
+        adapter = IValidity(DefaultTax("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
         
-        adapter = IValidity(self.folder.sp)
+        adapter = IValidity(ShippingPrice("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
         
-        # adapter = IValidity(self.folder.sm)
+        # adapter = IValidity(ShippingMethod("dummy"))
         # self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
         
 def test_suite():

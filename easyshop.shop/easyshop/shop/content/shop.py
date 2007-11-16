@@ -28,21 +28,6 @@ from easyshop.customers.portlets import my_account
 
 schema = Schema((
 
-    TextField('text',
-              required=False,
-              searchable=True,
-              primary=True,
-              storage = AnnotationStorage(migrate=True),
-              validators = ('isTidyHtmlWithCleanup',),
-              #validators = ('isTidyHtml',),
-              default_output_type = 'text/x-html-safe',
-              widget = RichWidget(
-                        description = '',
-                        label = _(u'label_body_text', default=u'Body Text'),
-                        rows = 25,
-                        allow_file_upload = zconf.ATDocument.allow_document_upload),
-    ),
-
     StringField(
         name="shopOwner",
         widget=StringWidget(
@@ -67,16 +52,6 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
-    ImageField(
-        name='image',
-        schemata = "misc",        
-        widget=ImageWidget(
-            label='Image',
-            label_msgid='schema_image_label',
-            i18n_domain='EasyShop',
-        ),
-        storage=AttributeStorage()
-    ),    
 
     BooleanField(
         name = "expandAll",

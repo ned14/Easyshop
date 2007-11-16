@@ -117,10 +117,12 @@ class TestCartManagement(EasyShopTestCase):
         """
         """
         # create cart for newmember
-        self.login("newmember")    
+        self.login("newmember")            
         self.cm.createCart()
+
+        self.setRoles(("Manager",))
         
-        ids = [c.getId for c in self.cm.getCarts()]        
+        ids = [c.getId for c in self.cm.getCarts()]
         self.assertEqual(ids, ["newmember"])
         
     def testGetCartById(self):

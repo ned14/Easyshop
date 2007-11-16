@@ -43,19 +43,20 @@ class TestValidity(EasyShopTestCase):
         """
         """
         self.shop.manage_addProduct["easyshop.shop"].addCountryCriteria("c")
-        self.shop.c.setCountries(("USA",))
+        self.shop.c.setCountries((u"USA",))
         v = IValidity(self.shop.c)
         
         self.login("newmember")
 
         cm = ICustomerManagement(self.shop)
-        customer = cm.getAuthenticatedCustomer()        
+        customer = cm.getAuthenticatedCustomer()
+        
         customer.invokeFactory("Address", "address_1")
 
-        customer.address_1.setCountry("USA")
+        customer.address_1.country = u"USA"
         self.assertEqual(v.isValid(), True)
 
-        customer.address_1.setCountry("Germany")
+        customer.address_1.country = u"Germany"
         self.assertEqual(v.isValid(), False)
         
     def testCustomer(self):
@@ -126,10 +127,10 @@ class TestValidity(EasyShopTestCase):
         cm = ICustomerManagement(self.shop)
         customer = cm.getAuthenticatedCustomer()
 
-        customer.setSelectedPaymentMethod("cash-on-delivery")
+        customer.selected_payment_method = u"cash-on-delivery"
         self.assertEqual(v.isValid(), False)
 
-        customer.setSelectedPaymentMethod("prepayment")
+        customer.selected_payment_method = u"prepayment"
         self.assertEqual(v.isValid(), False)
 
         self.shop.c.setPaymentMethods(["directdebit"])

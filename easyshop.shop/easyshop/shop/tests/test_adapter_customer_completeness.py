@@ -26,16 +26,18 @@ class TestCustomerCompleteness(EasyShopTestCase):
         self.assertEqual(c.isComplete(), False)
         
         am = IAddressManagement(self.customer)
-        id = am.addAddress(
-            "Doe Str. 1",
-            "App. 1",
-            "4711",
-            "Doe City",
-            "Germany"
-        )
+        id = am.addAddress({
+            "firstname" : u"John",
+            "lastname" : u"Doe",
+            "address_1" : u"Doe Str. 1",            
+            "address_2" : u"App. 1",
+            "zip_code" : u"4711",
+            "city" : u"Doe City",
+            "country" : u"Germany"
+        })
         
-        self.customer.setInvoiceAddressAsString(id)        
-        self.customer.setShippingAddressAsString(id)
+        self.customer.selected_invoice_address= id        
+        self.customer.selected_shipping_address = id
         self.assertEqual(c.isComplete(), False)
         
         view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")

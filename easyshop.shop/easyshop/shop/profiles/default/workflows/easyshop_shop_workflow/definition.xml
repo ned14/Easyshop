@@ -5,9 +5,10 @@
              state_variable="review_state"
              initial_state="private">
  <permission>Access contents information</permission>
+ <permission>List folder contents</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
- <permission>List folder contents</permission>
+ <permission>EasyShop: Checkout</permission>
  <state state_id="private" title="Private">
   <description>Can only be seen and edited by the owner.
 </description>
@@ -15,6 +16,9 @@
   <exit-transition transition_id="submit"/>
   <permission-map name="Access contents information"
                   acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Checkout" acquired="False">
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="List folder contents"
@@ -36,6 +40,11 @@
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Checkout" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
   </permission-map>
   <permission-map name="List folder contents"
                   acquired="False">
@@ -47,6 +56,7 @@
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
   </permission-map>
  </state>
  <transition transition_id="hide"
