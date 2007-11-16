@@ -3,16 +3,24 @@
     xmlns:browser="http://namespaces.zope.org/browser"    
     xmlns:five="http://namespaces.zope.org/five">    
 
+    <!-- Customer -->
+    <five:registerClass
+        class=".customer.Customer"
+        meta_type="Customer"
+        permission="cmf.ModifyPortalContent"
+        addview="easyshop.customer"
+        icon="user_icon.gif" />
+
     <utility
         component=".customer.customerFactory"
-        name="easyshop.Customer" />
+        name="easyshop.customer" />
     
     <!-- Address -->
     <five:registerClass
         class=".address.Address"
         meta_type="Address"
         permission="zope2.View"
-        addview="add-address"
+        addview="easyshop.address"
         icon="document_icon.gif" />
 
     <utility

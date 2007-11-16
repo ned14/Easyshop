@@ -4,6 +4,7 @@ from zope.component import adapts
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.exceptions import BadRequest
 
 # Archetypes imports
 from Products.Archetypes.utils import shasattr
@@ -47,7 +48,7 @@ class CustomerAddressManager:
         """
         try:
             self.context.manage_delObjects(id)
-        except AttributeError:
+        except BadRequest:
             return False
         
         return True
