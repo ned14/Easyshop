@@ -15,6 +15,9 @@
         package=".browser" />
 
     <include
+        package=".content" />
+
+    <include
         package=".subscribers" />
 
 </configure>

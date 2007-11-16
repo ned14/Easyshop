@@ -70,28 +70,24 @@ class PaymentManagement:
         """Returns the selected payment method of the current customer on shop
         level.
         """
-        # First try to get the selected payment method from user level
         cm = ICustomerManagement(self.context)
         customer = cm.getAuthenticatedCustomer()
-
-        # Then from shop level:
+        
         try:
-            method = getattr(
-                self.context.paymentmethods, 
-                customer.getSelectedPaymentMethod())
-        except AttributeError:
-            # return default, which is prepayment (because for that no
-            # information is needed.) Todo: Make this editable
-            return getattr(self.context.paymentmethods, "prepayment")
-        
-        if check_validity == False:
-            return method
-            
-        if IValidity(method).isValid() == True:
-            return method
-            
-        return getattr(self.context.paymentmethods, "prepayment")
-        
+            selected_payment_method = \
+                self.context.paymentmethods[customer.selected_payment_method]
+        except KeyError:
+            # Return prepayment as fallback
+            return self.context.paymentmethods["prepayment"]
+
+        # check vor validity    
+        if check_validity == False or \
+           IValidity(selected_payment_method).isValid() == True:
+            return selected_payment_method
+        else:
+            # Return prepayment as fallback
+            return self.context.paymentmethods["prepayment"]
+                        
 class PaymentPrices:
     """
     """

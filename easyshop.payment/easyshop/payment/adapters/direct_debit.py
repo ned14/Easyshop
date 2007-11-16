@@ -55,13 +55,13 @@ class DirectDebitCompleteness:
     def isComplete(self):
         """Returns true if the direct debit informations are complete.
         """        
-        if len(self.context.getAccountNumber()) == 0:
+        if len(self.context.account_number) == 0:
             return False
-        elif len(self.context.getBankIdentificationCode()) == 0:
+        elif len(self.context.bank_identification_code) == 0:
             return False
-        elif len(self.context.getName()) == 0:
+        elif len(self.context.depositor) == 0:
             return False
-        elif len(self.context.getBankName()) == 0:
+        elif len(self.context.bank_name) == 0:
             return False
 
         return True

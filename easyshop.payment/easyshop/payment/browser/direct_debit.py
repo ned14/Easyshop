@@ -1,8 +1,7 @@
 # zope imports
+from zope.event import notify
 from zope.formlib import form
-import zope.event
-import zope.lifecycleevent
-
+from zope.lifecycleevent import ObjectModifiedEvent
 
 from Products.Five.browser import pagetemplatefile
 
@@ -15,8 +14,7 @@ from plone.app.form.events import EditCancelledEvent, EditSavedEvent
 from easyshop.core.config import _
 from easyshop.core.config import DEFAULT_SHOP_FORM
 from easyshop.core.interfaces import IDirectDebit
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShopManagement
+from easyshop.payment.content.direct_debit import DirectDebit
 
 class DirectDebitEditForm(base.EditForm):
     """
@@ -33,11 +31,11 @@ class DirectDebitEditForm(base.EditForm):
         """
         """
         if form.applyChanges(self.context, self.form_fields, data, self.adapters):
-            zope.event.notify(zope.lifecycleevent.ObjectModifiedEvent(self.context))
-            zope.event.notify(EditSavedEvent(self.context))
+            notify(ObjectModifiedEvent(self.context))
+            notify(EditSavedEvent(self.context))
             self.status = "Changes saved"
         else:
-            zope.event.notify(EditCancelledEvent(self.context))
+            notify(EditCancelledEvent(self.context))
             self.status = "No changes"
 
         self.context.reindexObject()
@@ -47,7 +45,7 @@ class DirectDebitEditForm(base.EditForm):
     def handle_cancel_action(self, action, data):
         """
         """                
-        zope.event.notify(EditCancelledEvent(self.context))
+        notify(EditCancelledEvent(self.context))
         self.nextUrl()
         
     def nextUrl(self):
@@ -89,15 +87,14 @@ class DirectDebitAddForm(base.AddForm):
         # add address
         id = self.context.generateUniqueId("DirectDebit")
 
-        self.context.invokeFactory("DirectDebit", id=id, title=data.get("address1"))
-        direct_debit = getattr(self.context, id)
-
-        # set data
-        direct_debit.setAccountNumber(data.get("accountNumber"))
-        direct_debit.setBankIdentificationCode(data.get("bankIdentificationCode"))
-        direct_debit.setName(data.get("name"))
-        direct_debit.setBankName(data.get("bankName"))
+        direct_debit = DirectDebit(id)
+        direct_debit.account_number = data.get("account_number")
+        direct_debit.bank_identification_code = data.get("bank_identification_code")
+        direct_debit.depositor = data.get("depositor")
+        direct_debit.bank_name = data.get("bank_name")
         
+        self.context._setObject(id, direct_debit)
+
         direct_debit.reindexObject()
         self.nextUrl()
 

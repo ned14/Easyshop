@@ -1,6 +1,6 @@
-import containers
-import direct_debit
-import paypal
-import payment_price
-import payment_validator
-import simple_payment_method
+from containers import *
+from direct_debit import *
+from paypal import *
+from payment_price import *
+from payment_validator import *
+from simple_payment_method import *
