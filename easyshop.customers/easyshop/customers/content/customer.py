@@ -52,12 +52,18 @@ class Customer(OrderSupport, Container):
         
         am = IAddressManagement(self)
         for address in am.getAddresses():
-            text.append(address.firstname)
-            text.append(address.lastname)
-            text.append(address.address_1)
-            text.append(address.zip_code)            
-            text.append(address.city)
-            text.append(address.country)
+            if address.firstname:
+                text.append(address.firstname)
+            if address.lastname:
+                text.append(address.lastname)
+            if address.address_1:
+                text.append(address.address_1)
+            if address.zip_code:
+                text.append(address.zip_code)            
+            if address.city:
+                text.append(address.city)
+            if address.country:
+                text.append(address.country)
                         
         return " ".join(text)
 

@@ -1,4 +1,5 @@
 # zope imports
+from zope.component.factory import Factory
 from zope.interface import implements
 from zope.schema.fieldproperty import FieldProperty
 
@@ -6,6 +7,7 @@ from zope.schema.fieldproperty import FieldProperty
 from plone.app.content.item import Item
 
 # easyshop imports
+from easyshop.core.config import _
 from easyshop.core.interfaces import IAddress
 
 class Address(Item):
@@ -42,3 +44,5 @@ class Address(Item):
             name += self.lastname
         
         return name
+        
+addressFactory = Factory(Address, title=_(u"Create a new address"))

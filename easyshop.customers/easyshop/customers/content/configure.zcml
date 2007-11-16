@@ -1,8 +1,22 @@
 <configure 
-    xmlns="http://namespaces.zope.org/zope">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"    
+    xmlns:five="http://namespaces.zope.org/five">    
 
     <utility
         component=".customer.customerFactory"
         name="easyshop.Customer" />
+    
+    <!-- Address -->
+    <five:registerClass
+        class=".address.Address"
+        meta_type="Address"
+        permission="zope2.View"
+        addview="add-address"
+        icon="document_icon.gif" />
+
+    <utility
+        component=".address.addressFactory"
+        name="easyshop.address" />
 
 </configure>

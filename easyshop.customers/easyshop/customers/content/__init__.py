@@ -1,3 +1,2 @@
-from address import *
-from containers import *
-from customer import *
+from address import Address
+from customer import Customer
