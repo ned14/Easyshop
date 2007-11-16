@@ -25,14 +25,12 @@ class CountryCriteriaValidity:
         """Returns True if the selected invoice address of the current customer
         has one of the selected countries.
         """
-        cm = ICustomerManagement(IShopManagement(self.context).getShop())
-        customer = cm.getAuthenticatedCustomer()
-        
-        am = IAddressManagement(customer)
-        invoice_address = am.getInvoiceAddress()
+        shop = IShopManagement(self.context).getShop()
+        customer = ICustomerManagement(shop).getAuthenticatedCustomer()
+        invoice_address = IAddressManagement(customer).getInvoiceAddress()
         
         if invoice_address and\
-           invoice_address.getCountry() in self.context.getCountries():
+           invoice_address.country in self.context.getCountries():
             return True
         else:
             return False        
