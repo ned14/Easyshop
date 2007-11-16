@@ -12,6 +12,10 @@ def countries(context):
     """
     """
     terms = []
-    for country in IShopManagement(context).getShop().getCountries():
-        terms.append(SimpleTerm(country, country))    
+    terms.append(SimpleTerm("Germany", u"Germany"))
+    terms.append(SimpleTerm("USA", u"USA"))    
+    
+    # for country in IShopManagement(context).getShop().getCountries():
+    #     terms.append(SimpleTerm(country, country))    
+        
     return SimpleVocabulary(terms)

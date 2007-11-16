@@ -38,32 +38,32 @@ class IPayPal(IShopPaymentMethod):
     """
     
 class IDirectDebit(ICustomerPaymentMethod):
-    """A marker interface for direct debit content objects. Note, that this is 
-    also a ICustomerPaymentMethod, means it needs information (bank details) 
-    per customer.    
+    """A direct debit content object. Note, that this is also a 
+    ICustomerPaymentMethod, means it needs information (bank details) per 
+    customer.    
     """
-    accountNumber = schema.TextLine(
+    account_number = schema.TextLine(
         title=_(u'Account Number'),
         description=_(u"Please enter your account number"),
         default=u'',
         required=True,
     )
     
-    bankIdentificationCode = schema.TextLine(
+    bank_identification_code = schema.TextLine(
         title=_(u'Bank Information Code'),
         description=_(u"Please enter your bank information code"),
         default=u'',
         required=True,
     )
     
-    name = schema.TextLine(
-        title=_(u'Name'),
-        description=_(u"Please enter the owner of the account"),
+    depositor = schema.TextLine(
+        title=_(u'Depositor'),
+        description=_(u"Please enter the depositor of the account"),
         default=u'',
         required=True,
     )
     
-    bankName = schema.TextLine(
+    bank_name = schema.TextLine(
         title=_(u'Bank Name'),
         description=_(u"Please enter the bank name"),
         default=u'',

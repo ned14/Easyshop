@@ -5,6 +5,9 @@
 
     <include
         package=".browser" />
+
+    <include 
+        file="permissions.zcml" />
     
     <utility
         provides="zope.schema.interfaces.IVocabularyFactory"

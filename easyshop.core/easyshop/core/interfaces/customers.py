@@ -27,28 +27,28 @@ class IAddress(Interface):
         required=True,
     )
 
-    companyName = schema.TextLine(
+    company_name = schema.TextLine(
         title=_(u'Company Name'),
         description=_(u"Please enter your company name"),
         default=u'',
         required=False,
     )
 
-    address1 = schema.TextLine(
+    address_1 = schema.TextLine(
         title=_(u'Address 1'),
         description=_(u"Please enter your address."),
         default=u'',
         required=True,
     )
 
-    address2 = schema.TextLine(
+    address_2 = schema.TextLine(
         title=_(u'Address 2'),
         description=_(u"Please enter your address."),
         default=u'',
         required=False,
     )
 
-    zipCode = schema.TextLine(
+    zip_code = schema.TextLine(
         title=_(u'Zip Code'),
         description=_(u"Please enter your zip code."),
         default=u'',
@@ -125,6 +125,10 @@ class ICustomersContainer(Interface):
     """A marker interface for customer folder content objects.
     """
 
+class ISessionsContainer(Interface):
+    """A container which holds addresses for anonymous customers.
+    """
+
 class ICustomer(Interface):
     """A customer can buy products from the shop.
     """
@@ -149,25 +153,32 @@ class ICustomer(Interface):
         required=True,
     )
 
-    invoiceAddressAsString  = Attribute("The selected invoice address.")
-    shippingAddressAsString = Attribute("The selected shipping address.")
-    selectedPaymentMethod   = Attribute("The selected payment method.")
-    selectedShippingMethod  = Attribute("The selected shipping method.")
+    selected_invoice_address  = Attribute("The selected invoice address.")
+    selected_shipping_address = Attribute("The selected shipping address.")
+    selected_payment_method   = Attribute("The selected payment method.")
+    selected_shipping_method  = Attribute("The selected shipping method.")
+
 class ICustomerManagement(Interface):
     """Provides methods to manage customer content objects.
     """
+    def addCustomer():
+        """Adds a new customer. Either one for the authenticated member or one 
+        for an anonymous user.
+        """
+        
     def getAuthenticatedCustomer():
-       """Returns the current authenticated customer.
+       """Returns the current authenticated or session customer.
        """
 
-    def getCustomerById(id):
-        """Returns a customer by given id
+    def getCustomerById(member_id):
+        """Returns customer object for the given member id.
         """    
 
     def getCustomers():
+       """Returns all existing customers for authenticated members.
        """
-       """
-
-    def hasCustomer(customer):
-       """
-       """        
+       
+    def transformCustomer(mid, sid):
+        """Transforms a session customer with the given session id (sid) to a 
+        personalized customer with the given member id (mid)
+        """
