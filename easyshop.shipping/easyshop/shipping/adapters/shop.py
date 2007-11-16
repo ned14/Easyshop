@@ -35,7 +35,7 @@ class ShippingManagement:
         """
         cm = ICustomerManagement(IShopManagement(self.context).getShop())
         customer = cm.getAuthenticatedCustomer()        
-        shipping_method_id = customer.getSelectedShippingMethod()
+        shipping_method_id = customer.selected_shipping_method
         
         return self.getShippingMethod(shipping_method_id)
         

@@ -1,3 +1,3 @@
-import containers
-import shipping_method
-import shipping_price
+from containers import *
+from shipping_method import *
+from shipping_price import *
