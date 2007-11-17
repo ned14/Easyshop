@@ -70,6 +70,38 @@ class IDirectDebit(ICustomerPaymentMethod):
         required=True,
     )
 
+class ICreditCard(ICustomerPaymentMethod):
+    """A credit cart content object. Note, that this is also a 
+    ICustomerPaymentMethod, means it needs information per customer.
+    """
+    card_type = schema.TextLine(
+        title=_(u'Card Type'),
+        description=_(u"Please enter the type of the card."),
+        default=u'',
+        required=True,
+    )
+
+    card_owner = schema.TextLine(
+        title=_(u'Card Owner'),
+        description=_(u"Please enter your the name of the card owner."),
+        default=u'',
+        required=True,
+    )
+
+    card_number = schema.TextLine(
+        title=_(u'Card Number'),
+        description=_(u"Please enter your the card number."),
+        default=u'',
+        required=True,
+    )
+
+    card_expiration_date = schema.TextLine(
+        title=_(u'Expiration Date'),
+        description=_(u"Please enter the expiration date of the card."),
+        default=u'',
+        required=True,
+    )
+
 class IPaymentMethodValidator(Interface):
     """A corresponding validator object for a customer payment method object.
     It *can* exist within shop level to decide whether a customer payment
