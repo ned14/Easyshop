@@ -13,7 +13,7 @@
  <property name="allowed_content_types">
   <element value="GroupCriteria"/>
   <element value="DateCriteria"/>
-  <element value="EasyShopCategoryCriteria"/>
+  <element value="CategoryCriteria"/>
   <element value="ProductCriteria"/>
  </property>
  <property name="allow_discussion">False</property>
