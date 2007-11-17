@@ -18,6 +18,16 @@
 
 
     <adapter
+        factory=".credit_card.CreditCardType" />
+
+    <adapter
+        factory=".credit_card.CreditCardPaymentProcessor" />
+
+    <adapter
+        factory=".credit_card.CreditCardCompleteness" />
+        
+
+    <adapter
         factory=".direct_debit.DirectDebitType" />
 
     <adapter

@@ -14,6 +14,18 @@
         class=".direct_debit.DirectDebitEditForm"
         permission="cmf.ModifyPortalContent" />
 
+    <!-- Credit Card -->
+    <browser:page
+        for="easyshop.core.interfaces.ICustomer"
+        name="add-credit-card"
+        class=".credit_card.CreditCardAddForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        for="easyshop.core.interfaces.ICreditCard"
+        name="edit"
+        class=".credit_card.CreditCardEditForm"
+        permission="cmf.ModifyPortalContent" />
 
     <!-- PayPal receiving -->       
     <browser:page
@@ -23,7 +35,6 @@
         attribute="receivePayment" 
         permission="zope.Public" />
           
-
     <!-- Payment Price -->
     <browser:page  
         name="payment-price-view"

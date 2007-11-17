@@ -9,6 +9,10 @@
  <object
      name="DirectDebit"
      meta_type="Factory-based Type Information"/>
+
+ <object
+     name="CreditCard"
+     meta_type="Factory-based Type Information"/>
          
  <object
      name="PayPal" 

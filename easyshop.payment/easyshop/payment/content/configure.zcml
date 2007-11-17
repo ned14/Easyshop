@@ -14,5 +14,18 @@
     <utility
         component=".direct_debit.directDebitFactory"
         name="easyshop.direct_debit" />
+
+
+    <!-- Credit Cart -->
+    <five:registerClass
+        class=".credit_card.CreditCard"
+        meta_type="CreditCard"
+        permission="cmf.ModifyPortalContent"
+        addview="easyshop.credit_card"
+        icon="payment_method_icon.png" />
+
+    <utility
+        component=".credit_card.creditCardFactory"
+        name="easyshop.credit_card" />
     
 </configure>
