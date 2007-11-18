@@ -164,18 +164,3 @@ class CartFormView(BrowserView):
             return True
 
         return False
-        
-    def showShippingNote(self):
-        """
-        """
-        # Todo Shipping price should return a message.
-        cm = ICustomerManagement(IShopManagement(self.context).getShop())
-        customer = cm.getAuthenticatedCustomer()
-
-        am = IAddressManagement(customer)
-        address = am.getShippingAddress()
-        
-        if address.getCountry() != "Deutschland":
-            return True
-        else:
-            return False        

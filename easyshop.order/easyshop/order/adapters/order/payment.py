@@ -43,8 +43,8 @@ class PaymentManagement:
         return pm.getSelectedPaymentMethod()
         
     def processSelectedPaymentMethod(self):
+        """Convenience method to process payment for orders.                                
         """
-        """                                
         payment_method = self.getSelectedPaymentMethod()
         pm = IPaymentProcessing(payment_method)
         return pm.process(self.context)

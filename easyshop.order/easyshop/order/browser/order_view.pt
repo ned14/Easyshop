@@ -12,7 +12,9 @@
         
     <metal:main fill-slot="main"
                 tal:define="invoice_address view/getInvoiceAddress;
-                            shipping_address view/getShippingAddress">
+                            shipping_address view/getShippingAddress;
+                            payment_method_type view/getPaymentMethodType;
+                            payment_method view/getPaymentMethod">
                 
         <h1 class="documentFirstHeading"
             tal:content="object_title">
@@ -197,13 +199,37 @@
                                              tal:content="structure python:easyhelp.getHTMLForUID('6d995b53e583386971f6ad6c7073016b')" /> -->
                                                                                                          
                         </legend>
-
-                        <tal:block tal:define="payment_method_type view/getPaymentMethodType;
-                                               payment_method view/getPaymentMethod">
-                            <div metal:use-macro="python: path('context/easyshop_payment_macros/macros/%s' % payment_method_type)">
-                                Payment macro goes here
-                            </div>
+                        
+                        <tal:block tal:condition="python:payment_method_type == 'credit-card'">
+                            <div tal:content="payment_method/card_type">Card Type</div>
+                            <div tal:content="payment_method/card_number">Bank</div>      
+                            <div tal:content="payment_method/card_expiration_date">Account-Number</div>  
+                            <div tal:content="payment_method/card_owner">Depositor</div>
                         </tal:block>
+
+                        <tal:block tal:condition="python:payment_method_type == 'direct-debit'">
+                            <div tal:content="payment_method/bank_name">Bank</div>
+                            <div tal:content="payment_method/bank_identification_code">Bank</div>      
+                            <div tal:content="payment_method/account_number">Account-Number</div>  
+                            <div tal:content="payment_method/depositor">Depositor</div>
+                        </tal:block>
+                        
+                        <tal:block tal:condition="python:payment_method_type == 'paypal'">
+                        <div>
+                             i18n:translate="paypal_label">
+                            PayPal
+                        </div>
+                        </tal:block>
+                        
+                        <tal:block tal:condition="python:payment_method_type == 'simple-payment'">
+                            <div i18n:translate=""
+                                 tal:content="payment_method/Title">
+                            </div>
+                            <div i18n:translate=""
+                                 tal:content="payment_method/Description">
+                            </div>
+                        </tal:block>                            
+
                         
                     </fieldset>                
                 </td>
