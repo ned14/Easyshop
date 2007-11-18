@@ -9,12 +9,14 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import IAddress
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICopyManagement
+from easyshop.core.interfaces import ICreditCard
 from easyshop.core.interfaces import ICustomer
 from easyshop.core.interfaces import IDirectDebit
 from easyshop.core.interfaces import IPaymentManagement
 
 from easyshop.customers.content import Address
 from easyshop.customers.content import Customer
+from easyshop.payment.content import CreditCard
 from easyshop.payment.content import DirectDebit
 
 class CustomerCopyManagement:
@@ -46,7 +48,13 @@ class CustomerCopyManagement:
         # Set object
         target._setObject(new_id, new_customer)
         new_customer = target[new_id]
-
+        
+        # NOTE: I know this is not really nice but it helps as there are some
+        # permission problems with Zope's copy and paste, when it comes to 
+        # copying content as anonymous user, which is needed for anonymous 
+        # checkout -> copy the customer object to the new order. TODO: Think 
+        # about whether it is better not to copy the whole customer object.
+        
         # Copy addresses    
         session_addresses = IAddressManagement(self.context).getAddresses()
         for session_address in session_addresses:
@@ -66,6 +74,14 @@ class CustomerCopyManagement:
             new_customer._setObject(new_direct_debit.id, new_direct_debit)
             new_direct_debit = new_customer[new_direct_debit.id]
             wftool.notifyCreated(new_direct_debit)
+
+        for session_credit_card in pm.getPaymentMethods(ICreditCard):
+            new_credit_card = CreditCard(session_credit_card.id)
+            for field in ICreditCard.names():
+                setattr(new_credit_card, field, getattr(session_credit_card, field))
+            new_customer._setObject(new_credit_card.id, new_credit_card)
+            new_credit_card = new_customer[new_credit_card.id]
+            wftool.notifyCreated(new_credit_card)
         
         new_customer.reindexObject()
         wftool.notifyCreated(new_customer)

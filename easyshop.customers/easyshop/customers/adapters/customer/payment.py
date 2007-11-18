@@ -59,7 +59,8 @@ class CustomerPaymentManager:
         result = []
         for object in self.context.objectValues():
 
-            if interface.providedBy(object) == False:
+            if interface is not None and \
+               interface.providedBy(object) == False:
                 continue
                 
             if check_validity == True and\
