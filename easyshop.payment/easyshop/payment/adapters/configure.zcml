@@ -21,7 +21,7 @@
         factory=".credit_card.CreditCardType" />
 
     <adapter
-        factory=".credit_card.CreditCardPaymentProcessor" />
+        factory=".credit_card.AuthorizeNetCreditCardPaymentProcessor" />
 
     <adapter
         factory=".credit_card.CreditCardCompleteness" />
