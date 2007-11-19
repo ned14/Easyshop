@@ -19,7 +19,7 @@ class ProductPriceCalculator:
         """
         self.context = context
         self.gross_prices = IShopManagement(context).getShop().getGrossPrices()
-        self.tax_abs = ITaxes(self.context).getTaxForCustomer()
+        self.taxes = ITaxes(self.context)
         
     def getPriceForCustomer(self):
         """Returns the end price of the customer. It is the net price plus
@@ -27,7 +27,7 @@ class ProductPriceCalculator:
         be the same price as price gross (as an customer will get the standard
         taxes of the country the shop is running).
         """        
-        tax_abs_customer = ITaxes(self.context).getTaxForCustomer()
+        tax_abs_customer = self.taxes.getTaxForCustomer()
         return self.getPriceNet() + tax_abs_customer
 
     def getPriceNet(self):
@@ -36,7 +36,7 @@ class ProductPriceCalculator:
         in which the shop is running) for the product. 
         """
         if self.gross_prices == True:
-            return self.context.getPriceGross() - self.tax_abs
+            return self.context.getPriceGross() - self.taxes.getTax()
         else:
             return self.context.getPriceGross()
 
@@ -48,4 +48,4 @@ class ProductPriceCalculator:
         if self.gross_prices == True:
             return self.context.getPriceGross()
         else:
-            return self.context.getPriceGross() + self.tax_abs
+            return self.context.getPriceGross() + self.taxes.getTax()
