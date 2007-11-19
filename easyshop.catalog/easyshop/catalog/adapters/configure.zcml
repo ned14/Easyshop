@@ -1,0 +1,36 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <adapter
+        factory=".product.ProductPriceCalculator" />
+
+    <adapter        
+        factory=".product.ProductCategoryManager" />
+
+    <adapter
+        factory=".product.ProductPropertyManagement" />
+
+    <adapter
+        factory=".product.ProductGroupManager" />
+
+    <adapter
+        factory=".product.ProductData" />
+
+
+    <adapter
+        factory=".category.CategoryProductManager" />
+
+    <adapter
+        factory=".category.CategoryCategoryManagement" />
+
+
+    <adapter 
+        factory=".shop.product.ShopProductManagement" />
+
+    <adapter
+        factory=".shop.category.ShopCategoryManagement" />
+
+    
+</configure>
