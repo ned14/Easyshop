@@ -28,6 +28,18 @@ from easyshop.customers.portlets import my_account
 
 schema = Schema((
 
+    BooleanField(
+        name = "grossPrices",
+        widget = BooleanWidget(
+            description = "If selected, all prices are gross prices, else net prices.",  
+            label="Gross Prices",
+            label_msgid="schema_expand_all_label",
+            description_msgid="schema_expand_all_description",
+            i18n_domain="EasyShop",
+        ),
+        default="1",
+    ),
+
     StringField(
         name="shopOwner",
         widget=StringWidget(
