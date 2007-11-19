@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page  
+        name="tax-view"
+        for="easyshop.core.interfaces.ITax"
+        class=".tax.TaxView"
+        template="tax.pt"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        for="easyshop.core.interfaces.ITaxesContainer"
+        name="taxes-view"
+        template="taxes_view.pt"
+        class=".taxes_view.TaxesView"
+        permission="cmf.ManagePortal" />
+
+</configure>
