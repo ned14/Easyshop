@@ -96,20 +96,29 @@ class Taxes:
 
     def getTax(self, product):
         """Returns the tax absolute for given product
-        """
-        tax = self._calcTaxForProduct(product)
-        price = product.getPriceGross()
-        tax_abs = (tax/(tax+100)) * price
+        """ 
+        tax_rate = self._calcTaxForProduct(product)
+        price = product.getPriceGross()                
+        
+        if self.context.getGrossPrices() == True:
+            tax_abs = (tax_rate/(tax_rate+100)) * price
+        else:
+            tax_abs = price * (tax_rate/100)
+
         return tax_abs
 
     def getTaxForCustomer(self, product):
         """Returns the absolute tax for a given product and the actual
         customer.
         """
-        tax_product  = self.getTax(product)
-        price_net    = product.getPriceGross() - tax_product
+        tax_product = self.getTax(product)
         tax_rate_customer = self._calcTaxForCustomer(product)
-            
+        
+        if self.context.getGrossPrices() == True:
+            price_net = product.getPriceGross() - tax_product
+        else:
+            price_net = product.getPriceGross()
+        
         tax_abs_customer = (tax_rate_customer/100) * price_net
         return tax_abs_customer
 
