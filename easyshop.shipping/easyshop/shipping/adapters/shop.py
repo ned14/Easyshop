@@ -16,7 +16,6 @@ from easyshop.core.interfaces import IShop
 from easyshop.catalog.content.product import Product
 from easyshop.core.interfaces import IShopManagement
 
-
 class ShippingManagement:
     """An adapter, which provides shipping management for shop content objects.
     """    
@@ -102,26 +101,19 @@ class ShippingManagement:
         """
         """
         temp_shipping_product = self.createTemporaryShippingProduct()
-        taxes = ITaxes(temp_shipping_product)        
-        tax = taxes.getTaxRate()
-        return tax
+        return ITaxes(temp_shipping_product).getTaxRate()
 
     def getTaxRateForCustomer(self):
         """
         """
         temp_shipping_product = self.createTemporaryShippingProduct()
-        taxes = ITaxes(temp_shipping_product)        
-        tax = taxes.getTaxRateForCustomer()
-        
-        return tax
+        return ITaxes(temp_shipping_product).getTaxRateForCustomer()
 
     def getTax(self):
         """
         """
         temp_shipping_product = self.createTemporaryShippingProduct()
-        taxes = ITaxes(temp_shipping_product)
-        tax = taxes.getTax()
-        return tax
+        return ITaxes(temp_shipping_product).getTax()
 
     def getTaxForCustomer(self):
         """
@@ -137,10 +129,8 @@ class ShippingManagement:
         if cart_item_manager.hasItems() == False:
             return 0
 
-        taxes = ITaxes(self.context)
-        temp_shipping_product = self.createTemporaryShippingProduct()
-        tax = taxes.getTaxForCustomer(temp_shipping_product)
-        return tax
+        temp_shipping_product = self.createTemporaryShippingProduct()        
+        return ITaxes(temp_shipping_product).getTaxForCustomer()
 
     def getPriceNet(self):
         """

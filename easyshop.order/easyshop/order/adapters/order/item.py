@@ -56,22 +56,18 @@ class OrderItemManager:
             id += 1
             self.addItemFromCartItem(str(id), cart_item)
 
-
     def addItemFromCartItem(self, id, cart_item):
-        """Sets the item by given CartItem
-
+        """Sets the item by given cart item.
         """
-        shop = IShopManagement(self.context).getShop()                
-        taxes = ITaxes(shop)
-                
         self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=id)
         new_item = getattr(self.context, id)
         
         # Todo: use the adapters here
         # set product prices & taxes
+        taxes = ITaxes(cart_item.getProduct())
         new_item.setProductQuantity(cart_item.getAmount())
-        new_item.setTaxRate(taxes.getTaxRate(cart_item.getProduct()))
-        new_item.setProductTax(taxes.getTax(cart_item.getProduct()))
+        new_item.setTaxRate(taxes.getTaxRate())
+        new_item.setProductTax(taxes.getTax())
         new_item.setProductPriceGross(cart_item.getProduct().getPriceGross())
         new_item.setProductPriceNet(new_item.getProductPriceGross() - new_item.getProductTax())
 

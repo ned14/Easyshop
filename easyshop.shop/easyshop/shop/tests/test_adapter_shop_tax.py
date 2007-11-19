@@ -56,57 +56,9 @@ class TestShopTaxManagement(EasyShopTestCase):
         self.assertEqual(tax.getId(), "c2")
         self.failUnless(ITax.providedBy(tax))
         
-class TestShopTaxes(EasyShopTestCase):
-    """
-    """
-    def testGetTax(self):
-        """
-        """
-        tm = ITaxes(self.shop)
-        tax = tm.getTax(self.product_1)
-        self.assertEqual("%.2f" % tax, "3.51")
-
-    def testGetTaxForCustomer_1(self):
-        """Without tax rate for customer
-        """
-        tm = ITaxes(self.shop)
-        tax = tm.getTaxForCustomer(self.product_1)
-        self.assertEqual("%.2f" % tax, "3.51")
-
-    def testGetTaxForCustomer_2(self):
-        """With tax rate for customer
-        """
-        self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)        
-        tm = ITaxes(self.shop)
-        tax = tm.getTaxForCustomer(self.product_1)
-        self.assertEqual("%.2f" % tax, "1.85")
-
-    def testGetTaxRate(self):
-        """
-        """
-        tm = ITaxes(self.shop)
-        rate = tm.getTaxRate(self.product_1)
-        self.assertEqual(rate, 19.0)
-
-    def testGetTaxRateForCustomer_1(self):
-        """Without tax rate for customer
-        """
-        tm = ITaxes(self.shop)
-        rate = tm.getTaxRateForCustomer(self.product_1)
-        self.assertEqual(rate, 19.0)
-
-    def testGetTaxRateForCustomer_2(self):
-        """With tax rate for customer
-        """
-        self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
-        tm = ITaxes(self.shop)
-        rate = tm.getTaxRateForCustomer(self.product_1)
-        self.assertEqual(rate, 10.0)
-                
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestShopTaxManagement))
-    suite.addTest(makeSuite(TestShopTaxes))    
     return suite
                                                

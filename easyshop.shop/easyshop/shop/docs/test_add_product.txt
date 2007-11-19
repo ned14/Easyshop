@@ -125,7 +125,7 @@ Confirm terms and condition and complete order.
     >>> browser.contents
     '...Complete Order...'
 
-    >>> browser.getControl(name='confirmation').value = True
+    >>> browser.getControl(name='form.confirmation').value = True
     >>> browser.getControl('Complete Order').click()
     >>> browser.contents
-    '...Your order has been received. Thank you!...'
+    '...Your order has been successfully completed...'
