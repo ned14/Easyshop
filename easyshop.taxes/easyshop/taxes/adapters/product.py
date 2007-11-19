@@ -2,13 +2,12 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports
-from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import ITaxManagement
+from easyshop.core.interfaces import IValidity
 
 class ProductTaxCalculator:
     """Provides ITaxes for product content objects.
@@ -20,29 +19,65 @@ class ProductTaxCalculator:
         """
         """
         self.context = context
-        shop = IShopManagement(self.context).getShop()
-        self.taxes = ITaxes(shop)
+        self.shop = IShopManagement(context).getShop()
 
     def getTaxRate(self):
         """
         """
-        tax = self.taxes.getTaxRate(self.context)
-        return tax
+        return self._calcTaxRateForProduct()
 
     def getTaxRateForCustomer(self):
         """
         """
-        tax = self.taxes.getTaxRateForCustomer(self.context)
-        return tax
+        return self._calcTaxRateForCustomer()        
 
     def getTax(self):
         """
         """
-        tax = self.taxes.getTax(self.context)
-        return tax
+        tax_rate = self._calcTaxRateForProduct()
+        price = self.context.getPriceGross()
+        
+        if self.shop.getGrossPrices() == True:
+            tax_abs = (tax_rate/(tax_rate+100)) * price
+        else:
+            tax_abs = price * (tax_rate/100)
 
+        return tax_abs
+        
     def getTaxForCustomer(self):
         """
         """
-        tax = self.taxes.getTaxForCustomer(self.context)
-        return tax
+        tax_product = self.getTax()
+        tax_rate_customer = self._calcTaxRateForCustomer()
+        
+        if self.shop.getGrossPrices() == True:
+            price_net = self.context.getPriceGross() - tax_product
+        else:
+            price_net = self.context.getPriceGross()
+        
+        return  (tax_rate_customer/100) * price_net
+
+    def _calcTaxRateForProduct(self):
+        """Calculates the default tax for a given product.
+        """
+        # Returns the first tax rate, which is true. Taxes are sorted by 
+        # position which is also the priority
+        tm = ITaxManagement(self.shop)
+        for tax in tm.getDefaultTaxes():
+            if IValidity(tax).isValid(self.context) == True:
+                return tax.getRate()
+
+        return 0
+
+    def _calcTaxRateForCustomer(self):
+        """Calculates the special tax for a given product and customer.
+        """
+
+        # 1. Try to find a Tax for actual Customer
+        tm = ITaxManagement(self.shop)
+        for tax in tm.getCustomerTaxes():
+            if IValidity(tax).isValid(self.context) == True:
+                return tax.getRate()
+
+        # 2. If nothing is found, returns the default tax for the product.
+        return self._calcTaxRateForProduct()

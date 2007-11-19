@@ -12,9 +12,6 @@
         factory=".product.ProductTaxCalculator" />
 
     <adapter
-        factory=".shop.Taxes" />
-
-    <adapter
         factory=".shop.TaxManagement" />
     
 </configure>
