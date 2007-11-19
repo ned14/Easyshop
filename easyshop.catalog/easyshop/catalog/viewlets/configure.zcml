@@ -1,0 +1,24 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:viewletManager
+        name="easyshop.easyshop-manager"
+        provides=".interfaces.IEasyShopViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.categories"
+        for="easyshop.core.interfaces.ICategory"
+        manager=".interfaces.IEasyShopViewletManager"
+        class=".categories.CategoriesViewlet"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.product"
+        for="easyshop.core.interfaces.IProduct"
+        manager=".interfaces.IEasyShopViewletManager"
+        class=".product.ProductViewlet"
+        permission="zope.Public" />
+
+</configure>
