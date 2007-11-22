@@ -3,8 +3,9 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import ICart
+from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShippingManagement
 from easyshop.core.interfaces import IShopManagement
 
@@ -18,6 +19,7 @@ class CartPrices:
         """
         """
         self.context = context
+        self.shop = IShopManagement(context).getShop()
 
     # Note: Need to select whether the price is calculated with or without 
     # shipping. Otherwise it comes to recursion error if one tries to 
@@ -27,7 +29,7 @@ class CartPrices:
     # This brings the further advantage to have the flexibility whether the
     # cart price should be displayed with or without shipping price
     
-    def getPriceForCustomer(self, with_shipping=True):
+    def getPriceForCustomer(self, with_shipping=True, with_payment=True):
         """Returns the customer price of the cart. This is just a sum over 
         customer prices of all items of the cart.
         """
@@ -36,13 +38,18 @@ class CartPrices:
             price += IPrices(cart_item).getPriceForCustomer()
         
         if with_shipping == True:
-            sm = IShippingManagement(IShopManagement(self.context).getShop())
+            sm = IShippingManagement(self.shop)
             shipping_price = sm.getPriceForCustomer()
             price += shipping_price
+        
+        if with_payment == True:
+            sm = IPaymentPrices(self.shop)
+            payment_price = sm.getPriceForCustomer()
+            price += payment_price
 
         return price
 
-    def getPriceGross(self, with_shipping=True):
+    def getPriceGross(self, with_shipping=True, with_payment=True):
         """Returns the gross price of the cart. This is just a sum over gross
         prices of all items of the cart.
         """
@@ -51,13 +58,18 @@ class CartPrices:
             price += IPrices(cart_item).getPriceGross()
 
         if with_shipping == True:
-            sm = IShippingManagement(IShopManagement(self.context).getShop())
+            sm = IShippingManagement(self.shop)
             shipping_price = sm.getPriceGross()
-            price += shipping_price        
+            price += shipping_price
+
+        if with_payment == True:
+            sm = IPaymentPrices(self.shop)
+            payment_price = sm.getPriceGross()
+            price += payment_price
     
         return price
 
-    def getPriceNet(self, with_shipping=True):
+    def getPriceNet(self, with_shipping=True, with_payment=True):
         """Returns the net price of the cart. This is just a sum over net
         prices of all items of the cart plus.
         """
@@ -66,10 +78,14 @@ class CartPrices:
             price += IPrices(cart_item).getPriceNet()
 
         if with_shipping == True:
-            sm = IShippingManagement(
-                IShopManagement(self.context).getShop())
+            sm = IShippingManagement(self.shop)
             shipping_price = sm.getPriceNet()
             price += shipping_price        
+
+        if with_payment == True:
+            sm = IPaymentPrices(self.shop)
+            payment_price = sm.getPriceNet()
+            price += payment_price
 
         return price
 

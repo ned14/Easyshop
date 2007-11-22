@@ -85,6 +85,7 @@
               
                            </tr>  
                         </tal:block>
+<!-- Shipping -->                        
                         <tr tal:condition="view/getCartItems">
                             <td></td>
                             <td nowrap="nowrap"
@@ -95,6 +96,19 @@
                             <td nowrap="nowrap"
                                 class="number"
                                 tal:content="view/getShippingPrice" />
+                        </tr>  
+
+<!-- Payment -->
+                        <tr tal:condition="view/getCartItems">
+                            <td></td>
+                            <td nowrap="nowrap"
+                                class="text"
+            		            i18n:translate="payment_label">Payment</td> 
+                            <td colspan="2">
+                            </td>
+                            <td nowrap="nowrap"
+                                class="number"
+                                tal:content="view/getPaymentPrice" />
                         </tr>  
 
                         <tr>
@@ -114,7 +128,42 @@
                                 tal:content="view/getCartPrice" />
                             <td></td>
                         </tr>
-
+                        <tr>
+                            <td>
+                                <select name="selected_country">
+                                    <option tal:repeat="country view/getCountries"
+                                            tal:attributes="selected country/selected"
+                                            tal:content="country/title">
+                                        Country
+                                    </option>
+                                </select>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="selected_shipping_method">
+                                    <option value="."
+                                            tal:repeat="shipping_method view/getShippingMethods"
+                                            tal:attributes="value shipping_method/id;
+                                                           selected shipping_method/checked"                                        
+                                            tal:content="shipping_method/title">
+                                         Shipping Method
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="selected_payment_method_type">
+                                    <option tal:repeat="payment_method view/getPaymentMethodTypes"
+                                            tal:attributes="value payment_method/id;
+                                                            selected payment_method/selected;"                                        
+                                            tal:content="payment_method/title">
+                                         Payment Method
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="buttons"
                                 colspan="6">              

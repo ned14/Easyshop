@@ -1,12 +1,17 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
+# CMFPlone imports
+from Products.CMFPlone.utils import safe_unicode
+
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IItemManagement 
+from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentPrices
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShippingManagement
@@ -107,14 +112,84 @@ class CartFormView(BrowserView):
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
 
+    def getCountries(self):
+        """Returns available countries.
+        """
+        result = []                
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        shop = IShopManagement(self.context).getShop()
+        for country in shop.getCountries():
+            result.append({
+                "title" : country,
+                "selected" : safe_unicode(country) == customer.selected_country                
+            })
+        
+        return result    
+
+    def getPaymentMethodTypes(self):
+        """Returns all *types* of payment methods of the current customer.
+        """
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        pm = IPaymentManagement(self.context)
+                
+        result = []        
+        for payment_method in pm.getPaymentMethods():
+            
+            id = payment_method.getId()
+            selected = (id == customer.selected_payment_method_type)
+            
+            result.append({            
+                "id"       : payment_method.getId(),
+                "title"    : payment_method.Title(),
+                "selected" : selected,
+            })
+
+        return result
+                
+    def getPaymentPrice(self):
+        """
+        """
+        pp = IPaymentPrices(self.context)
+        payment_price = pp.getPriceForCustomer()
+
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(payment_price)
+
+    def getShippingMethods(self):
+        """
+        """
+        # TODO: Factor this out? Same is used within checkout/browser/shipping.py
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        selected_shipping_id = customer.selected_shipping_method
+        
+        sm = IShippingManagement(self.context)
+        
+        shipping_methods = []
+        for shipping in sm.getShippingMethods():
+
+            if selected_shipping_id == safe_unicode(shipping.getId()):
+                checked = True
+            elif selected_shipping_id == u"" and shipping.getId() == "default":
+                checked = True
+            else:
+                checked = False
+                            
+            shipping_methods.append({
+                "id" : shipping.getId(),
+                "title" : shipping.Title,
+                "description" : shipping.Description,
+                "checked" : checked,
+            })
+            
+        return shipping_methods        
+        
     def getShippingPrice(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
-        sm = IShippingManagement(shop)
+        sm = IShippingManagement(self.context)
         shipping_price = sm.getPriceForCustomer()
 
-        cm = ICurrencyManagement(shop)
+        cm = ICurrencyManagement(self.context)
         return cm.priceToString(shipping_price)
         
     def getGoto(self):
@@ -124,7 +199,27 @@ class CartFormView(BrowserView):
                 
     def refreshCart(self):
         """
-        """
+        """            
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()        
+        
+        # Set selected country global and within current selected invoice 
+        # address. Why? If a customer delete all addresses the current selected 
+        # country is still saved global and can be used to calculate the 
+        # shipping price.        
+        selected_country = safe_unicode(self.request.get("selected_country"))
+        customer.selected_country = selected_country
+        invoice_address = IAddressManagement(customer).getInvoiceAddress()
+        if invoice_address is not None:
+            invoice_address.country = selected_country
+
+        # Set selected shipping method
+        customer.selected_shipping_method = \
+            safe_unicode(self.request.get("selected_shipping_method"))
+
+        # Set selected payment method type
+        customer.selected_payment_method_type = \
+            safe_unicode(self.request.get("selected_payment_method_type"))
+            
         cart = ICartManagement(self.context).getCart()
         item_manager = IItemManagement(cart)
 
