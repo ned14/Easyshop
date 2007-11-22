@@ -86,6 +86,22 @@ class ShippingManagement:
         # Todo: Optimize
         return [brain.getObject() for brain in brains]
 
+    def getPriceForCustomer(self):
+        """
+        """
+        # If there a no items the shipping price is 0        
+        cart_manager = ICartManagement(self.context)
+        cart = cart_manager.getCart()        
+        
+        if cart is None:
+            return 0
+                    
+        cart_item_manager = IItemManagement(cart)
+        if cart_item_manager.hasItems() == False:
+            return 0
+        
+        return self.getPriceNet() + self.getTaxForCustomer()
+
     # Todo: Optimize. The next methods are the same as for pending tax
     # calculations
     def getPriceGross(self):
@@ -96,6 +112,11 @@ class ShippingManagement:
                 return price.getPriceGross()
         
         return 0
+
+    def getPriceNet(self):
+        """
+        """
+        return self.getPriceGross() - self.getTax()
         
     def getTaxRate(self):
         """
@@ -131,27 +152,6 @@ class ShippingManagement:
 
         temp_shipping_product = self.createTemporaryShippingProduct()        
         return ITaxes(temp_shipping_product).getTaxForCustomer()
-
-    def getPriceNet(self):
-        """
-        """
-        return self.getPriceGross() - self.getTax()
-
-    def getPriceForCustomer(self):
-        """
-        """
-        # If there a no items the shipping price is 0        
-        cart_manager = ICartManagement(self.context)
-        cart = cart_manager.getCart()        
-        
-        if cart is None:
-            return 0
-                    
-        cart_item_manager = IItemManagement(cart)
-        if cart_item_manager.hasItems() == False:
-            return 0
-        
-        return self.getPriceNet() + self.getTaxForCustomer()
 
     def createTemporaryShippingProduct(self):
         """
