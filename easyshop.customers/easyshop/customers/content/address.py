@@ -26,6 +26,8 @@ class Address(Item):
     country       = FieldProperty(IAddress["country"])
     phone         = FieldProperty(IAddress["phone"])
 
+    country = u""
+    
     def Title(self):
         """
         """

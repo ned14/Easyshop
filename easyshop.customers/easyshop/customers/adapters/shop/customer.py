@@ -34,6 +34,7 @@ class CustomerManagement:
         """
         if base_hasattr(self.customers, id) == False:
             customer = Customer(id=id)
+            customer.selected_country=u"Deutschland"
             self.customers._setObject(id, customer)
             return True
         else:

@@ -102,7 +102,9 @@
                         <div tal:content="credit_card/card_type">Card Type</div>
                         <div tal:content="credit_card/card_number">Card Number</div>
                         <div tal:content="credit_card/card_owner">Owner Name</div>                        
-                        <div tal:content="credit_card/card_expiration_date">Expiration Date</div>
+                        <div>
+                            <span tal:content="credit_card/card_expiration_date_month"/>/<span tal:content="credit_card/card_expiration_date_year" />
+                        </div>
                     </td>
                     <td class="buttons">
                         <form style="display:inline"  
