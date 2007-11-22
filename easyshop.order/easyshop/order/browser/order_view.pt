@@ -202,8 +202,10 @@
                         
                         <tal:block tal:condition="python:payment_method_type == 'credit-card'">
                             <div tal:content="payment_method/card_type">Card Type</div>
-                            <div tal:content="payment_method/card_number">Bank</div>      
-                            <div tal:content="payment_method/card_expiration_date">Account-Number</div>  
+                            <div tal:content="payment_method/card_number">Bank</div>
+                            <div>      
+                                <span tal:content="payment_method/card_expiration_date_month">Account-Number</span>/<span tal:content="payment_method/card_expiration_date_month">Account-Number</span>
+                            </div>
                             <div tal:content="payment_method/card_owner">Depositor</div>
                         </tal:block>
 
@@ -221,7 +223,7 @@
                         </div>
                         </tal:block>
                         
-                        <tal:block tal:condition="python:payment_method_type == 'simple-payment'">
+                        <tal:block tal:condition="python:payment_method_type == 'simplepayment'">
                             <div i18n:translate=""
                                  tal:content="payment_method/Title">
                             </div>

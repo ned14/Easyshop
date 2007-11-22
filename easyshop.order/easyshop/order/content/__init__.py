@@ -1,3 +1,3 @@
 import containers
-import order
+from order import *
 import order_item

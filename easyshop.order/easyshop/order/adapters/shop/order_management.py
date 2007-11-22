@@ -96,9 +96,6 @@ class OrderManagement:
         cm = ICopyManagement(customer)
         cm.copyTo(new_order)
             
-        # Delete cart
-        cartmanager.deleteCart(cart.getId())
-
         ## Reset security manager
         setSecurityManager(old_sm)
         
@@ -111,6 +108,11 @@ class OrderManagement:
                     
         return new_order
 
+    def deleteOrder(self, id):
+        """Deletes order with given id.
+        """
+        self.orders.manage_delObjects([id])
+        
     def getOrders(self, filter=None, sorting="created", sort_order="reverse"):
         """Returns orders filtered by given filter.
         """
