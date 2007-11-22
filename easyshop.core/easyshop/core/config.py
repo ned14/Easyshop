@@ -57,10 +57,6 @@ TEXTS = (
     ("text", "Long Text"),      
 )
                          
-DIRECT_DEBIT = "directdebit"
-PREPAYMENT   = "prepayment"   
-PAYPAL       = "paypal"
-
 CURRENCIES = {
     "euro" : {
         "long"   : "Euro",
@@ -72,8 +68,7 @@ CURRENCIES = {
         "long"   : "US-Dollar",
         "short"  : "USD",
         "symbol" : "$"
-    },
-    
+    },    
 }
 
 REDO_PAYMENT_STATES = [
@@ -84,3 +79,32 @@ REDO_PAYMENT_STATES = [
 REDO_PAYMENT_PAYMENT_METHODS = [
     "paypal"
 ]
+
+CREDIT_CARDS_CHOICES = {
+    _(u"Visa"): u"Visa",
+    _(u"MasterCard/EuroCard"): u"MasterCard/EuroCard",
+    _(u"American Express"): u"American Express",
+}
+
+CREDIT_CARD_MONTHS_CHOICES = (
+    (u"01", u"01"),    
+    (u"02", u"02"),
+    (u"03", u"03"),
+    (u"04", u"04"),    
+    (u"05", u"05"),
+    (u"06", u"06"),
+    (u"07", u"07"),    
+    (u"08", u"08"),
+    (u"09", u"09"),
+    (u"10", u"10"),    
+    (u"11", u"11"),
+    (u"12", u"12"),
+)
+
+CREDIT_CARD_YEARS_CHOICES = (
+    (u"2007", u"2007"),    
+    (u"2008", u"2008"),
+    (u"2009", u"2009"),
+    (u"2010", u"2010"),    
+    (u"2011", u"2011"),
+)

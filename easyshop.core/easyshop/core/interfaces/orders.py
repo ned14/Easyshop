@@ -14,7 +14,11 @@ class IOrderManagement(Interface):
         """
 
     def copyCustomerToOrder(customer, order):
-        """copys customer to order.
+        """Copys customer to order.
+        """
+
+    def deleteOrder(id):
+        """Deletes order with given id.
         """
 
     def getOrders(filter=None):

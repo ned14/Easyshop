@@ -157,7 +157,15 @@ class ICustomer(Interface):
     selected_shipping_address = Attribute("The selected shipping address.")
     selected_payment_method   = Attribute("The selected payment method.")
     selected_shipping_method  = Attribute("The selected shipping method.")
+    
+    selected_country = \
+        Attribute("""Country which is used to calculate the shipping price, if
+                     the customer has not yet entered a invoice address""")
 
+    selected_payment_method_type = \
+        Attribute("""Payment method type is used to calculate the payment price,
+                     within the cart.""")
+                     
 class ICustomerManagement(Interface):
     """Provides methods to manage customer content objects.
     """

@@ -5,6 +5,9 @@ from zope import schema
 
 # easyshop.core imports
 from easyshop.core.config import _
+from easyshop.core.config import CREDIT_CARDS_CHOICES
+from easyshop.core.config import CREDIT_CARD_MONTHS_CHOICES
+from easyshop.core.config import CREDIT_CARD_YEARS_CHOICES
 
 class IPaymentMethod(Interface):
     """A marker interface for payment content objects.
@@ -74,13 +77,12 @@ class ICreditCard(ICustomerPaymentMethod):
     """A credit cart content object. Note, that this is also a 
     ICustomerPaymentMethod, means it needs information per customer.
     """
-    card_type = schema.TextLine(
-        title=_(u'Card Type'),
-        description=_(u"Please enter the type of the card."),
-        default=u'',
-        required=True,
-    )
-
+    card_type = schema.Choice(
+        title=_(u"Card Type"),
+        description=_(u"Please select the type of the card."),
+        vocabulary = schema.vocabulary.SimpleVocabulary.fromItems(
+            CREDIT_CARDS_CHOICES.items()))
+    
     card_owner = schema.TextLine(
         title=_(u'Card Owner'),
         description=_(u"Please enter your the name of the card owner."),
@@ -95,12 +97,20 @@ class ICreditCard(ICustomerPaymentMethod):
         required=True,
     )
 
-    card_expiration_date = schema.TextLine(
-        title=_(u'Expiration Date'),
+    card_expiration_date_month = schema.Choice(
+        title=_(u'Expiration Date Month'),
         description=_(u"Please enter the expiration date of the card."),
-        default=u'',
-        required=True,
-    )
+        vocabulary = schema.vocabulary.SimpleVocabulary.fromItems(
+            CREDIT_CARD_MONTHS_CHOICES),
+        default=u"01")
+
+    card_expiration_date_year = schema.Choice(
+        title=_(u'Expiration Date Year'),
+        description=_(u"Please enter the expiration date of the card."),
+        vocabulary = schema.vocabulary.SimpleVocabulary.fromItems(
+            CREDIT_CARD_YEARS_CHOICES),
+        default=u"2007")
+
 
 class IPaymentMethodValidator(Interface):
     """A corresponding validator object for a customer payment method object.
@@ -140,7 +150,10 @@ class IPaymentManagement(Interface):
 class IPaymentProcessing(Interface):
     """Provides methods to processing a payment.
     """
-
+    def authorize():
+        """Authorize a payment.
+        """
+        
     def process(order):
         """Processes a payment.
         """
@@ -153,3 +166,14 @@ class IPaymentPricesContainer(Interface):
     """A marker interface for payment price folder objects.
     """
 
+class IPaymentResult(Interface):
+    """Result which is returned by payment processors.
+    """
+    code = Attribute(
+        """A code which indicates success and payment state or error
+            - PAYED
+            - NOT_PAYED
+            - ERROR""")
+        
+    message = Attribute(
+        """Message which should be displayed to the user.""")
