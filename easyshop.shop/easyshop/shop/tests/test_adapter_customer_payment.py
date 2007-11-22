@@ -15,7 +15,7 @@ class TestPaymentManagement(EasyShopTestCase):
         self.customer = self.shop.customers.customer
         self.customer.at_post_create_script()
         
-        self.customer.invokeFactory("DirectDebit", id="directdebit")
+        self.customer.invokeFactory("DirectDebit", id="direct-debit")
         
     def testDeletePaymentMethod(self):
         """
@@ -23,7 +23,7 @@ class TestPaymentManagement(EasyShopTestCase):
         pm = IPaymentManagement(self.customer)
 
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["directdebit"], ids)
+        self.assertEqual(["direct-debit"], ids)
 
         # Shop level payment methods shouldn't be deletable here.
         result = pm.deletePaymentMethod("paypal")
@@ -34,9 +34,9 @@ class TestPaymentManagement(EasyShopTestCase):
         
         # still all there?
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["directdebit"], ids)
+        self.assertEqual(["direct-debit"], ids)
 
-        result = pm.deletePaymentMethod("directdebit")        
+        result = pm.deletePaymentMethod("direct-debit")        
         self.assertEqual(result, True)
                 
         ids = [p.getId() for p in pm.getPaymentMethods()]
@@ -48,7 +48,7 @@ class TestPaymentManagement(EasyShopTestCase):
         pm = IPaymentManagement(self.customer)
 
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["directdebit"], ids)
+        self.assertEqual(["direct-debit"], ids)
                         
     def testGetSelectedPaymentMethod(self):
         """

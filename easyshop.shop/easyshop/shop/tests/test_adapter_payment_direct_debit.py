@@ -29,19 +29,19 @@ class TestDirectDebit(EasyShopTestCase):
         
         self.customer.invokeFactory(
             "DirectDebit",
-            id = "directdebit",
+            id = "direct-debit",
             )
         
     def testGetType(self):
         """
         """
-        dd = self.customer["directdebit"]
+        dd = self.customer["direct-debit"]
         self.assertEqual(IType(dd).getType(), "direct-debit")
 
     def testIsComplete(self):
         """
         """
-        dd = self.customer["directdebit"]
+        dd = self.customer["direct-debit"]
         self.assertEqual(ICompleteness(dd).isComplete(), False)
                     
         dd.account_number = u"47114711"
@@ -59,7 +59,7 @@ class TestDirectDebit(EasyShopTestCase):
     def testProcess(self):
         """
         """
-        dd = self.customer["directdebit"]
+        dd = self.customer["direct-debit"]
         self.assertEqual(IPaymentProcessing(dd).process(), "NOT_PAYED")
         
 def test_suite():

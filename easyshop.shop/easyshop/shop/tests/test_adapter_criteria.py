@@ -133,13 +133,13 @@ class TestValidity(EasyShopTestCase):
         customer.selected_payment_method = u"prepayment"
         self.assertEqual(v.isValid(), False)
 
-        self.shop.c.setPaymentMethods(["directdebit"])
+        self.shop.c.setPaymentMethods(["direct-debit"])
         self.assertEqual(v.isValid(), False)        
 
         self.shop.c.setPaymentMethods(["prepayment"])
         self.assertEqual(v.isValid(), True)
 
-        self.shop.c.setPaymentMethods(["prepayment", "directdebit"])
+        self.shop.c.setPaymentMethods(["prepayment", "direct-debit"])
         self.assertEqual(v.isValid(), True)
                 
     def testPrice(self):
