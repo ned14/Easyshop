@@ -146,14 +146,21 @@ class CartFormView(BrowserView):
 
         return result
                 
-    def getPaymentPrice(self):
+    def getPaymentInfo(self):
         """
         """
         pp = IPaymentPrices(self.context)
-        payment_price = pp.getPriceForCustomer()
+        price = pp.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(payment_price)
+        price =  cm.priceToString(price)
+
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        
+        return {
+            "price"       : price,
+            "title"       : customer.selected_payment_method_type,
+        }
 
     def getShippingMethods(self):
         """
@@ -182,15 +189,23 @@ class CartFormView(BrowserView):
             })
             
         return shipping_methods        
-        
-    def getShippingPrice(self):
+
+    def getShippingInfo(self):
         """
         """
         sm = IShippingManagement(self.context)
         shipping_price = sm.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(shipping_price)
+        price = cm.priceToString(shipping_price)
+        method = IShippingManagement(self.context).getSelectedShippingMethod()
+        
+        
+        return {
+            "price"       : price,
+            "title"       : method.Title(),
+            "description" : method.Description()
+        }
         
     def getGoto(self):
         """
