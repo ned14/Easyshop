@@ -54,7 +54,7 @@ class CountryCriteria(BaseContent):
         """
         """
         dl = DisplayList()
-        for country in IShopManagement(self.context).getShop().getCountries():
+        for country in IShopManagement(self).getShop().getCountries():
             dl.add(country, country)
 
         return dl

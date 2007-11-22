@@ -60,17 +60,20 @@ class PaymentMethodCriteria(BaseContent):
         """
         """
         return ", ".join(self.getPaymentMethods())
-
+    
     def _getPaymentMethodsAsDL(self):
         """Returns all payment methods as DisplayList
         """
+        # TODO: Be more generic!
+        
         dl = DisplayList()
 
-        dl.add("directdebit", "Direct Debit")
-        dl.add("prepayment", "Prepayment")
         dl.add("cash-on-delivery", "Cash On Delivery")
-        dl.add("paypal", "PayPal")
-        
+        dl.add("credit-card", "Cash On Delivery")
+        dl.add("direct-debit", "Direct Debit")
+        dl.add("paypal", "PayPal")        
+        dl.add("prepayment", "Prepayment")
+
         return dl
 
     def _renameAfterCreation(self, check_auto_id=False):

@@ -22,15 +22,19 @@ class CountryCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Returns True if the selected invoice address of the current customer
-        has one of the selected countries.
+        """Returns True if the selected country of the current customer has one
+        of the selected countries.
         """
-        shop = IShopManagement(self.context).getShop()
-        customer = ICustomerManagement(shop).getAuthenticatedCustomer()
+        shop            = IShopManagement(self.context).getShop()
+        customer        = ICustomerManagement(shop).getAuthenticatedCustomer()
         invoice_address = IAddressManagement(customer).getInvoiceAddress()
         
-        if invoice_address and\
-           invoice_address.country in self.context.getCountries():
+        if invoice_address is not None:
+            country = invoice_address.country
+        else:
+            country = customer.selected_country
+            
+        if country in self.context.getCountries():
             return True
         else:
             return False        

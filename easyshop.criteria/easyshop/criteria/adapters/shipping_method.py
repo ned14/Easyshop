@@ -29,7 +29,8 @@ class ShippingMethodCriteriaValidity:
         sm = IShippingManagement(shop)
         selected_method = sm.getSelectedShippingMethod()
                 
-        if selected_method.getId() in self.context.getShippingMethods():
+        if selected_method is not None and \
+           selected_method.getId() in self.context.getShippingMethods():
             return True
         else:
             return False

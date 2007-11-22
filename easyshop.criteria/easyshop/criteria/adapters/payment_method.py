@@ -25,14 +25,12 @@ class PaymentMethodCriteriaValidity:
         """Checks whether the selected payment method of the current customer
         is within selected payment methods.
         """
+        # TODO: Be more generic!        
         shop = IShopManagement(self.context).getShop()
         
-        cm = ICustomerManagement(shop)
-        customer = cm.getAuthenticatedCustomer()
+        customer = ICustomerManagement(shop).getAuthenticatedCustomer()        
+        customer_payment_method = customer.selected_payment_method_type
         
-        pm = IPaymentManagement(customer)
-        customer_payment_method = pm.getSelectedPaymentMethod().getId()
-                
         if customer_payment_method in self.context.getPaymentMethods():
             return True
         else:

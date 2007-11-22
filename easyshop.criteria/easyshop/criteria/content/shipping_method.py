@@ -3,11 +3,7 @@ import transaction
 from zope.interface import implements
 
 # Zope imports
-from DateTime import DateTime
 from AccessControl import ClassSecurityInfo
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
@@ -16,6 +12,7 @@ from Products.Archetypes.atapi import *
 from easyshop.core.config import *
 from easyshop.core.interfaces import IShippingManagement
 from easyshop.core.interfaces import IShippingMethodCriteria
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
