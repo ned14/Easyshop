@@ -124,7 +124,7 @@ class PayPalSimplePaymentProcessor:
         """
         self.context = context
         
-    def process(self, order):
+    def process(self, order=None):
         """
         """    
         info = dict()
@@ -170,4 +170,4 @@ class PayPalSimplePaymentProcessor:
         url = url + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
         
-        return "NOT_PAYED"        
+        return None

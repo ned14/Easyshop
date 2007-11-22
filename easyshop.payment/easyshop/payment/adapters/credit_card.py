@@ -3,14 +3,16 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
+from easyshop.core.config import _
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import ICreditCard
 from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IPaymentManagement
 from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IPrices
-
 from easyshop.core.interfaces import IType
+
+from easyshop.payment.config import PAYED, ERROR
+from easyshop.payment.content import PaymentResult
 
 # zc.authorizedotnet import 
 from zc.authorizedotnet.processing import CcProcessor
@@ -46,9 +48,9 @@ class AuthorizeNetCreditCardPaymentProcessor:
     def process(self, order=None):
         """
         """
-        credit_card = IPaymentManagement(order).getSelectedPaymentMethod()
-        card_num = credit_card.card_number
-        exp_date = credit_card.card_expiration_date
+        card_num = self.context.card_number
+        exp_date = "%s/%s" % (self.context.card_expiration_date_month,
+                              self.context.card_expiration_date_year)
 
         line_items = []
         for i, item in enumerate(IItemManagement(order).getItems()):
@@ -58,33 +60,44 @@ class AuthorizeNetCreditCardPaymentProcessor:
                 tax = "N"
             
             line_items.append((
-                i+1,
+                str(i+1),
                 item.getProduct().Title(),
-                item.getProductQuantity(),
-                item.getProductPriceGross(),
+                str(item.getProductQuantity()),
+                str(item.getProductPriceGross()),
                 tax,                
             ))
             
-        amount = IPrices(order).getPriceForCustomer()
+        amount = "%.2f" % IPrices(order).getPriceForCustomer()
 
-        return "PAYED"
-        
-        cc = CcProcessor(server=SERVER_NAME, login=LOGIN, key=KEY)
+        cc = CcProcessor(
+            server="test.authorize.net",
+            login="39uaCH7r9K", 
+            key="9ME22bvLnu87P4FY")
 
-        result = cc.authorize(
-            amount     = amount,
-            card_num   = card_num,
-            exp_date   = exp_date,
-            line_items = line_items)
-        
-        if result == "approved":
-            result = cc.captureAuthorized(trans_id=result.trans_id)
-        
+        result = cc.authorizeAndCapture(
+            amount = amount, 
+            card_num = card_num,
+            exp_date = exp_date) 
+
         if result.response == "approved":
-            return "PAYED"
+            return PaymentResult(PAYED, _(u"Your order has been payed."))
         else:
-            return "NOT_PAYED"
-        
+            return PaymentResult(ERROR, _(result.response_reason))
+
+        # Used for captureAuthorized
+        # if authorize_result.response == "approved":
+        #     capture_result = cc.captureAuthorized(
+        #         trans_id=authorize_result.trans_id,
+        #         approval_code = authorize_result.approval_code
+        #     )
+        #     
+        #     if capture_result.response == "approved":
+        #         return PaymentResult(PAYED, _(u"Your order has been payed."))
+        #     else:
+        #         return PaymentResult(ERROR, _(capture_result.response_reason))
+        # else:
+        #     return PaymentResult(ERROR, _(authorize_result.response_reason))
+            
 class CreditCardCompleteness:
     """Provides ICompleteness for direct debit content objects.
     """    

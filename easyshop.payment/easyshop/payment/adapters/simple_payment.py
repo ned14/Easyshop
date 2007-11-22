@@ -8,6 +8,9 @@ from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IType
 from easyshop.core.interfaces import ISimplePaymentMethod
 
+from easyshop.payment.config import PAYED, NOT_PAYED
+from easyshop.payment.content import PaymentResult
+
 class SimplePaymentType:
     """Provides IType for simple payment content objects.
     """
@@ -56,6 +59,8 @@ class SimplePaymentProcessor:
         """
         """
         if self.context.getPayed() == True:
-            return "PAYED"
+            code = "PAYED"
         else:
-            return "NOT_PAYED"
+            code = "NOT_PAYED"
+            
+        PaymentResult(code, "")

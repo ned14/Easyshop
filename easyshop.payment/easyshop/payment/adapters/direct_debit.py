@@ -8,6 +8,9 @@ from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IType
 from easyshop.core.interfaces import IDirectDebit
 
+from easyshop.payment.content import PaymentResult
+from easyshop.payment.config import NOT_PAYED
+
 class DirectDebitType:
     """Provides IType for direct debit content objects.
     """
@@ -38,8 +41,8 @@ class DirectDebitPaymentProcessor:
         
     def process(self, order=None):
         """
-        """
-        return "NOT_PAYED"
+        """        
+        return PaymentResult("NOT_PAYED", "")
         
 class DirectDebitCompleteness:
     """Provides ICompleteness for direct debit content objects.

@@ -16,11 +16,12 @@ class CreditCard(Item):
     implements(ICreditCard)
     portal_type = "CreditCard"
 
-    card_type            = FieldProperty(ICreditCard["card_type"])
-    card_owner           = FieldProperty(ICreditCard["card_owner"])
-    card_number          = FieldProperty(ICreditCard["card_number"])
-    card_expiration_date = FieldProperty(ICreditCard["card_expiration_date"])
-
+    card_type                  = FieldProperty(ICreditCard["card_type"])
+    card_owner                 = FieldProperty(ICreditCard["card_owner"])
+    card_number                = FieldProperty(ICreditCard["card_number"])
+    card_expiration_date_month = FieldProperty(ICreditCard["card_expiration_date_month"])
+    card_expiration_date_year  = FieldProperty(ICreditCard["card_expiration_date_year"])
+        
     def Title(self):
         """
         """
