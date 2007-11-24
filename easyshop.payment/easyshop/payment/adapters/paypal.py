@@ -2,16 +2,12 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports
 from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IPayPal
+from easyshop.core.interfaces import IPayPalPaymentMethod
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import IType
 from easyshop.core.interfaces import IShopManagement
@@ -20,7 +16,7 @@ class PayPalType:
     """Provides IType for paypal content objects.
     """
     implements(IType)
-    adapts(IPayPal)
+    adapts(IPayPalPaymentMethod)
 
     def __init__(self, context):
         self.context = context                  
@@ -34,7 +30,7 @@ class PayPalCompleteness:
     """Provides ICompleteness for paypal content objects.
     """
     implements(ICompleteness)
-    adapts(IPayPal)
+    adapts(IPayPalPaymentMethod)
         
     def __init__(self, context):
         """
@@ -52,7 +48,7 @@ class PayPalPaymentProcessor:
     content is passed via GET-REQUEST)
     """
     implements(IPaymentProcessing)
-    adapts(IPayPal)
+    adapts(IPayPalPaymentMethod)
 
     def __init__(self, context):
         """
@@ -110,14 +106,14 @@ class PayPalPaymentProcessor:
         url = url + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
         
-        return "NOT_PAYED"
+        return None
         
 class PayPalSimplePaymentProcessor:
     """Provides IPaymentProcessing for paypal content objects.    
     Passes just a value for the whole cart to papal.
     """
     implements(IPaymentProcessing)
-    adapts(IPayPal)
+    adapts(IPayPalPaymentMethod)
 
     def __init__(self, context):
         """

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<object name="PayPal" meta_type="Factory-based Type Information"
+<object name="PayPalPaymentMethod" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">PayPal</property>
+ <property name="title">PayPal Payment Method</property>
  <property
     name="description">Holds all relevant informations for a paypal payment.</property>
  <property name="content_icon">payment_method_icon.png</property>
- <property name="content_meta_type">PayPal</property>
+ <property name="content_meta_type">PayPalPaymentMethod</property>
  <property name="product">easyshop.shop</property>
  <property name="factory">addPayPal</property>
  <property name="immediate_view">base_view</property>

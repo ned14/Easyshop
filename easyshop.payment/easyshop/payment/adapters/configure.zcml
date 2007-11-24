@@ -1,20 +1,26 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
     <adapter
+        factory=".order.OrderPaymentProcessor" />
+    
+    <adapter
         factory=".shop.PaymentPrices" />
 
     <adapter
-        factory=".shop.PaymentManagement" />
+        factory=".shop.PaymentMethodManagement" />
+
+    <adapter
+        factory=".customer.PaymentInformationManagement" />
 
     
     <adapter
-        factory=".simple_payment.SimplePaymentType" />
+        factory=".generic_payment.GenericPaymentType" />
 
     <adapter
-        factory=".simple_payment.SimplePaymentProcessor" />
+        factory=".generic_payment.GenericPaymentProcessor" />
 
     <adapter
-        factory=".simple_payment.SimplePaymentCompleteness" />
+        factory=".generic_payment.GenericPaymentCompleteness" />
 
 
     <adapter
@@ -46,9 +52,5 @@
     <adapter
         factory=".paypal.PayPalCompleteness" />
 
-    <!-- 
-    <adapter 
-        factory=".payment.PayPalPaymentProcessor" /> 
-    -->
-          
+
 </configure>

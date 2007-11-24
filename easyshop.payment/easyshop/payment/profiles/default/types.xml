@@ -7,23 +7,27 @@
     name="title">Controls the available content types in your portal</property>
     
  <object
-     name="DirectDebit"
+     name="BankAccount"
+     meta_type="Factory-based Type Information"/>
+
+ <object
+     name="DirectDebitPaymentMethod"
      meta_type="Factory-based Type Information"/>
 
  <object
      name="CreditCard"
      meta_type="Factory-based Type Information"/>
-         
- <object
-     name="PayPal" 
-     meta_type="Factory-based Type Information"/>    
 
  <object
-     name="PaymentValidator"
+     name="CreditCardPaymentMethod"
      meta_type="Factory-based Type Information"/>
          
  <object
-     name="SimplePaymentMethod"
+     name="PayPalPaymentMethod" 
+     meta_type="Factory-based Type Information"/>    
+
+ <object
+     name="GenericPaymentMethod"
      meta_type="Factory-based Type Information"/>
          
  <object

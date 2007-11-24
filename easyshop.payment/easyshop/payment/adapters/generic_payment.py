@@ -6,16 +6,17 @@ from zope.component import adapts
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IType
-from easyshop.core.interfaces import ISimplePaymentMethod
+from easyshop.core.interfaces import IGenericPaymentMethod
 
-from easyshop.payment.config import PAYED, NOT_PAYED
 from easyshop.payment.content import PaymentResult
+from easyshop.payment.config import NOT_PAYED
+from easyshop.payment.config import PAYED
 
-class SimplePaymentType:
+class GenericPaymentType:
     """Provides IType for simple payment content objects.
     """
     implements(IType)
-    adapts(ISimplePaymentMethod)
+    adapts(IGenericPaymentMethod)
 
     def __init__(self, context):
         """
@@ -23,16 +24,16 @@ class SimplePaymentType:
         self.context = context                  
 
     def getType(self):
-        """Returns type of EasyShopPrepayment.
+        """Returns type.
         """
-        return "simple-payment"
+        return "generic-payment"
         
 
-class SimplePaymentCompleteness:
+class GenericPaymentCompleteness:
     """Provides ICompleteness for simple payment content objects.
     """
     implements(ICompleteness)
-    adapts(ISimplePaymentMethod)
+    adapts(IGenericPaymentMethod)
     
     def __init__(self, context):
         """
@@ -40,15 +41,15 @@ class SimplePaymentCompleteness:
         self.context = context                  
 
     def isComplete(self):
-        """Returns always true, as prepayment needs no informations.
+        """Returns always true, as generic payment method needs no informations.
         """        
         return True        
         
-class SimplePaymentProcessor:
+class GenericPaymentProcessor:
     """Provides IPaymentProcessing for simple payment content objects.
     """
     implements(IPaymentProcessing)
-    adapts(ISimplePaymentMethod)
+    adapts(IGenericPaymentMethod)
 
     def __init__(self, context):
         """
@@ -59,8 +60,8 @@ class SimplePaymentProcessor:
         """
         """
         if self.context.getPayed() == True:
-            code = "PAYED"
+            code = PAYED
         else:
-            code = "NOT_PAYED"
+            code = NOT_PAYED
             
-        PaymentResult(code, "")
+        return PaymentResult(code, "")

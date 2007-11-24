@@ -4,14 +4,14 @@
     <!-- Direct Debit -->
     <browser:page
         for="easyshop.core.interfaces.ICustomer"
-        name="add-direct-debit"
-        class=".direct_debit.DirectDebitAddForm"
+        name="add-bank-account"
+        class=".bank_account.BankAccountAddForm"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
-        for="easyshop.core.interfaces.IDirectDebit"
+        for="easyshop.core.interfaces.IBankAccount"
         name="edit"
-        class=".direct_debit.DirectDebitEditForm"
+        class=".bank_account.BankAccountEditForm"
         permission="cmf.ModifyPortalContent" />
 
     <!-- Credit Card -->
@@ -46,14 +46,7 @@
     <!-- Payment Method -->
     <browser:page  
         name="payment-method-view"
-        for="easyshop.core.interfaces.IShopPaymentMethod"
-        class=".payment_method.PaymentMethodView"
-        template="payment_method.pt"
-        permission="cmf.ManagePortal" />
-
-    <browser:page  
-        name="payment-method-view"
-        for="easyshop.core.interfaces.IPaymentMethodValidator"
+        for="easyshop.core.interfaces.IPaymentMethod"
         class=".payment_method.PaymentMethodView"
         template="payment_method.pt"
         permission="cmf.ManagePortal" />

@@ -6,7 +6,7 @@ from zope.component import adapts
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IType
-from easyshop.core.interfaces import IDirectDebit
+from easyshop.core.interfaces import IDirectDebitPaymentMethod
 
 from easyshop.payment.content import PaymentResult
 from easyshop.payment.config import NOT_PAYED
@@ -15,7 +15,7 @@ class DirectDebitType:
     """Provides IType for direct debit content objects.
     """
     implements(IType)
-    adapts(IDirectDebit)
+    adapts(IDirectDebitPaymentMethod)
 
     def __init__(self, context):
         """
@@ -23,7 +23,7 @@ class DirectDebitType:
         self.context = context                  
 
     def getType(self):
-        """Returns type of EasyShopDirectDebit.
+        """Returns type of direct debit payment method.
         """
         return "direct-debit"
         
@@ -32,7 +32,7 @@ class DirectDebitPaymentProcessor:
     """Provides IPaymentProcessing for direct debit content objects.
     """
     implements(IPaymentProcessing)
-    adapts(IDirectDebit)
+    adapts(IDirectDebitPaymentMethod)
 
     def __init__(self, context):
         """
@@ -42,13 +42,13 @@ class DirectDebitPaymentProcessor:
     def process(self, order=None):
         """
         """        
-        return PaymentResult("NOT_PAYED", "")
+        return PaymentResult(NOT_PAYED, "")
         
 class DirectDebitCompleteness:
     """Provides ICompleteness for direct debit content objects.
     """    
     implements(ICompleteness)
-    adapts(IDirectDebit)
+    adapts(IDirectDebitPaymentMethod)
         
     def __init__(self, context):
         """

@@ -2,7 +2,7 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IShopManagement
 
 class PaymentMethodsView(BrowserView):
@@ -12,7 +12,7 @@ class PaymentMethodsView(BrowserView):
         """
         """
         shop = IShopManagement(self.context).getShop()
-        pm = IPaymentManagement(shop)
+        pm = IPaymentMethodManagement(shop)
                 
         result = []
         for payment_method in pm.getPaymentMethods():            

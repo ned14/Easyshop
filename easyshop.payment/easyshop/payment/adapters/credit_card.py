@@ -6,11 +6,14 @@ from zope.component import adapts
 from easyshop.core.config import _
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import ICreditCard
+from easyshop.core.interfaces import ICreditCardPaymentMethod
+from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IType
-
 from easyshop.payment.config import PAYED, ERROR
 from easyshop.payment.content import PaymentResult
 
@@ -21,7 +24,7 @@ class CreditCardType:
     """Provides IType for direct debit content objects.
     """
     implements(IType)
-    adapts(ICreditCard)
+    adapts(ICreditCardPaymentMethod)
 
     def __init__(self, context):
         """
@@ -29,7 +32,7 @@ class CreditCardType:
         self.context = context                  
 
     def getType(self):
-        """Returns type of CreditCard.
+        """Returns type of credit card payment method.
         """
         return "credit-card"
         
@@ -38,7 +41,7 @@ class AuthorizeNetCreditCardPaymentProcessor:
     """Provides IPaymentProcessing for credit cards content objects.
     """
     implements(IPaymentProcessing)
-    adapts(ICreditCard)
+    adapts(ICreditCardPaymentMethod)
 
     def __init__(self, context):
         """
@@ -48,9 +51,13 @@ class AuthorizeNetCreditCardPaymentProcessor:
     def process(self, order=None):
         """
         """
-        card_num = self.context.card_number
-        exp_date = "%s/%s" % (self.context.card_expiration_date_month,
-                              self.context.card_expiration_date_year)
+        shop        = IShopManagement(self.context).getShop()
+        customer    = ICustomerManagement(shop).getAuthenticatedCustomer()
+        credit_card = IPaymentInformationManagement(customer).getSelectedPaymentInformation()
+        
+        card_num = credit_card.card_number
+        exp_date = "%s/%s" % (credit_card.card_expiration_date_month,
+                              credit_card.card_expiration_date_year)
 
         line_items = []
         for i, item in enumerate(IItemManagement(order).getItems()):

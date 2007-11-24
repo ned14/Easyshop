@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<object name="EasyShopSimplePaymentMethod" meta_type="Factory-based Type Information"
+<object name="CreditCardPaymentMethod" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Simple Payment Method</property>
- <property name="description">A simple payment method</property>
+ <property name="title">Credit Card Payment Method</property>
+ <property name="description">Credit card payment method</property>
  <property name="content_icon">payment_method_icon.png</property>
- <property name="content_meta_type">SimplePaymentMethod</property>
+ <property name="content_meta_type">CreditCardPaymentMethod</property>
  <property name="product">easyshop.shop</property>
- <property name="factory">addSimplePaymentMethod</property>
+ <property name="factory">addCreditCardPaymentMethod</property>
  <property name="immediate_view">payment-method-view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>

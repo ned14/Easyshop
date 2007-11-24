@@ -5,15 +5,15 @@
 
     <!-- Direct Debit -->
     <five:registerClass
-        class=".direct_debit.DirectDebit"
-        meta_type="DirectDebit"
+        class=".bank_account.BankAccount"
+        meta_type="BankAccount"
         permission="cmf.ModifyPortalContent"
-        addview="easyshop.direct_debit"
+        addview="easyshop.bank_account"
         icon="payment_method_icon.png" />
 
     <utility
-        component=".direct_debit.directDebitFactory"
-        name="easyshop.direct_debit" />
+        component=".bank_account.bankAccountFactory"
+        name="easyshop.bank_account" />
 
 
     <!-- Credit Cart -->

@@ -8,23 +8,25 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports
 from easyshop.catalog.content.product import Product
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPrices
 from easyshop.core.interfaces import IPaymentPrice
+from easyshop.core.interfaces import ISelectablePaymentMethod
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import IValidity
 
-class PaymentManagement:
-    """An adapter which provides IPaymentManagement for shop content objects.
+class PaymentMethodManagement:
+    """An adapter which provides IPaymentMethodManagement for shop content objects.
     """
-    implements(IPaymentManagement)
+    implements(IPaymentMethodManagement)
     adapts(IShop)
     
     def __init__(self, context):
         """
         """
         self.context = context
+        self.paymentmethods = self.context.paymentmethods
 
     def deletePaymentMethod(self, id):
         """
@@ -40,21 +42,36 @@ class PaymentManagement:
         """Returns payment method by given id.
         """
         try:
-            return self.context.paymentmethods[id]
+            return self.paymentmethods[id]
         except KeyError:
             return None
-            
-    def getPaymentMethods(self, interface=None, check_validity=False):
+
+    def getPaymentMethods(self, check_validity=False):
         """Returns the payment methods on shop level. 
         """
-        # Todo: This can be optimized with Plone 3.0 because there will be an
-        # interface index (IIRC).
         mtool = getToolByName(self.context, "portal_membership")
             
         result = []
-        for object in self.context.paymentmethods.objectValues():
+        for object in self.paymentmethods.objectValues():
 
-            if interface and interface.providedBy(object) == False:
+            if check_validity and \
+               IValidity(object).isValid(object) == False:
+                continue                    
+            
+            if mtool.checkPermission("View", object) is not None:
+                result.append(object)
+        
+        return result
+            
+    def getSelectablePaymentMethods(self, check_validity=False):
+        """Returns payment method which are selectable by a customer.
+        """
+        mtool = getToolByName(self.context, "portal_membership")
+            
+        result = []
+        for object in self.paymentmethods.objectValues():
+
+            if ISelectablePaymentMethod.providedBy(object) == False:
                 continue
 
             if check_validity and\
@@ -65,29 +82,7 @@ class PaymentManagement:
                 result.append(object)
         
         return result
-        
-    def getSelectedPaymentMethod(self, check_validity=False):
-        """Returns the selected payment method of the current customer on shop
-        level.
-        """
-        cm = ICustomerManagement(self.context)
-        customer = cm.getAuthenticatedCustomer()
-        
-        try:
-            selected_payment_method = \
-                self.context.paymentmethods[customer.selected_payment_method]
-        except KeyError:
-            # Return prepayment as fallback
-            return self.context.paymentmethods["prepayment"]
-
-        # check vor validity    
-        if check_validity == False or \
-           IValidity(selected_payment_method).isValid() == True:
-            return selected_payment_method
-        else:
-            # Return prepayment as fallback
-            return self.context.paymentmethods["prepayment"]
-                        
+            
 class PaymentPrices:
     """
     """

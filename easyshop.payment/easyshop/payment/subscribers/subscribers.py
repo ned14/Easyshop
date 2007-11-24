@@ -17,23 +17,23 @@ def createContainers(shop, event):
         id="paymentprices", 
         title="Payment Prices")
 
-    shop.paymentmethods.manage_addProduct["easyshop.shop"].addSimplePaymentMethod(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addGenericPaymentMethod(
         id="cash-on-delivery",
         title="Cash on Delivery")
                 
-    shop.paymentmethods.manage_addProduct["easyshop.shop"].addPaymentValidator(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addCreditCardPaymentMethod(
         id="credit-card", 
         title="Credit Card")
                 
-    shop.paymentmethods.manage_addProduct["easyshop.shop"].addPaymentValidator(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addDirectDebitPaymentMethod(
         id="direct-debit", 
         title="Direct Debit")
 
-    shop.paymentmethods.manage_addProduct["easyshop.shop"].addPayPal(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addPayPalPaymentMethod(
         id="paypal", 
         title="PayPal")
 
-    shop.paymentmethods.manage_addProduct["easyshop.shop"].addSimplePaymentMethod(
+    shop.paymentmethods.manage_addProduct["easyshop.shop"].addGenericPaymentMethod(
         id="prepayment", 
         title="Prepayment")   
         

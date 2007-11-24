@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<object name="DirectDebit" meta_type="Factory-based Type Information"
+<object name="BankAccount" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Direct Debit</property>
+ <property name="title">Bank Account</property>
  <property
-    name="description">Holds all relevant informations for a direct debit payment.</property>
+    name="description">Holds all relevant information for a bank account.</property>
  <property name="content_icon">payment_method_icon.png</property>
- <property name="content_meta_type">DirectDebit</property>
+ <property name="content_meta_type">BankAccount</property>
  <property name="product"></property>
- <property name="factory">easyshop.direct_debit</property>
+ <property name="factory">easyshop.bank_account</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>

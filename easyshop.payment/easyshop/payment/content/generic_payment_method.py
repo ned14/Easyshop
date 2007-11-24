@@ -12,7 +12,7 @@ from Products.ATContentTypes.content.base import ATCTMixin
 
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import ISimplePaymentMethod
+from easyshop.core.interfaces import IGenericPaymentMethod
 
 schema = Schema((
     BooleanField(
@@ -32,12 +32,12 @@ schema = Schema((
 schema = ATCTMixin.schema.copy() + schema.copy()
 schema["title"].required = False
 
-class SimplePaymentMethod(OrderedBaseFolder):
-    """A simple payment method.
+class GenericPaymentMethod(OrderedBaseFolder):
+    """A generic payment method.
     """
-    implements(ISimplePaymentMethod)
+    implements(IGenericPaymentMethod)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = schema
 
-registerType(SimplePaymentMethod, PROJECTNAME)
+registerType(GenericPaymentMethod, PROJECTNAME)

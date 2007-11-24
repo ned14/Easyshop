@@ -5,21 +5,23 @@ from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
 # Archetypes imports
-from Products.Archetypes.atapi import *
+from Products.Archetypes.atapi import OrderedBaseFolder
+from Products.Archetypes.atapi import registerType
 
 # ATContentTypes imports
 from Products.ATContentTypes.content.base import ATCTMixin
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IPayPal
+from easyshop.core.config import PROJECTNAME
+from easyshop.core.interfaces import IPayPalPaymentMethod
 
-class PayPal(OrderedBaseFolder):
+class PayPalPaymentMethod(OrderedBaseFolder):
     """Holds all relevant informations for a paypal payment.
     """
-    implements(IPayPal)
+    implements(IPayPalPaymentMethod)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = ATCTMixin.schema.copy()
 
-registerType(PayPal, PROJECTNAME)
+registerType(PayPalPaymentMethod, PROJECTNAME)
+

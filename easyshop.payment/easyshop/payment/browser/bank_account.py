@@ -13,18 +13,18 @@ from plone.app.form.events import EditCancelledEvent, EditSavedEvent
 # easyshop imports
 from easyshop.core.config import _
 from easyshop.core.config import DEFAULT_SHOP_FORM
-from easyshop.core.interfaces import IDirectDebit
-from easyshop.payment.content.direct_debit import DirectDebit
+from easyshop.core.interfaces import IBankAccount
+from easyshop.payment.content import BankAccount
 
-class DirectDebitEditForm(base.EditForm):
+class BankAccountEditForm(base.EditForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)    
-    form_fields = form.Fields(IDirectDebit)
+    form_fields = form.Fields(IBankAccount)
     
-    label       = _(u"Edit Bank Information")
+    label       = _(u"Edit Bank Account")
     description = _("To change your bank information edit the form and press save.")
-    form_name   = _(u"Edit Bank Information")
+    form_name   = _(u"Edit Bank Account")
 
     @form.action(_(u"label_save", default="Save"), condition=form.haveInputWidgets, name=u'save')
     def handle_save_action(self, action, data):
@@ -59,11 +59,11 @@ class DirectDebitEditForm(base.EditForm):
             url = parent.absolute_url() + "/manage-payment-methods"
             self.request.response.redirect(url)
                     
-class DirectDebitAddForm(base.AddForm):
+class BankAccountAddForm(base.AddForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)
-    form_fields = form.Fields(IDirectDebit)
+    form_fields = form.Fields(IBankAccount)
     
     label     = _(u"Add Bank Information")
     form_name = _(u"Add Bank Information")
@@ -85,9 +85,9 @@ class DirectDebitAddForm(base.AddForm):
         """
         """
         # add address
-        id = self.context.generateUniqueId("DirectDebit")
+        id = self.context.generateUniqueId("BankAccount")
 
-        direct_debit = DirectDebit(id)
+        direct_debit = BankAccount(id)
         direct_debit.account_number = data.get("account_number")
         direct_debit.bank_identification_code = data.get("bank_identification_code")
         direct_debit.depositor = data.get("depositor")
