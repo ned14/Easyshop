@@ -30,8 +30,8 @@ class Customer(OrderSupport, Container):
     
     selected_invoice_address     = u""
     selected_shipping_address    = u""
-    selected_payment_method      = u""
-    selected_payment_method_type = u"prepayment"
+    selected_payment_method      = u"prepayment"
+    selected_payment_information = u""
     selected_shipping_method     = u""
     selected_country             = u""
     

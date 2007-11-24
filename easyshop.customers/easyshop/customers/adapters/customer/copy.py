@@ -11,13 +11,14 @@ from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICopyManagement
 from easyshop.core.interfaces import ICreditCard
 from easyshop.core.interfaces import ICustomer
-from easyshop.core.interfaces import IDirectDebit
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IBankAccount
+from easyshop.core.interfaces import IPaymentInformationManagement
 
 from easyshop.customers.content import Address
+from easyshop.payment.content import BankAccount
 from easyshop.customers.content import Customer
 from easyshop.payment.content import CreditCard
-from easyshop.payment.content import DirectDebit
+
 
 class CustomerCopyManagement:
     """
@@ -54,6 +55,17 @@ class CustomerCopyManagement:
         # copying content as anonymous user, which is needed for anonymous 
         # checkout -> copy the customer object to the new order. TODO: Think 
         # about whether it is better not to copy the whole customer object.
+
+        new_customer.firstname = self.context.firstname
+        new_customer.lastname  = self.context.lastname
+        new_customer.email     = self.context.email
+    
+        new_customer.selected_invoice_address     = self.context.selected_invoice_address
+        new_customer.selected_shipping_address    = self.context.selected_shipping_address
+        new_customer.selected_payment_method      = self.context.selected_payment_method
+        new_customer.selected_payment_information = self.context.selected_payment_information
+        new_customer.selected_shipping_method     = self.context.selected_shipping_method
+        new_customer.selected_country             = self.context.selected_country
         
         # Copy addresses    
         session_addresses = IAddressManagement(self.context).getAddresses()
@@ -66,16 +78,16 @@ class CustomerCopyManagement:
             wftool.notifyCreated(new_address)
 
         # Copy customer payment methods.
-        pm = IPaymentManagement(self.context)
-        for session_direct_debit in pm.getPaymentMethods(IDirectDebit):
-            new_direct_debit = DirectDebit(session_direct_debit.id)
-            for field in IDirectDebit.names():
+        pm = IPaymentInformationManagement(self.context)
+        for session_direct_debit in pm.getPaymentInformations(IBankAccount):
+            new_direct_debit = BankAccount(session_direct_debit.id)
+            for field in IBankAccount.names():
                 setattr(new_direct_debit, field, getattr(session_direct_debit, field))
             new_customer._setObject(new_direct_debit.id, new_direct_debit)
             new_direct_debit = new_customer[new_direct_debit.id]
             wftool.notifyCreated(new_direct_debit)
 
-        for session_credit_card in pm.getPaymentMethods(ICreditCard):
+        for session_credit_card in pm.getPaymentInformations(ICreditCard):
             new_credit_card = CreditCard(session_credit_card.id)
             for field in ICreditCard.names():
                 setattr(new_credit_card, field, getattr(session_credit_card, field))

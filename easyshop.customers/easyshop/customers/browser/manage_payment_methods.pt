@@ -80,10 +80,10 @@
                     <td colspan="2">
                         <form method="post"
                               action="#"
-                              tal:attributes="action string:${context/absolute_url}/add-direct-debit">
+                              tal:attributes="action string:${context/absolute_url}/add-bank-account">
                   
                             <input type="submit"
-                                   value="Add Bank information"
+                                   value="Add Bank Account"
                                    i18n:attributes="value add_bank_information_label;" />
                         </form>                              
                     </td>

@@ -13,10 +13,10 @@ from plone.memoize.instance import memoize
 
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IBankAccount
 from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import IDirectDebit
 from easyshop.core.interfaces import IOrderManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IShopManagement
 
 class CustomersContainerView(BrowserView):
@@ -72,8 +72,8 @@ class CustomersContainerView(BrowserView):
             return []
         
         result = []
-        pm = IPaymentManagement(customer)
-        for payment_method in pm.getPaymentMethods(IDirectDebit):
+        pm = IPaymentMethodManagement(customer)
+        for payment_method in pm.getPaymentMethods(IBankAccount):
             result.append({
                 "url"            : payment_method.absolute_url(),
                 "account_number" : payment_method.getAccountNumber(),

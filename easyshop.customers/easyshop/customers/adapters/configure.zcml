@@ -10,9 +10,6 @@
         factory=".customer.address.CustomerAddressManager" />
 
     <adapter
-        factory=".customer.payment.CustomerPaymentManager" />
-
-    <adapter
         factory=".customer.completeness.AddressCompleteness" />
 
     <adapter

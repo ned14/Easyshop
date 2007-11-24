@@ -2,14 +2,11 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import IAddress
 from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import ICustomer
@@ -48,8 +45,8 @@ class CustomerCompleteness:
         if i_addr is None: return False
 
         # Get payment method
-        payman = IPaymentManagement(self.context)
-        paymeth = payman.getSelectedPaymentMethod()
+        pm = IPaymentInformationManagement(self.context)
+        payment_information = pm.getSelectedPaymentInformation()
 
         # Get cart of the customer
         cart = ICartManagement(shop).getCart()
@@ -63,7 +60,7 @@ class CustomerCompleteness:
         
         # Check all for completeness
         # if at least one is False customer is not complete, too.        
-        for toCheck in s_addr, i_addr, paymeth:
+        for toCheck in s_addr, i_addr, payment_information:
             if ICompleteness(toCheck).isComplete() == False:
                 return False
         
