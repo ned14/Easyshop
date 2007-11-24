@@ -57,7 +57,7 @@
                             </select>
                         </td>
                         <td>
-                            <select name="selected_payment_method_type">
+                            <select name="selected_payment_method">
                                 <option tal:repeat="payment_method view/getPaymentMethodTypes"
                                         tal:attributes="value payment_method/id;
                                                         selected payment_method/selected;"                                        

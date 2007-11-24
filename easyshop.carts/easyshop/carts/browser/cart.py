@@ -10,7 +10,8 @@ from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IItemManagement 
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentInformationManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPrices
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
@@ -130,13 +131,13 @@ class CartFormView(BrowserView):
         """Returns all *types* of payment methods of the current customer.
         """
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
-        pm = IPaymentManagement(self.context)
+        pm = IPaymentMethodManagement(self.context)
                 
         result = []        
         for payment_method in pm.getPaymentMethods():
             
             id = payment_method.getId()
-            selected = (id == customer.selected_payment_method_type)
+            selected = (id == customer.selected_payment_method)
             
             result.append({            
                 "id"       : payment_method.getId(),
@@ -156,10 +157,12 @@ class CartFormView(BrowserView):
         price =  cm.priceToString(price)
 
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        pim = IPaymentInformationManagement(customer)
+        selected_payment_method = pim.getSelectedPaymentMethod()
         
         return {
             "price"       : price,
-            "title"       : customer.selected_payment_method_type,
+            "title"       : selected_payment_method.Title(),
         }
 
     def getShippingMethods(self):
@@ -199,8 +202,7 @@ class CartFormView(BrowserView):
         cm = ICurrencyManagement(self.context)
         price = cm.priceToString(shipping_price)
         method = IShippingManagement(self.context).getSelectedShippingMethod()
-        
-        
+                
         return {
             "price"       : price,
             "title"       : method.Title(),
@@ -232,8 +234,8 @@ class CartFormView(BrowserView):
             safe_unicode(self.request.get("selected_shipping_method"))
 
         # Set selected payment method type
-        customer.selected_payment_method_type = \
-            safe_unicode(self.request.get("selected_payment_method_type"))
+        customer.selected_payment_method = \
+            safe_unicode(self.request.get("selected_payment_method"))
             
         cart = ICartManagement(self.context).getCart()
         item_manager = IItemManagement(cart)
