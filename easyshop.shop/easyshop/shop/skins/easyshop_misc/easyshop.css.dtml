@@ -206,6 +206,15 @@ a.current-category {
     color: red;
 }
 
+table.parameters th {
+    text-align: left;        
+}
+table.parameters td {
+    text-align: left;
+    padding-top:10px;
+    padding-right:20px;
+}
+
 table.cart th {    
     height:30px;
 }

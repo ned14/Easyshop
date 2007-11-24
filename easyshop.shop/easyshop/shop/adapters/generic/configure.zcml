@@ -13,14 +13,11 @@
         factory=".validity.ValidityManagement" />
 
     <adapter
-        for="easyshop.core.interfaces.IShopPaymentMethod"
+        for="easyshop.core.interfaces.IPaymentMethod"
         factory=".validity.ValidityManagement" />
 
     <adapter
-        for="easyshop.core.interfaces.IPaymentMethodValidator"
+        for="easyshop.core.interfaces.IPaymentInformation"
         factory=".validity.ValidityManagement" />
-
-    <adapter
-        factory=".validity.CustomerPaymentValidityManagement" />
 
 </configure>

@@ -3,8 +3,8 @@ from zope.interface import implements
 from zope.component import adapts
   
 # easyshop imports
-from easyshop.core.interfaces import ICustomerPaymentMethod
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethod
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IType
@@ -40,16 +40,16 @@ class ValidityManagement(object):
         return True
         
         
-class CustomerPaymentValidityManagement(ValidityManagement):
+class PaymentMethodValidityManagement(ValidityManagement):
     """An adapter which provides IValidity for customer payment methods.
     """
     implements(IValidity)
-    adapts(ICustomerPaymentMethod)
+    adapts(IPaymentMethod)
 
     def __init__(self, context):
         """
         """
-        super(CustomerPaymentValidityManagement, self).__init__(context)
+        super(PaymentValidityManagement, self).__init__(context)
     
     def isValid(self, product=None):
         """Returns true if the corresponding payment validator is not False and
@@ -58,7 +58,7 @@ class CustomerPaymentValidityManagement(ValidityManagement):
         # First we check the general validity. For that we try to get the
         # corresponding payment validator.
         type   = IType(self.context).getType()
-        pm     = IPaymentManagement(IShopManagement(self.context).getShop())
+        pm     = IPaymentMethodManagement(IShopManagement(self.context).getShop())
         method = pm.getPaymentMethod(type)
         
         # Only if we find one, we check validity. If we didn't find one, we
@@ -68,4 +68,4 @@ class CustomerPaymentValidityManagement(ValidityManagement):
         
         # If the non-validity isn't proved we check the criteria of context
         # (a customer payment method)
-        return super(CustomerPaymentValidityManagement, self).isValid(product)
+        return super(PaymentValidityManagement, self).isValid(product)
