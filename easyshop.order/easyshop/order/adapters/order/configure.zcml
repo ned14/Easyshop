@@ -1,9 +1,6 @@
 <configure 
     xmlns="http://namespaces.zope.org/zope">
 
-    <adapter 
-        factory=".payment.PaymentManagement" />
-    
     <adapter
         factory=".price.OrderPriceCalculator" />
 

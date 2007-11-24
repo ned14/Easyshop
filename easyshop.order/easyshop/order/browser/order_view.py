@@ -18,8 +18,9 @@ from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IType
 
@@ -176,19 +177,20 @@ class OrderView(BrowserView):
             "tax" : tax, 
             "title" : "Cash on Delivery"
         }
-        
-    def getPaymentMethod(self):
+
+    def getSelectedPaymentInformation(self):
         """
         """
+        import pdb; pdb.set_trace()
         customer = self.context.getCustomer()
-        pm = IPaymentManagement(customer)                
-        return pm.getSelectedPaymentMethod()
+        pm = IPaymentInformationManagement(customer)
+        return pm.getSelectedPaymentInformation()
         
     def getPaymentMethodType(self):
         """
         """
-        pm = self.getPaymentMethod()
-        return IType(pm).getType()
+        customer = self.context.getCustomer()
+        return customer.selected_payment_method
         
     def getPriceForCustomer(self):
         """
@@ -264,7 +266,7 @@ class OrderView(BrowserView):
     def isRedoPaymentAllowed(self):
         """
         """
-        pm = IPaymentManagement(self.context)
+        pm = IPaymentInformationManagement(self.context.getCustomer())
         m = pm.getSelectedPaymentMethod()
         
         if IType(m).getType() not in REDO_PAYMENT_PAYMENT_METHODS:
@@ -291,5 +293,4 @@ class OrderView(BrowserView):
         # ATM only PayPal is allowed, so I haven't to differ and no redirect
         # is needed as the paypal process redirects to paypal.com
         if self.isRedoPaymentAllowed():
-            pm = IPaymentManagement(self.context)
-            pm.processSelectedPaymentMethod()
+            IPaymentProcessing(self.context).process()
