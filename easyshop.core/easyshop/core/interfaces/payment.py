@@ -10,40 +10,41 @@ from easyshop.core.config import CREDIT_CARD_MONTHS_CHOICES
 from easyshop.core.config import CREDIT_CARD_YEARS_CHOICES
 
 class IPaymentMethod(Interface):
-    """A marker interface for payment content objects.
+    """Marker interface for payment methods.
     """
 
-class IShopPaymentMethod(IPaymentMethod):
-    """A marker interface for shop payment content objects, means payment
-    methods which doesn't need any customer related information and hence 
-    live just once within shop level. Example: PayPal.
+class ISelectablePaymentMethod(Interface):
+    """Marker interface for payment methods which can be selected by a customer.
+    """
+
+class IAsynchronPaymentMethod(Interface):
+    """Marker interface for payment methods which redirect away from the shops.
     """    
-
-class ICustomerPaymentMethod(IPaymentMethod):
-    """A marker interface for customer payment content objects, means
-    payment methods which holds information per customer and hence live 
-    within customer objects. Example: direct debit
-    """    
-
-class ISimplePaymentMethod(IShopPaymentMethod):
-    """A marker interface for simple payment content objects.
     
-    Note, that this is also a IShopPaymentMethod, means it needs no
-    further information per customer.
+class ICreditCardPaymentMethod(IPaymentMethod):
+    """Marker interface payment via credit card.
+    """        
+    
+class IDirectDebitPaymentMethod(IPaymentMethod):
+    """Marker interface for payment via direct debit.
     """
 
-    payed = Attribute("""
-        If checked an order gets the "payed"-state after processing this
-        payment method, otherwhise "not payed" """)
-        
-class IPayPal(IShopPaymentMethod):
-    """A marker interface for paypal content objects. 
+class IPayPalPaymentMethod(IPaymentMethod, ISelectablePaymentMethod, IAsynchronPaymentMethod):
+    """Marker interface for payment via PayPal.
+    """
+
+class IGenericPaymentMethod(IPaymentMethod, ISelectablePaymentMethod):
+    """A generic payment method.
+    """
+    payed = Attribute("""If checked an order gets the "payed"-state after 
+        processing this payment method, otherwhise "not payed" """)
+
+class IPaymentInformation(Interface):
+    """Marker interface for payment information.
     """
     
-class IDirectDebit(ICustomerPaymentMethod):
-    """A direct debit content object. Note, that this is also a 
-    ICustomerPaymentMethod, means it needs information (bank details) per 
-    customer.    
+class IBankAccount(IPaymentInformation):
+    """Stores information of a bank account.
     """
     account_number = schema.TextLine(
         title=_(u'Account Number'),
@@ -73,9 +74,8 @@ class IDirectDebit(ICustomerPaymentMethod):
         required=True,
     )
 
-class ICreditCard(ICustomerPaymentMethod):
-    """A credit cart content object. Note, that this is also a 
-    ICustomerPaymentMethod, means it needs information per customer.
+class ICreditCard(IPaymentInformation):
+    """Stores information of a credit card.
     """
     card_type = schema.Choice(
         title=_(u"Card Type"),
@@ -112,13 +112,6 @@ class ICreditCard(ICustomerPaymentMethod):
         default=u"2007")
 
 
-class IPaymentMethodValidator(Interface):
-    """A corresponding validator object for a customer payment method object.
-    It *can* exist within shop level to decide whether a customer payment
-    method (like direct debit) is generally allowed or not. To manage this it
-    holds criterion objects (just like shop payment objects).
-    """
-    
 class IPaymentPrice(Interface):
     """A marker interface for payment price content objects.
     """
@@ -128,7 +121,7 @@ class IPaymentPrices(Interface):
     prices and taxes for them.
     """
     
-class IPaymentManagement(Interface):
+class IPaymentMethodManagement(Interface):
     """Provides methods to manage payment methods.
     """
     def deletePaymentMethod(id):
@@ -143,17 +136,32 @@ class IPaymentManagement(Interface):
         """Returns all payment informations.
         """
     
-    def getSelectedPaymentMethod():
-        """Returns the actual payment information.
+class IPaymentInformationManagement(Interface):
+    """Provides methods to manage payment information.
+    """
+    def deletePaymentInformation(id):
+        """Deletes a payment information by given id.
         """
-        
+
+    def getPaymentInformation(id):
+        """Returns payment information by given id.
+        """
+
+    def getPaymentInformations(interface=None, check_validity=False):
+        """Returns all payment information of a customer.
+        """
+
+    def getSelectedPaymentInformation(check_validity=False):
+        """Returns the selected payment information.
+        """
+
+    def getSelectedPaymentMethod(check_validity=False):
+        """Returns the selected payment method.
+        """
+
 class IPaymentProcessing(Interface):
     """Provides methods to processing a payment.
     """
-    def authorize():
-        """Authorize a payment.
-        """
-        
     def process(order):
         """Processes a payment.
         """
