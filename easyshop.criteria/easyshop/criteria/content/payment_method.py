@@ -3,11 +3,7 @@ import transaction
 from zope.interface import implements
 
 # Zope imports
-from DateTime import DateTime
 from AccessControl import ClassSecurityInfo
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
@@ -15,6 +11,8 @@ from Products.Archetypes.atapi import *
 # easyshop imports
 from easyshop.core.config import *
 from easyshop.core.interfaces import IPaymentMethodCriteria
+from easyshop.core.interfaces import IPaymentMethodManagement
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -62,22 +60,17 @@ class PaymentMethodCriteria(BaseContent):
         return ", ".join(self.getPaymentMethods())
     
     def _getPaymentMethodsAsDL(self):
-        """Returns all payment methods as DisplayList
+        """Returns all payment methods as DisplayList.
         """
-        # TODO: Be more generic!
-        
-        dl = DisplayList()
-
-        dl.add("cash-on-delivery", "Cash On Delivery")
-        dl.add("credit-card", "Cash On Delivery")
-        dl.add("direct-debit", "Direct Debit")
-        dl.add("paypal", "PayPal")        
-        dl.add("prepayment", "Prepayment")
+        dl = DisplayList()        
+        shop = IShopManagement(self).getShop()
+        for method in IPaymentMethodManagement(shop).getPaymentMethods():
+            dl.add(method.getId(), method.Title())
 
         return dl
 
     def _renameAfterCreation(self, check_auto_id=False):
-        """Overwritten to set the default value for id
+        """Overwritten to set the default value for id.
         """
         transaction.commit()
         new_id = "PaymentMethodCriteria"

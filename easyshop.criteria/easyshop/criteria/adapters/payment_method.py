@@ -4,7 +4,7 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentMethodCriteria
 from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
@@ -29,7 +29,7 @@ class PaymentMethodCriteriaValidity:
         shop = IShopManagement(self.context).getShop()
         
         customer = ICustomerManagement(shop).getAuthenticatedCustomer()        
-        customer_payment_method = customer.selected_payment_method_type
+        customer_payment_method = customer.selected_payment_method
         
         if customer_payment_method in self.context.getPaymentMethods():
             return True
