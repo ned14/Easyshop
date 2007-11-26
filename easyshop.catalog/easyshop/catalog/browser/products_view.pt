@@ -153,7 +153,7 @@
                                             <a href="."
                                                tal:attributes="href related/url">
                                                 <span tal:replace="related/title">Title</span>
-                                                <span tal:replace="related/article_id">ID</span>
+                                                <span tal:replace="related/articleId">ID</span>
                                             </a>    
                                         </li>
                                     </ul>
