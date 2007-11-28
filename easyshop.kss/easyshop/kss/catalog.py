@@ -5,6 +5,9 @@ import re
 from plone.app.kss.plonekssview import PloneKSSView
 from kss.core import kssaction
 
+# CMFPlone imports
+from Products.CMFPlone.utils import safe_unicode
+
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
@@ -154,7 +157,7 @@ class CatalogKSSView(PloneKSSView):
                 
         html += "</tr></table>"
         
-        kss_core.replaceInnerHTML('#products', html)    
+        kss_core.replaceInnerHTML('#products', safe_unicode(html))
         kss_core.replaceInnerHTML('#product-details-box', "")
                         
     @kssaction    
@@ -174,9 +177,9 @@ class CatalogKSSView(PloneKSSView):
         info = {
             "title"       : product.Title(),
             "short_title" : product.getShortTitle(),
-            "short_text"  : product.getShortText(),
+            "short_text"  : product.getText(),
             "url"         : product.absolute_url(),
-            "article_id"  : product.getArticle_id(),
+            "article_id"  : product.getArticleId(),
             "price"       : product.getPriceGross(),            
         }
         
@@ -189,7 +192,7 @@ class CatalogKSSView(PloneKSSView):
             for related_product in related_products:
                 pd += RELATED_PRODUCTS_BODY % {
                     "title"      : related_product.Title(),
-                    "article_id" : related_product.getArticle_id(),
+                    "article_id" : related_product.getArticleId(),
                     "url"        : related_product.absolute_url()
                 }            
             pd += RELATED_PRODUCTS_FOOTER
@@ -217,4 +220,4 @@ class CatalogKSSView(PloneKSSView):
             pd += GROUPS_FOOTER
         
         kss_core  = self.getCommandSet("core")
-        kss_core.replaceInnerHTML('#product-details-box', pd)
+        kss_core.replaceInnerHTML('#product-details-box', safe_unicode(pd))
