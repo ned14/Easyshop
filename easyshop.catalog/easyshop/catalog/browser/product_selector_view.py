@@ -6,7 +6,7 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
@@ -18,7 +18,7 @@ class ProductSelectorView(BrowserView):
     def getFormatInfo(self):
         """
         """
-        return IFormatterInfos(self.context).getFormatInfosAsDict()
+        return IFormats(self.context).getFormats()
 
     def getSelectors(self):
         """

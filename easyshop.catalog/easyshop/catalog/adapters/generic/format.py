@@ -4,7 +4,7 @@ from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
 
 # easyshop imports
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IShop
 
 KEY = "EASYSHOP_FORMAT"
@@ -12,7 +12,7 @@ KEY = "EASYSHOP_FORMAT"
 class FormatterInfos:
     """Provides IFormaterInfos for shop and category content objects.
     """
-    implements(IFormatterInfos)
+    implements(IFormats)
      
     def __init__(self, context):
         """
@@ -34,7 +34,7 @@ class FormatterInfos:
         self.context = context
         self.formats = formats
 
-    def getFormatInfosAsDict(self, effective=True):
+    def getFormats(self, effective=True):
         """Returns either the first object with formats enabled or the shop 
         content object
         """
@@ -42,7 +42,7 @@ class FormatterInfos:
         if effective == True:
             while IShop.providedBy(object) == False:
                 try:                 
-                    fi = IFormatterInfos(object)
+                    fi = IFormats(object)
                 except TypeError:
                     pass
                 else:              
@@ -50,7 +50,7 @@ class FormatterInfos:
                         break
                 object = object.aq_inner.aq_parent
         
-        fi = IFormatterInfos(object)
+        fi = IFormats(object)
         return {
             "acquire"           : fi.formats["acquire"],
             "lines_per_page"    : int(fi.formats["lines_per_page"]),

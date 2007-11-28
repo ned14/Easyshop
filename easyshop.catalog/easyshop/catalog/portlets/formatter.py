@@ -17,7 +17,7 @@ from Products.Five.browser import BrowserView
 from easyshop.core.config import _
 from easyshop.core.config import TEXTS, IMAGE_SIZES
 from easyshop.core.interfaces import ICategory
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IShop
 
 
@@ -63,8 +63,8 @@ class Renderer(base.Renderer):
     def getFormatInfo(self):
         """
         """
-        fi = IFormatterInfos(self.context)
-        return fi.getFormatInfosAsDict(effective=False)
+        fi = IFormats(self.context)
+        return fi.getFormats(effective=False)
 
     def getTexts(self):
         """
@@ -114,7 +114,7 @@ class FormatterView(BrowserView):
     def saveFormatter(self):
         """
         """
-        fi = IFormatterInfos(self.context)
+        fi = IFormats(self.context)
         f = fi.setFormats(self.request)
                 
         referer = self.request.get("HTTP_REFERER", "")

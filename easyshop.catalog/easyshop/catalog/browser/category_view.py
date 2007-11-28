@@ -16,7 +16,7 @@ from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 
 class CategoryView(BrowserView):
     """
@@ -24,16 +24,16 @@ class CategoryView(BrowserView):
     def __init__(self, context, request):
         """
         """
-        self.context     = context
-        self.request     = request
-        self.format_info = IFormatterInfos(self.context).getFormatInfosAsDict()
+        self.context = context
+        self.request = request
+        self.formats = IFormats(self.context).getFormats()
         
     def getFormatInfo(self):
         """
         """
         # Could be overwritten to provide fixed category views. 
         # s. DemmelhuberShop
-        return self.format_info
+        return self.formats
         
     def getInfo(self):
         """

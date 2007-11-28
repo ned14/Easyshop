@@ -28,7 +28,7 @@ from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 
 class CategoriesViewlet(ViewletBase):
     """
@@ -39,14 +39,14 @@ class CategoriesViewlet(ViewletBase):
         """
         """
         super(CategoriesViewlet, self).__init__(context, request, view, manager)
-        self.format_info = IFormatterInfos(self.context).getFormatInfosAsDict()
+        self.formats = IFormats(self.context).getFormats()
         
     def getFormatInfo(self):
         """
         """
         # Could be overwritten to provide fixed category views. 
         # s. DemmelhuberShop
-        return self.format_info
+        return self.formats
 
     def getInfo(self):
         """
