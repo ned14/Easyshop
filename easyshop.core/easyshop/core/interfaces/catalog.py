@@ -23,24 +23,18 @@ class ICategory(Interface):
 class ICategoryManagement(Interface):
     """Provides methods to manage category content objects.
     """
-    def hasCategories():
-        """Returns True, if context has categories.
-        """
-
-    def hasParentCategory():
-        """Returns True, if there are upper categories.
-        """
-
     def getCategories():
-        """Returns all direct subcategories of context.
+        """Returns all categories of context as brains.
         """
 
-    def getTotalCategories():
-        """Returns all subcategories of context.
-        """
-
+    # TODO: Change to brains
     def getTopLevelCategories(self):
-        """Returns the top level categories of context.
+        """Returns the top level categories of context. 
+        
+        Note: Returns real objects here (not brains), because to get the top 
+        # level categories of a product we are using getBRefs at the moment and
+        # this returns objects. To be consistent the adapters for shop and 
+        # categories return also objects.
         """
         
 class ICategoriesContainer(Interface):
