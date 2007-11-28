@@ -40,7 +40,7 @@ class ProductsView(BrowserView):
         for related_product in product.getRelatedProducts():
             related_products.append({
                 "title"      : related_product.Title(),
-                "article_id" : related_product.getArticle_id(),
+                "article_id" : related_product.getArticleId(),
                 "url"        : related_product.absolute_url()
             })
 
@@ -60,7 +60,7 @@ class ProductsView(BrowserView):
                 
         return {
             "id"               : product.getId(),
-            "article_id"       : product.getArticle_id(),
+            "article_id"       : product.getArticleId(),
             "description"      : product.Description(),
             "title"            : product.Title(),
             "short_title"      : product.getShortTitle() or product.Title(),

@@ -1,0 +1,12 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        for="easyshop.core.interfaces.ICategory"
+        factory=".format.FormatterInfos" />
+
+    <adapter
+        for="easyshop.core.interfaces.IShop"
+        factory=".format.FormatterInfos" />
+        
+</configure>

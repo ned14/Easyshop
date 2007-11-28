@@ -30,7 +30,7 @@ schema = Schema((
     ),
 
     StringField(
-        name='article_id',
+        name='articleId',
         widget=StringWidget(
             label="Article ID",
             label_msgid='schema_article_id_label',
@@ -60,7 +60,7 @@ schema = Schema((
             'application/msword',),
         default_output_type='text/html',            
         widget=RichWidget(
-            label='Short Description',
+            label='Short Text',
             label_msgid='schema_short_text_label',
             description="This text is used within overviews, such as category view.",
             description_msgid="schema_short_description_description",
@@ -152,7 +152,7 @@ schema = Schema((
     BackReferenceField( 
         name='easyshopcategories', 
         multiValued=1,
-        relationship='easyshopcategory_easyshopproduct',
+        relationship='category_products',
         allowed_types=("Category",),
         widget=BackReferenceBrowserWidget(
             label="Categories",
@@ -262,7 +262,7 @@ class Product(ATFolder):
             self.Title(),
             self.getShortTitle(),
             self.Description(),
-            self.getArticle_id(),
+            self.getArticleId(),
         ))
                 
 registerType(Product, PROJECTNAME)

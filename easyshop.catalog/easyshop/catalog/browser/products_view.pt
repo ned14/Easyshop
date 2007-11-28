@@ -111,8 +111,8 @@
                                          class="image-left" 
                                          tal:attributes="src string:${product/url}/image_mini" />
 
-                                    <span tal:replace="structure product/short_text">
-                                        Short Text
+                                    <span tal:replace="structure product/text">
+                                        Text
                                     </span>    
                                     <span class="label"
                                          i18n:translate="price_label">

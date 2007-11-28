@@ -3,6 +3,7 @@ from zope.interface import implements
 
 # plone imports
 from plone.app.portlets.portlets import base
+from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 
 # CMFCore imports
@@ -56,22 +57,20 @@ class Renderer(base.Renderer):
             IShop.providedBy(self.context)) == False:
             return False
 
-        if IFormatterInfos(self.context).hasFormatter() == False:
-            return False
-            
         return True        
 
+    @memoize
     def getFormatInfo(self):
         """
         """
         fi = IFormatterInfos(self.context)
-        return fi.getFormatInfosAsDict()
+        return fi.getFormatInfosAsDict(effective=False)
 
     def getTexts(self):
         """
         """
-        fi = IFormatterInfos(self.context)        
-        selected_text = fi.getText()
+        fi = self.getFormatInfo()
+        selected_text = fi["text"]
         
         result = []
         for text in TEXTS:        
@@ -86,8 +85,8 @@ class Renderer(base.Renderer):
     def getImageSizes(self):
         """
         """
-        fi = IFormatterInfos(self.context)        
-        selected_size = fi.getImageSize()
+        fi = self.getFormatInfo()
+        selected_size = fi["image_size"]
         
         sizes = IMAGE_SIZES.keys()
         sizes.sort(lambda a, b: cmp(IMAGE_SIZES[a][0], IMAGE_SIZES[b][0]))
@@ -116,23 +115,7 @@ class FormatterView(BrowserView):
         """
         """
         fi = IFormatterInfos(self.context)
-        f = fi.getFormatter()
-
-        products_per_line = self.request.get("products_per_line", 0)
-        lines_per_page    = self.request.get("lines_per_page", 0)
-        image_size        = self.request.get("image_size", "mini")
-        text              = self.request.get("text", "")
-        product_height    = self.request.get("product_height", 0)
-        
-        products_per_line = int(products_per_line)
-        lines_per_page    = int(lines_per_page)
-        product_height    = int(product_height)
-                
-        f.setProductsPerLine(products_per_line)
-        f.setLinesPerPage(lines_per_page)
-        f.setImageSize(image_size)
-        f.setProductHeight(product_height)        
-        f.setText(text)
+        f = fi.setFormats(self.request)
                 
         referer = self.request.get("HTTP_REFERER", "")
         if referer.find("thank-you") != -1:

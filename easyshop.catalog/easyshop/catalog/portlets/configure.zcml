@@ -20,11 +20,12 @@
         permission="cmf.ManagePortal" />
 
     <plone:portlet
-        name="portlets.ShopNavigation"
-        interface=".shop_navigation.IShopNavigationPortlet"
-        assignment=".shop_navigation.Assignment"
-        renderer=".shop_navigation.Renderer"
-        addview=".shop_navigation.AddForm" />
+        name="portlets.Categories"
+        interface=".categories.ICategoriesPortlet"
+        assignment=".categories.Assignment"
+        renderer=".categories.Renderer"
+        addview=".categories.AddForm"
+        editview=".categories.EditForm" />        
 
     <plone:portlet
         name="portlets.Sorting"

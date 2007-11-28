@@ -1,6 +1,3 @@
-# Zope imports
-from AccessControl import ClassSecurityInfo
-
 # zope imports
 from zope.interface import implements
 
@@ -42,23 +39,10 @@ schema = Schema((
         default_output_type='text/html'
     ),
 
-    ImageField(
-        name='image',
-        sizes= IMAGE_SIZES,
-        widget=ImageWidget(
-            description="",
-            description_msgid="schema_",                
-            label='Image',
-            label_msgid='schema_image_label',
-            i18n_domain='EasyShop',
-        ),
-        storage=AttributeStorage()
-    ),
-
     ReferenceField( 
-        name='easyshopproducts', 
+        name='products', 
         multiValued=1,
-        relationship='easyshopcategory_easyshopproduct',
+        relationship='category_products',
         allowed_types=("Product",),
         widget=ReferenceBrowserWidget(        
             label='Products',
@@ -100,20 +84,4 @@ class Category(ATFolder):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
 
-    def getCategories(self):
-        """
-        """
-        return [c.Title() for c in self.objectValues("Category")]
-
-    def setEasyshopproducts(self, value):
-        """
-        """
-        self.getField("easyshopproducts").set(self, value)
-        
-        obj = self
-        while ICategory.providedBy(obj):
-            obj.reindexObject()
-            obj = obj.aq_inner.aq_parent
-        
-                
 registerType(Category, PROJECTNAME)

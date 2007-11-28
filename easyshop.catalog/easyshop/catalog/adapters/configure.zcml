@@ -32,5 +32,7 @@
     <adapter
         factory=".shop.category.ShopCategoryManagement" />
 
+    <include 
+        package=".generic" />
     
 </configure>

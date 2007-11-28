@@ -20,20 +20,13 @@ class ProductCategoryManager:
         """
         self.context = context
 
-    def hasCategories(self):
-        """
-        """
-        if len(self.getCategories()) > 0:
-            return True
-        return False
-
-    def hasParentCategory(self):
-        """
-        """
-        return False
-
     def getCategories(self):
-        """Returns all categories of the product
+        """
+        """    
+        raise Exception
+        
+    def getTopLevelCategories(self):
+        """Returns objects.
         """
         # Need the try/except here, because the of the temporary created
         # shipping product, which has no context and hence no access to 
@@ -41,7 +34,7 @@ class ProductCategoryManager:
         # the error.)
         try:
             mtool = getToolByName(self.context, "portal_membership")            
-            categories = self.context.getBRefs("easyshopcategory_easyshopproduct")
+            categories = self.context.getBRefs("category_products")
         except AttributeError:
             return []
 

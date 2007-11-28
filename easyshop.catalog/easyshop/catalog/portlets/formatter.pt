@@ -24,7 +24,17 @@
                     42
                 </span> -->
             </div>       
-                     
+            <div class="field">
+                <label i18n:translate="acquire_label">
+                    Acquire
+                </label>
+                <div>
+                    <input name="acquire"
+                           type="checkbox"
+                           tal:attributes="checked format_info/acquire" />
+                </div>
+            </div>                
+
             <div tal:condition="python: template.id != 'thank-you'" 
                 class="field">
                 <label i18n:translate="lines_per_page_label">

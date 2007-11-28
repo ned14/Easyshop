@@ -83,7 +83,7 @@ class ProductViewlet(ViewletBase):
         p = IPrices(self.context)
         price = p.getPriceGross()
         
-        cm = ICurrencyManagement(self.context)        
+        cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
 
     def getCurrentPrice(self):

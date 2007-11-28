@@ -21,23 +21,8 @@ class ShopCategoryManagement:
         self.context = context
         self.categories = context.categories
 
-    def hasCategories(self):
-        """
-        """
-        if len(self.getCategories()) > 0:
-            return True
-        return False
-
-    def hasParentCategory(self):
-        """
-        """
-        return False
-        if self.context.aq_inner.aq_parent.portal_type == "Category":
-            return True
-        return False
-        
     def getCategories(self):
-        """
+        """Returns brains
         """        
         # Todo: Check whether brains can be returned
         catalog = getToolByName(self.context, "portal_catalog")
@@ -49,11 +34,12 @@ class ShopCategoryManagement:
         return brains
     
     def getTopLevelCategories(self):
-        """
+        """Return brains.
         """ 
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog(portal_type="Category",
                          path = {"query" : "/".join(self.categories.getPhysicalPath()),
                                  "depth" : 1},
                          sort_on = "getObjPositionInParent")
+
         return brains

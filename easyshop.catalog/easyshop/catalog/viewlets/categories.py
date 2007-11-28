@@ -160,7 +160,7 @@ class CategoriesViewlet(ViewletBase):
         """
         """
         fi = self.getFormatInfo()
-        products_per_page = fi.get("lines_per_page") *\
+        products_per_page = fi.get("lines_per_page") * \
                             fi.get("products_per_line")        
 
 

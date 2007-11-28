@@ -7,7 +7,7 @@
      description="Portlet to format views." />
 
  <portlet 
-     addview="portlets.ShopNavigation"
+     addview="portlets.Categories"
      title="EasyShop: Navigation"
      description="Portlet to browse through the shop's catalog." />
 

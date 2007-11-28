@@ -30,7 +30,7 @@ class CategoryProductManager:
 
         result = []
         # Returns just "View"-able products.
-        for product in self.context.getRefs('easyshopcategory_easyshopproduct'):
+        for product in self.context.getRefs('category_products'):
             if mtool.checkPermission("View", product) is not None:
                 result.append(product)
             
@@ -43,8 +43,8 @@ class CategoryProductManager:
         products = pm.getProducts()
         
         cm = ICategoryManagement(self.context)
-        for category in cm.getTotalCategories():
-            pm = IProductManagement(category)
+        for category in cm.getCategories():
+            pm = IProductManagement(category.getObject())
             products.extend(pm.getProducts())
             
         if sorted_on == "name":

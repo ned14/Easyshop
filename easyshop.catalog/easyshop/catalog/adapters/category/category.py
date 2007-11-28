@@ -2,6 +2,9 @@
 from zope.interface import implements
 from zope.component import adapts
 
+# AdvancedQuery
+from Products.AdvancedQuery import Eq
+ 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
@@ -21,22 +24,23 @@ class CategoryCategoryManagement:
         """
         self.context = context
 
-    def hasCategories(self):
-        """
-        """
-        if len(self.getCategories()) > 0:
-            return True
-        return False
-
-    def hasParentCategory(self):
-        """
-        """
-        if self.context.aq_inner.aq_parent.portal_type == "Category":
-            return True
-        return False
-        
     def getCategories(self):
         """
+        """
+        query = Eq("portal_type", "Category") & \
+                Eq("path", "/".join(self.context.getPhysicalPath())) & \
+                ~ Eq("id", self.context.getId())
+        
+        
+        catalog = getToolByName(self.context, "portal_catalog")
+        
+        brains = catalog.evalAdvancedQuery(
+                        query, ("getObjPositionInParent", ))
+
+        return brains
+                                  
+    def getTopLevelCategories(self):
+        """Returns brains
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
@@ -46,16 +50,3 @@ class CategoryCategoryManagement:
         )
 
         return brains
-
-    def getTotalCategories(self):
-        """
-        """
-        catalog = getToolByName(self.context, "portal_catalog")
-        
-        brains = catalog(portal_type="Category",
-                         path = "/".join(self.context.getPhysicalPath()),
-                         sort_on = "getObjPositionInParent")
-
-        # Todo: Optimize
-        return [brain.getObject() for brain in brains
-                                  if brain.getId != self.context.getId()]

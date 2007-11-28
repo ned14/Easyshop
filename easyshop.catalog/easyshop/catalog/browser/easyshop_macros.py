@@ -37,7 +37,7 @@ class NavigationMacroView(BrowserView):
         
         # all categories of the product
         cm = ICategoryManagement(self.context)
-        categories = cm.getCategories()
+        categories = cm.getTopLevelCategories()
         
         result = []
         for category in categories:

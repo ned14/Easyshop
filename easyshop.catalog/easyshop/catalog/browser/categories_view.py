@@ -33,13 +33,12 @@ class CategoriesView(BrowserView):
         """        
         categories = []
         
-        # TODO: getCategories should return brains
         try:
             obj = obj.getObject()
         except AttributeError:
             pass
             
-        for category in ICategoryManagement(obj).getCategories():
+        for category in ICategoryManagement(obj).getTopLevelCategories():
             
             if category.UID == self.context.UID():
                 klass = "current-category"
@@ -92,4 +91,3 @@ class CategoriesView(BrowserView):
             "category_description" : category.Description(),
             "products"             : products,
         }
-        

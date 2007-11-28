@@ -76,13 +76,13 @@ class Renderer(base.Renderer):
             for category in categories:
             
                 result.append({
-                    "klass"              : self._getItemClass(self.context, category),
+                    "klass"              : self._getItemClass(category),
                     "url"                : category.getURL,
                     "description"        : category.Description,
                     "title"              : category.Title,
                     "amount_of_products" : category.total_amount_of_products,
-                    "subcategories"      : self._getSubCategories(self.context, category),
-                    "show_subtree"       : self._showSubTree(self.context, category),
+                    "subcategories"      : self._getSubCategories(category),
+                    "show_subtree"       : self._showSubTree(category),
                 })
 
             return result 
@@ -119,15 +119,15 @@ class Renderer(base.Renderer):
         if self.data.expand_all == True:
             return True
             
-        context_url  = context.absolute_url()
+        context_url  = self.context.absolute_url()
         category_url = category.getURL()
 
         if context_url.startswith(category_url) == True:
             return True  
                   
         # Todo: Use interface and implements            
-        elif context.portal_type == "Product":
-            cm = ICategoryManagement(context)
+        elif self.context.portal_type == "Product":
+            cm = ICategoryManagement(self.context)
             try:
                 product_category = cm.getTopLevelCategories()[0]
             except IndexError:
@@ -140,14 +140,14 @@ class Renderer(base.Renderer):
     
         return False
 
-    def _getSubCategories(self, context, category):
+    def _getSubCategories(self, category):
         """
         """
         result = []
     
         # Use catalog search directly here for speed reasons. Using 
         # ICategoryManagement() would force me to get the object out of the brain.
-        catalog = getToolByName(context, "portal_catalog")
+        catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog(portal_type="Category",
                          path = {"query" : category.getPath(),
                                  "depth" : 1},
@@ -156,30 +156,30 @@ class Renderer(base.Renderer):
         for category in brains:
                             
             result.append({
-                "klass"              : self._getItemClass(context, category),
+                "klass"              : self._getItemClass(category),
                 "url"                : category.getURL,
                 "description"        : category.Description,
                 "title"              : category.Title,
                 "amount_of_products" : category.total_amount_of_products,
-                "subcategories"      : self._getSubCategories(context, category),
-                "show_subtree"       : self._showSubTree(context, category),
+                "subcategories"      : self._getSubCategories(category),
+                "show_subtree"       : self._showSubTree(category),
             })
 
         return result 
     
-    def _getItemClass(self, context, category):
+    def _getItemClass(self, category):
         """Returns the css class of the category, which differs between current
         or not current.
         """
-        context_url  = context.absolute_url()
+        context_url  = self.context.absolute_url()
         category_url = category.getURL()
     
         if context_url == category_url:
             return "navTreeCurrentItem visualIconPadding"
-        elif context.portal_type == "Product":
+        elif self.context.portal_type == "Product":
             try:
-                product_category =\
-                context.getBRefs("category_products")[0]            
+                product_category = \
+                self.context.getBRefs("category_products")[0]
             except IndexError:
                 return "visualIconPadding"
         
