@@ -10,7 +10,7 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports 
 from base import EasyShopTestCase
 from easyshop.shop.tests import utils
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IPhotoManagement
 
 class TestFormatterInfos(EasyShopTestCase):
@@ -20,8 +20,8 @@ class TestFormatterInfos(EasyShopTestCase):
         """
         """
         super(TestFormatterInfos, self).afterSetUp()
-        self.fi_1 = IFormatterInfos(self.shop)
-        self.fi_2 = IFormatterInfos(self.shop.categories.category_1)
+        self.fi_1 = IFormats(self.shop)
+        self.fi_2 = IFormats(self.shop.categories.category_1)
         
     def testGetText(self):
         """
@@ -37,8 +37,8 @@ class TestFormatterInfos(EasyShopTestCase):
     def testGetFormatInfosAsDict(self):
         """
         """
-        fi_1 = self.fi_1.getFormatInfosAsDict()
-        fi_2 = self.fi_2.getFormatInfosAsDict()
+        fi_1 = self.fi_1.getFormats()
+        fi_2 = self.fi_2.getFormats()
             
         self.assertEqual(fi_1["lines_per_page"], 1)
         self.assertEqual(fi_1["products_per_line"], 2)

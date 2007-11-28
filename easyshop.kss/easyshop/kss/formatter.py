@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
 # from easyshop.core.config import MESSAGES
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IShopManagement
@@ -19,7 +19,7 @@ class FormatterKSSView(PloneKSSView):
     def saveFormatter(self, form, portlethash):
         """
         """
-        fi = IFormatterInfos(self.context)
+        fi = IFormats(self.context)
         f = fi.getFormatter()
         
         products_per_line = form.get("products_per_line", 0)

@@ -31,10 +31,11 @@ class ICategoryManagement(Interface):
     def getTopLevelCategories(self):
         """Returns the top level categories of context. 
         
-        Note: Returns real objects here (not brains), because to get the top 
-        # level categories of a product we are using getBRefs at the moment and
-        # this returns objects. To be consistent the adapters for shop and 
-        # categories return also objects.
+        Note: The adapter for products returns real objects here (not brains), 
+        because of the using of getBRefs which returns real objects. The 
+        adapters for shop and categories return brains. This is inconsistent but
+        needed (e.g. in the categories portlet) for speed reasons and intended 
+        to change soon.
         """
         
 class ICategoriesContainer(Interface):
@@ -53,42 +54,17 @@ class IFormatter(Interface):
     is found default values are taken.
     """
 
-class IFormatterInfos(Interface):
+class IFormats(Interface):
     """Provides methods to get an formater resp. formatter infos.
-    """
-    
-    def getFormatter():
-        """Returns the first formatter found in the path. If no one found
-        returns None.
-        """
-
-    def getFormatInfosAsDict():
+    """    
+    def getFormats():
         """Returns the infos of the found formatter as dict.
         """
 
-    def getProductHeight():
-        """Returns product height of the found formatter.
-        """
-        
-    def getLinesPerPage():
-        """Returns lines per page of the found formatter.
+    def setFormats(data):
+        """Sets format with given data. Data has to be dictionary.
         """
 
-    def getProductsPerLine():
-        """Returns products per line of the found formatter.
-        """
-
-    def getText():
-        """Returns the id of the description, which is to be displayed.
-        """
-        
-    def getImageSize():
-        """Returns image size of the found formatter.
-        """
-        
-    def hasFormatter():
-        """Returns True if the context has a *direct* formater content object.
-        """    
 ################################################################################
 # Photo        
 ################################################################################
