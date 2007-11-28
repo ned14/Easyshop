@@ -23,7 +23,7 @@ class CategoryCriteriaValidity:
         """Checks whether a product has a selected categories.
         """
         category_manager = ICategoryManagement(product)
-        product_categories = [c.getId() for c in category_manager.getCategories()]
+        product_categories = [c.getId() for c in category_manager.getTopLevelCategories()]
         criteria_categories = self.context.getCategories()
 
         for criteria_category in criteria_categories:
