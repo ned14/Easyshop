@@ -24,7 +24,7 @@ class FormatterInfos:
             formats = annotations[KEY]  = PersistentDict()
 
             # Set defaults
-            formats["acquire"]           = True
+            formats["enabled"]           = False
             formats["text"]              = "short_text"
             formats["image_size"]        = "mini"
             formats["lines_per_page"]    = "1"
@@ -46,13 +46,13 @@ class FormatterInfos:
                 except TypeError:
                     pass
                 else:              
-                    if fi.formats["acquire"] == False:
+                    if fi.formats["enabled"] == True:
                         break
                 object = object.aq_inner.aq_parent
         
         fi = IFormats(object)
         return {
-            "acquire"           : fi.formats["acquire"],
+            "enabled"           : fi.formats["enabled"],
             "lines_per_page"    : int(fi.formats["lines_per_page"]),
             "products_per_line" : int(fi.formats["products_per_line"]),
             "product_height"    : int(fi.formats["product_height"]),
@@ -63,14 +63,14 @@ class FormatterInfos:
     def setFormats(self, data):
         """
         """
-        # When acquire is checked browsers return "on"; if not browsers return 
+        # When enabled is checked browsers return "on"; if not browsers return 
         # None. So change "on" to True and None to False here.
-        if data.get("acquire", False) != False:
-            acquire = True
+        if data.get("enabled", False) != False:
+            enabled = True
         else:
-            acquire = False
+            enabled = False
             
-        self.formats["acquire"]           = acquire
+        self.formats["enabled"]           = enabled
         self.formats["text"]              = data.get("text")
         self.formats["image_size"]        = data.get("image_size")
         self.formats["lines_per_page"]    = data.get("lines_per_page")

@@ -25,13 +25,13 @@
                 </span> -->
             </div>       
             <div class="field">
-                <label i18n:translate="acquire_label">
-                    Acquire
+                <label i18n:translate="enabled_label">
+                    Enabled
                 </label>
                 <div>
-                    <input name="acquire"
+                    <input name="enabled"
                            type="checkbox"
-                           tal:attributes="checked format_info/acquire" />
+                           tal:attributes="checked format_info/enabled" />
                 </div>
             </div>                
 
