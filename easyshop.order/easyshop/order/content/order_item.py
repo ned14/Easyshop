@@ -95,7 +95,7 @@ schema = Schema((
     ),
 
     ReferenceField(
-        name='easyshopproducts',
+        name='products',
         widget=ReferenceWidget(
             label='Products',
             label_msgid='schema_easyshop_products_label',
@@ -103,7 +103,7 @@ schema = Schema((
         ),
         allowed_types=('Product',),
         multiValued=0,
-        relationship='easyshoporderitem_easyshopproduct'
+        relationship='orderitem_products'
     ),
 
     DataGridField('properties',
@@ -136,7 +136,7 @@ class OrderItem(BaseContent):
         """Returns the product of the item
         """
         try:
-            return self.getRefs('easyshoporderitem_easyshopproduct')[0]
+            return self.getRefs('orderitem_products')[0]
         except IndexError:
             return None
 
@@ -144,6 +144,6 @@ class OrderItem(BaseContent):
     def setProduct(self,product):
         """Sets the product of the item.
         """
-        self.addReference(product, "easyshoporderitem_easyshopproduct")
+        self.addReference(product, "orderitem_products")
 
 registerType(OrderItem, PROJECTNAME)

@@ -181,7 +181,6 @@ class OrderView(BrowserView):
     def getSelectedPaymentInformation(self):
         """
         """
-        import pdb; pdb.set_trace()
         customer = self.context.getCustomer()
         pm = IPaymentInformationManagement(customer)
         return pm.getSelectedPaymentInformation()
