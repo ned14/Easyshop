@@ -21,7 +21,7 @@ class TestCashOnDeliveryType(EasyShopTestCase):
         """
         """
         cod = self.shop.paymentmethods["cash-on-delivery"]    
-        self.assertEqual(IType(cod).getType(), "simple-payment")
+        self.assertEqual(IType(cod).getType(), "generic-payment")
 
 class TestCashOnDeliveryCompleteness(EasyShopTestCase):
     """
@@ -39,7 +39,8 @@ class TestCashOnDeliveryPaymentProcessor(EasyShopTestCase):
         """
         """
         cod = self.shop.paymentmethods["cash-on-delivery"]                
-        self.assertEqual(IPaymentProcessing(cod).process(), "NOT_PAYED")
+        result = IPaymentProcessing(cod).process()        
+        self.assertEqual(result.code, "NOT_PAYED")
         
 def test_suite():
     from unittest import TestSuite, makeSuite

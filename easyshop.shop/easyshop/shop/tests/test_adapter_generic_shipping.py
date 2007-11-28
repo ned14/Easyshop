@@ -35,7 +35,7 @@ class TestShippingPriceValidityManager(EasyShopTestCase):
         # Note product_1 costs 22.00
         # price criterion is true if cart price > criterion price
         self.shipping_price.invokeFactory("PriceCriteria", id="price_criterion")
-        self.shipping_price.price_criterion.setPrice(23.0)
+        self.shipping_price.price_criterion.setPrice(123.0)
 
         view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
         view.addToCart()

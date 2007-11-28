@@ -21,7 +21,7 @@ class TestPrepaymentType(EasyShopTestCase):
         """
         """
         cod = self.shop.paymentmethods["prepayment"]    
-        self.assertEqual(IType(cod).getType(), "simple-payment")
+        self.assertEqual(IType(cod).getType(), "generic-payment")
 
 class TestPrepaymentCompleteness(EasyShopTestCase):
     """
@@ -38,8 +38,9 @@ class TestPrepaymentPaymentProcessor(EasyShopTestCase):
     def testProcess(self):
         """
         """
-        cod = self.shop.paymentmethods["prepayment"]                
-        self.assertEqual(IPaymentProcessing(cod).process(), "NOT_PAYED")
+        pm = self.shop.paymentmethods["prepayment"]                
+        result = IPaymentProcessing(pm).process()        
+        self.assertEqual(result.code, "NOT_PAYED")
         
 def test_suite():
     from unittest import TestSuite, makeSuite

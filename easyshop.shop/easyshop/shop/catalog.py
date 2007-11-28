@@ -15,7 +15,7 @@ def total_amount_of_products(object, portal, **kwargs):
         counter = 0
         # It has to be catalog independent
         if ICategory.providedBy(object):
-            counter += len(object.getEasyshopproducts())
+            counter += len(object.getProducts())
             counter = countCategories(object, counter)
                 
         return counter
@@ -30,7 +30,7 @@ def countCategories(category, counter):
     """
     """
     for category in category.objectValues("Category"):
-        counter += len(category.getEasyshopproducts())
+        counter += len(category.getProducts())
         counter = countCategories(category, counter)
     return counter
     

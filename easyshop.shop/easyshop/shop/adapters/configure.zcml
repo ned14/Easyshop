@@ -11,14 +11,6 @@
         factory=".generic.ImageConversion" />
 
     <adapter
-        for="easyshop.core.interfaces.ICategory"
-        factory=".generic.FormatterInfos" />
-
-    <adapter
-        for="easyshop.core.interfaces.IShop"
-        factory=".generic.FormatterInfos" />
-        
-    <adapter
         for="easyshop.core.interfaces.IProduct"        
         factory=".generic.PhotoManagement" />
 

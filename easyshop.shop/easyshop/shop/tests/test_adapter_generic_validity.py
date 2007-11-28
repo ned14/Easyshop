@@ -16,8 +16,7 @@ from easyshop.payment.content import DirectDebit
 from easyshop.taxes.content import CustomerTax
 from easyshop.taxes.content import DefaultTax
 from easyshop.payment.content import PaymentPrice
-from easyshop.payment.content import PaymentValidator
-from easyshop.payment.content import SimplePaymentMethod
+from easyshop.payment.content import GenericPaymentMethod
 from easyshop.shipping.content import ShippingPrice
 from easyshop.shipping.content import ShippingMethod
 
@@ -30,10 +29,7 @@ class TestValidityAdapters(EasyShopTestCase):
         adapter = IValidity(DirectDebit("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.CustomerPaymentValidityManagement'>")
 
-        adapter = IValidity(SimplePaymentMethod("dummy"))
-        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
-
-        adapter = IValidity(PaymentValidator("dummy"))
+        adapter = IValidity(GenericPaymentMethod("dummy"))
         self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
 
         adapter = IValidity(PaymentPrice("dummy"))

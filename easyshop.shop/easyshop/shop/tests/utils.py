@@ -138,9 +138,9 @@ def createTestEnvironment(self):
     self.category_3 = self.shop.categories.category_3
     
     # Assign products to categories
-    self.category_1.category_11.addReference(self.product_1, "easyshopcategory_easyshopproduct")
-    self.category_1.category_11.addReference(self.product_2, "easyshopcategory_easyshopproduct")
-    self.category_3.addReference(self.product_42, "easyshopcategory_easyshopproduct")
+    self.category_1.category_11.addReference(self.product_1, "category_products")
+    self.category_1.category_11.addReference(self.product_2, "category_products")
+    self.category_3.addReference(self.product_42, "category_products")
     
     # taxes    
     self.shop.taxes.manage_addProduct["easyshop.shop"].addDefaultTax(id="default", rate=19.0)

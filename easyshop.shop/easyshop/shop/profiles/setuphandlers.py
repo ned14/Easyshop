@@ -61,6 +61,6 @@ def importVarious(context):
     """
     portal = context.getSite()
 
-    setupFormController(portal)
+    # setupFormController(portal)
     installDependencies(portal)
 

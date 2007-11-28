@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports 
 from base import EasyShopTestCase
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement

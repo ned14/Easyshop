@@ -13,51 +13,34 @@ from easyshop.core.interfaces import IProductManagement
 class TestCategoryCategoryManagement(EasyShopTestCase):
     """
     """
-    def testHasCategories(self):
+    def testGetTopLevelCategories(self):
         """
         """
         cm = ICategoryManagement(self.portal.myshop.categories.category_1)
-        self.assertEqual(cm.hasCategories(), True)
+        category_ids = [c.getId for c in cm.getTopLevelCategories()]
 
-        cm = ICategoryManagement(self.portal.myshop.categories.category_2)
-        self.assertEqual(cm.hasCategories(), False)
-        
-    def testHasParentCategory(self):
-        """
-        """
-        cm = ICategoryManagement(self.portal.myshop.categories.category_1)
-        self.assertEqual(cm.hasParentCategory(), False)
-
-        cm = ICategoryManagement(self.portal.myshop.categories.category_1.category_11)
-        self.assertEqual(cm.hasParentCategory(), True)
-                
-    def testGetCategories(self):
-        """
-        """
-        cm = ICategoryManagement(self.portal.myshop.categories.category_1)
-        category_ids = [c.getId for c in cm.getCategories()]
-        
+        self.failUnless(len(category_ids) == 2)
         for id in ["category_11", "category_12"]:
             self.failUnless(id in category_ids)
 
         cm = ICategoryManagement(self.category_2)
         self.failUnless(len(cm.getCategories()) == 0)
         
-    def testGetTotalCategories(self):
+    def testGetCategories(self):
         """
         """
         cm = ICategoryManagement(self.portal.myshop.categories.category_1)
-        category_ids = [c.getId() for c in cm.getTotalCategories()]
+        category_ids = [c.id for c in cm.getCategories()]
         
         for id in ["category_11", "category_12", "category_111"]:
             self.failUnless(id in category_ids)
         
         cm = ICategoryManagement(self.portal.myshop.categories.category_1.category_11)
-        category_ids = [c.getId() for c in cm.getTotalCategories()]
+        category_ids = [c.id for c in cm.getCategories()]
         self.assertEqual(["category_111"], category_ids)
 
         cm = ICategoryManagement(self.portal.myshop.categories.category_2)
-        self.assertEqual([], cm.getTotalCategories())
+        self.failUnless(len(cm.getCategories()) == 0)
          
 
 class TestCategoryProductManagement(EasyShopTestCase):

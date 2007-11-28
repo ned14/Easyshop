@@ -1,15 +1,5 @@
-# Zope imports
-from DateTime import DateTime
-
-# zope imports
-from zope.component import getMultiAdapter
-
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports 
 from base import EasyShopTestCase
-from easyshop.shop.tests import utils
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IPaymentProcessing
@@ -28,20 +18,20 @@ class TestDirectDebit(EasyShopTestCase):
         self.customer = cm.getAuthenticatedCustomer()
         
         self.customer.invokeFactory(
-            "DirectDebit",
-            id = "direct-debit",
+            "BankAccount",
+            id = "bank-account",
             )
         
     def testGetType(self):
         """
         """
-        dd = self.customer["direct-debit"]
+        dd = self.shop.paymentmethods["direct-debit"]
         self.assertEqual(IType(dd).getType(), "direct-debit")
 
     def testIsComplete(self):
         """
         """
-        dd = self.customer["direct-debit"]
+        dd = self.customer["bank-account"]
         self.assertEqual(ICompleteness(dd).isComplete(), False)
                     
         dd.account_number = u"47114711"
@@ -59,12 +49,12 @@ class TestDirectDebit(EasyShopTestCase):
     def testProcess(self):
         """
         """
-        dd = self.customer["direct-debit"]
-        self.assertEqual(IPaymentProcessing(dd).process(), "NOT_PAYED")
+        dd = self.shop.paymentmethods["direct-debit"]
+        result = IPaymentProcessing(dd).process()
+        self.assertEqual(result.code, "NOT_PAYED")
         
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestDirectDebit))
     return suite
-                                               

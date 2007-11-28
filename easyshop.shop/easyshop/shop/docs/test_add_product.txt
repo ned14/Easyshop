@@ -96,9 +96,7 @@ Now we add a new address.
 
     >>> browser.contents
     '...Please add a new addresses...'
-    
-    >>> browser.dc()
-    
+
     >>> browser.getControl('Firstname').value = 'John'
     >>> browser.getControl('Lastname').value = 'Doe'
     >>> browser.getControl('Address 1').value = 'John Doe Street 1'
@@ -110,7 +108,7 @@ Now we add a new address.
 Confirm default shipping method.    
 
     >>> browser.contents
-    '...Please select you shipping method...'
+    '...Please select you shipping method...'    
     
     >>> browser.getControl('Next').click()
     

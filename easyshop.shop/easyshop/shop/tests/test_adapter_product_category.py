@@ -26,27 +26,12 @@ class TestProductCategoryManager(EasyShopTestCase):
             
         self.product_3 = self.shop.products.product_3
         
-    def testHasCategories(self):
-        """
-        """
-        cm = ICategoryManagement(self.product_1)
-        self.assertEqual(cm.hasCategories(), True)
-
-        cm = ICategoryManagement(self.product_3)
-        self.assertEqual(cm.hasCategories(), False)
-
-    def testHasParentCategory(self):
-        """
-        """
-        cm = ICategoryManagement(self.product_1)
-        self.assertEqual(cm.hasParentCategory(), False)
-        
-    def testGetCategories_1(self):
+    def testGetTopLevelCategories_1(self):
         """
         """
         cm = ICategoryManagement(self.product_1)
 
-        ids = [c.getId() for c in cm.getCategories()]        
+        ids = [c.getId() for c in cm.getTopLevelCategories()]        
         self.assertEqual(ids, ["category_11"])
 
         # adding some more
@@ -55,20 +40,22 @@ class TestProductCategoryManager(EasyShopTestCase):
         
         self.shop.categories.category_a.addReference(
             self.product_1, 
-            "easyshopcategory_easyshopproduct")
+            "category_products")
         self.shop.categories.category_b.addReference(
             self.product_1, 
-            "easyshopcategory_easyshopproduct")
+            "category_products")
                                         
-        ids = [c.getId() for c in cm.getCategories()]
+        ids = [c.getId() for c in cm.getTopLevelCategories()]
+        
+        self.failUnless(len(ids) == 3)
         for id in ["category_11", "category_a", "category_b"]:
             self.failUnless(id in ids)
 
-    def testGetCategories_2(self):
+    def testGetTopLevelCategories_2(self):
         """No categories there
         """
         cm = ICategoryManagement(self.product_3)
-        self.assertEqual(cm.getCategories(), [])
+        self.assertEqual(cm.getTopLevelCategories(), [])
 
                                         
 def test_suite():

@@ -12,7 +12,7 @@ from Products.Archetypes.event import ObjectInitializedEvent
 from base import EasyShopTestCase
 from easyshop.shop.tests import utils
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement

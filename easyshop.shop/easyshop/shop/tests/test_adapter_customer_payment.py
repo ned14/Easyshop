@@ -1,66 +1,72 @@
 # easyshop imports 
 from base import EasyShopTestCase
-from easyshop.shop.tests import utils
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentInformationManagement
 
-class TestPaymentManagement(EasyShopTestCase):
+class TestPaymentInformationManagement(EasyShopTestCase):
     """
     """
     def afterSetUp(self):
         """
         """
-        super(TestPaymentManagement, self).afterSetUp()
+        super(TestPaymentInformationManagement, self).afterSetUp()
 
         self.shop.customers.invokeFactory("Customer", "customer")
         self.customer = self.shop.customers.customer
         self.customer.at_post_create_script()
         
-        self.customer.invokeFactory("DirectDebit", id="direct-debit")
+        self.customer.invokeFactory("BankAccount", id="bank-account")
         
-    def testDeletePaymentMethod(self):
+    def testDeletePaymentInformations(self):
         """
         """            
-        pm = IPaymentManagement(self.customer)
-
-        ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["direct-debit"], ids)
+        pm = IPaymentInformationManagement(self.customer)
+        
+        ids = [p.getId() for p in pm.getPaymentInformations()]
+        self.assertEqual(["bank-account"], ids)
 
         # Shop level payment methods shouldn't be deletable here.
-        result = pm.deletePaymentMethod("paypal")
+        result = pm.deletePaymentInformation("paypal")
         self.assertEqual(result, False)
 
-        result = pm.deletePaymentMethod("prepayment")
+        result = pm.deletePaymentInformation("prepayment")
         self.assertEqual(result, False)
         
         # still all there?
-        ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["direct-debit"], ids)
+        ids = [p.getId() for p in pm.getPaymentInformations()]
+        self.assertEqual(["bank-account"], ids)
 
-        result = pm.deletePaymentMethod("direct-debit")        
+        result = pm.deletePaymentInformation("bank-account")        
         self.assertEqual(result, True)
                 
-        ids = [p.getId() for p in pm.getPaymentMethods()]
+        ids = [p.getId() for p in pm.getPaymentInformations()]
         self.assertEqual([], ids)
 
-    def testGetPaymentMethods_1(self):
+    def testGetPaymentInformations(self):
         """Get all payment methods (without parameter)
         """
-        pm = IPaymentManagement(self.customer)
+        pm = IPaymentInformationManagement(self.customer)
 
-        ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["direct-debit"], ids)
+        ids = [p.getId() for p in pm.getPaymentInformations()]
+        self.assertEqual(["bank-account"], ids)
                         
     def testGetSelectedPaymentMethod(self):
         """
         """
-        pm = IPaymentManagement(self.customer)
+        pm = IPaymentInformationManagement(self.customer)
         result = pm.getSelectedPaymentMethod().getId()
         self.assertEqual(result, "prepayment")
+
+    def testGetSelectedPaymentInformation(self):
+        """
+        """
+        pm = IPaymentInformationManagement(self.customer)
+        result = pm.getSelectedPaymentInformation()
+        self.failUnless(result is None)
                 
 
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(TestPaymentManagement))
+    suite.addTest(makeSuite(TestPaymentInformationManagement))
 
     return suite

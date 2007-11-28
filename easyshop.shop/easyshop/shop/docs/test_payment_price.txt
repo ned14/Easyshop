@@ -19,7 +19,7 @@ Now we add a new payment price.
     
     >>> browser.getLink('Add Payment Price').click()
     >>> browser.getControl('Title').value = 'Default'
-    >>> browser.getControl('Pricegross').value = '42.00'
+    >>> browser.getControl('Price').value = '42.00'
     >>> browser.getControl('Save').click()
     
 The inital state should be private.
@@ -37,7 +37,7 @@ Now we publish the payment price.
     '...Published...'
 
 Now we go back to the overview and test whether the new payment method is there.
-
+    
     >>> browser.getLink('Back to Overview').click()    
     >>> browser.contents
     '...Default...'

@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports 
 from base import EasyShopTestCase
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
@@ -176,21 +176,20 @@ class TestCartPrices(EasyShopTestCase):
         """
         """
         p = IPrices(self.cart)
-        # products + shipping (no payment, atm)
-        self.assertEqual(p.getPriceForCustomer(), 111.00)
+        self.assertEqual(p.getPriceForCustomer(), 211.00)
         
     def testGetPriceGross(self):
         """
         """
         p = IPrices(self.cart)
-        self.assertEqual(p.getPriceGross(), 111.00)
+        self.assertEqual(p.getPriceGross(), 211.00)
     
     def testGetPriceNet(self):
         """
         """
         p = IPrices(self.cart)
         price_net = "%.2f" % p.getPriceNet()
-        self.assertEqual(price_net, "93.28")
+        self.assertEqual(price_net, "177.31")
 
 class TestCartTaxes(EasyShopTestCase):
     """

@@ -53,7 +53,7 @@ class ExportView(BrowserView):
                     order.getId(),
                     customer.getId(),
                     # shipping_address.getFirstname() + " " + shipping_address.getLastname(),
-                    product.getArticle_id(),
+                    product.getArticleId(),
                     product.Title(),
                     "%s"   % item.getProductQuantity(),
                     "%.2f" % item.getProductPriceGross(),

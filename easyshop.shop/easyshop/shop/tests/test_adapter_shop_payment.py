@@ -2,17 +2,17 @@
 from base import EasyShopTestCase
 from easyshop.shop.tests import utils
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPrices
 from easyshop.core.interfaces import IPayPal
 
-class TestPaymentManagement(EasyShopTestCase):
+class TestPaymentMethodManagement(EasyShopTestCase):
     """
     """
     def afterSetUp(self):
         """
         """
-        super(TestPaymentManagement, self).afterSetUp()
+        super(TestPaymentMethodManagement, self).afterSetUp()
 
         self.shop.customers.invokeFactory("Customer", "customer")
         self.customer = self.shop.customers.customer
@@ -21,29 +21,29 @@ class TestPaymentManagement(EasyShopTestCase):
     def testDeletePaymentMethod(self):
         """
         """            
-        pm = IPaymentManagement(self.shop)
+        pm = IPaymentMethodManagement(self.shop)
 
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["paypal", "direct-debit", "prepayment", "cash-on-delivery"], ids)
+        self.assertEqual(['cash-on-delivery', 'credit-card', 'direct-debit', 'paypal', 'prepayment'], ids)
 
         result = pm.deletePaymentMethod("paypal")
         self.assertEqual(result, True)
 
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["direct-debit", "prepayment", "cash-on-delivery"], ids)
+        self.assertEqual(['cash-on-delivery', 'credit-card', 'direct-debit', 'prepayment'], ids)
 
         result = pm.deletePaymentMethod("prepayment")
         self.assertEqual(result, True)
         
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["direct-debit", "cash-on-delivery"], ids)
+        self.assertEqual(['cash-on-delivery', 'credit-card', 'direct-debit'], ids)
 
         # delete payment validor
         result = pm.deletePaymentMethod("direct-debit")
         self.assertEqual(result, True)
         
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["cash-on-delivery"], ids)
+        self.assertEqual(["cash-on-delivery", "credit-card"], ids)
 
         result = pm.deletePaymentMethod("paypal")
         self.assertEqual(result, False)
@@ -54,15 +54,15 @@ class TestPaymentManagement(EasyShopTestCase):
     def testGetPaymentMethods_1(self):
         """Get all payment methods (without parameter)
         """
-        pm = IPaymentManagement(self.shop)
+        pm = IPaymentMethodManagement(self.shop)
 
         ids = [p.getId() for p in pm.getPaymentMethods()]
-        self.assertEqual(["paypal", "direct-debit", "prepayment", "cash-on-delivery"], ids)
+        self.assertEqual(['cash-on-delivery', 'credit-card', 'direct-debit', 'paypal', 'prepayment'], ids)
 
     def testGetPaymentMethods_2(self):
         """Get paypal (with parameter=paypal)
         """
-        pm = IPaymentManagement(self.shop)
+        pm = IPaymentMethodManagement(self.shop)
 
         ids = [p.getId() for p in pm.getPaymentMethods(interface=IPayPal)]
         self.assertEqual(["paypal"], ids)
@@ -70,7 +70,7 @@ class TestPaymentManagement(EasyShopTestCase):
     def testGetSelectedPaymentMethod_1(self):
         """Customer has selected prepayment
         """
-        pm = IPaymentManagement(self.shop)
+        pm = IPaymentMethodManagement(self.shop)
         result = pm.getSelectedPaymentMethod().getId()
         self.assertEqual(result, "prepayment")
 
@@ -81,7 +81,7 @@ class TestPaymentManagement(EasyShopTestCase):
         customer = cm.getAuthenticatedCustomer()        
         customer.selected_payment_method = "paypal"
         
-        pm = IPaymentManagement(self.shop)
+        pm = IPaymentMethodManagement(self.shop)
         result = pm.getSelectedPaymentMethod().getId()
         self.assertEqual(result, "paypal")
 
@@ -90,7 +90,7 @@ class TestPaymentManagement(EasyShopTestCase):
         prepayment atm.
         """
         self.customer.selected_payment_method = "dummy"
-        pm = IPaymentManagement(self.shop)
+        pm = IPaymentMethodManagement(self.shop)
         result = pm.getSelectedPaymentMethod().getId()
         self.assertEqual(result, "prepayment")
 
@@ -172,6 +172,6 @@ class TestPaymentPrices(EasyShopTestCase):
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(TestPaymentManagement))
+    suite.addTest(makeSuite(TestPaymentMethodManagement))
     suite.addTest(makeSuite(TestPaymentPrices))
     return suite

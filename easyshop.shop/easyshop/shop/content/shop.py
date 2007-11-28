@@ -20,7 +20,7 @@ from easyshop.core.config import *
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IImageConversion
 
-from easyshop.catalog.portlets import shop_navigation
+from easyshop.catalog.portlets import categories
 from easyshop.catalog.portlets import formatter
 
 from easyshop.carts.portlets import cart
@@ -189,8 +189,8 @@ class EasyShop(ATFolder):
         # Add left portlets 
         leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)
         left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, context=self)
-        if u'portlets.ShopNavigation' not in left:
-            left[u'portlets.ShopNavigation'] = shop_navigation.Assignment()
+        if u'portlets.Categories' not in left:
+            left[u'portlets.Categories'] = categories.Assignment()
             order = [left.keys()[-1]]+left.keys()[:-1]
             left.updateOrder(list(order))
 

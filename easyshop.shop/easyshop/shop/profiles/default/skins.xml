@@ -5,25 +5,13 @@
             meta_type="Filesystem Directory View"
             directory="easyshop.shop:skins/easyshop_mail_templates" />
 
-    <object name="easyshop_checkout" 
-            meta_type="Filesystem Directory View"
-            directory="easyshop.shop:skins/easyshop_checkout" />
-
     <object name="easyshop_images" 
             meta_type="Filesystem Directory View"
             directory="easyshop.shop:skins/easyshop_images" />
 
-    <object name="easyshop_kss" 
-            meta_type="Filesystem Directory View"
-            directory="easyshop.shop:skins/easyshop_kss" />
-
     <object name="easyshop_macros" 
             meta_type="Filesystem Directory View"
             directory="easyshop.shop:skins/easyshop_macros" />
-
-    <object name="easyshop_manage" 
-            meta_type="Filesystem Directory View"
-            directory="easyshop.shop:skins/easyshop_manage" />
 
     <object name="easyshop_misc" 
             meta_type="Filesystem Directory View"
@@ -43,16 +31,10 @@
 
     <skin-path name="*">
 
-        <layer name="easyshop_mail_templates" 
-               insert-after="custom" />
-
-        <layer name="easyshop_checkout" 
+        <layer name="easyshop_mail_templates"
                insert-after="custom" />
 
         <layer name="easyshop_images" 
-               insert-after="custom" />
-
-        <layer name="easyshop_kss" 
                insert-after="custom" />
 
         <layer name="easyshop_macros" 

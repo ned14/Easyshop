@@ -15,22 +15,6 @@ from easyshop.core.interfaces import ICategoryManagement
 class TestShopCategoryManagement(EasyShopTestCase):
     """
     """
-    def testHasCategories(self):
-        """
-        """
-        cm = ICategoryManagement(self.shop)
-        self.assertEqual(cm.hasCategories(), True)
-        
-        ids = self.shop.categories.objectIds()
-        self.shop.categories.manage_delObjects(ids)
-        self.assertEqual(cm.hasCategories(), False) 
-               
-    def testHasParentCategory(self):
-        """
-        """
-        cm = ICategoryManagement(self.shop)
-        self.assertEqual(cm.hasParentCategory(), False)
-        
     def testGetCategories(self):
         """
         """        

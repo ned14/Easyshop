@@ -84,7 +84,7 @@ the form details.
     >>> browser.getControl(name="form.bank_name").value = "German Bank"
     >>> browser.getControl(name="form.depositor").value = "John Doe"
     
-    >>> browser.getControl(name='form.id').getControl(value='direct_debit_new').selected = True
+    >>> browser.getControl(name='form.id').getControl(value='bank_account_new').selected = True
     >>> browser.getControl('Next').click()
     
 Now we find our inputs within the overview.
