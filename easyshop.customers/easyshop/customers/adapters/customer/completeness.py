@@ -46,7 +46,7 @@ class CustomerCompleteness:
 
         # Get payment method
         pm = IPaymentInformationManagement(self.context)
-        payment_information = pm.getSelectedPaymentInformation()
+        payment_method = pm.getSelectedPaymentMethod()
 
         # Get cart of the customer
         cart = ICartManagement(shop).getCart()
@@ -60,7 +60,7 @@ class CustomerCompleteness:
         
         # Check all for completeness
         # if at least one is False customer is not complete, too.        
-        for toCheck in s_addr, i_addr, payment_information:
+        for toCheck in s_addr, i_addr, payment_method:
             if ICompleteness(toCheck).isComplete() == False:
                 return False
         
