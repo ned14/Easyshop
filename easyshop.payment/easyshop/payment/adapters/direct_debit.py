@@ -3,16 +3,19 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
+from easyshop.payment.config import NOT_PAYED
+from easyshop.payment.content import PaymentResult
+from easyshop.core.interfaces import IBankAccount
 from easyshop.core.interfaces import ICompleteness
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IDirectDebitPaymentMethod
+from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IType
-from easyshop.core.interfaces import IDirectDebitPaymentMethod
-
-from easyshop.payment.content import PaymentResult
-from easyshop.payment.config import NOT_PAYED
+from easyshop.core.interfaces import IShopManagement
 
 class DirectDebitType:
-    """Provides IType for direct debit content objects.
+    """Provides IType for direct debit payment method.
     """
     implements(IType)
     adapts(IDirectDebitPaymentMethod)
@@ -29,7 +32,7 @@ class DirectDebitType:
         
 
 class DirectDebitPaymentProcessor:
-    """Provides IPaymentProcessing for direct debit content objects.
+    """Provides IPaymentProcessing for direct debit payment method.
     """
     implements(IPaymentProcessing)
     adapts(IDirectDebitPaymentMethod)
@@ -43,9 +46,10 @@ class DirectDebitPaymentProcessor:
         """
         """        
         return PaymentResult(NOT_PAYED, "")
-        
-class DirectDebitCompleteness:
-    """Provides ICompleteness for direct debit content objects.
+
+
+class DirectDebitPaymentMethodCompleteness:
+    """Provides ICompleteness for direct debit payment method.
     """    
     implements(ICompleteness)
     adapts(IDirectDebitPaymentMethod)
@@ -56,15 +60,15 @@ class DirectDebitCompleteness:
         self.context = context                  
 
     def isComplete(self):
-        """Returns true if the direct debit informations are complete.
-        """        
-        if len(self.context.account_number) == 0:
+        """
+        """
+        shop         = IShopManagement(self.context).getShop()
+        customer     = ICustomerManagement(shop).getAuthenticatedCustomer()        
+        pim          = IPaymentInformationManagement(customer)
+        bank_account = pim.getSelectedPaymentInformation()
+        
+        if IBankAccount.providedBy(bank_account) == False or \
+           ICompleteness(bank_account) == False:
             return False
-        elif len(self.context.bank_identification_code) == 0:
-            return False
-        elif len(self.context.depositor) == 0:
-            return False
-        elif len(self.context.bank_name) == 0:
-            return False
-
-        return True
+        else:        
+            return True

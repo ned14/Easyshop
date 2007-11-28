@@ -9,8 +9,7 @@ from Products.CMFCore.exceptions import BadRequest
 # easyshop imports
 from easyshop.core.interfaces import ICustomer
 from easyshop.core.interfaces import IPaymentInformationManagement
-from easyshop.core.interfaces import IPaymentMethod
-from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IPaymentInformation
 from easyshop.core.interfaces import IValidity
 
 class PaymentInformationManagement:
@@ -42,21 +41,15 @@ class PaymentInformationManagement:
         except KeyError:
             return None
                     
-    def getPaymentInformations(self, interface=None, check_validity=False):
-        """Returns the payment methods of a customer. 
+    def getPaymentInformations(self, interface=IPaymentInformation, check_validity=False):
+        """Returns the payment information of a customer.
         """
-        # Todo: This can be optimized with Plone 3.0 because there will be an
-        # interface index (IIRC).
         mtool = getToolByName(self.context, "portal_membership")
             
-        if interface is None:
-            interface = IPaymentMethod        
-
         result = []
         for object in self.context.objectValues():
 
-            if interface is not None and \
-               interface.providedBy(object) == False:
+            if interface.providedBy(object) == False:
                 continue
                 
             if check_validity == True and \

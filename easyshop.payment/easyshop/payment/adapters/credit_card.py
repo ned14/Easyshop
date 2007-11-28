@@ -104,6 +104,22 @@ class AuthorizeNetCreditCardPaymentProcessor:
         #         return PaymentResult(ERROR, _(capture_result.response_reason))
         # else:
         #     return PaymentResult(ERROR, _(authorize_result.response_reason))
+
+class CreditCardPaymentMethodCompleteness:
+    """
+    """
+    implements(ICompleteness)
+    adapts(ICreditCardPaymentMethod)
+
+    def __init__(self, context):
+        """
+        """
+        self.context = context                  
+
+    def isComplete(self):
+        """Returns true if the credit card informations are complete.
+        """        
+        return True
             
 class CreditCardCompleteness:
     """Provides ICompleteness for direct debit content objects.
@@ -117,6 +133,6 @@ class CreditCardCompleteness:
         self.context = context                  
 
     def isComplete(self):
-        """Returns true if the direct debit informations are complete.
+        """Returns true if the credit card informations are complete.
         """        
         return True

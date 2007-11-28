@@ -4,6 +4,6 @@
   <type portal_type="DirectDebit"/>
   <type portal_type="PaymentPrice"/>
   <type portal_type="PayPal"/>  
-  <type portal_type="SimplePaymentMethod"/>    
+  <type portal_type="GenericPaymentMethod"/>    
  </factorytypes>
 </object>

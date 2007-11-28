@@ -3,7 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"    
     xmlns:five="http://namespaces.zope.org/five">    
 
-    <!-- Direct Debit -->
+    <!-- Bank Account -->
     <five:registerClass
         class=".bank_account.BankAccount"
         meta_type="BankAccount"
