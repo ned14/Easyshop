@@ -6,7 +6,9 @@
     
  <bindings>
      
-  <type type_id="InformationContainer"/>
+  <type type_id="InformationContainer">
+   <bound-workflow workflow_id="easyshop_default_workflow"/>
+  </type>
 
   <type type_id="InformationPage">
    <bound-workflow workflow_id="easyshop_default_workflow"/>
