@@ -4,7 +4,7 @@ from Products.Five.browser import BrowserView
 # easyhop.core imports
 from easyshop.core.interfaces import IShopManagement
 
-class InformationPageView(BrowserView):
+class InformationPagePopupView(BrowserView):
     """
     """
     def getInformation(self):

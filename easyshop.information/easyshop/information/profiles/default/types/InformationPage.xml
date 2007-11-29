@@ -9,18 +9,19 @@
  <property name="content_meta_type">InformationPage</property>
  <property name="product">easyshop.shop</property>
  <property name="factory">addInformationPage</property>
- <property name="immediate_view">base_view</property>
+ <property name="immediate_view">information-page</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">base_view</property>
+ <property name="default_view">information-page</property>
  <property name="view_methods">
+  <element value="information-page"/>     
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
  <alias from="sharing" to="@@sharing"/>
- <alias from="view" to="(selected layout)"/>
+ <alias from="view" to="(selected layout)" />
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}" visible="True" i18n:attributes="title">
   <permission value="View"/>
@@ -47,4 +48,9 @@
     i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>
+ <action title="Download" action_id="download" category="document_actions" condition_expr=""
+    url_expr="string:${object_url}/at_download/file" visible="True" i18n:attributes="title">
+  <permission value="View"/>
+ </action>
+ 
 </object>

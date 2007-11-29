@@ -20,10 +20,10 @@ schema = ATDocumentSchema.copy() + Schema ((
     FileField(
         name='file',
         widget=FileWidget(
-            label="Terms and Conditions",
-            label_msgid='schema_terms_and_conditions_label',
+            label="File",
+            label_msgid='schema_file_label',
             description = "Upload of the original document.",
-            description_msgid = "schema_terms_and_conditions_description",            
+            description_msgid = "schema_file_description",            
             i18n_domain="EasyShop",
         ),
     ),            
