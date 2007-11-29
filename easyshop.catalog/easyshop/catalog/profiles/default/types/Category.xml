@@ -14,9 +14,8 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="Category"/>
-  <element value="Photo"/>
+  <element value="ESImage"/>
   <element value="ProductSelector"/>
-  <element value="Formatter"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">category-view</property>

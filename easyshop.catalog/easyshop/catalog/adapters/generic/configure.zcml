@@ -6,6 +6,10 @@
         factory=".format.FormatterInfos" />
 
     <adapter
+        for="easyshop.core.interfaces.IProductSelector"
+        factory=".format.FormatterInfos" />
+
+    <adapter
         for="easyshop.core.interfaces.IShop"
         factory=".format.FormatterInfos" />
         

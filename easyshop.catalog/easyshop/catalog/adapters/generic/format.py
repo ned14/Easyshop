@@ -49,13 +49,29 @@ class FormatterInfos:
                     if fi.formats["enabled"] == True:
                         break
                 object = object.aq_inner.aq_parent
-        
+
         fi = IFormats(object)
+        
+        try:
+            lines_per_page = int(fi.formats["lines_per_page"])
+        except TypeError:
+            lines_per_page = 1
+
+        try:
+            products_per_line = int(fi.formats["products_per_line"])
+        except TypeError:
+            products_per_line = 2
+
+        try:
+            product_height = int(fi.formats["product_height"])
+        except TypeError:
+            product_height = 0
+            
         return {
             "enabled"           : fi.formats["enabled"],
-            "lines_per_page"    : int(fi.formats["lines_per_page"]),
-            "products_per_line" : int(fi.formats["products_per_line"]),
-            "product_height"    : int(fi.formats["product_height"]),
+            "lines_per_page"    : lines_per_page,
+            "products_per_line" : products_per_line,
+            "product_height"    : product_height,
             "image_size"        : fi.formats["image_size"],
             "text"              : fi.formats["text"],            
         }

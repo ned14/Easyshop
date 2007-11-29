@@ -1,24 +1,48 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+    <!-- Category  -->
     <browser:viewletManager
-        name="easyshop.easyshop-manager"
-        provides=".interfaces.IEasyShopViewletManager"
+        name="easyshop.category-manager"
+        provides=".interfaces.ICategoryViewletManager"
         class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="zope.Public" />
 
     <browser:viewlet
-        name="easyshop.categories"
+        name="easyshop.category-viewlet"
         for="easyshop.core.interfaces.ICategory"
-        manager=".interfaces.IEasyShopViewletManager"
-        class=".categories.CategoriesViewlet"
+        manager=".interfaces.ICategoryViewletManager"
+        class=".category.CategoryViewlet"
+        permission="zope.Public" />
+
+    <!-- Product -->
+    <browser:viewletManager
+        name="easyshop.product-manager"
+        provides=".interfaces.IProductViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="zope.Public" />
 
     <browser:viewlet
-        name="easyshop.product"
+        name="easyshop.product-viewlet"
         for="easyshop.core.interfaces.IProduct"
-        manager=".interfaces.IEasyShopViewletManager"
+        manager=".interfaces.IProductViewletManager"
         class=".product.ProductViewlet"
         permission="zope.Public" />
+        
+    <!-- Product Selector -->
+    <browser:viewletManager
+        name="easyshop.product-selector-manager"
+        provides=".interfaces.IProductSelectorViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.product-selector-viewlet"
+        for="*"
+        manager=".interfaces.IProductSelectorViewletManager"
+        class=".product_selector.ProductSelectorViewlet"
+        permission="zope.Public" />
+        
+
 
 </configure>

@@ -1,10 +1,15 @@
-<div id="mycategories">
+<div id="products">
+    <div tal:repeat="image view/getImages">
+        <img src="."
+             tal:attributes="src string:${image/getURL}/image;
+                             alt image/Title" />
+    </div>
 
     <table class="products"
            tal:define="info view/getInfo;
-                         lines info/products;
-                         batch_info info/batch_info;
-                         format_info info/format_info">    
+                       lines info/products;
+                       batch_info info/batch_info;
+                       format_info info/format_info">    
         <tr>
             <td class="main-title"
                 tal:attributes="colspan format_info/products_per_line">

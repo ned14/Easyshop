@@ -15,6 +15,10 @@
      name="CategoriesContainer"
      meta_type="Factory-based Type Information"/>
 
+ <object
+     name="ESImage"
+     meta_type="Factory-based Type Information with dynamic views"/>
+
  <object 
      name="ProductsContainer"
      meta_type="Factory-based Type Information" />

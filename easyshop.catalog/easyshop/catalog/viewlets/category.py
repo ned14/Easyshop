@@ -8,6 +8,7 @@ from zope.component import getMultiAdapter
 
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
+from plone.memoize.instance import memoize
 
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -30,24 +31,32 @@ from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
 
-class CategoriesViewlet(ViewletBase):
+class CategoryViewlet(ViewletBase):
     """
     """
-    render = ViewPageTemplateFile('categories.pt')
-    
-    def __init__(self, context, request, view, manager):
-        """
-        """
-        super(CategoriesViewlet, self).__init__(context, request, view, manager)
-        self.formats = IFormats(self.context).getFormats()
-        
+    render = ViewPageTemplateFile('category.pt')
+
+    @memoize
     def getFormatInfo(self):
         """
         """
-        # Could be overwritten to provide fixed category views. 
+        # Could be overwritten to provide fixed category views.
         # s. DemmelhuberShop
-        return self.formats
+        return IFormats(self.context).getFormats()
 
+    def getImages(self):
+        """
+        """
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            path = {"query" : "/".join(self.context.getPhysicalPath()),
+                    "depth" : 1},
+            portal_type = "ESImage",
+            sort_on = "getObjPositionInParent",
+        )
+        
+        return brains
+        
     def getInfo(self):
         """
         """
