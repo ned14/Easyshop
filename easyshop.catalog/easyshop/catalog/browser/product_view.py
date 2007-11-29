@@ -67,9 +67,5 @@ class ProductView(BrowserView):
         else:
             putils.addPortalMessage(_(MESSAGES["CART_ADDED_PRODUCT"]))
 
-        if len(self.getRelatedProducts()) > 0:
-            url = "%s/product-view-related-products" % self.context.absolute_url()
-        else:
-            url = self.context.absolute_url()
-        
+        url = self.context.absolute_url()
         self.context.request.response.redirect(url)

@@ -1,4 +1,4 @@
-<div id="products">
+<div id="products-list">
     <div tal:repeat="image view/getImages">
         <img src="."
              tal:attributes="src string:${image/getURL}/image;

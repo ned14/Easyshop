@@ -117,7 +117,7 @@ class Renderer(base.Renderer):
         # If "product-selector-view" is selected, we decide thru the amount of 
         # selected products and product per lines how much products per page 
         # are supposed to be displayed, hence we hide the input field.
-        if self.context.getLayout() == "product-selector-view":
+        if IProductSelector.providedBy(self.context) == True:
             return False
         else:
             return True
