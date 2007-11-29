@@ -44,10 +44,10 @@ class CartManagement:
         """Deletes a cart
         """
         if id is None:
-            mtool = getToolByName(self.context, "portal_membership")
-            id = mtool.getAuthenticatedMember().getId()
+            id = self._getCartId()
 
         # needs no permissions
+        import pdb; pdb.set_trace()
         self.context.carts._delObject(id)
 
     def getCart(self):
