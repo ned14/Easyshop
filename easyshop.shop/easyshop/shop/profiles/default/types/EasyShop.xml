@@ -14,10 +14,7 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="Document"/>
-  <element value="Formatter"/>        
   <element value="ProductSelector"/>
-  <element value="EasyShopThankYouPage"/>
-  <element value="Topic"/>  
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">folder_listing</property>

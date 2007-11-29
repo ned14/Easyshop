@@ -102,4 +102,14 @@
             Payment Prices
         </a>                    
     </dd>                        
+    <dd class="portletItem">
+        <hr />
+    </dd>                 
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/information"
+           i18n:translate="information_label">
+            Information
+        </a>                    
+    </dd>                            
 </dl>
