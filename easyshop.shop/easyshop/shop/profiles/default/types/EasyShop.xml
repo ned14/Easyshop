@@ -13,6 +13,7 @@
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
+  <element value="ESImage"/>
   <element value="Document"/>
   <element value="ProductSelector"/>
  </property>
