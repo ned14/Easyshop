@@ -68,6 +68,10 @@ class IFormats(Interface):
 ################################################################################
 # Photo        
 ################################################################################
+
+class IESImage(Interface):
+    """Marker interface for a easyshop images.
+    """                                       
             
 class IProductPhoto(Interface):
     """Marker interface for a product photo content objects.
