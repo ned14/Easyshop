@@ -97,7 +97,7 @@ class ProductSelectorViewlet(ViewletBase):
                 else:
                     text = ""
                 
-                if (index + 1) % products_per_line == 0 and products_per_line > 1:
+                if (index + 1) % products_per_line == 0:
                     klass = "last"
                 else:
                     klass = "notlast"
