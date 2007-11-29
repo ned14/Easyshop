@@ -48,14 +48,10 @@ class IOrderView(Interface):
         """Returns prices and taxes for selectec payment method.
         """    
         
-    def getPaymentMethod():
+    def getSelectedPaymentData():
         """Returns the payment method of the current customer.
         """
         
-    def getPaymentMethodType():
-        """Returns the type of the payment method.
-        """
-
     def getPriceForCustomer():
         """Returns the total price for the customer.
         """
@@ -178,18 +174,20 @@ class OrderView(BrowserView):
             "title" : "Cash on Delivery"
         }
 
-    def getSelectedPaymentInformation(self):
-        """
+    def getSelectedPaymentData(self):
+        """Returns selected payment method type and corresponding selected 
+        payment information.
         """
         customer = self.context.getCustomer()
         pm = IPaymentInformationManagement(customer)
-        return pm.getSelectedPaymentInformation()
         
-    def getPaymentMethodType(self):
-        """
-        """
-        customer = self.context.getCustomer()
-        return customer.selected_payment_method
+        payment_information     = pm.getSelectedPaymentInformation()
+        selected_payment_method = pm.getSelectedPaymentMethod()
+
+        return {
+            "information" : payment_information,
+            "portal_type" : selected_payment_method.portal_type,
+        }
         
     def getPriceForCustomer(self):
         """
