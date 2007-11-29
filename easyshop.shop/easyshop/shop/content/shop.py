@@ -66,31 +66,6 @@ schema = Schema((
     ),
 
     BooleanField(
-        name = "expandAll",
-        schemata = "misc",        
-        widget = BooleanWidget(
-            description = "If selected, all categories will be displayed expanded.",  
-            label="Expand All",
-            label_msgid="schema_expand_all_label",
-            description_msgid="schema_expand_all_description",
-            i18n_domain="EasyShop",
-        ),
-        default="1",
-    ),
-    
-    BooleanField(
-        name = "showNavigationQuantity",
-        schemata = "misc",        
-        widget = BooleanWidget(
-            description = "If selected, the amount of products will be displayed in navigation.",
-            label="Show Amount of Products",
-            label_msgid="schema_show_amount_of_products_label",
-            description_msgid="schema_show_amount_of_products_description",
-            i18n_domain="EasyShop",
-        ),
-        default="1",
-    ),
-    BooleanField(
         name = "showAddQuantity",
         default="1",        
         schemata = "misc",        
@@ -182,10 +157,6 @@ class EasyShop(ATFolder):
         ctr.getPredicate("Photo").edit("jpg jpeg png gif")
         ctr.assignTypeName("Photo", "Photo")
         
-        # Add a formatter
-        self.manage_addProduct["easyshop.shop"].addFormatter(id="formatter", title="Formatter")
-        self.formatter.reindexObject()
-
         # Add left portlets 
         leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)
         left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, context=self)
