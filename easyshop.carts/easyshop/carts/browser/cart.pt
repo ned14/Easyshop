@@ -11,6 +11,8 @@
 
     <body>
         
+        <div metal:fill-slot='column_two_slot' />
+        
         <div metal:fill-slot="main"
              tal:define="goto request/goto | nothing">
 
