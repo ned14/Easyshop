@@ -1,16 +1,12 @@
+# zope imports
+from zope.component.exceptions import ComponentLookupError
+
 # kss imports
 from plone.app.kss.plonekssview import PloneKSSView
 from kss.core import kssaction
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports
-# from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import IFormats
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IShopManagement
 
 class FormatterKSSView(PloneKSSView):
     """
@@ -26,9 +22,13 @@ class FormatterKSSView(PloneKSSView):
         kss_zope  = self.getCommandSet("zope")
         kss_plone = self.getCommandSet("plone")
 
-        selector = kss_core.getHtmlIdSelector("mycategories")
-        kss_zope.refreshViewlet(selector,
-                                manager="easyshop.easyshop-manager",
-                                name="easyshop.categories")
-         
+        try:
+            kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("products-list"),
+                                    manager="easyshop.category-manager",
+                                    name="easyshop.category-viewlet")
+        except ComponentLookupError:
+            kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("products-list"),
+                                    manager="easyshop.product-selector-manager",
+                                    name="easyshop.product-selector-viewlet")                                    
+             
         kss_plone.refreshPortlet(portlethash)
