@@ -28,10 +28,6 @@
      meta_type="Factory-based Type Information with dynamic views"/>
 
  <object
-     name="Formatter"
-     meta_type="Factory-based Type Information"/>
-
- <object
      name="ProductSelector"
      meta_type="Factory-based Type Information"/>
         
