@@ -171,12 +171,3 @@ class ProductViewlet(ViewletBase):
         """
         shop = IShopManagement(self.context).getShop()                
         return shop.getShowAddQuantity()
-        
-    def showSelectPropertiesView(self):
-        """Returns True if the select properties view is meant to be shown.
-        """
-        pm = IPropertyManagement(self.context)                
-        if len(pm.getProperties()) > 0:
-            return True
-
-        return False
