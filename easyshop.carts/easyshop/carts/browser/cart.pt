@@ -224,15 +224,26 @@
                         </tr>                  
           
                         <tr>
-                            <td colspan="4"
-                                class="number" 
-                                i18n:translate="total_label">
-                                Total
-                            </td>                            
-                            <td nowrap="nowrap"
-                                class="number"
-                                tal:content="view/getCartPrice" />
-
+                            <td class="checkout-total-sum"
+        				        colspan="5">
+        				        <span i18n:translate="checkout_total_sum_label">
+        				            Total Sum:
+        				        </span>    
+                                <span tal:content="view/getCartPrice">
+                                    42.00
+                                </span>
+                            </td>                
+                        </tr>
+                        <tr>
+                            <td class="formHelp number"
+                                colspan="5">
+                                <span i18n:translate="incl_tax_label">
+                                    incl. Tax =
+                                </span> 
+                                <span tal:content="view/getTaxForCustomer">
+                                    0.42
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td class="buttons"

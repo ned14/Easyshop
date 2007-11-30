@@ -1,8 +1,14 @@
+# zope imports
+from zope.component import queryUtility
+
 # Five imports
 from Products.Five.browser import BrowserView
 
 # CMFPlone imports
 from Products.CMFPlone.utils import safe_unicode
+
+# plone imports
+from plone.memoize.instance import memoize
 
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
@@ -10,6 +16,7 @@ from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IItemManagement 
+from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPrices
@@ -17,6 +24,7 @@ from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShippingManagement
 from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import ITaxes
 
 class CartFormView(BrowserView):
     """
@@ -26,7 +34,7 @@ class CartFormView(BrowserView):
         """        
         toDeleteItem = self.context.REQUEST.get("toDeleteItem")
 
-        cart = ICartManagement(self.context).getCart()        
+        cart = self._getCart()
         IItemManagement(cart).deleteItem(toDeleteItem)
 
         url = "%s/cart" % self.context.absolute_url()
@@ -41,9 +49,7 @@ class CartFormView(BrowserView):
         """
         """    
         shop = IShopManagement(self.context).getShop()        
-        cm   = ICartManagement(shop)
-
-        cart = cm.getCart()
+        cart = self._getCart()
 
         # If there isn't a cart yet
         if cart is None:
@@ -102,10 +108,8 @@ class CartFormView(BrowserView):
     def getCartPrice(self):
         """Returns the price of the current cart.
         """        
-        shop = IShopManagement(self.context).getShop()        
-        cm   = ICartManagement(shop)
-
-        cart = cm.getCart()
+        cart = self._getCart()
+        
         if cart is None: 
             price = 0.0
         else:    
@@ -209,6 +213,15 @@ class CartFormView(BrowserView):
             "title"       : method.Title(),
             "description" : method.Description()
         }
+
+    def getTaxForCustomer(self):
+        """
+        """
+        cm   = ICurrencyManagement(self.context)                
+        cart = self._getCart()
+        tax  = ITaxes(cart).getTaxForCustomer()
+
+        return cm.priceToString(tax)
         
     def getGoto(self):
         """
@@ -218,7 +231,7 @@ class CartFormView(BrowserView):
     def refreshCart(self):
         """
         """            
-        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()        
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         
         # Set selected country global and within current selected invoice 
         # address. Why? If a customer delete all addresses the current selected 
@@ -238,7 +251,7 @@ class CartFormView(BrowserView):
         customer.selected_payment_method = \
             safe_unicode(self.request.get("selected_payment_method"))
             
-        cart = ICartManagement(self.context).getCart()
+        cart = self._getCart()
         item_manager = IItemManagement(cart)
 
         i = 1
@@ -271,9 +284,14 @@ class CartFormView(BrowserView):
     def showCheckOutButton(self):
         """
         """
-        cart = ICartManagement(self.context).getCart()
-        
+        cart = self._getCart()
         if IItemManagement(cart).hasItems():
             return True
 
         return False
+
+    @memoize
+    def _getCart(self):
+        """Returns the cart.
+        """
+        return ICartManagement(self.context).getCart()

@@ -51,7 +51,7 @@ class CartPrices:
 
     def getPriceGross(self, with_shipping=True, with_payment=True):
         """Returns the gross price of the cart. This is just a sum over gross
-        prices of all items of the cart.
+        prices of all items of the cart plus shipping and payment.
         """
         price = 0.0
         for cart_item in self.context.objectValues("CartItem"):
@@ -71,7 +71,7 @@ class CartPrices:
 
     def getPriceNet(self, with_shipping=True, with_payment=True):
         """Returns the net price of the cart. This is just a sum over net
-        prices of all items of the cart plus.
+        prices of all items of the cart plus shipping and payment.
         """
         price = 0.0
         for cart_item in self.context.objectValues("CartItem"):
