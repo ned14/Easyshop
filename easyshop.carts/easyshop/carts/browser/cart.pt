@@ -16,7 +16,7 @@
         <div metal:fill-slot="main"
              tal:define="goto request/goto | nothing">
 
-            <h1>
+            <h1 class="documentFirstHeading">
                 <span i18n:translate="cart_label"
                       class="documentFirstHeading">Cart</span>
             </h1>
@@ -81,44 +81,75 @@
                 <table class="cart shop-default">
                     <thead>
                         <tr>
-                            <th></th>
                             <th class="text"
+                                colspan="2"
                                 i18n:translate="product_label">
                                 Product
                             </th>
+<!--
                             <th class="text"
                                 i18n:translate="properties_label">
                                 Properties
                             </th>            
-                            <th class="number"
-                                i18n:translate="price_label">
-                                Price
-                            </th>
-                            <th class="number"
-                                i18n:translate="total_label">
-                                Total
-                            </th>                        
+-->
                             <th class="number"
                                 i18n:translate="amount_label">
                                 Amount
                             </th>            
+
+                            <th class="number"
+                                i18n:translate="price_label">
+                                Price
+                            </th>
+                            
+                            <th class="number"
+                                i18n:translate="total_label">
+                                Total
+                            </th>                        
                         </tr>
                     </thead>
                     <tbody>
                         <tal:block tal:repeat="cart_item view/getCartItems">                    
-                            <tr tal:define="number repeat/cart_item/number"> 
+                            <tr style="border-bottom: 1px dotted black"
+                                tal:define="number repeat/cart_item/number"> 
 
-                                <td class="text">
-                                    <input class="context"  
-                                           value="Delete" 
-                                           type="button" 
-                                           tal:attributes="onclick string:window.location='${context/absolute_url}/deleteItem?toDeleteItem=${cart_item/id}'"
-                                           i18n:attributes="value delete_label;" />
+                                <td style="width:1px; height:1px" 
+                                    class="text">                                    
+                                    <div style="width:80px; height:80px">
+                                        <a href="." 
+                                           tal:attributes="href cart_item/product_url" >
+                                        
+                                            <img src="."                                         
+                                                 tal:attributes="src string:${cart_item/product_url}/image_tile;
+                                                                 alt cart_item/product_title" />
+                                        </a>                         
+                                    </div>
+                                    <div style="padding:10px 0 10px 0">
+                                        <input class="context"  
+                                               value="Delete Article" 
+                                               type="button" 
+                                               tal:attributes="onclick string:window.location='${context/absolute_url}/deleteItem?toDeleteItem=${cart_item/id}'"
+                                               i18n:attributes="value delete_article_label;" />
+
+                                    </div>
+                                    
                                 </td>
-                
-                                <td class="text">
-                                    <span tal:content="cart_item/product_title" />
+                                <td>
+                                    <div>
+                                        <a href="." 
+                                           tal:attributes="href cart_item/product_url"
+                                           tal:content="cart_item/product_title">
+                                            Product Title
+                                        </a> 
+                                    </div>       
+                                    <div tal:repeat="property cart_item/properties">
+                                        <span tal:content="property/title" /> :
+                                        <span tal:content="property/selected_option" />
+                                        (<span tal:content="property/price" />)
+                                    </div>                  
+                                                                                                                                            
                                 </td>    
+<!--                                 
                                 <td class="text">
                                     <div tal:repeat="property cart_item/properties">
                                         <span tal:content="property/title" /> :
@@ -126,6 +157,14 @@
                                         (<span tal:content="property/price" />)
                                     </div>                  
                                 </td>      
+-->                                
+                                <td class="number">
+                                    <input type="text"
+                                           size="2" 
+                                           tal:attributes="name string:cart_item_$number;
+                                                           value cart_item/amount" />                
+                                </td>                                       
+
                                 <td class="number"
                                     nowrap="nowrap"
                                     tal:content="cart_item/product_price">
@@ -136,21 +175,19 @@
                                     nowrap="nowrap"
                                     tal:content="cart_item/price" />        
 
-                                <td class="number">
-                                    <input type="text"
-                                           size="2" 
-                                           tal:attributes="name string:cart_item_$number;
-                                                           value cart_item/amount" />                
-                               </td>                                       
               
                            </tr>  
+                           <tr>
+                               <td colspan="6" height="20px"></td>
+                           </tr>
                         </tal:block>
+
 <!-- Shipping -->                        
 
                         <tr tal:define="shipping_info view/getShippingInfo"
                             tal:condition="view/getCartItems">
-                            <td></td>
-                            <td nowrap="nowrap"
+                            <td colspan="4"
+                                nowrap="nowrap"
                                 class="text">
                                 <span i18n:translate="shipping_label">
             		                Shipping
@@ -159,8 +196,6 @@
             		                Express
             		            </span>)    
             		        </td> 
-                            <td colspan="2">
-                            </td>
                             <td nowrap="nowrap"
                                 class="number"
                                 tal:content="shipping_info/price" />
@@ -169,8 +204,8 @@
 <!-- Payment -->
                         <tr tal:define="payment_info view/getPaymentInfo"
                             tal:condition="view/getCartItems">
-                            <td></td>
-                            <td nowrap="nowrap"
+                            <td colspan="4"
+                                nowrap="nowrap"
                                 class="text">
                                 <span i18n:translate="shipping_label">
             		                Payment
@@ -179,8 +214,6 @@
             		                Cash On Delievery
             		            </span>)    
             		        </td> 
-                            <td colspan="2">
-                            </td>
                             <td nowrap="nowrap"
                                 class="number"
                                 tal:content="payment_info/price" />
@@ -191,17 +224,15 @@
                         </tr>                  
           
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="number" 
+                            <td colspan="4"
+                                class="number" 
                                 i18n:translate="total_label">
                                 Total
                             </td>                            
                             <td nowrap="nowrap"
                                 class="number"
                                 tal:content="view/getCartPrice" />
-                            <td></td>
+
                         </tr>
                         <tr>
                             <td class="buttons"

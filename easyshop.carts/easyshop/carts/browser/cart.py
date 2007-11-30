@@ -90,6 +90,7 @@ class CartFormView(BrowserView):
             result.append({
                 "id"            : cart_item.getId(),
                 "product_title" : product.Title(),
+                "product_url"   : product.absolute_url(),
                 "product_price" : product_price,
                 "properties"    : properties,
                 "price"         : price,

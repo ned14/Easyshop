@@ -47,7 +47,6 @@ class CartManagement:
             id = self._getCartId()
 
         # needs no permissions
-        import pdb; pdb.set_trace()
         self.context.carts._delObject(id)
 
     def getCart(self):

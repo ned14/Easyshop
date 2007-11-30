@@ -28,5 +28,12 @@
         class=".cart.CartFormView"
         attribute="refreshCart" 
         permission="zope.Public" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IShop"
+        name="added-to-cart"
+        template="added_to_cart.pt"
+        class=".added_to_cart.AddedToCartView"
+        permission="zope.Public" />
   
 </configure>
