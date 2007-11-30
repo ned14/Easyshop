@@ -10,6 +10,9 @@
    <bound-workflow workflow_id="easyshop_shop_workflow"/>
   </type>
 
+  <type type_id="SessionsContainer">
+   <bound-workflow workflow_id="easyshop_session_workflow"/>
+  </type>
 
  </bindings>
 </object>

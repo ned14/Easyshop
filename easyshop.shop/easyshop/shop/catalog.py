@@ -25,6 +25,26 @@ def total_amount_of_products(object, portal, **kwargs):
 
 registerIndexableAttribute('total_amount_of_products',
                             total_amount_of_products)
+
+def amount_of_categories(object, portal, **kwargs):
+    try:
+        # This has to be done without the help of the catalog. Otherwise it
+        # counts before all to counted objects are in the catalog. That is at
+        # least the case for Advanced/Update Catalog.
+        
+        # If we have no categories a non-int will be returned. This helps in the
+        # categories portlet to decide whether there are sub categories or not.
+        counter = 0
+        if ICategory.providedBy(object):
+            counter = len(object.objectValues("Category"))
+
+        return counter
+        
+    except (ComponentLookupError, TypeError, ValueError):
+        raise AttributeError
+
+registerIndexableAttribute('amount_of_categories',
+                            amount_of_categories)
                             
 def countCategories(category, counter):
     """

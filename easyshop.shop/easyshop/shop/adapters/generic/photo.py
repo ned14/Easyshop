@@ -8,7 +8,7 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import IPhotoManagement
 
 class PhotoManagement:
-    """Provides IPhotoManagement
+    """Provides IPhotoManagement for several classes.
     """
     implements(IPhotoManagement)
     
@@ -18,10 +18,10 @@ class PhotoManagement:
         self.context = context
 
     def getMainPhoto(self):
-        """Returns the main photo. This is either the image field of the
-        product or the first Photo object within the product.
+        """Returns the main photo. This is either the product itself or the 
+        first photo object within the product.
         """ 
-        # Returns the object(s), which contains the image field (not the image
+        # Returns the object, which contains the image field (not the image
         # field itself), to be able to get image_shop_large. etc.
         image = self.context.getField("image").get(self.context)
         if len(image) != 0:

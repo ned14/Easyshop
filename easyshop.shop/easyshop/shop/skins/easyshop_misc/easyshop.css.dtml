@@ -17,6 +17,22 @@
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 /*Workaround to revert Plone's to overriding. See public.css line 990*/
+
+.portlet-category-tree .navTreeItem a {
+    padding-left: 10px;
+}
+
+.portlet-category-tree .hasCategories {
+    background: url(http://localhost:8080/portal/arrowRight.gif) no-repeat scroll 0px 4px;
+}
+
+.portlet-category-tree .navTreeCurrentItem.hasCategories {
+    color: &dtml-globalFontColor;;
+    border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor; !important;
+    background: &dtml-globalBackgroundColor; url(http://localhost:8080/portal/arrowDown.gif) no-repeat scroll -1px 5px !important;
+}
+
+
 a.link-parent {
     background:transparent url(http://localhost:8080/portal/arrowUp.gif) no-repeat scroll 4px 5px !important;
     display:block !important;
@@ -138,9 +154,9 @@ table.products {
     border-collapse: collapse;
 }
 
-table.product-content,
+table.product-content td,
 table.products td {
-    padding:2px 10px 0 0;
+    padding:2px 0 0 0;
     vertical-align:top;    
 }
 
@@ -187,6 +203,7 @@ td.product-control form {
 }
 
 .product-price {
+    padding-left:10px;
     font-weight:bold;
 }
 
@@ -202,6 +219,7 @@ td.product-navigation,
 td.category-navigation {
     text-align:right;
 }
+
 a.current-category {
     color: red;
 }
@@ -256,6 +274,10 @@ fieldset.address {
     cursor:pointer;
 }
 
+.product-image img {
+    padding-right:10px;
+}
+
 img.product-details {
     cursor:pointer;
 }
@@ -263,4 +285,14 @@ img.product-details {
 #letters {
     padding-bottom:20px;
 }
+
+/* Added to cart view */
+.added-to-cart-buttons {
+   padding-top:20px; 
+}
+
+.added-to-cart-image {
+    padding-right: 10px;
+}
+
 /* </dtml-with> */
