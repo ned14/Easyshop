@@ -6,6 +6,7 @@ from zope.interface import implements
 # plone imports
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
+from plone.memoize.instance import memoize
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
@@ -69,24 +70,36 @@ class Renderer(base.Renderer):
 
         if category is None:
             return []
-        else:    
+        else:
             categories = ICategoryManagement(category).getTopLevelCategories()
 
             result = []
             for category in categories:
-            
+                
+                show_subtree = self._showSubTree(category)
+                
+                if show_subtree == True:
+                    klass = "navTreeCurrentItem visualIconPadding"
+                else:
+                    klass = "visualIconPadding"
+
+                if show_subtree == True:
+                    sub_categories = self._getSubCategories(category)
+                else:
+                    sub_categories = []
+                    
                 result.append({
-                    "klass"              : self._getItemClass(category),
+                    "klass"              : klass,
                     "url"                : category.getURL,
                     "description"        : category.Description,
                     "title"              : category.Title,
                     "amount_of_products" : category.total_amount_of_products,
-                    "subcategories"      : self._getSubCategories(category),
-                    "show_subtree"       : self._showSubTree(category),
+                    "subcategories"      : sub_categories,
+                    "show_subtree"       : show_subtree,
                 })
 
             return result 
-                    
+                                        
     def showQuantity(self):
         """
         """
@@ -95,7 +108,7 @@ class Renderer(base.Renderer):
     def getShopUrl(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
+        shop = self._getShop()
         return shop.absolute_url()
         
     def getStartingCategory(self):
@@ -103,7 +116,7 @@ class Renderer(base.Renderer):
         """
         # Could be use to show categories from a certain level on.
         # See demmelhuber
-        return IShopManagement(self.context).getShop()
+        return self._getShop()
 
     def getTopLevelCategories(self):
         """
@@ -135,7 +148,7 @@ class Renderer(base.Renderer):
             
             while product_category.portal_type == "Category":
                 if product_category.UID() == category.UID:
-                    return True 
+                    return True
                 product_category = product_category.aq_inner.aq_parent
     
         return False
@@ -154,19 +167,39 @@ class Renderer(base.Renderer):
                          sort_on = "getObjPositionInParent")
 
         for category in brains:
-                            
+
+            show_subtree = self._showSubTree(category)
+            
+            # At the moment we using the criterion of show_subtree to decide 
+            # whether the category is current selected or not. This results 
+            # in current_item for all parent categories of the current selected
+            # category.
+            if show_subtree == True:
+                klass = "navTreeCurrentItem visualIconPadding"
+            else:
+                klass = "visualIconPadding"
+
+            if show_subtree == True:
+                sub_categories = self._getSubCategories(category)
+            else:
+                sub_categories = []
+                                    
             result.append({
-                "klass"              : self._getItemClass(category),
+                "klass"              : klass,
                 "url"                : category.getURL,
                 "description"        : category.Description,
                 "title"              : category.Title,
                 "amount_of_products" : category.total_amount_of_products,
-                "subcategories"      : self._getSubCategories(category),
-                "show_subtree"       : self._showSubTree(category),
+                "subcategories"      : sub_categories,
+                "show_subtree"       : show_subtree,
             })
 
         return result 
     
+    # This is not used at the moment as we use the show_subtree criterion to 
+    # mark current categories. This method can be used to just select the
+    # current category without its parents. However the current approach should 
+    # be faster, too.
     def _getItemClass(self, category):
         """Returns the css class of the category, which differs between current
         or not current.
@@ -188,6 +221,12 @@ class Renderer(base.Renderer):
                 return "navTreeCurrentItem visualIconPadding"     
             
         return "visualIconPadding"
+
+    @memoize
+    def _getShop(self):
+        """
+        """
+        return IShopManagement(self.context).getShop()
         
 class AddForm(base.AddForm):
     """
