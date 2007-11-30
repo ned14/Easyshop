@@ -1,4 +1,4 @@
-<dl class="portlet portlet-navigation-tree"
+<dl class="portlet portlet-category-tree"
     tal:define="level python:1"> 
 
     <dt class="portletHeader">

@@ -78,50 +78,48 @@ class ProductsView(BrowserView):
         """
         catalog = getToolByName(self.context, "portal_catalog")
                 
-        searchable_text = self.request.get("searchable_text", "")
-        if searchable_text != "":
-            brains = catalog.searchResults(
+        searchable_text = self.request.get("searchable_text", None)
+        if searchable_text is not None:
+            result = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
                 portal_type = "Product",
                 SearchableText = searchable_text,
                 sort_on = "sortable_title",
-            )
-        
-            return brains
-        
-        letter = self.request.get("letter", "")
-        if letter == "":
-            return []
-        
-        result = []
-        if letter == "All":
-            result = catalog.searchResults(
-                path = "/".join(self.context.getPhysicalPath()),
-                portal_type = "Product",
-                sort_on = "sortable_title",
-            )
-            
-        elif letter == "0-9":
-            brains = catalog.searchResults(
-                path = "/".join(self.context.getPhysicalPath()),
-                portal_type = "Product",
-                sort_on = "sortable_title",
-            )
-                    
-            for brain in brains:
-                if re.match("\d", brain.Title):
-                    result.append(brain)
+            )        
         else:
-            brains = catalog.searchResults(
-                path = "/".join(self.context.getPhysicalPath()),
-                portal_type = "Product",
-                Title = "%s*" % letter,
-                sort_on = "sortable_title",
-            )
+            letter = self.request.get("letter", None)
+            if letter is None:
+                return []
+        
+            result = []
+            if letter == "All":
+                result = catalog.searchResults(
+                    path = "/".join(self.context.getPhysicalPath()),
+                    portal_type = "Product",
+                    sort_on = "sortable_title",
+                )
             
-            for brain in brains:
-                if brain.Title.upper().startswith(letter):
-                    result.append(brain)
+            elif letter == "0-9":
+                brains = catalog.searchResults(
+                    path = "/".join(self.context.getPhysicalPath()),
+                    portal_type = "Product",
+                    sort_on = "sortable_title",
+                )
+                    
+                for brain in brains:
+                    if re.match("\d", brain.Title):
+                        result.append(brain)
+            else:
+                brains = catalog.searchResults(
+                    path = "/".join(self.context.getPhysicalPath()),
+                    portal_type = "Product",
+                    Title = "%s*" % letter,
+                    sort_on = "sortable_title",
+                )
+            
+                for brain in brains:
+                    if brain.Title.upper().startswith(letter):
+                        result.append(brain)
         
         lines = []
         line = []
@@ -135,3 +133,20 @@ class ProductsView(BrowserView):
             lines.append(line)        
 
         return lines
+
+    def getSearchableText(self):
+        """
+        """
+        searchable_text = self.request.get("searchable_text", None)
+        if searchable_text is None:
+            return ""
+        else:
+            return searchable_text
+            
+    def showNoResult(self, lines):
+        """
+        """
+        if len(lines) == 0 and \
+           (self.request.get("letter", None) is not None or \
+            self.request.get("searchable_text", None) is not None):
+           return True
