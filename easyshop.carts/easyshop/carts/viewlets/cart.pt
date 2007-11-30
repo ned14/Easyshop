@@ -7,9 +7,18 @@
         </dt>
 
         <dd class="portletItem">
-            <span tal:content="view/getCartPrice">
+            <div align="center">
+                <span tal:content="view/getAmountOfArticles">
+                    3
+                </span>
+                <span i18n:translate="article_label">
+                    Article
+                </span>    
+            </div>
+            <div align="center"
+                 tal:content="view/getCartPrice">
                 42.0
-            </span>
+            </div>
         </dd>
         
         <dd class="portletFooter">

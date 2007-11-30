@@ -4,6 +4,9 @@ from plone.app.layout.viewlets.common import ViewletBase
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+# plone imports
+from plone.memoize.instance import memoize
+
 # easyshop imports
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICurrencyManagement
@@ -22,31 +25,42 @@ class CartViewlet(ViewletBase):
         self.cart_price = self.getCartPrice()
         self.shop_url = self.getShopUrl()
         self.checkout_link = self.showCheckOutLink()
+        self.amount_of_articles = self.getAmountOfArticles()
+
+    def getAmountOfArticles(self):
+        """
+        """
+        cart = self._getCart()
         
+        amount = 0
+        for item in IItemManagement(cart).getItems():
+            amount += item.getAmount()
+        
+        return amount
+                        
     def getCartPrice(self):
         """
-        """        
-        cart_manager = ICartManagement(IShopManagement(self.context).getShop())
-        currency_manager = ICurrencyManagement(self.context)
+        """
+        shop = self._getShop()
+        cm = ICurrencyManagement(shop)
         
-        if cart_manager.hasCart():
-            cart = cart_manager.getCart()
+        if ICartManagement(shop).hasCart():
+            cart = self._getCart()
             price = IPrices(cart).getPriceForCustomer()
-            return currency_manager.priceToString(price)
+            return cm.priceToString(price)
         else:
-            return currency_manager.priceToString(0.0)
+            return cm.priceToString(0.0)
                         
     def getShopUrl(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
+        shop = self._getShop()
         return shop.absolute_url()
         
     def showCheckOutLink(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
-        cart = ICartManagement(shop).getCart()
+        cart = self._getCart()
         
         if cart is None:
             return False
@@ -55,3 +69,16 @@ class CartViewlet(ViewletBase):
             return False
         
         return True
+    
+    @memoize
+    def _getShop(self):
+        """
+        """
+        return IShopManagement(self.context).getShop()
+
+    @memoize
+    def _getCart(self):
+        """
+        """
+        shop = self._getShop()
+        return ICartManagement(shop).getCart()

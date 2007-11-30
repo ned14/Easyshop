@@ -25,7 +25,8 @@
                 <td width="1px">
                     <a href="."
                        tal:attributes="href product/url">
-                        <img src="."
+                        <img class="added-to-cart-image"
+                             src="."
                              tal:attributes="src string:${product/image_url}/image_mini;
                                              alt product/title" />
                     </a>
