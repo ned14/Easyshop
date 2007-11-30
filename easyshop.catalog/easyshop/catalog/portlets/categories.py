@@ -77,20 +77,19 @@ class Renderer(base.Renderer):
             for category in categories:
                 
                 show_subtree = self._showSubTree(category)
-                
-                if show_subtree == True:
-                    klass = "navTreeCurrentItem visualIconPadding"
-                else:
-                    if category.amount_of_categories > 0:
-                        klass = "hasCategories visualIconPadding"  
-                    else:    
-                        klass = "visualIconPadding"
-
                 if show_subtree == True:
                     sub_categories = self._getSubCategories(category)
                 else:
-                    sub_categories = []
-                    
+                    sub_categories = []            
+
+                klass = "visualIconPadding"
+                                                
+                if category.amount_of_categories > 0:
+                    klass += " hasCategories"  
+
+                if self._isCurrentItem(category) == True:
+                    klass += " navTreeCurrentItem"
+                        
                 result.append({
                     "klass"                : klass,
                     "url"                  : category.getURL,
@@ -134,7 +133,7 @@ class Renderer(base.Renderer):
         """
         if self.data.expand_all == True:
             return True
-            
+
         context_url  = self.context.absolute_url()
         category_url = category.getURL()
 
@@ -172,24 +171,19 @@ class Renderer(base.Renderer):
         for category in brains:
 
             show_subtree = self._showSubTree(category)
-            
-            # At the moment we using the criterion of show_subtree to decide 
-            # whether the category is current selected or not. This results 
-            # in current_item for all parent categories of the current selected
-            # category.
-            if show_subtree == True:
-                klass = "navTreeCurrentItem visualIconPadding"
-            else:
-                if category.amount_of_categories > 0:
-                    klass = "hasCategories visualIconPadding"  
-                else:    
-                    klass = "visualIconPadding"
-                    
             if show_subtree == True:
                 sub_categories = self._getSubCategories(category)
             else:
                 sub_categories = []
-                                    
+
+            klass = "visualIconPadding"
+                                            
+            if category.amount_of_categories > 0:
+                klass += " hasCategories"  
+
+            if self._isCurrentItem(category) == True:
+                klass += " navTreeCurrentItem"
+                    
             result.append({
                 "klass"                : klass,
                 "url"                  : category.getURL,
@@ -201,32 +195,50 @@ class Renderer(base.Renderer):
             })
 
         return result 
+
+    # def _isCurrentItem(self, category):
+    #     """Only the selected category is current category
+    #     """
+    #     context_url  = self.context.absolute_url()
+    #     category_url = category.getURL()
+    # 
+    #     if context_url == category_url:
+    #         return True
+    #     elif self.context.portal_type == "Product":
+    #         try:
+    #             product_category = self.context.getBRefs("category_products")[0]
+    #         except IndexError:
+    #             return False
+    #     
+    #         # UID doesn't work here. Don't know why yet.
+    #         if category.getPath() == "/".join(product_category.getPhysicalPath()):
+    #             return True
+    #         
+    #     return False
     
-    # This is not used at the moment as we use the show_subtree criterion to 
-    # mark current categories. This method can be used to just select the
-    # current category without its parents. However the current approach should 
-    # be faster, too.
-    def _getItemClass(self, category):
-        """Returns the css class of the category, which differs between current
-        or not current.
+    def _isCurrentItem(self, category):
+        """Selected category and parent are current categories.
         """
         context_url  = self.context.absolute_url()
         category_url = category.getURL()
     
-        if context_url == category_url:
-            return "navTreeCurrentItem visualIconPadding"
+        if context_url.startswith(category_url):
+            return True
+            
         elif self.context.portal_type == "Product":
             try:
-                product_category = \
-                self.context.getBRefs("category_products")[0]
+                product_category = self.context.getBRefs("category_products")[0]
             except IndexError:
-                return "visualIconPadding"
+                return False
         
             # UID doesn't work here. Don't know why yet.
-            if category.getPath() == "/".join(product_category.getPhysicalPath()):
-                return "navTreeCurrentItem visualIconPadding"     
+            category_url = category.getPath()
+            context_url  = "/".join(product_category.getPhysicalPath())
             
-        return "visualIconPadding"
+            if context_url.startswith(category_url):
+                return True
+            
+        return False
 
     @memoize
     def _getShop(self):
