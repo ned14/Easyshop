@@ -81,7 +81,10 @@ class Renderer(base.Renderer):
                 if show_subtree == True:
                     klass = "navTreeCurrentItem visualIconPadding"
                 else:
-                    klass = "visualIconPadding"
+                    if category.amount_of_categories > 0:
+                        klass = "hasCategories visualIconPadding"  
+                    else:    
+                        klass = "visualIconPadding"
 
                 if show_subtree == True:
                     sub_categories = self._getSubCategories(category)
@@ -89,13 +92,13 @@ class Renderer(base.Renderer):
                     sub_categories = []
                     
                 result.append({
-                    "klass"              : klass,
-                    "url"                : category.getURL,
-                    "description"        : category.Description,
-                    "title"              : category.Title,
-                    "amount_of_products" : category.total_amount_of_products,
-                    "subcategories"      : sub_categories,
-                    "show_subtree"       : show_subtree,
+                    "klass"                : klass,
+                    "url"                  : category.getURL,
+                    "description"          : category.Description,
+                    "title"                : category.Title,
+                    "amount_of_products"   : category.total_amount_of_products,
+                    "subcategories"        : sub_categories,
+                    "show_subtree"         : show_subtree,
                 })
 
             return result 
@@ -177,21 +180,24 @@ class Renderer(base.Renderer):
             if show_subtree == True:
                 klass = "navTreeCurrentItem visualIconPadding"
             else:
-                klass = "visualIconPadding"
-
+                if category.amount_of_categories > 0:
+                    klass = "hasCategories visualIconPadding"  
+                else:    
+                    klass = "visualIconPadding"
+                    
             if show_subtree == True:
                 sub_categories = self._getSubCategories(category)
             else:
                 sub_categories = []
                                     
             result.append({
-                "klass"              : klass,
-                "url"                : category.getURL,
-                "description"        : category.Description,
-                "title"              : category.Title,
-                "amount_of_products" : category.total_amount_of_products,
-                "subcategories"      : sub_categories,
-                "show_subtree"       : show_subtree,
+                "klass"                : klass,
+                "url"                  : category.getURL,
+                "description"          : category.Description,
+                "title"                : category.Title,
+                "amount_of_products"   : category.total_amount_of_products,
+                "subcategories"        : sub_categories,
+                "show_subtree"         : show_subtree,
             })
 
         return result 

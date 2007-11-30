@@ -6,7 +6,9 @@
         <a href="#" 
            class="tile"
            tal:attributes="href view/getShopUrl"
-           i18n:translate="box_categories">EasyShop</a>
+           i18n:translate="categories_label">
+            Categories
+        </a>
         <span class="portletTopRight"></span>
     </dt>
 
