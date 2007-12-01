@@ -4,16 +4,16 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.catalog.content.product import Product
-from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPaymentPrice
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import IValidity
 
-class PaymentPrices:
-    """Provides IPaymentPrices for shop content objects.
+class PaymentPriceManagement:
+    """Provides IPaymentPriceManagement for shop content objects.
     """
-    implements(IPaymentPrices)
+    implements(IPaymentPriceManagement)
     adapts(IShop)
 
     def __init__(self, context):
@@ -44,9 +44,6 @@ class PaymentPrices:
 
         return 0
 
-    # Todo: Optimize. The next methods are the same as for shipping tax
-    # calculations
-    
     def getPriceForCustomer(self):
         """
         """
@@ -60,7 +57,7 @@ class PaymentPrices:
     def getTax(self):
         """
         """
-        temp_payment_product = self.createTemporaryPaymentProduct()
+        temp_payment_product = self._createTemporaryPaymentProduct()
         taxes = ITaxes(temp_payment_product)        
         tax = taxes.getTax()
         return tax
@@ -68,7 +65,7 @@ class PaymentPrices:
     def getTaxForCustomer(self):
         """
         """
-        temp_payment_product = self.createTemporaryPaymentProduct()
+        temp_payment_product = self._createTemporaryPaymentProduct()
         taxes = ITaxes(temp_payment_product)        
         tax = taxes.getTaxForCustomer()
 
@@ -77,7 +74,7 @@ class PaymentPrices:
     def getTaxRate(self):
         """
         """
-        temp_payment_product = self.createTemporaryPaymentProduct()
+        temp_payment_product = self._createTemporaryPaymentProduct()
         taxes = ITaxes(temp_payment_product)
         tax = taxes.getTaxRate()
         
@@ -86,13 +83,13 @@ class PaymentPrices:
     def getTaxRateForCustomer(self):
         """
         """
-        temp_payment_product = self.createTemporaryPaymentProduct()
+        temp_payment_product = self._createTemporaryPaymentProduct()
         taxes = ITaxes(temp_payment_product)
         tax = taxes.getTaxRate()
 
         return tax
 
-    def createTemporaryPaymentProduct(self):
+    def _createTemporaryPaymentProduct(self):
         """
         """
         temp_payment_product = Product("payment")

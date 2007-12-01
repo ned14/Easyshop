@@ -49,7 +49,7 @@
 
     <!-- IPrices -->
     <adapter        
-        factory=".payment_prices.PaymentPrices" />
+        factory=".payment_price_management.PaymentPriceManagement" />
     
 
     <!-- IType -->

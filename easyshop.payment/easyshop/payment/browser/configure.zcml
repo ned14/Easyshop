@@ -60,7 +60,7 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="easyshop.core.interfaces.IPaymentPricesContainer"
+        for="easyshop.core.interfaces.IPaymentPriceManagementContainer"
         name="payment-prices-view"
         template="payment_prices.pt"
         class=".payment_prices.PaymentPricesView"
