@@ -1,38 +1,61 @@
-<configure 
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    xmlns:browser="http://namespaces.zope.org/browser">
+<configure
+    xmlns="http://namespaces.zope.org/zope">
 
+
+    <!-- ICategoryManagement -->
     <adapter
-        factory=".product.ProductPriceCalculator" />
-
+        factory=".category_management.CategoryCategoryManagement" />
+    
     <adapter        
-        factory=".product.ProductCategoryManager" />
+        factory=".category_management.ProductCategoryManagement" />
 
     <adapter
-        factory=".product.ProductPropertyManagement" />
+        factory=".category_management.ShopCategoryManagement" />
+
+
+    <!-- IData -->    
+    <adapter
+        factory=".data.ProductData" />
+
+
+    <!-- IFormat -->
+    <adapter
+        for="easyshop.core.interfaces.ICategory"
+        factory=".formats.FormatterInfos" />
 
     <adapter
-        factory=".product.ProductGroupManager" />
+        for="easyshop.core.interfaces.IProductSelector"
+        factory=".formats.FormatterInfos" />
 
     <adapter
-        factory=".product.ProductData" />
+        for="easyshop.core.interfaces.IShop"
+        factory=".formats.FormatterInfos" />
+        
 
-
+    <!-- IPrices -->    
     <adapter
-        factory=".category.CategoryProductManager" />
+        factory=".prices.ProductPrices" />
 
+
+    <!-- IProductManagement -->
     <adapter
-        factory=".category.CategoryCategoryManagement" />
-
+        factory=".product_management.CategoryProductManagement" />
 
     <adapter 
-        factory=".shop.product.ShopProductManagement" />
+        factory=".product_management.ShopProductManagement" />
 
+    <!-- IPropertyManagement -->
     <adapter
-        factory=".shop.category.ShopCategoryManagement" />
+        factory=".property_management.ProductPropertyManagement" />
 
-    <include 
-        package=".generic" />
-    
+    <!-- IGroupManagement -->    
+    <adapter
+        factory=".group_management.ProductGroupManagement" />
+
+    <!-- ITaxes -->    
+    <adapter
+        factory=".taxes.ProductTaxes" />
+
+        
+
 </configure>

@@ -8,8 +8,8 @@ from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
-class ProductPriceCalculator:
-    """Provides IPrices for product content object
+class ProductPrices:
+    """Provides IPrices for product content object.
     """
     implements(IPrices)
     adapts(IProduct)

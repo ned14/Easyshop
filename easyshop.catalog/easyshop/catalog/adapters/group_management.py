@@ -9,7 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import IGroupManagement
 from easyshop.core.interfaces import IProduct
 
-class ProductGroupManager:
+class ProductGroupManagement:
     """Provides IGroupManagement for product content objects.
     """
     implements(IGroupManagement)
