@@ -32,4 +32,4 @@ class PaymentPriceView(BrowserView):
         """
         """        
         cm = ICurrencyManagement(IShopManagement(self.context).getShop())
-        return cm.priceToString(self.context.getPriceGross())
+        return cm.priceToString(self.context.getPrice())

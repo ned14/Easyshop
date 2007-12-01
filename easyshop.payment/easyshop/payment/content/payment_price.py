@@ -24,7 +24,7 @@ schema = Schema((
     ),
     
     FloatField(
-        name="priceGross",
+        name="price",
         required=True,
         widget=DecimalWidget(
             size="10",

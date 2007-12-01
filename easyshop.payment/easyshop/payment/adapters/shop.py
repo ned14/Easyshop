@@ -113,7 +113,7 @@ class PaymentPrices:
         """
         for price in self.getPaymentPrices():
             if IValidity(price).isValid() == True:
-                return price.getPriceGross()
+                return price.getPrice()
 
         return 0
 
@@ -169,7 +169,7 @@ class PaymentPrices:
         """
         """
         temp_payment_product = Product("payment")
-        temp_payment_product.setPriceGross(self.getPriceGross())
+        temp_payment_product.setPrice(self.getPriceGross())
         temp_payment_product.context = self.context
         
         return temp_payment_product

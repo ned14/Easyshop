@@ -19,7 +19,7 @@ class PaymentPricesView(BrowserView):
         result = []
         for payment_price in pp.getPaymentPrices():
             
-            price = cm.priceToString(payment_price.getPriceGross())
+            price = cm.priceToString(payment_price.getPrice())
             
             result.append({
                 "id"       : payment_price.getId(),            
