@@ -117,12 +117,19 @@ class IPaymentPrice(Interface):
     """
 
 class IPaymentPrices(Interface):
-    """Provides methods to manage payment prices content object and 
-    prices and taxes for them.
+    """Provides methods to manage payment prices content object and prices and 
+    taxes for them.
     """
     
 class IPaymentMethodManagement(Interface):
-    """Provides methods to manage payment methods.
+    """Methods to manage payment methods on shop level. Payment methods are for
+    instance: prepayment, direct debit, PayPal, credit card, cash on delivery.
+
+    Some payment methods need additional payment information on customer level
+    like: bank accounts for direct debit or credit cards (data of a credit card,
+    like card number) for credit card (the payment method). Methods to manage 
+    these payment information are provided by IPaymentInformationManagement. 
+    See there for more.
     """
     def deletePaymentMethod(id):
         """Deletes a Payment Method by given id.
