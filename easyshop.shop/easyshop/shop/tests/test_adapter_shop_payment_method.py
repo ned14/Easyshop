@@ -1,7 +1,7 @@
 # easyshop imports 
 from base import EasyShopTestCase
 from easyshop.core.interfaces import IPaymentMethodManagement
-from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPaymentPriceManagement
 
 class TestPaymentMethodManagement(EasyShopTestCase):
     """
@@ -71,14 +71,14 @@ class TestPaymentPrices(EasyShopTestCase):
     def testGetPaymentPrices(self):
         """
         """            
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         ids = [pp.getId() for pp in pp.getPaymentPrices()]
         self.assertEqual(ids, ["default"])
 
     def testGetPriceGross(self):
         """
         """
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         price_gross = pp.getPriceGross()
         
         self.assertEqual(price_gross, 100.0)
@@ -86,7 +86,7 @@ class TestPaymentPrices(EasyShopTestCase):
     def testGetPriceForCustomer(self):
         """
         """
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         price_gross = pp.getPriceGross()
         
         self.assertEqual(price_gross, 100.0)
@@ -94,7 +94,7 @@ class TestPaymentPrices(EasyShopTestCase):
     def testGetPriceNet(self):
         """
         """
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         price_net = pp.getPriceNet()
         
         self.assertEqual("%.2f" % price_net, "84.03")
@@ -102,7 +102,7 @@ class TestPaymentPrices(EasyShopTestCase):
     def testGetTax(self):
         """
         """
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         tax = pp.getTax()
 
         self.assertEqual("%.2f" % tax, "15.97")
@@ -110,7 +110,7 @@ class TestPaymentPrices(EasyShopTestCase):
     def testGetTaxForCustomer(self):
         """
         """
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         tax = pp.getTaxForCustomer()
 
         self.assertEqual("%.2f" % tax, "15.97")
@@ -118,7 +118,7 @@ class TestPaymentPrices(EasyShopTestCase):
     def testGetTaxRate(self):
         """
         """
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         tax = pp.getTaxRate()
 
         self.assertEqual(tax, 19.0)
@@ -126,7 +126,7 @@ class TestPaymentPrices(EasyShopTestCase):
     def testGetTaxRateForCustomer(self):
         """
         """
-        pp = IPaymentPrices(self.shop)
+        pp = IPaymentPriceManagement(self.shop)
         tax = pp.getTaxRateForCustomer()
 
         self.assertEqual(tax, 19.0)

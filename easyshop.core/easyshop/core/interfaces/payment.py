@@ -18,7 +18,8 @@ class ISelectablePaymentMethod(Interface):
     """
 
 class IAsynchronPaymentMethod(Interface):
-    """Marker interface for payment methods which redirect away from the shops.
+    """Marker interface for payment methods which redirect to the payment 
+    service, e.g. PayPal.
     """    
     
 class ICreditCardPaymentMethod(IPaymentMethod):
@@ -116,11 +117,42 @@ class IPaymentPrice(Interface):
     """A marker interface for payment price content objects.
     """
 
-class IPaymentPrices(Interface):
-    """Provides methods to manage payment prices content object and prices and 
-    taxes for them.
+class IPaymentPriceManagement(Interface):
+    """Provides all methods to manage the payment prices. This includes also 
+    calculation of prices and taxes.
     """
-    
+    def getPaymentPrices():
+        """Return all payment prices.
+        """
+
+    def getPriceGross():
+        """Returns the gross price for selected payment method.
+        """
+
+    def getPriceForCustomer():
+        """Returns customer's price for selected payment method.
+        """
+        
+    def getPriceNet():
+        """Returns the net price for selected payment method.
+        """
+
+    def getTax():
+        """Returns the default tax for the payment price.
+        """
+
+    def getTaxForCustomer():
+        """Returns customer's tax for the payment price.
+        """
+
+    def getTaxRate():
+        """Returns the default tax rate for the payment price.
+        """
+
+    def getTaxRateForCustomer():
+        """Returns customer's tax rate for the payment price.
+        """
+
 class IPaymentMethodManagement(Interface):
     """Methods to manage payment methods on shop level. Payment methods are for
     instance: prepayment, direct debit, PayPal, credit card, cash on delivery.
@@ -177,7 +209,7 @@ class IPaymentMethodsContainer(Interface):
     """A marker interface for payment method folder content objects.
     """
 
-class IPaymentPricesContainer(Interface):
+class IPaymentPriceManagementContainer(Interface):
     """A marker interface for payment price folder objects.
     """
 

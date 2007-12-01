@@ -18,8 +18,8 @@ from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICopyManagement
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShippingManagement
-from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IShippingPriceManagement
+from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IShop
 
 from easyshop.order.events import OrderSubmitted
@@ -75,7 +75,7 @@ class OrderManagement:
         new_order = getattr(self.orders, new_id)
 
         # Add shipping values to order
-        sm = IShippingManagement(self.context)
+        sm = IShippingPriceManagement(self.context)
         new_order.setShippingPriceNet(sm.getPriceNet())
         new_order.setShippingPriceGross(sm.getPriceGross())
         new_order.setShippingTax(sm.getTaxForCustomer())
@@ -85,7 +85,7 @@ class OrderManagement:
         IItemManagement(new_order).addItemsFromCart(cart)
 
         # Add payment price values to order 
-        pp = IPaymentPrices(self.context)
+        pp = IPaymentPriceManagement(self.context)
         new_order.setPaymentPriceGross(pp.getPriceGross())
         new_order.setPaymentPriceNet(pp.getPriceNet())
         new_order.setPaymentTax(pp.getTaxForCustomer())

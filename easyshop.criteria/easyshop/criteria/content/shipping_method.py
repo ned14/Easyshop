@@ -10,7 +10,7 @@ from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShippingMethodCriteria
 from easyshop.core.interfaces import IShopManagement
 
@@ -65,7 +65,7 @@ class ShippingMethodCriteria(BaseContent):
         dl = DisplayList()
         
         shop = IShopManagement(self).getShop()
-        sm = IShippingManagement(shop)
+        sm = IShippingPriceManagement(shop)
         
         for shipping_method in sm.getShippingMethods():
             dl.add(shipping_method.getId(), shipping_method.Title())

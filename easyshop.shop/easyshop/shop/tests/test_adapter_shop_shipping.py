@@ -10,7 +10,7 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports 
 from base import EasyShopTestCase
 from easyshop.shop.tests import utils
-from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 
 class TestShopShippingManagement(EasyShopTestCase):
     """
@@ -20,7 +20,7 @@ class TestShopShippingManagement(EasyShopTestCase):
         """
         super(TestShopShippingManagement, self).afterSetUp()
         self.shop.taxes.invokeFactory("CustomerTax", id="customer", rate=10.0)
-        self.sm = IShippingManagement(self.shop)
+        self.sm = IShippingPriceManagement(self.shop)
         
     def testGetShippingPrice(self):
         """

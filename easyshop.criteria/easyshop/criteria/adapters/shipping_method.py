@@ -4,7 +4,7 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShippingMethodCriteria
 from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
@@ -26,7 +26,7 @@ class ShippingMethodCriteriaValidity:
         is within selected shipping methods of this criterion.
         """        
         shop = IShopManagement(self.context).getShop()
-        sm = IShippingManagement(shop)
+        sm = IShippingPriceManagement(shop)
         selected_method = sm.getSelectedShippingMethod()
                 
         if selected_method is not None and \

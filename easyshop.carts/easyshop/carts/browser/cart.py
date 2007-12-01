@@ -19,10 +19,10 @@ from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
-from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
@@ -155,7 +155,7 @@ class CartFormView(BrowserView):
     def getPaymentInfo(self):
         """
         """
-        pp = IPaymentPrices(self.context)
+        pp = IPaymentPriceManagement(self.context)
         price = pp.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
@@ -177,7 +177,7 @@ class CartFormView(BrowserView):
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         selected_shipping_id = customer.selected_shipping_method
         
-        sm = IShippingManagement(self.context)
+        sm = IShippingPriceManagement(self.context)
         
         shipping_methods = []
         for shipping in sm.getShippingMethods():
@@ -201,12 +201,12 @@ class CartFormView(BrowserView):
     def getShippingInfo(self):
         """
         """
-        sm = IShippingManagement(self.context)
+        sm = IShippingPriceManagement(self.context)
         shipping_price = sm.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
         price = cm.priceToString(shipping_price)
-        method = IShippingManagement(self.context).getSelectedShippingMethod()
+        method = IShippingPriceManagement(self.context).getSelectedShippingMethod()
                 
         return {
             "price"       : price,

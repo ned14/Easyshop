@@ -5,10 +5,10 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import ICart
 from easyshop.core.interfaces import ICartItem
-from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
-from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
 
 class CartPrices:
@@ -40,12 +40,12 @@ class CartPrices:
             price += IPrices(cart_item).getPriceForCustomer()
         
         if with_shipping == True:
-            sm = IShippingManagement(self.shop)
+            sm = IShippingPriceManagement(self.shop)
             shipping_price = sm.getPriceForCustomer()
             price += shipping_price
         
         if with_payment == True:
-            sm = IPaymentPrices(self.shop)
+            sm = IPaymentPriceManagement(self.shop)
             payment_price = sm.getPriceForCustomer()
             price += payment_price
 
@@ -60,12 +60,12 @@ class CartPrices:
             price += IPrices(cart_item).getPriceGross()
 
         if with_shipping == True:
-            sm = IShippingManagement(self.shop)
+            sm = IShippingPriceManagement(self.shop)
             shipping_price = sm.getPriceGross()
             price += shipping_price
 
         if with_payment == True:
-            sm = IPaymentPrices(self.shop)
+            sm = IPaymentPriceManagement(self.shop)
             payment_price = sm.getPriceGross()
             price += payment_price
     
@@ -80,12 +80,12 @@ class CartPrices:
             price += IPrices(cart_item).getPriceNet()
 
         if with_shipping == True:
-            sm = IShippingManagement(self.shop)
+            sm = IShippingPriceManagement(self.shop)
             shipping_price = sm.getPriceNet()
             price += shipping_price        
 
         if with_payment == True:
-            sm = IPaymentPrices(self.shop)
+            sm = IPaymentPriceManagement(self.shop)
             payment_price = sm.getPriceNet()
             price += payment_price
 

@@ -1,7 +1,7 @@
 # zope imports
 from zope.interface import Interface
 
-class IShippingManagement(Interface):
+class IShippingPriceManagement(Interface):
     """
     """    
     def getSelectedShippingMethod():

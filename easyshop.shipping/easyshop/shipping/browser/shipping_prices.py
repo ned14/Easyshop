@@ -3,7 +3,7 @@ from Products.Five.browser import BrowserView
 
 # easyshop imports
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
 
 class ShippingPricesView(BrowserView):
@@ -13,7 +13,7 @@ class ShippingPricesView(BrowserView):
         """
         """
         shop = IShopManagement(self.context).getShop()        
-        sm = IShippingManagement(shop)        
+        sm = IShippingPriceManagement(shop)        
         cm = ICurrencyManagement(shop)
                 
         result = []

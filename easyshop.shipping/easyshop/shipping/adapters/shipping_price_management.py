@@ -8,7 +8,7 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ITaxes
-from easyshop.core.interfaces import IShippingManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IValidity
@@ -16,10 +16,10 @@ from easyshop.core.interfaces import IShop
 from easyshop.catalog.content.product import Product
 from easyshop.core.interfaces import IShopManagement
 
-class ShopShippingManagement:
-    """An adapter which provides IShippingManagement for shop content objects.
+class ShippingPriceManagement:
+    """An adapter which provides IShippingPriceManagement for shop content objects.
     """    
-    implements(IShippingManagement)
+    implements(IShippingPriceManagement)
     adapts(IShop)
 
     def __init__(self, context):
@@ -102,8 +102,6 @@ class ShopShippingManagement:
         
         return self.getPriceNet() + self.getTaxForCustomer()
 
-    # Todo: Optimize. The next methods are the same as for pending tax
-    # calculations
     def getPriceGross(self):
         """
         """
