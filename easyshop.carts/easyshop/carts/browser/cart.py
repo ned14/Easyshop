@@ -1,6 +1,3 @@
-# zope imports
-from zope.component import queryUtility
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -16,13 +13,12 @@ from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IItemManagement 
-from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IShippingPriceManagement
+from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
@@ -177,7 +173,7 @@ class CartFormView(BrowserView):
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         selected_shipping_id = customer.selected_shipping_method
         
-        sm = IShippingPriceManagement(self.context)
+        sm = IShippingMethodManagement(self.context)
         
         shipping_methods = []
         for shipping in sm.getShippingMethods():
@@ -201,12 +197,12 @@ class CartFormView(BrowserView):
     def getShippingInfo(self):
         """
         """
-        sm = IShippingPriceManagement(self.context)
+        sm = IShippingMethodManagement(self.context)
         shipping_price = sm.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
         price = cm.priceToString(shipping_price)
-        method = IShippingPriceManagement(self.context).getSelectedShippingMethod()
+        method = IShippingMethodManagement(self.context).getSelectedShippingMethod()
                 
         return {
             "price"       : price,

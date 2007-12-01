@@ -1,14 +1,25 @@
 # zope imports
 from zope.interface import Interface
 
-class IShippingPriceManagement(Interface):
+class IShippingMethodManagement(Interface):
     """
-    """    
+    """
     def getSelectedShippingMethod():
         """Returns the selected shipping method of the current authenticated 
         customer.
         """
             
+    def getShippingMethod(id):
+        """Returns shipping method by given id.
+        """    
+        
+    def getShippingMethods():
+        """Returns all shipping methods.
+        """
+            
+class IShippingPriceManagement(Interface):
+    """
+    """    
     def getPriceNet():
         """Returns the net price of shipping.
         """
@@ -30,14 +41,6 @@ class IShippingPriceManagement(Interface):
         """Returns all shipping prices
         """
 
-    def getShippingMethod(id):
-        """Returns shipping method by given id.
-        """    
-        
-    def getShippingMethods():
-        """Returns all shipping methods.
-        """
-        
     def getTaxRate():
         """Returns tax rate for shipping by means of tax manager
         """

@@ -6,7 +6,6 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import ICartManagement
@@ -29,15 +28,6 @@ class ShippingPriceManagement:
         self.prices  = self.context.shippingprices
         self.methods = self.context.shippingmethods
         
-    def getSelectedShippingMethod(self):
-        """
-        """
-        cm = ICustomerManagement(IShopManagement(self.context).getShop())
-        customer = cm.getAuthenticatedCustomer()        
-        shipping_method_id = customer.selected_shipping_method
-        
-        return self.getShippingMethod(shipping_method_id)
-        
     def getShippingPrice(self, id):
         """
         """        
@@ -58,28 +48,6 @@ class ShippingPriceManagement:
         brains = catalog.searchResults(
             portal_type = ("ShippingPrice",),
             path = "/".join(self.prices.getPhysicalPath()),
-            sort_on = "getObjPositionInParent",
-        )
-
-        # Todo: Optimize
-        return [brain.getObject() for brain in brains]
-
-    def getShippingMethod(self, id):
-        """
-        """
-        try:
-            return self.methods[id]
-        except KeyError:
-            return None    
-
-    def getShippingMethods(self):
-        """
-        """
-        # Todo: By interface
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            portal_type = ("ShippingMethod",),
-            path = "/".join(self.methods.getPhysicalPath()),
             sort_on = "getObjPositionInParent",
         )
 
@@ -119,19 +87,19 @@ class ShippingPriceManagement:
     def getTaxRate(self):
         """
         """
-        temp_shipping_product = self.createTemporaryShippingProduct()
+        temp_shipping_product = self._createTemporaryShippingProduct()
         return ITaxes(temp_shipping_product).getTaxRate()
 
     def getTaxRateForCustomer(self):
         """
         """
-        temp_shipping_product = self.createTemporaryShippingProduct()
+        temp_shipping_product = self._createTemporaryShippingProduct()
         return ITaxes(temp_shipping_product).getTaxRateForCustomer()
 
     def getTax(self):
         """
         """
-        temp_shipping_product = self.createTemporaryShippingProduct()
+        temp_shipping_product = self._createTemporaryShippingProduct()
         return ITaxes(temp_shipping_product).getTax()
 
     def getTaxForCustomer(self):
@@ -148,10 +116,10 @@ class ShippingPriceManagement:
         if cart_item_manager.hasItems() == False:
             return 0
 
-        temp_shipping_product = self.createTemporaryShippingProduct()        
+        temp_shipping_product = self._createTemporaryShippingProduct()        
         return ITaxes(temp_shipping_product).getTaxForCustomer()
 
-    def createTemporaryShippingProduct(self):
+    def _createTemporaryShippingProduct(self):
         """
         """
         temp_shipping_product = Product("shipping")

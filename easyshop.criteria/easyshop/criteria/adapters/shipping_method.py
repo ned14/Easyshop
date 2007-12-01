@@ -3,11 +3,11 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShippingMethodCriteria
-from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IValidity
+
 
 class ShippingMethodCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content
@@ -26,7 +26,7 @@ class ShippingMethodCriteriaValidity:
         is within selected shipping methods of this criterion.
         """        
         shop = IShopManagement(self.context).getShop()
-        sm = IShippingPriceManagement(shop)
+        sm = IShippingMethodManagement(shop)
         selected_method = sm.getSelectedShippingMethod()
                 
         if selected_method is not None and \

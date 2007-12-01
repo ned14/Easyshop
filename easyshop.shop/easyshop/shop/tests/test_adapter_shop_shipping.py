@@ -100,7 +100,7 @@ class TestShopShippingManagement(EasyShopTestCase):
     def testCreateTemporaryShippingProduct(self):
         """
         """
-        product = self.sm.createTemporaryShippingProduct()
+        product = self.sm._createTemporaryShippingProduct()
         self.assertEqual(product.getPrice(), 10.0)
         self.assertEqual(product.getId(), "shipping")
                 
