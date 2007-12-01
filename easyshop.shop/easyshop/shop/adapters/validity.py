@@ -9,7 +9,7 @@ from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IType
 
-class ValidityManagement(object):
+class Validity(object):
     """An adapter which provides IValidity for several classes. See 
     configure.zcml for more information.
     """

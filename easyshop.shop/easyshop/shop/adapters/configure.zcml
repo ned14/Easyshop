@@ -1,21 +1,46 @@
 <configure 
     xmlns="http://namespaces.zope.org/zope">
 
-    <include
-        package=".generic" />
-
-    <include
-        package=".shop" />
-    
+    <!-- ICurrencyManagement -->
     <adapter
-        factory=".generic.ImageConversion" />
+        factory=".currency_management.CurrencyManagement" />
 
+    <!-- IImageConversion  -->
+    <adapter
+        factory=".image_conversion.ImageConversion" />
+
+    <!-- IPhotoManagement -->
     <adapter
         for="easyshop.core.interfaces.IProduct"        
-        factory=".generic.PhotoManagement" />
-
+        factory=".photo_management.PhotoManagement" />
+    
     <adapter
         for="easyshop.core.interfaces.ICategory"
-        factory=".generic.PhotoManagement" />
+        factory=".photo_management.PhotoManagement" />
+
+    <!-- IShopManagement -->
+    <adapter
+        factory=".shop_management.ShopManagement" />
+
+    <!-- IValidity -->    
+    <adapter
+        for="easyshop.core.interfaces.ITax"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IShippingPrice"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IPaymentPrice"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IPaymentMethod"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IPaymentInformation"
+        factory=".validity.Validity" />
 
 </configure>

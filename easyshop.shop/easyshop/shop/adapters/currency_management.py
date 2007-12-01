@@ -13,7 +13,7 @@ from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IShopManagement
 
 class CurrencyManagement:
-    """Provices currency related methods.
+    """Provides ICurrencyManagement for serveral content objects.
     """
     implements(ICurrencyManagement)
     adapts(Interface)

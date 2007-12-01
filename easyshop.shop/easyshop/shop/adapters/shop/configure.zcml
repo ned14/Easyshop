@@ -1,9 +1,0 @@
-<configure xmlns="http://namespaces.zope.org/zope">
-
-    <adapter
-        factory=".shop.ShopManagement" />
-
-    <adapter
-        factory=".currency.CurrencyManagement" />
-        
-</configure>

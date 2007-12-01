@@ -16,25 +16,25 @@ class TestValidityAdapters(EasyShopTestCase):
         """
         """
         adapter = IValidity(BankAccount("dummy"))
-        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
+        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.validity.Validity'>")
 
         adapter = IValidity(GenericPaymentMethod("dummy"))
-        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
+        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.validity.Validity'>")
 
         adapter = IValidity(PaymentPrice("dummy"))
-        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
+        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.validity.Validity'>")
 
         adapter = IValidity(CustomerTax("dummy"))
-        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
+        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.validity.Validity'>")
 
         adapter = IValidity(DefaultTax("dummy"))
-        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
+        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.validity.Validity'>")
         
         adapter = IValidity(ShippingPrice("dummy"))
-        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
+        self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.validity.Validity'>")
         
         # adapter = IValidity(ShippingMethod("dummy"))
-        # self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.generic.validity.ValidityManagement'>")
+        # self.assertEqual(str(adapter.__class__), "<class 'easyshop.shop.adapters.validity.Validity'>")
         
 def test_suite():
     from unittest import TestSuite, makeSuite
