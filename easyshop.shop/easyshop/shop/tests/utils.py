@@ -47,13 +47,13 @@ def createTestEnvironment(self):
     self.shop.at_post_create_script()
 
     # Add shipping and payment price
-    self.shop.shippingprices.manage_addProduct["easyshop.shop"].addShippingPrice(id="default", priceGross=10.0)
+    self.shop.shippingprices.manage_addProduct["easyshop.shop"].addShippingPrice(id="default", price=10.0)
     self.shop.shippingprices.default.reindexObject()
     
-    self.shop.paymentprices.manage_addProduct["easyshop.shop"].addPaymentPrice(id="default", priceGross=100.0)
+    self.shop.paymentprices.manage_addProduct["easyshop.shop"].addPaymentPrice(id="default", price=100.0)
     
     self.shop.setCountries(["Germany"])
-    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_1", priceGross=22.0)
+    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_1", price=22.0)
     self.product_1 = self.shop.products.product_1
     self.product_1.setWeight(10.0)
 
@@ -99,12 +99,12 @@ def createTestEnvironment(self):
     self.product_1.manage_addProduct["easyshop.shop"].addProductProperty(id="quality", title="Quality")
     self.product_1.quality.setOptions(quality)
     
-    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_2", priceGross=19.0)
+    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_2", price=19.0)
     self.product_2 = self.shop.products.product_2
     self.product_2.setWeight(20.0)
 
     # A product without properties
-    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_42", priceGross=19.0)
+    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_42", price=19.0)
     self.product_42 = self.shop.products.product_42
     
     # Groups

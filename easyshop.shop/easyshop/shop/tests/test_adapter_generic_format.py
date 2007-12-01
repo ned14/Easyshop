@@ -22,19 +22,10 @@ class TestFormatterInfos(EasyShopTestCase):
         super(TestFormatterInfos, self).afterSetUp()
         self.fi_1 = IFormats(self.shop)
         self.fi_2 = IFormats(self.shop.categories.category_1)
-        
-    def testGetText(self):
-        """
-        """
-        self.assertEqual(self.fi_1.getText(), "short_text") 
 
-    def testGetFormatter(self):
-        """
-        """        
-        self.assertEqual(self.fi_1.getFormatter().getId(), "formatter")
-        self.assertEqual(self.fi_2.getFormatter().getId(), "formatter")
-                
-    def testGetFormatInfosAsDict(self):
+    # TODO: test for setFormats
+    # TODO: test for effective formats
+    def testGetFormats(self):
         """
         """
         fi_1 = self.fi_1.getFormats()
@@ -52,30 +43,6 @@ class TestFormatterInfos(EasyShopTestCase):
         self.assertEqual(fi_2["text"], "short_text")
         self.assertEqual(fi_2["product_height"], 0)
                 
-    def testGetLinesPerPage(self):
-        """
-        """
-        self.assertEqual(self.fi_1.getLinesPerPage(), 1)
-        self.assertEqual(self.fi_2.getLinesPerPage(), 1)
-        
-    def testGetProductsPerLine(self):
-        """
-        """
-        self.assertEqual(self.fi_1.getProductsPerLine(), 2)
-        self.assertEqual(self.fi_2.getProductsPerLine(), 2)
-        
-    def testGetImageSize(self):
-        """
-        """
-        self.assertEqual(self.fi_1.getImageSize(), "mini")
-        self.assertEqual(self.fi_2.getImageSize(), "mini")
-        
-    def testHasFormatter(self):
-        """
-        """    
-        self.assertEqual(self.fi_1.hasFormatter(), True)
-        self.assertEqual(self.fi_2.hasFormatter(), False)
-
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()

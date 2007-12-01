@@ -38,7 +38,7 @@ class ShippingPriceBase(OrderedBaseFolder):
 schema = Schema((
 
     FloatField(
-        name='priceGross',
+        name='price',
         widget=DecimalWidget(
             size="10",
             label='Pricegross',

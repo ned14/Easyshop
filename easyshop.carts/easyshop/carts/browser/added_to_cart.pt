@@ -23,7 +23,8 @@
                tal:define="product view/getProduct">
             <tr>
                 <td width="1px">
-                    <a href="."
+                    <a tal:condition="product/image_url"
+                       href="."
                        tal:attributes="href product/url">
                         <img class="added-to-cart-image"
                              src="."

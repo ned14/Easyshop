@@ -109,7 +109,7 @@ class ShippingManagement:
         """
         for price in self.getShippingPrices():
             if IValidity(price).isValid() == True:
-                return price.getPriceGross()
+                return price.getPrice()
         
         return 0
 
@@ -157,7 +157,7 @@ class ShippingManagement:
         """
         """
         temp_shipping_product = Product("shipping")
-        temp_shipping_product.setPriceGross(self.getPriceGross())
+        temp_shipping_product.setPrice(self.getPriceGross())
         temp_shipping_product.context = self.context
         
         return temp_shipping_product

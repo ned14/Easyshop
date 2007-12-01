@@ -41,7 +41,7 @@ class Browser(BaseBrowser):
     
     def dc(self, filename="/Users/Kai/Temp/test-output.html"):
         open(filename, 'w').write(self.contents)
-
+            
 class EasyShopLayer(PloneSite):
     """
     """
@@ -50,6 +50,7 @@ class EasyShopLayer(PloneSite):
         app = ZopeTestCase.app()
         portal = app.plone
 
+        ZopeTestCase.installPackage("easyshop.catalog")
         ZopeTestCase.installPackage("easyshop.checkout")
         ZopeTestCase.installPackage("easyshop.login")                
         ZopeTestCase.installPackage("easyshop.shop")

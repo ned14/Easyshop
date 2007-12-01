@@ -68,7 +68,7 @@ class OrderItemManager:
         new_item.setProductQuantity(cart_item.getAmount())
         new_item.setTaxRate(taxes.getTaxRate())
         new_item.setProductTax(taxes.getTax())
-        new_item.setProductPriceGross(cart_item.getProduct().getPriceGross())
+        new_item.setProductPriceGross(cart_item.getProduct().getPrice())
         new_item.setProductPriceNet(new_item.getProductPriceGross() - new_item.getProductTax())
 
         # set item prices & taxes

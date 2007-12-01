@@ -95,6 +95,7 @@ class OrderManagement:
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         cm = ICopyManagement(customer)
         cm.copyTo(new_order)
+        
             
         ## Reset security manager
         setSecurityManager(old_sm)

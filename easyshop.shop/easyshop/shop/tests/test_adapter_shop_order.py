@@ -46,8 +46,10 @@ class TestOrderManagement(EasyShopTestCase):
         # customer should be copied
         self.assertEqual(new_order.getCustomer().getId(), "newmember")
         
-        # cart should be deleted
-        self.failIf(self.shop.carts.get("newmember"))
+        # The cart should still be there, because we need until the payment has
+        # been successfully processed. See order_preview.py/handle_buy_action 
+        # for more.
+        self.failUnless(self.shop.carts.get("newmember"))
                         
     def testCopyCustomerToOrder(self):
         """

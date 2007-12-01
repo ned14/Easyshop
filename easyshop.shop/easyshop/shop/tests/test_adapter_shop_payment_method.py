@@ -1,10 +1,7 @@
 # easyshop imports 
 from base import EasyShopTestCase
-from easyshop.shop.tests import utils
-from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPrices
-from easyshop.core.interfaces import IPayPal
 
 class TestPaymentMethodManagement(EasyShopTestCase):
     """
@@ -51,48 +48,13 @@ class TestPaymentMethodManagement(EasyShopTestCase):
         result = pm.deletePaymentMethod("prepayment")
         self.assertEqual(result, False)
 
-    def testGetPaymentMethods_1(self):
+    def testGetPaymentMethods(self):
         """Get all payment methods (without parameter)
         """
         pm = IPaymentMethodManagement(self.shop)
 
         ids = [p.getId() for p in pm.getPaymentMethods()]
         self.assertEqual(['cash-on-delivery', 'credit-card', 'direct-debit', 'paypal', 'prepayment'], ids)
-
-    def testGetPaymentMethods_2(self):
-        """Get paypal (with parameter=paypal)
-        """
-        pm = IPaymentMethodManagement(self.shop)
-
-        ids = [p.getId() for p in pm.getPaymentMethods(interface=IPayPal)]
-        self.assertEqual(["paypal"], ids)
-
-    def testGetSelectedPaymentMethod_1(self):
-        """Customer has selected prepayment
-        """
-        pm = IPaymentMethodManagement(self.shop)
-        result = pm.getSelectedPaymentMethod().getId()
-        self.assertEqual(result, "prepayment")
-
-    def testGetSelectedPaymentMethod_2(self):
-        """Customer has selected paypal
-        """
-        cm = ICustomerManagement(self.shop)
-        customer = cm.getAuthenticatedCustomer()        
-        customer.selected_payment_method = "paypal"
-        
-        pm = IPaymentMethodManagement(self.shop)
-        result = pm.getSelectedPaymentMethod().getId()
-        self.assertEqual(result, "paypal")
-
-    def testGetSelectedPaymentMethod_3(self):
-        """Customer has selected a non existing. Returns default, which is 
-        prepayment atm.
-        """
-        self.customer.selected_payment_method = "dummy"
-        pm = IPaymentMethodManagement(self.shop)
-        result = pm.getSelectedPaymentMethod().getId()
-        self.assertEqual(result, "prepayment")
 
 class TestPaymentPrices(EasyShopTestCase):
     """

@@ -36,10 +36,14 @@ class AddedToCartView(BrowserView):
         
         # Photo
         photo = IPhotoManagement(product).getMainPhoto()
+        if photo is not None:
+            image_url = photo.absolute_url()
+        else:
+            image_url = None
         
         return {
             "title"     : product.Title(),
             "url"       : product.absolute_url(),
             "price"     : price,
-            "image_url" : photo.absolute_url(),
+            "image_url" : image_url,
         }

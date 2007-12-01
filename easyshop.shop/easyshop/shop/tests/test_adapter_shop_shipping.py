@@ -26,7 +26,7 @@ class TestShopShippingManagement(EasyShopTestCase):
         """
         """
         price = self.sm.getShippingPrice("default")
-        self.assertEqual(price.getPriceGross(), 10.0)
+        self.assertEqual(price.getPrice(), 10.0)
                 
     def testGetShippingPrices(self):
         """
@@ -101,7 +101,7 @@ class TestShopShippingManagement(EasyShopTestCase):
         """
         """
         product = self.sm.createTemporaryShippingProduct()
-        self.assertEqual(product.getPriceGross(), 10.0)
+        self.assertEqual(product.getPrice(), 10.0)
         self.assertEqual(product.getId(), "shipping")
                 
 def test_suite():

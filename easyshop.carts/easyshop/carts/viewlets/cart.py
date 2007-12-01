@@ -31,7 +31,9 @@ class CartViewlet(ViewletBase):
         """
         """
         cart = self._getCart()
-        
+        if cart is None:
+            return 0
+            
         amount = 0
         for item in IItemManagement(cart).getItems():
             amount += item.getAmount()

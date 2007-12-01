@@ -2,11 +2,10 @@ First, some set-up:
     
     >>> from easyshop.shop.tests.base import Browser
     >>> browser = Browser()
-        
-Let us log all exceptions, which is useful for debugging.
-
     >>> self.portal.error_log._ignored_exceptions = ()
+
     >>> self.logout()
+    
     
 View the shop
 ------------------------------
@@ -23,46 +22,19 @@ We browse to the document, we want to buy.
     '...19,00...'
 
 And add it to the cart     
+
     >>> browser.getControl('Add to Cart').click()
     >>> browser.contents
     '...The product has been added to the cart...'
 
-Once again to check the portal meassage for already added products.
-        
+We go back to shopping and add the product once again to check the portal 
+meassage for already added products.
+
+    >>> browser.open(self.portal.myshop.products.product_42.absolute_url())
     >>> browser.getControl('Add to Cart').click()
     >>> browser.contents
     '...The amount of the product has been increased...'
 
-Buy a product with properties
-------------------------------
-
-    >>> browser.open(self.portal.myshop.products.product_1.absolute_url())
-    >>> browser.contents
-    '...22,00...'
-    
-    >>> browser.getControl('Buy Product').click()
-    >>> browser.contents
-    '...Properties Selection...'
-
-Select some options and update to the new price.
-
-    >>> browser.getControl(name='property-color').value = ['Red']
-    >>> browser.getControl('Update Price').click()
-
-Is the selected option still selected?
-
-    >>> browser.contents
-    '...Red...'
-
-Is the price updated properly?
-    
-    >>> browser.contents
-    '...12,00...'
-
-    >>> browser.getControl('Add to Cart').click()
-    >>> browser.contents
-    '...The product has been added to the cart...'
-        
 Check out
 ------------------------------
 To check out we click on the check out link.

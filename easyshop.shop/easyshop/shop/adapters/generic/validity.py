@@ -11,7 +11,7 @@ from easyshop.core.interfaces import IType
 
 class ValidityManagement(object):
     """An adapter which provides IValidity for several classes. See 
-    configure.zcml for more information
+    configure.zcml for more information.
     """
     implements(IValidity)
      
@@ -38,34 +38,3 @@ class ValidityManagement(object):
                     return False
                                             
         return True
-        
-        
-class PaymentMethodValidityManagement(ValidityManagement):
-    """An adapter which provides IValidity for customer payment methods.
-    """
-    implements(IValidity)
-    adapts(IPaymentMethod)
-
-    def __init__(self, context):
-        """
-        """
-        super(PaymentValidityManagement, self).__init__(context)
-    
-    def isValid(self, product=None):
-        """Returns true if the corresponding payment validator is not False and
-        all contained criteria are True.
-        """
-        # First we check the general validity. For that we try to get the
-        # corresponding payment validator.
-        type   = IType(self.context).getType()
-        pm     = IPaymentMethodManagement(IShopManagement(self.context).getShop())
-        method = pm.getPaymentMethod(type)
-        
-        # Only if we find one, we check validity. If we didn't find one, we
-        # consider the general validity as fulfilled.
-        if method and IValidity(method).isValid() == False:
-            return False
-        
-        # If the non-validity isn't proved we check the criteria of context
-        # (a customer payment method)
-        return super(PaymentValidityManagement, self).isValid(product)

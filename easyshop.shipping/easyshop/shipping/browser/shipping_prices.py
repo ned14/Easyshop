@@ -19,7 +19,7 @@ class ShippingPricesView(BrowserView):
         result = []
         for shipping_price in sm.getShippingPrices():
             
-            price = cm.priceToString(shipping_price.getPriceGross())
+            price = cm.priceToString(shipping_price.getPrice())
             
             result.append({
                 "id"       : shipping_price.getId(),            

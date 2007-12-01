@@ -22,7 +22,7 @@ class TestProductGroupManagement(EasyShopTestCase):
         self.shop.products.invokeFactory(
             "Product", 
             id="product_3", 
-            priceGross=19.0)        
+            price=19.0)        
             
         self.product_3 = self.shop.products.product_3
         
