@@ -3,6 +3,6 @@
     xmlns:five="http://namespaces.zope.org/five">
 
     <adapter
-        factory=".shop.ShippingManagement" />
+        factory=".shipping_management.ShopShippingManagement" />
 
 </configure>

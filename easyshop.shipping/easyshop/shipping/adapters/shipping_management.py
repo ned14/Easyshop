@@ -16,8 +16,8 @@ from easyshop.core.interfaces import IShop
 from easyshop.catalog.content.product import Product
 from easyshop.core.interfaces import IShopManagement
 
-class ShippingManagement:
-    """An adapter, which provides shipping management for shop content objects.
+class ShopShippingManagement:
+    """An adapter which provides IShippingManagement for shop content objects.
     """    
     implements(IShippingManagement)
     adapts(IShop)
@@ -56,7 +56,7 @@ class ShippingManagement:
         # Todo: By interface
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            portal_type = ("ShippingPrice", "DemmelhuberShippingPrice"),
+            portal_type = ("ShippingPrice",),
             path = "/".join(self.prices.getPhysicalPath()),
             sort_on = "getObjPositionInParent",
         )
