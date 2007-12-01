@@ -11,7 +11,7 @@ from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import IShopManagement
 
-class OrderItemManager:
+class OrderItemManagement:
     """Provides IItemManagement for order content objects.
     """
     implements(IItemManagement)

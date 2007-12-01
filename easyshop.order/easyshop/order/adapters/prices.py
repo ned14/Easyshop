@@ -7,8 +7,8 @@ from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrder
 
-class OrderPriceCalculator:
-    """Provides IPrices for order content objects.
+class OrderPrices:
+    """Adapter which provides IPrices for order content objects.
     """
     implements(IPrices)
     adapts(IOrder)

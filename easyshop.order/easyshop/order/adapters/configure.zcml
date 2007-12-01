@@ -1,12 +1,14 @@
 <configure 
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    xmlns:browser="http://namespaces.zope.org/browser">
+    xmlns="http://namespaces.zope.org/zope">
 
-    <include 
-        package=".order" />
+    <adapter
+        factory=".item_management.OrderItemManagement" />
+        
+    <adapter 
+        factory=".order_management.OrderManagement" />
 
-    <include 
-        package=".shop" />
+    <adapter
+        factory=".prices.OrderPrices" />
+
         
 </configure>

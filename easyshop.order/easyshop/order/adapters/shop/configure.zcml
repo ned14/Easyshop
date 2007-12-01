@@ -1,7 +1,0 @@
-<configure 
-    xmlns="http://namespaces.zope.org/zope">
-
-    <adapter 
-        factory=".order_management.OrderManagement" />
-    
-</configure>
