@@ -116,11 +116,11 @@ schema = Schema((
     ),
     
     FloatField(
-        name='priceGross',
+        name='price',
         default=0.0,
         widget=DecimalWidget(
             size="10",
-            label='Price Gross',
+            label='Price',
             label_msgid='schema_price_gross_label',
             i18n_domain='EasyShop',
         )

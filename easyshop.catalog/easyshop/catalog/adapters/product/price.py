@@ -36,9 +36,9 @@ class ProductPriceCalculator:
         in which the shop is running) for the product. 
         """
         if self.gross_prices == True:
-            return self.context.getPriceGross() - self.taxes.getTax()
+            return self.context.getPrice() - self.taxes.getTax()
         else:
-            return self.context.getPriceGross()
+            return self.context.getPrice()
 
     def getPriceGross(self):
         """Returns the gross price of the product. This is entered by the 
@@ -46,6 +46,6 @@ class ProductPriceCalculator:
         customer but also for cart, cart item, order and order item)
         """
         if self.gross_prices == True:
-            return self.context.getPriceGross()
+            return self.context.getPrice()
         else:
-            return self.context.getPriceGross() + self.taxes.getTax()
+            return self.context.getPrice() + self.taxes.getTax()
