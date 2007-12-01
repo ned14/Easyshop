@@ -13,7 +13,7 @@ from easyshop.core.interfaces import ISessionManagement
 from easyshop.core.interfaces import IShop
 
 class CartManagement:
-    """Provices cart management methods for shop content objects.
+    """Adapter which provides ICartManagement for shop content objects.
     """
     implements(ICartManagement)
     adapts(IShop)

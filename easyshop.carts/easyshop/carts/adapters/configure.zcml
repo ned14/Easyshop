@@ -1,17 +1,29 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five">
+    xmlns="http://namespaces.zope.org/zope">
 
+    <!-- ICartItemManagement -->
+    <adapter
+        factory=".item_management.CartItemManagement" />
+
+
+    <!-- ICartManagement -->
     <adapter
         factory=".cart_management.CartManagement" />
 
+
+    <!-- IPrices -->
     <adapter
-        factory=".cart_prices.CartPrices" />
+        factory=".prices.CartPrices" />
 
     <adapter
-        factory=".cart_item_management.CartItemManagement" />
+        factory=".prices.CartItemPrices" />
+
+    
+    <!-- ITaxes -->
+    <adapter
+        factory=".taxes.CartTaxes" />
 
     <adapter
-        factory=".cart_item_prices.CartItemPrices" />
+        factory=".taxes.CartItemTaxes" />
 
 </configure>
