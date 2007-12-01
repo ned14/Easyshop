@@ -35,7 +35,7 @@ class ProductTaxCalculator:
         """
         """
         tax_rate = self._calcTaxRateForProduct()
-        price = self.context.getPriceGross()
+        price = self.context.getPrice()
         
         if self.shop.getGrossPrices() == True:
             tax_abs = (tax_rate/(tax_rate+100)) * price
@@ -51,9 +51,9 @@ class ProductTaxCalculator:
         tax_rate_customer = self._calcTaxRateForCustomer()
         
         if self.shop.getGrossPrices() == True:
-            price_net = self.context.getPriceGross() - tax_product
+            price_net = self.context.getPrice() - tax_product
         else:
-            price_net = self.context.getPriceGross()
+            price_net = self.context.getPrice()
         
         return  (tax_rate_customer/100) * price_net
 
