@@ -10,15 +10,15 @@ class IOrderManagement(Interface):
     """Provides methods to manage order content objects.
     """
     def addOrder(customer=None, cart=None):
-        """Adds a new order.        
-        """
-
-    def copyCustomerToOrder(customer, order):
-        """Copys customer to order.
+        """Adds a new order on base of the current customer and current cart.
         """
 
     def deleteOrder(id):
         """Deletes order with given id.
+        """
+
+    def getOrderByUID(uid):
+        """Returns order by given uid.        
         """
 
     def getOrders(filter=None):
@@ -33,14 +33,6 @@ class IOrderManagement(Interface):
         """Returns orders for customer with given id.
         """
         
-    def createOrderId():
-        """Creates a new unique order id
-        """
-
-    def getOrderByUID(uid):
-        """Returns order by given uid.        
-        """
-
 class IOrderItem(Interface):
     """Marker interface to mark order item content objects.
     """

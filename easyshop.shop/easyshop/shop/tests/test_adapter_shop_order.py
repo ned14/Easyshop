@@ -51,20 +51,6 @@ class TestOrderManagement(EasyShopTestCase):
         # for more.
         self.failUnless(self.shop.carts.get("newmember"))
                         
-    def testCopyCustomerToOrder(self):
-        """
-        """
-        self.shop.orders.invokeFactory("Order", "order")
-        order = self.shop.orders.get("order")
-        
-        self.shop.customers.invokeFactory("Customer", "customer")
-        customer = self.shop.customers.customer 
-        
-        ICopyManagement(customer).copyTo(order)
-        order_customer = order.objectValues("Customer")[0]
-        
-        self.assertEqual(customer.getId(), order_customer.getId())
-        
     def testGetOrders(self):
         """
         """

@@ -25,9 +25,11 @@ from easyshop.core.interfaces import IShop
 from easyshop.order.events import OrderSubmitted
 
 class UnrestrictedUser(BaseUnrestrictedUser):
-    """Unrestricted user that still has an id."""
+    """Unrestricted user that still has an id.
+    """
     def getId(self):
-        """Return the ID of the user."""
+        """Return the ID of the user.
+        """
         return self.getUserName()
 
 class OrderManagement:
@@ -43,8 +45,7 @@ class OrderManagement:
         self.orders = context.orders
 
     def addOrder(self, customer=None, cart=None):
-        """Adds a new order on base of the current customer and current cart.        
-           It should be called after the payment process is completed.
+        """
         """
         cartmanager = ICartManagement(self.context)
         if customer is None:
@@ -70,7 +71,7 @@ class OrderManagement:
         newSecurityManager(None, tmp_user)
   
         # Add a new order
-        new_id = self.createOrderId()
+        new_id = self._createOrderId()
         self.orders.invokeFactory("Order", id=new_id)
         new_order = getattr(self.orders, new_id)
 
@@ -106,12 +107,20 @@ class OrderManagement:
         return new_order
 
     def deleteOrder(self, id):
-        """Deletes order with given id.
+        """
         """
         self.orders.manage_delObjects([id])
-        
+
+    def getOrderByUID(self, uid):
+        """Returns order by given uid.        
+        """
+        uid_catalog = getToolByName(self.context, 'uid_catalog')
+        lazy_cat = uid_catalog(UID=uid)
+        o = lazy_cat[0].getObject()
+        return o
+                
     def getOrders(self, filter=None, sorting="created", sort_order="reverse"):
-        """Returns orders filtered by given filter.
+        """
         """
         catalog = getToolByName(self.orders, "portal_catalog")
         path = "/".join(self.orders.getPhysicalPath())
@@ -130,7 +139,7 @@ class OrderManagement:
         return [brain.getObject() for brain in brains]
 
     def getOrdersForAuthenticatedCustomer(self):
-        """Returns all orders for the actual customer.
+        """
         """
         # Get authenticated customer        
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
@@ -151,7 +160,7 @@ class OrderManagement:
 
         return orders
         
-    def createOrderId(self):
+    def _createOrderId(self):
         """Creates a new unique order id
         """
         from DateTime import DateTime;
@@ -159,35 +168,4 @@ class OrderManagement:
 
         return str(now.millis())
         
-    def getOrderByUID(self, uid):
-        """Returns order by given uid.        
-        """
-        uid_catalog = getToolByName(self.context, 'uid_catalog')
-        lazy_cat = uid_catalog(UID=uid)
-        o = lazy_cat[0].getObject()
-        return o
         
-    def _copyCustomerToOrder(self, customer, order):
-        """NOT USED AT THE MOMENT
-        """
-        ## The current user may not be allowed to copy and paste, so we
-        ## temporarily change the security context to use a temporary
-        ## user with manager role.
-        portal = getToolByName(self.context, 'portal_url').getPortalObject()
-
-        old_sm = getSecurityManager()
-        tmp_user = UnrestrictedUser(
-            old_sm.getUser().getId(),
-            '', ['Manager'], 
-            ''
-        )
-        
-        tmp_user = tmp_user.__of__(portal.acl_users)
-        newSecurityManager(None, tmp_user)
-
-        # Copy Customer to Order         
-        data = self.context.customers.manage_copyObjects(ids=[customer.getId()])
-        order.manage_pasteObjects(data)        
-
-        ## Reset security manager
-        setSecurityManager(old_sm)
