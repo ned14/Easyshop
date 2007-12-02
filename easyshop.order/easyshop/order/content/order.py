@@ -104,7 +104,7 @@ class Order(BaseFolder):
         
     security.declarePublic('getCustomer')
     def getCustomer(self):
-        """Returns the customer of the order
+        """Returns the customer of the order.
         """
         catalog = getToolByName(self, "portal_catalog")
         brains = catalog.searchResults(
@@ -117,7 +117,7 @@ class Order(BaseFolder):
         except IndexError:
             return None
 
-    security.declarePublic('SearchableText')    
+    security.declarePublic('SearchableText')
     def SearchableText(self):
         """
         """
@@ -135,6 +135,7 @@ class Order(BaseFolder):
                                   address.city))
         return text
 
+    security.declarePublic('Description')
     def Description(self):
         """Makes search results more informative.
         """

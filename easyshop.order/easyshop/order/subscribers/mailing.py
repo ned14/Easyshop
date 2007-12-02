@@ -28,23 +28,23 @@ def sendOrderMail(order, event):
 def mailOrderSent(order):
     """Sends email to customer that the order has been sent.
     """
-    import pdb; pdb.set_trace()
     shop = IShopManagement(order).getShop()
 
-    view = getMultiAdapter((order, order.request), name="mail-order-sent")
+    # Get mail content
+    view = getMultiAdapter((order, order.REQUEST), name="mail-order-sent")
     text = view()
-    
-    mtool = getToolByName(order, "portal_membership")
-    member = mtool.getAuthenticatedMember()    
 
-    # get charset
+    # Get customer
+    customer = order.getCustomer()
+
+    # Get charset
     props = getToolByName(order, "portal_properties").site_properties
     charset = props.getProperty("default_charset")
         
     sendMultipartMail(
         context = order,    
         from_   = shop.getMailFrom(),
-        to      = member.getProperty("email"),
+        to      = customer.email,
         subject = "Your order %s has been sent." % order.getId(),
         text    = text,
         charset = charset)
@@ -52,11 +52,10 @@ def mailOrderSent(order):
 def mailOrderSubmitted(order):
     """Sends email to shop owner that an order has been submitted.
     """
-    import pdb; pdb.set_trace()
     shop = IShopManagement(order).getShop()
     
     if shop.getMailFrom() and shop.getMailTo():
-        view = getMultiAdapter((order, order.request), name="mail-order-submitted")
+        view = getMultiAdapter((order, order.REQUEST), name="mail-order-submitted")
         text = view()
 
         # get charset
