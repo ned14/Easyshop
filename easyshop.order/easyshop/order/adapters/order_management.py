@@ -7,7 +7,6 @@ from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
-from zope.event import notify
 
 # CMF imports
 from Products.CMFCore.utils import getToolByName
@@ -21,8 +20,6 @@ from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IShop
-
-from easyshop.order.events import OrderSubmitted
 
 class UnrestrictedUser(BaseUnrestrictedUser):
     """Unrestricted user that still has an id.
@@ -112,7 +109,7 @@ class OrderManagement:
         self.orders.manage_delObjects([id])
 
     def getOrderByUID(self, uid):
-        """Returns order by given uid.        
+        """
         """
         uid_catalog = getToolByName(self.context, 'uid_catalog')
         lazy_cat = uid_catalog(UID=uid)
@@ -167,5 +164,3 @@ class OrderManagement:
         now = DateTime()
 
         return str(now.millis())
-        
-        
