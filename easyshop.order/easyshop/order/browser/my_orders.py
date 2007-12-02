@@ -25,7 +25,7 @@ class MyOrdersView(BrowserView):
         
         result = []
         for order in orders:
-            # Todo: Get rid of this
+            # TODO: Get rid of using order view
             order_view = getMultiAdapter((order, self.request), name="order")
             created = ttool.ulocalized_time(order.created(), long_format=True)
             temp = {

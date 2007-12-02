@@ -40,19 +40,6 @@ class ShippingPriceManagement:
         """
         """
         return self.prices.objectValues()
-        
-        shop = IShopManagement(self.context).getShop()
-        
-        # Todo: By interface
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            portal_type = ("ShippingPrice",),
-            path = "/".join(self.prices.getPhysicalPath()),
-            sort_on = "getObjPositionInParent",
-        )
-
-        # Todo: Optimize
-        return [brain.getObject() for brain in brains]
 
     def getPriceForCustomer(self):
         """

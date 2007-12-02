@@ -39,11 +39,6 @@ class TestShopShippingManagement(EasyShopTestCase):
         ids = [p.getId() for p in self.sm.getShippingPrices()]
         self.assertEqual(ids, ["default", "s1", "s2", "s3", "s4"])
                 
-    def getShippingMethods(self):
-        """
-        """
-        # Todo: Added test when implemented
-
     def testGetPriceGross(self):
         """
         """

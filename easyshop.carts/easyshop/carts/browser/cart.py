@@ -169,7 +169,6 @@ class CartFormView(BrowserView):
     def getShippingMethods(self):
         """
         """
-        # TODO: Factor this out? Same is used within checkout/browser/shipping.py
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         selected_shipping_id = customer.selected_shipping_method
         
