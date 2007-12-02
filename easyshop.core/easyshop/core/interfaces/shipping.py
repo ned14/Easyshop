@@ -18,8 +18,11 @@ class IShippingMethodManagement(Interface):
         """
             
 class IShippingPriceManagement(Interface):
+    """Provides all methods to manage the shipping prices. This includes also 
+    calculation of prices and taxes (maybe this will separated later to 
+    different interfaces, e.g.: IShippingPriceManagement, IShippingPrices, 
+    IShippingTaxes).
     """
-    """    
     def getPriceNet():
         """Returns the net price of shipping.
         """
