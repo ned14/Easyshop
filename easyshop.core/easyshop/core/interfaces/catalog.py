@@ -27,7 +27,7 @@ class ICategoryManagement(Interface):
         """Returns all categories of context as brains.
         """
 
-    # TODO: Change to brains
+    # TODO: Change to brains?
     def getTopLevelCategories(self):
         """Returns the top level categories of context. 
         

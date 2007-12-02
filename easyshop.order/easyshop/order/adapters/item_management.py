@@ -18,28 +18,14 @@ class OrderItemManagement:
     adapts(IOrder)
 
     def __init__(self, context):
+        """
+        """
         self.context = context
 
     def addItem(self, product, amount=1):
         """Adds a item
         """
         raise Exception
-
-    def deleteItemByOrd(self, ord):
-        """Deletes the item by passed ord
-        """
-        raise Exception
-        
-    def deleteItem(self, id):
-        """deletes the Item by passed id
-        """
-        raise Exception
-        
-    def getItems(self):
-        """Returns all items of an order
-        """
-        # XXX: Optimize
-        return self.context.objectValues("OrderItem")
 
     def addItemsFromCart(self, cart):
         """Adds all items from a given cart to the order
@@ -54,16 +40,37 @@ class OrderItemManagement:
         id = 0
         for cart_item in IItemManagement(cart).getItems():
             id += 1
-            self.addItemFromCartItem(str(id), cart_item)
+            self._addItemFromCartItem(str(id), cart_item)
 
-    def addItemFromCartItem(self, id, cart_item):
+    def deleteItemByOrd(self, ord):
+        """Deletes the item by passed ord
+        """
+        raise Exception
+        
+    def deleteItem(self, id):
+        """deletes the Item by passed id
+        """
+        raise Exception
+        
+    def getItems(self):
+        """Returns all items of an order
+        """
+        return self.context.objectValues("OrderItem")
+        
+    def hasItems(self):
+        """
+        """    
+        if len(self.getItems()) == 0:
+            return False
+        return True
+        
+    def _addItemFromCartItem(self, id, cart_item):
         """Sets the item by given cart item.
         """
         self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=id)
         new_item = getattr(self.context, id)
         
-        # Todo: use the adapters here
-        # set product prices & taxes
+        # Set product prices & taxes
         taxes = ITaxes(cart_item.getProduct())
         new_item.setProductQuantity(cart_item.getAmount())
         new_item.setTaxRate(taxes.getTaxRate())
@@ -71,15 +78,15 @@ class OrderItemManagement:
         new_item.setProductPriceGross(cart_item.getProduct().getPrice())
         new_item.setProductPriceNet(new_item.getProductPriceGross() - new_item.getProductTax())
 
-        # set item prices & taxes
+        # Set item prices & taxes
         new_item.setTax(ITaxes(cart_item).getTaxForCustomer())
         new_item.setPriceGross(IPrices(cart_item).getPriceForCustomer())        
         new_item.setPriceNet(IPrices(cart_item).getPriceNet())
         
-        # set product
+        # Set product
         new_item.setProduct(cart_item.getProduct())
 
-        # set properties
+        # Set properties
         properties = []
         pm = IPropertyManagement(cart_item.getProduct())
         for selected_property in cart_item.getProperties():

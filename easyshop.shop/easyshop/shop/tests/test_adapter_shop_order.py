@@ -79,20 +79,14 @@ class TestOrderManagement(EasyShopTestCase):
         o.invokeFactory("Order", "o2")        
         o.reindexObject()
         
-        wftool = getToolByName(self.shop, "portal_workflow")                
-        wftool.doActionFor(o.o1, "send_not_payed")                
-        
         ids = [o.getId() for o in om.getOrders(sorting="id", sort_order="descending")]
         self.assertEqual(ids, ["o5", "o4", "o3", "o2", "o1"])
 
         ids = [o.getId() for o in om.getOrders(sorting="id", sort_order="ascending")]
         self.assertEqual(ids, ["o1", "o2", "o3", "o4", "o5"])
 
-        ids = [o.getId() for o in om.getOrders("pending")]
-        self.assertEqual(ids, ["o5", "o3", "o4", "o2"])
-
-        ids = [o.getId() for o in om.getOrders("sent (not payed)")]
-        self.assertEqual(ids, ["o1"])
+        ids = [o.getId() for o in om.getOrders("created")]
+        self.assertEqual(ids, ["o1", "o5", "o3", "o4", "o2"])
                         
     def testGetOrdersForAuthenticatedCustomer(self):
         """
@@ -107,7 +101,7 @@ class TestOrderManagement(EasyShopTestCase):
         om = IOrderManagement(self.shop)            
         new_order = om.addOrder()
 
-        order = om.getOrdersForAuthenticatedCustomer()[0]        
+        order = om.getOrdersForAuthenticatedCustomer()[0]
         self.assertEqual(order, new_order)
         
     def testGetOrderByUID(self):

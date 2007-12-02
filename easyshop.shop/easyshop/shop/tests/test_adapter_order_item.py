@@ -91,7 +91,7 @@ class TestOrderItemManagement(EasyShopTestCase):
         cart_item = IItemManagement(cart).getItems()[0]
         
         oim = IItemManagement(self.order)        
-        oim.addItemFromCartItem("0", cart_item)
+        oim._addItemFromCartItem("0", cart_item)
         
         order_item = oim.getItems()[0]
         

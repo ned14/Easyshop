@@ -132,9 +132,8 @@ class OrderManagement:
     def getOrdersForAuthenticatedCustomer(self):
         """Returns all orders for the actual customer.
         """
-        # get authenticated customer        
+        # Get authenticated customer        
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
-
         orders = []
         for order in self.getOrders():
             if order.getCustomer().getId() == customer.getId():

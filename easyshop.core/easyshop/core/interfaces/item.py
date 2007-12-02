@@ -1,10 +1,6 @@
 # zope imports
 from zope.interface import Interface
 
-class IOrderItem(Interface):
-    """Marker interface to mark order item content objects.
-    """
-            
 class IItemManagement(Interface):
     """Provides methods to manage item content objects.
     """
@@ -31,4 +27,3 @@ class IItemManagement(Interface):
     def hasItems():
         """Returns True if there is at least one item.
         """
-        

@@ -45,13 +45,4 @@ class ShippingMethodManagement:
     def getShippingMethods(self):
         """
         """
-        # Todo: By interface
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            portal_type = ("ShippingMethod",),
-            path = "/".join(self.methods.getPhysicalPath()),
-            sort_on = "getObjPositionInParent",
-        )
-
-        # Todo: Optimize
-        return [brain.getObject() for brain in brains]
+        return self.methods.objectValues()

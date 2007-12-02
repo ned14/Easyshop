@@ -20,13 +20,6 @@ class CartItemManagement:
         """
         self.context = context           
         
-    def hasItems(self):
-        """
-        """    
-        if len(self.getItems()) == 0:
-            return False
-        return True
-        
     def addItem(self, product, properties, quantity=1):
         """Add given product to the cart. Returns True if the product was 
         already within the cart.
@@ -63,12 +56,22 @@ class CartItemManagement:
             cart_item.setProduct(product)
 
         return product_is_already_in_cart
-        
-    def getItems(self):
+
+    def addItemsFromCart(self, cart):
         """
         """
-        # Todo: Optimize
-        return self.context.objectValues("CartItem")
+        for cart_item in IItemManagement(cart).getItems():
+            self.addItem(cart_item.getProduct(), cart_item.getProperties(), cart_item.getAmount())
+
+    def deleteItem(self, id):
+        """
+        """
+        try:
+            self.context._delObject(id)
+        except AttributeError:
+            return False
+
+        return True
 
     def deleteItemByOrd(self, ord):
         """
@@ -86,19 +89,16 @@ class CartItemManagement:
             return False
 
         return True
+        
+    def getItems(self):
+        """
+        """
+        return self.context.objectValues("CartItem")
 
-    def deleteItem(self, id):
+    def hasItems(self):
         """
-        """
-        try:
-            self.context._delObject(id)
-        except AttributeError:
+        """    
+        if len(self.getItems()) == 0:
             return False
-
         return True
-
-    def addItemsFromCart(self, cart):
-        """
-        """
-        for cart_item in IItemManagement(cart).getItems():
-            self.addItem(cart_item.getProduct(), cart_item.getProperties(), cart_item.getAmount())
+        

@@ -36,11 +36,8 @@ class CartsView(BrowserView):
             items = im.getItems()
             amount_of_items = len(items)
             
-            try:            
-                last_item = items[-1]
-                modified = last_item.modified()    # object
-            except IndexError:
-                modified = cart.modified           # brain
+            last_item = items[-1]
+            modified = last_item.modified()
              
             # price
             price_float = IPrices(cart_object).getPriceGross()
