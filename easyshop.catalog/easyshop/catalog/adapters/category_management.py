@@ -103,8 +103,7 @@ class ShopCategoryManagement:
 
     def getCategories(self):
         """Returns brains
-        """        
-        # Todo: Check whether brains can be returned
+        """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
             path = "/".join(self.categories.getPhysicalPath()),

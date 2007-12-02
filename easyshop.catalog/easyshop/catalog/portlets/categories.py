@@ -140,15 +140,14 @@ class Renderer(base.Renderer):
         if context_url.startswith(category_url) == True:
             return True  
                   
-        # Todo: Use interface and implements            
-        elif self.context.portal_type == "Product":
+        elif IProduct.providedBy(self.context) == True:
             cm = ICategoryManagement(self.context)
             try:
                 product_category = cm.getTopLevelCategories()[0]
             except IndexError:
                 return False
             
-            while product_category.portal_type == "Category":
+            while ICategory.providedBy(product_category) == True:
                 if product_category.UID() == category.UID:
                     return True
                 product_category = product_category.aq_inner.aq_parent

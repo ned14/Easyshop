@@ -2,9 +2,6 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# CMF imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports
 from easyshop.core.interfaces import IGroupManagement
 from easyshop.core.interfaces import IProduct
@@ -99,7 +96,6 @@ class ProductPropertyManagement:
     def getProperty(self, id):
         """
         """
-        # Todo: Optimize
         for property in self.getProperties():
             if property.getId() == id:
                 return property
