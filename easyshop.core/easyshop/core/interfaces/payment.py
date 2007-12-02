@@ -119,7 +119,9 @@ class IPaymentPrice(Interface):
 
 class IPaymentPriceManagement(Interface):
     """Provides all methods to manage the payment prices. This includes also 
-    calculation of prices and taxes.
+    calculation of prices and taxes (maybe this will separated later to 
+    different interfaces, e.g.: IPaymentPriceManagement, IPaymentPrices, 
+    IPaymentTaxes).
     """
     def getPaymentPrices():
         """Return all payment prices.
