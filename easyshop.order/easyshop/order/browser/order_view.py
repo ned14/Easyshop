@@ -185,8 +185,9 @@ class OrderView(BrowserView):
         selected_payment_method = pm.getSelectedPaymentMethod()
 
         return {
-            "information" : payment_information,
-            "portal_type" : selected_payment_method.portal_type,
+            "information"    : payment_information,
+            "portal_type"    : selected_payment_method.portal_type,
+            "payment_method" : selected_payment_method,
         }
         
     def getPriceForCustomer(self):

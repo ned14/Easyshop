@@ -9,6 +9,7 @@ def initialize(context):
     """Initializer called when used as a Zope 2 product."""
     from AccessControl import allow_module
     allow_module('zope.component')
+    allow_module('zope.event')
     allow_module("pdb")    
     
     # Register skin directory

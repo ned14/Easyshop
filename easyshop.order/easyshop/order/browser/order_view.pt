@@ -226,10 +226,10 @@
                         
                         <tal:block tal:condition="python:payment_portal_type == 'GenericPaymentMethod'">
                             <div i18n:translate=""
-                                 tal:content="payment_method/Title">
+                                 tal:content="payment_data/payment_method/Title">
                             </div>
                             <div i18n:translate=""
-                                 tal:content="payment_method/Description">
+                                 tal:content="payment_data/payment_method/Description">
                             </div>
                         </tal:block>                            
 

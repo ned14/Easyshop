@@ -27,7 +27,7 @@ class TestOrderManagement(EasyShopTestCase):
         view = getMultiAdapter((self.shop.products.product_2, self.shop.products.product_2.REQUEST), name="addToCart")
         view.addToCart()
         
-        new_order = IOrderManagement(self.shop).addOrder(notify_=False)
+        new_order = IOrderManagement(self.shop).addOrder()
         
         self.assertEqual(new_order.getShippingPriceGross(), 10.0)
         self.assertEqual("%.2f" % new_order.getShippingPriceNet(), "8.40")
@@ -105,7 +105,7 @@ class TestOrderManagement(EasyShopTestCase):
         view.addToCart()
             
         om = IOrderManagement(self.shop)            
-        new_order = om.addOrder(notify_=False)
+        new_order = om.addOrder()
 
         order = om.getOrdersForAuthenticatedCustomer()[0]        
         self.assertEqual(order, new_order)
@@ -121,7 +121,7 @@ class TestOrderManagement(EasyShopTestCase):
         view.addToCart()
             
         om = IOrderManagement(self.shop)            
-        new_order = om.addOrder(notify_=False)
+        new_order = om.addOrder()
         
         order = om.getOrderByUID(new_order.UID())
         self.assertEqual(order, new_order)

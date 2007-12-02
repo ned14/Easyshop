@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="easyshop_order_workflow"
-             title="EasyShop Order Workflow"
+             title="EasyShop Order Workflow" description=""
              state_variable="review_state"
-             initial_state="pending">
+             initial_state="created">
  <permission>Access contents information</permission>
  <permission>Change portal events</permission>
  <permission>Copy or Move</permission>
@@ -51,6 +51,9 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
+ </state>
+ <state state_id="created" title="">
+  <exit-transition transition_id="submit"/>
  </state>
  <state state_id="payed (not sent)" title="">
   <exit-transition transition_id="cancel"/>
@@ -193,6 +196,13 @@
   <action url="" category="workflow">Send</action>
   <guard>
    <guard-permission>Manage portal</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="submit" title=""
+             new_state="pending" trigger="USER"
+             before_script="" after_script="">
+  
+  <guard>
   </guard>
  </transition>
  <worklist worklist_id="reviewer_queue" title="">

@@ -157,6 +157,6 @@ def createTestOrder(self):
     view.addToCart()
 
     om = IOrderManagement(self.shop)
-    self.order = om.addOrder(notify_=False)
+    self.order = om.addOrder()
 
     

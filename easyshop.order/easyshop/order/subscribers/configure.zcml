@@ -4,7 +4,6 @@
         handler=".containers.createContainers" />
 
     <subscriber
-        for="easyshop.order.events.IOrderSubmitted"  
-        handler=".mailing.mailOrderSubmitted" />
+        handler=".mailing.sendOrderMail" />
 
 </configure>

@@ -42,7 +42,7 @@ class OrderManagement:
         self.context = context
         self.orders = context.orders
 
-    def addOrder(self, customer=None, cart=None, notify_=True):
+    def addOrder(self, customer=None, cart=None):
         """Adds a new order on base of the current customer and current cart.        
            It should be called after the payment process is completed.
         """
@@ -103,10 +103,6 @@ class OrderManagement:
         # Index with customer again
         new_order.reindexObject()
         
-        # Fire up event
-        if notify_ == True:
-            notify(OrderSubmitted(new_order))
-                    
         return new_order
 
     def deleteOrder(self, id):

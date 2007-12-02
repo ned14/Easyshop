@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_skins">
 
-    <object name="easyshop_mail_templates" 
-            meta_type="Filesystem Directory View"
-            directory="easyshop.shop:skins/easyshop_mail_templates" />
-
     <object name="easyshop_images" 
             meta_type="Filesystem Directory View"
             directory="easyshop.shop:skins/easyshop_images" />
@@ -31,16 +27,10 @@
 
     <skin-path name="*">
 
-        <layer name="easyshop_mail_templates"
-               insert-after="custom" />
-
-        <layer name="easyshop_images" 
+        <layer name="easyshop_images"
                insert-after="custom" />
 
         <layer name="easyshop_macros" 
-               insert-after="custom" />
-
-        <layer name="easyshop_manage" 
                insert-after="custom" />
 
         <layer name="easyshop_misc" 
