@@ -53,8 +53,7 @@ class CustomerCopyManagement:
         # NOTE: I know this is not really nice but it helps as there are some
         # permission problems with Zope's copy and paste, when it comes to 
         # copying content as anonymous user, which is needed for anonymous 
-        # checkout -> copy the customer object to the new order. TODO: Think 
-        # about whether it is better not to copy the whole customer object.
+        # checkout -> copy the customer object to the new order.
 
         new_customer.firstname = self.context.firstname
         new_customer.lastname  = self.context.lastname

@@ -40,7 +40,6 @@ class CustomerManagement:
         else:
             return False
 
-    # TODO: Rename it to getCustomer        
     def getAuthenticatedCustomer(self):
         """Returns the customer or a session customer for anonymous user. If it 
         doesn't already exist, creates a new one
