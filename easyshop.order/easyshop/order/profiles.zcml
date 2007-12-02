@@ -3,7 +3,7 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="easyhop.order"
+        title="easyshop.order"
         directory="profiles/default"
         description="Order management for EasyShop."
         provides="Products.GenericSetup.interfaces.EXTENSION" />
