@@ -3,39 +3,8 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
 from easyshop.core.interfaces import IShopManagement
+from easyshop.shop.utilities.misc import sendMultipartMail
 
-# email imports
-from email.MIMEText import MIMEText
-from email.MIMEMultipart import MIMEMultipart
-
-def sendMultipartMail(context, from_, to, cc=[], bcc=[], subject="", text="", charset="utf-8"):
-    """
-    """
-    mail = MIMEMultipart("alternative")
-        
-    mail['From']    = from_
-    mail['To']      = to
-    mail['Bcc']     = "".join(cc)
-    mail['Bcc']     = "".join(bcc)
-    mail['Subject'] = subject
-    mail.epilogue   = ''
-
-    # create & attach text part 
-    text = text.encode("utf-8")
-    text_part = MIMEText(text, "plain", charset)
-    mail.attach(text_part)
-
-    # create & attach html part with images            
-    html_part = MIMEMultipart("related")
-    html_code = MIMEText(text, "html", charset)            
-    html_part.attach(html_code)       
-    mail.attach(html_part)
-
-    context.MailHost.send(mail.as_string())
-    # except:
-    #     # catch and do nothing, so that the user doesn't notice an error
-    #     pass
-        
 def mailOrderSubmitted(event):
     """Sends email to notify that an order has been submitted.
     """
