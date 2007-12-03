@@ -165,6 +165,11 @@ table.product-content td.category-link {
     padding: 0 10px 10px 0;
 }
 
+table.product-content td.product-properties {
+    padding-bottom: 20px;
+}
+
+
 table.products td.notlast {
     padding-right: 2px !important;
 }
