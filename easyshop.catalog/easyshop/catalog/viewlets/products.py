@@ -31,10 +31,10 @@ from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
 
-class CategoryViewlet(ViewletBase):
+class ProductsViewlet(ViewletBase):
     """
     """
-    render = ViewPageTemplateFile('category.pt')
+    render = ViewPageTemplateFile('products.pt')
 
     @memoize
     def getFormatInfo(self):

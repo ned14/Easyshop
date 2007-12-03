@@ -3,16 +3,16 @@
 
     <!-- Category  -->
     <browser:viewletManager
-        name="easyshop.category-manager"
-        provides=".interfaces.ICategoryViewletManager"
+        name="easyshop.products-manager"
+        provides=".interfaces.IProductsViewletManager"
         class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="zope.Public" />
 
     <browser:viewlet
-        name="easyshop.category-viewlet"
+        name="easyshop.products-viewlet"
         for="easyshop.core.interfaces.ICategory"
-        manager=".interfaces.ICategoryViewletManager"
-        class=".category.CategoryViewlet"
+        manager=".interfaces.IProductsViewletManager"
+        class=".products.ProductsViewlet"
         permission="zope.Public" />
 
     <!-- Categories  -->
