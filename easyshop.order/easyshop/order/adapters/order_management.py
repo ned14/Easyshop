@@ -93,8 +93,7 @@ class OrderManagement:
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         cm = ICopyManagement(customer)
         cm.copyTo(new_order)
-        
-            
+                    
         ## Reset security manager
         setSecurityManager(old_sm)
         
@@ -138,7 +137,6 @@ class OrderManagement:
     def getOrdersForAuthenticatedCustomer(self):
         """
         """
-        # Get authenticated customer        
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         orders = []
         for order in self.getOrders():
@@ -158,7 +156,7 @@ class OrderManagement:
         return orders
         
     def _createOrderId(self):
-        """Creates a new unique order id
+        """Creates a new unique order id.
         """
         from DateTime import DateTime;
         now = DateTime()
