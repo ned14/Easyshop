@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyArticle">
+    <body>
+
+        <metal:main fill-slot="main">
+                    
+            <h1 tal:content="object_title" class="documentFirstHeading">
+                Title or id
+            </h1>
+
+            <div metal:use-macro="here/document_byline/macros/byline">
+                Get the byline - contains details about author and modification date.
+            </div>
+
+            <table class="shop-default">
+
+                <tr tal:repeat="line view/getProducts">
+                    
+                    <td style="border: 1px solid #ddd; vertical-align:top"
+                        height="260px"
+                        width="50%"
+                        tal:repeat="object line">
+
+                         <div>
+                             <metal:block use-macro="context/easyarticle_macros/macros/edit_functions" />
+                         </div>
+                                                
+                        <tal:block tal:condition="python:object['portal_type'] == 'Product'">
+                            <div style="padding-right: 20px; float:left">
+                                <a href="."
+                                   tal:attributes="href object/url">
+                                    <img width="180px"
+                                         tal:attributes="src string:${object/image_url}/image_mini;
+                                                         alt object/title" />
+                                </a>                         
+                            </div>
+                            <h3 tal:content="object/title">
+                                Title
+                            </h3>    
+                            <div tal:content="structure object/text">
+                                Text
+                            </div>    
+                            <div style="text-align:right;font-size:20pt; font-weight:bold; color:red;"
+                                 tal:content="structure object/price">
+                                Price
+                            </div>                        
+                            <div>
+                                <a href="."
+                                   tal:attributes="href object/url">
+                                   Details
+                                </a>   
+                            </div>                        
+                        </tal:block>
+                        <tal:block tal:condition="python:object['portal_type'] == 'Image'">
+                            <img tal:attributes="src string:${object/image_url};
+                                                 alt object/title" />
+                        </tal:block>
+                    </td>    
+                </tr>
+            </table>
+            
+        </metal:main>    
+        
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"           
+           i18n_domain="EasyShop">
+
+    <browser:page
+        name="products-1"
+        for="*"
+        class=".products_1.ProductsView"
+        template="products_1.pt"
+        permission="zope2.Public" />  
+
+</configure>
