@@ -74,10 +74,10 @@ class CatalogKSSView(PloneKSSView):
                                 name="easyshop.cart-viewlet")
                                 
         # refresh product
-        selector = kss_core.getHtmlIdSelector("myproduct")
+        selector = kss_core.getHtmlIdSelector("product")
         kss_zope.refreshViewlet(selector,
-                                manager="easyshop.easyshop-manager",
-                                name="easyshop.product")
+                                manager="easyshop.product-manager",
+                                name="easyshop.product-viewlet")
         
     @kssaction    
     def showProducts(self, letter=None, form={}):
