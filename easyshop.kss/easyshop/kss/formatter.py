@@ -21,14 +21,23 @@ class FormatterKSSView(PloneKSSView):
         kss_core  = self.getCommandSet("core")
         kss_zope  = self.getCommandSet("zope")
         kss_plone = self.getCommandSet("plone")
+        
+        layout = form.get("layout")
 
-        try:
+        if layout == "categories-view":
+            kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("categories-list"),
+                                    manager="easyshop.categories-manager",
+                                    name="easyshop.categories-viewlet")
+
+        elif layout == "products-view":
             kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("products-list"),
                                     manager="easyshop.category-manager",
                                     name="easyshop.category-viewlet")
-        except ComponentLookupError:
+
+        elif layout == "product-selector-view":
             kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("products-list"),
                                     manager="easyshop.product-selector-manager",
                                     name="easyshop.product-selector-viewlet")                                    
-             
-        kss_plone.refreshPortlet(portlethash)
+
+        kss_plone.refreshPortlet(portlethash)                                    
+        
