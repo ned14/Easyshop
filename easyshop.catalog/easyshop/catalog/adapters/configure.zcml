@@ -2,16 +2,6 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five">
 
-    <!--  Hide products and categories container -->
-    <five:implements
-        class="easyshop.catalog.content.containers.CategoriesContainer"
-        interface="Products.CMFPlone.interfaces.IHideFromBreadcrumbs" />
-
-    <five:implements
-        class="easyshop.catalog.content.containers.ProductsContainer"
-        interface="Products.CMFPlone.interfaces.IHideFromBreadcrumbs" />
-
-
     <!-- ICategoryManagement -->
     <adapter
         factory=".category_management.CategoryCategoryManagement" />

@@ -1,3 +1,6 @@
+# zope imports
+from zope.component import queryUtility
+
 # Zope imports
 from ZTUtils import make_query       
 
@@ -15,8 +18,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import Batch      
 
 # Easyshop imports
+from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
@@ -124,15 +129,67 @@ class ProductsViewlet(ViewletBase):
             "format_info" : f,
         }
 
+    def getProperties(self):
+        """
+        """
+        u = queryUtility(INumberConverter)
+        cm = ICurrencyManagement(self.context)
+                
+        selected_properties = {}
+        for name, value in self.request.form.items():
+            if name.startswith("property"):
+                selected_properties[name[9:]] = value
+
+        pm = IPropertyManagement(self.context)
+        
+        result = []
+        for property in pm.getProperties():
+            options = []
+            for option in property.getOptions():
+
+                # generate value string
+                name  = option["name"]
+                price = option["price"]
+
+                if price != "":
+                    price = u.stringToFloat(price)
+                    price = cm.priceToString(price, "long", "after")
+                    content = "%s %s" % (name, price)
+                else:
+                    content = name
+                        
+                # is option selected?
+                selected = name == selected_properties.get(property.getId(), False)
+                
+                options.append({
+                    "content"  : content,
+                    "value"    : name,
+                    "selected" : selected,
+                })            
+                
+            result.append({
+                "id"      : property.getId(),
+                "title"   : property.Title(),
+                "options" : options,
+            })
+
+        return result
+
     @memoize
     def getTdWidth(self):
         """
         """
         return "%s%%" % (100 / self.getFormatInfo().get("products_per_line"))
 
-    def _getAllProducts(self):
+    def _getBatch(self):
         """
         """
+        # Calculate products per page
+        fi = self.getFormatInfo()
+        products_per_page = fi.get("lines_per_page") * \
+                            fi.get("products_per_line")        
+
+        # Get all products                    
         mtool = getToolByName(self.context, "portal_membership")        
         sorting = self.request.get("sorting", None)
         try:
@@ -145,21 +202,10 @@ class ProductsViewlet(ViewletBase):
         products = pm.getAllProducts(sorted_on=sorted_on,
                                      sort_order = sort_order)
 
-        return products
-
-    def _getBatch(self):
-        """
-        """
-        fi = self.getFormatInfo()
-        products_per_page = fi.get("lines_per_page") * \
-                            fi.get("products_per_line")        
-
-
-        # Important: First all products are needed to be able to calculate the 
-        # batch.
-        products = self._getAllProducts()
+        # Get start page                             
         b_start  = self.request.get('b_start', 0);
 
+        # Calculate Batch
         return Batch(products, products_per_page, int(b_start), orphan=0);
 
     def _getLastUrl(self, batch):

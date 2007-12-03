@@ -112,24 +112,6 @@
                                    i18n:attributes="title details_label;"
                                    tal:attributes="onclick string:location.href='${product/url}'" />
                        
-                            <form action="#"                                  
-                                  tal:attributes="action product/url"
-                                  method="post">
-
-                               <input type="hidden"
-                                      name="quantity"
-                                      value="1" />
-
-                                <input class="context"
-                                       id="add-product"
-                                       name="addToCart:method" 
-                                       value="Add to Cart"
-                                       type="submit"
-                                       title="Add to Cart"
-                                       i18n:attributes="title add_to_cart_label;
-                                                        value add_to_cart_label;" />
-                            </form>
-           
                             <span class="product-price"
                                   tal:content="product/price">
                                 42.00

@@ -34,8 +34,6 @@ class CategoriesViewlet(ViewletBase):
         lines = []
         for i, category in enumerate(cm.getTopLevelCategories()):
 
-            # TODO: Should all data be metadata, so that we don't have to change
-            # to the object?
             category = category.getObject()
 
             # Image
