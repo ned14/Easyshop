@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 # Five imports
 from Products.Five.browser import BrowserView
 
-class ProductsView(BrowserView):
+class ManageProductsView(BrowserView):
     """
     """
     def getLetters(self):

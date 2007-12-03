@@ -2,7 +2,7 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="EasyShop">
-    <body>        
+    <body>
         <metal:main fill-slot="main">
             <div tal:replace="structure provider:easyshop.category-manager" />
         </metal:main>

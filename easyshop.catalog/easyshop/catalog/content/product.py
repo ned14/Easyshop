@@ -62,7 +62,7 @@ schema = Schema((
         widget=RichWidget(
             label='Short Text',
             label_msgid='schema_short_text_label',
-            description="This text is used within overviews, such as category view.",
+            description="This text is used within overviews.",
             description_msgid="schema_short_description_description",
             i18n_domain='EasyShop',
         ),
@@ -79,7 +79,7 @@ schema = Schema((
         widget=RichWidget(
             label='Long Text',
             label_msgid='schema_long_text_label',
-            description="This text is used within the product view.",
+            description="This text is used within the detailed product view.",
             description_msgid="schema_long_description_description",
             i18n_domain='EasyShop',
         ),

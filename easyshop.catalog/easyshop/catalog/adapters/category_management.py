@@ -42,7 +42,7 @@ class CategoryCategoryManagement:
         return brains
                                   
     def getTopLevelCategories(self):
-        """Returns brains
+        """Returns brains.
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
@@ -102,7 +102,7 @@ class ShopCategoryManagement:
         self.categories = context.categories
 
     def getCategories(self):
-        """Returns brains
+        """Returns brains.
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(

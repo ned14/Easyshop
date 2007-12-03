@@ -1,7 +1,3 @@
-# zope imports
-from zope.interface import Interface
-from zope.interface import implements
-
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -13,15 +9,9 @@ from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IShopManagement
 
-class ICategoriesView(Interface):
-    """A view to manage categories.
-    """
-    
-class CategoriesView(BrowserView):
+class ManageCategoriesView(BrowserView):
     """
     """
-    implements(ICategoriesView)
-    
     def getCategories(self):
         """
         """

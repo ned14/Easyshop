@@ -27,16 +27,55 @@ schema = Schema((
     ),
     
     TextField(
-        name='text',
-        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
+        name='shortText',
+        allowable_content_types=(
+            'text/plain', 
+            'text/structured',
+            'text/html', 
+            'application/msword',),
+        default_output_type='text/html',            
         widget=RichWidget(
-            description="",
-            description_msgid="schema_text_description",        
-            label='Long Description',
-            label_msgid='schema_text_label',
+            label='Short Text',
+            label_msgid='schema_short_text_label',
+            description="This text is used within overviews.",
+            description_msgid="schema_short_description_description",
             i18n_domain='EasyShop',
         ),
-        default_output_type='text/html'
+    ),
+
+    TextField(
+        name='text',
+        allowable_content_types=(
+            'text/plain', 
+            'text/structured',
+            'text/html', 
+            'application/msword',),
+        default_output_type='text/html',            
+        widget=RichWidget(
+            label='Long Text',
+            label_msgid='schema_long_text_label',
+            description="This text is used within detailed category view.",
+            description_msgid="schema_long_description_description",
+            i18n_domain='EasyShop',
+        ),
+    ),
+
+    ImageField(
+        name='image',
+        sizes= {'large'   : (768, 768),
+                'preview' : (400, 400),
+                'mini'    : (200, 200),
+                'thumb'   : (128, 128),
+                'tile'    :  (64, 64),
+                'icon'    :  (32, 32),
+                'listing' :  (16, 16),
+               },
+        widget=ImageWidget(
+            label='Image',
+            label_msgid='schema_image_label',
+            i18n_domain='EasyShop',
+        ),
+        storage=AttributeStorage()
     ),
 
     ReferenceField( 

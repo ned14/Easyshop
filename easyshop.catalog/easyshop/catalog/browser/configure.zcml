@@ -23,24 +23,37 @@
 
     <!-- Category -->
     <browser:page
-        name="category-view"        
+        name="products-view"
         for="easyshop.core.interfaces.ICategory"
-        template="category_view.pt"
+        template="category_products_view.pt"
         permission="zope.Public" />
+
+    <browser:page
+        name="categories-view"
+        for="easyshop.core.interfaces.ICategory"
+        template="category_categories_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        name="categories-view"
+        for="easyshop.core.interfaces.IShop"
+        template="category_categories_view.pt"
+        permission="zope.Public" />
+
 
     <!-- Containers -->    
     <browser:page
-        name="categories-view"
+        name="manage-categories-view"
         for="*"
-        template="categories_view.pt"
-        class=".categories_view.CategoriesView"
+        template="manage_categories_view.pt"
+        class=".manage_categories_view.ManageCategoriesView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        name="products-view"        
+        name="manage-products-view"        
         for="easyshop.core.interfaces.IProductsContainer"
-        template="products_view.pt"
-        class=".products_view.ProductsView"
+        template="manage_products_view.pt"
+        class=".manage_products_view.ManageProductsView"
         permission="cmf.ManagePortal" />
 
     <!-- Miscellaneous -->

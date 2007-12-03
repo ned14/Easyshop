@@ -60,8 +60,6 @@ class CategoryViewlet(ViewletBase):
     def getInfo(self):
         """
         """
-        products_per_line = self.getFormatInfo().get("products_per_line")
-
         batch = self._getBatch()
         # This optimized for speed, as we need _getBatch here anyway.
         # So there is no need of an extra method call within the page 
@@ -81,7 +79,8 @@ class CategoryViewlet(ViewletBase):
         sorting = self.request.get("sorting", None)
 
         f = self.getFormatInfo()
-                
+        products_per_line = f["products_per_line"]
+        
         line   = []
         products = []        
         for index, product in enumerate(batch):
@@ -143,6 +142,7 @@ class CategoryViewlet(ViewletBase):
             "format_info" : f,
         }
 
+    @memoize
     def getTdWidth(self):
         """
         """

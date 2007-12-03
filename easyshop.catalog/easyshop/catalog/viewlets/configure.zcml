@@ -15,6 +15,28 @@
         class=".category.CategoryViewlet"
         permission="zope.Public" />
 
+    <!-- Categories  -->
+    <browser:viewletManager
+        name="easyshop.categories-manager"
+        provides=".interfaces.ICategoriesViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.categories-viewlet"
+        for="easyshop.core.interfaces.ICategory"
+        manager=".interfaces.ICategoriesViewletManager"
+        class=".categories.CategoriesViewlet"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.categories-viewlet"
+        for="easyshop.core.interfaces.IShop"
+        manager=".interfaces.ICategoriesViewletManager"
+        class=".categories.CategoriesViewlet"
+        permission="zope.Public" />
+
+
     <!-- Product -->
     <browser:viewletManager
         name="easyshop.product-manager"

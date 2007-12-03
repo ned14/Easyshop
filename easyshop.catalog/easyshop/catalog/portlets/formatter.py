@@ -119,6 +119,7 @@ class Renderer(base.Renderer):
         # are supposed to be displayed, hence we hide the input field.
         if IProductSelector.providedBy(self.context) == True:
             return False
+                        
         else:
             return True
             

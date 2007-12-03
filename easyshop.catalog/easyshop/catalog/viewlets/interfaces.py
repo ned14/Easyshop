@@ -4,6 +4,10 @@ class ICategoryViewletManager(IViewletManager):
     """Viewlet manager for category selector view.
     """
 
+class ICategoriesViewletManager(IViewletManager):
+    """Viewlet manager for categories view.
+    """
+
 class IProductViewletManager(IViewletManager):
     """Viewlet manager for product view.
     """

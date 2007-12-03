@@ -110,7 +110,11 @@
                     </option>
                 </select>
             </div>
-                
+
+            <input type="hidden"
+                   name="layout"
+                   tal:attributes="value context/getLayout|nothing" />
+                       
             <div class="button">
                 <input id="save-formatter"
                        class="context"

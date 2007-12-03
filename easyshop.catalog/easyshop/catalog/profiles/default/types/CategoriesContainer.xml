@@ -7,15 +7,15 @@
  <property name="content_meta_type">CategoriesContainer</property>
  <property name="product">easyshop.shop</property>
  <property name="factory">addCategoriesContainer</property>
- <property name="immediate_view">categories-view</property>
+ <property name="immediate_view">manage-categories-view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="Category"/>
  </property>
  <property name="allow_discussion">False</property>
- <alias from="(Default)" to="categories-view"/>
- <alias from="view" to="categories-view"/>
+ <alias from="(Default)" to="manage-categories-view"/>
+ <alias from="view" to="manage-categories-view"/>
  <alias from="edit" to="atct_edit"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}/" visible="True">
