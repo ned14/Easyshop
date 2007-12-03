@@ -1,20 +1,12 @@
 # Zope imports
 from ZTUtils import make_query       
 
-# Zope imports
-from zope.interface import Interface
-from zope.interface import implements
-from zope.component import getMultiAdapter
-
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
 
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
-# Five imports
-from Products.Five.browser import BrowserView
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
@@ -23,10 +15,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import Batch      
 
 # Easyshop imports
-from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IProductManagement
-from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
@@ -94,13 +84,6 @@ class ProductsViewlet(ViewletBase):
             if image is not None:
                 image = "%s/image_%s" % (image.absolute_url(), f.get("image_size"))
                 
-            # properties view
-            property_manager = IPropertyManagement(product)
-            if len(property_manager.getProperties()) > 0:
-                showSelectPropertiesView = True
-            else:    
-                showSelectPropertiesView = False
-        
             t = f.get("text")
             if t == "description":
                 text = product.getDescription()
@@ -123,7 +106,6 @@ class ProductsViewlet(ViewletBase):
                 "url"                      : "%s?sorting=%s" % (product.absolute_url(), sorting),
                 "image"                    : image,
                 "price"                    : price,
-                "showSelectPropertiesView" : showSelectPropertiesView,
                 "class"                    : klass,
             })
             

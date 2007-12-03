@@ -15,7 +15,6 @@ from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IPropertyManagement
 
 class ProductSelectorViewlet(ViewletBase):
     """
@@ -80,13 +79,6 @@ class ProductSelectorViewlet(ViewletBase):
                 if photo is not None:
                     image = "%s/image_%s" % (photo.absolute_url(), fi.get("image_size"))
 
-                # properties view
-                property_manager = IPropertyManagement(product)
-                if len(property_manager.getProperties()) > 0:
-                    showSelectPropertiesView = True
-                else:    
-                    showSelectPropertiesView = False
-
                 t = fi.get("text")
                 if t == "description":
                     text = product.getDescription()
@@ -109,7 +101,6 @@ class ProductSelectorViewlet(ViewletBase):
                     "price"                    : price,
                     "image"                    : image,
                     "text"                     : text,
-                    "showSelectPropertiesView" : showSelectPropertiesView,
                     "class"                    : klass,
                 })
     

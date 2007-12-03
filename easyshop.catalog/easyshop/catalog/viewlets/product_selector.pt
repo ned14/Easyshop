@@ -71,17 +71,7 @@
                                           name="quantity"
                                           value="1" />
 
-                                    <input tal:condition="product/showSelectPropertiesView"
-                                           class="context"
-                                           name="select-properties-view:method" 
-                                           value="Buy product"
-                                           title="Buy product"                                                    
-                                           type="submit"
-                                           i18n:attributes="title buy_product_label;
-                                                            value buy_product_label;" />                                            
-
-                                    <input tal:condition="not:product/showSelectPropertiesView"
-                                           class="context"
+                                    <input class="context"
                                            id="add-product"
                                            name="addToCart:method" 
                                            value="Add to Cart"
