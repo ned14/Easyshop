@@ -19,6 +19,7 @@ from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShippingMethodManagement
+from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
@@ -196,7 +197,7 @@ class CartFormView(BrowserView):
     def getShippingInfo(self):
         """
         """
-        sm = IShippingMethodManagement(self.context)
+        sm = IShippingPriceManagement(self.context)
         shipping_price = sm.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
@@ -214,7 +215,11 @@ class CartFormView(BrowserView):
         """
         cm   = ICurrencyManagement(self.context)                
         cart = self._getCart()
-        tax  = ITaxes(cart).getTaxForCustomer()
+        
+        if cart is None:
+            tax = 0.0
+        else:
+            tax  = ITaxes(cart).getTaxForCustomer()
 
         return cm.priceToString(tax)
         
