@@ -31,8 +31,8 @@ class FormatterKSSView(PloneKSSView):
 
         elif layout == "products-view":
             kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("products-list"),
-                                    manager="easyshop.category-manager",
-                                    name="easyshop.category-viewlet")
+                                    manager="easyshop.products-manager",
+                                    name="easyshop.products-viewlet")
 
         elif layout == "product-selector-view":
             kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("products-list"),
