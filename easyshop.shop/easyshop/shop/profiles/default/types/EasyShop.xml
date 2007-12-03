@@ -21,8 +21,8 @@
  <property name="default_view">folder_listing</property>
  <property name="default_view">shop-view</property>
  <property name="view_methods">
-  <element value="shop-view"/>
-  <element value="product-selector-view"/>  
+  <element value="categories-view"/>
+  <element value="product-selector-view"/>    
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>

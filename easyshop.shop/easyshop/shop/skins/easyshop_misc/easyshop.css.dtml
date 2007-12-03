@@ -32,7 +32,6 @@
     background: &dtml-globalBackgroundColor; url(http://localhost:8080/portal/arrowDown.gif) no-repeat scroll -1px 5px !important;
 }
 
-
 a.link-parent {
     background:transparent url(http://localhost:8080/portal/arrowUp.gif) no-repeat scroll 4px 5px !important;
     display:block !important;
@@ -158,6 +157,12 @@ table.product-content td,
 table.products td {
     padding:2px 0 0 0;
     vertical-align:top;    
+}
+
+table.product-content td.category-link {
+    vertical-align:bottom;
+    text-align:right; 
+    padding: 0 10px 10px 0;
 }
 
 table.products td.notlast {

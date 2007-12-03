@@ -3,7 +3,8 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="easyshop.shop">
 
-    <five:registerPackage package="." 
+    <five:registerPackage 
+        package="." 
         initialize=".initialize" />
 
     <include 

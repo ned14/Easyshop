@@ -4,10 +4,4 @@
 
     <include package=".admin" />
 
-    <browser:page
-        for="easyshop.core.interfaces.IShop"
-        name="shop-view"
-        template="shop_view.pt"
-        permission="zope.Public" />
-
 </configure>
