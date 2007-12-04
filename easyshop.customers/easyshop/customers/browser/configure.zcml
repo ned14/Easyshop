@@ -19,7 +19,7 @@
         for="easyshop.core.interfaces.ICustomer"
         class=".customer_forms.CustomerEditForm"
         permission="cmf.ModifyPortalContent" />
-    
+
     <!-- Payment Methods -->       
     <browser:page
         name="manage-payment-methods"
@@ -37,18 +37,24 @@
 
     <!-- Addresses -->    
     <browser:page
-        name = "manage-addressbook"
-        for = "easyshop.core.interfaces.ICustomer"
-        class = ".manage_addressbook.ManageAddressBookView"
+        name="manage-addressbook"
+        for="easyshop.core.interfaces.ICustomer"
+        class=".manage_addressbook.ManageAddressBookView"
         template="manage_addressbook.pt"
         permission="cmf.ModifyPortalContent" />
-    
+
     <browser:page
-        name="add-address"        
+        name="easyshop.Address"
         for="easyshop.core.interfaces.ICustomer"
         class=".address_forms.AddressAddForm"
         permission="cmf.ModifyPortalContent" />
 
+    <browser:page
+        for="easyshop.core.interfaces.IAddress"
+        name="view"
+        class=".address_forms.AddressEditForm"
+        permission="zope2.View" />
+    
     <browser:page
         name="edit"
         for="easyshop.core.interfaces.IAddress"        
@@ -61,6 +67,24 @@
         class = ".manage_addressbook.ManageAddressBookView"
         attribute="deleteAddress"
         permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        name="add-address"
+        for="easyshop.core.interfaces.ICustomer"
+        class=".address_forms.AddressAddForm"
+        permission="zope2.View" />
+
+    <browser:page
+        name="easyshop.address"
+        for="zope.app.container.interfaces.IAdding"
+        class=".address_forms.AddressAddForm"
+        permission="zope2.View" />
+
+    <browser:addMenuItem
+        title="Address"
+        factory="easyshop.address"
+        view="easyshop.address"
+        permission="zope2.View" />
         
     <!-- Manager -->    
     <browser:page

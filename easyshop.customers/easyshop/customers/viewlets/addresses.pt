@@ -7,21 +7,21 @@
                         <div class="name"
                              tal:content="address/getName">
                         </div>                          
-                        <div tal:content="address/getCompanyName">
+                        <div tal:content="address/company_name">
                         </div>                                                    
-                        <div tal:content="address/getAddress1">
+                        <div tal:content="address/address_1">
                         </div>
-                        <div tal:content="address/getAddress2">
+                        <div tal:content="address/address_2">
                         </div>
                         <div>
-                            <span tal:content="address/getZipCode">
+                            <span tal:content="address/zip_code">
                             </span>
-                            <span tal:content="address/getCity">
+                            <span tal:content="address/city">
                             </span>
                         </div>    
-                         <div tal:content="address/getCountry">
+                         <div tal:content="address/country">
                          </div>
-                         <div tal:content="address/getPhone" />
+                         <div tal:content="address/phone" />
                     </div>     
                 </td>
                 <td class="buttons">

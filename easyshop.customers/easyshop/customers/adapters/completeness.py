@@ -2,14 +2,11 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import IAddress
 from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import IPaymentManagement
+from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import ICustomer
@@ -48,8 +45,8 @@ class CustomerCompleteness:
         if i_addr is None: return False
 
         # Get payment method
-        payman = IPaymentManagement(self.context)
-        paymeth = payman.getSelectedPaymentMethod()
+        pm = IPaymentInformationManagement(self.context)
+        payment_method = pm.getSelectedPaymentMethod()
 
         # Get cart of the customer
         cart = ICartManagement(shop).getCart()
@@ -63,7 +60,7 @@ class CustomerCompleteness:
         
         # Check all for completeness
         # if at least one is False customer is not complete, too.        
-        for toCheck in s_addr, i_addr, paymeth:
+        for toCheck in s_addr, i_addr, payment_method:
             if ICompleteness(toCheck).isComplete() == False:
                 return False
         
@@ -85,15 +82,15 @@ class AddressCompleteness:
         self.context = context                  
 
     def isComplete(self):
-        """Checks weather the address is complete
+        """Checks the completeness of an address.
         """        
-        if len(self.context.getAddress1()) == 0:
+        if len(self.context.address_1) == 0:
             return False
-        elif len(self.context.getZipCode()) == 0:
+        elif len(self.context.zip_code) == 0:
             return False
-        elif len(self.context.getCity()) == 0:
+        elif len(self.context.city) == 0:
             return False
-        elif len(self.context.getCountry()) == 0:
+        elif len(self.context.country) == 0:
             return False
 
         return True        

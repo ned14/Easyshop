@@ -12,8 +12,9 @@ def createContainer(shop, event):
     shop.manage_addProduct["easyshop.shop"].addCustomersContainer(
         id="customers", 
         title="Customers")    
-
-    # TODO: Should be done with workflow
-    shop.customers.manage_permission('Modify portal content', ['Owner'], 1)
-        
     shop.customers.reindexObject()
+    
+    shop.manage_addProduct["easyshop.shop"].addSessionsContainer(
+        id="sessions", 
+        title="Sessions")        
+    shop.sessions.reindexObject()

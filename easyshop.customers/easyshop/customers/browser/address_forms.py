@@ -1,22 +1,22 @@
 # zope imports
-from zope.component import getMultiAdapter
 from zope.formlib import form
-import zope.event
-import zope.lifecycleevent
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 
 from Products.Five.browser import pagetemplatefile
 
 # plone imports
 from plone.app.form import base
 from plone.app.form.validators import null_validator
-from plone.app.form.events import EditCancelledEvent, EditSavedEvent
+from plone.app.form.events import EditCancelledEvent
+from plone.app.form.events import EditSavedEvent
 
 # easyshop imports
 from easyshop.core.config import _
 from easyshop.core.config import DEFAULT_SHOP_FORM
 from easyshop.core.interfaces import IAddress
+from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShopManagement
 
 class AddressEditForm(base.EditForm):
     """
@@ -33,26 +33,26 @@ class AddressEditForm(base.EditForm):
         """
         """
         if form.applyChanges(self.context, self.form_fields, data, self.adapters):
-            zope.event.notify(zope.lifecycleevent.ObjectModifiedEvent(self.context))
-            zope.event.notify(EditSavedEvent(self.context))
+            notify(ObjectModifiedEvent(self.context))
+            notify(EditSavedEvent(self.context))
             self.status = "Changes saved"
         else:
-            zope.event.notify(EditCancelledEvent(self.context))
+            notify(EditCancelledEvent(self.context))
             self.status = "No changes"
 
         self.context.reindexObject()
         self.context.aq_inner.aq_parent.reindexObject()
 
-        self.goto()
+        self.redirectToNextURL()
 
     @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
     def handle_cancel_action(self, action, data):
         """
         """                
-        zope.event.notify(EditCancelledEvent(self.context))        
-        self.goto()
+        notify(EditCancelledEvent(self.context))        
+        self.redirectToNextURL()
 
-    def goto(self):
+    def redirectToNextURL(self):
         """
         """        
         url = self.request.get("goto", "")
@@ -83,33 +83,17 @@ class AddressAddForm(base.AddForm):
     def handle_cancel_action(self, action, data):
         """
         """
-        self.goto()
+        self.redirectToNextURL()
     
     def createAndAdd(self, data):
         """
         """
-        # add address
-        id = self.context.generateUniqueId("Address")
-
-        self.context.invokeFactory("Address", id=id, title=data.get("address1"))
-        address = getattr(self.context, id)
-
-        # set data
-        address.setFirstname(data.get("firstname", ""))
-        address.setLastname(data.get("lastname", ""))
-        address.setAddress1(data.get("address1", ""))
-        address.setAddress2(data.get("address2", ""))
-        address.setZipCode(data.get("zipCode", ""))
-        address.setCity(data.get("city", ""))
-        address.setCountry(data.get("country", ""))
-        address.setPhone(data.get("phone", ""))
-
-        address.reindexObject()
-        self.context.reindexObject()
-                
-        self.goto()
+        am = IAddressManagement(self.context)
+        am.addAddress(data)
         
-    def goto(self):
+        self.redirectToNextURL()
+        
+    def redirectToNextURL(self):
         """
         """
         url = self.request.get("goto", "")

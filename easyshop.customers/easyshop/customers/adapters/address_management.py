@@ -4,6 +4,7 @@ from zope.component import adapts
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.exceptions import BadRequest
 
 # Archetypes imports
 from Products.Archetypes.utils import shasattr
@@ -11,6 +12,7 @@ from Products.Archetypes.utils import shasattr
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomer
+from easyshop.customers.content.address import Address
 
 class CustomerAddressManager:
     """An adapter which provides address management for customers.
@@ -21,19 +23,24 @@ class CustomerAddressManager:
     def __init__(self, context):
         self.context = context                  
 
-    def addAddress(self, a1, a2, z, ci, co):
+    def addAddress(self, data):
         """
         """
         id = self.context.generateUniqueId("Address")
-        self.context.invokeFactory("Address", id=id, title=a1)
-                
-        address = getattr(self.context, id)
-        address.setAddress1(a1)
-        address.setAddress2(a2)
-        address.setZipCode(z)
-        address.setCity(ci)
-        address.setCountry(co)
+        address = Address(id)
+
+        address.firstname    = data.get("firstname", u"")
+        address.lastname     = data.get("lastname", u"")
+        address.company_name = data.get("company_name", u"")            
+        address.address_1    = data.get("address_1", u"")            
+        address.address_2    = data.get("address_2", u"")
+        address.zip_code     = data.get("zip_code", u"")
+        address.city         = data.get("city", u"")            
+        address.country      = data.get("country", u"")
+        address.phone        = data.get("phone", u"")
         
+        self.context._setObject(id, address)
+
         return id
         
     def deleteAddress(self, id):
@@ -41,7 +48,7 @@ class CustomerAddressManager:
         """
         try:
             self.context.manage_delObjects(id)
-        except AttributeError:
+        except BadRequest:
             return False
         
         return True
@@ -59,14 +66,14 @@ class CustomerAddressManager:
             portal_type = "Address",
             path = "/".join(self.context.getPhysicalPath())
         )
-        
+
         return [brain.getObject() for brain in brains]
 
     def getInvoiceAddress(self):
         """
         """
-        if shasattr(self.context, self.context.getInvoiceAddressAsString()):
-            return getattr(self.context, self.context.getInvoiceAddressAsString())
+        if shasattr(self.context, self.context.selected_invoice_address):
+            return getattr(self.context, self.context.selected_invoice_address)
 
         try:    
             return self.getAddresses()[0]
@@ -76,8 +83,8 @@ class CustomerAddressManager:
     def getShippingAddress(self):
         """
         """
-        if shasattr(self.context, self.context.getShippingAddressAsString()):
-            return getattr(self.context, self.context.getShippingAddressAsString())
+        if shasattr(self.context, self.context.selected_shipping_address):
+            return getattr(self.context, self.context.selected_shipping_address)
         
         try:    
             return self.getAddresses()[0]
@@ -88,5 +95,3 @@ class CustomerAddressManager:
         """
         """
         return len(self.getAddresses()) > 0
-            
-            

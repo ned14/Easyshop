@@ -14,6 +14,6 @@ class AddressesViewlet(ViewletBase):
     
     def getAddresses(self):
         """
-        """                
+        """
         am = IAddressManagement(self.context)
         return am.getAddresses()    

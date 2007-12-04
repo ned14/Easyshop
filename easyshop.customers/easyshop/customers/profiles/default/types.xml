@@ -14,5 +14,9 @@
  <object 
      name="CustomersContainer"
      meta_type="Factory-based Type Information"/>
+
+ <object 
+     name="SessionsContainer"
+     meta_type="Factory-based Type Information" />
      
 </object>
