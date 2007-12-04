@@ -136,7 +136,7 @@ class CartFormView(BrowserView):
         pm = IPaymentMethodManagement(self.context)
                 
         result = []        
-        for payment_method in pm.getPaymentMethods():
+        for payment_method in pm.getPaymentMethods(check_validity=True):
             
             id = payment_method.getId()
             selected = (id == customer.selected_payment_method)
@@ -176,7 +176,7 @@ class CartFormView(BrowserView):
         sm = IShippingMethodManagement(self.context)
         
         shipping_methods = []
-        for shipping in sm.getShippingMethods():
+        for shipping in sm.getShippingMethods(check_validity=True):
 
             if selected_shipping_id == safe_unicode(shipping.getId()):
                 checked = True
