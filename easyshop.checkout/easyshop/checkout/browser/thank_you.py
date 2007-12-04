@@ -11,14 +11,12 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.config import _
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import IPhotoManagement
-from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
-
-from easyshop.shop.subscribers.mailing import sendMultipartMail
+from easyshop.shop.utilities.misc import sendMultipartMail
 
 class ThankYouPageView(BrowserView):
     """
@@ -26,7 +24,7 @@ class ThankYouPageView(BrowserView):
     def getFormatInfo(self):
         """
         """
-        return IFormatterInfos(self.context).getFormatInfosAsDict()
+        return IFormats(self.context).getFormats()
 
     def getLatestOrder(self):
         """Returns the last order id of authenticated customer
@@ -49,25 +47,29 @@ class ThankYouPageView(BrowserView):
                 "total"       : prices.getPriceForCustomer(),
                 "tax"         : (prices.getPriceForCustomer() - prices.getPriceNet()),
                 "shipping"    : order.getShippingPriceGross(),
-                "city"        : address.getCity(),
+                "city"        : address.city,
                 "state"       : "",
-                "country"     : address.getCountry,
+                "country"     : address.country,
         }
         
         items = []
         for item in IItemManagement(order).getItems():
 
-            # product
+            # Product
             product = item.getProduct()
             
-            # category
-            category = product.getEasyshopcategories()[0]
+            # Category
+            try:
+                category = product.getEasyshopcategories()[0]
+                category_title = category.Title()
+            except IndexError:
+                category_title = u""
             
             items.append({
                 "order_id"    : order.getId(),
-                "sku"         : product.getArticle_id(),
+                "sku"         : product.getArticleId(),
                 "productname" : product.Title(),
-                "category"    : category.Title(),
+                "category"    : category_title,
                 "price"       : item.getProductPriceGross(),
                 "quantity"    : item.getProductQuantity()
             })
@@ -107,20 +109,12 @@ class ThankYouPageView(BrowserView):
             price = IPrices(product).getPriceForCustomer()
             price = cm.priceToString(price)
 
-            # properties view
-            property_manager = IPropertyManagement(product)
-            if len(property_manager.getProperties()) > 0:
-                showSelectPropertiesView = True
-            else:    
-                showSelectPropertiesView = False
-                        
             result.append({
                 "title"                    : product.Title(),
                 "short_title"              : product.getShortTitle() or product.Title(),                    
                 "url"                      : product.absolute_url(),
                 "price"                    : price,
                 "image"                    : image,
-                "showSelectPropertiesView" : showSelectPropertiesView,
             })
 
         return result
@@ -169,7 +163,6 @@ class ThankYouPageView(BrowserView):
         mtool = getToolByName(self.context, "portal_membership")
             
         selectors = []
-        # Todo: Optimize
         for selector in self.context.objectValues("ProductSelector"):
 
             # ignore thank you selection
@@ -194,13 +187,6 @@ class ThankYouPageView(BrowserView):
                 if photo is not None:
                     image = "%s/image_%s" % (photo.absolute_url(), fi.get("image_size"))
 
-                # properties view
-                property_manager = IPropertyManagement(product)
-                if len(property_manager.getProperties()) > 0:
-                    showSelectPropertiesView = True
-                else:    
-                    showSelectPropertiesView = False
-
                 t = fi.get("text")
                 if t == "description":
                     text = product.getDescription()
@@ -224,7 +210,6 @@ class ThankYouPageView(BrowserView):
                     "price"                    : price,
                     "image"                    : image,
                     "text"                     : text,
-                    "showSelectPropertiesView" : showSelectPropertiesView,
                     "class"                    : klass,
                 })
     

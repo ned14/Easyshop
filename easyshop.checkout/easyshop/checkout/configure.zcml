@@ -1,16 +1,14 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="easyshop.checkout">
+    xmlns:five="http://namespaces.zope.org/five">
 
     <five:registerPackage
-        package="." 
-        initialize=".initialize" />
+        package="." />
+
+    <include
+        package=".adapters" />
 
     <include
         package=".browser" />
-
-    <include 
-        file="profiles.zcml" />
         
 </configure>

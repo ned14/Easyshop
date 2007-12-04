@@ -1,0 +1,9 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="easyshop.checkout">
+
+    <adapter
+        factory=".checkout_management.CheckoutManagement" />
+
+</configure>

@@ -1,169 +1,123 @@
 # Zope imports
+from zope import schema
+from zope.app.form.interfaces import WidgetInputError
+from zope.formlib import form
 from zope.interface import Interface
-from zope.interface import implements
-from zope.i18nmessageid import MessageFactory
 
 # Five imports
-from Products.Five.browser import BrowserView 
+from Products.Five.browser import pagetemplatefile
+from Products.Five.formlib import formbase
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
+from easyshop.core.config import _
 from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import IAsynchronPaymentMethod
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IOrderManagement
-from easyshop.core.interfaces import IPaymentManagement
-from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPaymentInformationManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
+from easyshop.core.interfaces import IPaymentPriceManagement
+from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IShippingManagement
-from easyshop.core.interfaces import IType
+from easyshop.core.interfaces import IShippingMethodManagement
+from easyshop.core.interfaces import IShippingPriceManagement
+
 from easyshop.core.interfaces import ITaxes
-from easyshop.core.interfaces import IShopManagement
+from easyshop.payment.config import ERROR, PAYED
 
-_ = MessageFactory("EasyShop")
-
-class IOrderPreviewView(Interface):    
+class IOrderPreviewForm(Interface):
     """
     """
-    def buy():
-        """Buys a cart
-        """
+    confirmation  = schema.Bool()
 
-    def getCart():
-        """Returns current cart.
-        """
-        
-    def getCartItems():
-        """Returns the items of the current cart.
-        """
-
-    def getInvoiceAddress():
-        """Returns invoice address of the current customer.
-        """
-
-    def getSelectedPaymentMethod():
-        """Returns the selected payment method.
-        """
-        
-    def getPaymentMethodInfo():
-        """Returns some info of the current payment method of the current
-        customer
-        """
-
-    def getPaymentMethodType():
-        """Returns the type of the selected payment method of current customer.
-        Note: This is also part of the returned info of getPaymentMethodInfo.
-        """
-        
-    def getShippingAddress():
-        """Returns shipping address of the current customer.
-        """
-
-    def getShippingMethodInfo():
-        """Returns some info of the selected payment method of the current
-        customer
-        """
-
-    def showShippingNote():
-        """Returns True if a note to shipping price is meant to be displayed.
-        """
-        
-    def getShippingPrice():
-        """Returns the shipping price for current cart of current customer.
-        """
-
-    def getTotalPrice():
-        """Returns product price (the total price of the cart) plus shipping.
-        price
-        """
-        
-    def getTotalTax():
-        """Returns product tax plus shipping tax.
-        """
-
-    def hasCartItems():
-        """Returns True if the current cart has items.
-        """        
-
-    def isCustomerComplete():
-        """Returns True if current customer is ready to check out.
-        """
-
-    def isPaymentComplete():
-        """Returns True if the information for the current payment method is
-        complete entered.
-        """    
-        
-    def showPaymentMethodEditButton():
-        """Returns True if the button is meant to be displayed.
-        """
-
-    def showPayPalForm():
-        """Returns True if the paypal form is meant to be displayed.
-        """
-        
-class OrderPreviewView(BrowserView):
+class OrderPreviewForm(formbase.AddForm):
     """
     """
-    implements(IOrderPreviewView)
-
-    def __init__(self, context, request):
+    template = pagetemplatefile.ZopeTwoPageTemplateFile("order_preview.pt")
+    form_fields = form.Fields(IOrderPreviewForm)
+    
+    def validator(self, action, data):
         """
         """
-        super(OrderPreviewView, self).__init__(context, request)
-        self.shop = self.context
+        errors = []
+        if self.request.get("form.confirmation", "") == "":
+            error_msg = _(u"Please confirm our terms and conditions.")
+            widget = self.widgets["confirmation"]
+            error = WidgetInputError(widget.name, widget.label, error_msg)
+            widget._error = error
+            widget.error  = error_msg
+            errors.append(error)
+        
+        return errors
+            
+    @form.action(_(u"label_buy", default=u"Buy"), validator=validator, name=u'buy')
+    def handle_buy_action(self, action, data):
+        """Buys a cart.
+        """
+        putils = getToolByName(self.context, "plone_utils")
                 
-    def buy(self):
-        """
-        """
-        putils = getToolByName(self.shop, "plone_utils")
-                
-        # get customer
-        customer = ICustomerManagement(self.shop).getAuthenticatedCustomer()
-
         # add order
-        om = IOrderManagement(self.shop)
+        om = IOrderManagement(self.context)
         new_order = om.addOrder()
 
         # process payment
-        pm = IPaymentManagement(new_order)
-        result = pm.processSelectedPaymentMethod()
+        result = IPaymentProcessing(new_order).process()
 
-        # Need error for payment methods, who the customer has to pay at any case
-        # The order process should not go on if the customer could not pay.
-        if result == "PAYMENT_ERROR":
-            return
-                    
-        if result == "PAYED":
-            wftool = getToolByName(self, "portal_workflow")
-            wftool.doActionFor(new_order, "pay")
+        # Need error for payment methods for which the customer has to pay at 
+        # any case The order process should not go on if the customer is not 
+        # able to pay.
+        if result.code == ERROR:
+            om.deleteOrder(new_order.id)
+            putils.addPortalMessage(result.message, type=u"error")
+            ICheckoutManagement(self.context).redirectToNextURL("ERROR_PAYMENT")
+            return ""
+        else:
+            # Delete cart
+            ICartManagement(self.context).deleteCart()
 
-        putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
+            # Set order to pending (Mails will be sent)
+            wftool = getToolByName(self.context, "portal_workflow")
+            wftool.doActionFor(new_order, "submit")
+            
+        if result.code == PAYED:
+            # Set order to payed (Mails will be sent)
+            wftool = getToolByName(self.context, "portal_workflow")
+            wftool.doActionFor(new_order, "submit")
+            wftool.doActionFor(new_order, "pay_not_sent")
+            putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
 
-        # redirect
-        if pm.getSelectedPaymentMethod().portal_type != "PayPal":
-            self.context.request.response.redirect(self.context.absolute_url())
+        # Redirect
+        customer = \
+            ICustomerManagement(self.context).getAuthenticatedCustomer()
+        selected_payment_method = \
+            IPaymentInformationManagement(customer).getSelectedPaymentMethod()
+        
+        if not IAsynchronPaymentMethod.providedBy(selected_payment_method):
+            ICheckoutManagement(self.context).redirectToNextURL("BUYED_ORDER")
 
     def getCart(self):
         """Returns current cart.
         """
-        cm = ICartManagement(self.shop)
+        cm = ICartManagement(self.context)
         return cm.getCart()
 
     def getCartItems(self):
+        """Returns the items of the current cart.
         """
-        """            
-        cm = ICartManagement(self.shop)
+        cm = ICartManagement(self.context)
         cart = cm.getCart()
 
-        cm = ICurrencyManagement(self.shop)
+        cm = ICurrencyManagement(self.context)
         im = IItemManagement(cart)
                 
         result = []
@@ -213,9 +167,9 @@ class OrderPreviewView(BrowserView):
         return result
         
     def getInvoiceAddress(self):
+        """Returns invoice address of the current customer.
         """
-        """
-        cm = ICustomerManagement(self.shop)
+        cm = ICustomerManagement(self.context)
         customer = cm.getAuthenticatedCustomer()
         
         am = IAddressManagement(customer)
@@ -223,51 +177,40 @@ class OrderPreviewView(BrowserView):
         
         return addressToDict(address)
 
-    def getSelectedPaymentMethod(self):
+    def getSelectedPaymentInformation(self):
         """
         """
-        cm = ICustomerManagement(self.shop)
-        customer = cm.getAuthenticatedCustomer()        
-        pm = IPaymentManagement(customer)
-        return pm.getSelectedPaymentMethod()
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        pm = IPaymentInformationManagement(customer)
+        return pm.getSelectedPaymentInformation()
         
     def getPaymentMethodInfo(self):
         """
-        """                
+        """
         # method
-        cm = ICustomerManagement(self.shop)
-        customer = cm.getAuthenticatedCustomer()        
-        pm = IPaymentManagement(customer)
-        method = pm.getSelectedPaymentMethod()
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        selected_payment_method = customer.selected_payment_method
+
+        pm = IPaymentMethodManagement(self.context)
+        method = pm.getPaymentMethod(selected_payment_method)
         
         # price
-        pp = IPaymentPrices(self.context)
+        pp = IPaymentPriceManagement(self.context)
         payment_price = pp.getPriceGross()
-        cm = ICurrencyManagement(self.shop)
+        cm = ICurrencyManagement(self.context)
         price = cm.priceToString(payment_price)
         
         return {
-            "type"    : IType(method).getType(),
+            "type"    : method.portal_type,
             "title"   : method.Title(),
             "price"   : price,
             "display" : payment_price != 0,
         }
 
-    def getPaymentMethodType(self):
-        """
-        """
-        cm = ICustomerManagement(self.shop)
-        customer = cm.getAuthenticatedCustomer()        
-        pm = IPaymentManagement(customer)
-        method = pm.getSelectedPaymentMethod()
-        
-        return IType(method).getType()
-
-        
     def getShippingAddress(self):
         """
         """
-        cm = ICustomerManagement(self.shop)
+        cm = ICustomerManagement(self.context)
         customer = cm.getAuthenticatedCustomer()
         
         am = IAddressManagement(customer)
@@ -278,7 +221,7 @@ class OrderPreviewView(BrowserView):
     def getShippingMethodInfo(self):
         """
         """
-        pm = IShippingManagement(self.shop)
+        pm = IShippingMethodManagement(self.context)
         shipping_method = pm.getSelectedShippingMethod()
         
         return {
@@ -286,42 +229,28 @@ class OrderPreviewView(BrowserView):
             "description" : shipping_method.Description(),
         }
                 
-    def showShippingNote(self):
-        """
-        """
-        cm = ICustomerManagement(self.shop)
-        customer = cm.getAuthenticatedCustomer()
-
-        am = IAddressManagement(customer)
-        address = am.getShippingAddress()
-        
-        if address.getCountry() != "Deutschland":
-            return True
-        else:
-            return False
-        
     def getShippingPrice(self):
         """
         """        
-        sm = IShippingManagement(self.shop)
+        sm = IShippingPriceManagement(self.context)
         shipping_price = sm.getPriceForCustomer()
 
-        cm = ICurrencyManagement(self.shop)
+        cm = ICurrencyManagement(self.context)
         return cm.priceToString(shipping_price)
                 
     def getTotalPrice(self):
         """
         """
-        cart = ICartManagement(self.shop).getCart()                
+        cart = ICartManagement(self.context).getCart()                
 
         pm = IPrices(cart)        
         total = pm.getPriceForCustomer()
 
         # Todo: Should this be in cart?
-        pp = IPaymentPrices(self.context)
+        pp = IPaymentPriceManagement(self.context)
         total += pp.getPriceGross()
         
-        cm = ICurrencyManagement(self.shop)
+        cm = ICurrencyManagement(self.context)
         total = cm.priceToString(total)
         
         return total
@@ -329,19 +258,18 @@ class OrderPreviewView(BrowserView):
     def getTotalTax(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
-        cart = ICartManagement(shop).getCart()
+        cart = ICartManagement(self.context).getCart()
 
         t = ITaxes(cart)
-        sm = IShippingManagement(shop)
+        sm = IShippingPriceManagement(self.context)
         
         total = t.getTaxForCustomer() + sm.getTaxForCustomer()
 
         # Todo: Should this be in cart?
-        pp = IPaymentPrices(self.context)
+        pp = IPaymentPriceManagement(self.context)
         total += pp.getTaxForCustomer()
 
-        cm = ICurrencyManagement(self.shop)        
+        cm = ICurrencyManagement(self.context)        
         total = cm.priceToString(total)
         
         return total
@@ -349,7 +277,7 @@ class OrderPreviewView(BrowserView):
     def hasCartItems(self):
         """
         """
-        cart = ICartManagement(self.shop).getCart()
+        cart = ICartManagement(self.context).getCart()
         
         if cart is None:
             return False
@@ -363,52 +291,29 @@ class OrderPreviewView(BrowserView):
     def isCustomerComplete(self):
         """
         """
-        cm = ICustomerManagement(self.shop)
+        cm = ICustomerManagement(self.context)
         customer = cm.getAuthenticatedCustomer()
         
         return ICompleteness(customer).isComplete()
 
-    def isPaymentComplete(self):
+    def test(self, error, result_true, result_false):
         """
         """
-        cm = ICustomerManagement(self.shop)
-        customer = cm.getAuthenticatedCustomer()
-        
-        pm = IPaymentManagement(customer)
-        method = pm.getSelectedPaymentMethod()
-
-        return ICompleteness(method).isComplete()
-
-    def showPaymentMethodEditButton(self):
-        """
-        """        
-        # get customer
-        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
-        payment_method = IPaymentManagement(customer).getSelectedPaymentMethod()        
-        type_manager = IType(payment_method) 
-        
-        if type_manager.getType() in ("prepayment", "paypal"):
-            return False
-        return True
-        
-    def showPayPalForm(self):
-        """
-        """
-        # Todo: Use interface instead of type
-        if self.getPaymentMethodType() == "paypal":
-            return True
-        return False
-        
+        if error == True:
+            return result_true
+        else:
+            return result_false
+                
 def addressToDict(address):
     """
     """
     return {
         "name"        : address.getName(),
-        "address1"    : address.getAddress1(),
-        "address2"    : address.getAddress2(),        
-        "zipcode"     : address.getZipCode(),
-        "city"        : address.getCity(),
-        "country"     : address.getCountry(),
+        "address1"    : address.address_1,
+        "address2"    : address.address_2,        
+        "zipcode"     : address.zip_code,
+        "city"        : address.city,
+        "country"     : address.country,
         "url"         : address.absolute_url(),
         "is_complete" : ICompleteness(address).isComplete(),
     }

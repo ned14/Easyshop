@@ -5,8 +5,7 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="order view/getLatestOrder;
-                                format_info view/getFormatInfo">
+                    tal:define="format_info view/getFormatInfo">
 
             <h1 class="documentFirstHeading"
                 i18n:translate="thank_you_title">
@@ -15,34 +14,33 @@
 
             <p class="check-out-description"
                 i18n:translate="thank_you_description_1">
-                Your order has been successfully completed.
+                Your order has been successfully completed. 
+                You will get a confirmation e-mail very soon.
             </p>
 
-            <div id="checkout-last-order">
+            <tal:block tal:condition="not:isAnon">
+                <div tal:define="order view/getLatestOrder"    
+                     id="checkout-last-order">
 
-                <tal:block i18n:translate="thank_you_description_2">
-                    We have accepted you order with number
-                </tal:block>
+                    <tal:block i18n:translate="thank_you_description_2">
+                        We have accepted you order with number
+                    </tal:block>
 
-                <a href="."
-                   tal:content="order/id"
-                   tal:attributes="href order/url">
-                   4711</a>.
+                    <a href="."
+                       tal:content="order/id"
+                       tal:attributes="href order/url">
+                       4711</a>.
 
-                <tal:block i18n:translate="thank_you_description_3">
-                    You will get a confirmation via e-mail soon. You can see the status of your order at 
-                </tal:block>
+                    <tal:block i18n:translate="thank_you_description_3">
+                        You can see the status of your order at 
+                    </tal:block>
             
-                <a href="."
-                   tal:attributes="href string:${context/absolute_url}/my-account"
-                   i18n:translate="my_account_label">    
-                    My Account</a>.    
-                
-                <tal:block i18n:translate="thank_you_description_4">
-                    Thank you!
-                </tal:block>            
-            
-            </div>    
+                    <a href="."
+                       tal:attributes="href string:${context/absolute_url}/my-account"
+                       i18n:translate="my_account_label">    
+                        My Account</a>.    
+                </div>    
+            </tal:block>
 
             <div id="checkout-recommendation">
             
@@ -132,17 +130,7 @@
                                               name="quantity"
                                               value="1" />
 
-                                        <input tal:condition="product/showSelectPropertiesView"
-                                               class="context"
-                                               name="select-properties-view:method" 
-                                               value="Buy Product" 
-                                               type="submit"
-                                               i18n:attributes="title buy_product_label;
-                                                                value buy_product_label;"
-                                               tal:attributes="tabindex tabindex/next;" />                                            
-
-                                        <input tal:condition="not:product/showSelectPropertiesView"
-                                               class="context"
+                                        <input class="context"
                                                id="add-product"
                                                name="addToCart:method" 
                                                value="Add to Cart"
