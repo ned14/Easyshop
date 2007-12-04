@@ -160,14 +160,25 @@ class EasyShop(ATFolder):
         # Add left portlets 
         leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)
         left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, context=self)
+
         if u'portlets.Categories' not in left:
             left[u'portlets.Categories'] = categories.Assignment()
+            order = [left.keys()[-1]]+left.keys()[:-1]
+            left.updateOrder(list(order))
+
+        if u'portlets.Admin' not in left:
+            left[u'portlets.Admin'] = categories.Assignment()
             order = [left.keys()[-1]]+left.keys()[:-1]
             left.updateOrder(list(order))
 
         # Add right portlets 
         rightColumn = getUtility(IPortletManager, name=u'plone.rightcolumn', context=self)
         right = getMultiAdapter((self, rightColumn,), IPortletAssignmentMapping, context=self)
+
+        if u'portlets.MyAccount' not in right:
+            right[u'portlets.MyAccount'] = my_account.Assignment()
+            order = [right.keys()[-1]]+right.keys()[:-1]
+            right.updateOrder(list(order))
 
         if u'portlets.Cart' not in right:
             right[u'portlets.Cart'] = cart.Assignment()
@@ -176,11 +187,6 @@ class EasyShop(ATFolder):
 
         if u'portlets.Formatter' not in right:
             right[u'portlets.Formatter'] = formatter.Assignment()
-            order = [right.keys()[-1]]+right.keys()[:-1]
-            right.updateOrder(list(order))
-
-        if u'portlets.MyAccount' not in right:
-            right[u'portlets.MyAccount'] = my_account.Assignment()
             order = [right.keys()[-1]]+right.keys()[:-1]
             right.updateOrder(list(order))
             
