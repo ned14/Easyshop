@@ -8,6 +8,7 @@ from Products.CMFCore.utils import getToolByName
 
 # CMFPlone imports
 from Products.CMFPlone.utils import base_hasattr
+from Products.CMFPlone.utils import safe_unicode
 
 # easyshop imports
 from easyshop.customers.content import Customer
@@ -34,15 +35,14 @@ class CustomerManagement:
         """
         if base_hasattr(self.customers, id) == False:
             customer = Customer(id=id)
-            customer.selected_country=u"Deutschland"
             self.customers._setObject(id, customer)
             return True
         else:
             return False
 
     def getAuthenticatedCustomer(self):
-        """Returns the customer or a session customer for anonymous user. If it 
-        doesn't already exist, creates a new one
+        """Returns the customer or a session customer for anonymous user. If it
+        doesn't already exist, creates a new one.
         """        
         mtool = getToolByName(self.context, "portal_membership")
         mid = mtool.getAuthenticatedMember().getId()
@@ -52,17 +52,20 @@ class CustomerManagement:
         
         if mid is None:
             if base_hasattr(self.sessions, sid) == False:
-                customer = Customer(id=sid)
-                self.sessions._setObject(sid, customer)
+                self.addCustomer(id=sid)
+
             customer = self.sessions[sid]
         else:
             if base_hasattr(self.sessions, sid) == True:
                 self.transformCustomer(mid, sid)
             
             if base_hasattr(self.customers, mid) == False:
-                customer = Customer(mid)
-                self.customers._setObject(mid, customer)
-
+                self.addCustomer(id=mid)
+                
+                # Set customers info
+                customer = self.customers[mid]
+                self._setCustomerInfo(customer)
+                    
             customer = self.customers[mid]        
 
         # Update roles and mappings
@@ -107,6 +110,19 @@ class CustomerManagement:
 
         session_customer = self.sessions[sid]
         ICopyManagement(session_customer).copyTo(self.customers, mid)
+        
+        # Set customer info
+        customer = self.customers[mid]
+        self._setCustomerInfo(customer)
+        
         self.sessions.manage_delObjects([sid])
 
         return True
+        
+    def _setCustomerInfo(self, customer):
+        """
+        """
+        mtool = getToolByName(self.context, "portal_membership")
+        member = mtool.getMemberById(customer.id)
+        if member is not None:
+            customer.email = safe_unicode(member.getProperty("email"))
