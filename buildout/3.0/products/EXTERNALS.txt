@@ -3,5 +3,4 @@
 #
 
 ATBackRef https://svn.plone.org/svn/archetypes/MoreFieldsAndWidgets/ATBackRef/branches/diefenbach-easyshop
-DataGridField https://svn.plone.org/svn/archetypes/MoreFieldsAndWidgets/DataGridField/trunk
 EasyShopTranslations https://easyshop-for-plone.googlecode.com/svn/EasyShopTranslations/trunk
