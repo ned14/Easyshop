@@ -20,7 +20,6 @@ class Address(Item):
     lastname      = FieldProperty(IAddress["lastname"])
     company_name  = FieldProperty(IAddress["company_name"])
     address_1     = FieldProperty(IAddress["address_1"])
-    address_2     = FieldProperty(IAddress["address_2"])
     zip_code      = FieldProperty(IAddress["zip_code"])
     city          = FieldProperty(IAddress["city"])
     country       = FieldProperty(IAddress["country"])

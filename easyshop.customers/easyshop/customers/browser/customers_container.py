@@ -48,15 +48,9 @@ class CustomersContainerView(BrowserView):
                 address1 += " / "
                 address1 += address.getAddress2()
 
-            # create address 2
-            address2 = address.zip_code  + " " + \
-                       address.city()     + " - " + \
-                       address.country()
-            
             addresses.append({
                 "name"     : name,
                 "address1" : address_1,
-                "address2" : address_2,                             
                 "phone"    : address.phone(),
                 "url"      : address.absolute_url() + "/@@edit?goto=" + goto
             })

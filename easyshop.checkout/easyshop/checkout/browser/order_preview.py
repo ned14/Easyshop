@@ -310,7 +310,6 @@ def addressToDict(address):
     return {
         "name"        : address.getName(),
         "address1"    : address.address_1,
-        "address2"    : address.address_2,        
         "zipcode"     : address.zip_code,
         "city"        : address.city,
         "country"     : address.country,

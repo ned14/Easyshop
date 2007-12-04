@@ -11,8 +11,6 @@
                         </div>                                                    
                         <div tal:content="address/address_1">
                         </div>
-                        <div tal:content="address/address_2">
-                        </div>
                         <div>
                             <span tal:content="address/zip_code">
                             </span>

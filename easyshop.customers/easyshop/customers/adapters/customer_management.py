@@ -52,15 +52,17 @@ class CustomerManagement:
         
         if mid is None:
             if base_hasattr(self.sessions, sid) == False:
-                self.addCustomer(id=sid)
-
+                customer = Customer(id=sid)
+                self.sessions._setObject(sid, customer)
+                
             customer = self.sessions[sid]
         else:
             if base_hasattr(self.sessions, sid) == True:
                 self.transformCustomer(mid, sid)
             
             if base_hasattr(self.customers, mid) == False:
-                self.addCustomer(id=mid)
+                customer = Customer(id=mid)
+                self.customers._setObject(mid, customer)
                 
                 # Set customers info
                 customer = self.customers[mid]

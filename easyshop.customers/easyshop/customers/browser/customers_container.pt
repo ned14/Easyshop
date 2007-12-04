@@ -112,9 +112,6 @@
                                     <div tal:content="address/address1">
                                         Address 1
                                     </div>                                        
-                                    <div tal:content="address/address2">
-                                        Address 2
-                                    </div>                                        
                                     <div tal:content="address/phone">
                                         Address 1
                                     </div>                                        

@@ -74,7 +74,8 @@ Now we add a new address.
     >>> browser.getControl('Address 1').value = 'John Doe Street 1'
     >>> browser.getControl('Zip Code').value = '99099'
     >>> browser.getControl('City').value = 'Doe City'
-    >>> browser.getControl('Phone').value = '555 1112222'    
+    >>> browser.getControl('Phone').value = '555 1112222'
+    
     >>> browser.getControl('Next').click()
 
 Confirm default shipping method.    

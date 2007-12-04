@@ -30,9 +30,10 @@ We add new address
     >>> browser.getControl('Address 1').value = 'John Doe Str. 1'
     >>> browser.getControl('Zip Code').value = '99099'
     >>> browser.getControl('City').value = 'Erfurt'
+        
     >>> browser.getControl('Save').click()
-
-Since we left firstname emtpy we should should get an error.
+    
+Since we left firstname empty we should should get an error.
 
     >>> browser.contents
     '...There were errors...'
@@ -41,11 +42,12 @@ Since we left firstname emtpy we should should get an error.
     >>> browser.getControl('Save').click()
     >>> browser.contents
     '...John Doe Str. 1...'
-                    
+
     >>> browser.getControl('Edit').click()
+    
     >>> browser.getControl('Address 1').value = 'John Doe Str. 2'
     >>> browser.getControl('Save').click()
     >>> browser.contents
     '...John Doe Str. 2...'
-            
+
     >>> browser.getControl('Delete').click()

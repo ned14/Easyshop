@@ -22,7 +22,7 @@ class AddressEditForm(base.EditForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)
-    form_fields = form.Fields(IAddress)
+    form_fields = form.Fields(IAddress).omit("email")
     
     label = _(u"Edit Address")
     description = _("To change your address edit the form and press save.")
@@ -68,7 +68,7 @@ class AddressAddForm(base.AddForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)    
-    form_fields = form.Fields(IAddress)
+    form_fields = form.Fields(IAddress).omit("email")
     
     label = _(u"Add Address")
     form_name = _(u"Add Address")

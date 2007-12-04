@@ -109,7 +109,6 @@ class TestAddressManagement(EasyShopTestCase):
             "firstname" : u"John",
             "lastname" : u"Doe",
             "address_1" : u"Doe Str. 1",            
-            "address_2" : u"App. 1",
             "zip_code" : u"4711",
             "city" : u"Doe City",
             "country" : u"Germany"

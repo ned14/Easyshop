@@ -33,7 +33,6 @@ class CustomerAddressManager:
         address.lastname     = data.get("lastname", u"")
         address.company_name = data.get("company_name", u"")            
         address.address_1    = data.get("address_1", u"")            
-        address.address_2    = data.get("address_2", u"")
         address.zip_code     = data.get("zip_code", u"")
         address.city         = data.get("city", u"")            
         address.country      = data.get("country", u"")

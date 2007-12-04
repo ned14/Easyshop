@@ -41,13 +41,6 @@ class IAddress(Interface):
         required=True,
     )
 
-    address_2 = schema.TextLine(
-        title=_(u'Address 2'),
-        description=_(u"Please enter your address."),
-        default=u'',
-        required=False,
-    )
-
     zip_code = schema.TextLine(
         title=_(u'Zip Code'),
         description=_(u"Please enter your zip code."),
@@ -66,6 +59,13 @@ class IAddress(Interface):
         title=_(u'Country'),
         description=_(u"Please enter your country."),
         vocabulary = "easyshop.countries")
+
+    email = schema.TextLine(
+        title=_(u'E-Mail'),
+        description=_(u"Please enter your e-mail address."),
+        default=u'',
+        required=True,
+    )
             
     phone = schema.TextLine(
         title=_(u'Phone'),

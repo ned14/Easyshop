@@ -34,10 +34,15 @@ class AddressAddForm(base.AddForm):
         """
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         am = IAddressManagement(customer)
-        
+
+        # Set firstname and lastname of the superior customer object.
         if len(customer.firstname) == 0:
             customer.firstname = data.get("firstname")
             customer.lastname  = data.get("lastname")
+
+        # Set email of the superior customer object.
+        if len(customer.email) == 0:
+            customer.email = data.get("email", "")
                     
         am.addAddress(data)
 
