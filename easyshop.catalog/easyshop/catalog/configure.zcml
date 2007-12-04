@@ -7,15 +7,6 @@
         package="." 
         initialize=".initialize" />
 
-    <!--  Hide products and categories container -->
-    <five:implements
-        class="easyshop.catalog.content.containers.CategoriesContainer"
-        interface="Products.CMFPlone.interfaces.IHideFromBreadcrumbs" />
-
-    <five:implements
-        class="easyshop.catalog.content.containers.ProductsContainer"
-        interface="Products.CMFPlone.interfaces.IHideFromBreadcrumbs" />
-
     <include 
         file="profiles.zcml" />
         
