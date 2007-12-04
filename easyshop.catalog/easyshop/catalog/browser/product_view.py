@@ -67,5 +67,5 @@ class ProductView(BrowserView):
         else:
             putils.addPortalMessage(_(MESSAGES["CART_ADDED_PRODUCT"]))
 
-        url = "%s/added-to-cart?uid=%s" % (shop.absolute_url(), self.context.UID())
+        url = "%s/added-to-cart" % shop.absolute_url()
         self.context.request.response.redirect(url)
