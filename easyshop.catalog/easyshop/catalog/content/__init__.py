@@ -1,6 +1,6 @@
 import category
 import containers
-import formatter
+import es_image
 import photo
 import product_property
 import product_selector

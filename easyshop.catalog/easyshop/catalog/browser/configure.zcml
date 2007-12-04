@@ -1,54 +1,68 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+    <!-- Product -->       
     <browser:page
+        name="product-view"        
         for="easyshop.core.interfaces.IProduct"
-        name="product-zoom-view"
-        class=".product_zoom_view.ProductZoomView"
-        template="product_zoom_view.pt"
-        permission="zope.Public" />
-
-    <browser:page
-        for="easyshop.core.interfaces.IProduct"
-        name="select-properties-view"
-        class=".product_view.ProductView"        
-        template="select_properties_view.pt"
-        permission="zope.Public" />
-
-    <browser:page
-        for="easyshop.core.interfaces.IProduct"
-        name="product-view"
-        class=".product_view.ProductView"
         template="product_view.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="*"
         name="product-selector-view"
-        class=".product_selector_view.ProductSelectorView"
+        for="*"
         template="product_selector_view.pt"
         permission="zope.Public" />
 
     <browser:page
+        name="product-zoom-view"        
         for="easyshop.core.interfaces.IProduct"
-        name="product-view-related-products"
-        class=".product_view_related_products.ProductRelatedProductsView"
-        template="product_view_related_products.pt"
+        class=".product_zoom_view.ProductZoomView"
+        template="product_zoom_view.pt"
         permission="zope.Public" />
 
+    <!-- Category -->
     <browser:page
-        for="easyshop.core.interfaces.IProduct"
-        name="addToCart"
-        class=".product_view.ProductView"
-        attribute="addToCart" 
+        name="products-view"
+        for="easyshop.core.interfaces.ICategory"
+        template="category_products_view.pt"
         permission="zope.Public" />
 
     <browser:page
         name="categories-view"
+        for="easyshop.core.interfaces.ICategory"
+        template="category_categories_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        name="categories-view"
+        for="easyshop.core.interfaces.IShop"
+        template="category_categories_view.pt"
+        permission="zope.Public" />
+
+
+    <!-- Containers -->    
+    <browser:page
+        name="manage-categories-view"
         for="*"
-        template="categories_view.pt"
-        class=".categories_view.CategoriesView"
+        template="manage_categories_view.pt"
+        class=".manage_categories_view.ManageCategoriesView"
         permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="manage-products-view"        
+        for="easyshop.core.interfaces.IProductsContainer"
+        template="manage_products_view.pt"
+        class=".manage_products_view.ManageProductsView"
+        permission="cmf.ManagePortal" />
+
+    <!-- Miscellaneous -->
+    <browser:page
+        name="addToCart"
+        for="easyshop.core.interfaces.IProduct"
+        class=".product_view.ProductView"
+        attribute="addToCart" 
+        permission="zope.Public" />
 
     <browser:viewlet
         name="plone.contentactions"
@@ -58,13 +72,6 @@
         class="plone.app.layout.viewlets.common.ContentActionsViewlet"  
         permission="zope2.View" />
 
-    <browser:page 
-        for="easyshop.core.interfaces.ICategory"
-        name="category-view" 
-        class=".category_view.CategoryView" 
-        template="category_view.pt"
-        permission="zope.Public" /> 
-
     <browser:page  
         name="navigationMacroView"
         for="*" 
@@ -72,11 +79,5 @@
         allowed_interface=".easyshop_macros.INavigationMacroView"
         permission="zope2.Public" />  
 
-    <browser:page
-        for="easyshop.core.interfaces.IProductsContainer"
-        name="products-view"
-        template="products_view.pt"
-        class=".products_view.ProductsView"
-        permission="cmf.ManagePortal" />
     
 </configure>

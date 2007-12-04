@@ -5,22 +5,24 @@
  <object name="easyshop_product_workflow" meta_type="Workflow"/>
  <bindings>
   <type type_id="CategoriesContainer"/>
-  <type type_id="ProductSelector"/>
   <type type_id="ProductsContainer"/>     
-  <type type_id="Formatter"/>
-   
+
   <type type_id="Category">
    <bound-workflow workflow_id="easyshop_product_workflow"/>
+  </type>
+
+  <type type_id="Photo">
+   <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>
   
   <type type_id="Product">
    <bound-workflow workflow_id="easyshop_product_workflow"/>
   </type>
-  
-  <type type_id="Photo">
+
+  <type type_id="ProductSelector">
    <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>
-
+       
   <type type_id="ProductProperty">
    <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>

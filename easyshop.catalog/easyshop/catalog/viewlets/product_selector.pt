@@ -1,0 +1,96 @@
+<div id="products-list">
+    <div tal:repeat="image view/getImages">
+        <img src="."
+             tal:attributes="src string:${image/getURL}/image;
+                             alt image/Title" />
+    </div>
+    <tal:block tal:repeat="selector view/getSelectors">                   
+
+        <table class="products">
+            <tr tal:condition="view/showEditLink">
+                <td>
+                    <a href="#"
+                       tal:attributes="href selector/edit_url">
+                       Edit
+                    </a>                             
+                </td>
+            </tr>
+            <tr tal:condition="selector/show_title">
+                <td class="main-title"
+                    tal:attributes="colspan selector/products_per_line"
+                    tal:content="selector/title">
+                    Title
+                </td>
+            </tr>
+            <tr tal:repeat="line selector/lines">
+                <td tal:attributes="width selector/td_width;
+                                    class product/class"
+                    tal:repeat="product line">
+                    <div class="sub-title">
+                        <a href="#"
+                           title="#"
+                           tal:content="product/short_title"
+                           tal:attributes="href product/url;
+                                            title product/title">
+                           Product Name
+                        </a>
+                    </div>
+                    <table class="product-content">
+                        <tr>
+                            <td class="product-image"
+                                tal:attributes="height selector/product_height">
+                                <a href="#"
+                                   tal:attributes="href product/url;
+                                                   title product/title;
+                                                   alt product/title">
+                                    <img tal:attributes="src product/image" />
+                                </a>
+                            </td>
+                            <td class="product-text"
+                                tal:content="structure product/text">
+                                Text
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="product-control"
+                                colspan="2">
+
+                                <input type="button"
+                                       class="context"
+                                       id="product-details"
+                                       value="Details"
+                                       title="Details"
+                                       i18n:attributes="title details_label;"
+                                       tal:attributes="onclick string:location.href='${product/url}'" />
+                           
+                                <form action="#"                                  
+                                      tal:attributes="action product/url"
+                                      method="post">
+
+                                   <input type="hidden"
+                                          name="quantity"
+                                          value="1" />
+
+                                    <input class="context"
+                                           id="add-product"
+                                           name="addToCart:method" 
+                                           value="Add to Cart"
+                                           title="Add to Cart"                                                   
+                                           type="submit"
+                                           i18n:attributes="title add_to_cart_label;
+                                                            value add_to_cart_label;" />
+                                </form>
+               
+                                <span class="product-price"
+                                      tal:content="product/price">
+                                    42.00
+                                </span>
+                            
+                            </td>
+                        </tr>
+                    </table>                            
+                </td>    
+            </tr>                        
+        </table>    
+    </tal:block>
+</div>

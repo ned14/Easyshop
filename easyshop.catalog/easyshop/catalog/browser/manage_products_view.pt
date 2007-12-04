@@ -39,7 +39,8 @@
                       style="display:inline">
 
                     <input type="text"
-                           name="searchable_text" />
+                           name="searchable_text"
+                           tal:attributes="value view/getSearchableText" />
 
                     <input id="search-products"
                            type="submit"
@@ -56,33 +57,34 @@
 
                             <table>
                                 <tr tal:repeat="line lines">
-                                    <td tal:repeat="product line" >
+                                    <td tal:repeat="product line">
 
-                                <a class="product-details"
-                                   href="."
-                                   tal:define="letter context/REQUEST/letter|nothing"
-                                   tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&letter=$letter;
-                                                   class string:product-details kssattr-uid-${product/UID}">
+                                        <a class="product-details"
+                                           href="."
+                                           tal:define="letter context/REQUEST/letter|nothing;
+                                                       searchable_text view/getSearchableText"
+                                           tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&letter=$letter&searchable_text=$searchable_text;
+                                                           class string:product-details kssattr-uid-${product/UID}">
 
-                                    <img alt="info"
-                                         src="info_icon.gif" />
-                                </a>    
-                    
-                                <div>
-                                    <a href="."
-                                       tal:attributes="href product/getURL"
-                                       tal:content="product/Title">
-                                        Product Title
-                                    </a>
-                                </div>
-                                <img src="."
-                                     tal:attributes="src string:${product/getURL}/image_tile" />    
-                            
+                                            <img alt="info"
+                                                 src="info_icon.gif" />
+                                        </a>    
+                
+                                        <div>
+                                            <a href="."
+                                               tal:attributes="href product/getURL"
+                                               tal:content="product/Title">
+                                                Product Title
+                                            </a>
+                                        </div>
+                                        <img src="."
+                                             tal:attributes="src string:${product/getURL}/image_tile" />    
+                        
                                     </td>
                                 </tr>
                             </table>
                     
-                            <div tal:condition="not:lines"
+                            <div tal:condition="python:view.showNoResult(lines)"
                                  i18n:translate="no_products_label">
                                 There are no products.
                             </div>                    
@@ -111,8 +113,8 @@
                                          class="image-left" 
                                          tal:attributes="src string:${product/url}/image_mini" />
 
-                                    <span tal:replace="structure product/short_text">
-                                        Short Text
+                                    <span tal:replace="structure product/text">
+                                        Text
                                     </span>    
                                     <span class="label"
                                          i18n:translate="price_label">
@@ -153,7 +155,7 @@
                                             <a href="."
                                                tal:attributes="href related/url">
                                                 <span tal:replace="related/title">Title</span>
-                                                <span tal:replace="related/article_id">ID</span>
+                                                <span tal:replace="related/articleId">ID</span>
                                             </a>    
                                         </li>
                                     </ul>

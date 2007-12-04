@@ -6,9 +6,10 @@
                 Products Overview
             </a>   -->
 
-            <div id="myproduct">
+            <div id="product">
 
-                <form action="#"
+                <form name="product_form" 
+                      action="#"
                       tal:define="product view/getProduct"                                  
                       tal:attributes="action product/url"
                       method="post">
@@ -113,6 +114,37 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td></td>
+                                        <td class="product-properties">
+                                             <table>
+                                                 <tr tal:repeat="property view/getProperties">
+                                                     <td style="vertical-align:bottom; padding-right:20px"
+                                                         tal:content="property/title">
+                                                        Title
+                                                     </td>
+                                                     <td>
+                                                         <select style="font-size:12px; width:200px"
+                                                                 onchange="document.product_form.submit();"
+                                                                 tal:attributes="name string:property-${property/id}">
+                       
+                                                             <option i18n:translate="please_select_label">
+                                                                 Please Select
+                                                             </option>
+                                                   
+                                                             <option tal:repeat="option property/options"
+                                                                     tal:content="option/content"
+                                                                     tal:attributes="value option/value;
+                                                                                     selected option/selected">
+                                                                 Red
+                                                             </option>                           
+                                                         </select>                                                                       
+                                                     </td>
+                                                 </tr>
+                                             </table>     
+ 
+                                        </td>
+                                    </tr> 
+                                    <tr>
                                         <td class="product-control"
                                             colspan="2">
 
@@ -128,16 +160,7 @@
                                                    name="quantity"
                                                    value="1" />
 
-                                            <input tal:condition="product/showSelectPropertiesView"
-                                                   class="context"
-                                                   name="select-properties-view:method" 
-                                                   value="Buy Product" 
-                                                   type="submit"
-                                                   i18n:attributes="title buy_product_label;
-                                                                    value buy_product_label;" />                                                   
-
-                                            <input tal:condition="not:product/showSelectPropertiesView"                                                    
-                                                   class="context"
+                                            <input class="context"
                                                    id="add-product"
                                                    name="addToCart:method" 
                                                    value="Add to Cart"
@@ -147,7 +170,7 @@
                                                                     value add_to_cart_label;" />
 
                                             <span class="product-price"
-                                                  tal:content="product/price">
+                                                  tal:content="view/getPriceForCustomer">
                                                 42.00
                                             </span>
                                         </td>

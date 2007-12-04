@@ -24,9 +24,20 @@
                     42
                 </span> -->
             </div>       
-                     
-            <div tal:condition="python: template.id != 'thank-you'" 
-                class="field">
+            <div tal:condition="view/showEnabledField"
+                 class="field">
+                <label i18n:translate="enabled_label">
+                    Enabled
+                </label>
+                <div>
+                    <input name="enabled"
+                           type="checkbox"
+                           tal:attributes="checked format_info/enabled" />
+                </div>
+            </div>                
+
+            <div tal:condition="view/showLinesPerPage"
+                 class="field">
                 <label i18n:translate="lines_per_page_label">
                     Lines Per Page
                 </label>
@@ -38,6 +49,11 @@
                            tal:attributes="value format_info/lines_per_page" />
                 </div>
             </div>                
+            <input tal:condition="not:view/showLinesPerPage"
+                   name="lines_per_page"
+                   type="hidden"                 
+                   value="42" 
+                   tal:attributes="value format_info/lines_per_page" />
                        
             <div class="field">                     
                 <label i18n:translate="products_per_line_label">
@@ -94,7 +110,11 @@
                     </option>
                 </select>
             </div>
-                
+
+            <input type="hidden"
+                   name="layout"
+                   tal:attributes="value context/getLayout|nothing" />
+                       
             <div class="button">
                 <input id="save-formatter"
                        class="context"

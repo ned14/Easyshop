@@ -1,6 +1,3 @@
-# Zope imports
-from AccessControl import ClassSecurityInfo
-
 # zope imports
 from zope.interface import implements
 
@@ -30,24 +27,50 @@ schema = Schema((
     ),
     
     TextField(
-        name='text',
-        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
+        name='shortText',
+        allowable_content_types=(
+            'text/plain', 
+            'text/structured',
+            'text/html', 
+            'application/msword',),
+        default_output_type='text/html',            
         widget=RichWidget(
-            description="",
-            description_msgid="schema_text_description",        
-            label='Long Description',
-            label_msgid='schema_text_label',
+            label='Short Text',
+            label_msgid='schema_short_text_label',
+            description="This text is used within overviews.",
+            description_msgid="schema_short_description_description",
             i18n_domain='EasyShop',
         ),
-        default_output_type='text/html'
+    ),
+
+    TextField(
+        name='text',
+        allowable_content_types=(
+            'text/plain', 
+            'text/structured',
+            'text/html', 
+            'application/msword',),
+        default_output_type='text/html',            
+        widget=RichWidget(
+            label='Long Text',
+            label_msgid='schema_long_text_label',
+            description="This text is used within detailed category view.",
+            description_msgid="schema_long_description_description",
+            i18n_domain='EasyShop',
+        ),
     ),
 
     ImageField(
         name='image',
-        sizes= IMAGE_SIZES,
+        sizes= {'large'   : (768, 768),
+                'preview' : (400, 400),
+                'mini'    : (200, 200),
+                'thumb'   : (128, 128),
+                'tile'    :  (64, 64),
+                'icon'    :  (32, 32),
+                'listing' :  (16, 16),
+               },
         widget=ImageWidget(
-            description="",
-            description_msgid="schema_",                
             label='Image',
             label_msgid='schema_image_label',
             i18n_domain='EasyShop',
@@ -56,9 +79,9 @@ schema = Schema((
     ),
 
     ReferenceField( 
-        name='easyshopproducts', 
+        name='products', 
         multiValued=1,
-        relationship='easyshopcategory_easyshopproduct',
+        relationship='category_products',
         allowed_types=("Product",),
         widget=ReferenceBrowserWidget(        
             label='Products',
@@ -100,20 +123,4 @@ class Category(ATFolder):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
 
-    def getCategories(self):
-        """
-        """
-        return [c.Title() for c in self.objectValues("Category")]
-
-    def setEasyshopproducts(self, value):
-        """
-        """
-        self.getField("easyshopproducts").set(self, value)
-        
-        obj = self
-        while ICategory.providedBy(obj):
-            obj.reindexObject()
-            obj = obj.aq_inner.aq_parent
-        
-                
 registerType(Category, PROJECTNAME)

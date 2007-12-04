@@ -3,6 +3,7 @@ from zope.interface import implements
 
 # plone imports
 from plone.app.portlets.portlets import base
+from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 
 # CMFCore imports
@@ -16,9 +17,9 @@ from Products.Five.browser import BrowserView
 from easyshop.core.config import _
 from easyshop.core.config import TEXTS, IMAGE_SIZES
 from easyshop.core.interfaces import ICategory
-from easyshop.core.interfaces import IFormatterInfos
+from easyshop.core.interfaces import IFormats
+from easyshop.core.interfaces import IProductSelector
 from easyshop.core.interfaces import IShop
-
 
 class IFormatterPortlet(IPortletDataProvider):
     """
@@ -52,26 +53,25 @@ class Renderer(base.Renderer):
         if not mtool.checkPermission("Manage portal", self.context):
             return False
              
-        if (ICategory.providedBy(self.context) or \
-            IShop.providedBy(self.context)) == False:
+        if (ICategory.providedBy(self.context) or  \
+            IShop.providedBy(self.context)     or  \
+            IProductSelector.providedBy(self.context)) == False:
             return False
 
-        if IFormatterInfos(self.context).hasFormatter() == False:
-            return False
-            
         return True        
 
+    @memoize
     def getFormatInfo(self):
         """
         """
-        fi = IFormatterInfos(self.context)
-        return fi.getFormatInfosAsDict()
+        fi = IFormats(self.context)
+        return fi.getFormats(effective=False)
 
     def getTexts(self):
         """
         """
-        fi = IFormatterInfos(self.context)        
-        selected_text = fi.getText()
+        fi = self.getFormatInfo()
+        selected_text = fi["text"]
         
         result = []
         for text in TEXTS:        
@@ -86,8 +86,8 @@ class Renderer(base.Renderer):
     def getImageSizes(self):
         """
         """
-        fi = IFormatterInfos(self.context)        
-        selected_size = fi.getImageSize()
+        fi = self.getFormatInfo()
+        selected_size = fi["image_size"]
         
         sizes = IMAGE_SIZES.keys()
         sizes.sort(lambda a, b: cmp(IMAGE_SIZES[a][0], IMAGE_SIZES[b][0]))
@@ -101,6 +101,28 @@ class Renderer(base.Renderer):
             
         return result
 
+    @memoize
+    def showEnabledField(self):
+        """Returns True when the enabled field should be displayed.
+        """
+        if IShop.providedBy(self.context) == True:
+            return False
+        else:
+            return True
+
+    @memoize  
+    def showLinesPerPage(self):
+        """Returns True when the lines per page field should be displayed.
+        """
+        # If "product-selector-view" is selected, we decide thru the amount of 
+        # selected products and product per lines how much products per page 
+        # are supposed to be displayed, hence we hide the input field.
+        if IProductSelector.providedBy(self.context) == True:
+            return False
+                        
+        else:
+            return True
+            
 class AddForm(base.NullAddForm):
     """
     """
@@ -115,24 +137,8 @@ class FormatterView(BrowserView):
     def saveFormatter(self):
         """
         """
-        fi = IFormatterInfos(self.context)
-        f = fi.getFormatter()
-
-        products_per_line = self.request.get("products_per_line", 0)
-        lines_per_page    = self.request.get("lines_per_page", 0)
-        image_size        = self.request.get("image_size", "mini")
-        text              = self.request.get("text", "")
-        product_height    = self.request.get("product_height", 0)
-        
-        products_per_line = int(products_per_line)
-        lines_per_page    = int(lines_per_page)
-        product_height    = int(product_height)
-                
-        f.setProductsPerLine(products_per_line)
-        f.setLinesPerPage(lines_per_page)
-        f.setImageSize(image_size)
-        f.setProductHeight(product_height)        
-        f.setText(text)
+        fi = IFormats(self.context)
+        f = fi.setFormats(self.request)
                 
         referer = self.request.get("HTTP_REFERER", "")
         if referer.find("thank-you") != -1:

@@ -8,7 +8,6 @@ from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
-from easyshop.core.interfaces import IPropertyManagement
 
 class ProductData:
     """An adapter which provides IData for product content objects.
@@ -29,13 +28,6 @@ class ProductData:
         price = IPrices(self.context).getPriceForCustomer()
         price = cm.priceToString(price)
 
-        # properties view
-        property_manager = IPropertyManagement(self.context)
-        if len(property_manager.getProperties()) > 0:
-            showSelectPropertiesView = True
-        else:    
-            showSelectPropertiesView = False
-
         # photo
         photo = IPhotoManagement(self.context).getMainPhoto()
         if photo is not None:
@@ -50,5 +42,4 @@ class ProductData:
             "price"       : price,
             "image"       : image,
             "text"        : self.context.getText(),
-            "showSelectPropertiesView" : showSelectPropertiesView,
         }        
