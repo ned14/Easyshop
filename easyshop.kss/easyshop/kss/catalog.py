@@ -180,7 +180,7 @@ class CatalogKSSView(PloneKSSView):
             "short_text"  : product.getText(),
             "url"         : product.absolute_url(),
             "article_id"  : product.getArticleId(),
-            "price"       : product.getPriceGross(),            
+            "price"       : product.getPrice(),
         }
         
         pd = PRODUCT_DETAILS % info
