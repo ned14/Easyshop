@@ -5,14 +5,6 @@ input#save-formatter:click {
     kss_save_formatter-form: currentForm();
 }
 
-/*
-input#add-product:click {
-    evt-click-preventdefault: True;
-    action-server: kss_add_product;
-    kss_add_product-form: currentForm();
-}
-*/
-
 img.product-details:click {
     evt-click-preventdefault: True;
     action-server: kss_show_product_details;

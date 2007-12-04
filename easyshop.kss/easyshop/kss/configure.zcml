@@ -23,13 +23,6 @@
         permission="zope2.View" />
 
     <browser:page
-        name="kss_add_product"
-        for="*"
-        class=".catalog.CatalogKSSView"
-        attribute="addProduct"
-        permission="zope2.View" />
-
-    <browser:page
         name="kss_show_product_details"
         for="*"
         class=".catalog.CatalogKSSView"
