@@ -23,63 +23,7 @@ from easyshop.core.interfaces import IShopManagement
 class CatalogKSSView(PloneKSSView):
     """
     """
-    @kssaction    
-    def addProduct(self, form):
-        """
-        """
-        shop = IShopManagement(self.context).getShop()
-        cm = ICartManagement(shop)
-        
-        cart = cm.getCart()
-        if cart is None:
-            cart = cm.createCart()
-                
-        properties = []
-        
-        # for property_id, selected_option in self.request.form.items():
-        #     if property_id.startswith("property") == False:
-        #         continue
-        #         
-        #     if selected_option == "please_select":
-        #         continue
-        #             
-        #     properties.append(
-        #         {"id" : property_id[9:], 
-        #          "selected_option" : selected_option 
-        #         }
-        #     )
-
-        # get quantity
-        quantity = int(form.get("quantity", 1))
-
-        # returns true if the product was already within the cart
-        already_exist = IItemManagement(cart).addItem(
-            self.context, 
-            tuple(properties), 
-            quantity)
-
-        kss_core  = self.getCommandSet("core")
-        kss_zope  = self.getCommandSet("zope")
-        kss_plone = self.getCommandSet("plone")
-
-        if already_exist == True:
-            kss_plone.issuePortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])
-        else:
-            kss_plone.issuePortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
-            
-        # refresh cart
-        selector = kss_core.getHtmlIdSelector("portlet-cart")
-        kss_zope.refreshViewlet(selector,
-                                manager="easyshop.cart-viewlet-manager",
-                                name="easyshop.cart-viewlet")
-                                
-        # refresh product
-        selector = kss_core.getHtmlIdSelector("product")
-        kss_zope.refreshViewlet(selector,
-                                manager="easyshop.product-manager",
-                                name="easyshop.product-viewlet")
-        
-    @kssaction    
+    @kssaction
     def showProducts(self, letter=None, form={}):
         """
         """
