@@ -1,44 +1,68 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- ICompleteness -->
     <adapter
-        factory=".shop.PaymentPrices" />
-
-    <adapter
-        factory=".shop.PaymentManagement" />
-
-    
-    <adapter
-        factory=".simple_payment.SimplePaymentType" />
+        factory=".completeness.BankAccountCompleteness" />
 
     <adapter
-        factory=".simple_payment.SimplePaymentProcessor" />
+        factory=".completeness.CreditCardPaymentMethodCompleteness" />
 
     <adapter
-        factory=".simple_payment.SimplePaymentCompleteness" />
-
-
-    <adapter
-        factory=".direct_debit.DirectDebitType" />
+        factory=".completeness.CreditCardCompleteness" />
 
     <adapter
-        factory=".direct_debit.DirectDebitPaymentProcessor" />
+        factory=".completeness.DirectDebitPaymentMethodCompleteness" />
 
     <adapter
-        factory=".direct_debit.DirectDebitCompleteness" />
-
+        factory=".completeness.GenericPaymentCompleteness" />
 
     <adapter
-        factory=".paypal.PayPalType" />
+        factory=".completeness.PayPalCompleteness" />
+
+
+    <!-- PaymentInformationManagement -->    
+    <adapter
+        factory=".payment_information_management.PaymentInformationManagement" />
+
+
+    <!-- IPaymentMethodManagement -->
+    <adapter
+        factory=".payment_method_management.PaymentMethodManagement" />
+
+
+    <!-- IPaymentProcessing -->
+    <adapter
+        factory=".payment_processing.AuthorizeNetCreditCardPaymentProcessor" />
+
+    <adapter
+        factory=".payment_processing.DirectDebitPaymentProcessor" />
+
+    <adapter
+        factory=".payment_processing.GenericPaymentProcessor" />
+
+    <adapter
+        factory=".payment_processing.OrderPaymentProcessor" />
 
     <adapter 
-        factory=".paypal.PayPalSimplePaymentProcessor" />
-    
-    <adapter
-        factory=".paypal.PayPalCompleteness" />
+        factory=".payment_processing.PayPalSimplePaymentProcessor" />
 
-    <!-- 
-    <adapter 
-        factory=".payment.PayPalPaymentProcessor" /> 
-    -->
-          
+
+    <!-- IPrices -->
+    <adapter        
+        factory=".payment_price_management.PaymentPriceManagement" />
+    
+
+    <!-- IType -->
+    <adapter
+        factory=".type.CreditCardType" />
+
+    <adapter
+        factory=".type.DirectDebitType" />
+
+    <adapter
+        factory=".type.GenericPaymentType" />
+
+    <adapter
+        factory=".type.PayPalType" />
+
 </configure>

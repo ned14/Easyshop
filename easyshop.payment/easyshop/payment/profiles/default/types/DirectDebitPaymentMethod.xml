@@ -1,28 +1,36 @@
 <?xml version="1.0"?>
-<object name="PaymentMethodsContainer" meta_type="Factory-based Type Information"
+<object name="DirectDebitPaymentMethod" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Payment Methods Container</property>
- <property name="description">A container which holds payment methods.</property>
- <property name="content_icon">folder_icon.gif</property>
- <property name="content_meta_type">PaymentMethodsContainer</property>
+ <property name="title">Direct Debit Payment Method</property>
+ <property name="description">Direct debit payment method</property>
+ <property name="content_icon">payment_method_icon.png</property>
+ <property name="content_meta_type">DirectDebitPaymentMethod</property>
  <property name="product">easyshop.shop</property>
- <property name="factory">addPaymentMethodsContainer</property>
- <property name="immediate_view">base_view</property>
+ <property name="factory">addDirectDebitPaymentMethod</property>
+ <property name="immediate_view">payment-method-view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="GenericPaymentMethod" />
+  <element value="CategoryCriteria"/>       
+  <element value="CountryCriteria"/>
+  <element value="CustomerCriteria"/>
+  <element value="GroupCriteria"/>  
+  <element value="DateCriteria"/>
+  <element value="PriceCriteria"/>
+  <element value="ProductCriteria"/>  
+  <element value="ShippingMethodCriteria"/>
+  <element value="WeightCriteria"/>
  </property>
  <property name="allow_discussion">False</property>
- <alias from="(Default)" to="payment-methods-view"/>
- <alias from="view" to="payment-methods-view"/>
- <alias from="edit" to="base_edit"/>
+ <alias from="(Default)" to="payment-method-view"/>
+ <alias from="view" to="payment-method-view"/>
+ <alias from="edit" to="atct_edit"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}/" visible="True">
   <permission value="View"/>
  </action>
  <action title="Edit" action_id="edit" category="object" condition_expr=""
-    url_expr="string:${object_url}/base_edit" visible="True">
+    url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Properties" action_id="metadata" category="object"
@@ -36,3 +44,4 @@
   <permission value="View"/>
  </action>
 </object>
+

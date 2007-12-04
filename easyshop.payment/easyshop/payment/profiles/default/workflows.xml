@@ -8,9 +8,12 @@
  <bindings>
   <type type_id="PaymentMethodsContainer"/>
   <type type_id="PaymentPricesContainer"/>
-  <type type_id="PaymentValidator"/>
-  
+
   <type type_id="DirectDebit">
+   <bound-workflow workflow_id="easyshop_customer_payment_workflow"/>
+  </type>
+
+  <type type_id="CreditCard">
    <bound-workflow workflow_id="easyshop_customer_payment_workflow"/>
   </type>
 
@@ -22,7 +25,7 @@
    <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>
 
-  <type type_id="SimplePaymentMethod">
+  <type type_id="GenericPaymentMethod">
    <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>
  </bindings>

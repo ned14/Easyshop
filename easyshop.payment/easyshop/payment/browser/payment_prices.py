@@ -3,7 +3,7 @@ from Products.Five.browser import BrowserView
 
 # easyshop imports
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IPaymentPrices
+from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IShopManagement
 
 class PaymentPricesView(BrowserView):
@@ -13,13 +13,13 @@ class PaymentPricesView(BrowserView):
         """
         """
         shop = IShopManagement(self.context).getShop()        
-        pp = IPaymentPrices(shop)
+        pp = IPaymentPriceManagement(shop)
         cm = ICurrencyManagement(shop)
                 
         result = []
         for payment_price in pp.getPaymentPrices():
             
-            price = cm.priceToString(payment_price.getPriceGross())
+            price = cm.priceToString(payment_price.getPrice())
             
             result.append({
                 "id"       : payment_price.getId(),            

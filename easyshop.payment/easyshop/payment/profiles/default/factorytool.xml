@@ -2,9 +2,8 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
  <factorytypes>
   <type portal_type="DirectDebit"/>
-  <type portal_type="PaymentPrice"/>  
-  <type portal_type="PaymentValidator"/>  
+  <type portal_type="PaymentPrice"/>
   <type portal_type="PayPal"/>  
-  <type portal_type="SimplePaymentMethod  "/>    
+  <type portal_type="GenericPaymentMethod"/>    
  </factorytypes>
 </object>

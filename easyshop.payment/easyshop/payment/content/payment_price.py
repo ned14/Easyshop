@@ -1,6 +1,3 @@
-# Zope imports
-from AccessControl import ClassSecurityInfo
-
 # zope imports
 from zope.interface import implements
 
@@ -13,13 +10,27 @@ from easyshop.core.interfaces import IPaymentPrice
 
 schema = Schema((
 
+    TextField(
+        'description',
+        default='',
+        searchable=1,
+        accessor="Description",
+        widget=TextAreaWidget(
+            label='Description',
+            description="A short summary of the content",
+            label_msgid="label_description",
+            description_msgid="help_description",
+            i18n_domain="plone"),
+    ),
+    
     FloatField(
-        name='priceGross',
+        name="price",
+        required=True,
         widget=DecimalWidget(
             size="10",
-            label='Pricegross',
-            label_msgid='schema_price_gross_label',
-            i18n_domain='EasyShop',
+            label="Price",
+            label_msgid="schema_price_gross_label",
+            i18n_domain="EasyShop",
         )
     ),
 
@@ -31,7 +42,7 @@ class PaymentPrice(OrderedBaseFolder):
     possible for the payment manager to calculate a payment price.
     """
     implements(IPaymentPrice)
-    security = ClassSecurityInfo()
+
     _at_rename_after_creation = True
     schema = BaseFolderSchema.copy() + schema.copy()
 
