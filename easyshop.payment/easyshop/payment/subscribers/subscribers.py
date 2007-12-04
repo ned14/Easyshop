@@ -2,6 +2,9 @@
 from zope.component import adapter
 from Products.Archetypes.interfaces import IObjectInitializedEvent
 
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
 # easyshop imports
 from easyshop.core.interfaces import IShop
 
@@ -36,6 +39,11 @@ def createContainers(shop, event):
     shop.paymentmethods.manage_addProduct["easyshop.shop"].addGenericPaymentMethod(
         id="prepayment", 
         title="Prepayment")   
+
+    # Publish all payment methods by default
+    wftool = getToolByName(shop, "portal_workflow")
+    for payment_method in shop.paymentmethods.objectValues():
+        wftool.doActionFor(payment_method, "publish")
         
     shop.paymentmethods.reindexObject()
     shop.paymentprices.reindexObject()
