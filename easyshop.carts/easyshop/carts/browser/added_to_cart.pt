@@ -38,6 +38,11 @@
                        tal:content="product/title">
                         Title
                     </a>
+                    <div tal:repeat="property product/properties">
+                        <span tal:content="property/title" /> :
+                        <span tal:content="property/selected_option" />
+                        (<span tal:content="property/price" />)
+                    </div>
                 </td>
                 <td tal:content="product/price">
                     Price
