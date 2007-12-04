@@ -3,6 +3,12 @@
            tal:define="lines view/getCategories;
                        formats view/getFormats">
 
+        <tr tal:condition="not:lines">
+            <td i18n:translate="no_categories_label">
+                There are no categories.
+            </td>
+        </tr>
+        
         <tr tal:repeat="line lines">
             <td tal:repeat="category line"
                 tal:attributes="width view/getTdWidth;
