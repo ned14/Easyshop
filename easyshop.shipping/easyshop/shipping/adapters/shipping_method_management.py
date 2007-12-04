@@ -10,6 +10,7 @@ from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IValidity
 
 class ShippingMethodManagement:
     """An adapter which provides IShippingMethodManagement for shop content 
@@ -22,8 +23,7 @@ class ShippingMethodManagement:
         """
         """
         self.context = context
-        self.prices  = self.context.shippingprices
-        self.methods = self.context.shippingmethods
+        self.shipping_methods = self.context.shippingmethods
         
     def getSelectedShippingMethod(self):
         """
@@ -38,11 +38,23 @@ class ShippingMethodManagement:
         """
         """
         try:
-            return self.methods[id]
+            return self.shipping_methods[id]
         except KeyError:
             return None    
 
-    def getShippingMethods(self):
+    def getShippingMethods(self, check_validity=False):
         """
         """
-        return self.methods.objectValues()
+        mtool = getToolByName(self.context, "portal_membership")
+            
+        shipping_methods = []
+        for shipping_method in self.shipping_methods.objectValues():
+
+            if check_validity and \
+               IValidity(shipping_method).isValid() == False:
+                continue
+            
+            if mtool.checkPermission("View", shipping_method) is not None:
+                shipping_methods.append(shipping_method)
+        
+        return shipping_methods
