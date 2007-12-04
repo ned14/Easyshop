@@ -38,14 +38,4 @@
           </ul> 
       </tal:categories>                 
     </dd>
-    
-    <dd class="portletFooter">
-        <a href=""
-           tal:attributes="href view/getShopUrl"
-           i18n:translate="easyshop_label">
-          EasyShop
-        </a>
-        <span class="portletBottomLeft"></span>
-        <span class="portletBottomRight"></span>
-    </dd>
 </dl>   
