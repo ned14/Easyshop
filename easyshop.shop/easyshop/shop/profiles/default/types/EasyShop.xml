@@ -9,7 +9,7 @@
  <property name="content_meta_type">EasyShop</property>
  <property name="product">easyshop.shop</property>
  <property name="factory">addEasyShop</property>
- <property name="immediate_view">base_view</property>
+ <property name="immediate_view">categories-view</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
@@ -18,8 +18,7 @@
   <element value="ProductSelector"/>
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">folder_listing</property>
- <property name="default_view">base_view</property>
+ <property name="default_view">categories-view</property>
  <property name="view_methods">
   <element value="categories-view"/>
   <element value="product-selector-view"/>
