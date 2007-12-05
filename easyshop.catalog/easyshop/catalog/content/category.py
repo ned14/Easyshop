@@ -1,12 +1,17 @@
 # zope imports
 from zope.interface import implements
 
-# Archetypes imports
-from Products.Archetypes.atapi import *
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
+from Products.CMFCore.permissions import ModifyPortalContent
 
 # ATContentTypes imports
 from Products.ATContentTypes.content.folder import ATFolder
+
+# Archetypes imports
+from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
+try:
+    from Products.LinguaPlone.public import *
+except ImportError:
+    from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.config import *
@@ -62,6 +67,7 @@ schema = Schema((
 
     ImageField(
         name='image',
+        languageIndependent=True,        
         sizes= {'large'   : (768, 768),
                 'preview' : (400, 400),
                 'mini'    : (200, 200),
@@ -79,7 +85,7 @@ schema = Schema((
     ),
 
     ReferenceField( 
-        name='products', 
+        name='products',
         multiValued=1,
         relationship='category_products',
         allowed_types=("Product",),
@@ -110,7 +116,7 @@ class Category(ATFolder):
     implements(ICategory)
     schema = ATFolder.schema.copy() + schema.copy()
 
-    def setImage(self, data):
+    def setImage(self, data, **kwargs):
         """
         """
         if data and data != "DELETE_IMAGE":

@@ -1,13 +1,16 @@
 # zope imports
 from zope.interface import implements
 
-# Archetypes imports
-from Products.Archetypes.atapi import *
-from Products.ATContentTypes.content.folder import ATFolder
-
 # ATBackRef imports
 from Products.ATBackRef.BackReferenceField import *
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+
+# Archetypes imports
+from Products.ATContentTypes.content.folder import ATFolder
+try:
+    from Products.LinguaPlone.public import *
+except ImportError:
+    from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.config import *
@@ -87,6 +90,7 @@ schema = Schema((
 
     ImageField(
         name='image',
+        languageIndependent=True,
         sizes= {'large'   : (768, 768),
                 'preview' : (400, 400),
                 'mini'    : (200, 200),
@@ -105,6 +109,7 @@ schema = Schema((
 
     FloatField(
         name='weight',
+        languageIndependent=True,        
         default=0.0,
         widget=DecimalWidget(
             label="Weight",
@@ -117,6 +122,7 @@ schema = Schema((
     
     FloatField(
         name='price',
+        languageIndependent=True,
         default=0.0,
         widget=DecimalWidget(
             size="10",
@@ -202,7 +208,7 @@ class Product(ATFolder):
     implements(IProduct)
     schema = ATFolder.schema.copy() + schema.copy()
 
-    def setImage(self, data):
+    def setImage(self, data, **kwargs):
         """
         """
         if data and data != "DELETE_IMAGE":
