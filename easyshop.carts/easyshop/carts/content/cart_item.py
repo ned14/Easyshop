@@ -5,7 +5,14 @@ from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
 # Archetypes imports
-from Products.Archetypes.atapi import *
+from Products.ATContentTypes.content.folder import ATFolder
+try:
+    from Products.LinguaPlone.public import *
+except ImportError:
+    from Products.Archetypes.atapi import *
+
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
 
 # DataGridField imports
 from Products.DataGridField import DataGridField, DataGridWidget
@@ -64,11 +71,19 @@ class CartItem(BaseContent):
     def getProduct(self):
         """Returns product of the item or None.
         """
+        ltool = getToolByName(self, "portal_languages")
+        pl = ltool.getPreferredLanguage()
+        
         try:
-            return self.getRefs('CartItem_easyshopproduct')[0]
+            product = self.getRefs('CartItem_easyshopproduct')[0]
         except IndexError:
             return None
-
+            
+        try:
+            return product.getTranslations()[pl][0]
+        except KeyError, IndexError:
+            return product
+        
     def setProduct(self, product):
         """Sets the product of the cart item.
         """
