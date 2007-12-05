@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins">
+
+ <object name="easyshop.catalog"
+    meta_type="Filesystem Directory View"
+    directory="easyshop.catalog:skins/easyshop.catalog"/>
+
+ <skin-path name="*">     
+  <layer name="easyshop.catalog"
+     insert-after="custom"/>
+ </skin-path>
+
+</object>
+
