@@ -1,0 +1,13 @@
+<div metal:define-macro="portlet"
+     i18n:domain="EasyShop">
+
+    <dl class="portlet">
+
+        <!-- using viewlet manager to be able to refresh without knowing the 
+            portlet hash -->
+
+        <div tal:replace="structure provider:easyshop.cart-viewlet-manager" />
+        
+    </dl>
+
+</div>
