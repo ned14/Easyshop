@@ -4,3 +4,4 @@
 
 ATBackRef https://svn.plone.org/svn/archetypes/MoreFieldsAndWidgets/ATBackRef/branches/diefenbach-easyshop
 EasyShopTranslations https://easyshop-for-plone.googlecode.com/svn/EasyShopTranslations/trunk
+LinguaPlone https://svn.plone.org/svn/plone/LinguaPlone/trunk/Products/LinguaPlone
