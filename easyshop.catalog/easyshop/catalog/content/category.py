@@ -86,6 +86,7 @@ schema = Schema((
 
     ReferenceField( 
         name='products',
+        languageIndependent=True,
         multiValued=1,
         relationship='category_products',
         allowed_types=("Product",),
