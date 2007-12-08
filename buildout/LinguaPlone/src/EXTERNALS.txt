@@ -2,8 +2,9 @@
 # applied by: svn propset svn:externals -F ./EXTERNALS.txt .
 #
 
-easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
-easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/trunk
+easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/branches/linguaplone
+easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/branches/linguaplone
+
 easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/trunk
 easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/trunk
 easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
