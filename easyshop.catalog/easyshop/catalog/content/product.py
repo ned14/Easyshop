@@ -34,6 +34,7 @@ schema = Schema((
 
     StringField(
         name='articleId',
+        languageIndependent=True,
         widget=StringWidget(
             label="Article ID",
             label_msgid='schema_article_id_label',
@@ -134,6 +135,7 @@ schema = Schema((
     
     ReferenceField( 
         name='relatedProducts',
+        languageIndependent=True,        
         multiValued=1,
         relationship='easyshopproduct_easyshopproducts',
         allowed_types=("Product",),
@@ -157,6 +159,7 @@ schema = Schema((
     
     BackReferenceField( 
         name='easyshopcategories', 
+        languageIndependent=True,        
         multiValued=1,
         relationship='category_products',
         allowed_types=("Category",),
@@ -179,6 +182,7 @@ schema = Schema((
     ),        
     BackReferenceField( 
         name='easyshopgroups',
+        languageIndependent=True,
         multiValued=1,
         relationship='group_product',
         allowed_types=("ProductGroup",),
