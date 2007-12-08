@@ -1,0 +1,53 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+<div metal:define-macro="portlet"
+     tal:define="view context/@@portletOrdersView;
+                 shop_url view/getShopUrl;
+                 orders view/getPayedNotSentOrders;"
+                 
+     tal:condition="python:results and checkPermission('Manage portal', context)">
+
+    <dl class="portlet" id="portlet-payed-not-sent-orders">
+
+        <dt class="portletHeader">
+            <span class="portletTopLeft"></span>
+            <a href="#" 
+               class="tile"
+               tal:attributes="href string:${utool}/news_listing"
+               i18n:translate="payed-not-sent-orders_label">
+                Payed Not Sent Orders
+            </a>
+            <span class="portletTopRight"></span>
+        </dt>
+
+        <tal:orders tal:repeat="obj results">
+        <dd tal:define="oddrow repeat/obj/odd"
+             tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
+            <a href=""
+               class="tile"
+               tal:attributes="href obj/absolute_url;
+                               title obj/id">
+                <span tal:replace="obj/pretty_title_or_id">
+                    Order Number
+                </span>
+            </a>
+        </dd>
+        </tal:orders>
+
+        <dd class="portletFooter">
+            <a href="shop_url"
+               class="tile"
+               tal:attributes="href string:$shop_url/orders?filter=payed_not_sent"
+               i18n:translate="more_orders_label">
+              More orders
+            </a>
+            <span class="portletBottomLeft"></span>
+            <span class="portletBottomRight"></span>
+        </dd>
+    </dl>
+
+</div>
+</body>
+</html>
