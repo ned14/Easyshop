@@ -13,20 +13,7 @@ from Products.PloneTestCase.layer import PloneSite
 from Products.Five.testbrowser import Browser as BaseBrowser
 
 PloneTestCase.setupPloneSite(
-    products=["easyshop.carts",
-              "easyshop.catalog",              
-              "easyshop.checkout",
-              "easyshop.core",
-              "easyshop.criteria",
-              "easyshop.customers",
-              "easyshop.groups",
-              "easyshop.login",
-              "easyshop.order",              
-              "easyshop.payment",              
-              "easyshop.shipping",
-              "easyshop.shop",              
-              "easyshop.taxes",
-              ])
+    products=["easyshop.shop",])
 
 # easyshop imports
 from easyshop.shop.tests import utils
@@ -49,10 +36,6 @@ class EasyShopLayer(PloneSite):
     def setUp(cls):
         app = ZopeTestCase.app()
         portal = app.plone
-
-        ZopeTestCase.installPackage("easyshop.catalog")
-        ZopeTestCase.installPackage("easyshop.checkout")
-        ZopeTestCase.installPackage("easyshop.login")                
         ZopeTestCase.installPackage("easyshop.shop")
 
         # login as admin (copied from `loginAsPortalOwner`)

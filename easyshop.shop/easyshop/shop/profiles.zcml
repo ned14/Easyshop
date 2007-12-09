@@ -3,9 +3,9 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="easyshop.shop"
+        title="EasyShop"
         directory="profiles/default"
-        description="An e-shop for Plone."
+        description="An out-of-the-box online-shop for Plone."
         provides="Products.GenericSetup.interfaces.EXTENSION" />
   
 </configure>
