@@ -36,6 +36,10 @@ class EasyShopLayer(PloneSite):
     def setUp(cls):
         app = ZopeTestCase.app()
         portal = app.plone
+        
+        ZopeTestCase.installPackage("easyshop.catalog")
+        ZopeTestCase.installPackage("easyshop.checkout")
+        ZopeTestCase.installPackage("easyshop.login")
         ZopeTestCase.installPackage("easyshop.shop")
 
         # login as admin (copied from `loginAsPortalOwner`)
