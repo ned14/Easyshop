@@ -18,7 +18,6 @@ EXTENSION_PROFILES = (
 	"easyshop.customers:default",
 	"easyshop.groups:default",
 	"easyshop.information:default",
-	"easyshop.io:default",
 	"easyshop.kss:default",
 	"easyshop.login:default",
 	"easyshop.order:default",
