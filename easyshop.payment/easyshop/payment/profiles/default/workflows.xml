@@ -6,8 +6,14 @@
  <object name="easyshop_customer_payment_workflow" meta_type="Workflow"/>    
  
  <bindings>
-  <type type_id="PaymentMethodsContainer"/>
-  <type type_id="PaymentPricesContainer"/>
+
+  <type type_id="PaymentMethodsContainer">
+   <bound-workflow workflow_id="easyshop_containers_workflow"/>
+  </type>
+
+  <type type_id="PaymentPricesContainer">
+   <bound-workflow workflow_id="easyshop_containers_workflow"/>
+  </type>
 
   <type type_id="DirectDebit">
    <bound-workflow workflow_id="easyshop_customer_payment_workflow"/>

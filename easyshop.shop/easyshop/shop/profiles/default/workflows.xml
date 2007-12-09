@@ -2,6 +2,8 @@
 <object name="portal_workflow" meta_type="Plone Workflow Tool">
  <property
     name="title">Contains workflow definitions for your portal</property>
+
+ <object name="easyshop_containers_workflow" meta_type="Workflow"/>
  <object name="easyshop_default_workflow" meta_type="Workflow"/>
  <object name="easyshop_session_workflow" meta_type="Workflow"/>  
  <object name="easyshop_shop_workflow" meta_type="Workflow"/> 
