@@ -237,7 +237,7 @@ class Product(ATFolder):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/groups"
 
-    def setEasyshopcategories(self, value):
+    def setEasyshopcategories(self, value, **kwargs):
         """
         """
         # save the old categories
