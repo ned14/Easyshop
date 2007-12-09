@@ -2,6 +2,13 @@
            xmlns:five="http://namespaces.zope.org/five"
            xmlns:browser="http://namespaces.zope.org/browser">
 
-    <include package=".admin" />
+    <include
+        package=".admin" />
 
+    <adapter 
+        for="easyshop.core.interfaces.IShop *"
+        name="plone.contentmenu.translate"
+        factory=".translate_sub_menu.TranslateSubMenuItem"
+        provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+    
 </configure>
