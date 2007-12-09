@@ -5,7 +5,6 @@
 
  <object name="easyshop_containers_workflow" meta_type="Workflow"/>
  <object name="easyshop_default_workflow" meta_type="Workflow"/>
- <object name="easyshop_session_workflow" meta_type="Workflow"/>  
  <object name="easyshop_shop_workflow" meta_type="Workflow"/> 
 
  <bindings>
@@ -15,7 +14,7 @@
   </type>
 
   <type type_id="SessionsContainer">
-   <bound-workflow workflow_id="easyshop_session_workflow"/>
+   <bound-workflow workflow_id="easyshop_containers_workflow"/>
   </type>
 
  </bindings>
