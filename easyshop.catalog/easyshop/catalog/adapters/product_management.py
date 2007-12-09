@@ -5,6 +5,9 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
+# ATCT imports
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+
 # easyshop imports
 from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
@@ -27,13 +30,21 @@ class CategoryProductManagement:
     def getProducts(self, category_id=None):
         """
         """
+        # NOTE: This method is (and should be in future) the central method to 
+        # retrieve products for a certain category.
         mtool = getToolByName(self.context, "portal_membership")
 
         result = []
-        # Returns just "View"-able products.
+        # Returns just "View"-able in the right language products.
         for product in self.context.getRefs('category_products'):
-            if mtool.checkPermission("View", product) is not None:
-                result.append(product)
+            if not mtool.checkPermission("View", product):
+                continue
+
+            if HAS_LINGUA_PLONE and product.getLanguage() != \
+                self.context.portal_languages.getPreferredLanguage():
+                continue
+
+            result.append(product)
             
         return result
 
