@@ -7,8 +7,7 @@ from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IProductCriteria
 
 class ProductCriteriaValidity:
-    """Adapter which provides IValidity for product criteria content
-    objects.
+    """Adapter which provides IValidity for product criteria content objects.
     """    
     implements(IValidity)
     adapts(IProductCriteria)
