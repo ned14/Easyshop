@@ -158,6 +158,12 @@ class EasyShop(ATFolder):
         ctr.getPredicate("Photo").edit("jpg jpeg png gif")
         ctr.assignTypeName("Photo", "Photo")
         
+        # Set language to neutral as a shop is not translatable.
+        self.setLanguage("")
+
+        # Set countries to default countries.
+        self.setCountries(DEFAULT_COUNTRIES)
+                
         # Add left portlets 
         leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)
         left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, context=self)
