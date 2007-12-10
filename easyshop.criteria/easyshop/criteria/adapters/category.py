@@ -20,7 +20,8 @@ class CategoryCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Checks whether a product has a selected categories.
+        """Returns True, if given product is at least in one of the selected
+        categories
         """
         category_manager = ICategoryManagement(product)
         product_categories = [c.getId() for c in category_manager.getTopLevelCategories()]
