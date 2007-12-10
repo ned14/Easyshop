@@ -23,8 +23,8 @@ class PriceCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Checks whether the total price of the cart is greater than the
-        entered price.
+        """Returns True, if the total price of the cart is greater than the
+        entered criteria price.
         """
         shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
