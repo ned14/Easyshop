@@ -26,7 +26,8 @@ class GroupCriteriaValidity:
         """Returns True, if given product is at least in one of the selected
            groups
         """
-        product_groups = IGroupManagement(product).getGroups()
+        pm = IGroupManagement(product)
+        product_groups = [group.getId() for group in pm.getGroups()]
         criteria_groups = self.context.getGroups()
 
         for criteria_group in criteria_groups:
