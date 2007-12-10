@@ -82,6 +82,7 @@ schema = Schema((
     LinesField(
         name="countries",
         schemata = "misc",
+        default=DEFAULT_COUNTRIES,
         widget = LinesWidget(
             label="Countries",
             label_msgid="schema_countries_label",
