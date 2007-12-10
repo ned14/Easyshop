@@ -11,10 +11,12 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="GroupCriteria"/>
+  <element value="CountryCriteria"/>
+  <element value="CustomerCriteria"/>
   <element value="DateCriteria"/>
-  <element value="CategoryCriteria"/>
-  <element value="ProductCriteria"/>
+  <element value="PaymentMethodCriteria"/>
+  <element value="PriceCriteria"/>
+  <element value="WeightCriteria"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="shipping-method-view"/>
