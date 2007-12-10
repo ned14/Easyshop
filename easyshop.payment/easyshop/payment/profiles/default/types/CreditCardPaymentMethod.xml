@@ -11,13 +11,11 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="CategoryCriteria"/>       
+  <element value="CategoryCriteria"/>
   <element value="CountryCriteria"/>
   <element value="CustomerCriteria"/>
-  <element value="GroupCriteria"/>  
   <element value="DateCriteria"/>
   <element value="PriceCriteria"/>
-  <element value="ProductCriteria"/>  
   <element value="ShippingMethodCriteria"/>
   <element value="WeightCriteria"/>
  </property>
