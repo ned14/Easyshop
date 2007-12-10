@@ -16,7 +16,6 @@ easyshop.checkout.egg-info/requires.txt
 easyshop.checkout.egg-info/top_level.txt
 easyshop/checkout/__init__.py
 easyshop/checkout/configure.zcml
-easyshop/checkout/profiles.zcml
 easyshop/checkout/adapters/__init__.py
 easyshop/checkout/adapters/checkout_management.py
 easyshop/checkout/adapters/configure.zcml
@@ -40,5 +39,3 @@ easyshop/checkout/browser/thank_you.pt
 easyshop/checkout/browser/thank_you.py
 easyshop/checkout/browser/user.pt
 easyshop/checkout/browser/user.py
-easyshop/checkout/profiles/default/workflows.xml
-easyshop/checkout/profiles/default/workflows/easyshop_session_workflow/definition.xml
