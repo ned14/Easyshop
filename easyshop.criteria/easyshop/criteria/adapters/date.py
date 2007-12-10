@@ -10,8 +10,7 @@ from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IDateCriteria
 
 class DateCriteriaValidity:
-    """Adapter which provides IValidity for date criteria content
-    objects.
+    """Adapter which provides IValidity for date criteria content objects.
     """    
     implements(IValidity)
     adapts(IDateCriteria)
@@ -22,7 +21,8 @@ class DateCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """
+        """Returns True if now between the selected start and end date of the
+        criterion.
         """
         now = DateTime()
 

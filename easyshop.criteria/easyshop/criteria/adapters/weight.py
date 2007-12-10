@@ -10,8 +10,7 @@ from easyshop.core.interfaces import IWeightCriteria
 from easyshop.core.interfaces import IShopManagement
 
 class WeightCriteriaValidity:
-    """Adapter which provides IValidity for weight criteria content
-    objects.
+    """Adapter which provides IValidity for weight criteria content objects.
     """
     implements(IValidity)
     adapts(IWeightCriteria)
@@ -22,8 +21,8 @@ class WeightCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Checks whether the total weight of the cart is greater than the
-        entered price.
+        """Returns True, if the total weight of the cart is greater than the
+        entered criteria weight.
         """
         shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()

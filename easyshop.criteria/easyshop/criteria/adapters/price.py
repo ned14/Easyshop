@@ -13,8 +13,7 @@ from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShopManagement
 
 class PriceCriteriaValidity:
-    """Adapter which provides IValidity for price criteria content
-    objects.
+    """Adapter which provides IValidity for price criteria content objects.
     """    
     implements(IValidity)
     adapts(IPriceCriteria)
@@ -23,7 +22,7 @@ class PriceCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Returns True, if the total price of the cart is greater than the
+        """Returns True if the total price of the cart is greater than the
         entered criteria price.
         """
         shop = IShopManagement(self.context).getShop()

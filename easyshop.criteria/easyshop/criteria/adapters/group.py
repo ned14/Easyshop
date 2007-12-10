@@ -11,8 +11,7 @@ from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
 
 class GroupCriteriaValidity:
-    """Adapter which provides IValidity for group criteria content
-    objects.
+    """Adapter which provides IValidity for group criteria content objects.
     """    
     implements(IValidity)
     adapts(IGroupCriteria)
@@ -22,9 +21,9 @@ class GroupCriteriaValidity:
         """        
         self.context = context
         
-    def isValid(self, product=None):
-        """Returns True, if given product is at least in one of the selected
-           groups
+    def isValid(self, product):
+        """Returns True if given product is at least in one of the selected
+        groups of the criterion.
         """
         pm = IGroupManagement(product)
         product_groups = [group.getId() for group in pm.getGroups()]

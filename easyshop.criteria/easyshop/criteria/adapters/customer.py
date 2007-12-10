@@ -10,8 +10,7 @@ from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import ICustomerCriteria
 
 class CustomerCriteriaValidity:
-    """Adapter which provides IValidity for customer criteria content
-    objects.
+    """Adapter which provides IValidity for customer criteria content objects.
     """    
     implements(IValidity)
     adapts(ICustomerCriteria)
@@ -22,10 +21,11 @@ class CustomerCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Returns true, if the current customer is in selected customers.
+        """Returns True if the current customer is in selected customers of the 
+        criterion
         """
-        # Todo: this could be lead to problems if a manager adds products for
-        # a customer
+        # TODO: This could lead to problems if a manager adds products for a 
+        # customer
         mtool = getToolByName(self.context, "portal_membership")
         current_customer = mtool.getAuthenticatedMember().getId()
 

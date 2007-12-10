@@ -10,8 +10,7 @@ from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
 
 class PaymentMethodCriteriaValidity:
-    """Adapter which provides IValidity for weight criteria content
-    objects.
+    """Adapter which provides IValidity for weight criteria content objects.
     """
     implements(IValidity)
     adapts(IPaymentMethodCriteria)
@@ -22,8 +21,8 @@ class PaymentMethodCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Checks whether the selected payment method of the current customer
-        is within selected payment methods.
+        """Returns True if the selected payment method of the current customer 
+        is within the selected payment methods of the criterion.
         """
         shop = IShopManagement(self.context).getShop()
         

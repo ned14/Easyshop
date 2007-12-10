@@ -18,7 +18,8 @@ class ProductCriteriaValidity:
         self.context = context
         
     def isValid(self, product):
-        """Returns True, if the given product is selected product.
+        """Returns True, if the given product is selected product of the
+        criterion.
         """
         if product.getId() in self.context.getProducts():
             return True

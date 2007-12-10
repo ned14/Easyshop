@@ -8,8 +8,7 @@ from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IValidity
 
 class CategoryCriteriaValidity:
-    """Adapter which provides IValidity for category criteria content
-    objects.
+    """Adapter which provides IValidity for category criteria content objects.
     """
     implements(IValidity)
     adapts(ICategoryCriteria)
@@ -19,9 +18,9 @@ class CategoryCriteriaValidity:
         """
         self.context = context
         
-    def isValid(self, product=None):
-        """Returns True, if given product is at least in one of the selected
-        categories
+    def isValid(self, product):
+        """Returns True if the given product has at least one of the selected 
+        categories of the criterion.
         """
         category_manager = ICategoryManagement(product)
         product_categories = [c.getId() for c in category_manager.getTopLevelCategories()]

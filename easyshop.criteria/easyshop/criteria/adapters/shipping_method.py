@@ -10,8 +10,7 @@ from easyshop.core.interfaces import IValidity
 
 
 class ShippingMethodCriteriaValidity:
-    """Adapter which provides IValidity for weight criteria content
-    objects.
+    """Adapter which provides IValidity for weight criteria content objects.
     """
     implements(IValidity)
     adapts(IShippingMethodCriteria)
@@ -22,7 +21,7 @@ class ShippingMethodCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Checks whether the selected shipping method of the current customer
+        """Returns True if the selected shipping method of the current customer
         is within selected shipping methods of this criterion.
         """        
         shop = IShopManagement(self.context).getShop()
