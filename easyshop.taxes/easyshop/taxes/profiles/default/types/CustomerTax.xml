@@ -16,9 +16,7 @@
   <element value="CustomerCriteria"/>  
   <element value="DateCriteria"/>
   <element value="GroupCriteria"/>
-  <element value="PriceCriteria"/>  
   <element value="ProductCriteria"/>
-  <element value="WeightCriteria"/>  
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="tax-view"/>

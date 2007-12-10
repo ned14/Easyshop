@@ -12,10 +12,11 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="CategoryCriteria"/>
+  <element value="CountryCriteria"/>
+  <element value="CustomerCriteria"/>  
   <element value="DateCriteria"/>
   <element value="GroupCriteria"/>
   <element value="ProductCriteria"/>
-  <element value="PriceCriteria"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="tax-view"/>
