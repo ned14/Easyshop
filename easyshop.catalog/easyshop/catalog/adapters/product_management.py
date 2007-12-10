@@ -30,18 +30,15 @@ class CategoryProductManagement:
     def getProducts(self, category_id=None):
         """
         """
-        # NOTE: This method is (and should be in future) the central method to 
-        # retrieve products for a certain category.
+        # NOTE: This method is (and should be in always) the central method to 
+        # retrieve products for a certain category, because here happens every-
+        # thing concerning LinguaPlone.
         mtool = getToolByName(self.context, "portal_membership")
 
         result = []
         # Returns just "View"-able in the right language products.
         for product in self.context.getRefs('category_products'):
             if not mtool.checkPermission("View", product):
-                continue
-
-            if HAS_LINGUA_PLONE and product.getLanguage() != \
-                self.context.portal_languages.getPreferredLanguage():
                 continue
 
             result.append(product)

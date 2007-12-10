@@ -135,7 +135,7 @@ schema = Schema((
     
     ReferenceField( 
         name='relatedProducts',
-        languageIndependent=True,        
+        languageIndependent=True,
         multiValued=1,
         relationship='easyshopproduct_easyshopproducts',
         allowed_types=("Product",),
@@ -159,7 +159,6 @@ schema = Schema((
     
     BackReferenceField( 
         name='easyshopcategories', 
-        languageIndependent=True,        
         multiValued=1,
         relationship='category_products',
         allowed_types=("Category",),
