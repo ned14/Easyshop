@@ -6,8 +6,8 @@ class IProductGroup(Interface):
     """A group combines arbitrary products.
     o Groups may then assigned special taxes, shipping prices, discounts and 
       similiar.
-    o As a specialty groups may be assigned properties. All products, which are 
-      within a group inherit properties of this group.
+    o As a specialty groups may have assigned properties. All products, which 
+      are within a group inherit properties of this group.
     o Groups are in contrary to categories not visible to customers.
     """    
 
