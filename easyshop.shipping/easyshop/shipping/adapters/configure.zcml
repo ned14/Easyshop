@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        factory=".shipping_method_management.ShippingMethodManagement" />
+
+    <adapter
+        factory=".shipping_price_management.ShippingPriceManagement" />
+
+</configure>
