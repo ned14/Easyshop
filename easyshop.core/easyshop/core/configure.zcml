@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="easyshop.core">
+
+    <include
+        package=".browser" />
+
+    <include 
+        file="permissions.zcml" />
+    
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
+        component=".vocabularies.countries"
+        name="easyshop.countries" />
+    
+</configure>
