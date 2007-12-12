@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+ <factorytypes>
+  <type portal_type="CustomerTax" />
+  <type portal_type="DefaultTax" />
+ </factorytypes>
+</object>
