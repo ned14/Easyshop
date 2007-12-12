@@ -1,0 +1,3 @@
+PAYED     = "PAYED"
+NOT_PAYED = "NOT_PAYED"
+ERROR     = "ERROR"

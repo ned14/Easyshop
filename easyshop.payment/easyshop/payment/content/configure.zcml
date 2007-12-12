@@ -1,0 +1,31 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"    
+    xmlns:five="http://namespaces.zope.org/five">    
+
+    <!-- Bank Account -->
+    <five:registerClass
+        class=".bank_account.BankAccount"
+        meta_type="BankAccount"
+        permission="cmf.ModifyPortalContent"
+        addview="easyshop.bank_account"
+        icon="payment_method_icon.png" />
+
+    <utility
+        component=".bank_account.bankAccountFactory"
+        name="easyshop.bank_account" />
+
+
+    <!-- Credit Cart -->
+    <five:registerClass
+        class=".credit_card.CreditCard"
+        meta_type="CreditCard"
+        permission="cmf.ModifyPortalContent"
+        addview="easyshop.credit_card"
+        icon="payment_method_icon.png" />
+
+    <utility
+        component=".credit_card.creditCardFactory"
+        name="easyshop.credit_card" />
+    
+</configure>
