@@ -210,7 +210,7 @@ class PayPalPaymentProcessor:
         url = url + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
         
-        return None
+        return PaymentResult(NOT_PAYED)
         
 class PayPalSimplePaymentProcessor:
     """Provides IPaymentProcessing for paypal content objects.    
@@ -270,4 +270,4 @@ class PayPalSimplePaymentProcessor:
         url = url + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
         
-        return None
+        return PaymentResult(NOT_PAYED)

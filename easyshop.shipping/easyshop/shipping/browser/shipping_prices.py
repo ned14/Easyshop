@@ -22,12 +22,13 @@ class ShippingPricesView(BrowserView):
             price = cm.priceToString(shipping_price.getPrice())
             
             result.append({
-                "id"       : shipping_price.getId(),            
-                "title"    : shipping_price.Title(),
-                "price"    : price,
-                "url"      : shipping_price.absolute_url(),
-                "up_url"   : "%s/es_folder_position?position=up&id=%s" % (self.context.absolute_url(), shipping_price.getId()),
-                "down_url" : "%s/es_folder_position?position=down&id=%s" % (self.context.absolute_url(), shipping_price.getId()),
+                "id"          : shipping_price.getId(),            
+                "title"       : shipping_price.Title(),
+                "description" : shipping_price.Description(),
+                "price"       : price,
+                "url"         : shipping_price.absolute_url(),
+                "up_url"      : "%s/es_folder_position?position=up&id=%s" % (self.context.absolute_url(), shipping_price.getId()),
+                "down_url"    : "%s/es_folder_position?position=down&id=%s" % (self.context.absolute_url(), shipping_price.getId()),
                 "amount_of_criteria" : self._getAmountOfCriteria(shipping_price.getId())
             })
 

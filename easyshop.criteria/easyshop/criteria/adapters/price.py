@@ -30,9 +30,17 @@ class PriceCriteriaValidity:
         
         if cart is None:
             cart_price = 0.0
-        else:           
-            cart_price = IPrices(cart).getPriceForCustomer(with_shipping=False)
+        else:
+            if self.context.getPriceType() == "net":
+                cart_price = IPrices(cart).getPriceForCustomer(
+                    with_shipping=False, 
+                    with_payment=False)
+            else:
+                cart_price = IPrices(cart).getPriceGross(
+                    with_shipping=False, 
+                    with_payment=False)
 
-        if cart_price > self.context.getPrice():
+
+        if cart_price >= self.context.getPrice():
             return True
         return False

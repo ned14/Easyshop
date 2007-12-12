@@ -42,7 +42,7 @@ class AddressAddForm(base.AddForm):
 
         # Set email of the superior customer object.
         if len(customer.email) == 0:
-            customer.email = data.get("email", "")
+            customer.email = data.get("email", u"")
                     
         am.addAddress(data)
 

@@ -18,15 +18,29 @@ from easyshop.core.interfaces import IPriceCriteria
 
 schema = Schema((
     FloatField(
-        name='price',
+        name="price",
         default=0.0,
         widget=DecimalWidget(
-            label='Price Gross',
-            label_msgid='schema_value_label',
+            label='Price',
+            label_msgid='schema_price_label',
+            description="Valid if the cart price is greater than or equal price you enter here.",
+            description_msgid="schema_price_description",
             i18n_domain='EasyShop',
         ),
     ),
-
+    StringField(
+        name='priceType',
+        vocabulary="_getPriceTypesAsDL", 
+        default="net",   
+        widget=SelectionWidget(
+            label="Price Type",
+            label_msgid="schema_price_label",
+            description="Please select the type of the entered price above.",
+            description_msgid = "schema_price_type_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
 ),
 )
 
@@ -48,4 +62,14 @@ class PriceCriteria(BaseContent):
         """
         return self.getPrice()
 
+    def _getPriceTypesAsDL(self):
+        """Returns vocabulary for field "price_type" as DisplayList.
+        """
+        dl = DisplayList()
+
+        dl.add("gross", "Gross")
+        dl.add("net", "Net")
+        
+        return dl
+        
 registerType(PriceCriteria, PROJECTNAME)

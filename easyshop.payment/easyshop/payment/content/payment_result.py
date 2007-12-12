@@ -9,7 +9,7 @@ class PaymentResult(object):
     """
     implements(IPaymentResult)
     
-    def __init__(self, code, message):
+    def __init__(self, code, message=u""):
         """
         """
         self.code = code

@@ -11,7 +11,7 @@
  <property name="factory">addGroupsContainer</property>
  <property name="immediate_view">groups-view</property>
  <property name="global_allow">False</property>
- <property name="filter_content_types">False</property>
+ <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="ProductGroup"/>
  </property>

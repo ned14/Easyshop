@@ -61,6 +61,14 @@
                        tal:content="shipping_price/title">
                         Default  
                     </a>
+                    
+                    <tal:block tal:condition="shipping_price/description">
+                        (<span class="discreet"
+                               tal:content="shipping_price/description">
+                            Description
+                        </span>)
+                    </tal:block>
+                    
                 </td>
                 <td class="number" 
                     tal:content="shipping_price/price">
