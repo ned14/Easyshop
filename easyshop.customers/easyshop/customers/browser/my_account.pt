@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <head>
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>
+      
+    <body>
+  
+      <metal:main fill-slot="main">
+  
+        <h1 class="documentFirstHeading"
+            i18n:translate="manage_account_label">
+          Manage Account
+        </h1>
+  
+        <h2 i18n:translate="orders_label">
+            Orders
+        </h2>
+        <ul>
+          <li>
+              <a href="#"
+                 tal:attributes="href string:${context/absolute_url}/my-orders"
+                 i18n:translate="orders_label">
+                  Orders
+              </a>       
+          </li>
+        </ul>
+        <h2 i18n:translate="personal_informations_label">
+            Personal informations
+        </h2>
+        <ul>
+          <li>
+              <a href="."
+                 tal:attributes="href string:${context/absolute_url}/@@edit"
+                 i18n:translate="manage_name_label">
+                 Manage name and e-mail address
+              </a>    
+          </li>
+          <li>
+              <a href="manage-password"
+                 i18n:translate="manage_password_label">
+                  Manage Password
+              </a>    
+          </li>            
+          <li>
+              <a href="manage-addressbook"
+                  i18n:translate="manage_addressbook_label">
+                  Manage Addressbook
+              </a>
+          </li>
+          <li>
+              <a href="manage-payment-methods"
+                 i18n:translate="manage_payment_methods_label">
+                  Manage Payment Methods
+              </a>
+          </li>
+        </ul>          
+      </metal:main>
+      
+    </body>
+</html>

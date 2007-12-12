@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="easyshop_customer_workflow"
+             title="EasysShop Customer Workflow"
+             description="" state_variable="review_state"
+             initial_state="published">
+ <permission>Access contents information</permission>
+ <permission>Modify portal content</permission>
+ <permission>View</permission>
+ <permission>EasyShop: Add Address</permission>
+ <permission>EasyShop: Add Customer</permission>
+ <permission>Add portal content</permission>
+ <state state_id="private" title="Private">
+  <description>Can only be seen and edited by the manager</description>
+  <exit-transition transition_id="show"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Contributor</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Reader</permission-role>
+  </permission-map>
+  <permission-map name="Add portal content" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Add Address"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Add Customer"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Contributor</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Reader</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="published" title="Published">
+  <description>Visible to everyone.</description>
+  <exit-transition transition_id="hide"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Add portal content" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Add Address"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Add Customer"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+ </state>
+ <transition transition_id="hide"
+             title="Member makes content private"
+             new_state="private" trigger="USER"
+             before_script="" after_script="">
+  <description>Making an item private means that it will not be visible to anyone but the owner and the site administrator.
+</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=hide"
+          category="workflow">Make private</action>
+  <guard>
+   <guard-permission>Modify portal content</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="show"
+             title="Member promotes content to public draft"
+             new_state="published" trigger="USER"
+             before_script="" after_script="">
+  <description>Promotes your private item to a public one.
+</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=show"
+          category="workflow">Make public</action>
+  <guard>
+   <guard-permission>Modify portal content</guard-permission>
+  </guard>
+ </transition>
+ <worklist worklist_id="reviewer_queue" title="">
+  <description>Reviewer tasks
+</description>
+  <action url="%(portal_url)s/search?review_state=pending"
+          category="global">Pending (%(count)d)</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+  <match name="review_state" values="pending"/>
+ </worklist>
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Previous transition
+</description>
+  <default>
+   
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition
+</description>
+  <default>
+   
+   <expression>user/getId</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comment about the last transition
+</description>
+  <default>
+   
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history
+</description>
+  <default>
+   
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>When the previous transition was performed
+</description>
+  <default>
+   
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+</dc-workflow>
