@@ -1,0 +1,9 @@
+Changelog for iqpp.stocks
+
+    (name of developer listed in brackets)
+
+iqpp.stocks - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
