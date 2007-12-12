@@ -1,0 +1,56 @@
+input#save-formatter:click {
+    evt-click-preventdefault: True;
+    action-server: kss_save_formatter;
+    kss_save_formatter-portlethash: kssAttr(portlethash, True);
+    kss_save_formatter-form: currentForm();
+}
+
+img.product-details:click {
+    evt-click-preventdefault: True;
+    action-server: kss_show_product_details;
+    kss_show_product_details-uid: kssAttr('uid');
+}
+
+div#letters a:click {
+    evt-click-preventdefault: True;
+    action-server: kss_show_products;
+    kss_show_products-letter: kssAttr('letter');
+}
+
+input#search-products:click {
+    evt-click-preventdefault: True;    
+    action-server: kss_show_products;
+    kss_show_products-form: currentForm();
+    
+}
+
+
+/* Address */
+
+input#add-address-form-button:click {
+    evt-click-preventdefault: True;
+    action-server: kss_show_add_address_form;
+}
+
+input.edit-address-form-button:click {
+    evt-click-preventdefault: True;
+    action-server: kss_show_edit_address_form;
+    kss_show_edit_address_form-form: currentForm();
+}
+
+input#add-address:click {
+    evt-click-preventdefault: True;
+    action-server: kss_add_address;
+    kss_add_address-form: currentForm();
+}
+
+input#edit-address:click {
+    evt-click-preventdefault: True;
+    action-server: kss_edit_address;
+    kss_edit_address-form: currentForm();
+}
+
+input#cancel-address:click {
+    evt-click-preventdefault: True;
+    action-server: kss_cancel_address;
+}
