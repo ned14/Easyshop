@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Title will show up in @@manage-portlets -->
+     
+ <portlet 
+     addview="portlets.Admin"
+     title="EasyShop Manager"
+     description="Portlet to admin EasyShop." />
+
+</portlets>
