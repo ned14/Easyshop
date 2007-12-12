@@ -1,0 +1,6 @@
+#
+# applied by: svn propset svn:externals -F ./EXTERNALS.txt .
+#
+
+ATBackRef https://svn.plone.org/svn/archetypes/MoreFieldsAndWidgets/ATBackRef/branches/diefenbach-easyshop
+EasyShopTranslations https://easyshop-for-plone.googlecode.com/svn/EasyShopTranslations/trunk
