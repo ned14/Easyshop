@@ -2,20 +2,20 @@
 # applied by: svn propset svn:externals -F ./EXTERNALS.txt .
 #
 
-easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/trunk
-easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/trunk
-easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/trunk
-easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/trunk
-easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
-easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
-easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/trunk
-easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/trunk
-easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
-easyshop.login https://easyshop-for-plone.googlecode.com/svn/easyshop.login/trunk
-easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/trunk
-easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
-easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
-easyshop.shop https://easyshop-for-plone.googlecode.com/svn/easyshop.shop/trunk
-easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
+easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/branches/2.5
+easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/branches/2.5
+easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/branches/2.5
+easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/branches/2.5
+easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/branches/2.5
+easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/branches/2.5
+easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/branches/2.5
+easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/branches/2.5
+easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/branches/2.5
+easyshop.login https://easyshop-for-plone.googlecode.com/svn/easyshop.login/branches/2.5
+easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/branches/2.5
+easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/branches/2.5
+easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/branches/2.5
+easyshop.shop https://easyshop-for-plone.googlecode.com/svn/easyshop.shop/branches/2.5
+easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/branches/2.5
 
-iqpp.sessions https://easyshop-for-plone.googlecode.com/svn/iqpp.sessions/trunk
+iqpp.sessions https://easyshop-for-plone.googlecode.com/svn/iqpp.sessions/branches/2.5
