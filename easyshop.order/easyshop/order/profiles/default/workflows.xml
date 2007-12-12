@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <property
+    name="title">Contains workflow definitions for your portal</property>
+ <object name="easyshop_order_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="OrderItem"/>
+  
+  <type type_id="OrdersContainer">
+   <bound-workflow workflow_id="easyshop_containers_workflow"/>
+  </type>
+
+  <type type_id="Order">
+   <bound-workflow workflow_id="easyshop_order_workflow"/>
+  </type>
+ </bindings>
+</object>
