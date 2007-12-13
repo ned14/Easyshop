@@ -25,6 +25,7 @@ def initialize(context):
     import easyshop.order.content
     import easyshop.shipping.content
     import easyshop.shop.content
+    import easyshop.stocks.content
     import easyshop.taxes.content
         
     import catalog

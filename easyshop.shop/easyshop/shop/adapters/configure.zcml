@@ -44,6 +44,10 @@
         factory=".validity.Validity" />
 
     <adapter
+        for="easyshop.core.interfaces.IStockRule"
+        factory=".validity.Validity" />
+
+    <adapter
         for="easyshop.core.interfaces.ITax"
         factory=".validity.Validity" />
 
