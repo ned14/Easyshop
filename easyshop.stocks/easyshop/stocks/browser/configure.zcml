@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Stock Rules Container -->
+    <browser:page  
+        name="stock-rules-container-view"
+        for="easyshop.core.interfaces.IStockRulesContainer"
+        class=".stock_rules_container_view.StockRulesContainerView"
+        template="stock_rules_container_view.pt"
+        permission="cmf.ManagePortal" />
+
+</configure>

@@ -3,5 +3,19 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="easyshop.stocks">
 
+    <five:registerPackage 
+        package="." />
+        
+    <include 
+        file="profiles.zcml" />
 
+    <include 
+        package=".adapters" />
+
+    <include 
+        package=".browser" />
+
+    <include 
+        package=".subscribers" />
+        
 </configure>
