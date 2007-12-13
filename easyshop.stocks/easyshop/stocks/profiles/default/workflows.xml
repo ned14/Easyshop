@@ -4,11 +4,11 @@
     name="title">Contains workflow definitions for your portal</property>
  <bindings>
      
-  <type type_id="StockRulesContainer">
+  <type type_id="StockInformationContainer">
    <bound-workflow workflow_id="easyshop_containers_workflow"/>
   </type>
 
-  <type type_id="StockRule">
+  <type type_id="StockInformation">
    <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>
   

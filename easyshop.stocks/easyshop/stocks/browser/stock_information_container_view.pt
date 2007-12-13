@@ -5,13 +5,13 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="stock_rules view/getStockRules;">
+                    tal:define="stock_informations view/getStockInformation;">
         
             <div tal:replace="structure provider:plone.abovecontenttitle" />
   
             <h1 class="documentFirstHeading"
-                i18n:translate="stock_rules_label">
-                Stock Rules
+                i18n:translate="stock_information_label">
+                Stock Information
             </h1>
 
             <a href="#"
@@ -21,12 +21,12 @@
                 Shop
             </a>  
 
-            <div tal:condition="not:stock_rules"
-                 i18n:translate="no_stock_rules_label">
-                There are no stock rules.
+            <div tal:condition="not:stock_informations"
+                 i18n:translate="no_stock_information_label">
+                There are no stock information.
             </div>
                  
-            <table tal:condition="stock_rules"
+            <table tal:condition="stock_informations"
                    class="listing shop-default">
               <tr>
                 <th width="40%"
@@ -47,45 +47,45 @@
                 </th>
               </tr>
 
-              <tr tal:repeat="stock_rule stock_rules">
+              <tr tal:repeat="stock_information stock_informations">
                 <td class="text">
 
                     <img src="."
                          tal:attributes="src string:$portal_url/document_icon.gif"
                          alt="Shipping Price Icon"
                          title="Shipping Price"
-                         i18n:attributes="title stock_rule_label;" />
+                         i18n:attributes="title stock_information_label;" />
                     
                     <a href="."
-                       tal:attributes="href stock_rule/url"
-                       tal:content="stock_rule/title">
+                       tal:attributes="href stock_information/url"
+                       tal:content="stock_information/title">
                         Default  
                     </a>
                     
-                    <tal:block tal:condition="stock_rule/description">
+                    <tal:block tal:condition="stock_information/description">
                         (<span class="discreet"
-                               tal:content="stock_rule/description">
+                               tal:content="stock_information/description">
                             Description
                         </span>)
                     </tal:block>
                     
                 </td>
                 <td class="number">
-                    <span tal:content="stock_rule/available">
+                    <span tal:content="stock_information/available">
                         True
                     </span> /     
-                    <span tal:condition="stock_rule/available"
-                          tal:content="stock_rule/time_period">
+                    <span tal:condition="stock_information/available"
+                          tal:content="stock_information/time_period">
                         1-2 Days
                     </span>    
                 </td>
                 <td class="number"
-                    tal:content="stock_rule/amount_of_criteria">
+                    tal:content="stock_information/amount_of_criteria">
                     2
                 </td>
                 <td>
                     <a href="."
-                       tal:attributes="href stock_rule/up_url">
+                       tal:attributes="href stock_information/up_url">
                         <img src="arrowUp.gif"
                              alt="Arror Up"
                              title="Move Up"
@@ -93,7 +93,7 @@
                              tal:attributes="src string:${portal_url}/arrowUp.gif" />
                     </a>     
                     <a href="."
-                       tal:attributes="href stock_rule/down_url">
+                       tal:attributes="href stock_information/down_url">
                         <img src="arrowDown.gif"
                              alt="Arror Down"
                              title="Move Down"                     

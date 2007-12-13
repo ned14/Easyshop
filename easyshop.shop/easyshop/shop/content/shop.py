@@ -29,20 +29,9 @@ from easyshop.customers.portlets import my_account
 
 schema = Schema((
 
-    BooleanField(
-        name = "grossPrices",
-        widget = BooleanWidget(
-            description = "If selected, all prices are gross prices, else net prices.",  
-            label="Gross Prices",
-            label_msgid="schema_expand_all_label",
-            description_msgid="schema_expand_all_description",
-            i18n_domain="EasyShop",
-        ),
-        default="1",
-    ),
-
     StringField(
         name="shopOwner",
+        required=True,
         widget=StringWidget(
             label="Shop Owner",
             label_msgid="schema_shop_owner_label",
@@ -51,12 +40,25 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
+
+    BooleanField(
+        name="grossPrices",
+        default=True,
+        schemata="misc",        
+        widget=BooleanWidget(
+            description = "If selected, all prices are gross prices, else net prices.",
+            label="Gross Prices",
+            label_msgid="schema_gross_prices_label",
+            description_msgid="schema_gross_prices_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
         
     StringField(
         name="currency",
-        schemata = "misc",
+        schemata="misc",
         vocabulary="_getCurrenciesAsDL",
-        default = "euro",
+        default="euro",
         widget=SelectionWidget(
             label="Currency",
             label_msgid="schema_currency_label",
@@ -68,8 +70,8 @@ schema = Schema((
 
     BooleanField(
         name = "showAddQuantity",
-        default="1",        
-        schemata = "misc",        
+        default=True,
+        schemata="misc",
         widget = BooleanWidget(
             description = "If selected, a quantity field is shown to add a product to cart.",  
             label="Show Quantity",
@@ -81,7 +83,7 @@ schema = Schema((
     
     LinesField(
         name="countries",
-        schemata = "misc",
+        schemata="misc",
         default=DEFAULT_COUNTRIES,
         widget = LinesWidget(
             label="Countries",
@@ -93,18 +95,6 @@ schema = Schema((
     ),
         
     StringField(
-        name="payPalUrl",
-        schemata="payment",
-        widget=StringWidget(
-            label="PayPalUrl",
-            label_msgid="schema_paypal_url_label",
-            description = "",
-            description_msgid="schema_paypal_url_description",
-            i18n_domain="EasyShop",
-        ),
-    ),
-    
-    StringField(
         name="payPalId",
         schemata="payment",
         widget=StringWidget(
@@ -115,6 +105,7 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),    
+    
     StringField(
         name="mailFrom",
         schemata="mailing",
@@ -142,12 +133,37 @@ schema = Schema((
 ),
 )
 
+# Move Plone's default fields into one tab, to make some place for own ones.
+schema = ATFolder.schema.copy() + schema
+    
+# Dates
+schema.changeSchemataForField('effectiveDate',  'plone')
+schema.changeSchemataForField('expirationDate', 'plone')
+schema.changeSchemataForField('creation_date', 'plone')    
+schema.changeSchemataForField('modification_date', 'plone')    
+
+# Categorization
+schema.changeSchemataForField('subject', 'plone')
+schema.changeSchemataForField('relatedItems', 'plone')
+schema.changeSchemataForField('location', 'plone')
+schema.changeSchemataForField('language', 'plone')
+
+# Ownership
+schema.changeSchemataForField('creators', 'plone')
+schema.changeSchemataForField('contributors', 'plone')
+schema.changeSchemataForField('rights', 'plone')
+
+# Settings
+schema.changeSchemataForField('allowDiscussion', 'plone')
+schema.changeSchemataForField('excludeFromNav', 'plone')
+schema.changeSchemataForField('nextPreviousEnabled', 'plone')
+
 class EasyShop(ATFolder):
     """An shop where one can offer products for sale.
     """
     implements(IShop)
     _at_rename_after_creation = True
-    schema = ATFolder.schema.copy() + schema
+    schema = schema
 
     def at_post_create_script(self):
         """Overwritten to create some objects.

@@ -17,8 +17,8 @@ class StockManagement:
     def __init__(self, context):
         """
         """
-        self.context     = context
-        self.stock_rules = context["stock-rules"]
+        self.context = context
+        self.stock_information = context["stock-information"]
 
     def removeCart(self, cart):
         """
@@ -30,16 +30,16 @@ class StockManagement:
             new_amount = product.getStockAmount() - amount
             product.setStockAmount(new_amount)
         
-    def getStockRules(self):
+    def getStockInformation(self):
         """
         """
-        return self.stock_rules.objectValues()
+        return self.stock_information.objectValues()
         
-    def getValidStockRuleFor(self, product):
+    def getValidStockInformationFor(self, product):
         """
         """
-        for rule in self.stock_rules.objectValues():
-            if IValidity(rule).isValid(product) == True:
-                return rule
+        for information in self.stock_information.objectValues():
+            if IValidity(information).isValid(product) == True:
+                return information
 
         return None

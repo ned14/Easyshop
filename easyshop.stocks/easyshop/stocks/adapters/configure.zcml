@@ -2,7 +2,7 @@
     xmlns="http://namespaces.zope.org/zope">
 
     <adapter
-        factory=".data.StockRuleData" />
+        factory=".data.StockInformationData" />
 
     <adapter
         factory=".stock_management.StockManagement" />

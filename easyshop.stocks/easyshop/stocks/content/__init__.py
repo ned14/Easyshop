@@ -1,2 +1,2 @@
-from stock_rule import *
-from stock_rules_container import *
+from stock_information import *
+from stock_information_container import *

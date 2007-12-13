@@ -4,11 +4,11 @@
         name="title">Controls the available content types in your portal</property>
 
     <object 
-        name="StockRule"
+        name="StockInformation"
         meta_type="Factory-based Type Information"/>
 
     <object
-        name="StockRulesContainer"
+        name="StockInformationContainer"
         meta_type="Factory-based Type Information" />
 
 </object>

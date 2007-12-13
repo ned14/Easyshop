@@ -4,13 +4,13 @@ from zope.interface import implements
 
 # easyshop imports
 from easyshop.core.interfaces import IData
-from easyshop.core.interfaces import IStockRule
+from easyshop.core.interfaces import IStockInformation
 
-class StockRuleData:
+class StockInformationData:
     """
     """
     implements(IData)
-    adapts(IStockRule)
+    adapts(IStockInformation)
 
     def __init__(self, context):
         """

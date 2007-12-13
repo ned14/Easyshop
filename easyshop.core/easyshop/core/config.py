@@ -142,3 +142,6 @@ DELIVERY_TIMES_UNIT = (
     (u"days",   _(u"Days")),
     (u"weeks",  _(u"Weeks")),
 )
+
+# PAYPAL_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
+PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr"

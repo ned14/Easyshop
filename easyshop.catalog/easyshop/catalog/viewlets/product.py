@@ -142,9 +142,12 @@ class ProductViewlet(ViewletBase):
         """
         shop = self._getShop()
         sm = IStockManagement(shop)
-        stock_rule = sm.getValidStockRuleFor(self.context)
+        stock_information = sm.getValidStockInformationFor(self.context)
         
-        return IData(stock_rule).asDict()
+        if stock_information is None:
+            return None
+            
+        return IData(stock_information).asDict()
                     
     def hasPhotos(self):
         """

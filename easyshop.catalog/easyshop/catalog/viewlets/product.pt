@@ -113,9 +113,10 @@
                                             </metal:field>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr tal:define="stock_information view/getStockInformation"
+                                        tal:condition="stock_information">
                                         <td></td>
-                                        <td tal:define="stock_information view/getStockInformation">
+                                        <td>
                                             <tal:block tal:condition="stock_information/available">
                                                 <tal:block i18n:translate="deliverable_label">
                                                     Deliverable

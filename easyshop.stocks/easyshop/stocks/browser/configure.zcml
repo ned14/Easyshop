@@ -2,12 +2,12 @@
            xmlns:five="http://namespaces.zope.org/five"
            xmlns:browser="http://namespaces.zope.org/browser">
 
-    <!-- Stock Rules Container -->
+    <!-- Stock Information Container -->
     <browser:page  
-        name="stock-rules-container-view"
-        for="easyshop.core.interfaces.IStockRulesContainer"
-        class=".stock_rules_container_view.StockRulesContainerView"
-        template="stock_rules_container_view.pt"
+        name="stock-information-container-view"
+        for="easyshop.core.interfaces.IStockInformationContainer"
+        class=".stock_information_container_view.StockInformationContainerView"
+        template="stock_information_container_view.pt"
         permission="cmf.ManagePortal" />
 
 </configure>

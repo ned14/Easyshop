@@ -12,6 +12,7 @@ from base import EasyShopTestCase
 from easyshop.shop.tests import utils
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import IPaymentProcessing
+from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IType
 
 class TestPayPalType(EasyShopTestCase):
@@ -39,11 +40,27 @@ class TestPayPalPaymentProcessor(EasyShopTestCase):
         """
         """
         # Todo: find a way to test paypal
+
+class TestPayPalValidity(EasyShopTestCase):
+    """
+    """
+    def testValidity(self):
+        """
+        """
+        paypal = self.shop.paymentmethods.paypal
+        result = IValidity(paypal).isValid()        
+        self.failUnless(result == False)
+        
+        self.shop.setPayPalId("john@doe.com")
+        result = IValidity(paypal).isValid()
+        self.failUnless(result == True)        
         
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestPayPalType))
     suite.addTest(makeSuite(TestPayPalCompleteness))        
+    suite.addTest(makeSuite(TestPayPalValidity))
+    
     return suite
                                                

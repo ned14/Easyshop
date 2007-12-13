@@ -1,23 +1,23 @@
 # zope imports
 from zope.interface import Interface
 
-class IStockRule(Interface):
-    """A rule to calculate availability and time period of shipping.
+class IStockInformation(Interface):
+    """Holds availability of products and time period of shipping.
     """
 
-class IStockRulesContainer(Interface):
-    """A simple container to holds stock rules.
+class IStockInformationContainer(Interface):
+    """A simple container to holds stock information.
     """
 
 class IStockManagement(Interface):
-    """Provides methods to manage/calculate stock rules.
+    """Provides methods to manage stock information.
     """
-    def getStockRules():
-        """Returns existing stock rules.
+    def getStockInformation():
+        """Returns existing stock information.
         """
         
-    def getValidStockRuleFor(product):
-        """Returns first valid stock rule for given product.
+    def getValidStockInformationFor(product):
+        """Returns first valid stock information for given product.
         """
         
     def removeCart(cart):

@@ -10,7 +10,7 @@ from Products.Archetypes.atapi import *
 # easyshop imports
 from easyshop.core.config import *
 from easyshop.core.interfaces import IValidity
-from easyshop.core.interfaces import IStockRule
+from easyshop.core.interfaces import IStockInformation
 
 schema = Schema((
 
@@ -65,11 +65,11 @@ schema = Schema((
 ),
 )
 
-class StockRule(OrderedBaseFolder):
+class StockInformation(OrderedBaseFolder):
     """
     """
-    implements(IStockRule)
+    implements(IStockInformation)
     schema = OrderedBaseFolderSchema.copy() + schema.copy()
     _at_rename_after_creation = True
 
-registerType(StockRule, PROJECTNAME)
+registerType(StockInformation, PROJECTNAME)

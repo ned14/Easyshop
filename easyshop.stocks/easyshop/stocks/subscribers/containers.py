@@ -9,8 +9,8 @@ from easyshop.core.interfaces import IShop
 def createContainers(shop, event):
     """
     """
-    shop.manage_addProduct["easyshop.shop"].addStockRulesContainer(
-        id="stock-rules", 
-        title="Stock Rules")    
+    shop.manage_addProduct["easyshop.shop"].addStockInformationContainer(
+        id="stock-information", 
+        title="Stock Information")    
         
-    shop["stock-rules"].reindexObject()
+    shop["stock-information"].reindexObject()

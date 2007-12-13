@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<object name="StockRule" meta_type="Factory-based Type Information"
+<object name="StockInformation" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Stock Rule</property>
- <property name="description">A rule to calculate availability of products and time period of shipping.</property>
+ <property name="title">Stock Information</property>
+ <property name="description">Holds availability of products and time period of shipping.</property>
  <property name="content_icon">document_icon.gif</property>
- <property name="content_meta_type">StockRule</property>
+ <property name="content_meta_type">StockInformation</property>
  <property name="product">easyshop.shop</property>
- <property name="factory">addStockRule</property>
+ <property name="factory">addStockInformation</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
