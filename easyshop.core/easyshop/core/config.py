@@ -112,3 +112,33 @@ CREDIT_CARD_YEARS_CHOICES = (
 DEFAULT_COUNTRIES = (
     "Germany",
 )
+
+
+DELIVERY_TIMES_MIN = (
+    (u"1",  u"1"),
+    (u"2",  u"2"),
+    (u"3",  u"3"),
+    (u"4",  u"4"),
+    (u"5",  u"5"),
+    (u"6",  u"6"),
+    (u"7",  u"7"),
+    (u"8",  u"8"),
+    (u"9",  u"9"),                            
+)
+
+DELIVERY_TIMES_MAX = (
+    (u"1",  u"1"),
+    (u"2",  u"2"),
+    (u"3",  u"3"),
+    (u"4",  u"4"),
+    (u"5",  u"5"),
+    (u"6",  u"6"),
+    (u"7",  u"7"),
+    (u"8",  u"8"),
+    (u"9",  u"9"),                            
+)
+
+DELIVERY_TIMES_UNIT = (
+    (u"days",   _(u"Days")),
+    (u"weeks",  _(u"Weeks")),
+)

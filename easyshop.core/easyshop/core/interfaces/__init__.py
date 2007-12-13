@@ -16,5 +16,6 @@ from price import *
 from sessions import *
 from shipping import *
 from shop import *
+from stocks import *
 from taxes import *
 from utilities import *

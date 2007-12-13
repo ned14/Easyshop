@@ -39,6 +39,10 @@ class IPriceCriteria(ICriteria):
 class IShippingMethodCriteria(ICriteria):
     """Marker interface to mark shipping method criteria content objects.
     """
+
+class IStockAmountCriteria(ICriteria):
+    """Marker interface to mark stock criteria content objects.
+    """
     
 class IWeightCriteria(ICriteria):
     """Marker interface to mark weight criteria content objects.
