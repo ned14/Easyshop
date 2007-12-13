@@ -46,10 +46,10 @@ class PayPalValidity(object):
         self.context = context
 
     def isValid(self, product=None):
-        """Returns True if the PayPal id is filled in.
+        """Returns False if the PayPal id is not filled in.
         """
         shop = IShopManagement(self.context).getShop()
-        if shop.getPayPalId() != "":
-            return True
-        else:
+        if shop.getPayPalId() == "":
             return False
+
+        return super(PayPalValidity, self).isValid(product)
