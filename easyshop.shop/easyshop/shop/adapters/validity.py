@@ -35,7 +35,7 @@ class Validity(object):
                                             
         return True
 
-class PayPalValidity(object):
+class PayPalValidity(Validity):
     """An adapter which provides IValidity for PayPal payment method.
     """
     implements(IValidity)
