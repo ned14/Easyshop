@@ -3,6 +3,7 @@ from zope.component import queryUtility
 
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
+from plone.memoize.instance import memoize
 
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -18,6 +19,7 @@ from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IStockManagement
 
 class ProductViewlet(ViewletBase):
     """
@@ -134,7 +136,16 @@ class ProductViewlet(ViewletBase):
                 result.append(product)
             
         return result
-                        
+
+    def getStockInformation(self):
+        """
+        """
+        shop = self._getShop()
+        sm = IStockManagement(shop)
+        stock_rule = sm.getValidStockRuleFor(self.context)
+        
+        return IData(stock_rule).asDict()
+                    
     def hasPhotos(self):
         """
         """
@@ -144,5 +155,11 @@ class ProductViewlet(ViewletBase):
     def showAddQuantity(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()                
+        shop = self._getShop() 
         return shop.getShowAddQuantity()
+
+    @memoize
+    def _getShop(self):
+        """
+        """
+        return IShopManagement(self.context).getShop()

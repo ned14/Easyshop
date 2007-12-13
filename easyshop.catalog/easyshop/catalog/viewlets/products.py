@@ -80,11 +80,12 @@ class ProductsViewlet(ViewletBase):
         products = []        
         for index, product in enumerate(batch):
 
+            # Price
             cm = ICurrencyManagement(self.context)
             price = IPrices(product).getPriceForCustomer()
             price = cm.priceToString(price, symbol="symbol", position="before")
                                     
-            # photo
+            # Photo
             image = IPhotoManagement(product).getMainPhoto()
             if image is not None:
                 image = "%s/image_%s" % (image.absolute_url(), f.get("image_size"))
@@ -98,12 +99,13 @@ class ProductsViewlet(ViewletBase):
                 text = product.getText()
             else:
                 text = ""
-                    
+
+            # CSS Class
             if (index + 1) % products_per_line == 0:
                 klass = "last"
             else:
                 klass = "notlast"
-                
+                            
             line.append({
                 "title"                    : product.Title(),
                 "short_title"              : product.getShortTitle() or product.Title(),

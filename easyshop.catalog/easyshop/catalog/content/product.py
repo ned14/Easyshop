@@ -104,6 +104,17 @@ schema = Schema((
     ),
 
     FloatField(
+        name="stockAmount",
+        widget=DecimalWidget(
+            label="Stock Amount",
+            label_msgid="schema_stock_amount_label",
+            description = "The amount of this product in stock. This number is decreased automatically when the product has been sold.",
+            description_msgid="schema_stock_amount_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    FloatField(
         name='weight',
         default=0.0,
         widget=DecimalWidget(

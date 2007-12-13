@@ -115,6 +115,28 @@
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td tal:define="stock_information view/getStockInformation">
+                                            <tal:block tal:condition="stock_information/available">
+                                                <tal:block i18n:translate="deliverable_label">
+                                                    Deliverable
+                                                </tal:block>
+                                                <div>
+                                                    <tal:block i18n:translate="delivery_period_label">
+                                                        Delivery Period</tal:block>:
+                                                    <tal:block tal:content="stock_information/time_period">
+                                                        2-3 Weeks
+                                                    </tal:block>    
+                                                </div>    
+                                            </tal:block>
+                                            <tal:block tal:condition="not:stock_information/available"
+                                                       i18n:translate="not_deliverable_label">
+                                                Not deliverable
+                                            </tal:block>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
                                         <td class="product-properties">
                                              <table>
                                                  <tr tal:repeat="property view/getProperties">
