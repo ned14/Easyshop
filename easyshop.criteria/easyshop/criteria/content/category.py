@@ -58,9 +58,10 @@ class CategoryCriteria(BaseContent):
         catalog = getToolByName(self, "portal_catalog")
 
         for category in catalog.searchResults(
-            portal_type="EasyShopCategory",
+            portal_type="Category",
             sort_on = "getObjPositionInParent"):
             dl.add(category.id, category.Title)
+            
         return dl
 
     def Title(self):

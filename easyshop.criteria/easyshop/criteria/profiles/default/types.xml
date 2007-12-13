@@ -30,6 +30,9 @@
  <object name="ProductCriteria"
          meta_type="Factory-based Type Information"/>
 
+ <object name="StockAmountCriteria"
+         meta_type="Factory-based Type Information"/>
+
  <object name="WeightCriteria"
          meta_type="Factory-based Type Information"/>
     

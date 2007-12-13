@@ -7,4 +7,5 @@ import payment_method
 import price
 import product
 import shipping_method
+import stock_amount
 import weight

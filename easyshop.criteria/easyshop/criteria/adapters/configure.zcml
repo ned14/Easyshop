@@ -28,6 +28,9 @@
     <adapter
         factory=".shipping_method.ShippingMethodCriteriaValidity" />
 
+    <adapter
+        factory=".stock_amount.StockAmountCriteriaValidity" />
+
     <adapter  
         factory=".weight.WeightCriteriaValidity" /> 
     
