@@ -31,6 +31,7 @@ from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShippingPriceManagement
+from easyshop.core.interfaces import IStockManagement
 
 from easyshop.core.interfaces import ITaxes
 from easyshop.payment.config import ERROR, PAYED
@@ -82,8 +83,13 @@ class OrderPreviewForm(formbase.AddForm):
             ICheckoutManagement(self.context).redirectToNextURL("ERROR_PAYMENT")
             return ""
         else:
+            cm = ICartManagement(self.context)
+
+            # Decrease stock
+            IStockManagement(self.context).removeCart(cm.getCart())
+            
             # Delete cart
-            ICartManagement(self.context).deleteCart()
+            cm.deleteCart()
 
             # Set order to pending (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
