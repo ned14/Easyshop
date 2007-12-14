@@ -23,6 +23,7 @@ EXTENSION_PROFILES = (
 	"easyshop.order:default",
 	"easyshop.payment:default",
 	"easyshop.shipping:default",
+	"easyshop.stocks:default",
 	"easyshop.taxes:default",
 )
 

@@ -56,6 +56,7 @@ def createTestEnvironment(self):
     self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_1", price=22.0)
     self.product_1 = self.shop.products.product_1
     self.product_1.setWeight(10.0)
+    self.product_1.setStockAmount(10.0)
 
     # Properties
     color = [
@@ -102,6 +103,7 @@ def createTestEnvironment(self):
     self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_2", price=19.0)
     self.product_2 = self.shop.products.product_2
     self.product_2.setWeight(20.0)
+    self.product_2.setStockAmount(20.0)
 
     # A product without properties
     self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_42", price=19.0)
