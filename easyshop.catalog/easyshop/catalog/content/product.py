@@ -111,7 +111,7 @@ schema = Schema((
         widget = BooleanWidget(
             label="Unlimited Amount",
             label_msgid="schema_unlimited_amount_label",
-            description = "If selected, the product is always available (although stock amount is still decreased).",
+            description = "If selected, the stock amount of the product is not decreased.",
             description_msgid="schema_unlimited_amount_description",
             i18n_domain="EasyShop",
         ),

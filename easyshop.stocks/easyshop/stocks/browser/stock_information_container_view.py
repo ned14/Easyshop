@@ -9,14 +9,14 @@ from easyshop.core.interfaces import IStockManagement
 class StockInformationContainerView(BrowserView):
     """
     """
-    def getStockInformation(self):
+    def getStockInformations(self):
         """
         """
         shop = IShopManagement(self.context).getShop()
         sm   = IStockManagement(shop)
                 
         result = []
-        for stock_information in sm.getStockInformation():
+        for stock_information in sm.getStockInformations():
             
             data = IData(stock_information).asDict()
             

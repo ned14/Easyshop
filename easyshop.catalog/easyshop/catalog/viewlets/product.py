@@ -142,7 +142,7 @@ class ProductViewlet(ViewletBase):
         """
         shop = self._getShop()
         sm = IStockManagement(shop)
-        stock_information = sm.getValidStockInformationFor(self.context)
+        stock_information = sm.getStockInformationFor(self.context)
         
         if stock_information is None:
             return None

@@ -40,7 +40,7 @@ class PriceCriteriaValidity:
                     with_shipping=False, 
                     with_payment=False)
 
-
+        cart_price = float("%.2f" % cart_price)
         if cart_price >= self.context.getPrice():
             return True
         return False

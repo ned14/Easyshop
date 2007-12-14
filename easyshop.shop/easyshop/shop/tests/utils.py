@@ -108,6 +108,7 @@ def createTestEnvironment(self):
     # A product without properties
     self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_42", price=19.0)
     self.product_42 = self.shop.products.product_42
+    self.product_42.setStockAmount(0.0)
     
     # Groups
     self.shop.groups.manage_addProduct["easyshop.shop"].addProductGroup(id="group_1")

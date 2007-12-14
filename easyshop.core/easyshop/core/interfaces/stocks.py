@@ -12,14 +12,22 @@ class IStockInformationContainer(Interface):
 class IStockManagement(Interface):
     """Provides methods to manage stock information.
     """
-    def getStockInformation():
+    def getStockInformations():
         """Returns existing stock information.
         """
         
-    def getValidStockInformationFor(product):
+    def getStockInformationFor(product):
         """Returns first valid stock information for given product.
         """
         
     def removeCart(cart):
         """Removes product which are within given cart from stock.
+        """
+        
+class IAvailablility(Interface):
+    """Provides calculation of availability of a product.
+    """
+    
+    def isAvailable():
+        """Returns True if the product is available.
         """

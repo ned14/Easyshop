@@ -5,7 +5,7 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="stock_informations view/getStockInformation;">
+                    tal:define="stock_informations view/getStockInformations;">
         
             <div tal:replace="structure provider:plone.abovecontenttitle" />
   
