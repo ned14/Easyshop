@@ -123,9 +123,9 @@ def createTestEnvironment(self):
     self.group_1.size.setOptions(size_for_groups)    
         
     # Assign products to groups
-    self.group_1.addReference(self.product_1, "group_product")
-    self.group_1.addReference(self.product_2, "group_product")  
-    self.group_2.addReference(self.product_1, "group_product")    
+    self.group_1.addReference(self.product_1, "groups_products")
+    self.group_1.addReference(self.product_2, "groups_products")  
+    self.group_2.addReference(self.product_1, "groups_products")    
     
     # Categories
     self.shop.categories.manage_addProduct["easyshop.shop"].addCategory(id="category_1")
@@ -140,9 +140,9 @@ def createTestEnvironment(self):
     self.category_3 = self.shop.categories.category_3
     
     # Assign products to categories
-    self.category_1.category_11.addReference(self.product_1, "category_products")
-    self.category_1.category_11.addReference(self.product_2, "category_products")
-    self.category_3.addReference(self.product_42, "category_products")
+    self.category_1.category_11.addReference(self.product_1, "categories_products")
+    self.category_1.category_11.addReference(self.product_2, "categories_products")
+    self.category_3.addReference(self.product_42, "categories_products")
     
     # taxes    
     self.shop.taxes.manage_addProduct["easyshop.shop"].addDefaultTax(id="default", rate=19.0)

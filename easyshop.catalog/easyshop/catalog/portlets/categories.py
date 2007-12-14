@@ -207,7 +207,7 @@ class Renderer(base.Renderer):
     #         return True
     #     elif self.context.portal_type == "Product":
     #         try:
-    #             product_category = self.context.getBRefs("category_products")[0]
+    #             product_category = self.context.getBRefs("categories_products")[0]
     #         except IndexError:
     #             return False
     #     
@@ -228,7 +228,7 @@ class Renderer(base.Renderer):
             
         elif self.context.portal_type == "Product":
             try:
-                product_category = self.context.getBRefs("category_products")[0]
+                product_category = self.context.getBRefs("categories_products")[0]
             except IndexError:
                 return False
         

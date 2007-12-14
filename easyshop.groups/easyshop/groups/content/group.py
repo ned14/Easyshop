@@ -28,7 +28,7 @@ schema = Schema((
     ReferenceField( 
         name='products', 
         multiValued=1,
-        relationship='group_product',
+        relationship='groups_products',
         allowed_types=("Product",),
         widget=ReferenceBrowserWidget(
             label='Products',

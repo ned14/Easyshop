@@ -140,7 +140,7 @@ schema = Schema((
     ReferenceField( 
         name='relatedProducts',
         multiValued=1,
-        relationship='easyshopproduct_easyshopproducts',
+        relationship='products_products',
         allowed_types=("Product",),
         widget=ReferenceBrowserWidget(
             label="Related Products",
@@ -161,9 +161,9 @@ schema = Schema((
     ),        
     
     BackReferenceField( 
-        name='easyshopcategories', 
+        name='categories',
         multiValued=1,
-        relationship='category_products',
+        relationship='categories_products',
         allowed_types=("Category",),
         widget=BackReferenceBrowserWidget(
             label="Categories",
@@ -183,9 +183,9 @@ schema = Schema((
             ),    
     ),        
     BackReferenceField( 
-        name='easyshopgroups',
+        name='Groups',
         multiValued=1,
-        relationship='group_product',
+        relationship='groups_products',
         allowed_types=("ProductGroup",),
         widget=BackReferenceBrowserWidget(
             label="Groups",
@@ -238,14 +238,14 @@ class Product(ATFolder):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/groups"
 
-    def setEasyshopcategories(self, value):
+    def setCategories(self, value):
         """
         """
         # save the old categories
-        old_categories = self.getEasyshopcategories()
+        old_categories = self.getCategories()
 
         # Set the new values
-        self.getField("easyshopcategories").set(self, value)
+        self.getField("categories").set(self, value)
 
         # Reindex to get the new values ...
         self.reindexObject()        
@@ -260,7 +260,7 @@ class Product(ATFolder):
                 obj.reindexObject()
                 obj = obj.aq_inner.aq_parent
         
-        for category in self.getEasyshopcategories():
+        for category in self.getCategories():
             obj = category
             while ICategory.providedBy(obj):
                 obj.reindexObject()

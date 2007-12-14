@@ -131,7 +131,7 @@ class ProductViewlet(ViewletBase):
 
         result = []
         # Returns just "View"-able products.
-        for product in self.context.getRefs('easyshopproduct_easyshopproducts'):
+        for product in self.context.getRefs('products_products'):
             if mtool.checkPermission("View", product) is not None:
                 result.append(product)
             

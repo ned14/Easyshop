@@ -142,7 +142,7 @@ class CatalogKSSView(PloneKSSView):
             pd += RELATED_PRODUCTS_FOOTER
         
         # Categories
-        categories = product.getEasyshopcategories()
+        categories = product.getCategories()
         if len(categories) > 0: 
             pd += CATEGORIES_HEADER
             for category in categories:
@@ -153,7 +153,7 @@ class CatalogKSSView(PloneKSSView):
             pd += CATEGORIES_FOOTER
 
         # Groups
-        groups = product.getEasyshopgroups()
+        groups = product.getGroups()
         if len(groups) > 0: 
             pd += GROUPS_HEADER
             for group in groups:

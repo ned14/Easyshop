@@ -60,7 +60,7 @@ class ThankYouPageView(BrowserView):
             
             # Category
             try:
-                category = product.getEasyshopcategories()[0]
+                category = product.getCategories()[0]
                 category_title = category.Title()
             except IndexError:
                 category_title = u""

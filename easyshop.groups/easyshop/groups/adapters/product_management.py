@@ -27,7 +27,7 @@ class GroupProductManager:
 
         result = []
         # Returns just "View"-able products.
-        for product in self.context.getRefs('group_product'):
+        for product in self.context.getRefs('groups_products'):
             if mtool.checkPermission("View", product) is not None:
                 result.append(product)
             
