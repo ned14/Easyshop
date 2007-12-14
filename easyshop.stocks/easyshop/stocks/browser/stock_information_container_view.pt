@@ -73,11 +73,13 @@
                 <td class="number">
                     <span tal:content="stock_information/available">
                         True
-                    </span> /     
-                    <span tal:condition="stock_information/available"
-                          tal:content="stock_information/time_period">
-                        1-2 Days
-                    </span>    
+                    </span>
+                    <tal:block tal:condition="stock_information/available">
+                        /
+                        <span tal:content="stock_information/time_period">
+                            1-2 Days
+                        </span>    
+                    </tal:block>
                 </td>
                 <td class="number"
                     tal:content="stock_information/amount_of_criteria">

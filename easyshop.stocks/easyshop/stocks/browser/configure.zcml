@@ -10,4 +10,12 @@
         template="stock_information_container_view.pt"
         permission="cmf.ManagePortal" />
 
+    <!-- Stock Information -->
+    <browser:page  
+        name="stock-information-view"
+        for="easyshop.core.interfaces.IStockInformation"
+        class=".stock_information_view.StockInformationView"
+        template="stock_information_view.pt"
+        permission="cmf.ManagePortal" />
+
 </configure>

@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="criteria view/getCriteria">
+                    
+            <h1 tal:content="object_title" class="documentFirstHeading">
+                Title or id
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="back_to_overview_label">
+                Back to Overview
+            </a>  
+
+            <p class="documentDescription"
+               tal:content="here/Description"
+               tal:condition="here/Description">
+                Description
+            </p>
+
+            
+            <div class="tax_rate"
+                 tal:define="stock_information view/getStockInformation">
+                <tal:block i18n:translate="availability_label">
+                    Availability</tal:block>:
+                <span tal:content="stock_information/available">
+                    19% 
+                </span>
+                <tal:block tal:condition="stock_information/available">
+                    /
+                    <span tal:content="stock_information/time_period">
+                        19% 
+                    </span>
+                </tal:block>    
+            </div>
+           
+        
+            <div tal:condition="not:criteria"
+                 i18n:translate="no_criteria_label">            
+                There are no criteria.
+            </div>    
+
+            <tal:block tal:condition="criteria">
+
+                <h1 i18n:translate="criteria_label">
+                    Criteria
+                </h1>
+                
+                <table class="listing shop-default"
+                       tal:condition="criteria">
+                    <tr>
+                        <th i18n:translate="criteria_label">
+                            Criteria
+                        </th>
+                        <th i18n:translate="value_label">
+                            Value
+                        </th>
+                    </tr>
+                    <tr tal:repeat="criterion criteria"
+                        tal:attributes="class criterion/class">
+                        <td class="text"
+                            nowrap="nowrap">
+                            <img src="."
+                                 tal:attributes="src string:$portal_url/criterion_icon.png" />
+                             
+                            <a href="."
+                               tal:content="criterion/title"
+                               tal:attributes="href string:${criterion/url}/base_edit">
+                                Title
+                            </a>    
+                        </td>
+                        <td class="text"
+                            tal:content="criterion/value">
+                            Value 1, Value 2, ...
+                        </td>                    
+                    </tr>
+                </table>
+            </tal:block>
+                
+        </metal:main>    
+        
+  </body>
+</html>
