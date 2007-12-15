@@ -1,0 +1,39 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+    <five:registerPackage 
+        package="." />
+
+    <include
+        package=".customers" />
+        
+    <include 
+        file="profiles.zcml" />
+    
+    <browser:resource
+        name="easyshop.kss"
+        file="easyshop.kss" />
+ 
+    <browser:page
+        name="kss_save_formatter"
+        for="*"
+        class=".formatter.FormatterKSSView"
+        attribute="saveFormatter"
+        permission="zope2.View" />
+
+    <browser:page
+        name="kss_show_product_details"
+        for="*"
+        class=".catalog.CatalogKSSView"
+        attribute="showProductDetails"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="kss_show_products"
+        for="*"
+        class=".catalog.CatalogKSSView"
+        attribute="showProducts"
+        permission="cmf.ManagePortal" />
+
+</configure>
