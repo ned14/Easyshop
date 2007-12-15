@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <property
+    name="title">Contains workflow definitions for your portal</property>
+ 
+ <object name="easyshop_customer_payment_workflow" meta_type="Workflow"/>    
+ 
+ <bindings>
+
+  <type type_id="PaymentMethodsContainer">
+   <bound-workflow workflow_id="easyshop_containers_workflow"/>
+  </type>
+
+  <type type_id="PaymentPricesContainer">
+   <bound-workflow workflow_id="easyshop_containers_workflow"/>
+  </type>
+
+  <type type_id="DirectDebit">
+   <bound-workflow workflow_id="easyshop_customer_payment_workflow"/>
+  </type>
+
+  <type type_id="CreditCard">
+   <bound-workflow workflow_id="easyshop_customer_payment_workflow"/>
+  </type>
+
+  <type type_id="PaymentPrice">
+   <bound-workflow workflow_id="easyshop_default_workflow"/>
+  </type>
+
+  <type type_id="PayPal">
+   <bound-workflow workflow_id="easyshop_default_workflow"/>
+  </type>
+
+  <type type_id="GenericPaymentMethod">
+   <bound-workflow workflow_id="easyshop_default_workflow"/>
+  </type>
+ </bindings>
+</object>

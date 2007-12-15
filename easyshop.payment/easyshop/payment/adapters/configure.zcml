@@ -1,0 +1,68 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- ICompleteness -->
+    <adapter
+        factory=".completeness.BankAccountCompleteness" />
+
+    <adapter
+        factory=".completeness.CreditCardPaymentMethodCompleteness" />
+
+    <adapter
+        factory=".completeness.CreditCardCompleteness" />
+
+    <adapter
+        factory=".completeness.DirectDebitPaymentMethodCompleteness" />
+
+    <adapter
+        factory=".completeness.GenericPaymentCompleteness" />
+
+    <adapter
+        factory=".completeness.PayPalCompleteness" />
+
+
+    <!-- PaymentInformationManagement -->    
+    <adapter
+        factory=".payment_information_management.PaymentInformationManagement" />
+
+
+    <!-- IPaymentMethodManagement -->
+    <adapter
+        factory=".payment_method_management.PaymentMethodManagement" />
+
+
+    <!-- IPaymentProcessing -->
+    <adapter
+        factory=".payment_processing.AuthorizeNetCreditCardPaymentProcessor" />
+
+    <adapter
+        factory=".payment_processing.DirectDebitPaymentProcessor" />
+
+    <adapter
+        factory=".payment_processing.GenericPaymentProcessor" />
+
+    <adapter
+        factory=".payment_processing.OrderPaymentProcessor" />
+
+    <adapter 
+        factory=".payment_processing.PayPalSimplePaymentProcessor" />
+
+
+    <!-- IPrices -->
+    <adapter        
+        factory=".payment_price_management.PaymentPriceManagement" />
+    
+
+    <!-- IType -->
+    <adapter
+        factory=".type.CreditCardType" />
+
+    <adapter
+        factory=".type.DirectDebitType" />
+
+    <adapter
+        factory=".type.GenericPaymentType" />
+
+    <adapter
+        factory=".type.PayPalType" />
+
+</configure>
