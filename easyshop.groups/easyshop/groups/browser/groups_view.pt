@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                tal:define="groups view/getGroups">
+
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="groups_label">
+                Groups
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+    
+            <p class="documentDescription"
+               tal:content="context/Description">
+                Description
+            </p>
+    
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <div tal:condition="not:groups"
+                 i18n:translate="no_groups_label">
+                There are no groups.
+            </div>    
+        
+            <table tal:condition="groups"
+                   class="shop-default">
+                <tr>
+                    <td width="50%">
+                        <div tal:repeat="group groups">
+                            <img src="."
+                                 tal:attributes="src string:$portal_url/group_icon.png"
+                                 alt="Group Icon"
+                                 title="Group"
+                                 i18n:attributes="title group_label;" />
+                    
+                            <a tal:content="group/Title"
+                               tal:attributes="href string:${context/absolute_url}?group_id=${group/id}">
+                                Group Title
+                            </a>
+                        </div>
+                    </td>
+                    <td tal:define="group view/getGroup"
+                        tal:condition="group">
+                        <h1 class="documentFirstHeading">
+                            <a href="."
+                               tal:attributes="href group/url"
+                                tal:content="group/title">
+                                Title
+                            </a>
+                        </h1>
+                        <p tal:content="group/description">
+                            Description
+                        </p>
+                        <h1 i18n:translate="products_label">
+                            Products
+                        </h1>        
+
+                        <table>
+                            <tr tal:repeat="line group/products">
+                                <td tal:repeat="product line">
+                                    <div class="label">
+                                        <a href="."
+                                           tal:attributes="href product/url"
+                                           tal:content="product/title">
+                                            Product Title
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="."
+                                           target="_blank"
+                                           tal:attributes="href product/url">
+                                        
+                                            <img src="."
+                                                tal:attributes="src string:${product/url}/image_tile" />                                            
+                                        </a>    
+                                    </div>                                            
+                                </td>
+                            </tr>
+                        </table>    
+                    </td>                      
+                </tr>
+            </table>        
+            
+        </metal:main>
+    
+    </body>
+</html>
