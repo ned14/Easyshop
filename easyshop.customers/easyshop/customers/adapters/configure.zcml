@@ -1,0 +1,28 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- IAddressManagement -->
+    <adapter
+        factory=".address_management.CustomerAddressManager" />
+
+
+    <!-- ICompeleteness -->    
+    <adapter
+        factory=".completeness.AddressCompleteness" />
+
+    <adapter
+        factory=".completeness.CustomerCompleteness" />
+
+
+    <!-- ICopyManagement -->
+    <adapter
+        factory=".copy_management.CustomerCopyManagement" />
+
+
+    <!-- CustomerManagement -->    
+    <adapter
+        factory=".customer_management.CustomerManagement" />
+        
+</configure>

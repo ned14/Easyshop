@@ -1,0 +1,15 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+    
+    <include 
+        package="plone.app.portlets" />
+        
+    <plone:portlet
+        name="portlets.MyAccount"
+        interface=".my_account.IMyAccountPortlet"
+        assignment=".my_account.Assignment"
+        renderer=".my_account.Renderer"
+        addview=".my_account.AddForm" />
+
+</configure>
