@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main">
+                    
+            <h1 class="documentFirstHeading"
+                i18n:translate="select_shipping_form_title">
+                Please select you shipping method
+            </h1> 
+
+            <p class="check-out-description"
+                i18n:translate="select_shipping_form_description_1">
+                When finished, please click on "Next".
+            </p>
+
+            <div id="payment-process">
+                <span i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span i18n:translate="addresses_label">
+                    Addresses
+                </span> - 
+                <span class="emphasized"
+    		          i18n:translate="shipping_label">
+                    Shipping
+                </span> -                 
+                <span i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+
+            <form action="." 
+                  metal:define-macro="master"
+                  tal:attributes="action request/URL" method="post"
+                  class="edit-form" enctype="multipart/form-data"
+                  id="zc.page.browser_form">
+
+                <table>                  
+                    <tal:block tal:repeat="shipping_method view/getShippingMethods">
+                        <tr> 
+                            <td>
+                                <input type="radio"
+                                       class="noborder"                                                   
+                                       name="form.shipping_method"
+                                       value="method"
+                                       tal:attributes="value shipping_method/id;
+                                                       checked shipping_method/checked" />
+                                               
+                           </td>
+                           <td colspan="4">
+                               <span tal:content="shipping_method/title"
+                                     i18n:translate="">
+                                   Express 
+                               </span>    
+                               <span class="formHelp"
+                                     tal:content="shipping_method/description"
+                                     i18n:translate="">                                     
+                                   (Express - get you products immediately)
+                               </span>                            
+                           </td>
+                        </tr>                    
+                        <tr>
+                            <td colspan="5">
+                                <hr />
+                            </td>
+                        </tr>   
+                    </tal:block>
+                </table>    
+
+                <input type="hidden" 
+                       name="goto"
+                       value="#" 
+                       tal:attributes="value request/goto|nothing" />
+
+                <input id="form.actions.next"
+                       name="form.actions.next"                
+                       class="standalone" 
+                       type="submit" 
+                       value="Next" />
+                
+            </form>
+            
+            
+        </metal:main>    
+        
+  </body>
+</html>
