@@ -5,6 +5,10 @@
  <bindings>
   <type type_id="Cart"/>
   <type type_id="CartItem"/>
-  <type type_id="CartsContainer"/>
+
+  <type type_id="CartsContainer">
+   <bound-workflow workflow_id="easyshop_containers_workflow"/>
+  </type>
+
  </bindings>
 </object>
