@@ -1,0 +1,56 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        for="easyshop.core.interfaces.IOrdersContainer"
+        name="orders-view"
+        template="orders.pt"        
+        class=".orders.OrdersView"
+        permission="cmf.ManagePortal" />
+  
+    <!-- Order View -->
+    <browser:page
+        for="easyshop.core.interfaces.IOrder"
+        name="redo-payment"
+        class=".order_view.OrderView"
+        attribute="redoPayment"
+        permission="zope.Public" />
+
+    <!-- TODO: get rid of this -->
+    <browser:page
+        for="easyshop.core.interfaces.IOrder"
+        name="orderView"
+        class=".order_view.OrderView"
+        allowed_interface=".order_view.IOrderView"
+        permission="zope.Public" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IOrder"
+        name="order"
+        class=".order_view.OrderView"
+        template="order_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        for="easyshop.core.interfaces.ICustomer"
+        name="my-orders"
+        class=".my_orders.MyOrdersView"
+        template="my_orders.pt"
+        permission="zope.Public" />
+
+    <!-- Notification mails -->
+    <browser:page
+        for="easyshop.core.interfaces.IOrder"
+        name="mail-order-submitted"
+        class=".order_view.OrderView"
+        template="mail_order_submitted.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IOrder"
+        name="mail-order-sent"
+        class=".order_view.OrderView"
+        template="mail_order_sent.pt"
+        permission="zope.Public" />
+
+</configure>

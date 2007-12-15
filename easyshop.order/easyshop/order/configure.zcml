@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="easyshop.order">
+
+    <five:registerPackage 
+        package="." />
+
+    <include 
+        file="profiles.zcml" />
+
+    <include 
+        package=".adapters" />
+
+    <include 
+        package=".browser" />
+
+    <include 
+        package=".subscribers" />
+
+</configure>
