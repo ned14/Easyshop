@@ -1,0 +1,21 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Stock Information Container -->
+    <browser:page  
+        name="stock-information-container-view"
+        for="easyshop.core.interfaces.IStockInformationContainer"
+        class=".stock_information_container_view.StockInformationContainerView"
+        template="stock_information_container_view.pt"
+        permission="cmf.ManagePortal" />
+
+    <!-- Stock Information -->
+    <browser:page  
+        name="stock-information-view"
+        for="easyshop.core.interfaces.IStockInformation"
+        class=".stock_information_view.StockInformationView"
+        template="stock_information_view.pt"
+        permission="cmf.ManagePortal" />
+
+</configure>
