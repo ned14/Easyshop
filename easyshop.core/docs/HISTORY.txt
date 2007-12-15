@@ -1,0 +1,9 @@
+Changelog for easyshop.core
+
+    (name of developer listed in brackets)
+
+easyshop.core - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
