@@ -1,0 +1,142 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="sort_on python:request.get('sort_on', 'modified');
+                                sort_order python:request.get('sort_order', 'descending');
+                                carts view/getCarts">
+
+              <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+              <h1 class="documentFirstHeading"
+                  i18n:translate="carts_label">
+                  Carts
+              </h1>
+
+              <a href="#"
+                 class="link-parent"
+                 tal:attributes="href context/aq_parent/absolute_url"
+                 i18n:translate="shop_label">
+                  Shop
+              </a>  
+
+              <div tal:condition="not:carts"
+                   i18n:translate="no_carts_label">
+                  There are no carts.
+              </div>     
+              
+              <tal:block tal:condition="carts">
+                  <form method="post"
+                        tal:attributes="action context/absolute_url">
+
+                    <select name="sort_on">
+                        <option value="modified"
+                                tal:attributes="selected python:sort_on == 'modified'"
+                                i18n:translate="last_modification_label">
+                            Last Modification
+                        </option>  
+                        <option value="created"
+                                tal:attributes="selected python:sort_on == 'created'"
+                                i18n:translate="creation_date_label">
+                            Creation Date
+                        </option>  
+                        <option value="price_float"
+                                tal:attributes="selected python:sort_on == 'price_float'"
+                                i18n:translate="price_label">
+                            Price
+                        </option>  
+                        <option value="amount_of_items"
+                                tal:attributes="selected python:sort_on == 'amount_of_items'"
+                                i18n:translate="amount_of_items_label">
+                            Amount of Items
+                        </option>  
+                        <option value="id"
+                                tal:attributes="selected python:sort_on == 'id'"
+                                i18n:translate="id_label">
+                            ID
+                        </option>  
+                    </select>
+
+                    <select name="sort_order">
+                        <option value="ascending"
+                                tal:attributes="selected python:sort_order == 'ascending'"
+                                i18n:translate="ascending_label">
+                            Ascending
+                        </option>  
+                        <option value="descending"
+                                tal:attributes="selected python:sort_order == 'descending'"
+                                i18n:translate="descending_label">
+                            Descending
+                        </option>  
+                    </select>
+
+                    <input name="submit" 
+                           value="Go" 
+                           type="submit"
+                           i18n:attributes="value go_label;" />                       
+                  </form>  
+    
+                  <table class="shop-default listing nosort">
+                      <thead>
+                        <tr>
+                            <th i18n:translate="cart_id_label">
+                                Cart ID
+                            </th>
+                            <th i18n:translate="creation_date_label">
+                                Creation Date
+                            </th>                
+                            <th i18n:translate="last_modification_label">
+                                Last Modification
+                            </th>                
+                            <th i18n:translate="price_label">
+                                Price
+                            </th>                                
+                            <th i18n:translate="amount_of_items_label">
+                                Amount of Items
+                            </th>
+                        </tr>
+                    </thead>    
+                    <tbody>
+                        <tr tal:repeat="cart carts">
+                            <td>
+                                <img src="."
+                                     tal:attributes="src string:$portal_url/cart_icon.png"
+                                     alt="Cart"
+                                     title="Cart"
+                                     i18n:attributes="alt cart_label;
+                                                      title cart_label;" />
+                         
+                                <a tal:content="cart/id"
+                                   tal:attributes="href cart/url">
+                                   47114711
+                                </a>                                             
+                            </td>
+                            <td class="number" 
+                                tal:content="cart/created">
+                                01.01.2007
+                            </td>
+                            <td class="number" 
+                                tal:content="cart/modified">
+                                01.01.2007
+                            </td>
+                            <td class="number" 
+                                tal:content="cart/price">
+                                42.0
+                            </td>
+                            <td class="number" 
+                                tal:content="cart/amount_of_items">
+                                42
+                            </td>                
+                        </tr>
+                    </tbody>
+                </table>
+            </tal:block>
+        </metal:main>    
+        
+        <div tal:replace="structure provider:plone.belowcontentbody" />        
+        
+    </body>
+</html>
