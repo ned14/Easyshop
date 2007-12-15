@@ -6,17 +6,18 @@ easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/bran
 easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/branches/linguaplone
 easyshop.shop https://easyshop-for-plone.googlecode.com/svn/easyshop.shop/branches/linguaplone
 
-easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/trunk
-easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/trunk
-easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
-easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
-easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/trunk
-easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/trunk
-easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
-easyshop.login https://easyshop-for-plone.googlecode.com/svn/easyshop.login/trunk
-easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/trunk
-easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
-easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
-easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
+easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/linguaplone
+easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/linguaplone
+easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/linguaplone
+easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/linguaplone
+easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/linguaplone
+easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/linguaplone
+easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/linguaplone
+easyshop.login https://easyshop-for-plone.googlecode.com/svn/easyshop.login/linguaplone
+easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/linguaplone
+easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/linguaplone
+easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/linguaplone
+easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/linguaplone
+easyshop.stocks https://easyshop-for-plone.googlecode.com/svn/easyshop.stocks/linguaplone
 
-iqpp.sessions https://easyshop-for-plone.googlecode.com/svn/iqpp.sessions/trunk
+iqpp.sessions https://easyshop-for-plone.googlecode.com/svn/iqpp.sessions/linguaplone
