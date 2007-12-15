@@ -37,7 +37,7 @@ class CategoryProductManagement:
 
         result = []
         # Returns just "View"-able in the right language products.
-        for product in self.context.getRefs('category_products'):
+        for product in self.context.getRefs('categories_products'):
             if not mtool.checkPermission("View", product):
                 continue
 

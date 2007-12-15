@@ -33,6 +33,6 @@ class ProductGroupManagement:
         # Need this here, because the shipping product is a temporary product 
         # and has no context and could not get reference_catalog
         try:
-            return self.context.getBRefs("group_product")
+            return self.context.getBRefs("groups_products")
         except AttributeError:
             return []

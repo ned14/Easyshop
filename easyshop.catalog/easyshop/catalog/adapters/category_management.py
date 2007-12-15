@@ -78,7 +78,7 @@ class ProductCategoryManagement:
         # the error.)
         try:
             mtool = getToolByName(self.context, "portal_membership")            
-            categories = self.context.getBRefs("category_products")
+            categories = self.context.getBRefs("categories_products")
         except AttributeError:
             return []
 

@@ -45,14 +45,14 @@ class ManageProductsView(BrowserView):
             })
 
         categories = []
-        for category in product.getEasyshopcategories():
+        for category in product.getCategories():
             categories.append({
                 "title" : category.Title(),
                 "url"   : category.absolute_url()
             })
 
         groups = []
-        for group in product.getEasyshopgroups():
+        for group in product.getGroups():
             groups.append({
                 "title" : group.Title(),
                 "url"   : group.absolute_url()
