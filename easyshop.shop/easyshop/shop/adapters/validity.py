@@ -1,13 +1,9 @@
 # zope imports
 from zope.interface import implements
-from zope.component import adapts
   
 # easyshop imports
-from easyshop.core.interfaces import IPaymentMethod
-from easyshop.core.interfaces import IPaymentMethodManagement
-from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import IType
+from easyshop.core.interfaces import IValidity
 
 class Validity(object):
     """An adapter which provides IValidity for several classes. See 
@@ -38,3 +34,22 @@ class Validity(object):
                     return False
                                             
         return True
+
+class PayPalValidity(Validity):
+    """An adapter which provides IValidity for PayPal payment method.
+    """
+    implements(IValidity)
+     
+    def __init__(self, context):
+        """
+        """
+        self.context = context
+
+    def isValid(self, product=None):
+        """Returns False if the PayPal id is not filled in.
+        """
+        shop = IShopManagement(self.context).getShop()
+        if shop.getPayPalId() == "":
+            return False
+
+        return super(PayPalValidity, self).isValid(product)

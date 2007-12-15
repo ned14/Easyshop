@@ -150,7 +150,7 @@ class TestValidity(EasyShopTestCase):
         
         self.login("newmember")        
 
-        self.assertEqual(v.isValid(), False)
+        self.assertEqual(v.isValid(), True)
         
         view = getMultiAdapter((
             self.shop.products.product_1, 
@@ -159,11 +159,11 @@ class TestValidity(EasyShopTestCase):
         view.addToCart()
         self.assertEqual(v.isValid(), True)
 
-        self.shop.c.setPrice(121.00)
-        self.assertEqual(v.isValid(), True)
-        
-        self.shop.c.setPrice(122.00)
+        self.shop.c.setPrice(23.00)
         self.assertEqual(v.isValid(), False)
+        
+        self.shop.c.setPrice(22.00)
+        self.assertEqual(v.isValid(), True)
 
         view = getMultiAdapter((
             self.shop.products.product_2, 
@@ -171,11 +171,11 @@ class TestValidity(EasyShopTestCase):
             
         view.addToCart()
 
-        self.shop.c.setPrice(140.00)
-        self.assertEqual(v.isValid(), True)
-
-        self.shop.c.setPrice(141.00)
+        self.shop.c.setPrice(42.00)
         self.assertEqual(v.isValid(), False)
+
+        self.shop.c.setPrice(41.00)
+        self.assertEqual(v.isValid(), True)
 
     def testProduct(self):
         """

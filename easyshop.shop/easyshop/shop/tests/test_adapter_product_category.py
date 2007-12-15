@@ -40,10 +40,10 @@ class TestProductCategoryManager(EasyShopTestCase):
         
         self.shop.categories.category_a.addReference(
             self.product_1, 
-            "category_products")
+            "categories_products")
         self.shop.categories.category_b.addReference(
             self.product_1, 
-            "category_products")
+            "categories_products")
                                         
         ids = [c.getId() for c in cm.getTopLevelCategories()]
         

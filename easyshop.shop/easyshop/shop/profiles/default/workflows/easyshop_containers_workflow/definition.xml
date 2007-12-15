@@ -1,41 +1,30 @@
 <?xml version="1.0"?>
-<dc-workflow workflow_id="easyshop_session_workflow"
-             title="EasyShop Session Workflow"
-             description="A one state workflow to set permissions the right way."
+<dc-workflow workflow_id="easyshop_containers_workflow"
+             title="EasyShop Containers Workflow"
+             description="Workflow without transitions, which provides just permissions setup for easyshop containers like carts, customers, etc. These containers should only accessable by managers."
              state_variable="review_state"
              initial_state="private">
  <permission>Access contents information</permission>
+ <permission>List folder contents</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
- <permission>Add portal content</permission>
- <state state_id="published" title="Published">
-  <description>Visible to everyone, not editable by the owner.
-</description>
-  <exit-transition transition_id="hide"/>
+ <state state_id="private" title="">
   <permission-map name="Access contents information"
-                  acquired="True">
-   <permission-role>Anonymous</permission-role>
+                  acquired="False">
+   <permission-role>Manager</permission-role>
   </permission-map>
-  <permission-map name="Add portal content" acquired="True">
-   <permission-role>Anonymous</permission-role>
+  <permission-map name="List folder contents"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="True">
-   <permission-role>Anonymous</permission-role>
+                  acquired="False">
+   <permission-role>Manager</permission-role>
   </permission-map>
-  <permission-map name="View" acquired="True">
-   <permission-role>Anonymous</permission-role>
+  <permission-map name="View" acquired="False">
+   <permission-role>Manager</permission-role>
   </permission-map>
  </state>
- <worklist worklist_id="reviewer_queue" title="">
-  <description>Reviewer tasks</description>
-  <action url="%(portal_url)s/search?review_state=pending"
-          category="global">Pending (%(count)d)</action>
-  <guard>
-   <guard-permission>Review portal content</guard-permission>
-  </guard>
-  <match name="review_state" values="pending"/>
- </worklist>
  <variable variable_id="action" for_catalog="False"
            for_status="True" update_always="True">
   <description>Previous transition</description>
@@ -48,7 +37,8 @@
  </variable>
  <variable variable_id="actor" for_catalog="False"
            for_status="True" update_always="True">
-  <description>The ID of the user who performed the previous transition</description>
+  <description>The ID of the user who performed the previous transition
+</description>
   <default>
    
    <expression>user/getUserName</expression>
@@ -58,7 +48,8 @@
  </variable>
  <variable variable_id="comments" for_catalog="False"
            for_status="True" update_always="True">
-  <description>Comment about the last transition</description>
+  <description>Comment about the last transition
+</description>
   <default>
    
    <expression>python:state_change.kwargs.get('comment', '')</expression>
@@ -68,7 +59,8 @@
  </variable>
  <variable variable_id="review_history" for_catalog="False"
            for_status="False" update_always="False">
-  <description>Provides access to workflow history</description>
+  <description>Provides access to workflow history
+</description>
   <default>
    
    <expression>state_change/getHistory</expression>
@@ -80,7 +72,8 @@
  </variable>
  <variable variable_id="time" for_catalog="False"
            for_status="True" update_always="True">
-  <description>When the previous transition was performed</description>
+  <description>When the previous transition was performed
+</description>
   <default>
    
    <expression>state_change/getDateTime</expression>

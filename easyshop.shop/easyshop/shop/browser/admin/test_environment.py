@@ -43,7 +43,7 @@ class TestEnvironmentView(BrowserView):
 
             # add category
             category = random.choice(categories)
-            category.addReference(product, "category_products")
+            category.addReference(product, "categories_products")
             
             wftool.doActionFor(product, "publish")
             
@@ -72,7 +72,7 @@ class TestEnvironmentView(BrowserView):
         
             product.setImage(img)
 
-            category.addReference(product, "category_products")            
+            category.addReference(product, "categories_products")            
             wftool.doActionFor(product, "publish")
             
         self.context.portal_catalog.manage_catalogRebuild()
