@@ -1,0 +1,11 @@
+import category
+import country
+import customer
+import date
+import group
+import payment_method
+import price
+import product
+import shipping_method
+import stock_amount
+import weight
