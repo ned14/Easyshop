@@ -22,11 +22,22 @@ class CategoryCriteriaValidity:
         """Returns True if the given product has at least one of the selected 
         categories of the criterion.
         """
-        category_manager = ICategoryManagement(product)
-        product_categories = [c.getId() for c in category_manager.getTopLevelCategories()]
-        criteria_categories = self.context.getCategories()
+        categories = []
+        cm = ICategoryManagement(product)
 
+        for product_category in cm.getTopLevelCategories():
+            object = product_category
+            while IShop.providedBy(objects) == False:
+                object = object.aq_inner.aq_parent
+                if ICategory.providedBy()
+        
+        product_categories_ids = \
+            [c.getId() for c in ]
+        criteria_categories_ids = self.context.getCategories()
+
+        import pdb; pdb.set_trace()
         for criteria_category in criteria_categories:
             if criteria_category in product_categories:
                 return True
         return False
+        
