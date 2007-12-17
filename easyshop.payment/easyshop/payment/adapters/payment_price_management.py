@@ -4,6 +4,8 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.catalog.content.product import Product
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPaymentPrice
 from easyshop.core.interfaces import IShop
@@ -47,6 +49,18 @@ class PaymentPriceManagement:
     def getPriceForCustomer(self):
         """
         """
+        # If there a no items the payment price for cutomers is zero.
+        cart_manager = ICartManagement(self.context)
+        cart = cart_manager.getCart()        
+        
+        if cart is None:
+            return 0
+                    
+        cart_item_manager = IItemManagement(cart)
+        if cart_item_manager.hasItems() == False:
+            return 0
+        
+        
         return self.getPriceNet() + self.getTaxForCustomer()
         
     def getPriceNet(self):
