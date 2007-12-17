@@ -54,7 +54,7 @@
                              i18n:translate="no_products_for_category_label">
                              There are no products for the selected catagory
                         </div>    
-                        <table class="manage-categories-product-list"
+                        <table class="products-list"
                                tal:condition="products/products">
                             <tr tal:repeat="line products/products">
                                 <tal:block  tal:repeat="product line">
@@ -65,7 +65,7 @@
                                            Product Title
                                         </a>
                                     </td>
-                                    <td class="with-border">
+                                    <td class="image">
                                         <img src="."
                                              tal:attributes="src string:${product/url}/image_tile" />
                                     </td>                                                                    
