@@ -87,16 +87,16 @@ class CatalogKSSView(PloneKSSView):
                     if brain.Title.upper().startswith(letter):
                         products.append(brain)
         
-        html = "<table><tr>"
+        html = """<table class="products-list"><tr>"""
 
         for i, product in enumerate(products):
-            html += "<td>"            
-            # html += """<a href="." class="product-details kssattr-uid-%s">[Details]</a> """ % product.UID            
+            html += "<td>"
             html += """<img class="product-details kssattr-uid-%s" alt="info" src="info_icon.gif" />""" % product.UID
             html += """<div><a href="%s">%s</a></div>""" % (product.getURL(), product.Title)
+            html += """</td><td class="image">"""
             html += """<img src="%s/image_tile" /> """  % product.getURL()
             html += """</td>"""
-            if (i+1) % 5 == 0:
+            if (i+1) % 3 == 0:
                 html += "</tr><tr>"
                 
         html += "</tr></table>"
