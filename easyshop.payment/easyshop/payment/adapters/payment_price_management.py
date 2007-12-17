@@ -59,8 +59,7 @@ class PaymentPriceManagement:
         cart_item_manager = IItemManagement(cart)
         if cart_item_manager.hasItems() == False:
             return 0
-        
-        
+                
         return self.getPriceNet() + self.getTaxForCustomer()
         
     def getPriceNet(self):
