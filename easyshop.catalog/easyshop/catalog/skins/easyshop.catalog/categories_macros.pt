@@ -1,7 +1,7 @@
 <div metal:define-macro="category">
     <div>
         <a href="."
-           tal:attributes="href string:${category/url}/categories-view?category_uid=${category/uid};
+           tal:attributes="href string:${category/url}/manage-categories-view?category_uid=${category/uid};
                            class category/class"
            tal:content="category/title">
             Title
