@@ -44,26 +44,6 @@ def amount_of_categories(object, portal, **kwargs):
 
 registerIndexableAttribute('amount_of_categories', amount_of_categories)
 
-def parent_categories(object, portal, **kwargs):
-    try:
-        # This has to be done without the help of the catalog. Otherwise it
-        # counts before all to counted objects are in the catalog. That is at
-        # least the case for Advanced/Update Catalog.
-                
-        parent_categories = {}
-        if ICategory.providedBy(object):
-            while IShop.providedBy(object) == False:
-                if ICategory.providedBy(object) == True:
-                    parent_categories[object.UID()] = 1
-                object = object.aq_inner.aq_parent
-            
-        return parent_categories.keys()
-        
-    except (ComponentLookupError, TypeError, ValueError):
-        raise AttributeError
-
-registerIndexableAttribute('parent_categories', parent_categories)
-                            
 def countCategories(category, counter):
     """
     """
