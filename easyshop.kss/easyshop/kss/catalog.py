@@ -17,6 +17,7 @@ from snippets import *
 # easyshop.core imports
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IShopManagement
 
@@ -54,7 +55,7 @@ class CatalogKSSView(PloneKSSView):
                            type="submit"
                            value="OK" />
                 </form>""" % searchable_text
-            kss_core.replaceHTML("#search-products-form", form)
+            kss_core.replaceHTML("#search-products-form", safe_unicode(form))
             
         else:
             if letter == "All":
@@ -63,8 +64,7 @@ class CatalogKSSView(PloneKSSView):
                     portal_type = "Product",
                     sort_on = "sortable_title",
                 )
-            
-            
+                        
             elif letter == "0-9":
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
@@ -88,7 +88,7 @@ class CatalogKSSView(PloneKSSView):
                         products.append(brain)
         
         html = "<table><tr>"
-        
+
         for i, product in enumerate(products):
             html += "<td>"            
             # html += """<a href="." class="product-details kssattr-uid-%s">[Details]</a> """ % product.UID            
@@ -100,7 +100,7 @@ class CatalogKSSView(PloneKSSView):
                 html += "</tr><tr>"
                 
         html += "</tr></table>"
-        
+
         kss_core.replaceInnerHTML('#products', safe_unicode(html))
         kss_core.replaceInnerHTML('#product-details-box', "")
                         
@@ -118,13 +118,16 @@ class CatalogKSSView(PloneKSSView):
         except IndexError:
             return
 
+        cm    = ICurrencyManagement(self.context)
+        price = cm.priceToString(product.getPrice())
+
         info = {
             "title"       : product.Title(),
             "short_title" : product.getShortTitle(),
             "short_text"  : product.getText(),
             "url"         : product.absolute_url(),
             "article_id"  : product.getArticleId(),
-            "price"       : product.getPrice(),
+            "price"       : price,
         }
         
         pd = PRODUCT_DETAILS % info
