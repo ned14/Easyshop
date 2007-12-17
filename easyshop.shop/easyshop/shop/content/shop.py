@@ -7,13 +7,13 @@ from zope.component import getMultiAdapter
 from Products.Archetypes.atapi import *
 
 # plone.portlets imports
+from plone.portlets.constants import CONTEXT_CATEGORY
+from plone.portlets.interfaces import ILocalPortletAssignmentManager
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
 
 # ATContentTypes imports
 from Products.ATContentTypes.content.folder import ATFolder
-from Products.ATContentTypes.configuration import zconf
-from Products.ATContentTypes import ATCTMessageFactory as _
 
 # easyshop imports
 from easyshop.core.config import *
@@ -189,6 +189,10 @@ class EasyShop(ATFolder):
             order = [left.keys()[-1]]+left.keys()[:-1]
             left.updateOrder(list(order))
 
+        # Block default portlets
+        assignable = getMultiAdapter((self, leftColumn,), ILocalPortletAssignmentManager)
+        assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
+        
         # Add right portlets 
         rightColumn = getUtility(IPortletManager, name=u'plone.rightcolumn', context=self)
         right = getMultiAdapter((self, rightColumn,), IPortletAssignmentMapping, context=self)
@@ -207,7 +211,12 @@ class EasyShop(ATFolder):
             right[u'portlets.MyAccount'] = my_account.Assignment()
             order = [right.keys()[-1]]+right.keys()[:-1]
             right.updateOrder(list(order))
-            
+
+        # Block default portlets
+        assignable = getMultiAdapter((self, rightColumn,), ILocalPortletAssignmentManager)
+        assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
+
+                
     def setImage(self, data):
         """
         """
