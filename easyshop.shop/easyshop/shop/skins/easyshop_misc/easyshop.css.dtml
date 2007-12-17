@@ -178,6 +178,11 @@ table.products td.last {
     padding-right: 0px !important;
 }
 
+
+#product-details-box td.image {
+    padding-right:10px;
+}
+
 .main-title {
     background-color: &dtml-globalBackgroundColor;;
     line-height:40px;
@@ -232,6 +237,15 @@ td.category-navigation {
 
 a.current-category {
     color: red;
+}
+
+
+table.products-list td {
+    padding:5px;
+}
+
+table.products-list td.image {
+    text-align:right;
 }
 
 table.parameters th {
