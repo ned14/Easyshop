@@ -17,14 +17,9 @@
         <indexed_attr value="parent_categories"/>
     </index>
 
-    <index name="total_amount_of_products" meta_type="KeywordIndex">
-        <indexed_attr value="total_amount_of_products"/>
-    </index>
-
     <column value="amount_of_categories" />
     <column value="fullname" />
     <column value="getShortText" />    
-    <column value="parent_categories" />
     <column value="total_amount_of_products" />
  
 </object>
