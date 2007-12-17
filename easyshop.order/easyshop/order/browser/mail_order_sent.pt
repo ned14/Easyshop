@@ -169,9 +169,6 @@
                         <div tal:content="invoice_address/address1">
                             John-Doe-Str. 1
                         </div>    
-                        <div tal:content="invoice_address/address2">
-                            c/o Doe
-                        </div>    
                         <div>
                             <span tal:content="invoice_address/zipcode">
                                 99999
@@ -196,9 +193,6 @@
                         <div tal:content="shipping_address/address1">
                             John-Doe-Str. 1                                
                         </div>
-                        <div tal:content="shipping_address/address2">
-                            c/o Doe                                
-                        </div>    
                         <div>
                             <span tal:content="shipping_address/zipcode">
                                 99999                                    
