@@ -89,7 +89,8 @@ schema = Schema((
         multiValued=1,
         relationship='categories_products',
         allowed_types=("Product",),
-        widget=ReferenceBrowserWidget(        
+        widget=ReferenceBrowserWidget(
+            condition="python:object.displayProductsField()",
             label='Products',
             label_msgid='schema_products_label',
             description='Please select all products, which should associated with this category.',
@@ -129,4 +130,10 @@ class Category(ATFolder):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
 
+    def displayProductsField(self):
+        """Display products field only if the category is the canonical object.
+        """
+        return self.isCanonical()
+
+        
 registerType(Category, PROJECTNAME)
