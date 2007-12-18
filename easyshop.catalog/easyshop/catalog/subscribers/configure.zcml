@@ -3,4 +3,14 @@
     <subscriber
         handler=".subscribers.createContainers" />
 
+    <subscriber
+        for="easyshop.core.interfaces.ICategory 
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".translations.syncCategoryTranslations" />
+
+    <subscriber
+        for="easyshop.core.interfaces.ICategory 
+             Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".translations.syncCategoryTranslations" />
+
 </configure>
