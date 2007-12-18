@@ -8,8 +8,11 @@ from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
 # Archetypes imports
-from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.image import ATImage
+try:
+    from Products.LinguaPlone.public import *
+except ImportError:
+    from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.interfaces import IProductPhoto
@@ -20,6 +23,7 @@ schema = Schema((
 
     ImageField(
         name='image',
+        languageIndependent=True,
         sizes= {'large'   : (768, 768),
                 'preview' : (400, 400),
                 'mini'    : (200, 200),
@@ -34,17 +38,6 @@ schema = Schema((
             i18n_domain='EasyShop',
         ),
         storage=AttributeStorage()
-    ),
-
-    BooleanField(
-        name = "cutImage",
-        widget = BooleanWidget(
-            label="Cut Image",
-            label_msgid="schema_cut_image_label",
-            description = "Select, to cut the image.",  
-            description_msgid="schema_cut_image_label_description",
-            i18n_domain="EasyShop",
-        ),
     ),
 
     StringField(
@@ -75,7 +68,7 @@ class Photo(BaseContent):
         file.seek(0)
         self.setImage(file)
         
-    def setImage(self, data):
+    def setImage(self, data, **kwargs):
         """
         """
         if data and data != "DELETE_IMAGE":
