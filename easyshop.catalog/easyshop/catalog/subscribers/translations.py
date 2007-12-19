@@ -33,10 +33,9 @@ def syncCategoryTranslations(category, event):
             return
             
         for canonical_product in canonical_category.getProducts():
-            translated_category = canonical_category.getTranslation()
-            translated_product  = canonical_product.getTranslation()
-            if translated_product and translated_category:
-                translated_category.addReference(translated_product, "categories_products")
+            translated_product = canonical_product.getTranslation()
+            if translated_product:
+                category.addReference(translated_product, "categories_products")
 
 def syncProductTranslations(product, event):
     """
