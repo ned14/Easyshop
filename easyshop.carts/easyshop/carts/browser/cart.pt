@@ -120,7 +120,7 @@
                                            tal:attributes="href cart_item/product_url" >
                                         
                                             <img src="."                                         
-                                                 tal:attributes="src string:${cart_item/product_url}/image_tile;
+                                                 tal:attributes="src cart_item/photo_url;
                                                                  alt cart_item/product_title" />
                                         </a>                         
                                     </div>

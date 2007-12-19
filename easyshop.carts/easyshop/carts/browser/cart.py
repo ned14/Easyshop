@@ -16,6 +16,7 @@ from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
+from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShippingMethodManagement
@@ -57,8 +58,7 @@ class CartFormView(BrowserView):
         result = []
         for cart_item in IItemManagement(cart).getItems():
             
-            product = cart_item.getProduct()
-
+            product = cart_item.getProduct()            
             product_price = IPrices(cart_item).getPriceForCustomer() / cart_item.getAmount()
             product_price = cm.priceToString(product_price)
             
@@ -90,6 +90,9 @@ class CartFormView(BrowserView):
                     "price" : cm.priceToString(property_price)
                 })
                 
+            # Photo
+            photo = IPhotoManagement(product).getMainPhoto()
+                
             result.append({
                 "id"            : cart_item.getId(),
                 "product_title" : product.Title(),
@@ -98,6 +101,7 @@ class CartFormView(BrowserView):
                 "properties"    : properties,
                 "price"         : price,
                 "amount"        : cart_item.getAmount(),
+                "photo_url"     : "%s/image_tile" % photo.absolute_url(),
             })
         
         return result
@@ -140,6 +144,7 @@ class CartFormView(BrowserView):
             
             id = payment_method.getId()
             selected = (id == customer.selected_payment_method)
+            
             
             result.append({            
                 "id"       : payment_method.getId(),
