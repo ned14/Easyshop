@@ -33,7 +33,10 @@ class ProductView(BrowserView):
     def addToCart(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()        
+        # LINGUA_PLONE: We always put the canonical object to the cart.
+        product = self.context.getCanonical()
+        
+        shop = IShopManagement(product).getShop()        
         cm = ICartManagement(shop)
         
         cart = cm.getCart()
@@ -58,7 +61,7 @@ class ProductView(BrowserView):
         quantity = int(self.context.request.get("quantity", 1))
 
         # returns true if the product was already within the cart    
-        result = IItemManagement(cart).addItem(self.context, tuple(properties), quantity)
+        result = IItemManagement(cart).addItem(product, tuple(properties), quantity)
         
         # Set portal message
         putils = getToolByName(self.context, "plone_utils")        
