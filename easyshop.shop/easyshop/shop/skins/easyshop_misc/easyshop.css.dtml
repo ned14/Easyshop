@@ -23,17 +23,17 @@
 }
 
 .portlet-category-tree .hasCategories {
-    background: url(http://localhost:8080/portal/arrowRight.gif) no-repeat scroll 0px 4px;
+    background: url(&dtml-portal_url;/arrowRight.gif) no-repeat scroll 0px 4px;
 }
 
 .portlet-category-tree .navTreeCurrentItem.hasCategories {
     color: &dtml-globalFontColor;;
     border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor; !important;
-    background: &dtml-globalBackgroundColor; url(http://localhost:8080/portal/arrowDown.gif) no-repeat scroll -1px 5px !important;
+    background: &dtml-globalBackgroundColor; url(&dtml-portal_url;/arrowDown.gif) no-repeat scroll -1px 5px !important;
 }
 
 a.link-parent {
-    background:transparent url(http://localhost:8080/portal/arrowUp.gif) no-repeat scroll 4px 5px !important;
+    background:transparent url(&dtml-portal_url;/arrowUp.gif) no-repeat scroll 4px 5px !important;
     display:block !important;
     font-size:90% !important;
     padding:1px 0px 10px 16px !important;
