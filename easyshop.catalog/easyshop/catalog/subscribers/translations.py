@@ -15,7 +15,7 @@ def syncProductTranslations(product, event):
     ## Collect all affected categories
     
     # First we get the related categories of the modified product.
-    categories = product.getBRefs("categories_products")
+    categories = product.getCanonical().getBRefs("categories_products")
     
     # In case that a category has been deleted from the product we collect also
     # all categories of the first translation which is not canonical. With just
@@ -25,12 +25,15 @@ def syncProductTranslations(product, event):
     for language in ltool.getSupportedLanguages():
         if language != default_language:
             translation = product.getTranslation(language)
-            break
+            if translation is not None:
+                break
     
     if translation is not None:
         for category in translation.getBRefs("categories_products"):
             if category not in categories:
                 categories.append(category)
+    
+    import pdb; pdb.set_trace()
     
     for category in categories:
         syncRelations(category, "categories_products")

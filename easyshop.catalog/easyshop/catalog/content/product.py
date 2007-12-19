@@ -112,6 +112,7 @@ schema = Schema((
 
     BooleanField(
         name="unlimitedAmount",
+        languageIndependent=True,        
         schemata="advanced",
         widget = BooleanWidget(
             label="Unlimited Amount",
@@ -124,6 +125,7 @@ schema = Schema((
     
     FloatField(
         name="stockAmount",
+        languageIndependent=True,        
         schemata="advanced",
         default=0.0,
         widget=DecimalWidget(
@@ -163,11 +165,11 @@ schema = Schema((
 
     BackReferenceField( 
         name='categories',
-        condition="python:object.isCanonical()",
         multiValued=1,
         relationship='categories_products',
         allowed_types=("Category",),
         widget=BackReferenceBrowserWidget(
+            condition="python:object.isCanonical()",
             label="Categories",
             label_msgid="schema_categories_label",
             description='Please select all catgories, which should be associated with this product.',
@@ -193,6 +195,7 @@ schema = Schema((
         relationship='products_products',
         allowed_types=("Product",),
         widget=ReferenceBrowserWidget(
+            condition="python:object.isCanonical()",
             label="Related Products",
             label_msgid="schema_related_products_label",
             description='Please select all products, which should be associated with this product.',
@@ -217,6 +220,7 @@ schema = Schema((
         relationship='groups_products',
         allowed_types=("ProductGroup",),
         widget=BackReferenceBrowserWidget(
+            condition="python:object.isCanonical()",
             label="Groups",
             label_msgid="schema_groups_label",
             description='Please select all groups, which should be associated with this product.',
