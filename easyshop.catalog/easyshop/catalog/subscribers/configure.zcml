@@ -3,6 +3,7 @@
     <subscriber
         handler=".subscribers.createContainers" />
 
+    <!-- Category -->
     <subscriber
         for="easyshop.core.interfaces.ICategory 
              Products.Archetypes.interfaces.IObjectInitializedEvent"
@@ -12,5 +13,16 @@
         for="easyshop.core.interfaces.ICategory 
              Products.Archetypes.interfaces.IObjectEditedEvent"
         handler=".translations.syncCategoryTranslations" />
+
+    <!-- Product -->    
+    <subscriber
+        for="easyshop.core.interfaces.IProduct
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".translations.syncProductTranslations" />
+
+    <subscriber
+        for="easyshop.core.interfaces.IProduct
+             Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".translations.syncProductTranslations" />
 
 </configure>

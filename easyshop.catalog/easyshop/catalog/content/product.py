@@ -163,6 +163,7 @@ schema = Schema((
 
     BackReferenceField( 
         name='categories',
+        condition="python:object.isCanonical()",
         multiValued=1,
         relationship='categories_products',
         allowed_types=("Category",),
