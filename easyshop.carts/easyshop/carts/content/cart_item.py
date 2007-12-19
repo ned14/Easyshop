@@ -5,11 +5,7 @@ from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
 # Archetypes imports
-from Products.ATContentTypes.content.folder import ATFolder
-try:
-    from Products.LinguaPlone.public import *
-except ImportError:
-    from Products.Archetypes.atapi import *
+from Products.Archetypes.atapi import *
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
