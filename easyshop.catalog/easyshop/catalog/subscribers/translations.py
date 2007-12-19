@@ -4,8 +4,6 @@ from Products.CMFCore.utils import getToolByName
 def syncCategoryTranslations(category, event):
     """This is called after init and after edit.
     """
-    # Establish product/category link between translations, based on canonical 
-    # category
     ltool = getToolByName(category, "portal_languages")
     default_language = ltool.getDefaultLanguage()
     
@@ -16,11 +14,14 @@ def syncCategoryTranslations(category, event):
     # 2. Edit: After change of links the translations have to be updated.
     
     if category.isCanonical():
-        for canonical_product in category.getProducts():
-            for language in ltool.getAvailableLanguages():
-                translated_category = category.getTranslation(language)
-                translated_product  = canonical_product.getTranslation(language)
-                if translated_product and translated_category:
+        for language in ltool.getSupportedLanguages():
+            if language == ltool.getDefaultLanguage():
+                continue
+            translated_category = category.getTranslation(language)
+            translated_category.deleteReferences("categories_products")
+            for canonical_product in category.getProducts():
+                translated_product = canonical_product.getTranslation(language)
+                if translated_product and translated_category:                    
                     translated_category.addReference(translated_product, "categories_products")
                     
     # Otherwise we just update the initialized translation (but I leave it 
