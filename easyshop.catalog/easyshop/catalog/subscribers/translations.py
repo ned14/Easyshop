@@ -4,42 +4,63 @@ from Products.CMFCore.utils import getToolByName
 def syncCategoryTranslations(category, event):
     """This is called after init and after edit.
     """
-    ltool = getToolByName(category, "portal_languages")
+    syncRelations(category, "categories_products")
+    
+def syncProductTranslations(product, event):
+    """This is called after init and after edit.
+    """    
+    ltool = getToolByName(product, "portal_languages")
+    default_language = ltool.getDefaultLanguage()    
+
+    ## Collect all affected categories
+    
+    # First we get the related categories of the modified product.
+    categories = product.getBRefs("categories_products")
+    
+    # In case that a category has been deleted from the product we collect also
+    # all categories of the first translation which is not canonical. With just
+    # the approach above we would not get the category, hence they would not get
+    # updated.
+    
+    for language in ltool.getSupportedLanguages():
+        if language != default_language:
+            translation = product.getTranslation(language)
+            break
+    
+    if translation is not None:
+        for category in translation.getBRefs("categories_products"):
+            if category not in categories:
+                categories.append(category)
+    
+    for category in categories:
+        syncRelations(category, "categories_products")
+    
+    syncRelations(product, "products_products")
+    
+def syncRelations(object, relation):
+    """All translations of given object will have the same related objects for 
+    given relation. Base is the canonical of the given object.
+    """
+    ltool = getToolByName(object, "portal_languages")
     default_language = ltool.getDefaultLanguage()
     
-    # If the given category is the canonical object, update all translations
-    # of this category. This must happend for edit and init.
-    # 1. Init: All possible before existing translations get the links from the
-    #          canonical object.
-    # 2. Edit: After change of links the translations have to be updated.
+    canonical = object.getCanonical()
     
-    if category.isCanonical():
-        for language in ltool.getSupportedLanguages():
-            if language == ltool.getDefaultLanguage():
-                continue
-            translated_category = category.getTranslation(language)
-            translated_category.deleteReferences("categories_products")
-            for canonical_product in category.getProducts():
-                translated_product = canonical_product.getTranslation(language)
-                if translated_product and translated_category:                    
-                    translated_category.addReference(translated_product, "categories_products")
-                    
-    # Otherwise we just update the initialized translation (but I leave it 
-    # although here for simplicity). After a translation is initialized all
-    # already existing links are overtaken. Later links cannot changed via
-    # translation but only via canonical object, so no update is neccessary.
-    else:                
-        canonical_category = category.getCanonical()
-        if canonical_category is None:
-            return
-            
-        for canonical_product in canonical_category.getProducts():
-            translated_product = canonical_product.getTranslation()
-            if translated_product:
-                category.addReference(translated_product, "categories_products")
+    for language in ltool.getSupportedLanguages():
 
-def syncProductTranslations(product, event):
-    """
-    """
-    for category in product.getBRefs("categories_products"):
-        syncCategoryTranslations(category, event)
+        if language == ltool.getDefaultLanguage():
+            continue
+
+        translation = canonical.getTranslation(language)
+
+        if translation is None:
+            continue
+            
+        translation.deleteReferences(relation)
+        
+        for referenced_canonical in canonical.getRefs(relation):
+            
+            referenced_translation = referenced_canonical.getTranslation(language)
+            
+            if referenced_translation is not None:
+                translation.addReference(referenced_translation, relation)
