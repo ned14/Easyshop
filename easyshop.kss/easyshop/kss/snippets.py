@@ -1,32 +1,26 @@
 PRODUCT_DETAILS = """
-    <div class="label">
-        <a href="%(url)s">
-            %(title)s
-            (%(short_title)s)
-        </a>    
-        <div>%(article_id)s</div>
-    </div>
-
-    <p>
-        <img style="margin-top:14px"
-             class="image-left" 
-             src="%(url)s/image_mini" />
-             
-        %(short_text)s
+<table class="shop-default">
+    <tr>
+        <td class="image">
+            <img src="%(url)s/image_mini" />
+        </td>
         
-        <span class="label">
-            Price
-        </span>                                
-        <span>
-            %(price)s
-        </span>
-    </p>
-    <p style="text-align:right">  
-        <a href="%(url)s">
-           Go to Product
-        </a>   
-    </p>    
-    <br clear="all" />
+        <td class="information">
+            <a href="%(url)s">
+                %(title)s
+                (%(short_title)s)
+            </a>    
+            <div>%(article_id)s</div>        
+            <p>
+                %(short_text)s
+        
+                <span class="label">
+                    Price
+                </span>                                
+                <span>
+                    %(price)s
+                </span>
+            </p>
 """
 
 RELATED_PRODUCTS_HEADER = """
@@ -78,5 +72,5 @@ GROUPS_BODY = """
     </li>
 """
 GROUPS_FOOTER = """
-    </ul>
+    </ul><td></tr></table>
 """
