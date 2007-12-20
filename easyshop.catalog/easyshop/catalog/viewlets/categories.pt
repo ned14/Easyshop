@@ -1,4 +1,5 @@
-<div id="categories-list">
+<div id="categories-list"
+     i18n:domain="EasyShop">
     <table class="products"
            tal:define="lines view/getCategories;
                        formats view/getFormats">

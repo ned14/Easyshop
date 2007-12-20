@@ -1,5 +1,6 @@
 <dl class="portlet portlet-easyshop-formatter"
-    tal:define="format_info view/getFormatInfo">
+    tal:define="format_info view/getFormatInfo"
+    i18n:domain="EasyShop">
                 
     <dt class="portletHeader"
         i18n:translate="formatter_label">
