@@ -15,23 +15,44 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
+msgid "Bank Account"
+msgstr "Bankkonto"
+
+msgid "Cart"
+msgstr "Warenkorb"
+
 msgid "Carts"
 msgstr "Warenkörbe"
 
 msgid "Categories"
 msgstr "Kategorien"
 
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Customer"
+msgstr "Kunde"
+
 msgid "Customers"
 msgstr "Kunden"
+
+msgid "Group"
+msgstr "Gruppe"
 
 msgid "Groups"
 msgstr "Gruppen"
 
+msgid "Order"
+msgstr "Bestellung"
+
 msgid "Orders"
 msgstr "Bestellungen"
 
+msgid "Payment Method"
+msgstr "Zahlmethode"
+
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 msgid "Products"
 msgstr "Produkte"
@@ -39,6 +60,18 @@ msgstr "Produkte"
 msgid "Shipping"
 msgstr "Lieferung"
 
+msgid "Shipping Method"
+msgstr "Lieferart"
+
+msgid "Shipping Price"
+msgstr "Lieferpreis"
+
+msgid "Tax (Customer)"
+msgstr "Steuer (Kunde)"
+
+msgid "Tax (Default)"
+msgstr "Steuer (Standard)"
+
 msgid "Taxes"
-msgstr "Mehrwertsteuer"
+msgstr "Steuern"
 

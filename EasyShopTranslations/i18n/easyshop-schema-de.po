@@ -15,6 +15,14 @@ msgstr ""
 "Domain: EasyShop\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
+msgid "help_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
+msgid "label_description"
+msgstr ""
+
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/stock_amount.py
 msgid "schema_amount_description"
 msgstr "Geben Sie hier den Lagerbestand ein."
