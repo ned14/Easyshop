@@ -1,6 +1,9 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
+# ATCT imports
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+
 # easyhop.core imports
 from easyshop.core.interfaces import IShopManagement
 
@@ -14,7 +17,10 @@ class InformationPagePopupView(BrowserView):
         page = self.context.information.get(page_id)
         if page is None:
             return None
-            
+        
+        if HAS_LINGUA_PLONE:
+            page = page.getTranslation()
+                
         shop = IShopManagement(self.context).getShop()
     
         return {
