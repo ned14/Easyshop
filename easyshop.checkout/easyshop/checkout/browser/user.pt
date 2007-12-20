@@ -2,7 +2,8 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+     i18n:domain="EasyShop">      
 
     <head>
         <metal:block fill-slot="top_slot">
@@ -14,7 +15,7 @@
         <div metal:fill-slot="main">
 
             <h1 class="documentFirstHeading"
-                i18n:translate="add_address_form_title">
+                i18n:translate="user_form_title">
                 Please add username and password.
             </h1> 
 
@@ -49,12 +50,9 @@
                   id="zc.page.browser_form"
                   tal:define="widgets view/widgets">
           
-                <dl class="portalMessage error"
+                <dl class="portalMessage"
                     tal:define="status view/status"
                     tal:condition="status">
-                    <dt i18n:translate="">
-                        Error
-                    </dt>
                     <dd tal:content="status" />
                 </dl>
 
