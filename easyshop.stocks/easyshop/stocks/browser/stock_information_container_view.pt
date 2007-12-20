@@ -34,7 +34,7 @@
                     Name
                 </th>
                 <th width="20%"
-                    i18n:translate="available_label">
+                    i18n:translate="available_time_period_label">
                     Available / Time Period
                 </th>
                 <th width="20%"
@@ -54,7 +54,7 @@
                          tal:attributes="src string:$portal_url/document_icon.gif"
                          alt="Shipping Price Icon"
                          title="Shipping Price"
-                         i18n:attributes="title stock_information_label;" />
+                         i18n:attributes="title shipping_price_label;" />
                     
                     <a href="."
                        tal:attributes="href stock_information/url"
