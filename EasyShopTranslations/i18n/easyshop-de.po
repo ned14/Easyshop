@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2007-12-20 13:32+0000\n"
+"POT-Creation-Date: 2007-12-20 13:41+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -72,7 +72,7 @@ msgstr "Ihre Bestellung wurde übersendet. Vielen Dank!"
 #. Default: "Account-No."
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt
 msgid "account_no_label"
-msgstr "Konto-Nr.:"
+msgstr "Konto-Nr."
 
 #. Default: "Please add a new addresses"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt
@@ -183,7 +183,7 @@ msgstr "Bankkonten"
 #. Default: "Bank Code"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt
 msgid "bank_code_label"
-msgstr "BLZ:"
+msgstr "BLZ"
 
 #. Default: "Bank Information"
 #: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt
@@ -207,12 +207,12 @@ msgstr "Abgebrochen"
 #. Default: "Card Number"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt
 msgid "card_number_label"
-msgstr "Kartennummer:"
+msgstr "Kartennummer"
 
 #. Default: "Card Owner"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt
 msgid "card_owner_label"
-msgstr "Karteninhaber:"
+msgstr "Karteninhaber"
 
 #. Default: "Cart ID"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt
@@ -295,7 +295,7 @@ msgstr "Erstellungsdatum"
 #. Default: "Type"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt
 msgid "credit_card_type_label"
-msgstr "Typ:"
+msgstr "Typ"
 
 #. Default: "Credit Cards"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt
@@ -355,7 +355,7 @@ msgstr "Lieferzeit"
 #. Default: "Depositor"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt
 msgid "depositor_label"
-msgstr "Kontoinhaber:"
+msgstr "Kontoinhaber"
 
 #. Default: "Descending"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt
@@ -688,14 +688,15 @@ msgstr "Nicht lieferbar"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
 msgid "order_date_label"
-msgstr "Bestelldatum:"
+msgstr "Datum"
 
-#. Default: "E-mail:"
+#. Default: "E-mail"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
+#, fuzzy
 msgid "order_email_label"
-msgstr "E-Mail:"
+msgstr "E-Mail"
 
 #. Default: "ID"
 #: ../../../src/easyshop.order/easyshop/order/browser/orders.pt
@@ -708,19 +709,21 @@ msgstr "Bestellung-ID"
 msgid "order_link_label"
 msgstr "Zur Bestellung"
 
-#. Default: "Name:"
+#. Default: "Name"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
+#, fuzzy
 msgid "order_name_label"
-msgstr "Kundenname:"
+msgstr "Kundenname"
 
-#. Default: "Phone:"
+#. Default: "Phone"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
+#, fuzzy
 msgid "order_phone_label"
-msgstr "Telefon:"
+msgstr "Telefon"
 
 #. Default: "Please check the order. If you finished, confirm our terms and conditions and click on \"Complete order\"."
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt
@@ -739,7 +742,7 @@ msgstr "Bestellstatus:"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
 msgid "order_total_label"
-msgstr "Gesamt:"
+msgstr "Gesamt"
 
 #. Default: "Orders"
 #: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt

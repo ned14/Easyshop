@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2007-12-20 13:32+0000\n"
+"POT-Creation-Date: 2007-12-20 13:41+0000\n"
 "PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -690,7 +690,7 @@ msgstr ""
 msgid "order_date_label"
 msgstr ""
 
-#. Default: "E-mail:"
+#. Default: "E-mail"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
@@ -708,14 +708,14 @@ msgstr ""
 msgid "order_link_label"
 msgstr ""
 
-#. Default: "Name:"
+#. Default: "Name"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
 msgid "order_name_label"
 msgstr ""
 
-#. Default: "Phone:"
+#. Default: "Phone"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
