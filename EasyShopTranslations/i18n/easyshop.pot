@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2007-12-20 13:41+0000\n"
+"POT-Creation-Date: 2007-12-20 13:56+0000\n"
 "PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -32,13 +32,25 @@ msgstr ""
 msgid "Cash on delivery"
 msgstr ""
 
+#: extras | formatter.pt
+msgid "Description"
+msgstr ""
+
 #: extras | checkout-order-preview-view.py
 msgid "Direct Debit"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "Long Text"
 msgstr ""
 
 #. Default: "No"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt
 msgid "No"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "None"
 msgstr ""
 
 #: extras | checkout-order-preview-view.py
@@ -51,6 +63,10 @@ msgstr ""
 
 #: extras | browser/checkout/checkout.py
 msgid "Send products to this address"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "Short Text"
 msgstr ""
 
 #: extras | config.py

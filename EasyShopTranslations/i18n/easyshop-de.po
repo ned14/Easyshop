@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2007-12-20 13:41+0000\n"
+"POT-Creation-Date: 2007-12-20 13:56+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -31,14 +31,26 @@ msgstr "Warenkorb"
 msgid "Cash on delivery"
 msgstr "Per Nachname"
 
+#: extras | formatter.pt
+msgid "Description"
+msgstr "Beschreibung"
+
 #: extras | checkout-order-preview-view.py
 msgid "Direct Debit"
 msgstr "Bankeinzug"
+
+#: extras | formatter.pt
+msgid "Long Text"
+msgstr "Langtext"
 
 #. Default: "No"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt
 msgid "No"
 msgstr "Nein"
+
+#: extras | formatter.pt
+msgid "None"
+msgstr "Ohne"
 
 #: extras | checkout-order-preview-view.py
 msgid "Prepayment"
@@ -51,6 +63,10 @@ msgstr "Rechnung an diese Adresse senden"
 #: extras | browser/checkout/checkout.py
 msgid "Send products to this address"
 msgstr "Lieferung an diese Adresse senden"
+
+#: extras | formatter.pt
+msgid "Short Text"
+msgstr "Kurztext"
 
 #: extras | config.py
 msgid "The amount of the product has been increased."
@@ -694,7 +710,6 @@ msgstr "Datum"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
-#, fuzzy
 msgid "order_email_label"
 msgstr "E-Mail"
 
@@ -713,7 +728,6 @@ msgstr "Zur Bestellung"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
-#, fuzzy
 msgid "order_name_label"
 msgstr "Kundenname"
 
@@ -721,7 +735,6 @@ msgstr "Kundenname"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt
 #: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt
-#, fuzzy
 msgid "order_phone_label"
 msgstr "Telefon"
 

@@ -76,3 +76,18 @@ msgstr ""
 msgid "Direct Debit"
 msgstr ""
 
+#: extras | formatter.pt
+msgid "None"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "Description"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "Short Text"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "Long Text"
+msgstr ""
