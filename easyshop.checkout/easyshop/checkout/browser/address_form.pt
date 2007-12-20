@@ -51,9 +51,6 @@
                 <dl class="portalMessage error"
                     tal:define="status view/status"
                     tal:condition="status">
-                    <dt i18n:translate="">
-                        Error
-                    </dt>
                     <dd tal:content="status" />
                 </dl>
 

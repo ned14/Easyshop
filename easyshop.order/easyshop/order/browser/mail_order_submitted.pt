@@ -69,8 +69,9 @@
                         <table>
                             <tr>
                                 <td>
-                                    <label i18n:translate="order_name_label">
-                                        Name:
+                                    <label>
+                                        <tal:block i18n:translate="order_name_label">
+                                            Name</tal:block>:
                                     </label> 
                                 </td>
                                 <td tal:content="view/getCustomerFullname">
@@ -79,9 +80,9 @@
                             </tr>                    
                             <tr tal:define="email view/getEmail">
                                 <td>
-                                    <label tal:condition="email"
-                                           i18n:translate="order_email_label">
-                                        E-mail:
+                                    <label tal:condition="email">
+                                        <tal:block i18n:translate="order_email_label">
+                                            E-mail</tal:block>:
                                     </label>    
                                 </td>
                                 <td>
@@ -95,8 +96,9 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label i18n:translate="order_phone_label">
-                                        Phone:
+                                    <label>
+                                        <tal:block i18n:translate="order_phone_label">
+                                            Phone</tal:block>:
                                     </label>    
                                 </td>
                                 <td i18n:translate=""

@@ -34,7 +34,7 @@
                     Name
                 </th>
                 <th width="20%"
-                    i18n:translate="available_label">
+                    i18n:translate="available_time_period_label">
                     Available / Time Period
                 </th>
                 <th width="20%"
