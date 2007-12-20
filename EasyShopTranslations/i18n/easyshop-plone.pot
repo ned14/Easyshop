@@ -61,7 +61,7 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
-msgid "Products"
+msgid "Products Container"
 msgstr ""
 
 msgid "Shipping Price"
