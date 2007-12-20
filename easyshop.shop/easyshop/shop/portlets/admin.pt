@@ -1,6 +1,7 @@
 <dl class="portlet" 
     id="portlet-easyshop-administration"
-    tal:define="shop_url view/getShopURL">
+    tal:define="shop_url view/getShopURL"
+   i18n:domain="EasyShop">
 
     <dt class="portletHeader">
         <a href="."
@@ -94,7 +95,7 @@
         <a href="."
            tal:attributes="href string:$shop_url/stock-information"
            i18n:translate="stock_information_label">
-            Stock information
+            Stock Information
         </a>                    
     </dd>                        
     <dd class="portletItem even">

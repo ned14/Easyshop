@@ -65,7 +65,7 @@
                                                href="."
                                                tal:define="letter context/REQUEST/letter|nothing;
                                                            searchable_text view/getSearchableText"
-                                               tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&letter=$letter&searchable_text=$searchable_text;
+                                               tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&amp;letter=$letter&amp;searchable_text=$searchable_text;
                                                                class string:product-details kssattr-uid-${product/UID}">
 
                                                 <img alt="info"
@@ -135,7 +135,7 @@
                                                        tal:condition="related_products">
                                 
                                                 <div class="label"
-                                                     i18n:translate="price_label">
+                                                     i18n:translate="related_products_label">
                                                     Related Products
                                                 </div>                                
                                                 <ul>

@@ -1,4 +1,5 @@
-<div id="products-list">
+<div id="products-list"
+     i18n:domain="EasyShop">
     <div tal:repeat="image view/getImages">
         <img src="."
              tal:attributes="src string:${image/getURL}/image;

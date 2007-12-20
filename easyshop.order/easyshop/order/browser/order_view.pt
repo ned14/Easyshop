@@ -83,7 +83,7 @@
                                 <td>
                                     <label>
                                         <tal:block i18n:translate="order_date_label">
-                                            Date:</tal:block>
+                                            Date</tal:block>:
                                     </label>
                                 </td>
                                 <td tal:content="view/getCreationDate">
@@ -95,7 +95,7 @@
                                 <td>
                                     <label>
                                         <tal:block i18n:translate="order_state_label">
-                                            State:</tal:block>
+                                            State</tal:block>:
                                     </label>    
                                 </td>
                                 <td>
@@ -113,7 +113,7 @@
                                 <td>
                                     <label>
                                         <tal:block i18n:translate="order_total_label">
-                                            Total:</tal:block>
+                                            Total</tal:block>:
                                     </label>
                                 </td>
                                 <td tal:content="view/getPriceForCustomer">
@@ -252,7 +252,7 @@
                 <th i18n:translate="tax_absolute_label">
                     Tax Absolute
                 </th>                
-                <th i18n:translate="total_label">
+                <th i18n:translate="order_total_label">
                     Total
                 </th>                         
             </tr>
@@ -364,7 +364,7 @@
                 </td>
             </tr>                                                                                                   
             <tr>
-                <td i18n:translate="total_label">
+                <td i18n:translate="order_total_label">
                     Total
                 </td>
                 <td colspan="5"></td>

@@ -112,16 +112,16 @@
                     <thead>
                       <tr>
                           <th i18n:translate="order_id_label">
-                              Order ID
+                              ID
                           </th>
                           <th i18n:translate="order_date_label">
-                              Order Date
+                              Date
                           </th>                
                           <th i18n:translate="customer_name_label">
                               Customer Name
                           </th>                
                           <th i18n:translate="order_state_label">
-                              Order State
+                              State
                           </th>
                       </tr>
                   </thead>    

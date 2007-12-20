@@ -1,4 +1,5 @@
-<div id="manage-address-book">
+<div id="manage-address-book"
+     i18n:domain="EasyShop">
     <table width="50%">
         <tal:block tal:repeat="address view/getAddresses">          
             <tr tal:attributes="id address/UID">

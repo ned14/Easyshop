@@ -204,7 +204,7 @@
 
                 <div tal:condition="not: view/hasCartItems"
                      i18n:translate="no_products_label">
-                     There are no products 
+                     There are no products. 
                 </div>
                 <table class="order-preview-cart"
                        tal:condition="view/hasCartItems">

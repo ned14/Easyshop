@@ -1,4 +1,5 @@
-<div id="portlet-cart">     
+<div id="portlet-cart"
+     i18n:domain="EasyShop">
         <dt class="portletHeader">
             <a tal:attributes="href string:${view/getShopUrl}/cart"
                i18n:translate="cart_label">

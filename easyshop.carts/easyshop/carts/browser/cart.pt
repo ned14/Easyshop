@@ -77,7 +77,7 @@
                         </td>
                     </tr>
                 </table>
-                <hr>
+                <hr />
                 <table class="cart shop-default">
                     <thead>
                         <tr>
@@ -207,7 +207,7 @@
                             <td colspan="4"
                                 nowrap="nowrap"
                                 class="text">
-                                <span i18n:translate="shipping_label">
+                                <span i18n:translate="payment_label">
             		                Payment
             		            </span>            		            
             		            (<span tal:content="payment_info/title">
