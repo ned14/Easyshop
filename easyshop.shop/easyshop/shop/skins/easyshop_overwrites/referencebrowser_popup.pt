@@ -238,7 +238,8 @@
            </tal:noresults>
            <tal:list tal:define="checkPermission python: here.portal_membership.checkPermission;
                                  folder_contents here/listFolderContents|python:[];
-                                 results python: test(search_text!='' or not allow_browse, query_results, test(allow_browse, [item for item in folder_contents if checkPermission('View',item)], [])); 
+                                 preferred_lanuage python:context.portal_languages.getPreferredLanguage();
+                                 results python: test(search_text!='' or not allow_browse, query_results, test(allow_browse, [item for item in folder_contents if checkPermission('View',item) and item.getLanguage()==preferred_lanuage], [])); 
                                  batch python: Batch(results, b_size, int(b_start), orphan=1);">
                 <table class="group" 
                           width="100%" 
@@ -249,6 +250,7 @@
 
 
                         <tal:results tal:repeat="item batch">
+
                             <tal:row  tal:define="uid item/aq_explicit/UID|string:'';
                                                   item_referenceable python:((allowed_types and (item.portal_type in allowed_types)) or not allowed_types);
                                                   review_state_allows python: test(filter_review_states, getInfoFor(item, 'review_state', None) in (only_for_review_states or ()), True);
