@@ -29,11 +29,11 @@ re_description = re.compile("""description_msgid\s*=\s*["'](.*)["']""")
 
 msgids = {}    
 result = []
-for root, dirs, files in os.walk('../content'):
+for root, dirs, files in os.walk('../../../src'):
 
-    if root.startswith("../content") == False:
+    if root.find("content") == -1:
         continue
-        
+    
     for name in files:
         if re.search("py$", name) is None:
             continue
