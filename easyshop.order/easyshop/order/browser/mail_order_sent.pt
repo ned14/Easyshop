@@ -69,8 +69,9 @@
                         <table>
                             <tr>
                                 <td>
-                                    <label i18n:translate="order_name_label">
-                                        Name:
+                                    <label>
+                                        <tal:block i18n:translate="order_name_label">
+                                            Name</tal:block>:
                                     </label> 
                                 </td>
                                 <td tal:content="view/getCustomerFullname">
@@ -79,9 +80,9 @@
                             </tr>                    
                             <tr tal:define="email view/getEmail">
                                 <td>
-                                    <label tal:condition="email"
-                                           i18n:translate="order_email_label">
-                                        E-mail:
+                                    <label tal:condition="email">
+                                        <tal:block i18n:translate="order_email_label">
+                                        E-mail</tal:block>:
                                     </label>    
                                 </td>
                                 <td>
@@ -95,8 +96,9 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label i18n:translate="order_phone_label">
-                                        Phone:
+                                    <label>
+                                        <tal:block i18n:translate="order_phone_label">
+                                            Phone</tal:block>:
                                     </label>    
                                 </td>
                                 <td i18n:translate=""
@@ -113,7 +115,7 @@
                                 <td>
                                     <label>
                                         <tal:block i18n:translate="order_date_label">
-                                            Date:</tal:block>
+                                            Date</tal:block>:
                                     </label>
                                 </td>
                                 <td tal:content="view/getCreationDate">
@@ -125,7 +127,7 @@
                                 <td>
                                     <label>
                                         <tal:block i18n:translate="order_state_label">
-                                            State:</tal:block>
+                                            State</tal:block>:
                                     </label>    
                                 </td>
                                 <td>
@@ -143,7 +145,7 @@
                                 <td>
                                     <label>
                                         <tal:block i18n:translate="order_total_label">
-                                            Total:</tal:block>
+                                            Total</tal:block>:
                                     </label>
                                 </td>
                                 <td tal:content="view/getPriceForCustomer">
@@ -169,9 +171,6 @@
                         <div tal:content="invoice_address/address1">
                             John-Doe-Str. 1
                         </div>    
-                        <div tal:content="invoice_address/address2">
-                            c/o Doe
-                        </div>    
                         <div>
                             <span tal:content="invoice_address/zipcode">
                                 99999
@@ -196,9 +195,6 @@
                         <div tal:content="shipping_address/address1">
                             John-Doe-Str. 1                                
                         </div>
-                        <div tal:content="shipping_address/address2">
-                            c/o Doe                                
-                        </div>    
                         <div>
                             <span tal:content="shipping_address/zipcode">
                                 99999                                    
@@ -288,7 +284,7 @@
                 <th i18n:translate="tax_absolute_label">
                     Tax Absolute
                 </th>                
-                <th i18n:translate="total_label">
+                <th i18n:translate="order_total_label">
                     Total
                 </th>                         
             </tr>
@@ -404,9 +400,8 @@
                     nowrap="nowrap" 
                     class="number">
                     <span style="padding-right:15px"
-                          i18n:translate="total_label">
-                        Total:
-                    </span>
+                          i18n:translate="order_total_label">
+                        Total</span>:
                     <span tal:content="view/getPriceForCustomer">
                         42.0
                     </span>
