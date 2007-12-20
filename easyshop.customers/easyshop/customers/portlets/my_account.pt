@@ -1,4 +1,5 @@
-<dl class="portlet portlet-easyshop-user">
+<dl class="portlet portlet-easyshop-user"
+    i18n:domain="EasyShop">
 
     <dt class="portletHeader">
         <span i18n:translate="user_label"
