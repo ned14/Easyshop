@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="GenericPaymentMethod" meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Generic Payment Method</property>
+ <property name="title">Payment Method</property>
  <property name="description">A generic payment method</property>
  <property name="content_icon">payment_method_icon.png</property>
  <property name="content_meta_type">GenericPaymentMethod</property>
