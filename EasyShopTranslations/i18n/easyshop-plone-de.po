@@ -30,6 +30,9 @@ msgstr "Gruppen"
 msgid "Orders"
 msgstr "Bestellungen"
 
+msgid "Product"
+msgstr ""
+
 msgid "Products"
 msgstr "Produkte"
 
