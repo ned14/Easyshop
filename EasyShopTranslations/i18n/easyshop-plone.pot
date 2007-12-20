@@ -16,22 +16,13 @@ msgstr ""
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: plone\n"
 
-msgid "Product"
+msgid "Bank Account"
 msgstr ""
 
-msgid "Products"
+msgid "Cart"
 msgstr ""
 
-msgid "Customer"
-msgstr ""
-
-msgid "Customers"
-msgstr ""
-
-msgid "Order"
-msgstr ""
-
-msgid "Orders"
+msgid "Carts"
 msgstr ""
 
 msgid "Category"
@@ -40,19 +31,37 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
+msgid "Customer"
+msgstr ""
+
+msgid "Customers"
+msgstr ""
+
 msgid "Group"
 msgstr ""
 
 msgid "Groups"
 msgstr ""
 
-msgid "Tax (Customer)"
+msgid "Information Page"
 msgstr ""
 
-msgid "Tax (Default)"
+msgid "Information Page Container"
 msgstr ""
 
-msgid "Taxes"
+msgid "Order"
+msgstr ""
+
+msgid "Orders"
+msgstr ""
+
+msgid "Payment Method"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Products"
 msgstr ""
 
 msgid "Shipping Price"
@@ -64,23 +73,17 @@ msgstr ""
 msgid "Shipping"
 msgstr ""
 
-msgid "Cart"
+msgid "Stock Information"
 msgstr ""
 
-msgid "Carts"
+msgid "Stock Information Container"
 msgstr ""
 
-msgid "Product"
+msgid "Tax (Customer)"
 msgstr ""
 
-msgid "Products"
+msgid "Tax (Default)"
 msgstr ""
 
-msgid "Bank Account"
+msgid "Taxes"
 msgstr ""
-
-msgid "Payment Method"
-msgstr "Zahlmethode"
-
-
-
