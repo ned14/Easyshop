@@ -42,7 +42,8 @@
                             <select name="selected_country">
                                 <option tal:repeat="country view/getCountries"
                                         tal:attributes="selected country/selected"
-                                        tal:content="country/title">
+                                        tal:content="country/title"
+                                        i18n:translate="">
                                     Country
                                 </option>
                             </select>                                
@@ -53,7 +54,8 @@
                                         tal:repeat="shipping_method view/getShippingMethods"
                                         tal:attributes="value shipping_method/id;
                                                        selected shipping_method/checked"                                        
-                                        tal:content="shipping_method/title">
+                                        tal:content="shipping_method/title"
+                                        i18n:translate="">
                                      Shipping Method
                                 </option>
                             </select>
@@ -63,7 +65,8 @@
                                 <option tal:repeat="payment_method view/getPaymentMethodTypes"
                                         tal:attributes="value payment_method/id;
                                                         selected payment_method/selected;"                                        
-                                        tal:content="payment_method/title">
+                                        tal:content="payment_method/title"
+                                        i18n:translate="">
                                      Payment Method
                                 </option>
                             </select>
@@ -192,7 +195,8 @@
                                 <span i18n:translate="shipping_label">
             		                Shipping
             		            </span>            		            
-            		            (<span tal:content="shipping_info/title">
+            		            (<span tal:content="shipping_info/title"
+            		                   i18n:translate="">
             		                Express
             		            </span>)    
             		        </td> 
@@ -210,7 +214,8 @@
                                 <span i18n:translate="payment_label">
             		                Payment
             		            </span>            		            
-            		            (<span tal:content="payment_info/title">
+            		            (<span tal:content="payment_info/title"
+            		                   i18n:translate="">
             		                Cash On Delievery
             		            </span>)    
             		        </td> 

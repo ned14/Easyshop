@@ -1,6 +1,9 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
+# ATCT imports
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+
 # Easyshop imports
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICurrencyManagement
@@ -21,19 +24,14 @@ class AddedToCartView(BrowserView):
             cart_item = IItemManagement(cart).getItems()[-1]
         except IndexError:
             return []
-                
+
+        # Get product
+        product = cart_item.getProduct()
+                        
         # Price
         price = IPrices(cart_item).getPriceForCustomer()
         cm    = ICurrencyManagement(self.context)
         price = cm.priceToString(price)        
-        
-        # Photo
-        product = cart_item.getProduct()
-        photo = IPhotoManagement(product).getMainPhoto()
-        if photo is not None:
-            image_url = photo.absolute_url()
-        else:
-            image_url = None
         
         # Get selected properties
         properties = []
@@ -60,7 +58,18 @@ class AddedToCartView(BrowserView):
                 "title" : property_title,
                 "price" : cm.priceToString(property_price)
             })
-                        
+
+        # NOTE: Change to translation
+        if HAS_LINGUA_PLONE:
+            product = product.getTranslation()
+
+        # Photo
+        photo = IPhotoManagement(product).getMainPhoto()
+        if photo is not None:
+            image_url = photo.absolute_url()
+        else:
+            image_url = None
+                                    
         return {
             "title"      : product.Title(),
             "url"        : product.absolute_url(),

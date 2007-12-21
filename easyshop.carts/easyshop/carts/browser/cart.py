@@ -7,6 +7,9 @@ from Products.CMFPlone.utils import safe_unicode
 # plone imports
 from plone.memoize.instance import memoize
 
+# ATCT imports
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
@@ -92,6 +95,11 @@ class CartFormView(BrowserView):
                 
             # Photo
             photo = IPhotoManagement(product).getMainPhoto()
+
+            # After we have taken properties and stuff from canonical we change
+            # to translation to get translated title and url. 
+            if HAS_LINGUA_PLONE:
+                product = product.getTranslation()
                 
             result.append({
                 "id"            : cart_item.getId(),
