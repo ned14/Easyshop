@@ -5,9 +5,6 @@ from zope.component import adapts
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# ATCT imports
-from Products.ATContentTypes.config import HAS_LINGUA_PLONE
-
 # easyshop imports
 from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
