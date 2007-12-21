@@ -9,6 +9,9 @@ from Products.CMFCore.utils import getToolByName
 # Five imports
 from Products.Five.browser import BrowserView
 
+# ATCT imports
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+
 # easyshop imports
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import ICartManagement
@@ -33,8 +36,11 @@ class ProductView(BrowserView):
     def addToCart(self):
         """
         """
-        # LINGUA_PLONE: We always put the canonical object to the cart.
-        product = self.context.getCanonical()
+        # LINGUA_PLONE
+        if HAS_LINGUA_PLONE:
+            product = self.context.getCanonical()
+        else:
+            product = self.context
         
         shop = IShopManagement(product).getShop()        
         cm = ICartManagement(shop)
