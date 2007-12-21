@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: easyshop.linguaplone
+Version: 0.1dev
+Summary: LinguaPlone related stuff for EasyShop
+Home-page: http://iqpp.de
+Author: Kai Diefenbach
+Author-email: kai.diefenbach@iqpp.de
+License: GPL
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
