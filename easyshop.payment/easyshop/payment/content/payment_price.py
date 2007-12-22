@@ -29,7 +29,7 @@ schema = Schema((
         widget=DecimalWidget(
             size="10",
             label="Price",
-            label_msgid="schema_price_gross_label",
+            label_msgid="schema_price_label",
             i18n_domain="EasyShop",
         )
     ),

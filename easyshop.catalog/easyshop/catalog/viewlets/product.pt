@@ -185,10 +185,23 @@
                                        i18n:attributes="title add_to_cart_label;
                                                         value add_to_cart_label;" />
 
-                                <span class="product-price"
-                                      tal:content="view/getPriceForCustomer">
-                                    42.00
-                                </span>
+                                <tal:block tal:condition="context/forSale">
+                                    <span class="product-price"
+                                          style="text-decoration:line-through;"
+                                          tal:content="view/getStandardPriceForCustomer">
+                                        42.00
+                                    </span>
+                                    <span class="product-price"
+                                          tal:content="view/getPriceForCustomer">
+                                        42.00
+                                    </span>
+                                </tal:block>                        
+                                <tal:block tal:condition="not:context/forSale">
+                                    <span class="product-price"
+                                          tal:content="view/getPriceForCustomer">
+                                        42.00
+                                    </span>                                    
+                                </tal:block>                                
                             </td>
                         </tr>
                     </table>                                                                                

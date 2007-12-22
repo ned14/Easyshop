@@ -19,7 +19,7 @@ Now we add a new shipping price.
     
     >>> browser.getLink('Add Shipping Price').click()
     >>> browser.getControl('Title').value = 'Default'
-    >>> browser.getControl('Pricegross').value = '42.00'
+    >>> browser.getControl('Price').value = '42.00'
     >>> browser.getControl('Save').click()
     
 The inital state should be private.

@@ -112,11 +112,24 @@
                                    title="Details"
                                    i18n:attributes="title details_label;"
                                    tal:attributes="onclick string:location.href='${product/url}'" />
-                       
-                            <span class="product-price"
-                                  tal:content="product/price">
-                                42.00
-                            </span>
+
+                                <tal:block tal:condition="product/for_sale">
+                                    <span class="product-price"
+                                          style="text-decoration:line-through;"
+                                          tal:content="product/standard_price">
+                                        42.00
+                                    </span>
+                                    <span class="product-price"
+                                          tal:content="product/price">
+                                        42.00
+                                    </span>
+                                </tal:block>                        
+                                <tal:block tal:condition="not:product/for_sale">
+                                    <span class="product-price"
+                                          tal:content="product/price">
+                                        42.00
+                                    </span>                                    
+                                </tal:block>                                
 
                         </td>
                     </tr>

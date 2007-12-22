@@ -82,8 +82,15 @@ class ProductsViewlet(ViewletBase):
 
             # Price
             cm = ICurrencyManagement(self.context)
-            price = IPrices(product).getPriceForCustomer()
+            p = IPrices(product)
+
+            # Effective price
+            price = p.getPriceForCustomer()                                
             price = cm.priceToString(price, symbol="symbol", position="before")
+            
+            # Standard price
+            standard_price = p.getPriceForCustomer(effective=False)
+            standard_price = cm.priceToString(standard_price, symbol="symbol", position="before")
                                     
             # Photo
             image = IPhotoManagement(product).getMainPhoto()
@@ -112,7 +119,9 @@ class ProductsViewlet(ViewletBase):
                 "text"                     : text,
                 "url"                      : "%s?sorting=%s" % (product.absolute_url(), sorting),
                 "image"                    : image,
+                "for_sale"                 : product.getForSale(),
                 "price"                    : price,
+                "standard_price"           : standard_price,
                 "class"                    : klass,
             })
             

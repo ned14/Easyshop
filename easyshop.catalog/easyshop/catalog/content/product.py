@@ -149,7 +149,31 @@ schema = Schema((
         widget=DecimalWidget(
             size="10",
             label='Price',
-            label_msgid='schema_price_gross_label',
+            label_msgid='schema_price_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+    BooleanField(
+        name="forSale",
+        schemata="advanced",
+        widget = BooleanWidget(
+            label="For Sale",
+            label_msgid="schema_for_sale_label",
+            description = "If selected the price is displayed additionally.",
+            description_msgid="schema_for_sale_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
+    FloatField(
+        name='salePrice',
+        schemata="advanced",
+        default=0.0,
+        widget=DecimalWidget(
+            size="10",
+            label='Sale Price',
+            label_msgid='schema_sale_price_gross_label',
             i18n_domain='EasyShop',
         )
     ),

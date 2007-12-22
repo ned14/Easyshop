@@ -59,7 +59,26 @@ class ProductViewlet(ViewletBase):
 
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
-                    
+
+    def getStandardPriceForCustomer(self):
+        """
+        """
+        pm = IPropertyManagement(self.context)
+        
+        total_diff = 0.0
+        for property_id, selected_option in self.request.form.items():
+            if property_id.startswith("property"):                
+                total_diff += pm.getPriceForCustomer(
+                    property_id[9:],
+                    selected_option
+                )
+
+        p = IPrices(self.context)
+        price = p.getPriceForCustomer(effective=False) + total_diff
+
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(price)
+                            
     def getMainPhoto(self):
         """
         """
