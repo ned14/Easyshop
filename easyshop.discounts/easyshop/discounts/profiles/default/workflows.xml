@@ -3,6 +3,10 @@
  <property
     name="title">Contains workflow definitions for your portal</property>
  <bindings>
+
+  <type type_id="Discount">
+   <bound-workflow workflow_id="easyshop_default_workflow"/>
+  </type>  
      
   <type type_id="DiscountsContainer">
    <bound-workflow workflow_id="easyshop_containers_workflow"/>

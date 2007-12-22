@@ -1,8 +1,12 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five">    
 
     <five:registerPackage 
         package="." />
+
+    <include 
+        file="profiles.zcml" />
 
     <include 
         package=".adapters" />
@@ -11,10 +15,6 @@
         package=".browser" />
 
     <include
-        package=".content" />
-
-    <include 
-        file="profiles.zcml" />
-
+        package=".subscribers" />
 
 </configure>

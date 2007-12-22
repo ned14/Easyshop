@@ -4,6 +4,10 @@
         name="title">Controls the available content types in your portal</property>
 
     <object
+        name="Discount"
+        meta_type="Factory-based Type Information" />
+
+    <object
         name="DiscountsContainer"
         meta_type="Factory-based Type Information" />
 

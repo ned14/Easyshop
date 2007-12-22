@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page  
+        name="discount-view"
+        for="easyshop.core.interfaces.IDiscount"
+        class=".discount.DiscountView"
+        template="discount.pt"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="discounts-container-view"
+        for="easyshop.core.interfaces.IDiscountsContainer"
+        class=".discounts_container.DiscountsContainerView"
+        template="discounts_container.pt"
+        permission="cmf.ManagePortal" />
+
+</configure>

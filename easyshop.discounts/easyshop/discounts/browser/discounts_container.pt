@@ -1,0 +1,105 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="discounts view/getDiscounts;">
+        
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="discounts_label">
+                Discounts
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+
+            <div tal:condition="not:discounts"
+                 i18n:translate="no_discount_label">
+                There are no discounts.
+            </div>
+                 
+            <table tal:condition="discounts"
+                   class="listing shop-default">
+              <tr>
+                <th width="40%"
+                    i18n:translate="name_label">
+                    Name
+                </th>
+                <th width="20%"
+                    i18n:translate="price_label">
+                    Price
+                </th>
+                <th width="20%"
+                    i18n:translate="amount_of_criteria_label">
+                    Amount of Criteria
+                </th>                
+                <th width="20%"
+                    i18n:translate="priority_label">
+                    Priority
+                </th>
+              </tr>
+
+              <tr tal:repeat="discount discounts">
+                <td class="text">
+
+                    <img src="."
+                         tal:attributes="src string:$portal_url/document_icon.gif"
+                         alt="Discount Icon"
+                         title="Discount"
+                         i18n:attributes="title discount_label;" />
+                    
+                    <a href="."
+                       tal:attributes="href discount/url"
+                       tal:content="discount/title">
+                        Default  
+                    </a>
+                    
+                    <tal:block tal:condition="discount/description">
+                        (<span class="discreet"
+                               tal:content="discount/description">
+                            Description
+                        </span>)
+                    </tal:block>
+                    
+                </td>
+                <td class="number" 
+                    tal:content="discount/value">
+                    19%
+                </td>
+                <td class="number"
+                    tal:content="discount/amount_of_criteria">
+                    2
+                </td>
+                <td>
+                    <a href="."
+                       tal:attributes="href discount/up_url">
+                        <img src="arrowUp.gif"
+                             alt="Arror Up"
+                             title="Move Up"
+                             i18n:attributes="title move_up_label;"
+                             tal:attributes="src string:${portal_url}/arrowUp.gif" />
+                    </a>     
+                    <a href="."
+                       tal:attributes="href discount/down_url">
+                        <img src="arrowDown.gif"
+                             alt="Arror Down"
+                             title="Move Down"                     
+                             i18n:attributes="title move_down_label;"
+                             tal:attributes="src string:${portal_url}/arrowDown.gif" />
+                    </a>         
+                </td>
+              </tr>
+            </table>          
+
+        </metal:main>    
+        
+  </body>
+</html>
