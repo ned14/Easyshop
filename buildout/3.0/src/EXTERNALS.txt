@@ -8,6 +8,7 @@ easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkou
 easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/trunk
 easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/trunk
 easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
+easyshop.discounts https://easyshop-for-plone.googlecode.com/svn/easyshop.discounts/trunk
 easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/trunk
 easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/trunk
 easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
