@@ -49,6 +49,7 @@ a.link-parent {
 .payment_method,
 .payment_price,
 .shipping_price,
+.discount,
 .tax_rate  {
     background-color: &dtml-globalBackgroundColor;;
     border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
