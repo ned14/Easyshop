@@ -639,7 +639,7 @@ msgstr "Es sind keine Kategorien vorhanden."
 #: ../../../src/easyshop.payment/easyshop/payment/browser/payment_price.pt
 #: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_method.pt
 msgid "no_criteria_label"
-msgstr "Es sing keine Kriterien vorhanden."
+msgstr "Es sind keine Kriterien vorhanden."
 
 #. Default: "There are no customers."
 #: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt
