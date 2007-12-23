@@ -17,10 +17,13 @@ class ProductCriteriaValidity:
         """
         self.context = context
         
-    def isValid(self, product):
-        """Returns True, if the given product is selected product of the
+    def isValid(self, object):
+        """Returns True, if the given object is selected product of the
         criterion.
         """
+        if ICartItem.providedBy(object):
+            product = object.getProduct()
+                
         if product.getId() in self.context.getProducts():
             return True
         return False
