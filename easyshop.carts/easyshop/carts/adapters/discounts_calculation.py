@@ -70,36 +70,39 @@ class CartItemDiscountsCalculation:
         """
         return self.getDiscountsInformation()["discounts"]
         
-    def getDiscountForCustomer(self):
+    def getDiscountForCustomer(self, value=None):
         """Returns total calculated discount.
         """
-        import pdb; pdb.set_trace()
         tax_rate_for_customer = self.taxes.getTaxRateForCustomer()
-        discount_net = self.getDiscountNet()
+        value_net = self.getDiscountNet(value)
     
-        return discount_net * ((tax_rate_for_customer+100)/100)
+        return value_net * ((tax_rate_for_customer+100)/100)
 
-    def getDiscountGross(self):
+    def getDiscountGross(self, value=None):
         """Returns total calculated discount.
         """
         tax_rate = self.taxes.getTaxRate()
         
-        discount = self.getDiscountsInformation()["total"]
+        if value is None:
+            value = self.getDiscountsInformation()["total"]
+            
         if self.shop.getGrossPrices() == True:
-            return discount
+            return value
         else:            
-            return discount + (discount * (tax_rate/100))
+            return value + (value * (tax_rate/100))
 
-    def getDiscountNet(self):
+    def getDiscountNet(self, value=None):
         """Returns total calculated discount.
         """
         tax_rate = self.taxes.getTaxRate()
-        discount = self.getDiscountsInformation()["total"]
+        
+        if value is None:
+            value = self.getDiscountsInformation()["total"]
         
         if self.shop.getGrossPrices() == True:
-            return discount - (tax_rate/(tax_rate+100)) * discount
+            return value - (tax_rate/(tax_rate+100)) * value
         else:
-            return discount            
+            return value            
 
     def getDiscountsInformation(self):
         """
@@ -114,7 +117,7 @@ class CartItemDiscountsCalculation:
                     value = self.context.getAmount() * discount.getValue()
                     total_value += value
                     discounts.append({
-                        "value" : value,
+                        "value" : self.getDiscountForCustomer(value),
                         "title" : discount.Title()
                     })
         
