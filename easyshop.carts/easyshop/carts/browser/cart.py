@@ -93,9 +93,16 @@ class CartFormView(BrowserView):
                 })
 
             # Discounts
-            dc = IDiscountsCalculation(cart_item)
-            discounts = dc.getDiscounts()
+            # dc = IDiscountsCalculation(cart_item)
             
+            discounts = []
+
+            # for discount in dc.getDiscounts():
+            #     discounts.append({
+            #         "title" : discount["title"],
+            #         "value" : cm.priceToString(discount["value"], prefix="-"),
+            #     })
+                
             result.append({
                 "id"            : cart_item.getId(),
                 "product_title" : product.Title(),
@@ -136,6 +143,25 @@ class CartFormView(BrowserView):
         
         return result    
 
+    def getDiscounts(self):
+        """
+        """        
+        cm = ICurrencyManagement(self.context)
+        
+        cart = self._getCart()        
+
+        if cart is None: 
+            return []
+        
+        discounts = []
+        for discount in IDiscountsCalculation(cart).getDiscounts():
+            discounts.append({
+                "title" : discount["title"],
+                "value" : cm.priceToString(discount["value"], prefix="-"),
+            })
+        
+        return discounts
+                
     def getPaymentMethodTypes(self):
         """Returns all *types* of payment methods of the current customer.
         """

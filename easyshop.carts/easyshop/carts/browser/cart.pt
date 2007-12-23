@@ -170,14 +170,40 @@
               
                            </tr> 
 
+<!-- Discounts per Item
+
+     I don't want them in default view, but it is possible.
+
+                            <tal:block tal:condition="cart_item/discounts">
+                                <tr>
+                                    <td colspan="5">
+                                        <h3 i18n:translate="discounts_label">
+                                            Discounts
+                                        </h3>    
+                                   </td>    
+                                </tr>       
+                                <tr tal:repeat="discount cart_item/discounts">
+                                    <td colspan="4"
+                                        class="text"
+                                        tal:content="discount/title">
+                                         Title
+                                    </td>
+                                    <td class="number"
+                                        tal:content="discount/value">
+                                         Value
+                                    </td>                                
+                                </tr>
+                            </tal:block>
+ -->                           
+                        </tal:block>       
 <!-- Shipping -->                        
-                       <tr>
-                           <td colspan="5">
-                                <h3 i18n:translate="shipping_label">
-                                    Shipping
-                                </h3>    
-                           </td>    
-                       </tr>       
+                        <tr>
+                            <td colspan="5">
+                                 <h3 i18n:translate="shipping_label">
+                                     Shipping
+                                 </h3>    
+                            </td>    
+                        </tr>       
 
                         <tr tal:define="shipping_info view/getShippingInfo"
                             tal:condition="view/getCartItems">
@@ -217,26 +243,26 @@
                         </tr>  
 
 <!-- Discounts -->
-                           <tr>
-                               <td colspan="5">
+                        <tal:block tal:define="discounts view/getDiscounts"
+                                   tal:condition="discounts">
+                            <tr>
+                                <td colspan="5">
                                     <h3 i18n:translate="discounts_label">
                                         Discounts
                                     </h3>    
                                </td>    
-                           </tr>       
-                           <tal:block tal:repeat="discount cart_item/discounts">
-                               <tr>
-                                   <td colspan="4"
-                                       class="text"
-                                       tal:content="discount/title">
-                                        Title
-                                   </td>
-                                   <td class="number" 
-                                       tal:content="discount/value">
-                                        Value
-                                   </td>                                
-                               </tr>
-                           </tal:block>                               
+                            </tr>       
+                            <tr tal:repeat="discount discounts">
+                                <td colspan="4"
+                                    class="text"
+                                    tal:content="discount/title">
+                                     Title
+                                </td>
+                                <td class="number"
+                                    tal:content="discount/value">
+                                     Value
+                                </td>                                
+                            </tr>
                         </tal:block>
 
                         <tr>

@@ -4,16 +4,13 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.core.interfaces import IValidity
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IWeightCriteria
-from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IProductAmountCriteria
 
-class ProductAmountValidity:
+class ProductAmountCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content objects.
     """
     implements(IValidity)
-    adapts(IProductAmount)
+    adapts(IProductAmountCriteria)
 
     def __init__(self, context):
         """

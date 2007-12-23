@@ -8,6 +8,7 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports
 from easyshop.core.interfaces import IDiscountsManagement
 from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import IValidity
 
 class DiscountsManagement:
     """An adapter which provides IDiscountsManagement for shop content objects.
@@ -22,6 +23,6 @@ class DiscountsManagement:
         self.discounts = self.context.discounts
         
     def getDiscounts(self):
-        """
+        """Returns all existing discounts.
         """
         return self.discounts.objectValues()

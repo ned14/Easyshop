@@ -10,12 +10,15 @@ class IDiscountsContainer(Interface):
     """
     
 class IDiscountsManagement(Interface):
-    """Provides management for discount content objects.
+    """Provides management of discount content objects.
     """
     def getDiscounts():
-        """Returns all discounts.
+        """Returns discount content objects.
         """
-        
-    def getValidDiscounts():
-        """Returns all valid discounts
+
+class IDiscountsCalculation(Interface):
+    """Provides calculation of discounts.
+    """
+    def getDiscounts():
+        """Returns calculated discounts as dictionary.
         """

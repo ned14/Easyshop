@@ -93,12 +93,19 @@
     </dd>                        
     <dd class="portletItem">
         <a href="."
+           tal:attributes="href string:$shop_url/discounts"
+           i18n:translate="discounts_label">
+            Discounts
+        </a>                    
+    </dd>                        
+    <dd class="portletItem even">
+        <a href="."
            tal:attributes="href string:$shop_url/stock-information"
            i18n:translate="stock_information_label">
             Stock Information
         </a>                    
     </dd>                        
-    <dd class="portletItem even">
+    <dd class="portletItem">
         <a href="."
            tal:attributes="href string:$shop_url/information"
            i18n:translate="information_label">

@@ -4,7 +4,6 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.core.interfaces import ICartItem
-from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IDiscountsManagement
 from easyshop.core.interfaces import IValidity
 
@@ -29,31 +28,3 @@ class CartItemDiscountsManagement:
             if IValidity(discount).isValid(self.context) == True:
                 result.append(discount)
         return result
-        
-class CartItemDiscountsCalculation:
-    """An adapter which provides IDiscountsCalculation for cart item content
-    objects.
-    """
-    implements(IDiscountsCalculation)
-    adapts(ICartItem)
-
-    def __init__(self, context):
-        """
-        """
-        self.context = context
-        
-    def getDiscounts(self):
-        """Returns calculated discounts.
-        """
-        discounts = []
-        for discount in IDiscountsManagement(self.context).getDiscounts():
-                
-            if discount.getType() == "absolute":
-                if discount.getBase() == "product":
-                    value = self.context.getAmount() * discount.getValue()
-                    discounts.append({
-                        "value" : value,
-                        "title" : discount.Title()
-                    })
-        
-        return discounts

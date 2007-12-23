@@ -1,9 +1,6 @@
 # zope imports
 from zope.interface import implements
 
-# Zope imports
-from AccessControl import ClassSecurityInfo
-
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
@@ -26,13 +23,16 @@ schema = Schema((
 ),
 )
 
+schema = BaseSchema.copy() + schema.copy()
+schema["title"].required = False
+schema["title"].visible  = {'edit':'invisible', 'view':'invisible'}
+
 class ProductAmountCriteria(BaseContent):
     """
     """
     implements(IProductAmountCriteria)
-    security = ClassSecurityInfo()
     _at_rename_after_creation = True
-    schema = BaseSchema.copy() + schema.copy()
+    schema = schema
 
     def Title(self):
         """
@@ -44,4 +44,4 @@ class ProductAmountCriteria(BaseContent):
         """
         return self.getAmount()
         
-registerType(WeightCriteria, PROJECTNAME)
+registerType(ProductAmountCriteria, PROJECTNAME)

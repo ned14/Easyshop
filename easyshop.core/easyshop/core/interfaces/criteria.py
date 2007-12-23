@@ -1,13 +1,12 @@
 # zope imports
 from zope.interface import Interface
-from zope.interface import Attribute
 
 class ICriteria(Interface):
     """Base interface for criteria.
     """
-     def getValue():
-         """Returns the entered value for the criterion.
-         """
+    def getValue():
+        """Returns the entered value for the criterion.
+        """
          
 class ICategoryCriteria(ICriteria):
     """Marker interface to mark category criteria content objects.

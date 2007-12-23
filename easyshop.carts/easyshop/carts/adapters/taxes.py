@@ -70,19 +70,19 @@ class CartItemTaxes:
     def getTax(self):
         """Returns absolute tax.
         """
-        price    = IPrices(self.context).getPriceGross()
+        price = IPrices(self.context).getPriceGross(with_discount=True)
         tax_rate = self.taxes.getTaxRate()
         
-        tax  = (tax_rate/(tax_rate+100)) * price        
+        tax  = (tax_rate/(tax_rate+100)) * price
         return tax
         
     def getTaxForCustomer(self):
         """Returns absolute tax for customer.
         """
-        price    = IPrices(self.context).getPriceGross()
+        price = IPrices(self.context).getPriceGross(with_discount=True)
         tax_rate = self.taxes.getTaxRateForCustomer()
 
-        tax  = (tax_rate/(tax_rate+100)) * price
+        tax = (tax_rate/(tax_rate+100)) * price
         return tax
 
     def getTaxRate(self):

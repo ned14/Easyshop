@@ -5,6 +5,7 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import ICart
 from easyshop.core.interfaces import ICartItem
+from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
@@ -31,13 +32,14 @@ class CartPrices:
     # This brings the further advantage to have the flexibility whether the
     # cart price should be displayed with or without shipping price
     
-    def getPriceForCustomer(self, with_shipping=True, with_payment=True):
+    def getPriceForCustomer(self, with_shipping=True, with_payment=True, with_discount=True):
         """Returns the customer price of the cart. This is just a sum over 
         customer prices of all items of the cart.
         """
         price = 0.0
         for cart_item in self.context.objectValues("CartItem"):
-            price += IPrices(cart_item).getPriceForCustomer()
+            # NOTE: with_discount is passed here
+            price += IPrices(cart_item).getPriceForCustomer(with_discount=with_discount)
         
         if with_shipping == True:
             sm = IShippingPriceManagement(self.shop)
@@ -57,7 +59,7 @@ class CartPrices:
         """
         price = 0.0
         for cart_item in self.context.objectValues("CartItem"):
-            price += IPrices(cart_item).getPriceGross()
+            price += IPrices(cart_item).getPriceGross(with_discount=with_discount)
 
         if with_shipping == True:
             sm = IShippingPriceManagement(self.shop)
@@ -77,7 +79,7 @@ class CartPrices:
         """
         price = 0.0
         for cart_item in self.context.objectValues("CartItem"):
-            price += IPrices(cart_item).getPriceNet()
+            price += IPrices(cart_item).getPriceNet(with_discount=with_discount)
 
         if with_shipping == True:
             sm = IShippingPriceManagement(self.shop)
@@ -102,7 +104,7 @@ class CartItemPrices:
         """
         self.context = context
 
-    def getPriceForCustomer(self):
+    def getPriceForCustomer(self, with_discount=False):
         """Returns the customer price for a cart item. This is just the 
         customer product price plus the customer properties prices (can be
         positiv or negative) multiply with the amount.
@@ -120,9 +122,14 @@ class CartItemPrices:
         
         price *= self.context.getAmount()
 
+        if with_discount == True:
+            import pdb; pdb.set_trace()
+            discount = IDiscountsCalculation(self.context).getDiscountForCustomer()
+            price -= discount
+        
         return price
         
-    def getPriceGross(self):
+    def getPriceGross(self, with_discount=False):
         """Returns the gross price for a cart item. This is just the gross
         product price plus the properties gross prices (can be positiv or 
         negative) multiply with the amount.
@@ -139,9 +146,13 @@ class CartItemPrices:
         
         price *= self.context.getAmount()
 
+        if with_discount == True:
+            discount = IDiscountsCalculation(self.context).getDiscountGross()
+            price -= discount
+
         return price
         
-    def getPriceNet(self):
+    def getPriceNet(self, with_discount=False):
         """Returns the net price for a cart item. This is just the net
         product price plus the properties net prices (can be positiv or 
         negative) multiply with the amount.
@@ -157,5 +168,9 @@ class CartItemPrices:
             )
         
         price *= self.context.getAmount()
-
+        
+        if with_discount == True:
+            discount = IDiscountsCalculation(self.context).getTotalDiscountNet()
+            price -= discount
+            
         return price
