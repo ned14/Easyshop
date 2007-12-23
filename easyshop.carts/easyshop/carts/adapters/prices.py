@@ -1,6 +1,7 @@
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
+from zope.component import getMultiAdapter
 
 # easyshop imports
 from easyshop.core.interfaces import ICart
@@ -53,7 +54,7 @@ class CartPrices:
 
         return price
 
-    def getPriceGross(self, with_shipping=True, with_payment=True):
+    def getPriceGross(self, with_shipping=True, with_payment=True, with_discount=True):
         """Returns the gross price of the cart. This is just a sum over gross
         prices of all items of the cart plus shipping and payment.
         """
@@ -73,7 +74,7 @@ class CartPrices:
     
         return price
 
-    def getPriceNet(self, with_shipping=True, with_payment=True):
+    def getPriceNet(self, with_shipping=True, with_payment=True, with_discount=True):
         """Returns the net price of the cart. This is just a sum over net
         prices of all items of the cart plus shipping and payment.
         """
@@ -123,10 +124,11 @@ class CartItemPrices:
         price *= self.context.getAmount()
 
         if with_discount == True:
-            import pdb; pdb.set_trace()
-            discount = IDiscountsCalculation(self.context).getDiscountForCustomer()
-            price -= discount
-        
+            discount = IDiscountsCalculation(self.context).getDiscount()
+            if discount is not None:
+                discount_value = getMultiAdapter((discount, self.context)).getPriceForCustomer()
+                price -= discount_value
+
         return price
         
     def getPriceGross(self, with_discount=False):
@@ -136,7 +138,7 @@ class CartItemPrices:
         """
         product = self.context.getProduct()
         price  = IPrices(product).getPriceGross()
-        
+
         pm = IPropertyManagement(product)
         for selected_property in self.context.getProperties():
             price += pm.getPriceGross(
@@ -147,8 +149,10 @@ class CartItemPrices:
         price *= self.context.getAmount()
 
         if with_discount == True:
-            discount = IDiscountsCalculation(self.context).getDiscountGross()
-            price -= discount
+            discount = IDiscountsCalculation(self.context).getDiscount()
+            if discount is not None:
+                discount_value = getMultiAdapter((discount, self.context)).getPriceGross()
+                price -= discount_value
 
         return price
         
@@ -168,9 +172,11 @@ class CartItemPrices:
             )
         
         price *= self.context.getAmount()
-        
+
         if with_discount == True:
-            discount = IDiscountsCalculation(self.context).getTotalDiscountNet()
-            price -= discount
-            
+            discount = IDiscountsCalculation(self.context).getDiscount()
+            if discount is not None:
+                discount_value = getMultiAdapter((discount, self.context)).getPriceNet()
+                price -= discount_value
+
         return price

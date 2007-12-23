@@ -1,3 +1,6 @@
+# zope imports
+from zope.component import getMultiAdapter
+
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -92,17 +95,6 @@ class CartFormView(BrowserView):
                     "price" : cm.priceToString(property_price)
                 })
 
-            # Discounts
-            # dc = IDiscountsCalculation(cart_item)
-            
-            discounts = []
-
-            # for discount in dc.getDiscounts():
-            #     discounts.append({
-            #         "title" : discount["title"],
-            #         "value" : cm.priceToString(discount["value"], prefix="-"),
-            #     })
-                
             result.append({
                 "id"            : cart_item.getId(),
                 "product_title" : product.Title(),
@@ -111,7 +103,6 @@ class CartFormView(BrowserView):
                 "price"         : price,
                 "amount"        : cart_item.getAmount(),
                 "properties"    : properties,
-                "discounts"     : discounts,
             })
         
         return result
@@ -154,10 +145,12 @@ class CartFormView(BrowserView):
             return []
         
         discounts = []
-        for discount in IDiscountsCalculation(cart).getDiscounts():
+        for cart_item in IItemManagement(cart).getItems():
+            discount = IDiscountsCalculation(cart_item).getDiscount()
+            value = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
             discounts.append({
-                "title" : discount["title"],
-                "value" : cm.priceToString(discount["value"], prefix="-"),
+                "title" : discount.Title(),
+                "value" : cm.priceToString(value, prefix="-"),
             })
         
         return discounts

@@ -31,11 +31,8 @@
     <adapter
         factory=".discounts_calculation.CartDiscountsCalculation" />
 
-    <!-- IDiscounts -->
     <adapter
         factory=".discounts_calculation.CartItemDiscountsCalculation" />
-    
-    <adapter
-        factory=".discounts_management.CartItemDiscountsManagement" />
+
     
 </configure>

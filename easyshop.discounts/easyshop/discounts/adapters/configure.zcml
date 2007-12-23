@@ -4,5 +4,8 @@
 
     <adapter
         factory=".discounts_management.DiscountsManagement" />
+
+    <adapter
+        factory=".prices.DiscountPrices" />
     
 </configure>
