@@ -12,6 +12,7 @@ from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement 
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
@@ -65,6 +66,7 @@ class CartFormView(BrowserView):
             price = IPrices(cart_item).getPriceForCustomer()
             price = cm.priceToString(price)
 
+            # Properties
             properties = []
             pm = IPropertyManagement(product)
 
@@ -89,15 +91,20 @@ class CartFormView(BrowserView):
                     "title" : property_title,
                     "price" : cm.priceToString(property_price)
                 })
-                
+
+            # Discounts
+            dc = IDiscountsCalculation(cart_item)
+            discounts = dc.getDiscounts()
+            
             result.append({
                 "id"            : cart_item.getId(),
                 "product_title" : product.Title(),
                 "product_url"   : product.absolute_url(),
                 "product_price" : product_price,
-                "properties"    : properties,
                 "price"         : price,
                 "amount"        : cart_item.getAmount(),
+                "properties"    : properties,
+                "discounts"     : discounts,
             })
         
         return result

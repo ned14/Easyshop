@@ -26,4 +26,12 @@
     <adapter
         factory=".taxes.CartItemTaxes" />
 
+
+    <!-- IDiscounts -->
+    <adapter
+        factory=".discounts_management.CartItemDiscountsCalculation" />
+    
+    <adapter
+        factory=".discounts_management.CartItemDiscountsManagement" />
+    
 </configure>
