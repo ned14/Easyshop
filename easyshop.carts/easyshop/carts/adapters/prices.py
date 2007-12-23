@@ -126,7 +126,8 @@ class CartItemPrices:
         if with_discount == True:
             discount = IDiscountsCalculation(self.context).getDiscount()
             if discount is not None:
-                discount_value = getMultiAdapter((discount, self.context)).getPriceForCustomer()
+                discount_value = getMultiAdapter(
+                    (discount, self.context)).getPriceForCustomer()
                 price -= discount_value
 
         return price
@@ -151,7 +152,8 @@ class CartItemPrices:
         if with_discount == True:
             discount = IDiscountsCalculation(self.context).getDiscount()
             if discount is not None:
-                discount_value = getMultiAdapter((discount, self.context)).getPriceGross()
+                discount_value = getMultiAdapter(
+                    (discount, self.context)).getPriceGross()
                 price -= discount_value
 
         return price
@@ -176,7 +178,9 @@ class CartItemPrices:
         if with_discount == True:
             discount = IDiscountsCalculation(self.context).getDiscount()
             if discount is not None:
-                discount_value = getMultiAdapter((discount, self.context)).getPriceNet()
+                discount_value = getMultiAdapter(
+                    (discount, self.context)).getPriceNet()
+                    
                 price -= discount_value
 
         return price
