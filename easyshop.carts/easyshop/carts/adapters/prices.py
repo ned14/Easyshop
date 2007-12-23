@@ -60,6 +60,7 @@ class CartPrices:
         """
         price = 0.0
         for cart_item in self.context.objectValues("CartItem"):
+            # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceGross(with_discount=with_discount)
 
         if with_shipping == True:
@@ -80,6 +81,7 @@ class CartPrices:
         """
         price = 0.0
         for cart_item in self.context.objectValues("CartItem"):
+            # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceNet(with_discount=with_discount)
 
         if with_shipping == True:
