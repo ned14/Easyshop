@@ -86,12 +86,7 @@
                                 i18n:translate="product_label">
                                 Product
                             </th>
-<!--
-                            <th class="text"
-                                i18n:translate="properties_label">
-                                Properties
-                            </th>            
--->
+
                             <th class="number"
                                 i18n:translate="amount_label">
                                 Amount
@@ -110,10 +105,9 @@
                     </thead>
                     <tbody>
                         <tal:block tal:repeat="cart_item view/getCartItems">                    
-                            <tr style="border-bottom: 1px dotted black"
-                                tal:define="number repeat/cart_item/number"> 
+                            <tr tal:define="number repeat/cart_item/number"> 
 
-                                <td style="width:1px; height:1px" 
+                                <td rowspan="2" style="width:1px; height:1px" 
                                     class="text">                                    
                                     <div style="width:80px; height:80px">
                                         <a href="." 
@@ -134,7 +128,7 @@
                                     </div>
                                     
                                 </td>
-                                <td>
+                                <td height="1px">
                                     <div>
                                         <a href="." 
                                            tal:attributes="href cart_item/product_url"
@@ -163,38 +157,39 @@
                                     42.0
                                 </td>        
                   
-                                <td class="number"
-                                    nowrap="nowrap"
-                                    tal:content="cart_item/price" />        
+                                <td style="width:1%; padding-left:40px"
+                                    class="number"
+                                    nowrap="nowrap">
+                                    <div tal:content="cart_item/price">
+                                        42.0
+                                    </div>                                    
+                                </td>
 
               
-                           </tr> 
-
-<!-- Discounts per Item
-
-     I don't want them in default view, but it is possible.
-
-                            <tal:block tal:condition="cart_item/discounts">
-                                <tr>
-                                    <td colspan="5">
-                                        <h3 i18n:translate="discounts_label">
-                                            Discounts
-                                        </h3>    
-                                   </td>    
-                                </tr>       
-                                <tr tal:repeat="discount cart_item/discounts">
-                                    <td colspan="4"
-                                        class="text"
-                                        tal:content="discount/title">
-                                         Title
-                                    </td>
-                                    <td class="number"
-                                        tal:content="discount/value">
-                                         Value
-                                    </td>                                
+                            </tr>
+                            <tal:block tal:define="discount cart_item/discount">
+                                <tr tal:condition="not:discount">
+                                    <td></td>
                                 </tr>
-                            </tal:block>
- -->                           
+                                <tr tal:condition="discount">
+                                    <td colspan="3"
+                                        class="text">
+                                        <div>
+                                            <tal:block i18n:translate="discount_label">
+                                                Discount
+                                            </tal:block>
+                                            (<tal:block tal:content="discount/title">
+                                                Title</tal:block>)
+                                        </div>
+                                    
+                                    </td>
+                                    <td class="number">
+                                        <span tal:content="discount/value">
+                                            11.0
+                                        </span> 
+                                    </td>
+                                </tr>
+                            </tal:block>    
                         </tal:block>       
 <!-- Shipping -->                        
                         <tr>

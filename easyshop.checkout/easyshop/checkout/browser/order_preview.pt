@@ -14,6 +14,7 @@
              tal:define="payment_method_info view/getPaymentMethodInfo;
                          payment_method_type payment_method_info/type;
                          payment_information view/getSelectedPaymentInformation;
+                         shipping_information view/getShippingInfo;
                          invoice_address view/getInvoiceAddress;
                          shipping_address view/getShippingAddress;
                          errors python:{};">
@@ -122,17 +123,13 @@
         	                              i18n:attributes="value edit_label;"/>
                                 </form>
                             </legend>            
-                            <div tal:define="shipping_information view/getShippingMethodInfo">
+                            <div>
                                 <div tal:content="shipping_information/title">
                                     Express
                                 </div>
-                                <!-- <span tal:content="view/getShippingPrice">
-                                    42.00
-                                </span>                                 -->
                                 <div tal:content="shipping_information/description">
                                     (Order today get your product tomorrow)
-                                </div>
-                                    
+                                </div>                                    
                             </div>    
                         </fieldset>             
                     </td>        
@@ -221,33 +218,78 @@
                             i18n:translate="total_label">Total</th>
                     </tr>
 
-                    <tr tal:repeat="cart_item view/getCartItems">
-  
-                        <td class="text" 
-                            tal:content="cart_item/product_title">
-                            Deep Thought
-                        </td>    
-                        <td class="text">
-                            <div tal:repeat="property cart_item/properties">
-                                <span tal:content="python:property['title']" /> : 
-                                <span tal:content="python:property['selected_option']" />
-                                (<span tal:content="python:property['price']" />)
-                            </div>                  
-                        </td> 
-                        <td class="number" 
-                            tal:content="cart_item/amount">
-                            1.0
-                        </td>    
-                        <td class="number" 
-                            tal:content="cart_item/product_price">
-                            42.0
-                        </td>            
-                        <td class="number" 
-                            tal:content="cart_item/price">
-                            42.0
-                        </td>                
+                    <tal:block tal:repeat="cart_item view/getCartItems">
+                        <tr>  
+                            <td class="text" 
+                                tal:content="cart_item/product_title">
+                                Deep Thought
+                            </td>    
+                            <td class="text">
+                                <div tal:repeat="property cart_item/properties">
+                                    <span tal:content="python:property['title']" /> : 
+                                    <span tal:content="python:property['selected_option']" />
+                                    (<span tal:content="python:property['price']" />)
+                                </div>                  
+                            </td> 
+                            <td class="number" 
+                                tal:content="cart_item/amount">
+                                1.0
+                            </td>    
+                            <td class="number" 
+                                tal:content="cart_item/product_price">
+                                42.0
+                            </td>            
+                            <td class="number" 
+                                tal:content="cart_item/price">
+                                42.0
+                            </td>                
           
-                    </tr>
+                        </tr>
+
+                        <tr tal:define="discount cart_item/discount"
+                            tal:condition="discount">
+                            <td colspan="4"
+                                class="text">
+                                <div>
+                                    <tal:block i18n:translate="discount_label">
+                                        Discount
+                                    </tal:block>
+                                    (<tal:block tal:content="discount/title">
+                                        Title</tal:block>)
+                                </div>
+                            
+                            </td>
+                            <td class="number">
+                                <span tal:content="discount/value">
+                                    11.0
+                                </span> 
+                            </td>
+                        </tr>
+                        
+                    </tal:block>
+<!-- Shipping -->                        
+                        <tr>
+                            <td colspan="5">
+                                 <h3 i18n:translate="shipping_label">
+                                     Shipping
+                                 </h3>
+                            </td>    
+                        </tr>       
+
+                        <tr tal:condition="view/getCartItems">
+                            <td colspan="4"
+                                nowrap="nowrap"
+                                class="text">
+            		            <span tal:content="shipping_information/title">
+            		                Express
+            		            </span>
+            		        </td> 
+                            <td nowrap="nowrap"
+                                class="number"
+                                tal:content="shipping_information/price" />
+                        </tr>  
+                    
+<!-- Payment -->
 
                     <tr tal:condition="payment_method_info/display">
                         <td class="text"
@@ -263,22 +305,30 @@
                             42.0
                         </td>    
                     </tr>  
-      
-                    <tr>
-                        <td class="text">
-                            <tal:block i18n:translate="shipping_label">    				        
-    				            Shipping
-    				        </tal:block>
-    				        <tal:block ></tal:block>    
-    				    </td> 
-                        <td class="text"
-    				        colspan="3">
-                        </td>
-                        <td class="number"
-    				        tal:content="view/getShippingPrice">
-                            42.0
-                        </td>    
-                    </tr>  
+
+<!-- Discounts -->
+                        <tal:block tal:define="discounts view/getDiscounts"
+                                   tal:condition="discounts">
+                            <tr>
+                                <td colspan="5">
+                                    <h3 i18n:translate="discounts_label">
+                                        Discounts
+                                    </h3>    
+                               </td>    
+                            </tr>       
+                            <tr tal:repeat="discount discounts">
+                                <td colspan="4"
+                                    class="text"
+                                    tal:content="discount/title">
+                                     Title
+                                </td>
+                                <td class="number"
+                                    tal:content="discount/value">
+                                     Value
+                                </td>                                
+                            </tr>
+                        </tal:block>
+                    
                     <tr>
                         <td colspan="5"><hr /></td>
                     </tr>        

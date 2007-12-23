@@ -1,6 +1,7 @@
 # Zope imports
 from zope import schema
 from zope.app.form.interfaces import WidgetInputError
+from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import Interface
 
@@ -10,6 +11,9 @@ from Products.Five.formlib import formbase
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+
+# plone imports
+from plone.memoize.instance import memoize
 
 # easyshop imports
 from easyshop.core.config import _
@@ -21,6 +25,7 @@ from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
@@ -111,17 +116,10 @@ class OrderPreviewForm(formbase.AddForm):
         if not IAsynchronPaymentMethod.providedBy(selected_payment_method):
             ICheckoutManagement(self.context).redirectToNextURL("BUYED_ORDER")
 
-    def getCart(self):
-        """Returns current cart.
-        """
-        cm = ICartManagement(self.context)
-        return cm.getCart()
-
     def getCartItems(self):
         """Returns the items of the current cart.
         """
-        cm = ICartManagement(self.context)
-        cart = cm.getCart()
+        cart = self._getCart()
 
         cm = ICurrencyManagement(self.context)
         im = IItemManagement(cart)
@@ -134,7 +132,6 @@ class OrderPreviewForm(formbase.AddForm):
             product_price = cm.priceToString(product_price)
             
             price = IPrices(cart_item).getPriceForCustomer()
-            price = cm.priceToString(price)
 
             # Todo: Think about to factoring out properties stuff
             # because same has to be uses there: cart.py / getCartItems()
@@ -161,16 +158,57 @@ class OrderPreviewForm(formbase.AddForm):
                     "title" : property_title,
                     "price" : cm.priceToString(property_price)
                 })
+
+            # Discount
+            total_price = 0
+            discount = IDiscountsCalculation(cart_item).getDiscount()
+            if discount is not None:
+                discount_price = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
+
+                discount = {
+                    "title" : discount.Title(),
+                    "value" : cm.priceToString(discount_price, prefix="-"),
+                }
+
+                total_price = price - discount_price
+                
             
             result.append({
                 "product_title" : product.Title(),
                 "product_price" : product_price,
                 "properties"    : properties,
-                "price"         : price,
+                "price"         : cm.priceToString(price),
                 "amount"        : cart_item.getAmount(),
+                "total_price"   : cm.priceToString(total_price),
+                "discount"      : discount,
             })
         
         return result
+
+    def getDiscounts(self):
+        """
+        """
+        return []
+        
+        cart = self._getCart()        
+
+        if cart is None: 
+            return []
+
+        cm = ICurrencyManagement(self.context)
+        discounts = []
+        
+        for cart_item in IItemManagement(cart).getItems():
+            discount = IDiscountsCalculation(cart_item).getDiscount()
+
+            if discount is not None:
+                value = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
+                discounts.append({
+                    "title" : discount.Title(),
+                    "value" : cm.priceToString(value, prefix="-"),
+                })
+        
+        return discounts
         
     def getInvoiceAddress(self):
         """Returns invoice address of the current customer.
@@ -224,30 +262,26 @@ class OrderPreviewForm(formbase.AddForm):
 
         return addressToDict(address)
 
-    def getShippingMethodInfo(self):
+    def getShippingInfo(self):
         """
         """
-        pm = IShippingMethodManagement(self.context)
-        shipping_method = pm.getSelectedShippingMethod()
-        
-        return {
-            "title"       : shipping_method.Title(),
-            "description" : shipping_method.Description(),
-        }
-                
-    def getShippingPrice(self):
-        """
-        """        
         sm = IShippingPriceManagement(self.context)
         shipping_price = sm.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(shipping_price)
+        price = cm.priceToString(shipping_price)
+        method = IShippingMethodManagement(self.context).getSelectedShippingMethod()
+                
+        return {
+            "price"       : price,
+            "title"       : method.Title(),
+            "description" : method.Description()
+        }
                 
     def getTotalPrice(self):
         """
         """
-        cart = ICartManagement(self.context).getCart()                
+        cart = self._getCart()
 
         pm = IPrices(cart)        
         total = pm.getPriceForCustomer()
@@ -264,7 +298,7 @@ class OrderPreviewForm(formbase.AddForm):
     def getTotalTax(self):
         """
         """
-        cart = ICartManagement(self.context).getCart()
+        cart = self._getCart()
 
         t = ITaxes(cart)
         sm = IShippingPriceManagement(self.context)
@@ -283,7 +317,7 @@ class OrderPreviewForm(formbase.AddForm):
     def hasCartItems(self):
         """
         """
-        cart = ICartManagement(self.context).getCart()
+        cart = self._getCart()
         
         if cart is None:
             return False
@@ -309,6 +343,12 @@ class OrderPreviewForm(formbase.AddForm):
             return result_true
         else:
             return result_false
+
+    @memoize        
+    def _getCart(self):
+        """Returns current cart.
+        """
+        return ICartManagement(self.context).getCart()
                 
 def addressToDict(address):
     """

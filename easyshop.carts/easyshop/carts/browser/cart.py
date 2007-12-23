@@ -67,7 +67,6 @@ class CartFormView(BrowserView):
             product_price = cm.priceToString(product_price)
             
             price = IPrices(cart_item).getPriceForCustomer()
-            price = cm.priceToString(price)
 
             # Properties
             properties = []
@@ -95,14 +94,29 @@ class CartFormView(BrowserView):
                     "price" : cm.priceToString(property_price)
                 })
 
+            # Discount
+            total_price = 0
+            discount = IDiscountsCalculation(cart_item).getDiscount()
+            if discount is not None:
+                discount_price = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
+
+                discount = {
+                    "title" : discount.Title(),
+                    "value" : cm.priceToString(discount_price, prefix="-"),
+                }
+
+                total_price = price - discount_price
+                
             result.append({
                 "id"            : cart_item.getId(),
                 "product_title" : product.Title(),
                 "product_url"   : product.absolute_url(),
                 "product_price" : product_price,
-                "price"         : price,
+                "price"         : cm.priceToString(price),
                 "amount"        : cart_item.getAmount(),
                 "properties"    : properties,
+                "total_price"   : cm.priceToString(total_price),
+                "discount"      : discount,
             })
         
         return result
@@ -136,7 +150,9 @@ class CartFormView(BrowserView):
 
     def getDiscounts(self):
         """
-        """        
+        """
+        return []
+                
         cm = ICurrencyManagement(self.context)
         
         cart = self._getCart()        
@@ -147,11 +163,13 @@ class CartFormView(BrowserView):
         discounts = []
         for cart_item in IItemManagement(cart).getItems():
             discount = IDiscountsCalculation(cart_item).getDiscount()
-            value = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
-            discounts.append({
-                "title" : discount.Title(),
-                "value" : cm.priceToString(value, prefix="-"),
-            })
+
+            if discount is not None:
+                value = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
+                discounts.append({
+                    "title" : discount.Title(),
+                    "value" : cm.priceToString(value, prefix="-"),
+                })
         
         return discounts
                 
@@ -301,7 +319,7 @@ class CartFormView(BrowserView):
 
         # next template
         if self.context.REQUEST.get("goto", "") == "order-preview":
-            url = "%s/check-out-order-preview-form" % self.context.absolute_url()
+            url = "%s/checkout-order-preview" % self.context.absolute_url()
         else:
             url = "%s/cart" % self.context.absolute_url()
 
