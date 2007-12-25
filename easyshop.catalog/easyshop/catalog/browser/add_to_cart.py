@@ -25,7 +25,7 @@ class IProductView(Interface):
         """Adds a product to the cart.
         """
                     
-class ProductView(BrowserView):
+class AddToCartView(BrowserView):
     """
     """
     implements(IProductView)
@@ -39,7 +39,7 @@ class ProductView(BrowserView):
         cart = cm.getCart()
         if cart is None:
             cart = cm.createCart()
-                
+
         properties = []
         for property_id, selected_option in self.request.form.items():
             if property_id.startswith("property") == False:
