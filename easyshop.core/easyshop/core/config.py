@@ -139,8 +139,8 @@ DELIVERY_TIMES_MAX = (
 )
 
 DELIVERY_TIMES_UNIT = (
-    (u"days",   _(u"Days")),
-    (u"weeks",  _(u"Weeks")),
+    (u"Days",   _(u"Days")),
+    (u"Weeks",  _(u"Weeks")),
 )
 
 # PAYPAL_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
