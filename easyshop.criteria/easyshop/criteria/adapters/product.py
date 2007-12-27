@@ -23,9 +23,9 @@ class ProductCriteriaValidity:
         criterion.
         """
         if ICartItem.providedBy(object):
-            product = object.getProduct()
-                
-        if product.getId() in self.context.getProducts():
+            object = object.getProduct()        
+                        
+        if object.getId() in self.context.getProducts():
             return True
         return False
 
