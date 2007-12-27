@@ -120,6 +120,10 @@
                                         <tal:block tal:content="stock_information/time_period">
                                             2-3 Weeks
                                         </tal:block>    
+                                        <tal:block i18n:translate=""
+                                                   tal:content="stock_information/time_unit">
+                                            Weeks
+                                        </tal:block>    
                                     </div>    
                                 </tal:block>
                                 <tal:block tal:condition="not:stock_information/available"
