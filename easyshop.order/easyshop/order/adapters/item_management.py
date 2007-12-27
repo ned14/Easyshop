@@ -1,9 +1,11 @@
 # Zope imports
 from zope.interface import implements
 from zope.component import adapts
+from zope.component import getMultiAdapter
 
 # easyshop imports
 from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrder
 from easyshop.core.interfaces import IPrices
@@ -40,7 +42,7 @@ class OrderItemManagement:
         id = 0
         for cart_item in IItemManagement(cart).getItems():
             id += 1
-            self._addItemFromCartItem(str(id), cart_item)
+            self._addItemFromCartItem(id, cart_item)
 
     def deleteItemByOrd(self, ord):
         """Deletes the item by passed ord
@@ -66,22 +68,31 @@ class OrderItemManagement:
         
     def _addItemFromCartItem(self, id, cart_item):
         """Sets the item by given cart item.
-        """
-        self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=id)
-        new_item = getattr(self.context, id)
+        """        
+        self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=str(id))
+        new_item = getattr(self.context, str(id))
         
         # Set product prices & taxes
         taxes = ITaxes(cart_item.getProduct())
-        new_item.setProductQuantity(cart_item.getAmount())
         new_item.setTaxRate(taxes.getTaxRate())
+        new_item.setProductQuantity(cart_item.getAmount())
         new_item.setProductTax(taxes.getTax())
         new_item.setProductPriceGross(cart_item.getProduct().getPrice())
         new_item.setProductPriceNet(new_item.getProductPriceGross() - new_item.getProductTax())
 
         # Set item prices & taxes
         new_item.setTax(ITaxes(cart_item).getTaxForCustomer())
-        new_item.setPriceGross(IPrices(cart_item).getPriceForCustomer())        
+        new_item.setPriceGross(IPrices(cart_item).getPriceForCustomer())
         new_item.setPriceNet(IPrices(cart_item).getPriceNet())
+
+        # Discount
+        discount = IDiscountsCalculation(cart_item).getDiscount()
+        if discount is not None:
+            new_item.setDiscountDescription(discount.Title())
+
+            dp = getMultiAdapter((discount, cart_item))
+            new_item.setDiscountGross(dp.getPriceForCustomer())
+            new_item.setDiscountNet(dp.getPriceNet())
         
         # Set product
         new_item.setProduct(cart_item.getProduct())

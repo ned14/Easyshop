@@ -134,22 +134,25 @@ class OrderView(BrowserView):
         item_manager = IItemManagement(self.context)
         for item in item_manager.getItems():
 
-            product_price_net = cm.priceToString(item.getProductPriceNet())
-            price_net = cm.priceToString(item.getPriceNet())
+            product_price_gross = cm.priceToString(item.getProductPriceGross())
             tax_rate = nc.floatToTaxString(item.getTaxRate())
             tax = cm.priceToString(item.getTax())
             price_gross = cm.priceToString(item.getPriceGross())
 
             temp = {
-                "product_title"     : item.getProduct().Title(),
-                "product_quantity"  : item.getProductQuantity(),
-                "product_price_net" : product_price_net,
-                "price_net"         : price_net,
-                "tax_rate"          : tax_rate,
-                "tax"               : tax,
-                "price_gross"       : price_gross,
-                "properties"        : item.getProperties(),
+                "product_title"        : item.getProduct().Title(),
+                "product_quantity"     : item.getProductQuantity(),
+                "product_price_gross"  : product_price_gross,
+                "price_gross"          : price_gross,
+                "tax_rate"             : tax_rate,
+                "tax"                  : tax,
+                "price_gross"          : price_gross,
+                "properties"           : item.getProperties(),
+                "has_discount"         : abs(item.getDiscountGross()) > 0,
+                "discount_description" : item.getDiscountDescription(),
+                "discount"             : cm.priceToString(item.getDiscountGross(), prefix="-"),
             }
+            
             items.append(temp)
 
         return items

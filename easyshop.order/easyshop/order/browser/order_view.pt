@@ -235,71 +235,71 @@
             </tr>
         </table>
         <table class="listing shop-listing">
-            <tr>               
+            <tr>
                 <th i18n:translate="product_label">
                     Product
                 </th>        
                 <th i18n:translate="properties_label">
                     Properties
                 </th>                  
+                <th i18n:translate="unit_price_label">
+                    Unit Price
+                </th>                
                 <th i18n:translate="quantity_label">
                     Quantity
                 </th>        
-                <th i18n:translate="price_label">
-                    Price
-                </th>
-                <th i18n:translate="tax_rate_label">
-                    Tax Rate
-                </th>
-                <th i18n:translate="tax_absolute_label">
-                    Tax Absolute
-                </th>                
                 <th i18n:translate="order_total_label">
                     Total
                 </th>                         
             </tr>
-            <tr tal:repeat="item view/getItems">
-                <td class="text" 
-                    tal:content="item/product_title">
-                    A Product
-                </td>
-                <td class="text"> 
-                    <div tal:repeat="property item/properties">
-                        <span tal:content="property/title">
-                            Color
-                        </span> : 
-                        <span tal:content="property/selected_option">
-                            Red
-                        </span>
-                    </div>
-                </td>  
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="item/product_quantity">
-                    1.0
-                </td>
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="item/price_net">        
-                    42.0
-                </td>    
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="item/tax_rate">
-                    42.0
-                </td>    
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="item/tax">
-                    42.0
-                </td>
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="item/price_gross">
-                    42.0
-                </td>
-            </tr>
-
+            <tal:block tal:repeat="item view/getItems">
+                <tr>
+                    <td class="text">
+                        <div tal:content="item/product_title">
+                            A Product
+                        </div>
+                        <div tal:condition="item/has_discount">
+                            <tal:block i18n:translate="discount_label">
+                                Discount
+                            </tal:block>                        
+                            (<tal:block tal:content="item/discount_description">
+                                Discount Description</tal:block>)
+                        </div>    
+                        
+                    </td>
+                    <td class="text"> 
+                        <div tal:repeat="property item/properties">
+                            <span tal:content="property/title">
+                                Color
+                            </span> : 
+                            <span tal:content="property/selected_option">
+                                Red
+                            </span>
+                        </div>
+                    </td>  
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="item/product_price_gross">
+                        42.0
+                    </td>                    
+                    <td nowrap="nowrap" 
+                        class="number"
+                        tal:content="item/product_quantity">
+                        1.0
+                    </td>
+                    <td nowrap="nowrap"
+                        class="number">
+                        <div tal:content="item/price_gross">
+                            42.0
+                        </div>
+                        <div tal:condition="item/has_discount"
+                             tal:content="item/discount">
+                            -23.0
+                        </div>
+                    </td>                
+                </tr>
+            </tal:block>
+            
             <tr tal:define="payment view/getPaymentValues"
                 tal:condition="payment/display">
                 <td class="text"
@@ -309,24 +309,14 @@
                 </td>
                 <td></td>
                 <td nowrap="nowrap" 
-                    class="number">
-                    1.0
+                    class="number"                    
+                    tal:content="payment/price_gross">
+                    42.0
                 </td>
                 <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="payment/price_net">
-                    42.0
-                </td>    
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="payment/tax_rate">
-                    42.0
-                </td>            
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="payment/tax">
-                    42.0            
-                </td>    
+                    class="number">
+                    1.0
+                </td>                
                 <td nowrap="nowrap" 
                     class="number"                    
                     tal:content="payment/price_gross">
@@ -341,24 +331,14 @@
                 </td>
                 <td></td>
                 <td nowrap="nowrap" 
+                    class="number"                    
+                    tal:content="shipping/price_gross">
+                    42.0
+                </td>                
+                <td nowrap="nowrap" 
                     class="number">
                     1.0
                 </td>
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="shipping/price_net">
-                    42.0
-                </td>    
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="shipping/tax_rate">
-                    42.0
-                </td>            
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="shipping/tax">
-                    42.0            
-                </td>    
                 <td nowrap="nowrap" 
                     class="number"                    
                     tal:content="shipping/price_gross">
@@ -369,7 +349,7 @@
                 <td i18n:translate="order_total_label">
                     Total
                 </td>
-                <td colspan="5"></td>
+                <td colspan="3"></td>
                 <td nowrap="nowrap" 
                     class="number"
                     tal:content="view/getPriceForCustomer">
