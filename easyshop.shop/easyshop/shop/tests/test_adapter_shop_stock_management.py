@@ -32,7 +32,7 @@ class TestShopStockManagement(EasyShopTestCase):
         self.assertEqual(self.shop.products.product_1.getStockAmount(), 8.0)
         self.assertEqual(self.shop.products.product_2.getStockAmount(), 19.0)
         
-    def testgetStockInformations(self):
+    def testGetStockInformations(self):
         """
         """
         container = self.shop["stock-information"]
@@ -44,8 +44,7 @@ class TestShopStockManagement(EasyShopTestCase):
         ids = [s.getId() for s in sm.getStockInformations()]
         
         self.assertEqual(ids, ["s1", "s2", "s3"])
-        
-            
+                    
     def testgetStockInformationFor_1(self):
         """
         """

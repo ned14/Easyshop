@@ -26,20 +26,20 @@ class TestDiscountsManagement(EasyShopTestCase):
 
         # Discount 1
         discount = dm.getDiscounts()[0]        
-        self.assertEqual(discount.getId(),    "d1")
-        self.assertEqual(discount.Title(),    "D1")
+        self.assertEqual(discount.getId(), "d1")
+        self.assertEqual(discount.Title(), "D1")
         self.assertEqual(discount.getValue(), 1.0)
         # defaults
-        self.assertEqual(discount.getBase(),  "product")
-        self.assertEqual(discount.getType(),  "absolute")
+        self.assertEqual(discount.getBase(), "product")
+        self.assertEqual(discount.getType(), "absolute")
 
         # Discount 2
         discount = dm.getDiscounts()[1]
-        self.assertEqual(discount.getId(),    "d2")
-        self.assertEqual(discount.Title(),    "D2")
+        self.assertEqual(discount.getId(), "d2")
+        self.assertEqual(discount.Title(), "D2")
         self.assertEqual(discount.getValue(), 2.0)
-        self.assertEqual(discount.getBase(),  "cart_item")
-        self.assertEqual(discount.getType(),  "percentage")
+        self.assertEqual(discount.getBase(), "cart_item")
+        self.assertEqual(discount.getType(), "percentage")
         
 def test_suite():
     from unittest import TestSuite, makeSuite
