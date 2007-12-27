@@ -50,7 +50,8 @@ class ProductTaxes:
 
     def _getStandardTax(self):
         """Returns the standard tax of the product. Without taking care whether 
-        the product is for sale or not.
+        the product is for sale or not. We need this in any case (whether the 
+        product is for sale or not) to display the default price (e.g. stroked).
         """
         tax_rate = self._calcTaxRateForProduct()
         price = self.context.getPrice()
@@ -64,7 +65,9 @@ class ProductTaxes:
         
     def _getStandardTaxForCustomer(self):
         """Returns the standard tax of the product and customer. Without taking 
-        care whether the product is for sale or not.
+        care whether the product is for sale or not. We need this in any case 
+        (whether the  product is for sale or not) to display the default price 
+        (e.g. stroked).
         """
         tax_product = self.getTax(effective=False)
         tax_rate_customer = self._calcTaxRateForCustomer()

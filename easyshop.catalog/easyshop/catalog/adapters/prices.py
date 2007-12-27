@@ -91,14 +91,16 @@ class ProductPrices:
     # Standard Price
     def _getStandardPriceForCustomer(self):
         """Returns always the standard price, independent of whether for sale is 
-        selected or not.
+        selected or not. We need this in any case (whether the product is for 
+        sale or not) to display the standard price (e.g. stroked).
         """
         tax_abs_customer = self.taxes.getTaxForCustomer(False)
         return self._getStandardPriceNet() + tax_abs_customer
 
     def _getStandardPriceNet(self):
         """Returns always the standard price, independent of whether for sale is 
-        selected or not.
+        selected or not. We need this in any case (whether the product is for 
+        sale or not) to display the standard price (e.g. stroked).
         """
         if self.gross_prices == True:
             return self.context.getPrice() - self.taxes.getTax(False)
@@ -107,7 +109,8 @@ class ProductPrices:
 
     def _getStandardPriceGross(self):
         """Returns always the standard price, independent of whether for sale is 
-        selected or not.
+        selected or not. We need this in any case (whether the product is for 
+        sale or not) to display the default price (e.g. stroked).
         """
         if self.gross_prices == True:
             return self.context.getPrice()
