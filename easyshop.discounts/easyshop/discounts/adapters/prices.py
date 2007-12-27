@@ -31,38 +31,65 @@ class DiscountPrices:
     def getPriceForCustomer(self):
         """
         """
-        tax_rate_for_customer = self.taxes.getTaxRateForCustomer()
-        price_net = self.getPriceNet()
-    
-        return price_net * ((tax_rate_for_customer+100)/100)
+        # If the discount is by percentage, we don't have to calc the tax for 
+        # the discount, because the discount is a part of the already calculated
+        # price, hence we can do it here.
+        
+        if self.discount.getType() == "percentage":
+            price = IPrices(self.cart_item).getPriceForCustomer()
+            return price * (self.discount.getValue() / 100)
+        else:
+            tax_rate_for_customer = self.taxes.getTaxRateForCustomer()
+            price_net = self.getPriceNet()
+        
+            # We take the net price and add the customer specific taxes.
+            return price_net * ((tax_rate_for_customer+100)/100)
 
     def getPriceGross(self):
         """
         """
-        tax_rate = self.taxes.getTaxRate()
-        price = self._calcTotalPrice()
-        
-        if self.shop.getGrossPrices() == True:
-            return price
-        else:            
-            return price + (price * (tax_rate/100))
+        if self.discount.getType() == "percentage":
+            price = IPrices(self.cart_item).getPriceGross()
+            return  price * (self.discount.getValue() / 100)
+        else:
+            tax_rate = self.taxes.getTaxRate()
+            price = self._calcTotalPrice()
+
+            # The price entered is considered as gross price, so we simply
+            # return it.
+            if self.shop.getGrossPrices() == True:
+                return price                
+
+            # The price entered is considered as net price. So we have to 
+            # calculate the gross price first.
+            else:
+                return price * ((tax_rate+100)/100)
 
     def getPriceNet(self):
         """
         """
-        tax_rate = self.taxes.getTaxRate()        
-        price = self._calcTotalPrice()
-        
-        if self.shop.getGrossPrices() == True:
-            return price - (tax_rate/(tax_rate+100)) * price
+        if self.discount.getType() == "percentage":
+            price = IPrices(self.cart_item).getPriceNet()
+            return price * (self.discount.getValue() / 100)
         else:
-            return price
+            tax_rate = self.taxes.getTaxRate()
+            price = self._calcTotalPrice()
+
+            # The price entered is considered as gross price. So we have to 
+            # calculate the net price first.
+                
+            if self.shop.getGrossPrices() == True:
+                return price * (100/(tax_rate+100))
+                
+            # The price entered is considered as net price, so we simply return 
+            # it.
+            else:
+                return price
             
     def _calcTotalPrice(self):
         """
         """
-        if self.discount.getType() == "absolute":
-            if self.discount.getBase() == "product":
-                return self.cart_item.getAmount() * self.discount.getValue()
-
-        return 0.0
+        if self.discount.getBase() == "cart_item":
+            return self.discount.getValue()
+        else:
+            return self.discount.getValue() * self.cart_item.getAmount()
