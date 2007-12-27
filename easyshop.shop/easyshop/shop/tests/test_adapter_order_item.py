@@ -103,7 +103,7 @@ class TestOrderItemManagement(EasyShopTestCase):
         self.assertEqual("%.2f" % order_item.getPriceNet(), "3811.76")
         self.assertEqual(order_item.getTaxRate(), 19.0)
         self.assertEqual("%.2f" % order_item.getTax(), "724.24")
-        self.assertEqual(order_item.getProducts(), self.product_1)
+        self.assertEqual(order_item.getProduct(), self.product_1)
         
         properties = order_item.getProperties()
             
