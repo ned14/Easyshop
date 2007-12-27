@@ -20,10 +20,22 @@ class StockInformationData:
     def asDict(self):
         """
         """
-        time_period = "%s-%s %s" % (self.context.getDeliveryTimeMin(), 
-                                    self.context.getDeliveryTimeMax(), 
-                                    self.context.getDeliveryTimeUnit())
+        delivery_min  = self.context.getDeliveryTimeMin()
+        delivery_max  = self.context.getDeliveryTimeMax()
+        time_unit     = self.context.getDeliveryTimeUnit()
+
+        if delivery_min == delivery_max:
+
+            if delivery_min == "1":
+                time_unit = time_unit[:-1]
+                
+            time_period = delivery_min
+            
+        else:            
+            time_period = "%s-%s" % (delivery_min, delivery_max)
+            
         return {
             "available"   : self.context.getAvailable(),
             "time_period" : time_period,
+            "time_unit"   : time_unit,
         }

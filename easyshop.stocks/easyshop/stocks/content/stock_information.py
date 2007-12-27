@@ -52,7 +52,7 @@ schema = Schema((
     StringField(
         name="deliveryTimeUnit",
         vocabulary=DELIVERY_TIMES_UNIT,
-        default=u"days",
+        default=u"Days",
         widget=SelectionWidget(
             label="Delivery Time Unit",
             label_msgid="schema_delivery_time_unit_label",
