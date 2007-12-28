@@ -60,10 +60,10 @@ def mailOrderSubmitted(order):
 
     # Get sender and receiver
     mail_addresses = IMailAddresses(shop)
-    sender   = mail_addresses.getSender()
-    receiver = mail_addresses.getReceiver()
-    
-    if sender and receiver:
+    sender    = mail_addresses.getSender()
+    receivers = mail_addresses.getReceivers()
+
+    if sender and receivers:
         view = getMultiAdapter((order, order.REQUEST), name="mail-order-submitted")
         text = view()
 
@@ -74,7 +74,7 @@ def mailOrderSubmitted(order):
         sendMultipartMail(
             context  = order,
             sender   = sender,
-            receiver = receiver,
+            receiver = ", ".join(receivers),
             subject  = "E-Shop: New order",
             text     = text,
             charset  = charset)
