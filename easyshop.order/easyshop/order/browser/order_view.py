@@ -146,7 +146,6 @@ class OrderView(BrowserView):
                 "price_gross"          : price_gross,
                 "tax_rate"             : tax_rate,
                 "tax"                  : tax,
-                "price_gross"          : price_gross,
                 "properties"           : item.getProperties(),
                 "has_discount"         : abs(item.getDiscountGross()) > 0,
                 "discount_description" : item.getDiscountDescription(),

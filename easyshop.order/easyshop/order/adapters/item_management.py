@@ -71,19 +71,25 @@ class OrderItemManagement:
         """        
         self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=str(id))
         new_item = getattr(self.context, str(id))
-        
-        # Set product prices & taxes
-        taxes = ITaxes(cart_item.getProduct())
-        new_item.setTaxRate(taxes.getTaxRate())
+
         new_item.setProductQuantity(cart_item.getAmount())
-        new_item.setProductTax(taxes.getTax())
-        new_item.setProductPriceGross(cart_item.getProduct().getPrice())
-        new_item.setProductPriceNet(new_item.getProductPriceGross() - new_item.getProductTax())
+                
+        # Set product prices & taxes
+        product_taxes  = ITaxes(cart_item.getProduct())
+        product_prices = IPrices(cart_item.getProduct())
+        item_prices = IPrices(cart_item)
+        item_taxes  = ITaxes(cart_item)
+        
+        new_item.setTaxRate(product_taxes.getTaxRateForCustomer())
+        new_item.setProductTax(product_taxes.getTaxForCustomer())
+        
+        new_item.setProductPriceGross(product_prices.getPriceForCustomer())
+        new_item.setProductPriceNet(product_prices.getPriceNet())
 
         # Set item prices & taxes
-        new_item.setTax(ITaxes(cart_item).getTaxForCustomer())
-        new_item.setPriceGross(IPrices(cart_item).getPriceForCustomer())
-        new_item.setPriceNet(IPrices(cart_item).getPriceNet())
+        new_item.setTax(item_taxes.getTaxForCustomer())
+        new_item.setPriceGross(item_prices.getPriceForCustomer())
+        new_item.setPriceNet(item_prices.getPriceNet())
 
         # Discount
         discount = IDiscountsCalculation(cart_item).getDiscount()
