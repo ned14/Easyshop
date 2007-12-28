@@ -3,7 +3,6 @@ import transaction
 from zope.interface import implements
 
 # Zope imports
-from DateTime import DateTime
 from AccessControl import ClassSecurityInfo
 
 # CMFCore imports
@@ -15,6 +14,7 @@ from Products.Archetypes.atapi import *
 # easyshop imports
 from easyshop.core.config import *
 from easyshop.core.interfaces import ICategoryCriteria
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -49,18 +49,23 @@ class CategoryCriteria(BaseContent):
     implements(ICategoryCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
-    schema = BaseSchema.copy() + schema.copy()
+    schema = BaseSchema.copy() + schema
 
     def getCategoriesAsDL(self):
         """Returns all Categories as DisplayList
         """
+        shop = IShopManagement(self).getShop()
+        
         dl = DisplayList()
         catalog = getToolByName(self, "portal_catalog")
-
-        for category in catalog.searchResults(
+        
+        brains = catalog.searchResults(
+            path = "/".join(shop.getPhysicalPath()),
             portal_type="Category",
-            sort_on = "getObjPositionInParent"):
-            dl.add(category.id, category.Title)
+        )
+
+        for brain in brains:
+            dl.add(brain.getPath(), "%s (%s)" % (brain.Title, brain.getPath()))
             
         return dl
 
