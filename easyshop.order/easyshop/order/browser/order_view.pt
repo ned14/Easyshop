@@ -356,6 +356,18 @@
                     42.0
                 </td>    
             </tr> 
+            <tr>
+                <td colspan="3"></td>
+                <td i18n:translate="incl_tax_label">
+                    incl. Tax =
+                </td>                
+                <td nowrap="nowrap" 
+                    class="number"
+                    tal:content="view/getTax">
+                    42.0
+                </td>    
+            </tr> 
+            
         </table>         
         <div tal:replace="structure provider:plone.belowcontentbody" />
    </metal:main>

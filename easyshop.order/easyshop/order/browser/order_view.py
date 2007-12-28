@@ -218,7 +218,14 @@ class OrderView(BrowserView):
             "country" : address.country,
             "phone" : address.phone           
         }
-        
+
+    def getOverviewURL(self):
+        """
+        """
+        shop = IShopManagement(self.context).getShop()
+        customer = ICustomerManagement(shop).getAuthenticatedCustomer()
+        return "%s/my-orders" % customer.absolute_url()
+                
     def getShippingAddress(self):
         """
         """
@@ -261,6 +268,12 @@ class OrderView(BrowserView):
         wftool = getToolByName(self.context, "portal_workflow")
         return wftool.getInfoFor(self.context, "review_state")
 
+    def getTax(self):
+        """
+        """
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(self.context.getTax())
+        
     def isRedoPaymentAllowed(self):
         """
         """
@@ -278,13 +291,6 @@ class OrderView(BrowserView):
 
         return True
 
-    def getOverviewURL(self):
-        """
-        """
-        shop = IShopManagement(self.context).getShop()
-        customer = ICustomerManagement(shop).getAuthenticatedCustomer()
-        return "%s/my-orders" % customer.absolute_url()
-        
     def redoPayment(self):
         """
         """
