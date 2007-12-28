@@ -1,13 +1,9 @@
 # zope imports
 from zope.component import getMultiAdapter
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports 
 from base import EasyShopTestCase
 from easyshop.core.interfaces import IOrderManagement
-from easyshop.core.interfaces import ICopyManagement
 
 class TestOrderManagement(EasyShopTestCase):
     """
@@ -46,8 +42,8 @@ class TestOrderManagement(EasyShopTestCase):
         # customer should be copied
         self.assertEqual(new_order.getCustomer().getId(), "newmember")
         
-        # The cart should still be there, because we need until the payment has
-        # been successfully processed. See order_preview.py/handle_buy_action 
+        # The cart should still be there, because we need it until the payment 
+        # has been successfully processed. See order_preview.py/handle_buy_action
         # for more.
         self.failUnless(self.shop.carts.get("newmember"))
                         
@@ -71,8 +67,8 @@ class TestOrderManagement(EasyShopTestCase):
         ids = [o.getId() for o in om.getOrders(sorting="id", sort_order="ascending")]
         self.assertEqual(ids, ["o1", "o2", "o3", "o4", "o5"])
 
-        ids = [o.getId() for o in om.getOrders("created")]
-        self.assertEqual(ids, ["o1", "o5", "o3", "o4", "o2"])
+        ids = [o.getId() for o in om.getOrders("created", sorting="getObjPositionInParent")]
+        self.assertEqual(ids, ["o2", "o4", "o3", "o5", "o1"])
                         
     def testGetOrdersForAuthenticatedCustomer(self):
         """

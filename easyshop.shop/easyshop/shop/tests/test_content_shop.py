@@ -33,7 +33,7 @@ class TestInitialize(EasyShopTestCase):
             "paymentprices",
             "shippingmethods",
             "shippingprices",
-            "stocking-information",
+            "stock-information",
             "taxes"
         ]
 
