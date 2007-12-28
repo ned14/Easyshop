@@ -25,6 +25,7 @@ class TestInitialize(EasyShopTestCase):
             "categories",
             "products",
             "customers",
+            "discounts",
             "groups",
             "information",
             "orders",
@@ -32,6 +33,7 @@ class TestInitialize(EasyShopTestCase):
             "paymentprices",
             "shippingmethods",
             "shippingprices",
+            "stocking-information",
             "taxes"
         ]
 
