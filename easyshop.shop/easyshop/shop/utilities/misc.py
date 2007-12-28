@@ -19,13 +19,13 @@ def getObjectByUID(context, uid):
     except IndexError:
         return None
         
-def sendMultipartMail(context, from_, to, cc=[], bcc=[], subject="", text="", charset="utf-8"):
+def sendMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", text="", charset="utf-8"):
     """
     """
     mail = MIMEMultipart("alternative")
         
-    mail['From']    = from_
-    mail['To']      = to
+    mail['From']    = sender
+    mail['To']      = receiver
     mail['Bcc']     = "".join(cc)
     mail['Bcc']     = "".join(bcc)
     mail['Subject'] = subject

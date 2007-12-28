@@ -176,7 +176,12 @@
                                        i18n:attributes="title zoom_label;"
                                        tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
                    
-                                <input type="hidden"
+                                <input tal:condition="not:view/showAddQuantity"
+                                       type="hidden"
+                                       name="quantity"
+                                       value="1" />
+
+                                <input tal:condition="view/showAddQuantity"
                                        name="quantity"
                                        value="1" />
 

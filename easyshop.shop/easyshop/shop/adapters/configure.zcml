@@ -9,6 +9,10 @@
     <adapter
         factory=".image_conversion.ImageConversion" />
 
+    <!-- IMailAddresses  -->
+    <adapter
+        factory=".mail_addresses.ShopMailAddresses" />
+
     <!-- IPhotoManagement -->
     <adapter
         for="easyshop.core.interfaces.IProduct"        

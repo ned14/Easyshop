@@ -23,3 +23,13 @@ class IValidity(Interface):
         """Returns true if the object fullfills criteria of validity.
         """
         
+class IMailAddresses(Interface):
+    """Provides methods to retrieve mail addresses.
+    """
+    def getSender():
+        """Returns the sender of shop e-mails based on the entered data.
+        """
+        
+    def getReceivers():
+        """Returns receivers of shop e-mails based on entered data.
+        """

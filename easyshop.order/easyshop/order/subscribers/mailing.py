@@ -9,6 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.DCWorkflow.interfaces import IAfterTransitionEvent
 
 # easyshop imports
+from easyshop.core.interfaces import IMailAddresses
 from easyshop.core.interfaces import IOrder
 from easyshop.core.interfaces import IShopManagement
 from easyshop.shop.utilities.misc import sendMultipartMail
@@ -40,21 +41,29 @@ def mailOrderSent(order):
     # Get charset
     props = getToolByName(order, "portal_properties").site_properties
     charset = props.getProperty("default_charset")
-        
+
+    # Get sender
+    sender = IMailAddresses(shop).getSender()
+    
     sendMultipartMail(
-        context = order,    
-        from_   = shop.getMailFrom(),
-        to      = customer.email,
-        subject = "Your order %s has been sent." % order.getId(),
-        text    = text,
-        charset = charset)
+        context  = order,
+        sender   = sender,
+        receiver = customer.email,
+        subject  = "Your order %s has been sent." % order.getId(),
+        text     = text,
+        charset  = charset)
 
 def mailOrderSubmitted(order):
     """Sends email to shop owner that an order has been submitted.
     """
     shop = IShopManagement(order).getShop()
+
+    # Get sender and receiver
+    mail_addresses = IMailAddresses(shop)
+    sender   = mail_addresses.getSender()
+    receiver = mail_addresses.getReceiver()
     
-    if shop.getMailFrom() and shop.getMailTo():
+    if sender and receiver:
         view = getMultiAdapter((order, order.REQUEST), name="mail-order-submitted")
         text = view()
 
@@ -63,9 +72,9 @@ def mailOrderSubmitted(order):
         charset = props.getProperty("default_charset")
 
         sendMultipartMail(
-            context = order,
-            from_   = shop.getMailFrom(),
-            to      = ", ".join(shop.getMailTo()),
-            subject = "E-Shop: New order",
-            text    = text,
-            charset = charset)
+            context  = order,
+            sender   = sender,
+            receiver = receiver,
+            subject  = "E-Shop: New order",
+            text     = text,
+            charset  = charset)

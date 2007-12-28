@@ -73,7 +73,7 @@ schema = Schema((
         default=True,
         schemata="misc",
         widget = BooleanWidget(
-            description = "If selected, a quantity field is shown to add a product to cart.",  
+            description = "If selected, customers can select amount of products which are added to cart.",  
             label="Show Quantity",
             label_msgid="schema_show_quantity_label",
             description_msgid="schema_show_quantity_description",
@@ -98,21 +98,33 @@ schema = Schema((
         name="payPalId",
         schemata="payment",
         widget=StringWidget(
-            label="PayPalId",
+            label="PayPal ID",
             label_msgid="schema_paypal_id_label",
             description = "",
             description_msgid="schema_paypal_id_description",
             i18n_domain="EasyShop",
         ),
     ),    
-    
+
     StringField(
-        name="mailFrom",
+        name="mailFromName",
         schemata="mailing",
         widget=StringWidget(
-            label="MailFrom",
-            label_msgid="schema_mail_from_label",
-            description = "This mail address will be used for the sender.",
+            label="Mail 'From' Name",
+            label_msgid="schema_mail_from_name_label",
+            description = "EasyShop generates e-mail using this email as the e-mail sender. Leave it blank to use Plone's default.",
+            description_msgid="schema_mail_from_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
+    StringField(
+        name="mailFromAddress",
+        schemata="mailing",
+        widget=StringWidget(
+            label="EasyShop 'From' Address",
+            label_msgid="schema_mail_from_address_label",
+            description = "Plone generates e-mail using this address as the e-mail sender. Leave it blank to use Plone's default.",
             description_msgid="schema_mail_from_description",
             i18n_domain="EasyShop",
         ),
@@ -124,12 +136,11 @@ schema = Schema((
         widget=LinesWidget(
             label="MailTo",
             label_msgid="schema_mailto_label",
-            description = "To this mail addresses all shop relevant mails are sent.",
+            description = "To this mail addresses all shop relevant mails (e.g. order has been submitted) are sent. Leave it blank to use Plone's default.",
             description_msgid="schema_mailto_description",
             i18n_domain="EasyShop",
         ),
-    ),
-    
+    ),    
 ),
 )
 
