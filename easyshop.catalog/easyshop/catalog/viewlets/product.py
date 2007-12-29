@@ -15,7 +15,7 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
@@ -25,12 +25,6 @@ class ProductViewlet(ViewletBase):
     """
     """
     render = ViewPageTemplateFile('product.pt')
-
-    def getAuxiliaryPhotos(self):
-        """
-        """
-        pm = IPhotoManagement(self.context)
-        return pm.getAuxiliaryPhotos()
 
     def getBuyLabel(self):
         """
@@ -79,17 +73,17 @@ class ProductViewlet(ViewletBase):
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
                             
-    def getMainPhoto(self):
+    def getMainImage(self):
         """
         """
-        pm = IPhotoManagement(self.context)
-        return pm.getMainPhoto()
+        pm = IImageManagement(self.context)
+        return pm.getMainImage()
         
-    def getPhotos(self):
+    def getImages(self):
         """
         """
-        pm = IPhotoManagement(self.context)
-        return pm.getPhotos()
+        pm = IImageManagement(self.context)
+        return pm.getImages()
 
     def getProduct(self):
         """
@@ -168,11 +162,11 @@ class ProductViewlet(ViewletBase):
             
         return IData(stock_information).asDict()
                     
-    def hasPhotos(self):
+    def hasImages(self):
         """
         """
-        pm = IPhotoManagement(self.context)
-        return pm.hasPhotos()
+        pm = IImageManagement(self.context)
+        return pm.hasImages()
                     
     def showAddQuantity(self):
         """

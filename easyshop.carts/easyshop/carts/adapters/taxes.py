@@ -68,7 +68,7 @@ class CartTaxes:
         tax += IShippingPriceManagement(shop).getTaxForCustomer()
         
         # Payment
-        tax += IPaymentPriceManagement(shop).getTax()
+        tax += IPaymentPriceManagement(shop).getTaxForCustomer()
         
         return tax
         

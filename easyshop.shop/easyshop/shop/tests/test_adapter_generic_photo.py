@@ -15,73 +15,73 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.config import *
 from base import EasyShopTestCase
 from easyshop.shop.tests import utils
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 
-class TestPhotoManagement_1(EasyShopTestCase):
-    """Test with no photos.
+class TestImageManagement_1(EasyShopTestCase):
+    """Test with no images.
     """
     def afterSetUp(self):
         """
         """
-        super(TestPhotoManagement_1, self).afterSetUp()
+        super(TestImageManagement_1, self).afterSetUp()
         self.logout()
         
-    def testGetMainPhoto(self):
+    def testGetMainImage(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.getMainPhoto(), None)
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.getMainImage(), None)
         
-    def testGetPhotos(self):
+    def testGetImages(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.getPhotos(), [])
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.getImages(), [])
                         
-    def testHasPhotos(self):
+    def testHasImages(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.hasPhotos(), False)
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.hasImages(), False)
 
-class TestPhotoManagement_2(EasyShopTestCase):
-    """Test with photos as own objects within the folderish product.
+class TestImageManagement_2(EasyShopTestCase):
+    """Test with images as own objects within the folderish product.
     """
     def afterSetUp(self):
         """
         """
-        super(TestPhotoManagement_2, self).afterSetUp()
-        self.product_1.invokeFactory("Photo", id="photo_1")
-        self.product_1.invokeFactory("Photo", id="photo_2")        
+        super(TestImageManagement_2, self).afterSetUp()
+        self.product_1.invokeFactory("EasyShopImage", id="image_1")
+        self.product_1.invokeFactory("EasyShopImage", id="image_2")        
         self.logout()
         
-    def testGetMainPhoto(self):
+    def testGetMainImage(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.getMainPhoto().getId(), "photo_1")
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.getMainImage().getId(), "image_1")
         
-    def testGetPhotos(self):
+    def testGetImages(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        ids = [p.getId() for p in pm.getPhotos()]
+        pm = IImageManagement(self.product_1)
+        ids = [p.getId() for p in pm.getImages()]
         
-        self.assertEqual(ids, ["photo_1", "photo_2"])
+        self.assertEqual(ids, ["image_1", "image_2"])
                         
-    def testHasPhotos(self):
+    def testHasImage(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.hasPhotos(), True)
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.hasImages(), True)
 
-class TestPhotoManagement_3(EasyShopTestCase):
-    """Test with photo as attribute.
+class TestImageManagement_3(EasyShopTestCase):
+    """Test with image as attribute.
     """
     def afterSetUp(self):
         """
         """
-        super(TestPhotoManagement_3, self).afterSetUp()                        
+        super(TestImageManagement_3, self).afterSetUp()                        
                 
         img = os.path.join(package_home(globals()), 'test.jpg')
         img = open(img)
@@ -89,69 +89,69 @@ class TestPhotoManagement_3(EasyShopTestCase):
         self.product_1.setImage(img)
         self.logout()
         
-    def testGetMainPhoto(self):
+    def testGetMainImage(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.getMainPhoto().getId(), "product_1")
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.getMainImage().getId(), "product_1")
         
-    def testGetPhotos(self):
+    def testGetImages(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        ids = [p.getId() for p in pm.getPhotos()]
+        pm = IImageManagement(self.product_1)
+        ids = [p.getId() for p in pm.getImages()]
         
         self.assertEqual(ids, ["product_1"])
                         
-    def testHasPhotos(self):
+    def testHasImages(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.hasPhotos(), True)
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.hasImages(), True)
 
-class TestPhotoManagement_4(EasyShopTestCase):
-    """Test with photos as attribute and objects.
+class TestImageManagement_4(EasyShopTestCase):
+    """Test with images as attribute and objects.
     """
     def afterSetUp(self):
         """
         """
-        super(TestPhotoManagement_4, self).afterSetUp()                    
+        super(TestImageManagement_4, self).afterSetUp()                    
                 
         img = os.path.join(package_home(globals()), 'test.jpg')
         img = open(img)
         
         self.product_1.setImage(img)
-        self.product_1.invokeFactory("Photo", id="photo_1")
-        self.product_1.invokeFactory("Photo", id="photo_2")
+        self.product_1.invokeFactory("EasyShopImage", id="image_1")
+        self.product_1.invokeFactory("EasyShopImage", id="image_2")
                                 
         self.logout()
         
-    def testGetMainPhoto(self):
+    def testGetMainImage(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.getMainPhoto().getId(), "product_1")
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.getMainImage().getId(), "product_1")
         
-    def testGetPhotos(self):
+    def testGetImages(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        ids = [p.getId() for p in pm.getPhotos()]
+        pm = IImageManagement(self.product_1)
+        ids = [p.getId() for p in pm.getImages()]
         
-        self.assertEqual(ids, ["product_1", "photo_1", "photo_2"])
+        self.assertEqual(ids, ["product_1", "image_1", "image_2"])
                         
-    def testHasPhotos(self):
+    def testHasImages(self):
         """
         """
-        pm = IPhotoManagement(self.product_1)
-        self.assertEqual(pm.hasPhotos(), True)
+        pm = IImageManagement(self.product_1)
+        self.assertEqual(pm.hasImages(), True)
     
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(TestPhotoManagement_1))
-    suite.addTest(makeSuite(TestPhotoManagement_2))
-    suite.addTest(makeSuite(TestPhotoManagement_3))    
-    suite.addTest(makeSuite(TestPhotoManagement_4))        
+    suite.addTest(makeSuite(TestImageManagement_1))
+    suite.addTest(makeSuite(TestImageManagement_2))
+    suite.addTest(makeSuite(TestImageManagement_3))    
+    suite.addTest(makeSuite(TestImageManagement_4))        
     return suite
                                                

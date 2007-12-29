@@ -222,14 +222,14 @@ class TestCartTaxes(EasyShopTestCase):
         """
         t = ITaxes(self.cart)
         tax = "%.2f" % t.getTax()
-        self.assertEqual(tax, "16.13")
+        self.assertEqual(tax, "33.69")
 
     def testGetTaxForCustomer(self):
         """
         """
         t = ITaxes(self.cart)
         tax = "%.2f" % t.getTaxForCustomer()
-        self.assertEqual(tax, "16.13")
+        self.assertEqual(tax, "33.69")
     
 def test_suite():
     from unittest import TestSuite, makeSuite

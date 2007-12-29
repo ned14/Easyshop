@@ -182,9 +182,9 @@ class EasyShop(ATFolder):
         # Add Content Type Registry
         self.manage_addProduct["CMFCore"].manage_addRegistry()
         ctr = self.content_type_registry
-        ctr.addPredicate("Photo", "extension")
-        ctr.getPredicate("Photo").edit("jpg jpeg png gif")
-        ctr.assignTypeName("Photo", "Photo")
+        ctr.addPredicate("EasyShopImage", "extension")
+        ctr.getPredicate("EasyShopImage").edit("jpg jpeg png gif")
+        ctr.assignTypeName("EasyShopImage", "EasyShopImage")
         
         # Add left portlets 
         leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)

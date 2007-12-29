@@ -34,7 +34,7 @@ class EasyShopImage(ATImage):
     implements(IEasyShopImage)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
-    schema = BaseSchema.copy() + schema
+    schema = ATImage.schema.copy() + schema
 
     def manage_afterPUT(self, data, marshall_data, file, context, mimetype,
                         filename, REQUEST, RESPONSE):
@@ -50,4 +50,4 @@ class EasyShopImage(ATImage):
             data = IImageConversion(self).convertImage(data)
         self.getField("image").set(self, data)
 
-registerType(Photo, PROJECTNAME)
+registerType(EasyShopImage, PROJECTNAME)

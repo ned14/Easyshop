@@ -5,7 +5,7 @@ from Products.Five.browser import BrowserView
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
 
@@ -27,11 +27,11 @@ class AddedToCartView(BrowserView):
         cm    = ICurrencyManagement(self.context)
         price = cm.priceToString(price)        
         
-        # Photo
+        # Image
         product = cart_item.getProduct()
-        photo = IPhotoManagement(product).getMainPhoto()
-        if photo is not None:
-            image_url = photo.absolute_url()
+        image = IImageManagement(product).getMainImage()
+        if image is not None:
+            image_url = image.absolute_url()
         else:
             image_url = None
         

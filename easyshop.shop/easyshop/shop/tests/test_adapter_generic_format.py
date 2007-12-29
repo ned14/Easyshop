@@ -11,7 +11,7 @@ from Products.CMFCore.utils import getToolByName
 from base import EasyShopTestCase
 from easyshop.shop.tests import utils
 from easyshop.core.interfaces import IFormats
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 
 class TestFormatterInfos(EasyShopTestCase):
     """

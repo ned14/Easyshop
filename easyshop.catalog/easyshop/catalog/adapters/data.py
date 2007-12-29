@@ -5,7 +5,7 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
 
@@ -28,10 +28,10 @@ class ProductData:
         price = IPrices(self.context).getPriceForCustomer()
         price = cm.priceToString(price)
 
-        # photo
-        photo = IPhotoManagement(self.context).getMainPhoto()
-        if photo is not None:
-            image = "%s/image_%s" % (photo.absolute_url(), "preview")
+        # image
+        image = IImageManagement(self.context).getMainImage()
+        if image is not None:
+            image = "%s/image_%s" % (image.absolute_url(), "preview")
         else:
             image = None
               

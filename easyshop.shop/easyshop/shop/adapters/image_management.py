@@ -5,21 +5,21 @@ from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 
-class PhotoManagement:
-    """Provides IPhotoManagement for several classes.
+class ImageManagement:
+    """Provides IImageManagement for several classes.
     """
-    implements(IPhotoManagement)
+    implements(IImageManagement)
     
     def __init__(self, context):
         """
         """
         self.context = context
 
-    def getMainPhoto(self):
-        """Returns the main photo. This is either the product itself or the 
-        first photo object within the product.
+    def getMainImage(self):
+        """Returns the main image. This is either the product itself or the 
+        first image object within the product.
         """ 
         # Returns the object, which contains the image field (not the image
         # field itself), to be able to get image_shop_large. etc.
@@ -28,22 +28,22 @@ class PhotoManagement:
             return self.context
         else:
             try:
-                return self.context.objectValues("Photo")[0]
+                return self.context.objectValues("EasyShopImage")[0]
             except IndexError:
                 return None
                 
-    def getPhotos(self):
-        """Returns all photos.
+    def getImages(self):
+        """Returns all images.
         """
         result = []
         image = self.context.getField("image").get(self.context)
         if len(image) != 0:
             result.append(self.context)
         
-        result.extend(self.context.objectValues("Photo"))
+        result.extend(self.context.objectValues("EasyShopImage"))
         return result
         
-    def hasPhotos(self):
-        """Returns True if at least one photo exists.
+    def hasImages(self):
+        """Returns True if at least one image exists.
         """
-        return len(self.getPhotos()) > 0
+        return len(self.getImages()) > 0

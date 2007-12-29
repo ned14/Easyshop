@@ -13,7 +13,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 # easyshop imports
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 
 class ProductSelectorViewlet(ViewletBase):
@@ -74,10 +74,10 @@ class ProductSelectorViewlet(ViewletBase):
                 price = IPrices(product).getPriceForCustomer()
                 price = cm.priceToString(price)
                 
-                # photo
-                photo = IPhotoManagement(product).getMainPhoto()
-                if photo is not None:
-                    image = "%s/image_%s" % (photo.absolute_url(), fi.get("image_size"))
+                # image
+                image = IImageManagement(product).getMainImage()
+                if image is not None:
+                    image = "%s/image_%s" % (image.absolute_url(), fi.get("image_size"))
 
                 t = fi.get("text")
                 if t == "description":

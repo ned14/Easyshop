@@ -3,7 +3,7 @@
  <factorytypes>
   <type portal_type="Categroy"/> 
   <type portal_type="Formatter"/> 
-  <type portal_type="Photo"/> 
+  <type portal_type="EasyShopImage"/> 
   <type portal_type="ProductProperty"/> 
   <type portal_type="ProductSelector"/> 
  </factorytypes>

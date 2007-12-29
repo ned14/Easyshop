@@ -13,14 +13,14 @@
     <adapter
         factory=".mail_addresses.ShopMailAddresses" />
 
-    <!-- IPhotoManagement -->
+    <!-- IImageManagement -->
     <adapter
         for="easyshop.core.interfaces.IProduct"        
-        factory=".photo_management.PhotoManagement" />
+        factory=".image_management.ImageManagement" />
     
     <adapter
         for="easyshop.core.interfaces.ICategory"
-        factory=".photo_management.PhotoManagement" />
+        factory=".image_management.ImageManagement" />
 
     <!-- IShopManagement -->
     <adapter
