@@ -72,6 +72,7 @@ class OrderItemManagement:
         self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=str(id))
         new_item = getattr(self.context, str(id))
 
+        # set product quantity        
         new_item.setProductQuantity(cart_item.getAmount())
                 
         # Set product prices & taxes
@@ -101,11 +102,16 @@ class OrderItemManagement:
             new_item.setDiscountNet(dp.getPriceNet())
         
         # Set product
-        new_item.setProduct(cart_item.getProduct())
+        product = cart_item.getProduct()
+        new_item.setProduct(product)
+
+        # Set product name and id
+        new_item.setProductTitle(product.Title())
+        new_item.setArticleId(product.getArticleId())
 
         # Set properties
         properties = []
-        pm = IPropertyManagement(cart_item.getProduct())
+        pm = IPropertyManagement(product)
         for selected_property in cart_item.getProperties():
 
             property_price = pm.getPriceForCustomer(

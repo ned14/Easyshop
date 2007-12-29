@@ -139,9 +139,20 @@ class OrderView(BrowserView):
             tax = cm.priceToString(item.getTax())
             price_gross = cm.priceToString(item.getPriceGross())
 
+            # Get title. Takes care of, if the product has been deleted in the 
+            # meanwhile.
+            product = item.getProduct()
+            if product is None:
+                title = item.getProductTitle()
+                url = None
+            else:
+                title = product.Title()
+                url = product.absolute_url()
+                
             temp = {
-                "product_title"        : item.getProduct().Title(),
+                "product_title"        : title,
                 "product_quantity"     : item.getProductQuantity(),
+                "product_url"          : url,
                 "product_price_gross"  : product_price_gross,
                 "price_gross"          : price_gross,
                 "tax_rate"             : tax_rate,

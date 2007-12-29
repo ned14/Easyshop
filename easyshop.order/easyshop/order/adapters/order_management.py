@@ -72,7 +72,7 @@ class OrderManagement:
         new_id = self._createOrderId()
         self.orders.invokeFactory("Order", id=new_id)
         new_order = getattr(self.orders, new_id)
-
+        
         # Add cart items to order
         IItemManagement(new_order).addItemsFromCart(cart)
 

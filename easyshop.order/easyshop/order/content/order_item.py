@@ -33,6 +33,28 @@ schema = Schema((
             i18n_domain='EasyShop',
         ),        
     ),
+
+    # The product name. Will be used if the product has been deleted in the
+    # meanwhile.
+    StringField(
+        name="productTitle",
+        widget=StringWidget(
+            label="Product Title",
+            label_msgid="schema_product_title_label",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    # The internal article id. will be used if the product has been deleted in
+    # the meanwhile.
+    StringField(
+        name="articleId",
+        widget=StringWidget(
+            label="Article ID",
+            label_msgid="schema_product_id_label",
+            i18n_domain="EasyShop",
+        ),
+    ),
     
     FloatField(
         name='productQuantity',

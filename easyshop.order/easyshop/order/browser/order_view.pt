@@ -248,8 +248,13 @@
             <tal:block tal:repeat="item view/getItems">
                 <tr>
                     <td class="text">
-                        <div tal:content="item/product_title">
-                            A Product
+                        <div>
+                            <a href="."
+                               tal:omit-tag="not:item/product_url"
+                               tal:attributes="href item/product_url"
+                               tal:content="item/product_title">
+                                A Product
+                            </a>
                         </div>
                         <div tal:condition="item/has_discount">
                             <tal:block i18n:translate="discount_label">
