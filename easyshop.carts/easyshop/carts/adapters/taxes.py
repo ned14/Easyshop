@@ -5,6 +5,7 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import ICart
 from easyshop.core.interfaces import ICartItem
+from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShippingPriceManagement
@@ -38,7 +39,7 @@ class CartTaxes:
         """
         """
         shop = IShopManagement(self.context).getShop()
-        cart_items = self.context.objectValues()
+        cart_items = IItemManagement(self.context).getItems()
 
         tax = 0.0
         for cart_item in cart_items:
@@ -57,7 +58,7 @@ class CartTaxes:
         """
         """
         shop = IShopManagement(self.context).getShop()        
-        cart_items = self.context.objectValues()
+        cart_items = IItemManagement(self.context).getItems()
 
         tax = 0.0
         for cart_item in cart_items:
