@@ -16,7 +16,7 @@
      meta_type="Factory-based Type Information"/>
 
  <object
-     name="ESImage"
+     name="EasyShopImage"
      meta_type="Factory-based Type Information with dynamic views"/>
 
  <object 
@@ -27,10 +27,6 @@
      name="ProductProperty"
      meta_type="Factory-based Type Information"/>
      
- <object
-     name="Photo"
-     meta_type="Factory-based Type Information with dynamic views"/>
-
  <object
      name="ProductSelector"
      meta_type="Factory-based Type Information"/>

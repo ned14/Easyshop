@@ -1,6 +1,3 @@
-# Python imports
-from StringIO import StringIO
-
 # Zope imports
 from AccessControl import ClassSecurityInfo
 
@@ -12,40 +9,11 @@ from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.image import ATImage
 
 # easyshop imports
-from easyshop.core.interfaces import IProductPhoto
+from easyshop.core.interfaces import IEasyShopImage
 from easyshop.core.interfaces import IImageConversion
 from easyshop.core.config import *
 
 schema = Schema((
-
-    ImageField(
-        name='image',
-        sizes= {'large'   : (768, 768),
-                'preview' : (400, 400),
-                'mini'    : (200, 200),
-                'thumb'   : (128, 128),
-                'tile'    :  (64, 64),
-                'icon'    :  (32, 32),
-                'listing' :  (16, 16),
-               },
-        widget=ImageWidget(
-            label='Image',
-            label_msgid='schema_image_label',
-            i18n_domain='EasyShop',
-        ),
-        storage=AttributeStorage()
-    ),
-
-    BooleanField(
-        name = "cutImage",
-        widget = BooleanWidget(
-            label="Cut Image",
-            label_msgid="schema_cut_image_label",
-            description = "Select, to cut the image.",  
-            description_msgid="schema_cut_image_label_description",
-            i18n_domain="EasyShop",
-        ),
-    ),
 
     StringField(
         name='subtitle',
@@ -60,13 +28,13 @@ schema = Schema((
 ),
 )
 
-class Photo(BaseContent):
-    """A photo for a product.
+class EasyShopImage(ATImage):
+    """An extended image for EasyShop.
     """
-    implements(IProductPhoto)
+    implements(IEasyShopImage)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
-    schema = BaseSchema.copy() + schema.copy()
+    schema = BaseSchema.copy() + schema
 
     def manage_afterPUT(self, data, marshall_data, file, context, mimetype,
                         filename, REQUEST, RESPONSE):
