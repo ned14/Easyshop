@@ -39,7 +39,7 @@ schema = Schema((
      ),
 
     ReferenceField(
-        name='easyshopproduct',
+        name='product',
         widget=ReferenceWidget(
             label='Product',
             label_msgid='schema_easyshop_products_label',
@@ -47,7 +47,7 @@ schema = Schema((
         ),
         allowed_types=('Product',),
         multiValued=0,
-        relationship='CartItem_easyshopproduct'
+        relationship='cartitem_product'
     ),
 ),
 )
@@ -65,13 +65,13 @@ class CartItem(BaseContent):
         """Returns product of the item or None.
         """
         try:
-            return self.getRefs('CartItem_easyshopproduct')[0]
+            return self.getRefs('cartitem_product')[0]
         except IndexError:
             return None
 
     def setProduct(self, product):
         """Sets the product of the cart item.
         """
-        self.addReference(product, "CartItem_easyshopproduct")
+        self.addReference(product, "cartitem_product")
                 
 registerType(CartItem, PROJECTNAME)

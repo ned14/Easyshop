@@ -7,6 +7,7 @@ from zope.component import getMultiAdapter
 from easyshop.core.interfaces import ICart
 from easyshop.core.interfaces import ICartItem
 from easyshop.core.interfaces import IDiscountsCalculation
+from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
@@ -38,7 +39,7 @@ class CartPrices:
         customer prices of all items of the cart.
         """
         price = 0.0
-        for cart_item in self.context.objectValues("CartItem"):
+        for cart_item in IItemManagement(self.context).getItems():
             # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceForCustomer(with_discount=with_discount)
         
@@ -59,7 +60,7 @@ class CartPrices:
         prices of all items of the cart plus shipping and payment.
         """
         price = 0.0
-        for cart_item in self.context.objectValues("CartItem"):
+        for cart_item in IItemManagement(self.context).getItems():
             # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceGross(with_discount=with_discount)
 
@@ -80,7 +81,7 @@ class CartPrices:
         prices of all items of the cart plus shipping and payment.
         """
         price = 0.0
-        for cart_item in self.context.objectValues("CartItem"):
+        for cart_item in IItemManagement(self.context).getItems():
             # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceNet(with_discount=with_discount)
 
