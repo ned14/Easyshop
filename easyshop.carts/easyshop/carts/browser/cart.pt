@@ -265,7 +265,7 @@
                         </tr>                  
           
                         <tr>
-                            <td class="checkout-total-sum"
+                            <td class="total-sum"
         				        colspan="5">
         				        <span i18n:translate="checkout_total_sum_label">
         				            Total Sum:

@@ -104,10 +104,7 @@
                                     <span i18n:translate=""
                                           tal:content="view/getState">
                                         Pending
-                                    </span>
-                                                                            
-                                     <!-- <tal:block tal:define="easyhelp context/@@easyhelp"
-                                           tal:content="structure python:easyhelp.getHTMLFor('5606666c03447999ef4fef452b33c362')" /> -->                                        
+                                    </span>                                                                            
                                 </td>                    
                             </tr>
 
@@ -191,10 +188,6 @@
                                        value="Redo payment" 
                                        i18n:attributes="value redo_label;"
                                        tal:attributes="onclick string:location.href='${context/absolute_url}/redo-payment'" />
-
-                                  <!-- <tal:block tal:define="easyhelp context/@@easyhelp"
-                                             tal:content="structure python:easyhelp.getHTMLForUID('6d995b53e583386971f6ad6c7073016b')" /> -->
-                                                                                                         
                         </legend>
                         
                         <tal:block tal:condition="python:payment_portal_type == 'CreditCardPaymentType'">
@@ -234,7 +227,7 @@
                 </td>
             </tr>
         </table>
-        <table class="listing shop-listing">
+        <table class="shop-listing">
             <tr>
                 <th i18n:translate="product_label">
                     Product
@@ -346,30 +339,29 @@
                 </td>
             </tr>                                                                                                   
             <tr>
-                <td i18n:translate="order_total_label">
-                    Total
+                <td style="border:none" colspan="4"></td>
+                <td nowrap="nowrap"
+                    class="number"> 
+                    <div class="total-sum">
+    			        <span i18n:translate="checkout_total_sum_label">
+    			            Total Sum:
+    			        </span>
+                        <span tal:content="view/getPriceForCustomer">
+                            42.0
+                        </span>
+                    </div>
+                    <div class="discreet">
+                        <tal:block i18n:translate="incl_tax_label">
+                            incl. Tax =
+                        </tal:block>
+                        <tal:block tal:content="view/getTax">
+                            42.0                        
+                        </tal:block>
+                    </div>                        
                 </td>
-                <td colspan="3"></td>
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="view/getPriceForCustomer">
-                    42.0
-                </td>    
-            </tr> 
-            <tr>
-                <td colspan="3"></td>
-                <td i18n:translate="incl_tax_label">
-                    incl. Tax =
-                </td>                
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="view/getTax">
-                    42.0
-                </td>    
-            </tr> 
-            
+            </tr>
         </table>         
-        <div tal:replace="structure provider:plone.belowcontentbody" />
+       
    </metal:main>
    
        

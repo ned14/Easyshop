@@ -44,7 +44,7 @@ from easyshop.payment.config import ERROR, PAYED
 class IOrderPreviewForm(Interface):
     """
     """
-    confirmation  = schema.Bool()
+    confirmation = schema.Bool()
 
 class OrderPreviewForm(formbase.AddForm):
     """
@@ -283,36 +283,20 @@ class OrderPreviewForm(formbase.AddForm):
         """
         cart = self._getCart()
 
-        pm = IPrices(cart)        
+        pm = IPrices(cart)
         total = pm.getPriceForCustomer()
 
-        # Todo: Should this be in cart?
-        pp = IPaymentPriceManagement(self.context)
-        total += pp.getPriceGross()
-        
         cm = ICurrencyManagement(self.context)
-        total = cm.priceToString(total)
-        
-        return total
+        return cm.priceToString(total)
         
     def getTotalTax(self):
         """
         """
         cart = self._getCart()
+        total = ITaxes(cart).getTaxForCustomer()
 
-        t = ITaxes(cart)
-        sm = IShippingPriceManagement(self.context)
-        
-        total = t.getTaxForCustomer() + sm.getTaxForCustomer()
-
-        # Todo: Should this be in cart?
-        pp = IPaymentPriceManagement(self.context)
-        total += pp.getTaxForCustomer()
-
-        cm = ICurrencyManagement(self.context)        
-        total = cm.priceToString(total)
-        
-        return total
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(total)
 
     def hasCartItems(self):
         """

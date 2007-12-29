@@ -122,7 +122,7 @@ td.number {
     text-align: right;
 }
 
-td.checkout-total-sum {
+.total-sum {
     font-weight: bold;
     text-align:right;
 }
@@ -283,11 +283,21 @@ table.shop-default td {
 
 table.shop-listing {
     width: 100%;
+    border-collapse: collapse;    
+}
+
+table.shop-listing th {
+    border: 1px solid &dtml-globalBorderColor;;
+    background-color: &dtml-globalBackgroundColor;;
+    vertical-align: top;
+    padding:2px;
+    
 }
 
 table.shop-listing td {
     border: 1px solid &dtml-globalBorderColor;;
     vertical-align: top;
+    padding:2px;
 }
 
 fieldset.address {

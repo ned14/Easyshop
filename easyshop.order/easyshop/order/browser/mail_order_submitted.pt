@@ -35,6 +35,10 @@
             }
             div.link-label {
                 padding: 10px 0 20px 0;
+            }            
+            .total-sum {
+                font-weight: bold;
+                text-align: right;
             }
             
         </style>
@@ -375,16 +379,27 @@
                 </td>
             </tr>
             <tr>
-                <td i18n:translate="order_total_label">
-                    Total
+                <td style="border:none" colspan="4"></td>
+                <td nowrap="nowrap"
+                    class="number total">
+                    <div class="total-sum">
+    			        <span i18n:translate="checkout_total_sum_label">
+    			            Total Sum:
+    			        </span>
+                        <span tal:content="view/getPriceForCustomer">
+                            42.0
+                        </span>
+                    </div>
+                    <div class="discreet">
+                        <tal:block i18n:translate="incl_tax_label">
+                            incl. Tax =
+                        </tal:block>
+                        <tal:block tal:content="view/getTax">
+                            42.0                        
+                        </tal:block>
+                    </div>                        
                 </td>
-                <td colspan="3"></td>
-                <td nowrap="nowrap" 
-                    class="number"
-                    tal:content="view/getPriceForCustomer">
-                    42.0
-                </td>    
-            </tr> 
+            </tr>
         </table>                     
     </body>
 </html>
