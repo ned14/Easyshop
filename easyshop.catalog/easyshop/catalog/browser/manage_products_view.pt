@@ -88,11 +88,17 @@
                                     </tal:block>
                                 </tr>
                             </table>
-                    
-                            <div tal:condition="python:view.showNoResult(lines)"
+
+                            <div tal:condition="view/showNoProducts"
                                  i18n:translate="no_products_label">
                                 There are no products.
-                            </div>                    
+                            </div>
+                    
+                            <div tal:condition="python:view.showNoResult(lines)"
+                                 i18n:translate="no_products_found_label">
+                                No products found.
+                            </div>
+                                                
                         </div>                        
                     </td>
                     <td>
