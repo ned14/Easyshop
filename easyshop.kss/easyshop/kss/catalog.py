@@ -88,7 +88,7 @@ class CatalogKSSView(PloneKSSView):
                         products.append(brain)
         
         html = """<table class="products-list"><tr>"""
-
+        
         for i, product in enumerate(products):
             html += "<td>"
             html += """<img class="product-details kssattr-uid-%s" alt="info" src="info_icon.gif" />""" % product.UID
@@ -98,7 +98,10 @@ class CatalogKSSView(PloneKSSView):
             html += """</td>"""
             if (i+1) % 3 == 0:
                 html += "</tr><tr>"
-                
+        
+        if len(products) == 0:
+            html += "<td>%s</td>" % MESSAGES["NO_PRODUCTS_FOUND"]
+            
         html += "</tr></table>"
 
         kss_core.replaceInnerHTML('#products', safe_unicode(html))
