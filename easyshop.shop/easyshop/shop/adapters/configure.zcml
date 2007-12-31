@@ -9,20 +9,28 @@
     <adapter
         factory=".image_conversion.ImageConversion" />
 
-    <!-- IPhotoManagement -->
+    <!-- IMailAddresses  -->
+    <adapter
+        factory=".mail_addresses.ShopMailAddresses" />
+
+    <!-- IImageManagement -->
     <adapter
         for="easyshop.core.interfaces.IProduct"        
-        factory=".photo_management.PhotoManagement" />
+        factory=".image_management.ImageManagement" />
     
     <adapter
         for="easyshop.core.interfaces.ICategory"
-        factory=".photo_management.PhotoManagement" />
+        factory=".image_management.ImageManagement" />
 
     <!-- IShopManagement -->
     <adapter
         factory=".shop_management.ShopManagement" />
 
     <!-- IValidity -->    
+    <adapter
+        for="easyshop.core.interfaces.IDiscount"
+        factory=".validity.Validity" />
+    
     <adapter
         for="easyshop.core.interfaces.IPaymentInformation"
         factory=".validity.Validity" />
@@ -44,7 +52,17 @@
         factory=".validity.Validity" />
 
     <adapter
+        for="easyshop.core.interfaces.IStockInformation"
+        factory=".validity.Validity" />
+
+    <adapter
         for="easyshop.core.interfaces.ITax"
         factory=".validity.Validity" />
+
+    <!-- PayPal has own validity adapter -->
+    <adapter
+        for="easyshop.core.interfaces.IPayPalPaymentMethod"
+        factory=".validity.PayPalValidity" />
+
 
 </configure>

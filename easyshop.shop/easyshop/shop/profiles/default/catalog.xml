@@ -13,8 +13,8 @@
         <indexed_attr value="getShortText"/>
     </index>
 
-    <index name="total_amount_of_products" meta_type="FieldIndex">
-        <indexed_attr value="total_amount_of_products"/>
+    <index name="parent_categories" meta_type="FieldIndex">
+        <indexed_attr value="parent_categories"/>
     </index>
 
     <column value="amount_of_categories" />

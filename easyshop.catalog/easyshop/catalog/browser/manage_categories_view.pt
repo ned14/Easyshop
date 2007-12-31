@@ -47,26 +47,29 @@
                         <div tal:content="structure products/category_description">
                             Category Description
                         </div>
-                        <h1 i18n:translate="products_label">
+                        <h3 i18n:translate="products_label">
                             Products
-                        </h1>
+                        </h3>
                         <div tal:condition="not:products/products"
                              i18n:translate="no_products_for_category_label">
                              There are no products for the selected catagory
                         </div>    
-                        <table tal:condition="products/products">
+                        <table class="products-list"
+                               tal:condition="products/products">
                             <tr tal:repeat="line products/products">
-                                <td tal:repeat="product line">
-                                    <div>
+                                <tal:block  tal:repeat="product line">
+                                    <td>
                                         <a href="."
                                            tal:attributes="href product/url"
                                            tal:content="product/title">
                                            Product Title
                                         </a>
+                                    </td>
+                                    <td class="image">
                                         <img src="."
-                                             tal:attributes="src string:${product/url}/image_tile" />   
-                                    </div>
-                                </td>
+                                             tal:attributes="src string:${product/url}/image_tile" />
+                                    </td>                                                                    
+                                </tal:block>
                             </tr>                            
                         </table>    
                     </td>

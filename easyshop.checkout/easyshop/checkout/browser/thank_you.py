@@ -14,7 +14,7 @@ from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrderManagement
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.shop.utilities.misc import sendMultipartMail
 
@@ -60,7 +60,7 @@ class ThankYouPageView(BrowserView):
             
             # Category
             try:
-                category = product.getEasyshopcategories()[0]
+                category = product.getCategories()[0]
                 category_title = category.Title()
             except IndexError:
                 category_title = u""
@@ -97,13 +97,13 @@ class ThankYouPageView(BrowserView):
             if mtool.checkPermission("View", product) is None:
                 continue
 
-            # photo
-            pm = IPhotoManagement(product)
-            photo = pm.getMainPhoto()
-            if photo is None:
+            # image
+            pm = IImageManagement(product)
+            image = pm.getMainImage()
+            if image is None:
                 image = None
             else:
-                image = "%s/image_shop_small" % photo.absolute_url()
+                image = "%s/image_shop_small" % image.absolute_url()
 
             cm    = ICurrencyManagement(self.context)
             price = IPrices(product).getPriceForCustomer()
@@ -182,10 +182,10 @@ class ThankYouPageView(BrowserView):
                 price = IPrices(product).getPriceForCustomer()
                 price = cm.priceToString(price)
                 
-                # photo
-                photo = IPhotoManagement(product).getMainPhoto()
-                if photo is not None:
-                    image = "%s/image_%s" % (photo.absolute_url(), fi.get("image_size"))
+                # image
+                image = IImageManagement(product).getMainImage()
+                if image is not None:
+                    image = "%s/image_%s" % (image.absolute_url(), fi.get("image_size"))
 
                 t = fi.get("text")
                 if t == "description":

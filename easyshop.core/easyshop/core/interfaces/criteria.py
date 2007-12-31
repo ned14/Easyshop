@@ -1,9 +1,13 @@
+# zope imports
 from zope.interface import Interface
 
 class ICriteria(Interface):
-    """Marker interface to mark criteria content objects.
+    """Base interface for criteria.
     """
-
+    def getValue():
+        """Returns the entered value for the criterion.
+        """
+         
 class ICategoryCriteria(ICriteria):
     """Marker interface to mark category criteria content objects.
     """
@@ -27,7 +31,11 @@ class IGroupCriteria(ICriteria):
 class IPaymentMethodCriteria(ICriteria):
     """Marker interface to mark payment criteria content objects.
     """
-    
+
+class IProductAmountCriteria(ICriteria):
+    """Marker interface to mark product amount criteria content objects.
+    """
+
 class IProductCriteria(ICriteria):
     """Marker interface to mark product criteria content objects.
     """
@@ -38,6 +46,10 @@ class IPriceCriteria(ICriteria):
 
 class IShippingMethodCriteria(ICriteria):
     """Marker interface to mark shipping method criteria content objects.
+    """
+
+class IStockAmountCriteria(ICriteria):
+    """Marker interface to mark stock criteria content objects.
     """
     
 class IWeightCriteria(ICriteria):

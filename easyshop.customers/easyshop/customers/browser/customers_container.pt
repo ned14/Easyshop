@@ -57,7 +57,7 @@
                                 <li tal:repeat="customer customers">
                                     <a href="."
                                        tal:define="letter context/REQUEST/letter|nothing"
-                                       tal:attributes="href string:${context/absolute_url}?letter=$letter&uid=${customer/uid}"
+                                       tal:attributes="href string:${context/absolute_url}?letter=$letter&amp;uid=${customer/uid}"
                                        tal:content="customer/name">
                                         Name
                                     </a> |
@@ -69,7 +69,7 @@
                             </ul>
                     
                             <div tal:condition="not:customers"
-                                 i18n:translate="no_products_label">
+                                 i18n:translate="no_customers_label">
                                 There are no customers.
                             </div>                    
                         </div>                        
@@ -180,7 +180,7 @@
                                 There are no orders.
                             </div>    
                             <tal:block tal:condition="cart">
-                                <h1 i18n:translate="orders_label">
+                                <h1 i18n:translate="cart_label">
                                     Cart
                                 </h1>
                                 <a href="."

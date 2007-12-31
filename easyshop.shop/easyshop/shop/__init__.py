@@ -19,12 +19,14 @@ def initialize(context):
     import easyshop.catalog.content
     import easyshop.criteria.content
     import easyshop.customers.content
+    import easyshop.discounts.content
     import easyshop.groups.content
     import easyshop.information.content
     import easyshop.payment.content
     import easyshop.order.content
     import easyshop.shipping.content
     import easyshop.shop.content
+    import easyshop.stocks.content
     import easyshop.taxes.content
         
     import catalog

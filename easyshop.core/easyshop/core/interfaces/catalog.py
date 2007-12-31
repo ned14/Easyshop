@@ -66,15 +66,11 @@ class IFormats(Interface):
         """
 
 ################################################################################
-# Photo        
+# Image        
 ################################################################################
 
-class IESImage(Interface):
-    """Marker interface for a easyshop images.
-    """                                       
-            
-class IProductPhoto(Interface):
-    """Marker interface for a product photo content objects.
+class IEasyShopImage(Interface):
+    """Marker interface for a  image content objects.
     """                                       
     
 class IImageConversion(Interface):
@@ -84,19 +80,19 @@ class IImageConversion(Interface):
         """Convert given image.
         """
         
-class IPhotoManagement(Interface):
-    """Provides methods to manage photo content objects.
+class IImageManagement(Interface):
+    """Provides methods to manage image content objects.
     """    
-    def getMainPhoto():
-        """Return the main photo.
+    def getMainImage():
+        """Return the main image.
         """    
 
-    def getPhotos():
-        """Returns all photos.
+    def getImages():
+        """Returns all images.
         """
         
-    def hasPhotos():
-        """Returns True if at least one photo exists.
+    def hasImages():
+        """Returns True if at least one image exists.
         """        
 
 ################################################################################

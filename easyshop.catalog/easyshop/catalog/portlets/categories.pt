@@ -1,5 +1,6 @@
 <dl class="portlet portlet-category-tree"
-    tal:define="level python:1"> 
+    tal:define="level python:1"
+    i18n:domain="EasyShop"> 
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>

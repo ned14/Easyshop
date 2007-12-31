@@ -3,8 +3,9 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import ICartItem
 from easyshop.core.interfaces import IProductCriteria
+from easyshop.core.interfaces import IValidity
 
 class ProductCriteriaValidity:
     """Adapter which provides IValidity for product criteria content objects.
@@ -17,11 +18,14 @@ class ProductCriteriaValidity:
         """
         self.context = context
         
-    def isValid(self, product):
-        """Returns True, if the given product is selected product of the
+    def isValid(self, object):
+        """Returns True, if the given object is selected product of the
         criterion.
         """
-        if product.getId() in self.context.getProducts():
+        if ICartItem.providedBy(object):
+            object = object.getProduct()        
+                        
+        if object.getId() in self.context.getProducts():
             return True
         return False
 

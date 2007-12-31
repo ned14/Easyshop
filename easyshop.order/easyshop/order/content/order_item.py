@@ -22,6 +22,40 @@ from easyshop.core.config import *
 
 schema = Schema((
 
+    ReferenceField(
+        name='product',
+        allowed_types=('Product',),
+        multiValued=0,
+        relationship='orderitem_product',
+        widget=ReferenceWidget(
+            label='Product',
+            label_msgid='schema_easyshop_products_label',
+            i18n_domain='EasyShop',
+        ),        
+    ),
+
+    # The product name. Will be used if the product has been deleted in the
+    # meanwhile.
+    StringField(
+        name="productTitle",
+        widget=StringWidget(
+            label="Product Title",
+            label_msgid="schema_product_title_label",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    # The internal article id. will be used if the product has been deleted in
+    # the meanwhile.
+    StringField(
+        name="articleId",
+        widget=StringWidget(
+            label="Article ID",
+            label_msgid="schema_product_id_label",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
     FloatField(
         name='productQuantity',
         widget=DecimalWidget(
@@ -94,18 +128,6 @@ schema = Schema((
         )
     ),
 
-    ReferenceField(
-        name='products',
-        widget=ReferenceWidget(
-            label='Products',
-            label_msgid='schema_easyshop_products_label',
-            i18n_domain='EasyShop',
-        ),
-        allowed_types=('Product',),
-        multiValued=0,
-        relationship='orderitem_products'
-    ),
-
     DataGridField('properties',
             searchable = True,
             columns=("title", "selected_option", "price"),
@@ -117,7 +139,36 @@ schema = Schema((
                 },
              ),
      ),
-     
+
+    StringField(
+        name="discountDescription",
+        widget=StringWidget(
+            label="Discount Description",
+            label_msgid="schema_discount_description_label",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    FloatField(
+        name='discountNet',
+        default=0.0,
+        widget=DecimalWidget(
+            label="Discount Net",
+            label_msgid="schema_discount_net_label",
+            i18n_domain="schema",
+        ),
+    ),
+
+    FloatField(
+        name='discountGross',
+        default=0.0,
+        widget=DecimalWidget(
+            label="Discount Gross",
+            label_msgid="schema_discount_gross_label",
+            i18n_domain="schema",
+        ),
+    ),
+         
 ),
 )
 
@@ -136,7 +187,7 @@ class OrderItem(BaseContent):
         """Returns the product of the item
         """
         try:
-            return self.getRefs('orderitem_products')[0]
+            return self.getRefs('orderitem_product')[0]
         except IndexError:
             return None
 
@@ -144,6 +195,6 @@ class OrderItem(BaseContent):
     def setProduct(self,product):
         """Sets the product of the item.
         """
-        self.addReference(product, "orderitem_products")
+        self.addReference(product, "orderitem_product")
 
 registerType(OrderItem, PROJECTNAME)

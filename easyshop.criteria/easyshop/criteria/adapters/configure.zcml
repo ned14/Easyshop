@@ -18,6 +18,9 @@
 
     <adapter  
         factory=".payment_method.PaymentMethodCriteriaValidity" /> 
+
+    <adapter
+        factory=".product_amount.ProductAmountCriteriaValidity" />
     
     <adapter
         factory=".product.ProductCriteriaValidity" />
@@ -27,6 +30,9 @@
 
     <adapter
         factory=".shipping_method.ShippingMethodCriteriaValidity" />
+
+    <adapter
+        factory=".stock_amount.StockAmountCriteriaValidity" />
 
     <adapter  
         factory=".weight.WeightCriteriaValidity" /> 

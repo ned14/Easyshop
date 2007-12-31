@@ -45,9 +45,6 @@
                 <dl class="portalMessage error"
                     tal:define="status view/status"
                     tal:condition="status">
-                    <dt i18n:translate="">
-                        Error
-                    </dt>
                     <dd tal:content="status" />
                 </dl>
                 
@@ -74,14 +71,16 @@
                                            tal:attributes="value string:credit_card_existing:${credit_card/id};
                                                            checked credit_card/checked" />
                                 </td>
-                                <td i18n:translate="credit_card_type_label">
-                                    Type:
+                                <td>
+                                    <tal:block i18n:translate="credit_card_type_label">
+                                        Type</tal:block>:
                                 </td>
                                 <td tal:content="credit_card/type">
                                     Master Card
                                 </td>
-                                <td i18n:translate="card_owner_label">
-                                    Card Owner:
+                                <td>
+                                    <tal:block i18n:translate="card_owner_label">
+                                        Card Owner</tal:block>:
                                 </td>
                                 <td tal:content="credit_card/owner">
                                     John Doe
@@ -89,14 +88,16 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td i18n:translate="card_number_label">
-                                    Card Number:
+                                <td>
+                                    <tal:block  i18n:translate="card_number_label">
+                                        Card Number</tal:block>:
                                 </td>                        
                                 <td tal:content="credit_card/number">
                                     1111 2222 3333 4444
                                 </td>  
-                                <td i18n:translate="expiration_date_label">
-                                    Expiration Date:
+                                <td>
+                                    <tal:block  i18n:translate="expiration_date_label">
+                                    Expiration Date</tal:block>:
                                 </td>
                                 <td tal:content="credit_card/expiration_date">Date</td>
                             </tr>   
@@ -110,8 +111,9 @@
                                        value="credit_card_new"
                                        tal:attributes="checked python: context.REQUEST.get('form.id') == 'credit_card_new'" />
                             </td>
-                            <td i18n:translate="credit_card_type_label">
-                                Type:
+                            <td>
+                                <tal:block i18n:translate="credit_card_type_label">
+                                    Type</tal:block>:
                             </td>
                             <td tal:define="widget widgets/card_type;
                                             error widgets/card_type/error">
@@ -123,8 +125,9 @@
                                 </div>
 
                             </td>
-                            <td i18n:translate="card_owner_label">
-                                Card Owner:
+                            <td>
+                                <tal:block  i18n:translate="card_owner_label">
+                                    Card Owner</tal:block>:
                             </td>
                             <td tal:define="widget widgets/card_owner;
                                             error widgets/card_owner/error">
@@ -139,8 +142,9 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td i18n:translate="card_number_label">
-                                Card Number:
+                            <td>
+                                <tal:block  i18n:translate="card_number_label">
+                                    Card Number</tal:block>:
                             </td>                        
                             <td tal:define="widget widgets/card_number;
                                             error widgets/card_number/error">
@@ -152,8 +156,9 @@
                                 </div>
                                 
                            </td>
-                           <td i18n:translate="expiration_date_label">
-                               Expiration Date:
+                           <td>
+                               <tal:block  i18n:translate="expiration_date_label">
+                                   Expiration Date</tal:block>:
                            </td>
                             <td>
                                 <!-- NOTE: Using a table here because zope.formlib is providing
@@ -188,7 +193,7 @@
                     <tal:block tal:condition="view/showBankAccounts">
                         <tr>
                             <td colspan="5">
-                                <h1 i18n:translate="bank_account_label">
+                                <h1 i18n:translate="direct_debit_label">
                                     Direct Debit
                                 </h1>                            
                             </td>
@@ -203,14 +208,16 @@
                                            tal:attributes="value string:bank_account_existing:${bank_account/id};
                                                            checked bank_account/checked" />
                                 </td>
-                                <td i18n:translate="bank_code_label">
-                                    Bank Code:
+                                <td>
+                                    <tal:block i18n:translate="bank_code_label">
+                                        Bank Code</tal:block>:
                                 </td>
                                 <td tal:content="bank_account/bic">
                                     50010010
                                 </td>
-                                <td i18n:translate="bank_name_label">
-                                    Bank Name:
+                                <td>
+                                    <tal:block i18n:translate="bank_name_label">
+                                        Bank Name</tal:block>:
                                 </td>
                                 <td tal:content="bank_account/bank_name">
                                     Deutsche Bank
@@ -218,14 +225,16 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td i18n:translate="account_no_label">
-                                    Account-No.:
+                                <td>
+                                    <tal:block i18n:translate="account_no_label">
+                                        Account-No.</tal:block>:
                                 </td>                        
                                 <td tal:content="bank_account/account_no">
                                     105040302
                                 </td>  
-                                <td i18n:translate="depositor_label">
-                                    Depositor:
+                                <td>
+                                    <tal:block i18n:translate="depositor_label">
+                                        Depositor</tal:block>:
                                 </td>
                                 <td tal:content="bank_account/depositor">John Doe</td>
                             </tr>   
@@ -239,8 +248,9 @@
                                        value="bank_account_new"
                                        tal:attributes="checked python: context.REQUEST.get('form.id') == 'bank_account_new'" />
                             </td>
-                            <td i18n:translate="bank_code_label">
-                                Bank Code:
+                            <td>
+                                <tal:block i18n:translate="bank_code_label">
+                                    Bank Code</tal:block>:
                             </td>
                             <td tal:define="widget widgets/bank_identification_code;
                                             error widgets/bank_identification_code/error">
@@ -252,8 +262,9 @@
                                 </div>
 
                             </td>
-                            <td i18n:translate="bank_name_label">
-                                Bank Name:
+                            <td>
+                                <tal:block i18n:translate="bank_name_label">
+                                    Bank Name</tal:block>:
                             </td>
                             <td tal:define="widget widgets/bank_name;
                                             error widgets/bank_name/error">
@@ -268,8 +279,9 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td i18n:translate="account_no_label">
-                                Account-No.:
+                            <td>
+                                <tal:block i18n:translate="account_no_label">
+                                    Account-No.</tal:block>:
                             </td>                        
                             <td tal:define="widget widgets/account_number;
                                             error widgets/account_number/error">
@@ -281,8 +293,9 @@
                                 </div>
                                 
                            </td>
-                           <td i18n:translate="depositor_label">
-                               Depositor:
+                           <td>
+                               <tal:block i18n:translate="depositor_label">
+                                  Depositor</tal:block>:
                            </td>
                             <td tal:define="widget widgets/depositor;
                                             error widgets/depositor/error">

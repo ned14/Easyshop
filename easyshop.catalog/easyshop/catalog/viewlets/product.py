@@ -3,6 +3,7 @@ from zope.component import queryUtility
 
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
+from plone.memoize.instance import memoize
 
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -14,21 +15,16 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IStockManagement
 
 class ProductViewlet(ViewletBase):
     """
     """
     render = ViewPageTemplateFile('product.pt')
-
-    def getAuxiliaryPhotos(self):
-        """
-        """
-        pm = IPhotoManagement(self.context)
-        return pm.getAuxiliaryPhotos()
 
     def getBuyLabel(self):
         """
@@ -57,18 +53,37 @@ class ProductViewlet(ViewletBase):
 
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
-                    
-    def getMainPhoto(self):
+
+    def getStandardPriceForCustomer(self):
         """
         """
-        pm = IPhotoManagement(self.context)
-        return pm.getMainPhoto()
+        pm = IPropertyManagement(self.context)
         
-    def getPhotos(self):
+        total_diff = 0.0
+        for property_id, selected_option in self.request.form.items():
+            if property_id.startswith("property"):                
+                total_diff += pm.getPriceForCustomer(
+                    property_id[9:],
+                    selected_option
+                )
+
+        p = IPrices(self.context)
+        price = p.getPriceForCustomer(effective=False) + total_diff
+
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(price)
+                            
+    def getMainImage(self):
         """
         """
-        pm = IPhotoManagement(self.context)
-        return pm.getPhotos()
+        pm = IImageManagement(self.context)
+        return pm.getMainImage()
+        
+    def getImages(self):
+        """
+        """
+        pm = IImageManagement(self.context)
+        return pm.getImages()
 
     def getProduct(self):
         """
@@ -129,20 +144,38 @@ class ProductViewlet(ViewletBase):
 
         result = []
         # Returns just "View"-able products.
-        for product in self.context.getRefs('easyshopproduct_easyshopproducts'):
+        for product in self.context.getRefs('products_products'):
             if mtool.checkPermission("View", product) is not None:
                 result.append(product)
             
         return result
-                        
-    def hasPhotos(self):
+
+    def getStockInformation(self):
         """
         """
-        pm = IPhotoManagement(self.context)
-        return pm.hasPhotos()
+        shop = self._getShop()
+        sm = IStockManagement(shop)
+        stock_information = sm.getStockInformationFor(self.context)
+        
+        if stock_information is None:
+            return None
+            
+        return IData(stock_information).asDict()
+                    
+    def hasImages(self):
+        """
+        """
+        pm = IImageManagement(self.context)
+        return pm.hasImages()
                     
     def showAddQuantity(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()                
+        shop = self._getShop() 
         return shop.getShowAddQuantity()
+
+    @memoize
+    def _getShop(self):
+        """
+        """
+        return IShopManagement(self.context).getShop()

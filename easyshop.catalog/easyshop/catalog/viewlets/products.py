@@ -19,7 +19,7 @@ from Products.CMFPlone import Batch
 
 # Easyshop imports
 from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
@@ -80,12 +80,20 @@ class ProductsViewlet(ViewletBase):
         products = []        
         for index, product in enumerate(batch):
 
+            # Price
             cm = ICurrencyManagement(self.context)
-            price = IPrices(product).getPriceForCustomer()
+            p = IPrices(product)
+
+            # Effective price
+            price = p.getPriceForCustomer()                                
             price = cm.priceToString(price, symbol="symbol", position="before")
+            
+            # Standard price
+            standard_price = p.getPriceForCustomer(effective=False)
+            standard_price = cm.priceToString(standard_price, symbol="symbol", position="before")
                                     
-            # photo
-            image = IPhotoManagement(product).getMainPhoto()
+            # Image
+            image = IImageManagement(product).getMainImage()
             if image is not None:
                 image = "%s/image_%s" % (image.absolute_url(), f.get("image_size"))
                 
@@ -98,19 +106,22 @@ class ProductsViewlet(ViewletBase):
                 text = product.getText()
             else:
                 text = ""
-                    
+
+            # CSS Class
             if (index + 1) % products_per_line == 0:
                 klass = "last"
             else:
                 klass = "notlast"
-                
+                            
             line.append({
                 "title"                    : product.Title(),
                 "short_title"              : product.getShortTitle() or product.Title(),
                 "text"                     : text,
                 "url"                      : "%s?sorting=%s" % (product.absolute_url(), sorting),
                 "image"                    : image,
+                "for_sale"                 : product.getForSale(),
                 "price"                    : price,
+                "standard_price"           : standard_price,
                 "class"                    : klass,
             })
             

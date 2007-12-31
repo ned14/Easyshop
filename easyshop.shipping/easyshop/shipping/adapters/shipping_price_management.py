@@ -44,7 +44,7 @@ class ShippingPriceManagement:
     def getPriceForCustomer(self):
         """
         """
-        # If there a no items the shipping price is 0        
+        # If there a no items the shipping price for cutomers is zero.
         cart_manager = ICartManagement(self.context)
         cart = cart_manager.getCart()        
         

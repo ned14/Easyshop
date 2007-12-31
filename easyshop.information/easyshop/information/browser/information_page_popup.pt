@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<HTML lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta http-equiv="Content-Type"
@@ -53,6 +53,6 @@
             <a style="text-decoration:underline; cursor:pointer"
                 onclick="javascript:window.close()">Fenster schließen</a> ]
         </div>
-                
+ 
     </body>
-</HTML>
+</html>

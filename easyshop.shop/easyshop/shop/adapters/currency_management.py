@@ -3,13 +3,9 @@ from zope.interface import implements
 from zope.component import adapts
 from zope.interface import Interface
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # easyshop imports
-from easyshop.core.config import *
+from easyshop.core.config import CURRENCIES
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IShopManagement
 
 class CurrencyManagement:
@@ -41,11 +37,11 @@ class CurrencyManagement:
         currency = self.shop.getCurrency()
         return CURRENCIES[currency]["symbol"]
         
-    def priceToString(self, price, symbol="symbol", position="before"):
+    def priceToString(self, price, symbol="symbol", position="before", prefix=None):
         """
         """
         price = "%.2f" % price
-        string = price.replace(".", ",")
+        price = price.replace(".", ",")
         
         if symbol == "short":
             currency = self.getShortName()    
@@ -54,9 +50,12 @@ class CurrencyManagement:
         else:
             currency = self.getSymbol()
 
+        if prefix is not None:
+            price = "%s%s" % (prefix, price)
+            
         if position == "before":
-            string = "%s %s" % (currency, string)
+            price = "%s %s" % (currency, price)
         else:
-            string = "%s %s" % (string, currency)            
+            price = "%s %s" % (price, currency)
 
-        return string        
+        return price

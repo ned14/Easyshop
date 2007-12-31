@@ -37,7 +37,6 @@ class DefaultTax(OrderedBaseFolder):
     taken for a product / category / group / ...
     """
     implements(ITax)
-    security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = OrderedBaseFolderSchema.copy() + schema.copy()
 

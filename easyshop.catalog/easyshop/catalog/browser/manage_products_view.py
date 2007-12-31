@@ -7,6 +7,11 @@ from Products.CMFCore.utils import getToolByName
 # Five imports
 from Products.Five.browser import BrowserView
 
+# easyshop importss
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IShopManagement
+
 class ManageProductsView(BrowserView):
     """
     """
@@ -36,6 +41,7 @@ class ManageProductsView(BrowserView):
         
         product = brain.getObject()
 
+        # Related products
         related_products = []
         for related_product in product.getRelatedProducts():
             related_products.append({
@@ -44,20 +50,26 @@ class ManageProductsView(BrowserView):
                 "url"        : related_product.absolute_url()
             })
 
+        # Categories    
         categories = []
-        for category in product.getEasyshopcategories():
+        for category in product.getCategories():
             categories.append({
                 "title" : category.Title(),
                 "url"   : category.absolute_url()
             })
 
+        # Groups    
         groups = []
-        for group in product.getEasyshopgroups():
+        for group in product.getGroups():
             groups.append({
                 "title" : group.Title(),
                 "url"   : group.absolute_url()
             })
-                
+
+        # Price    
+        cm    = ICurrencyManagement(self.context)
+        price = cm.priceToString(product.getPrice())
+        
         return {
             "id"               : product.getId(),
             "article_id"       : product.getArticleId(),
@@ -67,7 +79,7 @@ class ManageProductsView(BrowserView):
             "url"              : product.absolute_url(),
             "text"             : product.getText(),
             "short_text"       : product.getShortText(),
-            "price"            : product.getPriceGross(),
+            "price"            : price,
             "related_products" : related_products,
             "categories"       : categories,
             "groups"           : groups,
@@ -78,8 +90,8 @@ class ManageProductsView(BrowserView):
         """
         catalog = getToolByName(self.context, "portal_catalog")
                 
-        searchable_text = self.request.get("searchable_text", None)
-        if searchable_text is not None:
+        searchable_text = self.request.get("searchable_text", "")
+        if searchable_text != "":
             result = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
                 portal_type = "Product",
@@ -125,7 +137,7 @@ class ManageProductsView(BrowserView):
         line = []
         for i, product in enumerate(result):
             line.append(product)
-            if (i+1) % 5 == 0:
+            if (i+1) % 3 == 0:
                 lines.append(line)
                 line = []
         
@@ -142,6 +154,21 @@ class ManageProductsView(BrowserView):
             return ""
         else:
             return searchable_text
+
+    def showNoProducts(self):
+        """
+        """
+        # If there was as search return False
+        if (self.request.get("letter", None) is not None or \
+            self.request.get("searchable_text", None) is not None):
+            return False
+            
+        shop = IShopManagement(self.context).getShop()
+        products = IProductManagement(shop).getProducts()
+        if len(products) > 0:
+            return False
+        else:
+            return True
             
     def showNoResult(self, lines):
         """

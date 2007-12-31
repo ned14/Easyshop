@@ -26,8 +26,14 @@
 
  <object name="PriceCriteria"
          meta_type="Factory-based Type Information"/>
+
+ <object name="ProductAmountCriteria"
+         meta_type="Factory-based Type Information"/>
          
  <object name="ProductCriteria"
+         meta_type="Factory-based Type Information"/>
+
+ <object name="StockAmountCriteria"
          meta_type="Factory-based Type Information"/>
 
  <object name="WeightCriteria"

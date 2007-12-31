@@ -5,7 +5,11 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import ICart
 from easyshop.core.interfaces import ICartItem
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShippingPriceManagement
+from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
 class CartTaxes:
@@ -15,42 +19,58 @@ class CartTaxes:
     adapts(ICart)
 
     def __init__(self, context):
+        """
+        """
         self.context = context
 
     def getTaxRate(self):
         """
         """
-        # Total tax rate for carts makes no sense
+        # Total tax *rate* for carts makes no sense.
         raise ValueError
 
     def getTaxRateForCustomer(self):
         """
         """
-        # Total tax rate for carts makes no sense
+        # Total tax *rate* for carts makes no sense.
         raise ValueError
 
     def getTax(self):
         """
         """
-        cart_items = self.context.objectValues()
+        shop = IShopManagement(self.context).getShop()
+        cart_items = IItemManagement(self.context).getItems()
 
         tax = 0.0
         for cart_item in cart_items:
             taxes = ITaxes(cart_item)
             tax += taxes.getTax()
 
+        # Shipping
+        tax += IShippingPriceManagement(shop).getTax()
+
+        # Payment
+        tax += IPaymentPriceManagement(shop).getTax()
+        
         return tax
 
     def getTaxForCustomer(self):
         """
         """
-        cart_items = self.context.objectValues()
+        shop = IShopManagement(self.context).getShop()        
+        cart_items = IItemManagement(self.context).getItems()
 
         tax = 0.0
         for cart_item in cart_items:
             taxes = ITaxes(cart_item)
             tax += taxes.getTaxForCustomer()
-
+        
+        # Shipping
+        tax += IShippingPriceManagement(shop).getTaxForCustomer()
+        
+        # Payment
+        tax += IPaymentPriceManagement(shop).getTaxForCustomer()
+        
         return tax
         
 class CartItemTaxes:
@@ -70,19 +90,19 @@ class CartItemTaxes:
     def getTax(self):
         """Returns absolute tax.
         """
-        price    = IPrices(self.context).getPriceGross()
+        price = IPrices(self.context).getPriceGross(with_discount=True)
         tax_rate = self.taxes.getTaxRate()
         
-        tax  = (tax_rate/(tax_rate+100)) * price        
+        tax  = (tax_rate/(tax_rate+100)) * price
         return tax
         
     def getTaxForCustomer(self):
         """Returns absolute tax for customer.
         """
-        price    = IPrices(self.context).getPriceGross()
+        price = IPrices(self.context).getPriceGross(with_discount=True)
         tax_rate = self.taxes.getTaxRateForCustomer()
 
-        tax  = (tax_rate/(tax_rate+100)) * price
+        tax = (tax_rate/(tax_rate+100)) * price
         return tax
 
     def getTaxRate(self):

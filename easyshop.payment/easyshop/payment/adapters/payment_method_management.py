@@ -70,7 +70,7 @@ class PaymentMethodManagement:
             if ISelectablePaymentMethod.providedBy(object) == False:
                 continue
 
-            if check_validity and\
+            if check_validity and \
                IValidity(object).isValid(object) == False:
                 continue                    
             

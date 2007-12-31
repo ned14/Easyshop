@@ -20,6 +20,7 @@ schema = Schema((
 
     StringField(
         name="shortTitle",
+        schemata="advanced",
         widget=StringWidget(
             label="ShortTitle",
             label_msgid="schema_short_title_label",
@@ -53,6 +54,7 @@ schema = Schema((
 
     TextField(
         name='shortText',
+        schemata="advanced",        
         allowable_content_types=(
             'text/plain', 
             'text/structured',
@@ -77,10 +79,10 @@ schema = Schema((
             'application/msword',),
         default_output_type='text/html',            
         widget=RichWidget(
-            label='Long Text',
-            label_msgid='schema_long_text_label',
+            label='Text',
+            label_msgid='schema_text_label',
             description="This text is used within the detailed product view.",
-            description_msgid="schema_long_description_description",
+            description_msgid="schema_text_description",
             i18n_domain='EasyShop',
         ),
     ),
@@ -103,8 +105,34 @@ schema = Schema((
         storage=AttributeStorage()
     ),
 
+    BooleanField(
+        name="unlimitedAmount",
+        schemata="advanced",
+        widget = BooleanWidget(
+            label="Unlimited Amount",
+            label_msgid="schema_unlimited_amount_label",
+            description = "If selected, the stock amount of the product is not decreased.",
+            description_msgid="schema_unlimited_amount_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
+    FloatField(
+        name="stockAmount",
+        schemata="advanced",
+        default=0.0,
+        widget=DecimalWidget(
+            label="Stock Amount",
+            label_msgid="schema_stock_amount_label",
+            description = "The amount of this product in stock. This number is decreased automatically when the product has been sold.",
+            description_msgid="schema_stock_amount_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
     FloatField(
         name='weight',
+        schemata="advanced",        
         default=0.0,
         widget=DecimalWidget(
             label="Weight",
@@ -121,15 +149,63 @@ schema = Schema((
         widget=DecimalWidget(
             size="10",
             label='Price',
-            label_msgid='schema_price_gross_label',
+            label_msgid='schema_price_label',
             i18n_domain='EasyShop',
         )
     ),
+
+    BooleanField(
+        name="forSale",
+        schemata="advanced",
+        widget = BooleanWidget(
+            label="For Sale",
+            label_msgid="schema_for_sale_label",
+            description = "If selected the price is displayed additionally.",
+            description_msgid="schema_for_sale_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
+    FloatField(
+        name='salePrice',
+        schemata="advanced",
+        default=0.0,
+        widget=DecimalWidget(
+            size="10",
+            label='Sale Price',
+            label_msgid='schema_sale_price_gross_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+    BackReferenceField( 
+        name='categories',
+        multiValued=1,
+        relationship='categories_products',
+        allowed_types=("Category",),
+        widget=BackReferenceBrowserWidget(
+            label="Categories",
+            label_msgid="schema_categories_label",
+            description='Please select all catgories, which should be associated with this product.',
+            description_msgid="schema_categories_description",        
+            i18n_domain='EasyShop',            
+            show_path=1,        
+            allow_search=1, 
+            allow_browse=1,
+            allow_sorting=1,             
+            restrict_browsing_to_startup_directory=1,
+            startup_directory="getStartupDirectoryForCategories",
+            available_indexes={'Title'         : "Product's Title",
+                               'SearchableText':'Free text search',
+                               'Description'   : "Object's description"},
+            ),    
+    ),        
     
     ReferenceField( 
         name='relatedProducts',
+        schemata="advanced",
         multiValued=1,
-        relationship='easyshopproduct_easyshopproducts',
+        relationship='products_products',
         allowed_types=("Product",),
         widget=ReferenceBrowserWidget(
             label="Related Products",
@@ -150,31 +226,10 @@ schema = Schema((
     ),        
     
     BackReferenceField( 
-        name='easyshopcategories', 
+        name='groups',
+        schemata="advanced",
         multiValued=1,
-        relationship='category_products',
-        allowed_types=("Category",),
-        widget=BackReferenceBrowserWidget(
-            label="Categories",
-            label_msgid="schema_categories_label",
-            description='Please select all catgories, which should be associated with this product.',
-            description_msgid="schema_categories_description",        
-            i18n_domain='EasyShop',            
-            show_path=1,        
-            allow_search=1, 
-            allow_browse=1,
-            allow_sorting=1,             
-            restrict_browsing_to_startup_directory=1,
-            startup_directory="getStartupDirectoryForCategories",
-            available_indexes={'Title'         : "Product's Title",
-                               'SearchableText':'Free text search',
-                               'Description'   : "Object's description"},
-            ),    
-    ),        
-    BackReferenceField( 
-        name='easyshopgroups',
-        multiValued=1,
-        relationship='group_product',
+        relationship='groups_products',
         allowed_types=("ProductGroup",),
         widget=BackReferenceBrowserWidget(
             label="Groups",
@@ -196,11 +251,35 @@ schema = Schema((
 ),
 )
 
+schema = ATFolder.schema.copy() + schema
+
+# Dates
+schema.changeSchemataForField('effectiveDate',  'plone')
+schema.changeSchemataForField('expirationDate', 'plone')
+schema.changeSchemataForField('creation_date', 'plone')    
+schema.changeSchemataForField('modification_date', 'plone')    
+
+# Categorization
+schema.changeSchemataForField('subject', 'plone')
+schema.changeSchemataForField('relatedItems', 'plone')
+schema.changeSchemataForField('location', 'plone')
+schema.changeSchemataForField('language', 'plone')
+
+# Ownership
+schema.changeSchemataForField('creators', 'plone')
+schema.changeSchemataForField('contributors', 'plone')
+schema.changeSchemataForField('rights', 'plone')
+
+# Settings
+schema.changeSchemataForField('allowDiscussion', 'plone')
+schema.changeSchemataForField('excludeFromNav', 'plone')
+schema.changeSchemataForField('nextPreviousEnabled', 'plone')
+
 class Product(ATFolder):
     """A Product is offered for sale.
     """
     implements(IProduct)
-    schema = ATFolder.schema.copy() + schema.copy()
+    schema = schema
 
     def setImage(self, data):
         """
@@ -227,14 +306,14 @@ class Product(ATFolder):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/groups"
 
-    def setEasyshopcategories(self, value):
+    def setCategories(self, value):
         """
         """
         # save the old categories
-        old_categories = self.getEasyshopcategories()
+        old_categories = self.getCategories()
 
         # Set the new values
-        self.getField("easyshopcategories").set(self, value)
+        self.getField("categories").set(self, value)
 
         # Reindex to get the new values ...
         self.reindexObject()        
@@ -249,7 +328,7 @@ class Product(ATFolder):
                 obj.reindexObject()
                 obj = obj.aq_inner.aq_parent
         
-        for category in self.getEasyshopcategories():
+        for category in self.getCategories():
             obj = category
             while ICategory.providedBy(obj):
                 obj.reindexObject()

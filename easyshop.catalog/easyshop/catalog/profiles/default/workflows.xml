@@ -11,7 +11,7 @@
    <bound-workflow workflow_id="easyshop_product_workflow"/>
   </type>
 
-  <type type_id="Photo">
+  <type type_id="EasyShopImage">
    <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>
   

@@ -4,6 +4,7 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.core.config import _
+from easyshop.core.config import PAYPAL_URL
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICreditCardPaymentMethod
 from easyshop.core.interfaces import ICustomerManagement
@@ -213,8 +214,8 @@ class PayPalPaymentProcessor:
         return PaymentResult(NOT_PAYED)
         
 class PayPalSimplePaymentProcessor:
-    """Provides IPaymentProcessing for paypal content objects.    
-    Passes just a value for the whole cart to papal.
+    """Provides IPaymentProcessing for paypal content objects. Passes just a 
+    value for the whole cart to PayPal.
     """
     implements(IPaymentProcessing)
     adapts(IPayPalPaymentMethod)
@@ -236,9 +237,7 @@ class PayPalSimplePaymentProcessor:
         pc = IPrices(order)
         price_net = "%.2f" % pc.getPriceNet()
         tax = "%.2f" % (pc.getPriceGross() - float(price_net))
-        
-        url = shop.getPayPalUrl()
-        
+                
         customer = order.getCustomer()
         am = IAddressManagement(customer)
         invoice_address  = am.getInvoiceAddress()
@@ -267,7 +266,7 @@ class PayPalSimplePaymentProcessor:
         # redirect to paypal    
         parameters = "&".join(["%s=%s" % (k, v) for (k, v) in info.items()])                
         
-        url = url + "?" + parameters
+        url = PAYPAL_URL + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
         
         return PaymentResult(NOT_PAYED)

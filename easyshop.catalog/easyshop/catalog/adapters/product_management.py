@@ -31,7 +31,7 @@ class CategoryProductManagement:
 
         result = []
         # Returns just "View"-able products.
-        for product in self.context.getRefs('category_products'):
+        for product in self.context.getRefs('categories_products'):
             if mtool.checkPermission("View", product) is not None:
                 result.append(product)
             

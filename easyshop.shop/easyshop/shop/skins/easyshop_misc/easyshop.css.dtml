@@ -49,6 +49,7 @@ a.link-parent {
 .payment_method,
 .payment_price,
 .shipping_price,
+.discount,
 .tax_rate  {
     background-color: &dtml-globalBackgroundColor;;
     border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
@@ -121,7 +122,7 @@ td.number {
     text-align: right;
 }
 
-td.checkout-total-sum {
+.total-sum {
     font-weight: bold;
     text-align:right;
 }
@@ -176,6 +177,11 @@ table.products td.notlast {
 
 table.products td.last {
     padding-right: 0px !important;
+}
+
+
+#product-details-box td.image {
+    padding-right:10px;
 }
 
 .main-title {
@@ -234,6 +240,15 @@ a.current-category {
     color: red;
 }
 
+
+table.products-list td {
+    padding:5px;
+}
+
+table.products-list td.image {
+    text-align:right;
+}
+
 table.parameters th {
     text-align: left;        
 }
@@ -268,11 +283,21 @@ table.shop-default td {
 
 table.shop-listing {
     width: 100%;
+    border-collapse: collapse;    
+}
+
+table.shop-listing th {
+    border: 1px solid &dtml-globalBorderColor;;
+    background-color: &dtml-globalBackgroundColor;;
+    vertical-align: top;
+    padding:2px;
+    
 }
 
 table.shop-listing td {
     border: 1px solid &dtml-globalBorderColor;;
     vertical-align: top;
+    padding:2px;
 }
 
 fieldset.address {

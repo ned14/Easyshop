@@ -19,22 +19,26 @@ class TestValidity(EasyShopTestCase):
     def testCategory(self):
         """
         """
+        c1_path  = "/".join(self.portal.shop.categories.category_1.getPhysicalPath())
+        c2_path  = "/".join(self.portal.shop.categories.category_2.getPhysicalPath())
+        c11_path = "/".join(self.portal.shop.categories.category_1.category_11.getPhysicalPath())
+
         # Criteria has one catogory, products have this too
         self.folder.manage_addProduct["easyshop.shop"].addCategoryCriteria("c")
-        self.folder.c.setCategories(("category_11",))
+        self.folder.c.setCategories((c11_path,))
         v = IValidity(self.folder.c)
         
         self.assertEqual(v.isValid(self.product_1), True)
         self.assertEqual(v.isValid(self.product_2), True)
 
         # Criteria has one catogory, products haven't this         
-        self.folder.c.setCategories(("category_2",))
+        self.folder.c.setCategories((c2_path,))
         v = IValidity(self.folder.c)
         self.assertEqual(v.isValid(self.product_1), False)
         self.assertEqual(v.isValid(self.product_2), False)
 
         # Criteria has two catogories; products have just one of these
-        self.folder.c.setCategories(("category_11", "category_1"))
+        self.folder.c.setCategories((c11_path, c1_path))
         v = IValidity(self.folder.c)
         self.assertEqual(v.isValid(self.product_1), True)
         self.assertEqual(v.isValid(self.product_2), True)
@@ -150,7 +154,7 @@ class TestValidity(EasyShopTestCase):
         
         self.login("newmember")        
 
-        self.assertEqual(v.isValid(), False)
+        self.assertEqual(v.isValid(), True)
         
         view = getMultiAdapter((
             self.shop.products.product_1, 
@@ -159,11 +163,11 @@ class TestValidity(EasyShopTestCase):
         view.addToCart()
         self.assertEqual(v.isValid(), True)
 
-        self.shop.c.setPrice(121.00)
-        self.assertEqual(v.isValid(), True)
-        
-        self.shop.c.setPrice(122.00)
+        self.shop.c.setPrice(23.00)
         self.assertEqual(v.isValid(), False)
+        
+        self.shop.c.setPrice(22.00)
+        self.assertEqual(v.isValid(), True)
 
         view = getMultiAdapter((
             self.shop.products.product_2, 
@@ -171,11 +175,11 @@ class TestValidity(EasyShopTestCase):
             
         view.addToCart()
 
-        self.shop.c.setPrice(140.00)
-        self.assertEqual(v.isValid(), True)
-
-        self.shop.c.setPrice(141.00)
+        self.shop.c.setPrice(42.00)
         self.assertEqual(v.isValid(), False)
+
+        self.shop.c.setPrice(41.00)
+        self.assertEqual(v.isValid(), True)
 
     def testProduct(self):
         """

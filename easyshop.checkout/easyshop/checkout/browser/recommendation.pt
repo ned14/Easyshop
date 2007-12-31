@@ -1,4 +1,4 @@
-<html>
+<html i18n:domain="EasyShop">
     <body tal:define="mail_info view/getMailInfo">
 
         <p>

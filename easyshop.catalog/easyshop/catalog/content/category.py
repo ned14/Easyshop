@@ -81,7 +81,7 @@ schema = Schema((
     ReferenceField( 
         name='products', 
         multiValued=1,
-        relationship='category_products',
+        relationship='categories_products',
         allowed_types=("Product",),
         widget=ReferenceBrowserWidget(        
             label='Products',

@@ -96,14 +96,14 @@ class TestOrderItemManagement(EasyShopTestCase):
         order_item = oim.getItems()[0]
         
         self.assertEqual(order_item.getProductQuantity(), 3)
-        self.assertEqual(order_item.getProductPriceGross(), 22.0)
+        self.assertEqual("%.2f" % order_item.getProductPriceGross(), "22.00")
         self.assertEqual("%.2f" % order_item.getProductPriceNet(), "18.49")
         self.assertEqual("%.2f" % order_item.getProductTax(), "3.51")
-        self.assertEqual(order_item.getPriceGross(), 4536.0)
+        self.assertEqual("%.2f" % order_item.getPriceGross(), "4536.00")
         self.assertEqual("%.2f" % order_item.getPriceNet(), "3811.76")
         self.assertEqual(order_item.getTaxRate(), 19.0)
         self.assertEqual("%.2f" % order_item.getTax(), "724.24")
-        self.assertEqual(order_item.getProducts(), self.product_1)
+        self.assertEqual(order_item.getProduct(), self.product_1)
         
         properties = order_item.getProperties()
             
