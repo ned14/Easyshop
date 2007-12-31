@@ -6,6 +6,7 @@ easyshop.carts https://easyshop-for-plone.googlecode.com/svn/easyshop.carts/bran
 easyshop.catalog https://easyshop-for-plone.googlecode.com/svn/easyshop.catalog/branches/2.5
 easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkout/branches/2.5
 easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/branches/2.5
+easyshop.discounts https://easyshop-for-plone.googlecode.com/svn/easyshop.discounts/branches/2.5
 easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/branches/2.5
 easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/branches/2.5
 easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/branches/2.5
