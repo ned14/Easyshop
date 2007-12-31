@@ -16,6 +16,7 @@ easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/bran
 easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/branches/2.5
 easyshop.shipping https://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/branches/2.5
 easyshop.shop https://easyshop-for-plone.googlecode.com/svn/easyshop.shop/branches/2.5
+easyshop.stocks https://easyshop-for-plone.googlecode.com/svn/easyshop.stocks/branches/2.5
 easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/branches/2.5
 
 iqpp.sessions https://easyshop-for-plone.googlecode.com/svn/iqpp.sessions/branches/2.5
