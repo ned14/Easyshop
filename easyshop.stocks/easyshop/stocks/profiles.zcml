@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="easyshop.stocks"
+        directory="profiles/default"
+        description="Stock management for EasyShop"
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+  
+</configure>
