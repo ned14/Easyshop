@@ -7,7 +7,4 @@
         package="." 
         initialize=".initialize" />
 
-    <include 
-        file="profiles.zcml" />
-
 </configure>

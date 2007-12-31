@@ -7,15 +7,9 @@
         package="." />
 
     <include 
-        file="profiles.zcml" />
-
-    <include 
         package=".adapters" />
 
     <include 
         package=".browser" />
-
-    <include 
-        package=".subscribers" />
 
 </configure>

@@ -7,22 +7,10 @@
         package="." 
         initialize=".initialize" />
 
-    <include 
-        file="profiles.zcml" />
-        
     <include
         package=".adapters" />
 
     <include
         package=".browser" />
-
-    <include
-        package=".portlets" />
-
-    <include
-        package=".subscribers" />
-
-    <include
-        package=".viewlets" />
 
 </configure>

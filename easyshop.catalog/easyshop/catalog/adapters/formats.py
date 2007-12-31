@@ -1,6 +1,6 @@
 # zope imports
 from persistent.dict import PersistentDict
-from zope.annotation.interfaces import IAnnotations
+from zope.app.annotation.interfaces import IAnnotations
 from zope.interface import implements
 
 # easyshop imports

@@ -1,26 +1,21 @@
 # zope imports
 from zope.formlib import form
-import zope.event
-import zope.lifecycleevent
+from zope.event import notify
+from zope.app.event.objectevent import ObjectModifiedEvent
 
 # Five imports
 from Products.Five.browser import pagetemplatefile
+from Products.Five.formlib import formbase
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
-
-# plone imports
-from plone.app.form import base
-from plone.app.form.validators import null_validator
-from plone.app.form.events import EditCancelledEvent, EditSavedEvent
 
 # easyshop imports
 from easyshop.core.config import _
 from easyshop.core.config import DEFAULT_SHOP_FORM
 from easyshop.core.interfaces import ICustomer
-from easyshop.core.interfaces import IShopManagement
 
-class CustomerEditForm(base.EditForm):
+class CustomerEditForm(formbase.EditForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)
@@ -39,24 +34,26 @@ class CustomerEditForm(base.EditForm):
         utils = getToolByName(self.context, "plone_utils")
         utils.addPortalMessage(_(u"Changes saved"), "info")
         if form.applyChanges(self.context, self.form_fields, data, self.adapters):
-            zope.event.notify(zope.lifecycleevent.ObjectModifiedEvent(self.context))
-            zope.event.notify(EditSavedEvent(self.context))
-        else:
-            zope.event.notify(EditCancelledEvent(self.context))
+            notify(ObjectModifiedEvent(self.context))
+            # zope.event.notify(EditSavedEvent(self.context))
+        # else:
+            # zope.event.notify(EditCancelledEvent(self.context))
 
         self.context.reindexObject()
         self._nextUrl()
         
     @form.action(_(u"label_cancel", default=u"Cancel"),
-                 validator=null_validator,
                  name=u'cancel')
+
+                 # validator=null_validator,
+                                  
     def handle_cancel_action(self, action, data):
         """
         """
         utils = getToolByName(self.context, "plone_utils")
         utils.addPortalMessage(_(u"Edit canceled"), "info")
         
-        zope.event.notify(EditCancelledEvent(self.context))        
+        # notify(EditCancelledEvent(self.context))        
         self._nextUrl()        
 
     def _nextUrl(self):
@@ -69,4 +66,3 @@ class CustomerEditForm(base.EditForm):
             url =  self.context.absolute_url()
             url += "/my-account"
             self.request.response.redirect(url)
-            

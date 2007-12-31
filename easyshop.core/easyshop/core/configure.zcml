@@ -9,9 +9,4 @@
     <include 
         file="permissions.zcml" />
     
-    <utility
-        provides="zope.schema.interfaces.IVocabularyFactory"
-        component=".vocabularies.countries"
-        name="easyshop.countries" />
-    
 </configure>

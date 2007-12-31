@@ -8,16 +8,10 @@
         initialize=".initialize" />
 
     <include 
-        file="profiles.zcml" />
-
-    <include 
         package=".adapters" />
 
     <include 
         package=".browser" />
-
-    <include
-        package=".portlets" />
 
     <include
         package=".utilities" />

@@ -1,10 +1,9 @@
 # zope imports
 from zope.formlib import form
 
+# Five imports
 from Products.Five.browser import pagetemplatefile
-
-# plone imports
-from plone.app.form import base
+from Products.Five.formlib import formbase
 
 # easyshop imports
 from easyshop.core.config import _
@@ -13,7 +12,7 @@ from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICustomerManagement
 
-class AddressAddForm(base.AddForm):
+class AddressAddForm(formbase.AddForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile("address_form.pt")

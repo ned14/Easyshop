@@ -1,24 +1,19 @@
 # zope imports
 from zope.formlib import form
 from zope.event import notify
-from zope.lifecycleevent import ObjectModifiedEvent
+from zope.app.event.objectevent import ObjectModifiedEvent
 
+# Five imports
 from Products.Five.browser import pagetemplatefile
-
-# plone imports
-from plone.app.form import base
-from plone.app.form.validators import null_validator
-from plone.app.form.events import EditCancelledEvent
-from plone.app.form.events import EditSavedEvent
+from Products.Five.formlib import formbase
 
 # easyshop imports
 from easyshop.core.config import _
 from easyshop.core.config import DEFAULT_SHOP_FORM
 from easyshop.core.interfaces import IAddress
 from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import ICustomerManagement
 
-class AddressEditForm(base.EditForm):
+class AddressEditForm(formbase.EditForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)
@@ -34,10 +29,10 @@ class AddressEditForm(base.EditForm):
         """
         if form.applyChanges(self.context, self.form_fields, data, self.adapters):
             notify(ObjectModifiedEvent(self.context))
-            notify(EditSavedEvent(self.context))
+            # notify(EditSavedEvent(self.context))
             self.status = "Changes saved"
         else:
-            notify(EditCancelledEvent(self.context))
+            # notify(EditCancelledEvent(self.context))
             self.status = "No changes"
 
         self.context.reindexObject()
@@ -45,11 +40,13 @@ class AddressEditForm(base.EditForm):
 
         self.redirectToNextURL()
 
-    @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
+    @form.action(_(u"label_cancel", default=u"Cancel"), name=u'cancel')    
+    # validator=null_validator,     
+    
     def handle_cancel_action(self, action, data):
         """
         """                
-        notify(EditCancelledEvent(self.context))        
+        # notify(EditCancelledEvent(self.context))        
         self.redirectToNextURL()
 
     def redirectToNextURL(self):
@@ -64,7 +61,7 @@ class AddressEditForm(base.EditForm):
             self.request.response.redirect(url)
             
             
-class AddressAddForm(base.AddForm):
+class AddressAddForm(formbase.AddForm):
     """
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile(DEFAULT_SHOP_FORM)    
@@ -79,7 +76,9 @@ class AddressAddForm(base.AddForm):
         """
         self.createAndAdd(data)
     
-    @form.action(_(u"label_cancel", default=u"Cancel"), validator=null_validator, name=u'cancel')
+    @form.action(_(u"label_cancel", default=u"Cancel"), name=u'cancel')
+    # validator=null_validator,
+     
     def handle_cancel_action(self, action, data):
         """
         """

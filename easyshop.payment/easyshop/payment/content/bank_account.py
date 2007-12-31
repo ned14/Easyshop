@@ -1,30 +1,68 @@
 # zope imports
-from zope.component.factory import Factory
 from zope.interface import implements
-from zope.schema.fieldproperty import FieldProperty
 
-# plone imports
-from plone.app.content.item import Item
+# Archetypes imports
+from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import _
+from easyshop.core.config import *
 from easyshop.core.interfaces import IBankAccount
 
-class BankAccount(Item):
+schema = Schema((
+
+    StringField(
+        name='account_number',
+        required=1,
+        widget=StringWidget(
+            label='Account Number',
+            label_msgid='schema_account_number_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+    StringField(
+        name='bank_identification_code',
+        required=1,        
+        widget=StringWidget(
+            label='Bank Identification Code',
+            label_msgid='schema_bank_identification_code_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+    StringField(
+        name='depositor',
+        required=1,        
+        widget=StringWidget(
+            label='Depositor',
+            label_msgid='schema_name_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+    StringField(
+        name='bank_name',
+        required=1,
+        widget=StringWidget(
+            label='Bankname',
+            label_msgid='schema_bankname_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+),
+)
+
+class BankAccount(BaseContent):
     """Holds all relevant informations for direct debit payment method. This is 
     a bank account.
-    """
+    """    
     implements(IBankAccount)
-    portal_type = "BankAccount"
+    schema = schema
     
-    account_number = FieldProperty(IBankAccount["account_number"])
-    bank_identification_code = FieldProperty(IBankAccount["bank_identification_code"])
-    bank_name = FieldProperty(IBankAccount["bank_name"])
-    depositor = FieldProperty(IBankAccount["depositor"])
-
     def Title(self):
         """
         """
         return self.bank_name + " - " + self.account_number
         
-bankAccountFactory = Factory(BankAccount, title=_(u"Create a new bank account"))       
+registerType(BankAccount, PROJECTNAME)

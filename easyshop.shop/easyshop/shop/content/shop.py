@@ -1,31 +1,16 @@
 # Zope imports
 from zope.interface import implements
-from zope.component import getUtility
-from zope.component import getMultiAdapter
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# plone.portlets imports
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from plone.portlets.interfaces import IPortletManager
-
 # ATContentTypes imports
 from Products.ATContentTypes.content.folder import ATFolder
-from Products.ATContentTypes.configuration import zconf
-from Products.ATContentTypes import ATCTMessageFactory as _
 
 # easyshop imports
 from easyshop.core.config import *
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IImageConversion
-
-from easyshop.catalog.portlets import categories
-from easyshop.catalog.portlets import formatter
-from easyshop.shop.portlets import admin
-
-from easyshop.carts.portlets import cart
-from easyshop.customers.portlets import my_account
 
 schema = Schema((
 
@@ -159,39 +144,6 @@ class EasyShop(ATFolder):
         ctr.getPredicate("Photo").edit("jpg jpeg png gif")
         ctr.assignTypeName("Photo", "Photo")
         
-        # Add left portlets 
-        leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)
-        left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, context=self)
-
-        if u'portlets.Admin' not in left:
-            left[u'portlets.Admin'] = admin.Assignment()
-            order = [left.keys()[-1]]+left.keys()[:-1]
-            left.updateOrder(list(order))
-
-        if u'portlets.Categories' not in left:
-            left[u'portlets.Categories'] = categories.Assignment()
-            order = [left.keys()[-1]]+left.keys()[:-1]
-            left.updateOrder(list(order))
-
-        # Add right portlets 
-        rightColumn = getUtility(IPortletManager, name=u'plone.rightcolumn', context=self)
-        right = getMultiAdapter((self, rightColumn,), IPortletAssignmentMapping, context=self)
-
-        if u'portlets.Formatter' not in right:
-            right[u'portlets.Formatter'] = formatter.Assignment()
-            order = [right.keys()[-1]]+right.keys()[:-1]
-            right.updateOrder(list(order))
-
-        if u'portlets.Cart' not in right:
-            right[u'portlets.Cart'] = cart.Assignment()
-            order = [right.keys()[-1]]+right.keys()[:-1]
-            right.updateOrder(list(order))
-
-        if u'portlets.MyAccount' not in right:
-            right[u'portlets.MyAccount'] = my_account.Assignment()
-            order = [right.keys()[-1]]+right.keys()[:-1]
-            right.updateOrder(list(order))
-            
     def setImage(self, data):
         """
         """

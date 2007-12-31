@@ -1,15 +1,11 @@
 # zope imports
 from zope.event import notify
 from zope.formlib import form
-from zope.lifecycleevent import ObjectModifiedEvent
+from zope.app.event.objectevent import ObjectModifiedEvent
 
 # Five imports
 from Products.Five.browser import pagetemplatefile
-
-# plone imports
-from plone.app.form import base
-from plone.app.form.events import EditCancelledEvent
-from plone.app.form.events import EditSavedEvent
+from Products.Five.formlib import formbase
 
 # easyshop imports
 from easyshop.core.config import _
@@ -17,7 +13,7 @@ from easyshop.core.interfaces import IAddress
 from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import IShopManagement
 
-class AddressEditForm(base.EditForm):
+class AddressEditForm(formbase.EditForm):
     """This form let anonymous users edit their already entered invoice and 
     shipping address. This happens when they click checkout again and they have 
     already entered addresses within the same sessions. 
@@ -36,10 +32,10 @@ class AddressEditForm(base.EditForm):
         """
         if form.applyChanges(self.context, self.form_fields, data, self.adapters):
             notify(ObjectModifiedEvent(self.context))
-            notify(EditSavedEvent(self.context))
+            # notify(EditSavedEvent(self.context))
             self.status = "Changes saved"
         else:
-            notify(EditCancelledEvent(self.context))
+            # notify(EditCancelledEvent(self.context))
             self.status = "No changes"
 
         shop = IShopManagement(self.context).getShop()
