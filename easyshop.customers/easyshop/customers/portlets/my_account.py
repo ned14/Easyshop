@@ -1,17 +1,16 @@
 # zope imports
 from zope.i18nmessageid import MessageFactory
 from zope.interface import implements
+from zope.interface import Interface
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
 # plone imports
-from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
-from plone.portlets.interfaces import IPortletDataProvider
 
 # Five imports
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser import BrowserView
 
 # easyshop imports
 from easyshop.core.interfaces import ICustomerManagement
@@ -20,29 +19,36 @@ from easyshop.core.interfaces import IShopManagement
 # create message factory
 _ = MessageFactory("EasyShop")
 
-class IMyAccountPortlet(IPortletDataProvider):
+class IMyAccountPortletView(Interface):
     """
     """
-
-class Assignment(base.Assignment):
-    """
-    """
-    implements(IMyAccountPortlet)
-
-    def __init__(self):
+    def available():
+        """
+        """
+    def getMyAccountUrl():
         """
         """
 
-    @property
-    def title(self):
+    def getPortalUrl():
         """
         """
-        return _(u"My Account")
 
-class Renderer(base.Renderer):
+    def getUserName():
+        """
+        """
+
+    def isAnonymous():
+        """
+        """
+
+    def getCustomer():
+        """
+        """
+        
+class MyAccountPortletView(BrowserView):
     """
     """
-    render = ViewPageTemplateFile('my_account.pt')
+    implements(IMyAccountPortletView)
 
     @property
     def available(self):
@@ -84,11 +90,3 @@ class Renderer(base.Renderer):
         """
         shop = IShopManagement(self.context).getShop()
         return ICustomerManagement(shop).getAuthenticatedCustomer()
-        
-class AddForm(base.NullAddForm):
-    """
-    """
-    def create(self):
-        """
-        """
-        return Assignment()

@@ -1,12 +1,12 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:plone="http://namespaces.plone.org/plone">
-    
+
     <browser:page
         for="*"
-        name="MyAccountPortletView"
-        class=".my_account.MyAccountPortletView"
-        allowed_interface=".my_account.IMyAccountPortletView"
+        name="AdminPortletView"
+        class=".admin.AdminPortletView"
+        allowed_interface=".admin.IAdminPortletView"
         permission="zope2.View" />
-
+    
 </configure>

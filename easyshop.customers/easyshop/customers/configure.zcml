@@ -17,6 +17,9 @@
         package=".content" />
 
     <include
+        package=".portlets" />
+
+    <include
         package=".subscribers" />
 
     <include
