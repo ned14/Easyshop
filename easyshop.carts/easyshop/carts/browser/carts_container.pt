@@ -8,8 +8,6 @@
                     tal:define="sort_on python:request.get('sort_on', 'modified');
                                 sort_order python:request.get('sort_order', 'descending');
                                 carts view/getCarts">
-
-              <div tal:replace="structure provider:plone.abovecontenttitle" />
   
               <h1 class="documentFirstHeading"
                   i18n:translate="carts_label">
@@ -135,8 +133,6 @@
                 </table>
             </tal:block>
         </metal:main>    
-        
-        <div tal:replace="structure provider:plone.belowcontentbody" />        
         
     </body>
 </html>

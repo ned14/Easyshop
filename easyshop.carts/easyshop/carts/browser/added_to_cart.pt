@@ -10,14 +10,10 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-
         <h1 class="documentFirstHeading"
             i18n:translate="input_title_label"> 
             This Article has been added to the cart
         </h1>
-
-        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <table class="shop-default"
                tal:define="product view/getProduct">
