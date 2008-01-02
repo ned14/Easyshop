@@ -6,7 +6,7 @@ from zope import event
 from Products.CMFCore.utils import getToolByName
 
 # Archetypes imports
-from Products.Archetypes.event import ObjectInitializedEvent
+from easyshop.shop.events import ShopCreatedEvent
 
 # easyshop imports 
 from base import EasyShopTestCase
@@ -45,7 +45,7 @@ class TestCart(EasyShopTestCase):
                                   title="MyShop", 
                                   description="My test shop")
 
-        event.notify(ObjectInitializedEvent(self.folder.myshop))
+        event.notify(ShopCreatedEvent(self.folder.myshop))
         self.shop = self.folder.myshop
         self.shop.at_post_create_script()        
                         

@@ -10,10 +10,15 @@ from Testing import ZopeTestCase
 from Products.PloneTestCase import PloneTestCase
 from Products.PloneTestCase.layer import PloneSite
 
+# Five imports
 from Products.Five.testbrowser import Browser as BaseBrowser
 
+ZopeTestCase.installProduct("ATBackRef")
+ZopeTestCase.installProduct("DataGridField")
+ZopeTestCase.installProduct("EasyShopSkins") 
+ 
 PloneTestCase.setupPloneSite(
-    products=["easyshop.shop",])
+    products=("ATBackRef", "DataGridField", "EasyShopSkins"))
 
 # easyshop imports
 from easyshop.shop.tests import utils
@@ -37,11 +42,6 @@ class EasyShopLayer(PloneSite):
         app = ZopeTestCase.app()
         portal = app.plone
         
-        ZopeTestCase.installPackage("easyshop.catalog")
-        ZopeTestCase.installPackage("easyshop.checkout")
-        ZopeTestCase.installPackage("easyshop.login")
-        ZopeTestCase.installPackage("easyshop.shop")
-
         # login as admin (copied from `loginAsPortalOwner`)
         uf = app.acl_users
         user = uf.getUserById(PloneTestCase.portal_owner).__of__(uf)
