@@ -29,14 +29,15 @@ class MyOrdersView(BrowserView):
             order_view = getMultiAdapter((order, self.request), name="order")
             created = ttool.ulocalized_time(order.created(), long_format=True)
             temp = {
-                "id" : order.getId(),
-                "url": order.absolute_url(),
-                "price_gross" : order_view.getPriceForCustomer(),
-                "shipping" : order_view.getShipping(),
-                "payment"  : order_view.getPaymentValues(),
-                "items_" : order_view.getItems(),                      # items is a python key word.
+                "id"            : order.getId(),
+                "url"           : order.absolute_url(),
+                "price_gross"   : order_view.getPriceForCustomer(),
+                "shipping"      : order_view.getShipping(),
+                "payment"       : order_view.getPaymentValues(),
+                "items_"        : order_view.getItems(),
                 "creation_date" : created,
-                "state" : wftool.getInfoFor(order, "review_state"),
+                "state"         : wftool.getInfoFor(order, "review_state"),
+                "tax"           : order_view.getTax(),
             }
             result.append(temp)
 
