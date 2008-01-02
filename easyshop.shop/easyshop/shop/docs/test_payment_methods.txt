@@ -16,7 +16,6 @@ View the shop
 
 Now we add a new payment method
         
-    >>> browser.dc()    
     >>> browser.getLink("Add Payment Method").click()
     >>> browser.getControl('Title').value = 'My Payment Method'
     >>> browser.getControl('Payed').selected = True
