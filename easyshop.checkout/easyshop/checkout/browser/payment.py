@@ -182,7 +182,7 @@ class PaymentForm(formbase.EditForm):
     def getBankAccounts(self):
         """
         """
-        if self._isValid("bank-account") == False:
+        if self._isValid("direct-debit") == False:
             return []
         
         cm = ICustomerManagement(self.context)
