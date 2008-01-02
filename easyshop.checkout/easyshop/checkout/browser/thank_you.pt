@@ -185,8 +185,6 @@
                 __utmSetTrans();
             </script>
 -->    
-        <div tal:replace="structure provider:plone.belowcontentbody" />
-        
         </metal:main> 
     </body>
 </html>

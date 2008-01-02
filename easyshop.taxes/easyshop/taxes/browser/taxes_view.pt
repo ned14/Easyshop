@@ -8,8 +8,6 @@
                     tal:define="default_taxes view/getDefaultTaxes;
                                 customer_taxes view/getCustomerTaxes;">
 
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-
             <h1 class="documentFirstHeading"> 
                 <metal:field use-macro="python:here.widget('title', mode='view')">
                 Title
@@ -35,8 +33,6 @@
                 Description
             </p>
 
-            <div tal:replace="structure provider:plone.abovecontentbody" />
-            
             <h1 i18n:translate="default_taxes_label">
                 Default Taxes
             </h1>      

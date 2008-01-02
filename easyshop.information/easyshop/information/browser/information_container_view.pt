@@ -10,23 +10,17 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-
         <h1 class="documentFirstHeading"> 
             <metal:field use-macro="python:here.widget('title', mode='view')">
             Title
             </metal:field>
         </h1>
 
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
-        
         <p class="documentDescription">
             <metal:field use-macro="python:here.widget('description', mode='view')">
             Description
             </metal:field>
         </p>
-
-        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:repeat="page view/getInformationPages">
             <h2>

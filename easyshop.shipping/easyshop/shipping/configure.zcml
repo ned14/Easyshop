@@ -2,13 +2,17 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five">
 
-    <five:registerPackage 
-        package="." />
+    <five:registerPackage
+        package="." 
+        initialize=".initialize" />
 
     <include
         package=".adapters" />
 
     <include
         package=".browser" />
+
+    <include
+        package=".subscribers" />
 
 </configure>

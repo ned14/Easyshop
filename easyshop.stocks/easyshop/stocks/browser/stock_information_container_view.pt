@@ -7,8 +7,6 @@
         <metal:main fill-slot="main"
                     tal:define="stock_informations view/getStockInformations;">
         
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="stock_information_label">
                 Stock Information

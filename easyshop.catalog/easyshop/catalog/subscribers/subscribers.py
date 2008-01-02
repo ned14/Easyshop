@@ -1,11 +1,11 @@
 # zope imports
 from zope.component import adapter
-from Products.Archetypes.interfaces import IObjectInitializedEvent
 
 # easyshop imports
 from easyshop.core.interfaces import IShop
+from easyshop.shop.events import IShopCreatedEvent
 
-@adapter(IShop, IObjectInitializedEvent)
+@adapter(IShop, IShopCreatedEvent)
 def createContainers(shop, event):
     """
     """

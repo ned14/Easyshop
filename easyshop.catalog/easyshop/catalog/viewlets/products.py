@@ -1,11 +1,11 @@
 # zope imports
 from zope.component import queryUtility
+from zope.viewlet.viewlet import ViewletBase
 
 # Zope imports
 from ZTUtils import make_query       
 
 # plone imports
-from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
 
 # Five imports
@@ -86,11 +86,11 @@ class ProductsViewlet(ViewletBase):
 
             # Effective price
             price = p.getPriceForCustomer()                                
-            price = cm.priceToString(price, symbol="symbol", position="before")
+            price = cm.priceToString(price)
             
             # Standard price
             standard_price = p.getPriceForCustomer(effective=False)
-            standard_price = cm.priceToString(standard_price, symbol="symbol", position="before")
+            standard_price = cm.priceToString(standard_price)
                                     
             # Image
             image = IImageManagement(product).getMainImage()

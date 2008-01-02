@@ -10,8 +10,6 @@
                                 order python:request.get('order', 'descending');
                                 orders view/getOrders">
 
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="orders_label">
                 Orders
@@ -148,8 +146,6 @@
                 </table>
             </tal:block>    
         </metal:main>    
-        
-        <div tal:replace="structure provider:plone.belowcontentbody" />
         
     </body>
 </html>

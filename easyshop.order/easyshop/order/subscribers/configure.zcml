@@ -3,7 +3,9 @@
     <subscriber
         handler=".containers.createContainers" />
 
+    <!--    
     <subscriber
         handler=".mailing.sendOrderMail" />
+    -->    
 
 </configure>

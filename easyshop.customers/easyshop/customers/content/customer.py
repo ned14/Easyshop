@@ -1,15 +1,19 @@
 # zope imports
+from zope.component.factory import Factory
 from zope.interface import implements
+from zope.schema.fieldproperty import FieldProperty
 
-# Archetypes imports
-from Products.Archetypes.atapi import *
+# plone imports
+from plone.app.content.container import Container
 
 # easyshop imports
-from easyshop.core.config import PROJECTNAME
+from easyshop.core.config import _
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomer
 
-class Customer(BaseFolder):
+from OFS.OrderSupport import OrderSupport
+
+class Customer(OrderSupport, Container):
     """A customer can buy products from a shop. A customer has addresses and 
     payment methods.
 
@@ -18,6 +22,11 @@ class Customer(BaseFolder):
     This is intended to be changed to "remember" in future.
     """    
     implements(ICustomer)
+    portal_type = "Customer"
+    
+    firstname = FieldProperty(ICustomer["firstname"])
+    lastname  = FieldProperty(ICustomer["lastname"])
+    email     = FieldProperty(ICustomer["email"])
     
     selected_invoice_address     = u""
     selected_shipping_address    = u""
@@ -66,4 +75,4 @@ class Customer(BaseFolder):
                         
         return " ".join(text)
 
-registerType(Customer, PROJECTNAME) 
+customerFactory = Factory(Customer, title=_(u"Create a new customer"))

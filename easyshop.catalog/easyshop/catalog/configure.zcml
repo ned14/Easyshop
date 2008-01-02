@@ -1,16 +1,28 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="easyshop.catalog">
+    xmlns:five="http://namespaces.zope.org/five">
 
     <five:registerPackage
         package="." 
         initialize=".initialize" />
+
+    <five:implements
+        class=".content.category.Category"
+        interface="zope.app.annotation.interfaces.IAttributeAnnotatable" />
 
     <include
         package=".adapters" />
 
     <include
         package=".browser" />
+
+    <include
+        package=".portlets" />
+
+    <include
+        package=".subscribers" />
+
+    <include
+        package=".viewlets" />
 
 </configure>

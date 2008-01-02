@@ -7,8 +7,6 @@
         <metal:main fill-slot="main"
                     tal:define="payment_methods view/getPaymentMethods;">
 
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-
             <h1 class="documentFirstHeading"
                 i18n:translate="payment_methods_label">
                 Payment Methods

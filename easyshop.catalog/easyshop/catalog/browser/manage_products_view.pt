@@ -9,8 +9,6 @@
         <metal:main fill-slot="main"
                     tal:define="lines view/getProducts">
   
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="products_label">
                 Products
@@ -50,8 +48,6 @@
                 </form>              
             </div>
                 
-            <div tal:replace="structure provider:plone.abovecontentbody" />
-  
             <table class="shop-default">
                 <tr>
                     <td style="width:50%;padding-right:20px">

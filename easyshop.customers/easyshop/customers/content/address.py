@@ -1,18 +1,32 @@
 # zope imports
+from zope.component.factory import Factory
 from zope.interface import implements
+from zope.schema.fieldproperty import FieldProperty
 
-# Archetypes imports
-from Products.Archetypes.atapi import *
+# plone imports
+from plone.app.content.item import Item
 
 # easyshop imports
-from easyshop.core.config import PROJECTNAME
+from easyshop.core.config import _
 from easyshop.core.interfaces import IAddress
 
-class Address(BaseContent):
+class Address(Item):
     """
     """
     implements(IAddress)
+    portal_type = "Address"
 
+    firstname     = FieldProperty(IAddress["firstname"])
+    lastname      = FieldProperty(IAddress["lastname"])
+    company_name  = FieldProperty(IAddress["company_name"])
+    address_1     = FieldProperty(IAddress["address_1"])
+    zip_code      = FieldProperty(IAddress["zip_code"])
+    city          = FieldProperty(IAddress["city"])
+    country       = FieldProperty(IAddress["country"])
+    phone         = FieldProperty(IAddress["phone"])
+
+    country = u""
+    
     def Title(self):
         """
         """
@@ -31,5 +45,5 @@ class Address(BaseContent):
             name += self.lastname
         
         return name
-
-registerType(Address, PROJECTNAME)
+        
+addressFactory = Factory(Address, title=_(u"Create a new address"))

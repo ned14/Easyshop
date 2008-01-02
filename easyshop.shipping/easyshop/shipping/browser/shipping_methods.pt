@@ -7,8 +7,6 @@
         <metal:main fill-slot="main"
                     tal:define="shipping_methods view/getShippingMethods;">
         
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="shipping_methods_label">
                 Shipping Methods
@@ -61,8 +59,6 @@
               </tr>
             </table>          
 
-            <div tal:replace="structure provider:plone.belowcontentbody" />
-            
         </metal:main>    
         
   </body>

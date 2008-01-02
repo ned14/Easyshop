@@ -7,8 +7,6 @@
         <metal:main fill-slot="main"
                     tal:define="customers view/getCustomers">
   
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="customers_label">
                 Customers
@@ -47,8 +45,6 @@
                 </form>              
             </div>
                 
-            <div tal:replace="structure provider:plone.abovecontentbody" />
-            
             <table class="shop-default">
                 <tr>
                     <td width="50%">

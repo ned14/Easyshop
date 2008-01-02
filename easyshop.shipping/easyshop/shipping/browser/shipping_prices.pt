@@ -7,8 +7,6 @@
         <metal:main fill-slot="main"
                     tal:define="shipping_prices view/getShippingPrices;">
         
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="shipping_prices_label">
                 Shipping Prices
@@ -99,8 +97,6 @@
               </tr>
             </table>          
 
-            <div tal:replace="structure provider:plone.belowcontentbody" />
-            
         </metal:main>    
         
   </body>

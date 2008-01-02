@@ -1,64 +1,54 @@
 # zope imports
-from zope import schema
-from zope.formlib import form
+from zope.interface import Interface
 from zope.interface import implements
 
 # plone imports
-from plone.app.portlets.portlets import base
-from plone.portlets.interfaces import IPortletDataProvider
 from plone.memoize.instance import memoize
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
 # Five imports
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.config import _
 from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IShopManagement
 
-class ICategoriesPortlet(IPortletDataProvider):
+class ICategoriesPortletView(Interface):
     """
     """
-    expand_all = schema.Bool(
-        title=_(u'Expand all'),
-        description=_(u'If selected all categories are expanded by default.'),
-        required=False,
-        default=False,)
-
-    show_quantity = schema.Bool(
-        title=_(u'Show quantity'),
-        description=_(u'If selected amount of product per categories is displayed.'),
-        required=False,
-        default=False,)
-
-
-class Assignment(base.Assignment):
-    """
-    """
-    implements(ICategoriesPortlet)
-
-    def __init__(self, expand_all=False, show_quantity=False):
+    def available():
+        """
+        """ 
+    
+    def getCategories():
         """
         """
-        self.expand_all = expand_all
-        self.show_quantity = show_quantity
+
+    def showQuantity():
+        """
+        """
         
-    @property
-    def title(self):
+    def getShopUrl():
         """
         """
-        return _(u"EasyShop: Categories")
+        
+    def getStartingCategory():
+        """
+        """
 
-class Renderer(base.Renderer):
+    def getTopLevelCategories():
+        """
+        """
+        
+class CategoriesPortletView(BrowserView):
     """
     """
-    render = ViewPageTemplateFile('categories.pt')
-
+    implements(ICategoriesPortletView)
+    
     @property
     def available(self):
         """
@@ -107,7 +97,7 @@ class Renderer(base.Renderer):
     def showQuantity(self):
         """
         """
-        return self.data.show_quantity
+        return True
         
     def getShopUrl(self):
         """
@@ -132,9 +122,9 @@ class Renderer(base.Renderer):
 
     def _showSubTree(self, category):
         """Decides, whether a subtree of a category will be displayed or not.
-        """
-        if self.data.expand_all == True:
-            return True
+        """        
+        # if self.data.expand_all == True:
+        #     return True
 
         context_url  = self.context.absolute_url()
         category_url = category.getURL()
@@ -197,26 +187,6 @@ class Renderer(base.Renderer):
 
         return result 
 
-    # def _isCurrentItem(self, category):
-    #     """Only the selected category is current category
-    #     """
-    #     context_url  = self.context.absolute_url()
-    #     category_url = category.getURL()
-    # 
-    #     if context_url == category_url:
-    #         return True
-    #     elif self.context.portal_type == "Product":
-    #         try:
-    #             product_category = self.context.getBRefs("categories_products")[0]
-    #         except IndexError:
-    #             return False
-    #     
-    #         # UID doesn't work here. Don't know why yet.
-    #         if category.getPath() == "/".join(product_category.getPhysicalPath()):
-    #             return True
-    #         
-    #     return False
-    
     def _isCurrentItem(self, category):
         """Selected category and parent are current categories.
         """
@@ -246,21 +216,3 @@ class Renderer(base.Renderer):
         """
         """
         return IShopManagement(self.context).getShop()
-        
-class AddForm(base.AddForm):
-    """
-    """
-    def create(self, data):
-        """
-        """
-        return Assignment(
-            expand_all = data.get("expand_all", False),
-            show_quantity = data.get("show_quantity", False),
-        )
-        
-class EditForm(base.EditForm):
-    """
-    """
-    form_fields = form.Fields(ICategoriesPortlet)
-    label = _(u"Edit EasyShop Categories Portlet")
-    description = _(u"This portlet displays the categories of an EasyShop.")

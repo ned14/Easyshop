@@ -5,7 +5,6 @@
     <browser:viewletManager
         name="easyshop.products-manager"
         provides=".interfaces.IProductsViewletManager"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="zope.Public" />
 
     <browser:viewlet
@@ -19,8 +18,7 @@
     <browser:viewletManager
         name="easyshop.categories-manager"
         provides=".interfaces.ICategoriesViewletManager"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
-        permission="zope.Public" />
+         permission="zope.Public" />
 
     <browser:viewlet
         name="easyshop.categories-viewlet"
@@ -39,9 +37,8 @@
 
     <!-- Product -->
     <browser:viewletManager
-        name="easyshop.product-manager"
+        name="easyshop.product_manager"
         provides=".interfaces.IProductViewletManager"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="zope.Public" />
 
     <browser:viewlet
@@ -55,7 +52,6 @@
     <browser:viewletManager
         name="easyshop.product-selector-manager"
         provides=".interfaces.IProductSelectorViewletManager"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="zope.Public" />
 
     <browser:viewlet

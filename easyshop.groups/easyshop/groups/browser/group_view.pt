@@ -6,8 +6,6 @@
 
         <metal:main fill-slot="main">
 
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="groups_label">
                 Groups
@@ -25,8 +23,6 @@
                 Description
             </p>
     
-            <div tal:replace="structure provider:plone.abovecontentbody" />
-     
         </metal:main>
     
     </body>

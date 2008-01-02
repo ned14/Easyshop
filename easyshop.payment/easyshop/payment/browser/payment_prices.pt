@@ -7,8 +7,6 @@
         <metal:main fill-slot="main"
                     tal:define="payment_prices view/getPaymentPrices;">
 
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-            
             <h1 class="documentFirstHeading"
                 i18n:translate="payment_prices_label">
                 Payment Prices
@@ -97,8 +95,6 @@
                 </td>
               </tr>
             </table>          
-            
-            <div tal:replace="structure provider:plone.belowcontentbody" />
             
         </metal:main>    
         

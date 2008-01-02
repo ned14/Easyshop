@@ -7,8 +7,6 @@
         <metal:main fill-slot="main"
                     tal:define="discounts view/getDiscounts;">
         
-            <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
             <h1 class="documentFirstHeading"
                 i18n:translate="discounts_label">
                 Discounts

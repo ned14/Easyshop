@@ -262,7 +262,6 @@ schema.changeSchemataForField('modification_date', 'plone')
 # Categorization
 schema.changeSchemataForField('subject', 'plone')
 schema.changeSchemataForField('relatedItems', 'plone')
-schema.changeSchemataForField('location', 'plone')
 schema.changeSchemataForField('language', 'plone')
 
 # Ownership
@@ -273,7 +272,6 @@ schema.changeSchemataForField('rights', 'plone')
 # Settings
 schema.changeSchemataForField('allowDiscussion', 'plone')
 schema.changeSchemataForField('excludeFromNav', 'plone')
-schema.changeSchemataForField('nextPreviousEnabled', 'plone')
 
 class Product(ATFolder):
     """A Product is offered for sale.

@@ -1,8 +1,8 @@
 # zope imports
 from zope.component import queryUtility
+from zope.viewlet.viewlet import ViewletBase
 
 # plone imports
-from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
 
 # Five imports
