@@ -1,3 +1,10 @@
+# GenericSetup imports
+from Products.GenericSetup import EXTENSION
+from Products.GenericSetup import profile_registry
+
+# CMFPlone imports
+from Products.CMFPlone.interfaces import IPloneSiteRoot
+
 from Products.CMFCore import utils as cmfutils
 from Products.CMFCore import DirectoryView
 from Products.Archetypes.atapi import *
@@ -12,9 +19,6 @@ def initialize(context):
     allow_module('zope.event')
     allow_module("pdb")    
     
-    # Register skin directory
-    DirectoryView.registerDirectory('skins', globals())
-
     import easyshop.carts.content
     import easyshop.catalog.content
     import easyshop.criteria.content
@@ -53,3 +57,13 @@ def initialize(context):
         context.registerClass(meta_type   = all_ftis[i]['meta_type'],
                               constructors= (all_constructors[i],),
                               permission  = ADD_CONTENT_PERMISSIONS[klassname])
+                              
+    # register profile
+    profile_registry.registerProfile(
+        name         = 'default',
+        title        = 'easyshop.shop',
+        description  = 'Shop for EasyShop',
+        path         = 'profiles/default',
+        product      = 'easyshop.shop',
+        profile_type = EXTENSION,
+        for_         = IPloneSiteRoot)                                  

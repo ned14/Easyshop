@@ -1,18 +1,10 @@
 # Zope imports
+from zope.event import notify
 from zope.interface import implements
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-<<<<<<< .working
-=======
-# plone.portlets imports
-from plone.portlets.constants import CONTEXT_CATEGORY
-from plone.portlets.interfaces import ILocalPortletAssignmentManager
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from plone.portlets.interfaces import IPortletManager
-
->>>>>>> .merge-right.r697
 # ATContentTypes imports
 from Products.ATContentTypes.content.folder import ATFolder
 
@@ -20,6 +12,8 @@ from Products.ATContentTypes.content.folder import ATFolder
 from easyshop.core.config import *
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IImageConversion
+
+from easyshop.shop.events import ShopCreatedEvent
 
 schema = Schema((
 
@@ -150,18 +144,12 @@ schema.changeSchemataForField('modification_date', 'plone')
 # Categorization
 schema.changeSchemataForField('subject', 'plone')
 schema.changeSchemataForField('relatedItems', 'plone')
-schema.changeSchemataForField('location', 'plone')
 schema.changeSchemataForField('language', 'plone')
 
 # Ownership
 schema.changeSchemataForField('creators', 'plone')
 schema.changeSchemataForField('contributors', 'plone')
 schema.changeSchemataForField('rights', 'plone')
-
-# Settings
-schema.changeSchemataForField('allowDiscussion', 'plone')
-schema.changeSchemataForField('excludeFromNav', 'plone')
-schema.changeSchemataForField('nextPreviousEnabled', 'plone')
 
 class EasyShop(ATFolder):
     """An shop where one can offer products for sale.
@@ -179,6 +167,9 @@ class EasyShop(ATFolder):
         ctr.addPredicate("EasyShopImage", "extension")
         ctr.getPredicate("EasyShopImage").edit("jpg jpeg png gif")
         ctr.assignTypeName("EasyShopImage", "EasyShopImage")
+        
+        # Shoot event
+        notify(ShopCreatedEvent(self))
         
     def setImage(self, data):
         """

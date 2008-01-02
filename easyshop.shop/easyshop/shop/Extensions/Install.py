@@ -12,6 +12,7 @@ PRODUCT_DEPENDENCIES = (
 EXTENSION_PROFILES = (
     "easyshop.shop:default",
 
+    "EasyShopSkins:default",
     "easyshop.catalog:default",
     "easyshop.carts:default",
 	"easyshop.criteria:default",
@@ -19,7 +20,6 @@ EXTENSION_PROFILES = (
 	"easyshop.discounts:default",
 	"easyshop.groups:default",
 	"easyshop.information:default",
-	"easyshop.kss:default",
 	"easyshop.login:default",
 	"easyshop.order:default",
 	"easyshop.payment:default",
@@ -54,7 +54,8 @@ def install(self, reinstall=False):
             transaction.savepoint()
     
     for extension_id in EXTENSION_PROFILES:
-        portal_setup.runAllImportStepsFromProfile('profile-%s' % extension_id, purge_old=False)
+        portal_setup.setImportContext('profile-%s' % extension_id)
+        portal_setup.runAllImportSteps()
         product_name = extension_id.split(':')[0]
         portal_quickinstaller.notifyInstalled(product_name)
         transaction.savepoint()

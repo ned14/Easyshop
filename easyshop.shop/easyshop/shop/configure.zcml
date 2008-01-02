@@ -7,7 +7,11 @@
         package="." 
         initialize=".initialize" />
 
-    <include 
+    <five:implements
+        class=".content.shop.EasyShop"
+        interface="zope.app.annotation.interfaces.IAttributeAnnotatable" />
+
+    <include
         package=".adapters" />
 
     <include 

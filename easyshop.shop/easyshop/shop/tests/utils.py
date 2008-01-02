@@ -3,10 +3,9 @@ from zope.component import getMultiAdapter
 from zope import event
 
 # Archetypes imports
-from Products.Archetypes.event import ObjectInitializedEvent
+from easyshop.shop.events import ShopCreatedEvent
 
 # easyshop imports 
-from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IOrderManagement
 
 class TestSession:
@@ -41,7 +40,7 @@ def createTestEnvironment(self):
         title="MyShop", 
         description="My test shop")
 
-    event.notify(ObjectInitializedEvent(self.myshop))
+    event.notify(ShopCreatedEvent(self.myshop))
 
     self.shop = self.myshop
     self.shop.at_post_create_script()
@@ -161,5 +160,3 @@ def createTestOrder(self):
 
     om = IOrderManagement(self.shop)
     self.order = om.addOrder()
-
-    
