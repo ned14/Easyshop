@@ -235,9 +235,9 @@
                 <th i18n:translate="properties_label">
                     Properties
                 </th>                  
-                <th i18n:translate="unit_price_label">
-                    Unit Price
-                </th>                
+                <th i18n:translate="product_price_label">
+                    Product Price
+                </th>        
                 <th i18n:translate="quantity_label">
                     Quantity
                 </th>        

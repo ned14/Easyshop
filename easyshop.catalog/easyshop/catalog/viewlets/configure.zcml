@@ -18,7 +18,7 @@
     <browser:viewletManager
         name="easyshop.categories-manager"
         provides=".interfaces.ICategoriesViewletManager"
-         permission="zope.Public" />
+        permission="zope.Public" />
 
     <browser:viewlet
         name="easyshop.categories-viewlet"

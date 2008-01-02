@@ -59,9 +59,7 @@
                     </td>
                 </tr>
             </table>    
-            <table class="listing" 
-                   border="1" 
-                   width="100%">
+            <table class="shop-listing">
                 <tr>               
                     <th i18n:translate="product_label">
                         Product
@@ -75,15 +73,6 @@
                     <th i18n:translate="price_label">
                         Price
                     </th>
-                    <th i18n:translate="tax_rate_label">
-                        Tax Rate
-                    </th>
-                    <th i18n:translate="tax_absolute_label">
-                        Tax Absolute
-                    </th>                
-                    <th i18n:translate="total_label">
-                        Total
-                    </th>                         
                 </tr>
 
                 <tr tal:repeat="item order/items_">
@@ -95,74 +84,78 @@
                         tal:content="item/product_quantity" /> 
 
                     <td class="number"
-                        tal:content="item/product_price_net" />                               
+                        tal:content="item/product_price_gross" />
 
                     <td class="number"
-                        tal:content="item/price_net" />        
+                        tal:content="item/price_gross" />        
 
-                    <td class="number"
-                        tal:content="item/tax_rate" />        
-
-                    <td class="number"
-                        tal:content="item/tax" />        
-
-                    <td class="number"
-                        tal:content="item/price_gross" />
                 </tr>
 
-                <tr tal:condition="order/payment/display">
-                                        
+                <tr tal:define="payment order/payment"
+                    tal:condition="payment/display">
                     <td class="text"
                         i18n:translate=""
-                        tal:content="order/payment/title">
-                        Cash On Delivery
+                        tal:content="payment/title">
+                        Cash on Delivery
                     </td>
-                    <td class="number">
+                    <td nowrap="nowrap" 
+                        class="number">
                         1.0
+                    </td>                                    
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="payment/price_gross">
+                        42.0
                     </td>
-                    <td class="number"
-                        tal:content="order/payment/price_net" />            
-
-                    <td class="number"
-                        tal:content="order/payment/price_net" />            
-
-                    <td class="number"
-                        tal:content="order/payment/tax_rate" />            
-
-                    <td class="number"
-                        tal:content="order/payment/tax" />            
-
-                    <td class="number"
-                        tal:content="order/payment/price_gross" />                    
-                </tr>                                                                                 
-
-                <tr>
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="payment/price_gross">
+                        42.0
+                    </td>
+                </tr>                                                                                                   
+            
+                <tr tal:define="shipping order/shipping">
                     <td class="text"
                         i18n:translate="shipping_label">
                         Shipping
                     </td>
-                    <td class="number">
+                    <td nowrap="nowrap" 
+                        class="number">
                         1.0
                     </td>
-                    <td class="number"
-                        tal:content="order/shipping/price_net" />            
-
-                    <td class="number"
-                        tal:content="order/shipping/price_net" />            
-
-                    <td class="number"
-                        tal:content="order/shipping/tax_rate" />            
-
-                    <td class="number"
-                        tal:content="order/shipping/tax" />            
-
-                    <td class="number"
-                        tal:content="order/shipping/price_gross" />                    
-                </tr>                                                                                 
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="shipping/price_gross">
+                        42.0
+                    </td>                
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="shipping/price_gross">
+                        42.0
+                    </td>
+                </tr>                                                                                                   
                 <tr>
-                    <td colspan="6"></td>
-                    <td class="number"
-                        tal:content="order/price_gross" />            
+                    <td style="border:none" colspan="3"></td>
+                    <td class="number">
+                        
+                    <div class="total-sum">
+    			        <span i18n:translate="checkout_total_sum_label">
+    			            Total Sum:
+    			        </span>
+                        <span tal:content="order/price_gross">
+                            42.0
+                        </span>
+                    </div>
+                    <div class="discreet">
+                        <tal:block i18n:translate="incl_tax_label">
+                            incl. Tax =
+                        </tal:block>
+                        <tal:block tal:content="order/tax">
+                            42.0                        
+                        </tal:block>
+                    </div>                        
+                        
+                    </td>    
                 </tr>
 
             </table>

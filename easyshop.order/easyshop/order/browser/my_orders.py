@@ -35,7 +35,7 @@ class MyOrdersView(BrowserView):
                 "shipping" : order_view.getShipping(),
                 "payment"  : order_view.getPaymentValues(),
                 "items_" : order_view.getItems(),                      # items is a python key word.
-                "creation_date" : created,
+                "creation_date" : created, 
                 "state" : wftool.getInfoFor(order, "review_state"),
             }
             result.append(temp)

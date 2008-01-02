@@ -101,6 +101,10 @@ CREDIT_CARD_YEARS_CHOICES = (
     (u"2011", u"2011"),
 )
 
+COUNTRIES = (
+    (_(u"Germany"),   u'Germany'),
+)
+
 DEFAULT_COUNTRIES = (
     "Germany",
 )

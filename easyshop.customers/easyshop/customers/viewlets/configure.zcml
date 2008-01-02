@@ -5,7 +5,6 @@
         name="easyshop.manager.addresses"
         provides=".interfaces.IAddressesViewletManager"
         for="easyshop.core.interfaces.ICustomer"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="cmf.ModifyPortalContent" />
 
     <browser:viewlet

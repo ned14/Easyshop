@@ -5,6 +5,7 @@ from zope import schema
 
 # easyshop.core imports
 from easyshop.core.config import _
+from easyshop.core.config import COUNTRIES
 
 ################################################################################
 # Address
@@ -58,7 +59,8 @@ class IAddress(Interface):
     country = schema.Choice(
         title=_(u'Country'),
         description=_(u"Please enter your country."),
-        vocabulary = "easyshop.countries")
+        vocabulary = schema.vocabulary.SimpleVocabulary.fromItems(COUNTRIES),
+        default=u"Germany")
 
     email = schema.TextLine(
         title=_(u'E-Mail'),

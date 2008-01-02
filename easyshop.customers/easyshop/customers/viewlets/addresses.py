@@ -1,5 +1,5 @@
-# plone imports
-from plone.app.layout.viewlets.common import ViewletBase
+# zope imports
+from zope.viewlet.viewlet import ViewletBase
 
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
