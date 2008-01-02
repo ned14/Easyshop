@@ -89,10 +89,11 @@ class CreditCardAddForm(formbase.AddForm):
         id = self.context.generateUniqueId("CreditCard")
 
         credit_card = CreditCard(id)
-        credit_card.card_type            = data.get("card_type")
-        credit_card.card_owner           = data.get("card_owner")
-        credit_card.card_number          = data.get("card_number")
-        credit_card.card_expiration_date = data.get("card_expiration_date")
+        credit_card.card_type                  = data.get("card_type")
+        credit_card.card_owner                 = data.get("card_owner")
+        credit_card.card_number                = data.get("card_number")
+        credit_card.card_expiration_date_month = data.get("card_expiration_date_month")
+        credit_card.card_expiration_date_year  = data.get("card_expiration_date_year")
         
         self.context._setObject(id, credit_card)
 
