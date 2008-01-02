@@ -24,29 +24,49 @@
  <property name="default_view_fallback">False</property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
- <alias from="sharing" to="@@sharing"/>
+ <alias from="index.html" to="(dynamic view)"/>
+ <alias from="properties" to="base_metadata"/>
+ <alias from="sharing" to="folder_localrole_form"/>
  <alias from="view" to="(selected layout)"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${folder_url}/" visible="True"
     i18n:attributes="title">
   <permission value="View"/>
  </action>
- <action title="Edit" action_id="edit" category="object" condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
+ <action title="Edit" action_id="edit" category="object" 
     url_expr="string:${object_url}/edit" visible="True"
     i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/properties"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action> 
  <action title="References" action_id="references" category="object"
     condition_expr="object/archetype_tool/has_graphviz"
-    url_expr="string:${object_url}/reference_graph" visible="True"
-    i18n:attributes="title">
+    url_expr="string:${object_url}/reference_graph" visible="True">
   <permission value="Modify portal content"/>
   <permission value="Review portal content"/>
  </action>
- <action title="Folder Listing" action_id="folderlisting" category="folder"
-    condition_expr="object/isPrincipiaFolderish"
-    url_expr="string:${folder_url}/view" visible="False"
-    i18n:attributes="title">
-  <permission value="View"/>
+ <action title="History" action_id="history" category="object"
+    condition_expr="" url_expr="string:${object_url}/atct_history"
+    visible="False">
+  <permission value="ATContentTypes: View history"/>
  </action>
+ <action title="External Edit" action_id="external_edit" category="object"
+    condition_expr="object/externalEditorEnabled"
+    url_expr="string:${object_url}/external_edit" visible="False">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Sharing" action_id="local_roles" category="object"
+    condition_expr="" url_expr="string:${object_url}/sharing" visible="True">
+  <permission value="Manage properties"/>
+ </action>
+ <action title="State" action_id="content_status_history"
+    category="object_tabs"
+    condition_expr="python:object and portal.portal_workflow.getTransitionsFor(object, object.getParentNode())"
+    url_expr="string:$object_url/content_status_history" visible="False">
+  <permission value="View"/>
+ </action> 
 </object>

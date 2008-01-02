@@ -26,7 +26,7 @@
     url_expr="string:${object_url}" visible="True" i18n:attributes="title">
   <permission value="View"/>
  </action>
- <action title="Edit" action_id="edit" category="object" condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
+ <action title="Edit" action_id="edit" category="object" 
     url_expr="string:${object_url}/edit" visible="True" i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>

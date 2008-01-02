@@ -251,33 +251,11 @@ schema = Schema((
 ),
 )
 
-schema = ATFolder.schema.copy() + schema
-
-# Dates
-schema.changeSchemataForField('effectiveDate',  'plone')
-schema.changeSchemataForField('expirationDate', 'plone')
-schema.changeSchemataForField('creation_date', 'plone')    
-schema.changeSchemataForField('modification_date', 'plone')    
-
-# Categorization
-schema.changeSchemataForField('subject', 'plone')
-schema.changeSchemataForField('relatedItems', 'plone')
-schema.changeSchemataForField('language', 'plone')
-
-# Ownership
-schema.changeSchemataForField('creators', 'plone')
-schema.changeSchemataForField('contributors', 'plone')
-schema.changeSchemataForField('rights', 'plone')
-
-# Settings
-schema.changeSchemataForField('allowDiscussion', 'plone')
-schema.changeSchemataForField('excludeFromNav', 'plone')
-
 class Product(ATFolder):
     """A Product is offered for sale.
     """
     implements(IProduct)
-    schema = schema
+    schema = ATFolder.schema.copy() + schema
 
     def setImage(self, data):
         """

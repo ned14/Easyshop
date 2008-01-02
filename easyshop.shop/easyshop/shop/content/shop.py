@@ -132,31 +132,12 @@ schema = Schema((
 ),
 )
 
-# Move Plone's default fields into one tab, to make some place for own ones.
-schema = ATFolder.schema.copy() + schema
-    
-# Dates
-schema.changeSchemataForField('effectiveDate',  'plone')
-schema.changeSchemataForField('expirationDate', 'plone')
-schema.changeSchemataForField('creation_date', 'plone')    
-schema.changeSchemataForField('modification_date', 'plone')    
-
-# Categorization
-schema.changeSchemataForField('subject', 'plone')
-schema.changeSchemataForField('relatedItems', 'plone')
-schema.changeSchemataForField('language', 'plone')
-
-# Ownership
-schema.changeSchemataForField('creators', 'plone')
-schema.changeSchemataForField('contributors', 'plone')
-schema.changeSchemataForField('rights', 'plone')
-
 class EasyShop(ATFolder):
     """An shop where one can offer products for sale.
     """
     implements(IShop)
     _at_rename_after_creation = True
-    schema = schema
+    schema = ATFolder.schema.copy() + schema
 
     def at_post_create_script(self):
         """Overwritten to create some objects.
