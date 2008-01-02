@@ -70,7 +70,7 @@ schema = Schema((
 
     BooleanField(
         name = "showAddQuantity",
-        default=True,
+        default=False,
         schemata="misc",
         widget = BooleanWidget(
             description = "If selected, customers can select amount of products which are added to cart.",  
