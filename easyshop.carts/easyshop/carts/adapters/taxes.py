@@ -38,14 +38,18 @@ class CartTaxes:
     def getTax(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()
-        cart_items = IItemManagement(self.context).getItems()
-
-        tax = 0.0
-        for cart_item in cart_items:
+        im = IItemManagement(self.context)
+        if im.hasItems() == False:
+            return 0.0
+            
+        tax = 0.0        
+        for cart_item in im.getItems():
             taxes = ITaxes(cart_item)
             tax += taxes.getTax()
 
+        # Get shop
+        shop = IShopManagement(self.context).getShop()
+        
         # Shipping
         tax += IShippingPriceManagement(shop).getTax()
 
@@ -57,13 +61,17 @@ class CartTaxes:
     def getTaxForCustomer(self):
         """
         """
-        shop = IShopManagement(self.context).getShop()        
-        cart_items = IItemManagement(self.context).getItems()
-
+        im = IItemManagement(self.context)
+        if im.hasItems() == False:
+            return 0.0
+        
         tax = 0.0
-        for cart_item in cart_items:
+        for cart_item in im.getItems():
             taxes = ITaxes(cart_item)
             tax += taxes.getTaxForCustomer()
+
+        # Get shop
+        shop = IShopManagement(self.context).getShop()
         
         # Shipping
         tax += IShippingPriceManagement(shop).getTaxForCustomer()

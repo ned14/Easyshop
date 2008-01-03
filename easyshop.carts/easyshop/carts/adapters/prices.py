@@ -38,8 +38,12 @@ class CartPrices:
         """Returns the customer price of the cart. This is just a sum over 
         customer prices of all items of the cart.
         """
+        im = IItemManagement(self.context)
+        if im.hasItems() == False:
+            return 0.0
+        
         price = 0.0
-        for cart_item in IItemManagement(self.context).getItems():
+        for cart_item in im.getItems():
             # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceForCustomer(with_discount=with_discount)
         
@@ -59,8 +63,12 @@ class CartPrices:
         """Returns the gross price of the cart. This is just a sum over gross
         prices of all items of the cart plus shipping and payment.
         """
+        im = IItemManagement(self.context)
+        if im.hasItems() == False:
+            return 0.0
+        
         price = 0.0
-        for cart_item in IItemManagement(self.context).getItems():
+        for cart_item in im.getItems():
             # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceGross(with_discount=with_discount)
 
@@ -80,8 +88,12 @@ class CartPrices:
         """Returns the net price of the cart. This is just a sum over net
         prices of all items of the cart plus shipping and payment.
         """
+        im = IItemManagement(self.context)
+        if im.hasItems() == False:
+            return 0.0
+        
         price = 0.0
-        for cart_item in IItemManagement(self.context).getItems():
+        for cart_item in im.getItems():
             # NOTE: with_discount is passed here
             price += IPrices(cart_item).getPriceNet(with_discount=with_discount)
 
