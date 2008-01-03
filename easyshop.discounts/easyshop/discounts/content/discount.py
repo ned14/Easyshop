@@ -52,6 +52,7 @@ schema = Schema((
     
     FloatField(
         name='value',
+        default=0.0,
         widget=DecimalWidget(
             label='Value',
             label_msgid='schema_value_label',
