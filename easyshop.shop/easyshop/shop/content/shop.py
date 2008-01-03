@@ -149,6 +149,19 @@ class EasyShop(ATFolder):
         ctr.getPredicate("EasyShopImage").edit("jpg jpeg png gif")
         ctr.assignTypeName("EasyShopImage", "EasyShopImage")
         
+        # Add portlets
+        self.manage_addProperty(
+            "left_slots", 
+            ["here/portlet_categories/macros/portlet",
+             "here/portlet_admin/macros/portlet"],
+            "lines")
+            
+        self.manage_addProperty(
+            "right_slots",            
+            ["here/portlet_my_account/macros/portlet",
+             "here/portlet_cart/macros/portlet"], 
+             "lines")
+        
         # Shoot event
         notify(ShopCreatedEvent(self))
         
