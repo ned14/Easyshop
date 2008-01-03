@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+
+    <object name="easyshop_catalog"
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_catalog"/>
+
+    <object name="easyshop_images" 
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_images" />
+
+    <object name="easyshop_macros" 
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_macros" />
+
+    <object name="easyshop_misc" 
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_misc" />
+
+    <object name="easyshop_overwrites" 
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_overwrites" />
+
+    <object name="easyshop_portlets" 
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_portlets" />
+
+    <object name="easyshop_templates" 
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_templates" />
+
+    <object name="easyshop_login"
+            meta_type="Filesystem Directory View"
+            directory="EasyShopSkins/skins/easyshop_login"/>
+
+    <skin-path name="*">
+
+        <layer name="easyshop_catalog"
+               insert-after="custom"/>
+
+        <layer name="easyshop_images"
+               insert-after="custom" />
+
+        <layer name="easyshop_macros" 
+               insert-after="custom" />
+
+        <layer name="easyshop_misc" 
+               insert-after="custom" />
+
+        <layer name="easyshop_overwrites" 
+               insert-after="custom" />
+
+        <layer name="easyshop_portlets" 
+               insert-after="custom" />
+
+        <layer name="easyshop_templates" 
+               insert-after="custom" />
+
+        <layer name="easyshop_login"
+               insert-after="custom"/>
+
+    </skin-path>
+</object>
