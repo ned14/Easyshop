@@ -1,0 +1,884 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Add Shop</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Add Shop</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Portal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add to folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=EasyShop</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Shop</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopOwner</td>
+	<td>John Doe</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>currency_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>countries</td>
+	<td>Germany<br />USA</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>showAddQuantity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>payPalId</td>
+	<td>usenet@diefenba.ch</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailFromName</td>
+	<td>EasyShop</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailFromAddress</td>
+	<td>usenet@diefenba.ch</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailTo</td>
+	<td>usenet@diefenba.ch</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Categories</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>EasyShop Manager</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>2-Add Category and Product</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">2-Add Category and Product</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/shop</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@href='http://localhost:8080/portal/shop/categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[1]/ul/li[1]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Category 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>This is category 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortText</td>
+	<td>Habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Me lius quod ii legunt saepius Claritas est etiam processus; decima Eodem modo typi qui nunc nobis videntur parum clari fiant sollemnes in futurum?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>text</td>
+	<td>Habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Me lius quod ii legunt saepius Claritas est etiam processus; decima Eodem modo typi qui nunc nobis videntur parum clari fiant sollemnes in futurum? <br /><br />In iis qui facit eorum claritatem Investigationes demonstraverunt lectores legere me lius quod, feugait nulla facilisi Nam liber tempor cum soluta nobis eleifend option. Quinta decima Eodem modo typi qui nunc nobis? Quam littera gothica quam nunc putamus parum claram anteposuerit! Littera gothica quam nunc putamus; dynamicus qui sequitur mutationem consuetudium lectorum Mirum est notare quam littera gothica. Processus dynamicus qui sequitur mutationem consuetudium lectorum Mirum est notare quam. Littera gothica quam nunc putamus parum claram anteposuerit litterarum formas humanitatis per. Eleifend option congue nihil imperdiet doming id. Est etiam processus dynamicus qui, per seacula quarta decima et quinta, Eodem modo typi qui nunc. <br /><br />Congue nihil imperdiet doming id quod. Facer possim assum Typi non habent claritatem insitam est usus legentis in iis. <br /><br />Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. Typi qui nunc nobis videntur parum clari fiant sollemnes in futurum! Parum clari fiant sollemnes in futurum. <br /><br />Imperdiet doming id quod mazim placerat, Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Qui facit eorum claritatem Investigationes demonstraverunt lectores legere me lius quod. Nobis eleifend option congue nihil imperdiet doming id quod mazim, placerat facer possim assum Typi non habent claritatem insitam est usus legentis. Placerat facer possim assum Typi non habent claritatem insitam. </td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>image_file</td>
+	<td>/Users/Kai/Pictures/Demmelhuber/Kork01.jpg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>This is category 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Products</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Product 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>This is product 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>articleId</td>
+	<td>4711</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>image_file</td>
+	<td>/Users/Kai/Pictures/Demmelhuber/Kork02.jpg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>price</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Browse...']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>referencebrowser_popup</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>referencebrowser_popup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[3]/a[1]/strong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[4]/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortTitle</td>
+	<td>P1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortText</td>
+	<td>Habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Me lius quod ii legunt saepius Claritas est etiam processus; decima Eodem modo typi qui nunc nobis videntur parum clari fiant sollemnes in futurum?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>stockAmount</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>weight</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Product 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>This is product 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>USD 42,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//span[3]/a</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>3-Add Taxes</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">3-Add Taxes</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>product-details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>add-product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>This Article has been added to the cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Go to cart']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 42,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 0,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Default 	USD 0,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Prepayment 	USD 0,00<br /></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Taxes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Tax (Default)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Default</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>rate</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 6,71</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>4-Add Shipping Price</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">4-Add Shipping Price</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Shipping Prices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Default</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>Default shipping price.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>price</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Default 	USD 10,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 52,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 8,30</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>5-Add Payment Price</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">5-Add Payment Price</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Payment Prices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Cash on Delivery</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>Payment price for Cash on Delivery</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>price</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Payment Method Criteria</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>paymentMethods</td>
+	<td>label=Cash on Delivery</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 52,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 8,30</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>selected_payment_method</td>
+	<td>label=Cash on Delivery</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>refreshCart:method</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 60,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 9,58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Cash on Delivery 	USD 8,00</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>6-Add Stock Information</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">6-Add Stock Information</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Stock Information</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Default</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>available</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>deliveryTimeMin</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>deliveryTimeMax</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/shop/products/product-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Deliverable</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Delivery Period: 2-3 Days</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Stock Information</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>deliveryTimeMax</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/shop/products/product-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Delivery Period: 2 Days</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Stock Information</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>available</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/shop/products/product-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Not deliverable</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>7-Add Discount</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">7-Add Discount</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/shop/products/product-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Discounts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Two and more articles</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Product Amount Criteria</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>amount</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 60,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>cart_item_1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>refreshCart:method</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Discount (Two and more articles)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 98,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 15,65</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>8-Checkout</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">8-Checkout</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/shop/cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>checkout:method</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.firstname</td>
+	<td>John</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.lastname</td>
+	<td>Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.address_1</td>
+	<td>Miller Str. 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.zip_code</td>
+	<td>99099</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.city</td>
+	<td>Erfurt</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>form.confirmation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.buy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Thank you for your shopping!</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

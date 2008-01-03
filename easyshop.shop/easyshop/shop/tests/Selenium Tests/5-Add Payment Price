@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>5-Add Payment Price</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">5-Add Payment Price</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Payment Prices</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Cash on Delivery</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>Payment price for Cash on Delivery</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>price</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Payment Method Criteria</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>paymentMethods</td>
+	<td>label=Cash on Delivery</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 52,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 8,30</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>selected_payment_method</td>
+	<td>label=Cash on Delivery</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>refreshCart:method</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 60,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 9,58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Cash on Delivery 	USD 8,00</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

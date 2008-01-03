@@ -1,0 +1,179 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>2-Add Category and Product</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">2-Add Category and Product</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/shop/categories</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[1]/ul/li[1]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Category 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>This is category 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortText</td>
+	<td>Habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Me lius quod ii legunt saepius Claritas est etiam processus; decima Eodem modo typi qui nunc nobis videntur parum clari fiant sollemnes in futurum?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>text</td>
+	<td>Habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Me lius quod ii legunt saepius Claritas est etiam processus; decima Eodem modo typi qui nunc nobis videntur parum clari fiant sollemnes in futurum? <br /><br />In iis qui facit eorum claritatem Investigationes demonstraverunt lectores legere me lius quod, feugait nulla facilisi Nam liber tempor cum soluta nobis eleifend option. Quinta decima Eodem modo typi qui nunc nobis? Quam littera gothica quam nunc putamus parum claram anteposuerit! Littera gothica quam nunc putamus; dynamicus qui sequitur mutationem consuetudium lectorum Mirum est notare quam littera gothica. Processus dynamicus qui sequitur mutationem consuetudium lectorum Mirum est notare quam. Littera gothica quam nunc putamus parum claram anteposuerit litterarum formas humanitatis per. Eleifend option congue nihil imperdiet doming id. Est etiam processus dynamicus qui, per seacula quarta decima et quinta, Eodem modo typi qui nunc. <br /><br />Congue nihil imperdiet doming id quod. Facer possim assum Typi non habent claritatem insitam est usus legentis in iis. <br /><br />Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. Typi qui nunc nobis videntur parum clari fiant sollemnes in futurum! Parum clari fiant sollemnes in futurum. <br /><br />Imperdiet doming id quod mazim placerat, Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Qui facit eorum claritatem Investigationes demonstraverunt lectores legere me lius quod. Nobis eleifend option congue nihil imperdiet doming id quod mazim, placerat facer possim assum Typi non habent claritatem insitam est usus legentis. Placerat facer possim assum Typi non habent claritatem insitam.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>image_file</td>
+	<td>/Users/Kai/Pictures/Demmelhuber/Kork01.jpg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>This is category 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Products</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Product 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>This is product 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>articleId</td>
+	<td>4711</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>image_file</td>
+	<td>/Users/Kai/Pictures/Demmelhuber/Kork02.jpg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>price</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Browse...']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>referencebrowser_popup</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>referencebrowser_popup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[3]/a[1]/strong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[4]/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortTitle</td>
+	<td>P1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortText</td>
+	<td>Habent claritatem insitam est usus legentis in iis qui facit eorum claritatem! Me lius quod ii legunt saepius Claritas est etiam processus; decima Eodem modo typi qui nunc nobis videntur parum clari fiant sollemnes in futurum?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>stockAmount</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>weight</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Product 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>This is product 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>USD 42,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//span[3]/a</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
