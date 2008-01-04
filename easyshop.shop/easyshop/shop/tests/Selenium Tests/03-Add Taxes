@@ -40,12 +40,12 @@
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Default 	USD 0,00</td>
+	<td>regexp:Default.*USD 0,00</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Prepayment 	USD 0,00<br /></td>
+	<td>regexp:Prepayment.*USD 0,00<br /></td>
 	<td></td>
 </tr>
 <tr>

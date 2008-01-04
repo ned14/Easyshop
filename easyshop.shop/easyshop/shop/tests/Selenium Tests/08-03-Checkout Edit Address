@@ -1,0 +1,195 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>08-03-Checkout Edit Address</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">08-03-Checkout Edit Address</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Category 1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>add-product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Check Out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>John Doe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Jane Doe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.button.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.firstname</td>
+	<td>John2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.lastname</td>
+	<td>Doe2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.address_1</td>
+	<td>Miller Str. 12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.zip_code</td>
+	<td>99092</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.city</td>
+	<td>Erfurt2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>John2 Doe2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Miller Str. 12</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>99092</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Erfurt2</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.add_address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.firstname</td>
+	<td>Baby</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.lastname</td>
+	<td>Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.address_1</td>
+	<td>School Str. 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.city</td>
+	<td>Stuttgart</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.zip_code</td>
+	<td>70000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Baby Doe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>School Str. 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>70000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Stuttgart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>document.forms[1].elements['form.id'][2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>John2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Baby</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>form.confirmation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.buy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Thank you for your shopping!</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>08-04-Checkout Credit Card</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">08-04-Checkout Credit Card</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'Category 1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>add-product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Check Out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>form.id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.card_owner</td>
+	<td>John Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.card_number</td>
+	<td>370000000000002</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>form.card_expiration_date_month</td>
+	<td>label=08</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>form.card_expiration_date_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>form.confirmation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.buy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Thank you for your shopping!</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

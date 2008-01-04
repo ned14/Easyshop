@@ -1,0 +1,354 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>09-My Account</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">09-My Account</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@href='http://localhost:8080/portal/shop/customers/admin/my-orders']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Product 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Cash on Delivery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Shipping</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>pending</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Total Sum: USD 98,00</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>incl. Tax = USD 15,65</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage name and e-mail address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>form.firstname</td>
+	<td>John</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>form.lastname</td>
+	<td>Doe</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>form.email</td>
+	<td>usenet@diefenba.ch</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Manage Account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage Addressbook</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>John Doe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Miller Str. 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>99099 Erfurt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Germany</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>add-address-form-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.firstname</td>
+	<td>Jane</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.lastname</td>
+	<td>Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.address_1</td>
+	<td>Miller Str. 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.zip_code</td>
+	<td>99099</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.city</td>
+	<td>Erfurt</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.address_1</td>
+	<td>Miller Str. 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Miller Str. 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>deleteAddress:method</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>The address has been deleted.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage Payment Methods</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Bank accounts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Credit Cards</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Add Bank Account']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.account_number</td>
+	<td>4711</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.bank_identification_code</td>
+	<td>10000000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.depositor</td>
+	<td>John Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.bank_name</td>
+	<td>German Bank</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>4711</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>10000000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>German Bank</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>John Doe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.depositor</td>
+	<td>Jane Doe</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Jane Doe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>deletePaymentMethod:method</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Add Credit Card']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.card_owner</td>
+	<td>John Doe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>form.card_number</td>
+	<td>1000000000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>form.card_expiration_date_month</td>
+	<td>label=08</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>form.card_expiration_date_year</td>
+	<td>label=2009</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>American Express</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>1000000000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>John Doe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>08/2009</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>form.card_type</td>
+	<td>label=Visa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>form.actions.save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Visa</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>deletePaymentMethod:method</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>The payment method has been deleted.</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
