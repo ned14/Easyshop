@@ -84,7 +84,7 @@ class OrderPreviewForm(formbase.AddForm):
         # able to pay.
         if result.code == ERROR:
             om.deleteOrder(new_order.id)
-            putils.addPortalMessage(result.message, type=u"error")
+            putils.addPortalMessage(result.message)
             ICheckoutManagement(self.context).redirectToNextURL("ERROR_PAYMENT")
             return ""
         else:
@@ -103,9 +103,7 @@ class OrderPreviewForm(formbase.AddForm):
         if result.code == PAYED:
             # Set order to payed (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
-            wftool.doActionFor(new_order, "submit")
             wftool.doActionFor(new_order, "pay_not_sent")
-            putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
 
         # Redirect
         customer = \
