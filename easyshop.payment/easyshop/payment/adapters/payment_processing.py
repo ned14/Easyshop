@@ -3,6 +3,7 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
+from easyshop.authorizedotnet.processing import EasyShopCcProcessor
 from easyshop.core.config import _
 from easyshop.core.config import PAYPAL_URL
 from easyshop.core.interfaces import IAddressManagement
@@ -20,11 +21,9 @@ from easyshop.core.interfaces import IShopManagement
 from easyshop.payment.config import PAYED, NOT_PAYED, ERROR
 from easyshop.payment.content import PaymentResult
 
-# zc.authorizedotnet import 
-from zc.authorizedotnet.processing import CcProcessor
-
 class AuthorizeNetCreditCardPaymentProcessor:
-    """Provides IPaymentProcessing for credit cards content objects.
+    """Provides IPaymentProcessing for credit cards content objects using 
+    Authorize.net.
     """
     implements(IPaymentProcessing)
     adapts(ICreditCardPaymentMethod)
@@ -62,22 +61,27 @@ class AuthorizeNetCreditCardPaymentProcessor:
             
         amount = "%.2f" % IPrices(order).getPriceForCustomer()
 
-        cc = CcProcessor(
+        cc = EasyShopCcProcessor(
             server="test.authorize.net",
             login="39uaCH7r9K", 
             key="9ME22bvLnu87P4FY")
 
+        # Used for authorizeAndCapture
         result = cc.authorizeAndCapture(
             amount = amount, 
             card_num = card_num,
             exp_date = exp_date) 
-
         if result.response == "approved":
             return PaymentResult(PAYED, _(u"Your order has been payed."))
         else:
             return PaymentResult(ERROR, _(result.response_reason))
 
-        # Used for captureAuthorized
+        # # Used for captureAuthorized
+        # authorize_result = cc.authorize(
+        #     amount = amount, 
+        #     card_num = card_num,
+        #     exp_date = exp_date)
+        # 
         # if authorize_result.response == "approved":
         #     capture_result = cc.captureAuthorized(
         #         trans_id=authorize_result.trans_id,
