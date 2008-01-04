@@ -3,7 +3,6 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.authorizedotnet.processing import EasyShopCcProcessor
 from easyshop.core.config import _
 from easyshop.core.config import PAYPAL_URL
 from easyshop.core.interfaces import IAddressManagement
@@ -21,6 +20,22 @@ from easyshop.core.interfaces import IShopManagement
 from easyshop.payment.config import PAYED, NOT_PAYED, ERROR
 from easyshop.payment.content import PaymentResult
 
+from zc.authorizedotnet.processing import CcProcessor
+
+
+class EasyShopCcProcessor(CcProcessor):
+    """A small wrapper around zc.authorizedot.net adding an authorizeAndCapture
+    method.
+    """
+    def authorizeAndCapture(self, **kws):
+        if not isinstance(kws['amount'], basestring):
+            raise ValueError('amount must be a string')
+        
+        type = 'AUTH_CAPTURE'
+
+        result = self.connection.sendTransaction(type=type, **kws)
+        return result
+        
 class AuthorizeNetCreditCardPaymentProcessor:
     """Provides IPaymentProcessing for credit cards content objects using 
     Authorize.net.
