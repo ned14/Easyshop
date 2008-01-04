@@ -99,13 +99,13 @@ class OrderPreviewForm(formbase.AddForm):
             # Set order to pending (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
             wftool.doActionFor(new_order, "submit")
-            
+
+            putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
+                        
         if result.code == PAYED:
             # Set order to payed (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
-            wftool.doActionFor(new_order, "submit")
             wftool.doActionFor(new_order, "pay_not_sent")
-            putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
 
         # Redirect
         customer = \
