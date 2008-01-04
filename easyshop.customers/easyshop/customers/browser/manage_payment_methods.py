@@ -18,9 +18,15 @@ class ManagePaymentMethodsView(BrowserView):
         putils = getToolByName(self.context, "plone_utils")
         
         # delete address
-        toDeletepPaymentMethodId = self.context.request.get("id")
+        payment_method_id = self.context.request.get("id")
         pm = IPaymentInformationManagement(self.context)
-        pm.deletePaymentInformation(toDeletepPaymentMethodId)
+        pm.deletePaymentInformation(payment_method_id)
+
+        # If the selected payment information has been deleted set the payment
+        # method to the default: atm prepayment.
+        if payment_method_id == self.context.selected_payment_information:
+            self.context.selected_payment_information = u""
+            self.context.selected_payment_method = u"prepayment"
         
         # add message
         putils.addPortalMessage("The payment method has been deleted.")

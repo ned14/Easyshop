@@ -160,8 +160,10 @@ class PaymentForm(formbase.EditForm):
         for credit_card in pm.getPaymentInformations(
             interface=ICreditCard, check_validity=True):
 
-            selected_payment_method = pm.getSelectedPaymentInformation(check_validity=True)
-            if selected_payment_method.getId() == credit_card.getId():
+            selected_payment_information = \
+                pm.getSelectedPaymentInformation(check_validity=True)
+                
+            if selected_payment_information.getId() == credit_card.getId():
                 checked = True
             else:
                 checked = False            
@@ -194,8 +196,10 @@ class PaymentForm(formbase.EditForm):
         for bank_account in pm.getPaymentInformations(
             interface=IBankAccount, check_validity=True):
 
-            selected_payment_method = pm.getSelectedPaymentInformation(check_validity=True)
-            if selected_payment_method.getId() == bank_account.getId():
+            selected_payment_information = \
+                pm.getSelectedPaymentInformation(check_validity=True)
+                
+            if selected_payment_information.getId() == bank_account.getId():
                 checked = True
             else:
                 checked = False            
@@ -229,16 +233,13 @@ class PaymentForm(formbase.EditForm):
 
             # If id is bank_account_new (this happens when customer wants to 
             # add a new direct debit and is due to validation errors redirected to 
-            # the form.
+            # the form).
             
-            # TODO: This has to be more tested and optimized
-            
+            checked = False
             if (self.request.get("form.id", "") not in ("bank_account_new", "credit_card_new")) and \
                (selected_payment_method.getId() == safe_unicode(payment.getId())):
                 checked = True
-            else:
-                checked = False
-                
+                                
             result.append({                
                 "id"          : payment.getId(),
                 "title"       : payment.Title(),

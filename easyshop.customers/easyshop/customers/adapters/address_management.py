@@ -39,7 +39,12 @@ class CustomerAddressManager:
         address.phone        = data.get("phone", u"")
         
         self.context._setObject(id, address)
-
+        
+        if data.get("address_type", "") == "shipping":
+            self.context.selected_shipping_address = id
+        else:
+            self.context.selected_invoice_address = id
+            
         return id
         
     def deleteAddress(self, id):
