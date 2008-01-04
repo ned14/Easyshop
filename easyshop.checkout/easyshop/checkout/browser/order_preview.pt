@@ -79,8 +79,8 @@
                             <div tal:content="shipping_address/name" />
                             <div tal:content="shipping_address/address1" />        
                             <div>      
-                                <span tal:content="invoice_address/zipcode" />                
-                                <span tal:content="invoice_address/city" />                                
+                                <span tal:content="shipping_address/zipcode" />                
+                                <span tal:content="shipping_address/city" />                                
                             </div>    
                             <div tal:content="shipping_address/country" />
                         </fieldset>
