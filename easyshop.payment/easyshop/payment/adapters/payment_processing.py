@@ -21,10 +21,8 @@ from easyshop.payment.config import PAYED, NOT_PAYED, ERROR
 from easyshop.payment.content import PaymentResult
 
 from zc.authorizedotnet.processing import CcProcessor
-
-
 class EasyShopCcProcessor(CcProcessor):
-    """A small wrapper around zc.authorizedot.net adding an authorizeAndCapture
+    """A small wrapper around zc.authorizedotnet to add an authorizeAndCapture 
     method.
     """
     def authorizeAndCapture(self, **kws):
