@@ -1,0 +1,31 @@
+<metal:main metal:define-macro="navigation_subcategories"
+            tal:define="level python:level+1">
+
+    <tal:subcategories tal:repeat="category category/subcategories">
+                       
+        <ul class="portletNavigationTree"
+            tal:attributes="class string:portletNavigationTree navTreeLevel$level">
+          <li class="navTreeItem visualNoMarker">
+            <div class="visualIcon contenttype-easyshopcategory">
+              <a href="#"
+                 class="visualIconPadding"
+                 tal:attributes="href category/url;
+                                 title category/description;
+                                 class category/klass">
+                  <span tal:replace="category/title">
+                    A Category
+                  </span>             
+                  <span tal:condition="view/showQuantity"
+                        tal:replace="string:(${category/amount_of_products})">
+                    (2)
+                  </span>  
+              </a>
+            </div>  
+          </li>
+         <tal:block tal:condition="category/show_subtree">
+            <div metal:use-macro="context/portlet_easyshopnavigation_macros/macros/navigation_subcategories" />
+         </tal:block>    
+        </ul>
+    </tal:subcategories>                        
+  
+</metal:main>

@@ -1,0 +1,202 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <div metal:fill-slot='column_two_slot' />
+        
+        <metal:main fill-slot="main"
+                    tal:define="lines view/getProducts">
+  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="products_label">
+                Products
+            </h1>
+
+            <p class="documentDescription"
+               i18n:translate="products_view_description">
+                This is an overview over all existing products.
+            </p>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+    
+            <div id="letters">
+                <a tal:repeat="letter view/getLetters"
+                   tal:attributes="href string:${context/absolute_url}?letter=$letter;
+                                   class string:kssattr-letter-$letter"
+                   tal:content="letter">
+                   A
+                </a>
+                <form id="search-products-form"
+                      action="."
+                      method="post"
+                      style="display:inline">
+
+                    <input type="text"
+                           name="searchable_text"
+                           tal:attributes="value view/getSearchableText" />
+
+                    <input id="search-products"
+                           type="submit"
+                           value="OK" />
+                </form>              
+            </div>
+                
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+  
+            <table class="shop-default">
+                <tr>
+                    <td style="width:50%;padding-right:20px">
+                        <div id="products">
+
+                            <table class="products-list">
+                                <tr tal:repeat="line lines">
+                                    <tal:block tal:repeat="product line">
+                                        <td width="33%">
+                                            <a class="product-details"
+                                               href="."
+                                               tal:define="letter context/REQUEST/letter|nothing;
+                                                           searchable_text view/getSearchableText"
+                                               tal:attributes="href string:${context/absolute_url}?uid=${product/UID}&amp;letter=$letter&amp;searchable_text=$searchable_text;
+                                                               class string:product-details kssattr-uid-${product/UID}">
+
+                                                <img alt="info"
+                                                     src="info_icon.gif" />
+                                            </a>    
+                
+                                            <div>
+                                                <a href="."
+                                                   tal:attributes="href product/getURL"
+                                                   tal:content="product/Title">
+                                                    Product Title
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="image">
+                                            <img src="."
+                                                 tal:attributes="src string:${product/getURL}/image_tile" />    
+                        
+                                        </td>
+                                    </tal:block>
+                                </tr>
+                            </table>
+
+                            <div tal:condition="view/showNoProducts"
+                                 i18n:translate="no_products_label">
+                                There are no products.
+                            </div>
+                    
+                            <div tal:condition="python:view.showNoResult(lines)"
+                                 i18n:translate="no_products_found_label">
+                                No products found.
+                            </div>
+                                                
+                        </div>                        
+                    </td>
+                    <td>
+                        <div id="product-details-box">
+                            <tal:block tal:define="product view/getProduct"
+                                       tal:condition="product">
+                                
+                                <table class="shop-default">
+                                    <tr>
+                                        <td class="image">
+                                            <img tal:attributes="src string:${product/url}/image_mini" />                                            
+                                        </td>
+                                        
+                                        <td class="information">
+                                            <a href="."
+                                               tal:attributes="href product/url">
+                                                <span tal:replace="product/title">
+                                                    Title
+                                                </span>
+                                                (<span tal:content="product/short_title">
+                                                    Short Title
+                                                </span>)
+                                            </a>    
+                                            <div tal:condition="product/article_id"
+                                                 tal:content="product/article_id" />
+                                            <p>
+                                                <span tal:replace="structure product/text">
+                                                    Text
+                                                </span>    
+                                                <span class="label"
+                                                     i18n:translate="price_label">
+                                                    Price
+                                                </span>                                
+                                                <span tal:content="product/price">
+                                                    42.0
+                                                </span>
+                                            </p>
+                                
+                                            <tal:block tal:define="related_products product/related_products"
+                                                       tal:condition="related_products">
+                                
+                                                <div class="label"
+                                                     i18n:translate="related_products_label">
+                                                    Related Products
+                                                </div>                                
+                                                <ul>
+                                                    <li tal:repeat="related related_products">
+                                                        <a href="."
+                                                           tal:attributes="href related/url">
+                                                            <span tal:replace="related/title">Title</span>
+                                                            <span tal:replace="related/articleId">ID</span>
+                                                        </a>    
+                                                    </li>
+                                                </ul>
+                                            </tal:block>
+
+                                            <tal:block tal:define="categories product/categories"
+                                                       tal:condition="categories">
+                                    
+                                                <div class="label"
+                                                     i18n:translate="categories_label">
+                                                    Categories
+                                                </div>                                
+                                                <ul>
+                                                    <li tal:repeat="category categories">
+                                                        <a href="."
+                                                           tal:attributes="href category/url">
+                                                            <span tal:replace="category/title">Title</span>
+                                                        </a>    
+                                                    </li>
+                                                </ul>
+                                            </tal:block>
+                                    
+                                            <tal:block tal:define="groups product/groups"
+                                                       tal:condition="groups">
+                                                <div class="label"
+                                                     i18n:translate="groups_label">
+                                                    Groups
+                                                </div>
+                                                <ul>
+                                                    <li tal:repeat="group groups">
+                                                        <a href="."
+                                                           tal:attributes="href group/url">
+                                                            <span tal:replace="group/title">Title</span>
+                                                        </a>    
+                                                    </li>
+                                                </ul>
+                                            </tal:block>
+                                                   
+                                        </td>
+                                    </tr>
+                                </table>
+                         
+                            </tal:block>    
+                        </div>                               
+                    </td>
+                </tr>
+            </table>
+        </metal:main>    
+    </body>
+</html>

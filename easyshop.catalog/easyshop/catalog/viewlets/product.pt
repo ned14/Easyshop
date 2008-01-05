@@ -1,0 +1,221 @@
+<div id="product"
+     i18n:domain="EasyShop">
+
+    <form name="product_form" 
+          action="#"
+          tal:define="product view/getProduct"                                  
+          tal:attributes="action product/url"
+          method="post">
+                  
+        <table class="products">
+           
+            <tr>
+                <td class="main-title"  
+                    colspan="2"> 
+                    <table class="shop-default"
+                           tal:define="navigationMacroView context/@@navigationMacroView;
+                                       product_urls navigationMacroView/getProductURLs;">
+
+                        <tr>
+                            <td>
+                                <metal:field use-macro="python:here.widget('title', mode='view')">
+                                    Deep Thought    
+                                </metal:field>                                            
+                            </td>
+                            <td class="product-navigation">
+                                <div tal:repeat="product_url product_urls">
+                                    <a href="#"
+                                       title="First Product"
+                                       tal:omit-tag="not: product_url/first"
+                                       tal:attributes="href product_url/first">
+
+                                        <img src="navigation_first.gif" 
+                                             alt="Navigation First"
+                                             title="First"
+                                             tal:attributes="src string:navigation_first_small.gif"
+                                             i18n:attributes="title first_label;" />
+                                     </a>                    
+
+                                     <a href="#"
+                                        title="First Product"
+                                        tal:omit-tag="not: product_url/previous"
+                                        tal:attributes="href product_url/previous">
+
+                                        <img src="navigation_previous.gif" 
+                                             alt="Navigation Previous"
+                                             title="Previous"
+                                             tal:attributes="src string:navigation_previous_small.gif"
+                                             i18n:attributes="title previous_label;" />
+                                     </a>
+
+                                     <span tal:content="product_url/position">1</span>
+                                     /
+                                     <span tal:content="product_url/amount">42</span>                    
+
+                                     <a href="#"
+                                        title="Next Product"
+                                        tal:omit-tag="not: product_url/next"
+                                        tal:attributes="href product_url/next">
+
+                                        <img src="navigation_next.gif" 
+                                             alt="Navigation Next"
+                                             Title="Next"
+                                             tal:attributes="src string:navigation_next_small.gif"
+                                             i18n:attributes="title next_label;" />
+                                     </a>
+
+                                     <a href="#"
+                                        title="Last Product"
+                                        tal:omit-tag="not: product_url/last"
+                                        tal:attributes="href product_url/last">
+
+                                        <img src="navigation_last.gif" 
+                                             alt="Navigation Last"
+                                             Title="Last"
+                                             tal:attributes="src string:navigation_last_small.gif"
+                                             i18n:attributes="title last_label;" />
+                                     </a>        
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>                                    
+            <tr>
+                <td>
+                    <table class="product-content"
+                           tal:define="zoom_url string:${context/absolute_url}/product-zoom-view;">
+                        <tr>
+                            <td class="sub-title"
+                                colspan="2">
+                                 <metal:field use-macro="python:here.widget('description', mode='view')">
+                                    Our Products Are The Best
+                                 </metal:field>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td class="product-image"
+                                tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')">
+                                <img tal:condition="product/image"
+                                     tal:attributes="src product/image;
+                                                     alt product/title;" />
+                            </td>
+                            <td class="product-description">
+                                <metal:field use-macro="python:here.widget('text', mode='view')">
+                                    Product text
+                                </metal:field>
+                            </td>
+                        </tr>
+                        <tr tal:define="stock_information view/getStockInformation"
+                            tal:condition="stock_information">
+                            <td></td>
+                            <td>
+                                <tal:block tal:condition="stock_information/available">
+                                    <tal:block i18n:translate="deliverable_label">
+                                        Deliverable
+                                    </tal:block>
+                                    <div>
+                                        <tal:block i18n:translate="delivery_period_label">
+                                            Delivery Period</tal:block>:
+                                        <tal:block tal:content="stock_information/time_period">
+                                            2-3 Weeks
+                                        </tal:block>    
+                                        <tal:block i18n:translate=""
+                                                   tal:content="stock_information/time_unit">
+                                            Weeks
+                                        </tal:block>    
+                                    </div>    
+                                </tal:block>
+                                <tal:block tal:condition="not:stock_information/available"
+                                           i18n:translate="not_deliverable_label">
+                                    Not deliverable
+                                </tal:block>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="product-properties">
+                                 <table>
+                                     <tr tal:repeat="property view/getProperties">
+                                         <td style="vertical-align:bottom; padding-right:20px"
+                                             tal:content="property/title">
+                                            Title
+                                         </td>
+                                         <td>
+                                             <select style="font-size:12px; width:200px"
+                                                     onchange="document.product_form.submit();"
+                                                     tal:attributes="name string:property-${property/id}">
+           
+                                                 <option i18n:translate="please_select_label">
+                                                     Please Select
+                                                 </option>
+                                       
+                                                 <option tal:repeat="option property/options"
+                                                         tal:content="option/content"
+                                                         tal:attributes="value option/value;
+                                                                         selected option/selected">
+                                                     Red
+                                                 </option>                           
+                                             </select>                                                                       
+                                         </td>
+                                     </tr>
+                                 </table>     
+
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td class="product-control"
+                                colspan="2">
+
+                                <input type="button"
+                                       class="context"
+                                       id="product-details"
+                                       value="Zoom"
+                                       title="Zoom"
+                                       i18n:attributes="title zoom_label;"
+                                       tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
+                   
+                                <input tal:condition="not:view/showAddQuantity"
+                                       type="hidden"
+                                       name="quantity"
+                                       value="1" />
+
+                                <input tal:condition="view/showAddQuantity"
+                                       name="quantity"
+                                       value="1" />
+
+                                <input class="context"
+                                       id="add-product"
+                                       name="addToCart:method" 
+                                       value="Add to Cart"
+                                       type="submit"
+                                       title="Add to Cart"
+                                       i18n:attributes="title add_to_cart_label;
+                                                        value add_to_cart_label;" />
+
+                                <tal:block tal:condition="context/forSale">
+                                    <span class="product-price"
+                                          style="text-decoration:line-through;"
+                                          tal:content="view/getStandardPriceForCustomer">
+                                        42.00
+                                    </span>
+                                    <span class="product-price"
+                                          tal:content="view/getPriceForCustomer">
+                                        42.00
+                                    </span>
+                                </tal:block>                        
+                                <tal:block tal:condition="not:context/forSale">
+                                    <span class="product-price"
+                                          tal:content="view/getPriceForCustomer">
+                                        42.00
+                                    </span>                                    
+                                </tal:block>                                
+                            </td>
+                        </tr>
+                    </table>                                                                                
+                </td>                                              
+            </tr>
+        </table>
+    </form>            
+</div>
