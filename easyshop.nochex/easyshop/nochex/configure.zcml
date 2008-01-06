@@ -1,7 +1,24 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="easyshop.nochex">
+    xmlns:five="http://namespaces.zope.org/five">
 
+    <five:registerPackage 
+        package="." 
+        initialize=".initialize" />
 
+    <adapter
+        factory=".adapters.NochexPaymentProcessor" />
+
+    <adapter
+        factory=".adapters.NochexCompleteness" />
+
+    <adapter
+        factory=".adapters.NochexValidity" />
+
+    <adapter
+        factory=".adapters.NochexType" />
+                
+    <include
+        package=".subscribers" />
+    
 </configure>
