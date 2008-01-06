@@ -4,6 +4,7 @@ from easyshop.shop.events import IShopCreatedEvent
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.WorkflowCore import WorkflowException
 
 # easyshop imports
 from easyshop.core.interfaces import IShop
@@ -12,9 +13,10 @@ from easyshop.core.interfaces import IShop
 def createContainers(shop, event):
     """
     """
-    shop.manage_addProduct["easyshop.shop"].addPaymentMethodsContainer(
-        id="paymentmethods", 
-        title="Payment Methods")
+    if getattr(shop, "paymentmethods", None) is None:
+        shop.manage_addProduct["easyshop.shop"].addPaymentMethodsContainer(
+            id="paymentmethods", 
+            title="Payment Methods")
         
     shop.manage_addProduct["easyshop.shop"].addPaymentPricesContainer(
         id="paymentprices", 
@@ -43,7 +45,10 @@ def createContainers(shop, event):
     # Publish all payment methods by default
     wftool = getToolByName(shop, "portal_workflow")
     for payment_method in shop.paymentmethods.objectValues():
-        wftool.doActionFor(payment_method, "publish")
+        try:
+            wftool.doActionFor(payment_method, "publish")
+        except WorkflowException:
+            pass
         
     shop.paymentmethods.reindexObject()
     shop.paymentprices.reindexObject()
