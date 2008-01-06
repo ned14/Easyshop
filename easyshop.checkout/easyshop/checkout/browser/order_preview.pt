@@ -173,6 +173,13 @@
                                 </div>
                             </tal:block>
 
+                            <!-- This has to be factored out -->
+                            <tal:block tal:condition="python:payment_method_type == 'NochexPaymentMethod'">
+                                <div i18n:translate="nochex_label">
+                                    Nochex
+                                </div>
+                            </tal:block>
+
                             <tal:block tal:condition="python:payment_method_type == 'GenericPaymentMethod'">
                                 <div i18n:translate=""
                                      tal:content="payment_method_info/title">
