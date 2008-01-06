@@ -1,0 +1,9 @@
+Changelog for easyshop.nochex
+
+    (name of developer listed in brackets)
+
+easyshop.nochex - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
