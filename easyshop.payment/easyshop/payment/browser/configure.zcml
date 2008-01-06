@@ -1,0 +1,69 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Direct Debit -->
+    <browser:page
+        for="easyshop.core.interfaces.ICustomer"
+        name="add-bank-account"
+        class=".bank_account.BankAccountAddForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IBankAccount"
+        name="edit"
+        class=".bank_account.BankAccountEditForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <!-- Credit Card -->
+    <browser:page
+        for="easyshop.core.interfaces.ICustomer"
+        name="add-credit-card"
+        class=".credit_card.CreditCardAddForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <browser:page
+        for="easyshop.core.interfaces.ICreditCard"
+        name="edit"
+        class=".credit_card.CreditCardEditForm"
+        permission="cmf.ModifyPortalContent" />
+
+    <!-- PayPal receiving -->       
+    <browser:page
+        for="easyshop.core.interfaces.IShop"
+        name="paypal"
+        class=".paypal.PayPalView"        
+        attribute="receivePayment" 
+        permission="zope.Public" />
+          
+    <!-- Payment Price -->
+    <browser:page  
+        name="payment-price-view"
+        for="easyshop.core.interfaces.IPaymentPrice"
+        class=".payment_price.PaymentPriceView"
+        template="payment_price.pt"
+        permission="cmf.ManagePortal" />
+
+    <!-- Payment Method -->
+    <browser:page  
+        name="payment-method-view"
+        for="easyshop.core.interfaces.IPaymentMethod"
+        class=".payment_method.PaymentMethodView"
+        template="payment_method.pt"
+        permission="cmf.ManagePortal" />
+
+    <!-- Payment Containers -->
+    <browser:page
+        for="easyshop.core.interfaces.IPaymentMethodsContainer"
+        name="payment-methods-view"
+        template="payment_methods.pt"
+        class=".payment_methods.PaymentMethodsView"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IPaymentPriceManagementContainer"
+        name="payment-prices-view"
+        template="payment_prices.pt"
+        class=".payment_prices.PaymentPricesView"
+        permission="cmf.ManagePortal" />
+
+</configure>
