@@ -1,15 +1,15 @@
 #labels Featured
 == How to install the buildout (without google id) ==
 
-   * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ es.buildout
+   * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ easyshop.buildout
    * cd es.buildout
    * python bootstrap.py
    * bin/buildout -v
    * bin/instance fg
 
-== How to install the buildout (with google id) ==
+== How to install the buildout (with admin rights / Google id) ==
 
-   * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0/ es.buildout
+   * svn co https://easyshop-for-plone.googlecode.com/svn/buildout/3.0/ easyshop.buildout
    * cd es.buildout
    * python bootstrap.py
    * bin/buildout -v
