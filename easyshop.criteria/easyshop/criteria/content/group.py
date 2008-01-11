@@ -3,7 +3,6 @@ import transaction
 from zope.interface import implements
 
 # Zope imports
-from DateTime import DateTime
 from AccessControl import ClassSecurityInfo
 
 # CMFCore imports
@@ -14,10 +13,8 @@ from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IGroupCriteria
-from easyshop.core.interfaces import IGroupManagement
-from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -67,12 +64,17 @@ class GroupCriteria(BaseContent):
     def _getGroupsAsDL(self):
         """Returns all Categories as DisplayList
         """
+        shop = IShopManagement(self).getShop()
 
         dl = DisplayList()
         catalog = getToolByName(self, "portal_catalog")
 
-        for group in catalog.searchResults(portal_type="ProductGroup"):
-            dl.add(group.id, group.Title)
+        brains = catalog.searchResults(
+            path = "/".join(shop.getPhysicalPath()),
+            portal_type="ProductGroup")
+            
+        for brain in brains:
+            dl.add(brain.id, brain.Title)
 
         return dl
 

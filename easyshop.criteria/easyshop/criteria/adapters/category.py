@@ -23,7 +23,7 @@ class CategoryCriteriaValidity:
         categories of the criterion.
         """
         category_manager = ICategoryManagement(product)
-        product_categories = [c.getId() for c in category_manager.getTopLevelCategories()]
+        product_categories = ["/".join(c.getPhysicalPath()) for c in category_manager.getTopLevelCategories()]
         criteria_categories = self.context.getCategories()
 
         for criteria_category in criteria_categories:

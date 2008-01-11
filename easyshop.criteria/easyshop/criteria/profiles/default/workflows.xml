@@ -11,6 +11,7 @@
   <type type_id="PaymentMethodCriteria"/>
   <type type_id="PriceCriteria"/>
   <type type_id="ProductCriteria"/>
+  <type type_id="ProductAmountCriteria"/>
   <type type_id="ShippingMethodCriteria"/>
   <type type_id="WeightCriteria"/>
  </bindings>

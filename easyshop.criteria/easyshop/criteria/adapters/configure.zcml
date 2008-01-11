@@ -18,6 +18,9 @@
 
     <adapter  
         factory=".payment_method.PaymentMethodCriteriaValidity" /> 
+
+    <adapter
+        factory=".product_amount.ProductAmountCriteriaValidity" />
     
     <adapter
         factory=".product.ProductCriteriaValidity" />
