@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 # EasyShop Products
 from easyshop.core.interfaces import ICreditCard
 from easyshop.core.interfaces import IBankAccount
-from easyshop.core.interfaces import IPaymentMethodManagement 
+from easyshop.core.interfaces import IPaymentInformationManagement
 
 class ManagePaymentMethodsView(BrowserView):
     """
@@ -18,9 +18,15 @@ class ManagePaymentMethodsView(BrowserView):
         putils = getToolByName(self.context, "plone_utils")
         
         # delete address
-        toDeletepPaymentMethodId = self.context.request.get("id")
-        pm = IPaymentMethodManagement(self.context)
-        pm.deletePaymentMethod(toDeletepPaymentMethodId)
+        payment_method_id = self.context.request.get("id")
+        pm = IPaymentInformationManagement(self.context)
+        pm.deletePaymentInformation(payment_method_id)
+
+        # If the selected payment information has been deleted set the payment
+        # method to the default: atm prepayment.
+        if payment_method_id == self.context.selected_payment_information:
+            self.context.selected_payment_information = u""
+            self.context.selected_payment_method = u"prepayment"
         
         # add message
         putils.addPortalMessage("The payment method has been deleted.")
@@ -32,11 +38,11 @@ class ManagePaymentMethodsView(BrowserView):
     def getDirectDebitAccounts(self):
         """
         """   
-        pm  = IPaymentMethodManagement(self.context)
-        return pm.getPaymentMethods(IBankAccount)
+        pm  = IPaymentInformationManagement(self.context)
+        return pm.getPaymentInformations(IBankAccount)
         
     def getCreditCards(self):
         """
         """   
-        pm  = IPaymentMethodManagement(self.context)
-        return pm.getPaymentMethods(ICreditCard)
+        pm  = IPaymentInformationManagement(self.context)
+        return pm.getPaymentInformations(ICreditCard)
