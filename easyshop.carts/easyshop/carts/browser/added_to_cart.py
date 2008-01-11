@@ -8,7 +8,7 @@ from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPropertyManagement
 
@@ -32,6 +32,14 @@ class AddedToCartView(BrowserView):
         price = IPrices(cart_item).getPriceForCustomer()
         cm    = ICurrencyManagement(self.context)
         price = cm.priceToString(price)        
+        
+        # Image
+        product = cart_item.getProduct()
+        image = IImageManagement(product).getMainImage()
+        if image is not None:
+            image_url = image.absolute_url()
+        else:
+            image_url = None
         
         # Get selected properties
         properties = []

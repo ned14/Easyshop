@@ -93,7 +93,14 @@ class CartItemManagement:
     def getItems(self):
         """
         """
-        return self.context.objectValues("CartItem")
+        # If an item has no product (product has been deleted in the meanwhile, 
+        # it isn't considered at all.
+        items = []
+        for item in self.context.objectValues("CartItem"):
+            if item.getProduct() is not None:
+                items.append(item)
+        
+        return items    
 
     def hasItems(self):
         """

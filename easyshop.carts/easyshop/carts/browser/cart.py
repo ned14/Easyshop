@@ -1,3 +1,6 @@
+# zope imports
+from zope.component import getMultiAdapter
+
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -15,6 +18,7 @@ from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement 
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
@@ -66,8 +70,8 @@ class CartFormView(BrowserView):
             product_price = cm.priceToString(product_price)
             
             price = IPrices(cart_item).getPriceForCustomer()
-            price = cm.priceToString(price)
 
+            # Properties
             properties = []
             pm = IPropertyManagement(product)
 
@@ -92,6 +96,19 @@ class CartFormView(BrowserView):
                     "title" : property_title,
                     "price" : cm.priceToString(property_price)
                 })
+
+            # Discount
+            total_price = 0
+            discount = IDiscountsCalculation(cart_item).getDiscount()
+            if discount is not None:
+                discount_price = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
+
+                discount = {
+                    "title" : discount.Title(),
+                    "value" : cm.priceToString(discount_price, prefix="-"),
+                }
+
+                total_price = price - discount_price
                 
             # Photo
             photo = IPhotoManagement(product).getMainPhoto()
@@ -106,9 +123,11 @@ class CartFormView(BrowserView):
                 "product_title" : product.Title(),
                 "product_url"   : product.absolute_url(),
                 "product_price" : product_price,
-                "properties"    : properties,
-                "price"         : price,
+                "price"         : cm.priceToString(price),
                 "amount"        : cart_item.getAmount(),
+                "properties"    : properties,
+                "total_price"   : cm.priceToString(total_price),
+                "discount"      : discount,
                 "photo_url"     : "%s/image_tile" % photo.absolute_url(),
             })
         
@@ -141,6 +160,31 @@ class CartFormView(BrowserView):
         
         return result    
 
+    def getDiscounts(self):
+        """
+        """
+        return []
+                
+        cm = ICurrencyManagement(self.context)
+        
+        cart = self._getCart()        
+
+        if cart is None: 
+            return []
+        
+        discounts = []
+        for cart_item in IItemManagement(cart).getItems():
+            discount = IDiscountsCalculation(cart_item).getDiscount()
+
+            if discount is not None:
+                value = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
+                discounts.append({
+                    "title" : discount.Title(),
+                    "value" : cm.priceToString(value, prefix="-"),
+                })
+        
+        return discounts
+                
     def getPaymentMethodTypes(self):
         """Returns all *types* of payment methods of the current customer.
         """
@@ -288,7 +332,7 @@ class CartFormView(BrowserView):
 
         # next template
         if self.context.REQUEST.get("goto", "") == "order-preview":
-            url = "%s/check-out-order-preview-form" % self.context.absolute_url()
+            url = "%s/checkout-order-preview" % self.context.absolute_url()
         else:
             url = "%s/cart" % self.context.absolute_url()
 
