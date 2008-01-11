@@ -27,19 +27,11 @@ DEFAULT_SHOP_FORM = os.path.sep.join([home, "browser", "default_shop_form.pt"])
 
 
 MESSAGES = {
-    "CART_ADDED_PRODUCT"    : "The product has been added to the cart.",
-    "CART_INCREASED_AMOUNT" : "The amount of the product has been increased.",
-    "ORDER_RECEIVED"        : "Your order has been received. Thank you!",    
+    "CART_ADDED_PRODUCT"    : _(u"The product has been added to the cart."),
+    "CART_INCREASED_AMOUNT" : _(u"The amount of the product has been increased."),
+    "ORDER_RECEIVED"        : _(u"Your order has been received. Thank you!"),
+    "NO_PRODUCTS_FOUND"     : _(u"No products found."),
 }
-
-JAVASCRIPTS = [
-    {'id': 'easyshop.js'}
-]
-
-STYLESHEETS = [
-    {'id': 'easyshop.css'},
-    # {'id' : 'easyshop.kss', 'rel': 'k-stylesheet'},
-]
 
 IMAGE_SIZES = {'large'   : (768, 768),
                'preview' : (400, 400),
@@ -139,8 +131,8 @@ DELIVERY_TIMES_MAX = (
 )
 
 DELIVERY_TIMES_UNIT = (
-    (u"days",   _(u"Days")),
-    (u"weeks",  _(u"Weeks")),
+    (u"Days",   _(u"Days")),
+    (u"Weeks",  _(u"Weeks")),
 )
 
 # PAYPAL_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"

@@ -6,6 +6,7 @@ from criteria import *
 from currency import *
 from customers import *
 from data import *
+from discounts import *
 from groups import *
 from information import *
 from item import *
