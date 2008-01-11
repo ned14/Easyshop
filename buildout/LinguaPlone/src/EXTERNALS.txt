@@ -10,6 +10,7 @@ easyshop.checkout https://easyshop-for-plone.googlecode.com/svn/easyshop.checkou
 easyshop.core https://easyshop-for-plone.googlecode.com/svn/easyshop.core/branches/linguaplone
 easyshop.criteria https://easyshop-for-plone.googlecode.com/svn/easyshop.criteria/branches/linguaplone
 easyshop.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/branches/linguaplone
+easyshop.discounts https://easyshop-for-plone.googlecode.com/svn/easyshop.discounts/branches/linguaplone
 easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/branches/linguaplone
 easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/branches/linguaplone
 easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/branches/linguaplone
