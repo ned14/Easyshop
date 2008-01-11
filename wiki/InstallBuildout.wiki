@@ -2,17 +2,17 @@
 == How to install the buildout (without google id) ==
 
    * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ easyshop.buildout
-   * cd es.buildout
+   * cd easyshop.buildout
    * python bootstrap.py
-   * bin/buildout -v
+   * bin/buildout -v (this will take a while)
    * bin/instance fg
 
 == How to install the buildout (with admin rights / Google id) ==
 
    * svn co https://easyshop-for-plone.googlecode.com/svn/buildout/3.0/ easyshop.buildout
-   * cd es.buildout
+   * cd easyshop.buildout
    * python bootstrap.py
-   * bin/buildout -v
+   * bin/buildout -v (this will take a while)
    * bin/instance fg
 
 == Running tests ==
