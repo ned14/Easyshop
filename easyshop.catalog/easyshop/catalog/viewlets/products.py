@@ -19,7 +19,7 @@ from Products.CMFPlone import Batch
 
 # Easyshop imports
 from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
@@ -82,11 +82,18 @@ class ProductsViewlet(ViewletBase):
 
             # Price
             cm = ICurrencyManagement(self.context)
-            price = IPrices(product).getPriceForCustomer()
+            p = IPrices(product)
+
+            # Effective price
+            price = p.getPriceForCustomer()                                
             price = cm.priceToString(price, symbol="symbol", position="before")
+            
+            # Standard price
+            standard_price = p.getPriceForCustomer(effective=False)
+            standard_price = cm.priceToString(standard_price, symbol="symbol", position="before")
                                     
-            # Photo
-            image = IPhotoManagement(product).getMainPhoto()
+            # Image
+            image = IImageManagement(product).getMainImage()
             if image is not None:
                 image = "%s/image_%s" % (image.absolute_url(), f.get("image_size"))
                 
@@ -112,7 +119,9 @@ class ProductsViewlet(ViewletBase):
                 "text"                     : text,
                 "url"                      : "%s?sorting=%s" % (product.absolute_url(), sorting),
                 "image"                    : image,
+                "for_sale"                 : product.getForSale(),
                 "price"                    : price,
+                "standard_price"           : standard_price,
                 "class"                    : klass,
             })
             

@@ -2,12 +2,12 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports 
-from easyshop.core.interfaces import IPhotoManagement
+from easyshop.core.interfaces import IImageManagement
 
 class ProductZoomView(BrowserView):
     """
     """
-    def getCurrentPhoto(self):
+    def getCurrentImage(self):
         """
         """
         ord = self.request.get("ord", 0)
@@ -17,20 +17,20 @@ class ProductZoomView(BrowserView):
             ord = 0
                 
         try:
-            return self.getPhotoUrls()[ord]
+            return self.getImageUrls()[ord]
         except IndexError:
-            return self.getPhotoUrls()[0]
+            return self.getImageUrls()[0]
 
-    def getPhotoUrls(self):
+    def getImageUrls(self):
         """
         """
-        pm = IPhotoManagement(self.context)
+        pm = IImageManagement(self.context)
 
         result = []
-        for photo in pm.getPhotos():
+        for image in pm.getImages():
             result.append({
-                "small" : "%s/image_thumb"  % photo.absolute_url(),
-                "large" : "%s/image_large" % photo.absolute_url(),
+                "small" : "%s/image_thumb"  % image.absolute_url(),
+                "large" : "%s/image_large" % image.absolute_url(),
             })
                         
         return result

@@ -9,6 +9,8 @@ from Products.Five.browser import BrowserView
 
 # easyshop importss
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ManageProductsView(BrowserView):
     """
@@ -152,6 +154,21 @@ class ManageProductsView(BrowserView):
             return ""
         else:
             return searchable_text
+
+    def showNoProducts(self):
+        """
+        """
+        # If there was as search return False
+        if (self.request.get("letter", None) is not None or \
+            self.request.get("searchable_text", None) is not None):
+            return False
+            
+        shop = IShopManagement(self.context).getShop()
+        products = IProductManagement(shop).getProducts()
+        if len(products) > 0:
+            return False
+        else:
+            return True
             
     def showNoResult(self, lines):
         """

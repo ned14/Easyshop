@@ -56,11 +56,11 @@
         class=".manage_products_view.ManageProductsView"
         permission="cmf.ManagePortal" />
 
-    <!-- Miscellaneous -->
+    <!-- Add to Cart -->
     <browser:page
         name="addToCart"
         for="easyshop.core.interfaces.IProduct"
-        class=".product_view.ProductView"
+        class=".add_to_cart.AddToCartView"
         attribute="addToCart" 
         permission="zope.Public" />
 

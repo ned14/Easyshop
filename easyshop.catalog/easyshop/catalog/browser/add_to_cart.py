@@ -9,9 +9,6 @@ from Products.CMFCore.utils import getToolByName
 # Five imports
 from Products.Five.browser import BrowserView
 
-# ATCT imports
-from Products.ATContentTypes.config import HAS_LINGUA_PLONE
-
 # easyshop imports
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import ICartManagement
@@ -28,7 +25,7 @@ class IProductView(Interface):
         """Adds a product to the cart.
         """
                     
-class ProductView(BrowserView):
+class AddToCartView(BrowserView):
     """
     """
     implements(IProductView)
@@ -36,19 +33,13 @@ class ProductView(BrowserView):
     def addToCart(self):
         """
         """
-        # LINGUA_PLONE
-        if HAS_LINGUA_PLONE:
-            product = self.context.getCanonical()
-        else:
-            product = self.context
-        
-        shop = IShopManagement(product).getShop()        
+        shop = IShopManagement(self.context).getShop()        
         cm = ICartManagement(shop)
         
         cart = cm.getCart()
         if cart is None:
             cart = cm.createCart()
-                
+
         properties = []
         for property_id, selected_option in self.request.form.items():
             if property_id.startswith("property") == False:
@@ -67,7 +58,7 @@ class ProductView(BrowserView):
         quantity = int(self.context.request.get("quantity", 1))
 
         # returns true if the product was already within the cart    
-        result = IItemManagement(cart).addItem(product, tuple(properties), quantity)
+        result = IItemManagement(cart).addItem(self.context, tuple(properties), quantity)
         
         # Set portal message
         putils = getToolByName(self.context, "plone_utils")        

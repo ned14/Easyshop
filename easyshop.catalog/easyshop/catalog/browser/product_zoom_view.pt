@@ -11,16 +11,16 @@
         <tr>
             <td style="width:768px">
                 <img src="." 
-                     tal:define="photo view/getCurrentPhoto"
-                     tal:attributes="src photo/large" />
+                     tal:define="image view/getCurrentImage"
+                     tal:attributes="src image/large" />
             </td>
             <td style="vertical-align:top">
-                <div tal:repeat="photo_url view/getPhotoUrls">
+                <div tal:repeat="image_url view/getImageUrls">
                     <a href="."
-                       tal:attributes="href string:${context/absolute_url}/product-zoom-view?ord=${repeat/photo_url/index}">
+                       tal:attributes="href string:${context/absolute_url}/product-zoom-view?ord=${repeat/image_url/index}">
                         <img style="border:1px solid black;"
                              src="." 
-                             tal:attributes="src photo_url/small" />
+                             tal:attributes="src image_url/small" />
                     </a>     
                 </div>                     
             </td>

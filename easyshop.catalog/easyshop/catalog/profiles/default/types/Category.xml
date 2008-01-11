@@ -14,7 +14,7 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="Category"/>
-  <element value="ESImage"/>
+  <element value="EasyShopImage"/>
   <element value="ProductSelector"/>
  </property>
  <property name="allow_discussion">False</property>
