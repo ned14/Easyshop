@@ -37,6 +37,10 @@
                     <span tal:content="stock_information/time_period">
                         19% 
                     </span>
+                    <span i18n:translate=""
+                          tal:content="stock_information/time_unit">
+                        19% 
+                    </span>
                 </tal:block>    
             </div>
            
