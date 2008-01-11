@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="easyshop.discounts"
+        directory="profiles/default"
+        description="Discount management for EasyShop"
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+  
+</configure>
