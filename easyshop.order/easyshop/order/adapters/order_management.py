@@ -20,6 +20,7 @@ from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import ITaxes
 
 class UnrestrictedUser(BaseUnrestrictedUser):
     """Unrestricted user that still has an id.
@@ -71,16 +72,19 @@ class OrderManagement:
         new_id = self._createOrderId()
         self.orders.invokeFactory("Order", id=new_id)
         new_order = getattr(self.orders, new_id)
+        
+        # Add cart items to order
+        IItemManagement(new_order).addItemsFromCart(cart)
 
+        # Add total tax 
+        new_order.setTax(ITaxes(cart).getTaxForCustomer())
+        
         # Add shipping values to order
         sm = IShippingPriceManagement(self.context)
         new_order.setShippingPriceNet(sm.getPriceNet())
         new_order.setShippingPriceGross(sm.getPriceGross())
         new_order.setShippingTax(sm.getTaxForCustomer())
         new_order.setShippingTaxRate(sm.getTaxRateForCustomer())
-
-        # Add cart items to order
-        IItemManagement(new_order).addItemsFromCart(cart)
 
         # Add payment price values to order 
         pp = IPaymentPriceManagement(self.context)

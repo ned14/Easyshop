@@ -88,6 +88,16 @@ schema = Schema((
             i18n_domain='EasyShop',
         )
     ),
+
+    FloatField(
+        name='tax',
+        widget=DecimalWidget(
+            label='Tax',
+            label_msgid='schema_tax_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+    
 ))
 
 class Order(BaseFolder):

@@ -1,9 +1,11 @@
 # Zope imports
 from zope.interface import implements
 from zope.component import adapts
+from zope.component import getMultiAdapter
 
 # easyshop imports
 from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrder
 from easyshop.core.interfaces import IPrices
@@ -40,7 +42,7 @@ class OrderItemManagement:
         id = 0
         for cart_item in IItemManagement(cart).getItems():
             id += 1
-            self._addItemFromCartItem(str(id), cart_item)
+            self._addItemFromCartItem(id, cart_item)
 
     def deleteItemByOrd(self, ord):
         """Deletes the item by passed ord
@@ -66,29 +68,50 @@ class OrderItemManagement:
         
     def _addItemFromCartItem(self, id, cart_item):
         """Sets the item by given cart item.
-        """
-        self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=id)
-        new_item = getattr(self.context, id)
-        
-        # Set product prices & taxes
-        taxes = ITaxes(cart_item.getProduct())
+        """        
+        self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=str(id))
+        new_item = getattr(self.context, str(id))
+
+        # set product quantity        
         new_item.setProductQuantity(cart_item.getAmount())
-        new_item.setTaxRate(taxes.getTaxRate())
-        new_item.setProductTax(taxes.getTax())
-        new_item.setProductPriceGross(cart_item.getProduct().getPrice())
-        new_item.setProductPriceNet(new_item.getProductPriceGross() - new_item.getProductTax())
+                
+        # Set product prices & taxes
+        product_taxes  = ITaxes(cart_item.getProduct())
+        product_prices = IPrices(cart_item.getProduct())
+        item_prices = IPrices(cart_item)
+        item_taxes  = ITaxes(cart_item)
+        
+        new_item.setTaxRate(product_taxes.getTaxRateForCustomer())
+        new_item.setProductTax(product_taxes.getTaxForCustomer())
+        
+        new_item.setProductPriceGross(product_prices.getPriceForCustomer())
+        new_item.setProductPriceNet(product_prices.getPriceNet())
 
         # Set item prices & taxes
-        new_item.setTax(ITaxes(cart_item).getTaxForCustomer())
-        new_item.setPriceGross(IPrices(cart_item).getPriceForCustomer())        
-        new_item.setPriceNet(IPrices(cart_item).getPriceNet())
+        new_item.setTax(item_taxes.getTaxForCustomer())
+        new_item.setPriceGross(item_prices.getPriceForCustomer())
+        new_item.setPriceNet(item_prices.getPriceNet())
+
+        # Discount
+        discount = IDiscountsCalculation(cart_item).getDiscount()
+        if discount is not None:
+            new_item.setDiscountDescription(discount.Title())
+
+            dp = getMultiAdapter((discount, cart_item))
+            new_item.setDiscountGross(dp.getPriceForCustomer())
+            new_item.setDiscountNet(dp.getPriceNet())
         
         # Set product
-        new_item.setProduct(cart_item.getProduct())
+        product = cart_item.getProduct()
+        new_item.setProduct(product)
+
+        # Set product name and id
+        new_item.setProductTitle(product.Title())
+        new_item.setArticleId(product.getArticleId())
 
         # Set properties
         properties = []
-        pm = IPropertyManagement(cart_item.getProduct())
+        pm = IPropertyManagement(product)
         for selected_property in cart_item.getProperties():
 
             property_price = pm.getPriceForCustomer(
