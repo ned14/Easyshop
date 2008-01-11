@@ -1,5 +1,5 @@
 #labels Featured
-== How to install the buildout (without google id) ==
+== How to install the buildout (with admin rights / Google id) ==
 
    * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ easyshop.buildout
    * cd easyshop.buildout
