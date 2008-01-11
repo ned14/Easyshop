@@ -1,5 +1,5 @@
 #labels Featured
-== Install the buildout (with admin rights / Google id) ==
+== Install the buildout (without admin rights / Google id) ==
 
    * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ easyshop.buildout
    * cd easyshop.buildout
@@ -7,7 +7,7 @@
    * bin/buildout -v (this will take a while)
    * bin/instance fg
 
-== Install the buildout (without admin rights / Google id) ==
+== Install the buildout (with admin rights / Google id) ==
 
    * svn co https://easyshop-for-plone.googlecode.com/svn/buildout/3.0/ easyshop.buildout
    * cd easyshop.buildout
