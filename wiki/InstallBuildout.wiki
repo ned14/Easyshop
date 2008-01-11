@@ -18,3 +18,10 @@
 == Running tests ==
 
    * bin/instance test -m easyshop.shop
+
+== Install Product ==
+
+  * Add a Plone instance as used to
+  * Go to <Plone instance>/"Site Setup"/"Add-on Products" and install just "EasyShop" (all other packages / Products will be installed automatically)
+  * Now you can add an "EasyShop" object as all other Plone content objects
+  
