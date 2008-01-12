@@ -1,0 +1,40 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        factory=".category.CategoryCriteriaValidity" />
+
+    <adapter
+        factory=".country.CountryCriteriaValidity" />
+
+    <adapter
+        factory=".customer.CustomerCriteriaValidity" />
+
+    <adapter
+        factory=".date.DateCriteriaValidity" />
+
+    <adapter
+        factory=".group.GroupCriteriaValidity" />
+
+    <adapter  
+        factory=".payment_method.PaymentMethodCriteriaValidity" /> 
+
+    <adapter
+        factory=".product_amount.ProductAmountCriteriaValidity" />
+    
+    <adapter
+        factory=".product.ProductCriteriaValidity" />
+
+    <adapter
+        factory=".price.PriceCriteriaValidity" />
+
+    <adapter
+        factory=".shipping_method.ShippingMethodCriteriaValidity" />
+
+    <adapter
+        factory=".stock_amount.StockAmountCriteriaValidity" />
+
+    <adapter  
+        factory=".weight.WeightCriteriaValidity" /> 
+    
+</configure>

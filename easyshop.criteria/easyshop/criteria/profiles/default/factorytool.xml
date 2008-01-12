@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+ <factorytypes>
+  <type portal_type="CategoryCriteria"/>
+  <type portal_type="CountryCriteria"/>     
+  <type portal_type="CustomerCriteria"/>   
+  <type portal_type="DateCriteria"/>   
+  <type portal_type="GroupCriteria"/>
+  <type portal_type="PaymentMethodCriteria"/>
+  <type portal_type="PriceCriteria"/>  
+  <type portal_type="ProductCriteria"/>
+  <type portal_type="ShippingMethodCriteria"/>
+  <type portal_type="WeightCriteria"/>  
+ </factorytypes>
+</object>
