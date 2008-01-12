@@ -1,0 +1,11 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five">
+
+    <adapter
+        factory=".discounts_management.DiscountsManagement" />
+
+    <adapter
+        factory=".prices.DiscountPrices" />
+    
+</configure>
