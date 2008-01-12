@@ -9,6 +9,6 @@ Categories are displayed to the shop customers (it can be considered as the navi
 
 Groups are not displayed to the shop customers. In this way products can be combined internally. Later the groups can be used to assign something to all products of a group at once. At the moment this are product properties, taxes, shipping prices/methods, payment prices/methods, discounts and stock information.
 
-*Why can I not see the PayPal payment methods?*
+*Why can I not see the PayPal payment method?*
 
 You must first provide your PayPal id within the payment tab of the shop content object.
