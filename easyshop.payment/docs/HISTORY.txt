@@ -1,0 +1,9 @@
+Changelog for easyshop.payment
+
+    (name of developer listed in brackets)
+
+easyshop.payment - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
