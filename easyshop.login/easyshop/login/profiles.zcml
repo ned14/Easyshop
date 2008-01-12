@@ -1,0 +1,12 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="easyshop.login"
+        directory="profiles/default"
+        description="Login process for EasyShop"
+        provides="Products.GenericSetup.interfaces.EXTENSION" 
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
+
+</configure>
