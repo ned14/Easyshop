@@ -9,7 +9,7 @@
 
  Groups are not displayed to the shop customers. In this way products can be combined internally. Later the groups can be used to assign something to all products of a group at once. At the moment this are product properties, taxes, shipping prices/methods, payment prices/methods, discounts and stock information.
 
-*Why can I not see the PayPal payment method?*
+*Why is the PayPal payment method not there?*
 
  You must first provide your PayPal id within the payment tab of the shop content object.
 
@@ -17,6 +17,6 @@
 
  Yes please get in touch:
 
-  * kai.diefenbach@iqpp.de  
-  * +49 361 6636700
-  * http://iqpp.de/informationen/kontakt
+   * kai.diefenbach@iqpp.de  
+   * +49 361 6636700
+   * http://iqpp.de/informationen/kontakt
