@@ -12,3 +12,11 @@ Groups are not displayed to the shop customers. In this way products can be comb
 *Why can I not see the PayPal payment method?*
 
 You must first provide your PayPal id within the payment tab of the shop content object.
+
+*I know EasyShop is open source and free. Is there professional support, although?*
+
+Yes please get in touch:
+
+  * kai.diefenbach@iqpp.de  
+  * +49 361 6636700
+  * http://iqpp.de/informationen/kontakt
