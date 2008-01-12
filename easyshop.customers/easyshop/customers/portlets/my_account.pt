@@ -1,0 +1,61 @@
+<dl class="portlet portlet-easyshop-user"
+    i18n:domain="EasyShop">
+
+    <dt class="portletHeader">
+        <span i18n:translate="user_label"
+              tal:condition="view/isAnonymous">
+            User
+        </span>                            
+        
+        <a tal:condition="not:view/isAnonymous"
+           href=""
+           tal:attributes="href view/getMyAccountUrl">
+            <span tal:content="view/getUserName">
+                John Doe
+            </span>    
+        </a>                            
+    </dt>
+
+    <dd class="portletItem"
+        tal:condition="view/isAnonymous">
+        <a href="."            
+           tal:attributes="href string: ${context/absolute_url}/login_form?came_form=${context/absolute_url}"
+           i18n:translate="login_label">
+            Login
+        </a>
+    </dd>
+
+    
+    <tal:block tal:condition="not:view/isAnonymous">                        
+        <dd class="portletItem">                
+            <table>
+                <tr>
+                    <td>
+                        <img src="navigation_next_small.gif"
+                             tal:attributes="src string:${view/getPortalUrl}/navigation_next_small.gif" />
+                    </td>
+                    <td>
+                        <a href="."
+                           tal:attributes="href view/getMyAccountUrl"
+                           i18n:translate="my_account_label">
+                            My Account
+                        </a>                            
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="navigation_next_small.gif"
+                             tal:attributes="src string:${view/getPortalUrl}/navigation_next_small.gif" />
+                    </td>
+                    <td>
+                        <a href="."
+                           tal:attributes="href string: ${context/absolute_url}/logout"
+                           i18n:translate="logout_label">
+                            Logout
+                        </a>                            
+                    </td>
+                </tr>
+            </table>
+        </dd>
+    </tal:block>
+</dl>

@@ -1,0 +1,203 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="customers view/getCustomers">
+  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="customers_label">
+                Customers
+            </h1>
+
+            <p class="documentDescription"
+               i18n:translate="customers_view_description">
+                This is an overview over all existing customers.
+            </p>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+    
+            <div id="letters">
+                <a tal:repeat="letter view/getLetters"
+                   tal:attributes="href string:${context/absolute_url}?letter=$letter;
+                                   class string:kssattr-letter-$letter"
+                   tal:content="letter">
+                   A
+                </a>
+                <form id="search-customers-form"
+                      action="."
+                      method="post"
+                      style="display:inline">
+
+                    <input type="text"
+                           name="searchable_text" />
+
+                    <input id="search-customers"
+                           type="submit"
+                           value="OK" />
+                </form>              
+            </div>
+                
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+            
+            <table class="shop-default">
+                <tr>
+                    <td width="50%">
+                        <div id="customers">
+                            <ul>
+                                <li tal:repeat="customer customers">
+                                    <a href="."
+                                       tal:define="letter context/REQUEST/letter|nothing"
+                                       tal:attributes="href string:${context/absolute_url}?letter=$letter&amp;uid=${customer/uid}"
+                                       tal:content="customer/name">
+                                        Name
+                                    </a> |
+                                    <a href="."
+                                      tal:attributes="href string:${customer/url}/my-account">
+                                      Manage account
+                                    </a>  
+                                </li>
+                            </ul>
+                    
+                            <div tal:condition="not:customers"
+                                 i18n:translate="no_customers_label">
+                                There are no customers.
+                            </div>                    
+                        </div>                        
+                    </td>
+                    <td>
+                        <div id="customer-details-box"                          
+                             tal:define="customer view/getCustomer;
+                                         cart view/getCart;
+                                         addresses view/getAddresses;
+                                         orders view/getOrders;
+                                         bank_information view/getBankInformation"
+                             tal:condition="customer">
+                            <h1 class="documentFirstHeading">
+                                <a href="."
+                                   tal:attributes="href string:${customer/url}/@@edit?goto=${customer/goto}">
+                                    <span tal:replace="customer/name">
+                                        John Doe
+                                    </span>
+                                </a>    
+                            </h1>
+                            <div tal:content="customer/email">
+                                E-mail
+                            </div>                                
+                            <h1>
+                                <a href="."
+                                   tal:attributes="href string:${customer/url}/manage-addressbook"
+                                   i18n:translate="addresses_label">
+                                    Addresses
+                                </a>
+                            </h1>
+                            <ul>
+                                <li tal:repeat="address addresses">
+                                    <div>
+                                        <a href="."
+                                           tal:attributes="href address/url"
+                                           tal:content="address/name">
+                                           Name
+                                        </a>
+                                    </div>    
+                                    <div tal:content="address/address1">
+                                        Address 1
+                                    </div>                                        
+                                    <div tal:content="address/phone">
+                                        Address 1
+                                    </div>                                        
+                                </li>
+                            </ul>    
+                            <a href="."
+                               tal:attributes="href string:${customer/url}/@@add-address?goto=${customer/goto}">
+                                Add Address
+                            </a>
+                            <div tal:condition="not:addresses"
+                                 i18n:translate="no_addresses_label">
+                                 There are no addresses
+                            </div> 
+                            <h1>
+                                <a href="."
+                                   tal:attributes="href string:${customer/url}/manage-payment-methods"
+                                   i18n:translate="bank_information_label">
+                                    Bank Information
+                                </a>
+                            </h1>
+                            <ul>
+                                <li tal:repeat="bi bank_information">
+                                    <div>
+                                        <a href="."
+                                           tal:attributes="href string:${bi/url}/@@edit?goto=${customer/goto}"
+                                           tal:content="bi/account_number">
+                                          Account Number
+                                        </a>
+                                    </div>
+                                    <div tal:content="bi/bic">
+                                        Bank Information Code
+                                    </div>                   
+                                    <div tal:content="bi/bank_name">
+                                        Bank Name
+                                    </div>                   
+                                    <div tal:content="bi/name">
+                                        Account Owner
+                                    </div>                                                                            
+                                </li>
+                            </ul>    
+                            <div tal:condition="not:bank_information"
+                                 i18n:translate="no_bank_information_label">
+                                 There are no bank information
+                            </div>  
+                            <h1 i18n:translate="orders_label">
+                                Orders
+                            </h1>
+                            <ul>
+                                <li tal:repeat="order orders">
+                                    <a href="."
+                                       tal:attributes="href order/url">
+                                        <span tal:content="order/created" />                                    
+                                        / <span tal:content="order/id" />
+                                        / <span tal:content="order/review_state" /> 
+                                    </a>                                
+                                    <!-- <div style="cursor:pointer; text-decoration:underline"
+                                         tal:define="url order/url"
+                                         tal:attributes="onclick string:easyShopZoomWindow('$url', '935', '805')">
+                                        <span tal:content="order/id" />
+                                        (<span tal:content="order/review_state" />)
+                                    </div> -->
+                                </li>
+                            </ul>
+                            <div tal:condition="not: orders"
+                                 i18n:translate="no_orders_label">
+                                There are no orders.
+                            </div>    
+                            <tal:block tal:condition="cart">
+                                <h1 i18n:translate="cart_label">
+                                    Cart
+                                </h1>
+                                <a href="."
+                                   tal:attributes="href cart/url"
+                                   i18n:translate="go_to_cart_label">
+                                   Go to Cart
+                                </a>    
+                            </tal:block>
+                            <div tal:condition="not:cart"
+                                 i18n:translate="no_cart_label">
+                                 This customer has no cart yet.
+                            </div>
+                        </div>        
+                    </td>
+                </tr>
+            </table>
+        </metal:main>
+    
+    </body>
+</html>

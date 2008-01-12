@@ -1,0 +1,161 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <head> 
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+      
+    <body>
+
+        <metal:main fill-slot="main">
+                
+            <h1 class="documentFirstHeading"
+                i18n:translate="manage_payment_label">
+                Manage Payment
+            </h1>
+            
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href string:${context/absolute_url}/my-account"
+               i18n:translate="my_account_label">
+               My Account
+            </a>
+
+            <table id="manage-payment-methods">
+                <tr>
+                    <td colspan="2">
+                        <h2 i18n:translate="bank_accounts_label">
+                            Bank accounts
+                        </h2>
+                    </td>
+                </tr>    
+                
+                <tal:block tal:repeat="payment_method view/getDirectDebitAccounts">
+                <tr> 
+                    <td>
+                        <div tal:content="payment_method/account_number">Account-Number</div>  
+                        <div tal:content="payment_method/bank_identification_code">Bank</div>      
+                        <div tal:content="payment_method/bank_name">Bank Name</div>                        
+                        <div tal:content="payment_method/depositor">Owner Name</div>
+                    </td>
+                    <td class="buttons">
+                        <form style="display:inline"  
+                              action="#"
+                              method="post"
+                              tal:attributes="action string:${payment_method/absolute_url}/@@edit">
+
+                            <input type="submit" 
+                                   value="Edit"
+                                   i18n:attributes="value edit_label;" />
+                        </form>
+                        
+                        <form style="display:inline"
+                              action="#"
+                              method="post"
+                              tal:attributes="action context/absolute_url">
+                              
+                            <input type="hidden" 
+                                   name="id" 
+                                   value="id"
+                                   tal:attributes="value payment_method/id" />
+                                   
+                            <input type="submit"
+                                   name="deletePaymentMethod:method"
+                                   value="Delete"
+                                   i18n:attributes="value delete_label;" />
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>                
+                </tal:block>    
+                <tr>
+                    <td colspan="2">
+                        <form method="post"
+                              action="#"
+                              tal:attributes="action string:${context/absolute_url}/add-bank-account">
+                  
+                            <input type="submit"
+                                   value="Add Bank Account"
+                                   i18n:attributes="value add_bank_information_label;" />
+                        </form>                              
+                    </td>
+                </tr>                
+                
+                <tr>
+                    <td colspan="2">
+                        <h2 i18n:translate="credit_cards_label">
+                            Credit Cards
+                        </h2>
+                    </td>
+                </tr>    
+                <tal:block tal:repeat="credit_card view/getCreditCards">
+                <tr> 
+                    <td>
+                        <div tal:content="credit_card/card_type">Card Type</div>
+                        <div tal:content="credit_card/card_number">Card Number</div>
+                        <div tal:content="credit_card/card_owner">Owner Name</div>                        
+                        <div>
+                            <span tal:content="credit_card/card_expiration_date_month"/>/<span tal:content="credit_card/card_expiration_date_year" />
+                        </div>
+                    </td>
+                    <td class="buttons">
+                        <form style="display:inline"  
+                              action="#"
+                              method="post"
+                              tal:attributes="action string:${credit_card/absolute_url}/@@edit">
+
+                            <input type="submit" 
+                                   value="Edit"
+                                   i18n:attributes="value edit_label;" />
+                        </form>
+                        
+                        <form style="display:inline"
+                              action="#"
+                              method="post"
+                              tal:attributes="action context/absolute_url">
+                              
+                            <input type="hidden" 
+                                   name="id" 
+                                   value="id"
+                                   tal:attributes="value credit_card/id" />
+                                   
+                            <input type="submit"
+                                   name="deletePaymentMethod:method"
+                                   value="Delete"
+                                   i18n:attributes="value delete_label;" />
+                        </form>
+                    </td>
+                </tr>                
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>
+                </tal:block>    
+                <tr>
+                    <td colspan="2">
+                        <form method="post"
+                              action="#"
+                              tal:attributes="action string:${context/absolute_url}/add-credit-card">
+                  
+                            <input type="submit"
+                                   value="Add Credit Card"
+                                   i18n:attributes="value add_credit_card_label;" />
+                        </form>                              
+                    </td>
+                </tr>                                
+                
+            </table>        
+                       
+        </metal:main>    
+        
+  </body>
+</html>

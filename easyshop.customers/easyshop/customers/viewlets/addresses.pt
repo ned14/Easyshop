@@ -1,0 +1,78 @@
+<div id="manage-address-book"
+     i18n:domain="EasyShop">
+    <table width="50%">
+        <tal:block tal:repeat="address view/getAddresses">          
+            <tr tal:attributes="id address/UID">
+                <td>
+                    <div class="address">
+                        <div class="name"
+                             tal:content="address/getName">
+                        </div>                          
+                        <div tal:content="address/company_name">
+                        </div>                                                    
+                        <div tal:content="address/address_1">
+                        </div>
+                        <div>
+                            <span tal:content="address/zip_code">
+                            </span>
+                            <span tal:content="address/city">
+                            </span>
+                        </div>    
+                         <div tal:content="address/country">
+                         </div>
+                         <div tal:content="address/phone" />
+                    </div>     
+                </td>
+                <td class="buttons">
+          
+                    <form id="edit-address-form"
+                          style="display:inline"  
+                          action="#"
+                          method="post"
+                          tal:attributes="action string:${address/absolute_url}/@@edit">
+
+                        <input type="hidden"
+                               name="uid"
+                               tal:attributes="value address/UID" />
+                               
+                        <input class="edit-address-form-button"
+                               type="submit"
+                               value="Edit"
+                               i18n:attributes="value edit_label;"/>
+                     </form>
+           
+                     <form style="display:inline"
+                           action="#"
+                           method="post"
+                           tal:attributes="action context/absolute_url">
+                 
+                         <input type="hidden" 
+                                name="id"
+                                value="1"
+                                tal:attributes="value address/getId" />  
+                         
+                         <input type="submit" 
+                                name="deleteAddress:method"
+                                value="Delete"
+                                i18n:attributes="value delete_label;" />
+                     </form>
+                </td>            
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr />
+                </td>    
+            </tr>    
+        </tal:block>            
+    </table>
+    <form id="add-address-form"
+          method="post"
+          action="#"                  
+          tal:attributes="action string:${context/absolute_url}/@@add-address">
+
+        <input id="add-address-form-button"
+               type="submit" 
+               value="Add Address"
+               i18n:attributes="value add_address_label;" />
+    </form>              
+</div>
