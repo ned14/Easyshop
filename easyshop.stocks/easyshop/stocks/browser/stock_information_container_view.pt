@@ -1,0 +1,112 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="stock_informations view/getStockInformations;">
+        
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="stock_information_label">
+                Stock Information
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+
+            <div tal:condition="not:stock_informations"
+                 i18n:translate="no_stock_information_label">
+                There are no stock information.
+            </div>
+                 
+            <table tal:condition="stock_informations"
+                   class="listing shop-default">
+              <tr>
+                <th width="40%"
+                    i18n:translate="name_label">
+                    Name
+                </th>
+                <th width="20%"
+                    i18n:translate="available_time_period_label">
+                    Available / Time Period
+                </th>
+                <th width="20%"
+                    i18n:translate="amount_of_criteria_label">
+                    Amount of Criteria
+                </th>                
+                <th width="20%"
+                    i18n:translate="priority_label">
+                    Priority
+                </th>
+              </tr>
+
+              <tr tal:repeat="stock_information stock_informations">
+                <td class="text">
+
+                    <img src="."
+                         tal:attributes="src string:$portal_url/document_icon.gif"
+                         alt="Shipping Price Icon"
+                         title="Shipping Price"
+                         i18n:attributes="title shipping_price_label;" />
+                    
+                    <a href="."
+                       tal:attributes="href stock_information/url"
+                       tal:content="stock_information/title">
+                        Default  
+                    </a>
+                    
+                    <tal:block tal:condition="stock_information/description">
+                        (<span class="discreet"
+                               tal:content="stock_information/description">
+                            Description
+                        </span>)
+                    </tal:block>
+                    
+                </td>
+                <td class="number">
+                    <span tal:content="stock_information/available">
+                        True
+                    </span>
+                    <tal:block tal:condition="stock_information/available">
+                        /
+                        <span tal:content="stock_information/time_period">
+                            1-2 Days
+                        </span>    
+                    </tal:block>
+                </td>
+                <td class="number"
+                    tal:content="stock_information/amount_of_criteria">
+                    2
+                </td>
+                <td>
+                    <a href="."
+                       tal:attributes="href stock_information/up_url">
+                        <img src="arrowUp.gif"
+                             alt="Arror Up"
+                             title="Move Up"
+                             i18n:attributes="title move_up_label;"
+                             tal:attributes="src string:${portal_url}/arrowUp.gif" />
+                    </a>     
+                    <a href="."
+                       tal:attributes="href stock_information/down_url">
+                        <img src="arrowDown.gif"
+                             alt="Arror Down"
+                             title="Move Down"                     
+                             i18n:attributes="title move_down_label;"
+                             tal:attributes="src string:${portal_url}/arrowDown.gif" />
+                    </a>         
+                </td>
+              </tr>
+            </table>          
+
+        </metal:main>    
+        
+  </body>
+</html>
