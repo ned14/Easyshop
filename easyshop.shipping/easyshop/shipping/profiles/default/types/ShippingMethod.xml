@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<object name="ShippingMethod" meta_type="Factory-based Type Information"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title">Shipping Method</property>
+ <property name="description">A shipping method</property>
+ <property name="content_icon">shipping_method_icon.png</property>
+ <property name="content_meta_type">ShippingMethod</property>
+ <property name="product">easyshop.shop</property>
+ <property name="factory">addShippingMethod</property>
+ <property name="immediate_view">base_view</property>
+ <property name="global_allow">False</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+  <element value="CountryCriteria"/>
+  <element value="CustomerCriteria"/>
+  <element value="DateCriteria"/>
+  <element value="PaymentMethodCriteria"/>
+  <element value="PriceCriteria"/>
+  <element value="WeightCriteria"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <alias from="(Default)" to="shipping-method-view"/>
+ <alias from="base_view" to="shipping-method-view"/>
+ <alias from="view" to="shipping-method-view"/>
+ <alias from="edit" to="base_edit"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/base_edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/base_metadata"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="References" action_id="references" category="object"
+    condition_expr="object/archetype_tool/has_graphviz"
+    url_expr="string:${object_url}/reference_graph" visible="True">
+  <permission value="Modify portal content"/>
+  <permission value="Review portal content"/>
+ </action>
+ <action title="Folder Listing" action_id="folderlisting" category="folder"
+    condition_expr="object/isPrincipiaFolderish"
+    url_expr="string:${folder_url}/view" visible="False">
+  <permission value="View"/>
+ </action>
+</object>
