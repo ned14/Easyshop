@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type"
+         content="text/html;charset=utf-8" />    
+         
+    <div tal:define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % 'utf-8')" />
+    
+    <title>AGB´s Demmelhuber</title>
+    
+    <style type="text/css" media="print">
+        .hide { display:none; }
+    </style>
+
+</head>
+
+    <body tal:define="information view/getInformation">
+
+        <div class="hide">
+            [
+            <a style="text-decoration:underline; cursor:pointer"
+                onclick="javascript:print()">Drucken</a> |
+            <a tal:condition="information"
+               href=""
+               tal:attributes="href information/url">Download</a> ]
+        </div>
+                            
+        <h1>
+            <tal:block tal:content="information/title">
+                Title
+            </tal:block>
+            <tal:block tal:content="information/shop_owner">
+                Shop Owner
+            </tal:block>
+        </h1>
+
+        <p tal:content="information/description">
+            Description
+        </p>
+        
+        <p tal:content="structure information/text">
+            AGBs goes here
+        </p>
+
+        <div class="hide">
+            [
+            <a style="text-decoration:underline; cursor:pointer"
+                onclick="javascript:print()">Drucken</a> |
+            <a tal:condition="information"
+               href=""
+               tal:attributes="href information/url">Download</a> |
+            <a style="text-decoration:underline; cursor:pointer"
+                onclick="javascript:window.close()">Fenster schließen</a> ]
+        </div>
+ 
+    </body>
+</html>
