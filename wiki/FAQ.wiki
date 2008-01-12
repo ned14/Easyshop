@@ -13,7 +13,7 @@ Groups are not displayed to the shop customers. In this way products can be comb
 
 You must first provide your PayPal id within the payment tab of the shop content object.
 
-*I know EasyShop is open source and free. Is there professional support, although?*
+*I know EasyShop is open source and free. Is there professional support anyway?*
 
 Yes please get in touch:
 
