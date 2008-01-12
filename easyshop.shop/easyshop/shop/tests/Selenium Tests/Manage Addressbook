@@ -1,0 +1,87 @@
+<table border=1>
+<tr>
+<td>open</td>
+<td>/portal/laden</td>
+<td></td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//a[@href='/portal/laden/login_form?came_form=http://127.0.0.1:8080/portal/laden']</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='__ac_name']</td>
+<td>diefenbach</td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//a[@href='/portal/laden/customers/diefenbach/my-account']</td>
+<td></td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//a[@href='/portal/laden/customers/diefenbach/manage-addressbook']</td>
+<td></td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//input[@name='' and @value='Add Address']</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='form.firstname']</td>
+<td>John</td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='form.lastname']</td>
+<td>Do</td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='form.lastname']</td>
+<td>Doe</td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='form.address1']</td>
+<td>John Doe Str. 1</td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='form.zipCode']</td>
+<td>99099</td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='form.city']</td>
+<td>Erfurt</td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//input[@name='form.actions.save' and @value='Save']</td>
+<td></td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//input[@name='' and @value='Edit']</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>//input[@id='form.address1']</td>
+<td>John Doe Str. 2</td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//input[@name='form.actions.save' and @value='Save']</td>
+<td></td>
+</tr>
+<tr>
+<td>clickAndWait</td>
+<td>//input[@name='deleteAddress:method' and @value='Delete']</td>
+<td></td>
+</tr>
+</table>

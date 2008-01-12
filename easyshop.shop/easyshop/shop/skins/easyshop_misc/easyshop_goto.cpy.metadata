@@ -1,0 +1,7 @@
+[default]
+title = 
+
+[actions]
+action.goto_overview               = redirect_to:python:"%s/%s" % (object.getShop().absolute_url(), "checkout-order-preview")
+action.goto_addressbook            = redirect_to:python:"%s/%s" % (object.getShop().absolute_url(), "manage-addressbook")
+action.goto_manage_payment_methods = redirect_to:python:"%s/%s" % (object.getShop().absolute_url(), "easyshop_manage_payment_methods")

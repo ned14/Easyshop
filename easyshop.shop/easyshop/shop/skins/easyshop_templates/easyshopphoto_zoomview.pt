@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html i18n:domain="EasyShop">
+  <head tal:define="charset context/portal_properties/site_properties/default_charset">
+    <meta http-equiv="Content-Type" tal:attributes="content string:text/html;; charset=$charset" />
+    <title tal:content="context/REQUEST/title">The title</title>
+  </head>
+  <body tal:define="image_url context/REQUEST/image_url"
+        i18n:domain="EasyShop">
+    
+    <img style="cursor:pointer"
+         onclick="window.close()" 
+         alt="Zoom View"
+         title="Click to close the window"
+         i18n:attributes="title click_to_close_window_label; alt zoom_view_label;"
+         tal:attributes="src image_url" />
+         
+    <!-- <a style="cursor:pointer" 
+       onclick="window.close()">Fenster Schliessen</a> -->
+         
+  </body>
+</html>
