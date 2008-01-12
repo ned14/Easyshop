@@ -1,0 +1,27 @@
+<html i18n:domain="EasyShop">
+    <body tal:define="mail_info view/getMailInfo">
+
+        <p>
+            Hallo <span tal:content="request/email">john@doe.com</span>,
+        </p>
+        
+        <p>
+            <span tal:content="mail_info/name" /> (<span tal:content="mail_info/email" />) 
+            hat bei uns eingekauft und möchte uns gerne an Sie weiterempfehlen.
+        </p>
+            
+        <p>
+            Schauen Sie doch einfach mal unverbindlich bei uns rein: 
+            <a href="http://demmelhuber.net/laden">http://demmelhuber.net/laden</a>
+        </p>
+        
+        <p>
+            Mit freundlichen Grüßen
+        </p>
+        
+        <p style="font-weight:bold">
+            Ihr Demmelhuber Holz &amp; Raum Team
+        </p>
+                        
+  </body>
+</html>

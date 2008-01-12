@@ -1,0 +1,182 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <head>
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+      
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="template_url string:${context/absolute_url}/checkout-select-addresses">
+    
+            <h1 class="documentFirstHeading"
+                i18n:translate="select_address_form_title">
+                Please select your addresses
+            </h1> 
+
+            <p class="check-out-description"
+               i18n:translate="select_form_description">
+                 Select your shipping and invoice address and click on "Next". Or click on "Add Address" to add a new one.
+            </p>
+                    
+            <div id="payment-process">
+                <span i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span class="emphasized"
+    		          i18n:translate="addresses_label">
+                    Addresses
+                </span> - 
+                <span i18n:translate="shipping_label">
+                    Shipping
+                </span> - 
+                <span i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+            
+            <form action="." 
+                  metal:define-macro="master"
+                  tal:attributes="action request/URL"
+                  method="post"
+                  class="edit-form" enctype="multipart/form-data"
+                  id="zc.page.browser_form">
+
+                <fieldset>
+					<legend i18n:translate="shipping_address_label">
+						Shipping Address
+					</legend>
+	   		        <table class="select-addresses-table">
+				       <tr tal:repeat="line view/getShippingAddresses">
+				           <td tal:repeat="address line">
+              			
+	                          <input type="radio"
+                                     class="noborder"                       	                          
+								     name="form.shipping_address"
+	                                 value="address-id"
+	                                 tal:attributes="value address/id;
+	                                                 checked address/checked" />
+
+			                  <div class="address">
+			                      <div>
+			                          <span tal:content="address/firstname">
+			                              John
+			                          </span>
+			                          <span tal:content="address/lastname">
+			                              Doe
+			                          </span>
+			                      </div>      
+                
+			                      <div tal:content="address/address1">
+			                          Address 1
+			                      </div>
+			                      <div>
+			                          <span tal:content="address/zipcode">
+			                              Zip Code
+			                          </span>
+			                          <span tal:content="address/city">
+			                              City
+			                          </span>
+			                      </div>      
+			                      <div tal:content="address/country">
+			                          Country
+			                      </div>
+			                      
+				                 <input class="context"
+				                        tabindex=""
+				                        type="button"
+				                        name="form.button.edit"
+				                        value="Edit"
+				                        i18n:attributes="value edit_label;"
+				                        tal:attributes="tabindex tabindex/next;
+									 				    onclick string:location.href='${address/url}/@@edit?goto=$template_url'" />
+		
+			                  </div>
+
+				           </td>
+				       </tr>
+					</table>
+                </fieldset>
+				<fieldset>
+                    <legend i18n:translate="invoice_address_label">
+                        Invoice Address
+                    </legend>	
+					<table class="select-address-table">
+				       <tr tal:repeat="line view/getInvoiceAddresses">
+                            <td tal:repeat="address line">
+              			
+                                <input type="radio"
+                                       class="noborder"
+    							       name="form.invoice_address"
+    	                               value="address-id"
+    	                               tal:attributes="value address/id;
+  	                                                   checked address/checked" />    	                               
+
+    			                <div class="address">
+                                    <div>
+                                        <span tal:content="address/firstname">
+    			                            John
+                                        </span>
+                                        <span tal:content="address/lastname">
+                                            Doe
+                                        </span>
+                                    </div>      
+                 
+                                    <div tal:content="address/address1">
+                                        Address 1
+                                    </div>
+                                    <div>
+                                        <span tal:content="address/zipcode">
+                                            Zip Code
+                                        </span>
+                                        <span tal:content="address/city">
+                                            City
+                                        </span>
+                                    </div>      
+                                    <div tal:content="address/country">
+                                        Country
+                                    </div>
+                                    
+                                    <input class="context"
+     				                       tabindex=""
+     				                       type="button"
+     				                       name="form.button.edit"
+     				                       value="Edit"
+     				                       i18n:attributes="value edit_label;"
+				                           tal:attributes="tabindex tabindex/next;
+									 	   			       onclick string:location.href='${address/url}/@@edit?goto=$template_url'" />
+								
+                                </div>
+                            </td>
+                        </tr>			
+                    </table>
+                </fieldset>
+                
+                <input type="hidden"
+                       name="goto"
+                       tal:attributes="value context/REQUEST/goto|nothing" />
+                       
+                <input id="form.actions.next"
+                       name="form.actions.next"                
+                       class="standalone" 
+                       type="submit" 
+                       value="Next" />
+
+                <input id="form.actions.add_address" 
+                       name="form.actions.add_address"                
+                       class="context" 
+                       type="submit" 
+                       value="Add Address" />
+                       
+            </form>                
+        </metal:main>    
+    </body>
+</html>

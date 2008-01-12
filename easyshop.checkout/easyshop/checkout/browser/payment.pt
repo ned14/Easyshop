@@ -1,0 +1,367 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="widgets view/widgets">
+        
+            <h1 class="documentFirstHeading"
+                i18n:translate="select_payment_form_title">
+                Please select you payment method
+            </h1> 
+
+            <p class="check-out-description"
+                i18n:translate="select_payment_form_description_1">
+                When finished, please click on "Next".
+            </p>
+
+            <div id="payment-process">
+                <span i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span i18n:translate="addresses_label">
+                    Addresses
+                </span> -
+                <span i18n:translate="shipping_label">
+                    Shipping
+                </span> -                  
+                <span class="emphasized"
+    		          i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+                
+            <form action="." 
+                  metal:define-macro="master"
+                  tal:attributes="action request/URL" method="post"
+                  class="edit-form" enctype="multipart/form-data"
+                  id="zc.page.browser_form">
+
+                <dl class="portalMessage error"
+                    tal:define="status view/status"
+                    tal:condition="status">
+                    <dd tal:content="status" />
+                </dl>
+                
+                
+                <table>
+                    
+<!-- Credit Cards  -->
+                    <tal:block tal:condition="view/showCreditCards">
+                        <tr>
+                            <td colspan="5">
+                                <h1 i18n:translate="credit_cards_label">
+                                    Credit Cards
+                                </h1>                            
+                            </td>
+                        </tr>
+                    
+                        <tal:block tal:repeat="credit_card view/getCreditCards">
+                            <tr>
+                                <td>
+                                    <input type="radio"
+                                           class="noborder"                                                      
+                                           name="form.id" 
+                                           value="#" 
+                                           tal:attributes="value string:credit_card_existing:${credit_card/id};
+                                                           checked credit_card/checked" />
+                                </td>
+                                <td>
+                                    <tal:block i18n:translate="credit_card_type_label">
+                                        Type</tal:block>:
+                                </td>
+                                <td tal:content="credit_card/type">
+                                    Master Card
+                                </td>
+                                <td>
+                                    <tal:block i18n:translate="card_owner_label">
+                                        Card Owner</tal:block>:
+                                </td>
+                                <td tal:content="credit_card/owner">
+                                    John Doe
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <tal:block  i18n:translate="card_number_label">
+                                        Card Number</tal:block>:
+                                </td>                        
+                                <td tal:content="credit_card/number">
+                                    1111 2222 3333 4444
+                                </td>  
+                                <td>
+                                    <tal:block  i18n:translate="expiration_date_label">
+                                    Expiration Date</tal:block>:
+                                </td>
+                                <td tal:content="credit_card/expiration_date">Date</td>
+                            </tr>   
+                        </tal:block>
+<!-- Credit Card Add Form -->
+                        <tr>
+                            <td>                                
+                                <input type="radio"
+                                       class="noborder"                                                   
+                                       name="form.id"
+                                       value="credit_card_new"
+                                       tal:attributes="checked python: context.REQUEST.get('form.id') == 'credit_card_new'" />
+                            </td>
+                            <td>
+                                <tal:block i18n:translate="credit_card_type_label">
+                                    Type</tal:block>:
+                            </td>
+                            <td tal:define="widget widgets/card_type;
+                                            error widgets/card_type/error">
+                                        
+                                <div class="widget"
+                                     tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                     tal:content="structure widget">
+                                     Widget goes here
+                                </div>
+
+                            </td>
+                            <td>
+                                <tal:block  i18n:translate="card_owner_label">
+                                    Card Owner</tal:block>:
+                            </td>
+                            <td tal:define="widget widgets/card_owner;
+                                            error widgets/card_owner/error">
+
+                                <div class="widget"
+                                     tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                     tal:content="structure widget">
+                                     Widget goes here
+                                </div>
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <tal:block  i18n:translate="card_number_label">
+                                    Card Number</tal:block>:
+                            </td>                        
+                            <td tal:define="widget widgets/card_number;
+                                            error widgets/card_number/error">
+                                
+                                <div class="widget"
+                                     tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                     tal:content="structure widget">
+                                     Widget goes here
+                                </div>
+                                
+                           </td>
+                           <td>
+                               <tal:block  i18n:translate="expiration_date_label">
+                                   Expiration Date</tal:block>:
+                           </td>
+                            <td>
+                                <!-- NOTE: Using a table here because zope.formlib is providing
+                                     wrapper div around the selection widget.
+                                -->
+                                <table>
+                                    <tr>
+                                        <td tal:define="widget widgets/card_expiration_date_month;
+                                                        error widgets/card_expiration_date_month/error"
+                                            tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                            tal:content="structure widget">
+                                            Widget goes here                                            
+                                        </td>
+                                        <td tal:define="widget widgets/card_expiration_date_year;
+                                                        error widgets/card_expiration_date_year/error"
+                                            tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                            tal:content="structure widget">
+                                            Widget goes here
+                                        </td>
+                                    </tr>
+                                </table>
+                           </td>
+                        </tr>                             
+                        <tr>
+                            <td colspan="5">
+                                <hr />
+                            </td>
+                        </tr>
+                    </tal:block>
+
+<!-- Direct Debits -->                                                            
+                    <tal:block tal:condition="view/showBankAccounts">
+                        <tr>
+                            <td colspan="5">
+                                <h1 i18n:translate="direct_debit_label">
+                                    Direct Debit
+                                </h1>                            
+                            </td>
+                        </tr>
+                        <tal:block tal:repeat="bank_account view/getBankAccounts">
+                            <tr>
+                                <td>
+                                    <input type="radio"
+                                           class="noborder"                                                      
+                                           name="form.id" 
+                                           value="#" 
+                                           tal:attributes="value string:bank_account_existing:${bank_account/id};
+                                                           checked bank_account/checked" />
+                                </td>
+                                <td>
+                                    <tal:block i18n:translate="bank_code_label">
+                                        Bank Code</tal:block>:
+                                </td>
+                                <td tal:content="bank_account/bic">
+                                    50010010
+                                </td>
+                                <td>
+                                    <tal:block i18n:translate="bank_name_label">
+                                        Bank Name</tal:block>:
+                                </td>
+                                <td tal:content="bank_account/bank_name">
+                                    Deutsche Bank
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <tal:block i18n:translate="account_no_label">
+                                        Account-No.</tal:block>:
+                                </td>                        
+                                <td tal:content="bank_account/account_no">
+                                    105040302
+                                </td>  
+                                <td>
+                                    <tal:block i18n:translate="depositor_label">
+                                        Depositor</tal:block>:
+                                </td>
+                                <td tal:content="bank_account/depositor">John Doe</td>
+                            </tr>   
+                        </tal:block>
+<!-- Direct Debit Add Form -->
+                        <tr>
+                            <td>                                
+                                <input type="radio"
+                                       class="noborder"                                                   
+                                       name="form.id"
+                                       value="bank_account_new"
+                                       tal:attributes="checked python: context.REQUEST.get('form.id') == 'bank_account_new'" />
+                            </td>
+                            <td>
+                                <tal:block i18n:translate="bank_code_label">
+                                    Bank Code</tal:block>:
+                            </td>
+                            <td tal:define="widget widgets/bank_identification_code;
+                                            error widgets/bank_identification_code/error">
+                                        
+                                <div class="widget"
+                                     tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                     tal:content="structure widget">
+                                     Widget goes here
+                                </div>
+
+                            </td>
+                            <td>
+                                <tal:block i18n:translate="bank_name_label">
+                                    Bank Name</tal:block>:
+                            </td>
+                            <td tal:define="widget widgets/bank_name;
+                                            error widgets/bank_name/error">
+
+                                <div class="widget"
+                                     tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                     tal:content="structure widget">
+                                     Widget goes here
+                                </div>
+                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <tal:block i18n:translate="account_no_label">
+                                    Account-No.</tal:block>:
+                            </td>                        
+                            <td tal:define="widget widgets/account_number;
+                                            error widgets/account_number/error">
+                                
+                                <div class="widget"
+                                     tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                     tal:content="structure widget">
+                                     Widget goes here
+                                </div>
+                                
+                           </td>
+                           <td>
+                               <tal:block i18n:translate="depositor_label">
+                                  Depositor</tal:block>:
+                           </td>
+                            <td tal:define="widget widgets/depositor;
+                                            error widgets/depositor/error">
+
+                                <div class="widget"
+                                     tal:attributes="class python:view.getClass(error, 'widget error', 'widget')"
+                                     tal:content="structure widget">
+                                     Widget goes here
+                                </div>
+                           </td>
+                        </tr>                             
+                        <tr>
+                            <td colspan="5">
+                                <hr />
+                            </td>
+                        </tr>
+                    </tal:block>
+                    
+<!-- Selectable payment methods -->
+
+                    <tal:block tal:repeat="method view/getSelectablePaymentMethods">
+                        <tr> 
+                            <td>
+                                <input type="radio"
+                                       class="noborder"                                                   
+                                       name="form.id"
+                                       value="method"
+                                       tal:attributes="value method/id;
+                                                       checked method/checked" />
+                                                   
+                           </td>
+                           <td colspan="4">
+                               <span tal:content="method/title"
+                                     i18n:translate="">
+                                   Prepayment 
+                               </span>    
+                               <span class="formHelp"
+                                     tal:content="method/description"
+                                     i18n:translate="">                                     
+                                   (Payment by bank transfer in advance)
+                               </span>                            
+                           </td>
+                        </tr>                    
+                        <tr>
+                            <td colspan="5">
+                                <hr />
+                            </td>
+                        </tr>   
+                    </tal:block>
+                    
+                </table>
+            
+                <input id="form.actions.next"
+                       name="form.actions.next"                
+                       class="standalone" 
+                       type="submit" 
+                       value="Next" />
+                                   
+                <span class="formHelp"
+                      i18n:translate="select_payment_form_description_2">
+                    (The order can be checked at the end, before it will be sent.)
+                </span>
+                
+            </form>    
+      
+        </metal:main>
+    
+    </body>
+</html>
