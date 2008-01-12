@@ -1,5 +1,5 @@
 #labels Featured
-*What is the difference between product container and categories and groups?*
+*What is the difference between product container, categories and groups?*
 
 Product container is an internal way to structure the products physically.
 
