@@ -1,0 +1,171 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="default_taxes view/getDefaultTaxes;
+                                customer_taxes view/getCustomerTaxes;">
+
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+            <h1 class="documentFirstHeading"> 
+                <metal:field use-macro="python:here.widget('title', mode='view')">
+                Title
+                </metal:field>
+            </h1>
+
+            <a href="."
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+               Shop
+            </a>  
+            
+            <p class="documentDescription">
+                <metal:field use-macro="python:here.widget('description', mode='view')">
+                Description
+                </metal:field>
+            </p>
+
+            <p class="documentDescription"
+               tal:content="here/Description"
+               tal:condition="here/Description">
+                Description
+            </p>
+
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+            
+            <h1 i18n:translate="default_taxes_label">
+                Default Taxes
+            </h1>      
+            <div tal:condition="not:default_taxes"
+                 i18n:translate="no_taxes_label">
+                There are no taxes.
+            </div>
+                 
+            <table tal:condition="default_taxes"
+                   class="listing shop-default">
+              <tr>
+                <th width="40%"
+                    i18n:translate="name_label">
+                    Name
+                </th>
+                <th width="20%"
+                    i18n:translate="rate_label">
+                    Rate
+                </th>
+                <th width="20%"
+                    i18n:translate="amount_of_criteria_label">
+                    Amount of Criteria
+                </th>                
+                <th width="20%"
+                    i18n:translate="priority_label">
+                    Priority
+                </th>
+              </tr>
+
+              <tr tal:repeat="tax default_taxes">
+                <td class="text">
+                    <a href="."
+                       tal:attributes="href tax/url"
+                       tal:content="tax/title">
+                        Default  
+                    </a>
+                </td>
+                <td class="number" 
+                    tal:content="tax/rate">
+                    19%
+                </td>
+                <td class="number"
+                    tal:content="tax/amount_of_criteria">
+                    2
+                </td>
+                <td>
+                    <a href="."
+                       tal:attributes="href tax/up_link">
+                        <img src="arrowUp.gif"
+                             alt="Arror Up"
+                             title="Move Up"
+                             i18n:attributes="title move_up_label;"
+                             tal:attributes="src string:${portal_url}/arrowUp.gif" />
+                    </a>     
+                    <a href="."
+                       tal:attributes="href tax/down_link">
+                        <img src="arrowDown.gif"
+                             alt="Arror Down"
+                             title="Move Down"                     
+                             i18n:attributes="title move_down_label;"
+                             tal:attributes="src string:${portal_url}/arrowDown.gif" />
+                    </a>         
+                </td>
+              </tr>
+            </table>          
+
+            <tal:block tal:condition="customer_taxes">
+                <h1 i18n:translate="customer_taxes_label">
+                    Customer Taxes
+                </h1>
+                <table class="listing shop-default">
+                  <tr>
+                    <th width="40%"
+                        i18n:translate="name_label">
+                        Name
+                    </th>
+                    <th width="20%"
+                        i18n:translate="rate_label">
+                        Rate
+                    </th>
+                    <th width="20%"
+                        i18n:translate="amount_of_criteria_label">
+                        Amount of Criteria
+                    </th>                
+                    <th width="20%"
+                        i18n:translate="priority_label">
+                        Priority
+                    </th>
+                  </tr>
+
+                  <tr tal:repeat="tax customer_taxes">
+                    <td class="text">
+                        <a href="."
+                           tal:attributes="href tax/url"
+                           tal:content="tax/title">
+                            Default  
+                        </a>
+                    </td>
+                    <td class="number" 
+                        tal:content="tax/rate">
+                        19%
+                    </td>
+                    <td class="number"
+                        tal:content="tax/amount_of_criteria">
+                        2
+                    </td>
+                    <td>
+                        <a href="."
+                           tal:attributes="href tax/up_link">
+                            <img src="arrowUp.gif"
+                                 alt="Arror Up"
+                                 title="Move Up"
+                                 i18n:attributes="title move_up_label;"
+                                 tal:attributes="src string:${portal_url}/arrowUp.gif" />
+                        </a>     
+                        <a href="."
+                           tal:attributes="href tax/down_link">
+                            <img src="arrowDown.gif"
+                                 alt="Arror Down"
+                                 title="Move Down"                     
+                                 i18n:attributes="title move_down_label;"
+                                 tal:attributes="src string:${portal_url}/arrowDown.gif" />
+                        </a>         
+                    </td>
+                  </tr>
+                </table>          
+            </tal:block>    
+            
+        </metal:main>    
+        
+  </body>
+</html>
