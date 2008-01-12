@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main">
+
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="groups_label">
+                Groups
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="groups_overview_label">
+                Groups overview
+            </a>  
+    
+            <p class="documentDescription"
+               tal:content="context/Description">
+                Description
+            </p>
+    
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+     
+        </metal:main>
+    
+    </body>
+</html>
