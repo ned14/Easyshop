@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="filter context/REQUEST/filter | nothing;
+                                sorting python:request.get('sorting', 'created');
+                                order python:request.get('order', 'descending');
+                                orders view/getOrders">
+
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="orders_label">
+                Orders
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+  
+            <div tal:condition="not:orders"
+                 i18n:translate="no_orders_label">
+                There are no orders.
+            </div>
+            <tal:block tal:condition="orders">
+                <form method="post"
+                      tal:attributes="action context/absolute_url">
+  
+                    <select name="filter">
+                        <option value="all"
+                                tal:attributes="selected python:filter == 'all'"
+                                i18n:translate="all_label">
+                            All
+                        </option>  
+                        <option value="pending"
+                                tal:attributes="selected python:filter == 'pending'"
+                                i18n:translate="pending_label">
+                            Pending
+                        </option>  
+                        <option value="payed (not sent)"
+                                tal:attributes="selected python:filter == 'payed (not sent)'"
+                                i18n:translate="payed_not_sent_label">
+                            Payed Not Sent
+                        </option>  
+                        <option value="sent (not payed)"
+                                tal:attributes="selected python:filter == 'sent (not payed)'"
+                                i18n:translate="sent_not_payed_label">
+                           Sent Not Payed
+                        </option>  
+                        <option value="closed"
+                                tal:attributes="selected python:filter == 'closed'"
+                               i18n:translate="closed_label">
+                            Closed
+                        </option>  
+                        <option value="canceled"
+                                tal:attributes="selected python:filter == 'canceled'"
+                                i18n:translate="canceled_label">
+                            Canceled
+                        </option>  
+                  </select>
+  
+                  <select name="sorting">
+                      <option value="created"
+                              tal:attributes="selected python:sorting == 'created'"
+                              i18n:translate="date_label">
+                          Date
+                      </option>  
+                      <option value="fullname"
+                              tal:attributes="selected python:sorting == 'fullname'"
+                              i18n:translate="fullname_label">
+                          Name
+                      </option>  
+                      <option value="review_state"
+                              tal:attributes="selected python:sorting == 'review_state'"
+                              i18n:translate="state_label">
+                          State
+                      </option>  
+                      <option value="id"
+                              tal:attributes="selected python:sorting == 'id'"
+                              i18n:translate="id_label">
+                          ID
+                      </option>  
+                  </select>
+  
+                  <select name="order">
+                      <option value="ascending"
+                              tal:attributes="selected python:order == 'ascending'"
+                              i18n:translate="ascending_label">
+                          Ascending
+                      </option>  
+                      <option value="descending"
+                              tal:attributes="selected python:order == 'descending'"
+                              i18n:translate="descending_label">
+                          Descending
+                      </option>  
+                  </select>
+  
+                  <input name="submit" 
+                         value="Go" 
+                         type="submit"
+                         i18n:attributes="value go_label;" />                       
+                </form>  
+    
+                <table width="100%"
+                       class="listing nosort">
+                    <thead>
+                      <tr>
+                          <th i18n:translate="order_id_label">
+                              ID
+                          </th>
+                          <th i18n:translate="order_date_label">
+                              Date
+                          </th>                
+                          <th i18n:translate="customer_name_label">
+                              Customer Name
+                          </th>                
+                          <th i18n:translate="order_state_label">
+                              State
+                          </th>
+                      </tr>
+                  </thead>    
+                  <tbody>
+                      <tr tal:repeat="order orders">
+                          <td>
+                              <a tal:content="order/id"
+                                 tal:attributes="href order/url">
+                                 1212121
+                              </a>                                             
+                          </td>
+                          <td tal:content="order/created">
+                              01.01.2007
+                          </td>
+                          <td tal:content="order/customer_name">
+                              John Doe
+                          </td>
+                          <td tal:content="order/review_state"
+                              i18n:translate="">
+                              Pending
+                          </td>
+                      </tr>
+                  </tbody>
+                </table>
+            </tal:block>    
+        </metal:main>    
+        
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+        
+    </body>
+</html>

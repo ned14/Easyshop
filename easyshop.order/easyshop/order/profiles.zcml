@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="easyshop.order"
+        directory="profiles/default"
+        description="Order management for EasyShop."
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+  
+</configure>

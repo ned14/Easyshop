@@ -1,0 +1,165 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+<body>
+    
+    <head> 
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+    
+    <div metal:fill-slot="main"
+         tal:define="orders view/getOrders">
+
+        <h1 class="documentFirstHeading"
+            i18n:translate="my_orders_label">
+            My Orders
+        </h1>
+
+        <a href="#"
+           class="link-parent"
+           tal:attributes="href string:${context/absolute_url}/my-account"
+           i18n:translate="my_account_label">
+            My Account
+        </a>
+
+        <span tal:condition="not: orders"
+              i18n:translate="no_orders_label">
+            There are no orders.
+        </span>    
+
+        <tal:block tal:repeat="order orders">
+
+            <h2>
+                <a href="#"
+                   tal:content="order/id"
+                   tal:attributes="href order/url">
+                    The Title
+                </a>
+            </h2>
+                  
+            <table class="order_header">
+                <tr>
+                    <td>
+                        <tal:block i18n:translate="reveived_at_label">
+                            Received at</tal:block>:
+                    </td>
+                    <td tal:content="order/creation_date">
+                        2007/07/07    
+                    </td>
+                </tr>
+                <tr>
+                    <td><tal:block i18n:translate="state_label">
+                        State</tal:block>:
+                    </td>
+                    <td tal:content="order/state">
+                        Send
+                    </td>
+                </tr>
+            </table>    
+            <table class="shop-listing">
+                <tr>               
+                    <th i18n:translate="product_label">
+                        Product
+                    </th>        
+                    <th i18n:translate="quantity_label">
+                        Quantity
+                    </th>        
+                    <th i18n:translate="product_price_label">
+                        Product Price
+                    </th>        
+                    <th i18n:translate="price_label">
+                        Price
+                    </th>
+                </tr>
+
+                <tr tal:repeat="item order/items_">
+
+                    <td class="text"
+                        tal:content="item/product_title" />
+
+                    <td class="number"
+                        tal:content="item/product_quantity" /> 
+
+                    <td class="number"
+                        tal:content="item/product_price_gross" />
+
+                    <td class="number"
+                        tal:content="item/price_gross" />        
+
+                </tr>
+
+                <tr tal:define="payment order/payment"
+                    tal:condition="payment/display">
+                    <td class="text"
+                        i18n:translate=""
+                        tal:content="payment/title">
+                        Cash on Delivery
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number">
+                        1.0
+                    </td>                                    
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="payment/price_gross">
+                        42.0
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="payment/price_gross">
+                        42.0
+                    </td>
+                </tr>                                                                                                   
+            
+                <tr tal:define="shipping order/shipping">
+                    <td class="text"
+                        i18n:translate="shipping_label">
+                        Shipping
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number">
+                        1.0
+                    </td>
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="shipping/price_gross">
+                        42.0
+                    </td>                
+                    <td nowrap="nowrap" 
+                        class="number"                    
+                        tal:content="shipping/price_gross">
+                        42.0
+                    </td>
+                </tr>                                                                                                   
+                <tr>
+                    <td style="border:none" colspan="3"></td>
+                    <td class="number">
+                        
+                    <div class="total-sum">
+    			        <span i18n:translate="checkout_total_sum_label">
+    			            Total Sum:
+    			        </span>
+                        <span tal:content="order/price_gross">
+                            42.0
+                        </span>
+                    </div>
+                    <div class="discreet">
+                        <tal:block i18n:translate="incl_tax_label">
+                            incl. Tax =
+                        </tal:block>
+                        <tal:block tal:content="order/tax">
+                            42.0                        
+                        </tal:block>
+                    </div>                        
+                        
+                    </td>    
+                </tr>
+
+            </table>
+        </tal:block>              
+    </div>
+</body>
+</html>

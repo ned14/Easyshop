@@ -1,0 +1,14 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        factory=".item_management.OrderItemManagement" />
+        
+    <adapter 
+        factory=".order_management.OrderManagement" />
+
+    <adapter
+        factory=".prices.OrderPrices" />
+
+        
+</configure>
