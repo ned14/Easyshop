@@ -126,6 +126,33 @@ class IProductManagement(Interface):
 class IProductsContainer(Interface):
     """Marker interface for product folder content objects.
     """    
+
+################################################################################
+# ProductVariants        
+################################################################################
+
+class IProductVariants(IProduct):
+    """Marker interface to mark product variants content objects.
+    """
+
+class IProductVariant(IProduct):
+    """Marker interface to mark product variant content objects.
+    """
+
+class IProductVariantsManagement(Interface):
+    """Provides methods to manage product variants.
+    """
+    def getDefaultProductVariant(self):
+        """Returns the default product variant.
+        """
+    
+    def getProductVariants():
+        """Returns existing product variants.
+        """
+
+    def getSelectedProductVariant(properties):
+        """Returns existing product variants.
+        """
     
 ################################################################################
 # Property        
