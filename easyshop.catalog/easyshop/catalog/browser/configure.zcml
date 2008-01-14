@@ -9,6 +9,12 @@
         permission="zope.Public" />
 
     <browser:page
+        name="product-variants-view"        
+        for="easyshop.core.interfaces.IProductVariants"
+        template="product_variants_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
         name="product-selector-view"
         for="*"
         template="product_selector_view.pt"
@@ -60,7 +66,14 @@
     <browser:page
         name="addToCart"
         for="easyshop.core.interfaces.IProduct"
-        class=".add_to_cart.AddToCartView"
+        class=".add_to_cart.ProductAddToCartView"
+        attribute="addToCart" 
+        permission="zope.Public" />
+
+    <browser:page
+        name="addToCart"
+        for="easyshop.core.interfaces.IProductVariants"
+        class=".add_to_cart.ProductVariantsAddToCartView"
         attribute="addToCart" 
         permission="zope.Public" />
 

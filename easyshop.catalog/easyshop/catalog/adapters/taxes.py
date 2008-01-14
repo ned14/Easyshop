@@ -3,14 +3,14 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import ITaxManagement
 from easyshop.core.interfaces import IValidity
 
-class ProductTaxes:
+class ProductTaxes(object):
     """Provides ITaxes for product content objects.
     """
     implements(ITaxes)
@@ -138,3 +138,16 @@ class ProductTaxes:
 
         # 2. If nothing is found, returns the default tax for the product.
         return self._calcTaxRateForProduct()
+        
+class ProductVariantTaxes(ProductTaxes):
+    """Provides ITaxes for product variant content objects.
+    For taxes always the parent Product variants content object is used.
+    """
+    implements(ITaxes)
+    adapts(IProductVariant)
+    
+    def __init__(self, context):
+        """
+        """
+        self.context = context.aq_inner.aq_parent
+        self.shop = IShopManagement(context).getShop()

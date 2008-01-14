@@ -5,6 +5,8 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariants
+from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
@@ -116,3 +118,46 @@ class ProductPrices:
             return self.context.getPrice()
         else:
             return self.context.getPrice() + self.taxes.getTax(False)
+            
+class ProductVariantsPrices:
+    """Provides IPrices for product variants content object.
+    """
+    implements(IPrices)
+    adapts(IProductVariants)
+
+    def __init__(self, context):
+        """
+        """
+        self.context = context
+        self.gross_prices = IShopManagement(context).getShop().getGrossPrices()
+        self.taxes = ITaxes(self.context)
+        
+        pvm = IProductVariantsManagement(self.context)
+        self.product_variant = pvm.getSelectedProductVariant()
+        
+    def getPriceForCustomer(self, effective=True):
+        """
+        """
+        price = IPrices(self.product_variant).getPriceForCustomer()
+        if price != 0:
+            return price
+        else:
+            return IPrices(self.context).getPriceForCustomer()
+            
+    def getPriceNet(self, effective=True):
+        """
+        """
+        price = IPrices(self.product_variant).getPriceNet()
+        if price != 0:
+            return price
+        else:
+            return IPrices(self.context).getPriceNet()
+
+    def getPriceGross(self, effective=True):
+        """
+        """
+        price = IPrices(self.product_variant).getPriceGross()
+        if price != 0:
+            return price
+        else:
+            return IPrices(self.context).getPriceGross()

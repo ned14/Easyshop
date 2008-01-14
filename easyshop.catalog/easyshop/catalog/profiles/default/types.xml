@@ -12,6 +12,14 @@
      meta_type="Factory-based Type Information with dynamic views"/>
 
  <object
+     name="ProductVariants"
+     meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object
+     name="ProductVariant"
+     meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object
      name="CategoriesContainer"
      meta_type="Factory-based Type Information"/>
 
