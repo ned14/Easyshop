@@ -23,7 +23,7 @@ class StockManagement:
 
     def getStockInformationFor(self, product):
         """
-        """
+        """        
         for information in self.stock_information.objectValues():
             if IValidity(information).isValid(product) == True:
                 return information
