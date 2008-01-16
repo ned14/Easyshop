@@ -16,6 +16,7 @@ from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
 
 # easyshop imports
+from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.config import _
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import IAsynchronPaymentMethod
@@ -142,20 +143,19 @@ class OrderPreviewForm(formbase.AddForm):
                     selected_property["id"], 
                     selected_property["selected_option"]) 
 
-                # This could happen if a property is deleted and there are 
-                # still product with this selected property in the cart.
-                # Todo: Think about, whether theses properties are not to 
-                # display. See also cart.py
-                try:                                        
-                    property_title = pm.getProperty(
-                        selected_property["id"]).Title()
-                except AttributeError:
-                    property_title = selected_property["id"]
-                
+                # Get titles of property and option
+                titles = getTitlesByIds(
+                    product,
+                    selected_property["id"], 
+                    selected_property["selected_option"])
+                    
+                if result is None:
+                    continue
+
                 properties.append({
                     "id" : selected_property["id"],
-                    "selected_option" : selected_property["selected_option"],
-                    "title" : property_title,
+                    "selected_option" : titles["option"],
+                    "title" : titles["property"],
                     "price" : cm.priceToString(property_price)
                 })
 

@@ -226,9 +226,9 @@
                             </td>    
                             <td class="text">
                                 <div tal:repeat="property cart_item/properties">
-                                    <span tal:content="python:property['title']" /> : 
-                                    <span tal:content="python:property['selected_option']" />
-                                    (<span tal:content="python:property['price']" />)
+                                    <span tal:content="property/title" /> : 
+                                    <span tal:content="property/selected_option" />
+                                    (<span tal:content="property/price" />)
                                 </div>                  
                             </td> 
                             <td class="number" 
