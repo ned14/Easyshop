@@ -11,6 +11,7 @@ from Products.CMFPlone.utils import safe_unicode
 from plone.memoize.instance import memoize
 
 # easyshop imports
+from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
@@ -26,6 +27,7 @@ from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
+
 
 class CartFormView(BrowserView):
     """
@@ -77,20 +79,19 @@ class CartFormView(BrowserView):
                     selected_property["id"], 
                     selected_property["selected_option"]) 
 
-                # This could happen if a property is deleted and there are 
-                # still product with this selected property in the cart.
-                # Todo: Think about, whether theses properties are not to 
-                # display. See also checkout_order_preview
-                try:    
-                    property_title = pm.getProperty(
-                        selected_property["id"]).Title()
-                except AttributeError:
-                    property_title = selected_property["id"]
+                # Get titles of property and option
+                titles = getTitlesByIds(
+                    product,
+                    selected_property["id"], 
+                    selected_property["selected_option"])
+                    
+                if result is None:
+                    continue
                     
                 properties.append({
                     "id" : selected_property["id"],
-                    "selected_option" : selected_property["selected_option"],
-                    "title" : property_title,
+                    "selected_option" : titles["option"],
+                    "title" : titles["property"],
                     "price" : cm.priceToString(property_price)
                 })
 
