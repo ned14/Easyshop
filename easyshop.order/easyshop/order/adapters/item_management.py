@@ -117,21 +117,11 @@ class OrderItemManagement:
             property_price = pm.getPriceForCustomer(
                 selected_property["id"], 
                 selected_property["selected_option"])
-
-            # This could happen if a property is deleted and there are 
-            # still product with this selected property in the cart.
-            # Todo: Think about, whether theses properties are not to 
-            # display. See also checkout_order_preview
-            try:    
-                property_title = pm.getProperty(
-                    selected_property["id"]).Title()
-            except AttributeError:
-                property_title = selected_property["id"]
                 
             properties.append({
-                "title" : property_title,            
+                "title" : selected_property["id"],
                 "selected_option" : selected_property["selected_option"],
-                "price" : str(property_price)
+                "price" : str(property_price),
             })
                             
         new_item.setProperties(properties)
