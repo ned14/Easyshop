@@ -31,6 +31,7 @@ MESSAGES = {
     "CART_INCREASED_AMOUNT" : _(u"The amount of the product has been increased."),
     "ORDER_RECEIVED"        : _(u"Your order has been received. Thank you!"),
     "NO_PRODUCTS_FOUND"     : _(u"No products found."),
+    "VARIANT_ADDED"         : _(u"The product variant has been added."),
 }
 
 IMAGE_SIZES = {'large'   : (768, 768),

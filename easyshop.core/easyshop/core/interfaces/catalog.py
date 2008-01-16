@@ -142,15 +142,19 @@ class IProductVariant(IProduct):
 class IProductVariantsManagement(Interface):
     """Provides methods to manage product variants.
     """
-    def getDefaultProductVariant(self):
+    def addProductVariant(title, properties):
+        """Adds a product variant.
+        """
+        
+    def getDefaultVariant():
         """Returns the default product variant.
         """
     
-    def getProductVariants():
+    def getVariants():
         """Returns existing product variants.
         """
 
-    def getSelectedProductVariant(properties):
+    def getSelectedVariant(properties):
         """Returns existing product variants.
         """
     
@@ -197,7 +201,10 @@ class IPropertyManagement(Interface):
         This requires, that title per property is unique. This will be done in
         edit view.
         """
-        
+
+    def getTitlesByIds(property_id, option_id):
+        """Returns the titles of property and option with given id.
+        """
 ################################################################################
 # Selector        
 ################################################################################
