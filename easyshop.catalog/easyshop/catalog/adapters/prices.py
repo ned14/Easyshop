@@ -10,7 +10,7 @@ from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
-class ProductPrices:
+class ProductPrices(object):
     """Provides IPrices for product content object.
     """
     implements(IPrices)
@@ -119,7 +119,7 @@ class ProductPrices:
         else:
             return self.context.getPrice() + self.taxes.getTax(False)
             
-class ProductVariantsPrices:
+class ProductVariantsPrices(ProductPrices):
     """Provides IPrices for product variants content object.
     """
     implements(IPrices)
@@ -133,7 +133,7 @@ class ProductVariantsPrices:
         self.taxes = ITaxes(self.context)
         
         pvm = IProductVariantsManagement(self.context)
-        self.product_variant = pvm.getSelectedProductVariant()
+        self.product_variant = pvm.getSelectedVariant()
         
     def getPriceForCustomer(self, effective=True):
         """
@@ -142,7 +142,7 @@ class ProductVariantsPrices:
         if price != 0:
             return price
         else:
-            return IPrices(self.context).getPriceForCustomer()
+            return super(ProductVariantsPrices, self).getPriceForCustomer()
             
     def getPriceNet(self, effective=True):
         """
@@ -151,7 +151,7 @@ class ProductVariantsPrices:
         if price != 0:
             return price
         else:
-            return IPrices(self.context).getPriceNet()
+            return super(ProductVariantsPrices, self).getPriceNet()
 
     def getPriceGross(self, effective=True):
         """
@@ -160,4 +160,4 @@ class ProductVariantsPrices:
         if price != 0:
             return price
         else:
-            return IPrices(self.context).getPriceGross()
+            return super(ProductVariantsPrices, self).getPriceGross()

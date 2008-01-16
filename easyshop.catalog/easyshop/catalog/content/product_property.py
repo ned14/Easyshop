@@ -18,9 +18,10 @@ from easyshop.core.interfaces import IProperty
 schema = Schema((
        DataGridField('Options',
                 searchable = True,
-                columns=("name", "price"),
+                columns=("id", "name", "price"),
                 widget = DataGridWidget(
                     columns={
+                        "id"    : Column("Id"),
                         'name'  : Column("Name"),
                         'price' : Column("Price"),
                     },

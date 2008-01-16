@@ -15,8 +15,8 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IStockManagement
@@ -73,19 +73,7 @@ class ProductVariantsViewlet(ViewletBase):
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
                             
-    def getMainImage(self):
-        """
-        """
-        pm = IImageManagement(self.context)
-        return pm.getMainImage()
-        
-    def getImages(self):
-        """
-        """
-        pm = IImageManagement(self.context)
-        return pm.getImages()
-
-    def getProduct(self):
+    def getProductData(self):
         """
         """
         data = IData(self.context)
@@ -96,12 +84,21 @@ class ProductVariantsViewlet(ViewletBase):
         """
         u = queryUtility(INumberConverter)
         cm = ICurrencyManagement(self.context)
-                
-        selected_properties = {}
-        for name, value in self.request.form.items():
+                        
+        selected_options = {}
+        for name, value in self.request.items():
             if name.startswith("property"):
-                selected_properties[name[9:]] = value
+                selected_options[name[9:]] = value
 
+        # If nothing is selected we select the default variant
+        if selected_options == {}:
+            pvm = IProductVariantsManagement(self.context)
+            default_variant = pvm.getDefaultVariant()
+
+            for property in default_variant.getForProperties():
+                name, value = property.split(":")
+                selected_options[name] = value
+            
         pm = IPropertyManagement(self.context)
         
         result = []
@@ -110,27 +107,29 @@ class ProductVariantsViewlet(ViewletBase):
             for option in property.getOptions():
 
                 # generate value string
-                name  = option["name"]
-                price = option["price"]
+                option_id    = option["id"]
+                option_name  = option["name"]
+                option_price = option["price"]
 
-                if price != "":
-                    price = u.stringToFloat(price)
-                    price = cm.priceToString(price, "long", "after")
-                    content = "%s %s" % (name, price)
+                if option_price != "":
+                    option_price = u.stringToFloat(option_price)
+                    option_price = cm.priceToString(option_price, "long", "after")
+                    content = "%s %s" % (option_name, option_price)
                 else:
-                    content = name
+                    content = option_name
                         
                 # is option selected?
-                selected = name == selected_properties.get(property.getId(), False)
+                selected_option = selected_options.get(property.getId(), "")
+                selected = option_id == selected_option
                 
                 options.append({
-                    "content"  : content,
-                    "value"    : name,
+                    "id"       : option_id,
+                    "title"    : content,
                     "selected" : selected,
-                })            
+                })
                 
             result.append({
-                "id"      : property.getId(),
+                "id"      : "property_" + property.getId(),
                 "title"   : property.Title(),
                 "options" : options,
             })
@@ -152,21 +151,25 @@ class ProductVariantsViewlet(ViewletBase):
 
     def getStockInformation(self):
         """
-        """
+        """        
         shop = self._getShop()
         sm = IStockManagement(shop)
-        stock_information = sm.getStockInformationFor(self.context)
+        
+        pvm = IProductVariantsManagement(self.context)
+        product_variant = pvm.getSelectedVariant()
+        
+        # First, we try to get information for the selected product variant
+        stock_information = sm.getStockInformationFor(product_variant)
+        
+        # If nothing is found, we try to get information for parent product 
+        # variants object.
+        if stock_information is None:
+            stock_information = sm.getStockInformationFor(self.context)
         
         if stock_information is None:
             return None
             
         return IData(stock_information).asDict()
-                    
-    def hasImages(self):
-        """
-        """
-        pm = IImageManagement(self.context)
-        return pm.hasImages()
                     
     def showAddQuantity(self):
         """

@@ -96,12 +96,12 @@ class ProductViewlet(ViewletBase):
         """
         u = queryUtility(INumberConverter)
         cm = ICurrencyManagement(self.context)
-                
-        selected_properties = {}
-        for name, value in self.request.form.items():
+                        
+        selected_options = {}
+        for name, value in self.request.items():
             if name.startswith("property"):
-                selected_properties[name[9:]] = value
-
+                selected_options[name[9:]] = value
+        
         pm = IPropertyManagement(self.context)
         
         result = []
@@ -110,27 +110,29 @@ class ProductViewlet(ViewletBase):
             for option in property.getOptions():
 
                 # generate value string
-                name  = option["name"]
-                price = option["price"]
+                option_id    = option["id"]
+                option_name  = option["name"]
+                option_price = option["price"]
 
-                if price != "":
-                    price = u.stringToFloat(price)
-                    price = cm.priceToString(price, "long", "after")
-                    content = "%s %s" % (name, price)
+                if option_price != "":
+                    option_price = u.stringToFloat(option_price)
+                    option_price = cm.priceToString(option_price, "long", "after")
+                    content = "%s %s" % (option_name, option_price)
                 else:
-                    content = name
+                    content = option_name
                         
                 # is option selected?
-                selected = name == selected_properties.get(property.getId(), False)
+                selected_option = selected_options.get(property.getId(), "")
+                selected = option_id == selected_option
                 
                 options.append({
-                    "content"  : content,
-                    "value"    : name,
+                    "id"       : option_id,
+                    "title"    : content,
                     "selected" : selected,
-                })            
+                })
                 
             result.append({
-                "id"      : property.getId(),
+                "id"      : "property_" + property.getId(),
                 "title"   : property.Title(),
                 "options" : options,
             })

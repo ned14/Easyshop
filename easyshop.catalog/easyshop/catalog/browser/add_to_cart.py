@@ -80,7 +80,7 @@ class ProductVariantsAddToCartView(BrowserView):
         """
         """
         pvm = IProductVariantsManagement(self.context)
-        product_variant = pvm.getSelectedProductVariant()
+        product_variant = pvm.getSelectedVariant()
         
         shop = IShopManagement(product_variant).getShop()        
         cm = ICartManagement(shop)

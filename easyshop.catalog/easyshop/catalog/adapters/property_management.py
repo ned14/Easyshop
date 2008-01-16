@@ -5,12 +5,13 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import IGroupManagement
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
 
-class ProductPropertyManagement:
+class ProductPropertyManagement(object):
     """Provides IPropertyManagement for product content objects.
     """
     implements(IPropertyManagement)
@@ -41,10 +42,8 @@ class ProductPropertyManagement:
         tax_rate = ITaxes(self.context).getTaxRate()
         price    = self._calcPrice(property_id, option_name)
 
-
         # The price entered is considered as gross price, so we simply
         # return it.
-        
         if shop.getGrossPrices() == True:
             return price
 
@@ -76,10 +75,42 @@ class ProductPropertyManagement:
             return price
                 
     def getProperties(self):
-        """Returns all Properties for a Product.
+        """
+        """
+        # Get unique properties as dict
+        result = self._getProperties()
                 
-           Properties from the Product have higher precedence than Properties
-           from a Group.
+        return result.values()
+
+    def getProperty(self, id):
+        """
+        """
+        for property in self.getProperties():
+            if property.getId() == id:
+                return property
+        
+        return None
+
+    def getTitlesByIds(self, property_id, option_id):
+        """
+        """
+        # Get all properties as dict
+        result = self._getProperties()
+        
+        property = result[property_id]
+        
+        for option in property.getOptions():
+            if option["id"] == option_id:
+                return {
+                    "property" : property.Title(), 
+                    "option" : option["name"],
+                }
+        
+        return None
+
+    def _getProperties(self):
+        """Returns all unique Properties for a Product, wheras properties from 
+        the Product have higher precedence than Properties from a Group.
         """
         groups = IGroupManagement(self.context).getGroups()
 
@@ -93,16 +124,7 @@ class ProductPropertyManagement:
         for property in self.context.objectValues("ProductProperty"):
             result[property.getId()] = property
             
-        return result.values()
-
-    def getProperty(self, id):
-        """
-        """
-        for property in self.getProperties():
-            if property.getId() == id:
-                return property
-        
-        return None
+        return result
         
     def _calcPrice(self, property_id, option_name):
         """
@@ -131,4 +153,17 @@ class ProductPropertyManagement:
             price = 0.0
 
         return price
-        
+
+# TODO: This may be not the cleanest way. Rethink it. YAGNI?
+def getTitlesByIds(product, property_id, option_id):
+    """A simple wrapper to get the variants options (global options) of a 
+    variant. In this way the adapter still works for local properties (price 
+    changing) of a variant, which may later used additional to the global ones.
+    """
+    
+    if IProductVariant.providedBy(product) == True:
+        product = product.aq_inner.aq_parent
+
+    pm = IPropertyManagement(product)
+    return pm.getTitlesByIds(property_id, option_id)
+    

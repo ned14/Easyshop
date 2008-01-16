@@ -32,6 +32,11 @@
     i18n:attributes="title">
   <permission value="View"/>
  </action>
+ <action title="Variants" action_id="variants" category="object" condition_expr=""
+    url_expr="string:${object_url}/manage-variants-view" visible="True"
+    i18n:attributes="title">
+  <permission value="View"/>
+ </action>
  <action title="Edit" action_id="edit" category="object" condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
     url_expr="string:${object_url}/edit" visible="True"
     i18n:attributes="title">

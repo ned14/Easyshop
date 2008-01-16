@@ -90,6 +90,15 @@ class ProductVariantData:
         
         # text 
         text = self.context.getText() or self.parent.getText()
+
+        # options
+        options = []
+        for option in self.context.getForProperties():
+            name, value = option.split(":")
+            options.append({
+                "name" : name,
+                "value" : value,
+            })
         
         return {
             "title"       : title,
@@ -98,6 +107,7 @@ class ProductVariantData:
             "price"       : price,
             "image"       : image,
             "text"        : text,
+            "options"     : options,
         }                
         
 class ProductVariantsData:
@@ -115,7 +125,7 @@ class ProductVariantsData:
         """
         """
         pvm = IProductVariantsManagement(self.context)
-        product_variant = pvm.getSelectedProductVariant()
+        product_variant = pvm.getSelectedVariant()
         
         if product_variant is None:
             return None

@@ -5,22 +5,17 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.folder import ATFolder
 
-# ATBackRef imports
-from Products.ATBackRef.BackReferenceField import *
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
-
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import IImageConversion
 from easyshop.core.interfaces import IProductVariant
-from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
-    StringField(
+    LinesField(
         name="forProperties",
-        widget=StringWidget(
+        widget=LinesWidget(
+            # visible={'edit':'invisible', 'view':'invisible'},
             label="For Properties",
             label_msgid="schema_for_properties_label",
             description = "",
@@ -236,5 +231,20 @@ class ProductVariant(ATFolder):
         """
         """
         # TODO: Implement.
+
+    def base_view(self):
+        """
+        """
+        properties = {}
+        for property in self.getForProperties():
+            name, value = property.split(":")
+            properties["property_" + name] = value
+
+        parameters = "&".join(["%s=%s" % (k, v) for (k, v) 
+                                                in properties.items()])
+        parent = self.aq_inner.aq_parent        
+        url = parent.absolute_url() + "?" + parameters
                 
+        self.REQUEST.RESPONSE.redirect(url)
+        
 registerType(ProductVariant, PROJECTNAME)

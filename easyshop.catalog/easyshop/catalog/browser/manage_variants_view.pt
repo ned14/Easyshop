@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <div metal:fill-slot="main">
+            <form id="manage-variants"
+                  method="post"
+                  action="."
+                  tal:attributes="action context/REQUEST/URL">
+                <table>
+                    <tr tal:repeat="variant view/getVariants">
+                        <td>
+                            <a href="."
+                               tal:attributes="href string:${variant/url}/edit"
+                               tal:content="variant/title">
+                               Variant Title
+                            </a>  
+                        </td>
+                        <td tal:repeat="option variant/options">
+                            <span tal:content="option/value">
+                                Option Value
+                            </span>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <input type="text"
+                                  name="title" />
+                        </td>
+                        <tal:block tal:repeat="property view/getProperties">
+                            <td>
+                                <select tal:attributes="name property/id">
+                                    <option tal:repeat="option property/options"
+                                            tal:attributes="value option/id"
+                                            tal:content="option/name">
+                                        Option Name                                        
+                                    </option>    
+                                </select>
+                            </td>    
+                        </tal:block>                    
+                    </tr>           
+                    <tr>
+                        <td>
+                            <input type="submit"
+                                   value="add" 
+                                   name="addVariant:method" />
+                        </td>
+                    </tr>     
+                </table>
+            </form>    
+        </div>    
+    </body>
+    
+</html>
+
+

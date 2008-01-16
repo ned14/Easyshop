@@ -9,12 +9,6 @@
         permission="zope.Public" />
 
     <browser:page
-        name="product-variants-view"        
-        for="easyshop.core.interfaces.IProductVariants"
-        template="product_variants_view.pt"
-        permission="zope.Public" />
-
-    <browser:page
         name="product-selector-view"
         for="*"
         template="product_selector_view.pt"
@@ -25,6 +19,21 @@
         for="easyshop.core.interfaces.IProduct"
         class=".product_zoom_view.ProductZoomView"
         template="product_zoom_view.pt"
+        permission="zope.Public" />
+
+    <!-- Product Variants -->
+    <browser:page
+        name="product-variants-view"        
+        for="easyshop.core.interfaces.IProductVariants"
+        template="product_variants_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        name="manage-variants-view"
+        for="easyshop.core.interfaces.IProductVariants"
+        class=".manage_variants_view.ManageVariantsView"
+        template="manage_variants_view.pt"
+        allowed_attributes="addVariant"
         permission="zope.Public" />
 
     <!-- Category -->
