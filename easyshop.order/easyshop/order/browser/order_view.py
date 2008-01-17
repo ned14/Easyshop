@@ -12,7 +12,6 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.config import *
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICurrencyManagement
@@ -20,8 +19,9 @@ from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPaymentInformationManagement
-from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPaymentProcessing
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IType
 
@@ -146,29 +146,16 @@ class OrderView(BrowserView):
             if product is None:
                 title = item.getProductTitle()
                 url = None
-                properties = item.getProperties()
             else:
                 title = product.Title()
                 url = product.absolute_url()
-
-                # Properties    
-                properties = []
-                for selected_property in item.getProperties():
-
-                    # Get titles of property and option
-                    titles = getTitlesByIds(
-                        product,
-                        selected_property["title"],
-                        selected_property["selected_option"])
-                    
-                    if titles is None:
-                        continue
-                    
-                    properties.append({
-                        "title" : titles["property"],
-                        "selected_option" : titles["option"],
-                        "price" : selected_property["price"],
-                    })
+            
+            # Properties 
+            for property in item.getProperties():
+                if IProductVariant.providedBy(product) == True:
+                    property["show_price"] = False
+                else:
+                    property["show_price"] = True
                 
             temp = {
                 "product_title"        : title,
@@ -178,7 +165,7 @@ class OrderView(BrowserView):
                 "price_gross"          : price_gross,
                 "tax_rate"             : tax_rate,
                 "tax"                  : tax,
-                "properties"           : properties,
+                "properties"           : item.getProperties(),
                 "has_discount"         : abs(item.getDiscountGross()) > 0,
                 "discount_description" : item.getDiscountDescription(),
                 "discount"             : cm.priceToString(item.getDiscountGross(), prefix="-"),
