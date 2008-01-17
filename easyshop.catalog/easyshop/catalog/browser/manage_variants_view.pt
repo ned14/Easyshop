@@ -18,10 +18,13 @@
                                Variant Title
                             </a>  
                         </td>
-                        <td tal:repeat="option variant/options">
-                            <span tal:content="option/value">
+                        <td tal:repeat="property variant/properties">
+                            <span tal:content="property/option">
                                 Option Value
                             </span>    
+                        </td>
+                        <td tal:content="variant/price">
+                            42.0
                         </td>
                     </tr>
                     <tr>
@@ -32,6 +35,10 @@
                         <tal:block tal:repeat="property view/getProperties">
                             <td>
                                 <select tal:attributes="name property/id">
+                                    <option value="all"
+                                            i18n:attributes="value all_label;">
+                                        All
+                                    </option>
                                     <option tal:repeat="option property/options"
                                             tal:attributes="value option/id"
                                             tal:content="option/name">
@@ -40,6 +47,7 @@
                                 </select>
                             </td>    
                         </tal:block>                    
+                        <td></td>
                     </tr>           
                     <tr>
                         <td>

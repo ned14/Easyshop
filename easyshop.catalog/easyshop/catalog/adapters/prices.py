@@ -5,6 +5,7 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IProductVariants
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IShopManagement
@@ -118,7 +119,7 @@ class ProductPrices(object):
             return self.context.getPrice()
         else:
             return self.context.getPrice() + self.taxes.getTax(False)
-            
+
 class ProductVariantsPrices(ProductPrices):
     """Provides IPrices for product variants content object.
     """
@@ -128,36 +129,67 @@ class ProductVariantsPrices(ProductPrices):
     def __init__(self, context):
         """
         """
-        self.context = context
-        self.gross_prices = IShopManagement(context).getShop().getGrossPrices()
-        self.taxes = ITaxes(self.context)
+        super(ProductVariantsPrices, self).__init__(context)
         
-        pvm = IProductVariantsManagement(self.context)
+        pvm = IProductVariantsManagement(context)
         self.product_variant = pvm.getSelectedVariant()
         
     def getPriceForCustomer(self, effective=True):
         """
         """
-        price = IPrices(self.product_variant).getPriceForCustomer()
-        if price != 0:
-            return price
+        if self.product_variant.getPrice() != 0:
+            return IPrices(self.product_variant).getPriceForCustomer()
         else:
-            return super(ProductVariantsPrices, self).getPriceForCustomer()
+            return super(ProductVariantsPrices, self).getPriceForCustomer(effective)
             
     def getPriceNet(self, effective=True):
         """
         """
-        price = IPrices(self.product_variant).getPriceNet()
-        if price != 0:
-            return price
+        if self.product_variant.getPrice() != 0:
+            return IPrices(self.product_variant).getPriceNet()
         else:
-            return super(ProductVariantsPrices, self).getPriceNet()
+            return super(ProductVariantsPrices, self).getPriceNet(effective)
 
     def getPriceGross(self, effective=True):
         """
         """
-        price = IPrices(self.product_variant).getPriceGross()
-        if price != 0:
-            return price
+        if self.product_variant.getPrice() != 0:
+            return IPrices(self.product_variant).getPriceGross()
         else:
-            return super(ProductVariantsPrices, self).getPriceGross()
+            return super(ProductVariantsPrices, self).getPriceGross(effective)
+            
+class ProductVariantPrices(ProductPrices):
+    """Provides IPrices for product variant content object.
+    """
+    implements(IPrices)
+    adapts(IProductVariant)
+
+    def __init__(self, context):
+        """
+        """
+        super(ProductVariantPrices, self).__init__(context)
+        self.parent = self.context.aq_inner.aq_parent
+
+    def getPriceForCustomer(self, effective=True):
+        """
+        """
+        if self.context.getPrice() != 0:
+            return super(ProductVariantPrices, self).getPriceForCustomer(effective)
+        else:
+            return IPrices(self.parent).getPriceForCustomer()
+            
+    def getPriceNet(self, effective=True):
+        """
+        """
+        if self.context.getPrice() != 0:
+            return super(ProductVariantPrices, self).getPriceNet(effective)
+        else:
+            return IPrices(self.parent).getPriceNet()
+
+    def getPriceGross(self, effective=True):
+        """
+        """
+        if self.context.getPrice() != 0:
+            return super(ProductVariantPrices, self).getPriceGross(effective)
+        else:
+            return IPrices(self.parent).getPriceGross()

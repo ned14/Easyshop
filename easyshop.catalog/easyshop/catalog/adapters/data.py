@@ -62,15 +62,6 @@ class ProductVariantData:
     def asDict(self):
         """
         """
-        # price
-        cm = ICurrencyManagement(self.context)
-
-        price = IPrices(self.context).getPriceForCustomer()
-        if price == 0:
-            price = IPrices(self.parent).getPriceForCustomer()
-            
-        price = cm.priceToString(price)
-
         # image
         image = IImageManagement(self.context).getMainImage()
         if image is None:
@@ -104,7 +95,6 @@ class ProductVariantData:
             "title"       : title,
             "short_title" : short_title,
             "url"         : self.context.absolute_url(),
-            "price"       : price,
             "image"       : image,
             "text"        : text,
             "options"     : options,

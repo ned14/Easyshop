@@ -13,6 +13,9 @@
         factory=".product_variants_management.ProductVariantsManagement" />
 
     <adapter
+        factory=".prices.ProductVariantPrices" />
+
+    <adapter
         factory=".prices.ProductVariantsPrices" />
 
     <adapter

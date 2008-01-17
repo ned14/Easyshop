@@ -5,10 +5,13 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop.imports
+from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.config import MESSAGES
-from easyshop.core.interfaces import IData
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ManageVariantsView(BrowserView):
     """
@@ -54,8 +57,36 @@ class ManageVariantsView(BrowserView):
         pvm = IProductVariantsManagement(self.context)
         
         for variant in  pvm.getVariants():
-            result.append(IData(variant).asDict())
+                        
+            # Options 
+            properties = []
+            for property in variant.getForProperties():
+                property_id, option_id = property.split(":")
+                titles = getTitlesByIds(variant, property_id, option_id)
+                if titles is None:
+                    continue
+                properties.append(titles)
+
+            # Price
+            shop  = IShopManagement(self.context).getShop()
+            cm    = ICurrencyManagement(self.context)
+            if shop.getGrossPrices() == True:
+                price = IPrices(variant).getPriceGross()
+            else:
+                price = IPrices(variant).getPriceNet()
+                
+            price = cm.priceToString(price)        
             
+            # Title
+            title = variant.Title() or \
+                    variant.aq_inner.aq_parent.Title()
+            
+            result.append({
+                "title"      : title,
+                "url"        : variant.absolute_url(),                
+                "properties" : properties,
+                "price"      : price,
+            })                
         return result
         
         
