@@ -150,7 +150,7 @@ class OrderPreviewForm(formbase.AddForm):
                     selected_property["id"], 
                     selected_property["selected_option"])
                     
-                if result is None:
+                if titles is None:
                     continue
 
                 if IProductVariant.providedBy(product) == True:
