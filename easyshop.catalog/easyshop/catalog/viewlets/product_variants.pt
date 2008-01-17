@@ -96,6 +96,7 @@
                         <tr>
                             <td class="product-image"
                                 tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')">
+                                
                                 <img tal:condition="product_data/image"
                                      tal:attributes="src product_data/image;
                                                      alt product_data/title;" />
@@ -145,10 +146,6 @@
                                                      onchange="document.product_form.submit();"
                                                      tal:attributes="name property/id">
            
-                                                 <option i18n:translate="please_select_label">
-                                                     Please Select
-                                                 </option>
-                                       
                                                  <option tal:repeat="option property/options"
                                                          tal:content="option/title"
                                                          tal:attributes="value option/id;

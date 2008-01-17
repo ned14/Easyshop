@@ -95,6 +95,10 @@ class ProductVariantsViewlet(ViewletBase):
             pvm = IProductVariantsManagement(self.context)
             default_variant = pvm.getDefaultVariant()
 
+            # If there is no default variant return empty list
+            if default_variant is None:
+                return []
+
             for property in default_variant.getForProperties():
                 name, value = property.split(":")
                 selected_options[name] = value
@@ -158,6 +162,9 @@ class ProductVariantsViewlet(ViewletBase):
         pvm = IProductVariantsManagement(self.context)
         product_variant = pvm.getSelectedVariant()
         
+        if product_variant is None:
+            return None
+            
         # First, we try to get information for the selected product variant
         stock_information = sm.getStockInformationFor(product_variant)
         

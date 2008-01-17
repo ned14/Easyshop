@@ -12,7 +12,7 @@ from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IProductVariants
 from easyshop.core.interfaces import IProductVariantsManagement
 
-class ProductData:
+class ProductData(object):
     """An adapter which provides IData for product content objects.
     """    
     implements(IData)
@@ -100,17 +100,12 @@ class ProductVariantData:
             "options"     : options,
         }                
         
-class ProductVariantsData:
+class ProductVariantsData(ProductData):
     """An adapter which provides IData for product variants content objects.
     """    
     implements(IData)
     adapts(IProductVariants)
 
-    def __init__(self, context):
-        """
-        """
-        self.context = context
-        
     def asDict(self):
         """
         """
@@ -118,6 +113,6 @@ class ProductVariantsData:
         product_variant = pvm.getSelectedVariant()
         
         if product_variant is None:
-            return None
+            return super(ProductVariantsData, self).asDict()
         else:
             return IData(product_variant).asDict()

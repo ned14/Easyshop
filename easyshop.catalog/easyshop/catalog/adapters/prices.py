@@ -137,7 +137,7 @@ class ProductVariantsPrices(ProductPrices):
     def getPriceForCustomer(self, effective=True):
         """
         """
-        if self.product_variant.getPrice() != 0:
+        if self.product_variant and self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceForCustomer()
         else:
             return super(ProductVariantsPrices, self).getPriceForCustomer(effective)
@@ -145,7 +145,7 @@ class ProductVariantsPrices(ProductPrices):
     def getPriceNet(self, effective=True):
         """
         """
-        if self.product_variant.getPrice() != 0:
+        if self.product_variant and self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceNet()
         else:
             return super(ProductVariantsPrices, self).getPriceNet(effective)
@@ -153,7 +153,7 @@ class ProductVariantsPrices(ProductPrices):
     def getPriceGross(self, effective=True):
         """
         """
-        if self.product_variant.getPrice() != 0:
+        if self.product_variant and self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceGross()
         else:
             return super(ProductVariantsPrices, self).getPriceGross(effective)
