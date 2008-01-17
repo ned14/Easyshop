@@ -21,7 +21,13 @@ class ProductPropertyManagement(object):
         """
         """
         self.context = context
-
+        
+    def getOptionsForProperty(self, property_id):
+        """
+        """
+        property = self.getProperty(property_id)
+        return property.getOptions()
+        
     def getPriceForCustomer(self, property_id, option_name):
         """
         """
@@ -154,8 +160,9 @@ class ProductPropertyManagement(object):
 
         return price
 
-# TODO: This may be not the cleanest way. Rethink it. YAGNI?
+
 def getTitlesByIds(product, property_id, option_id):
+    # TODO: This may not be the cleanest way. Rethink it. YAGNI?
     """A simple wrapper to get the variants options (global options) of a 
     variant. In this way the adapter still works for local properties (price 
     changing) of a variant, which may later used additional to the global ones.
@@ -167,3 +174,11 @@ def getTitlesByIds(product, property_id, option_id):
     pm = IPropertyManagement(product)
     return pm.getTitlesByIds(property_id, option_id)
     
+def getOptionsForProperty(product, property_id):
+    """Returns all options for a given property id.
+    """
+    if IProductVariant.providedBy(product) == True:
+        product = product.aq_inner.aq_parent
+
+    pm = IPropertyManagement(product)
+    return pm.getOptionsForProperty(property_id)

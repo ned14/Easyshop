@@ -17,15 +17,26 @@ class ProductVariantsManagement:
         """
         self.context = context
 
-    def addVariant(self, title, properties):
+    def addVariants(self, title, properties):
         """
         """
-        new_id = self.context.generateUniqueId("ProductVariant")
-        self.context.invokeFactory(
-            "ProductVariant", id=new_id, title=title, forProperties=properties)
+        cp = self._cartesian_product(*properties)
         
-        return id
-            
+        for properties in cp:
+            if self.hasVariant(properties):
+                continue
+            new_id = self.context.generateUniqueId("ProductVariant")
+            self.context.invokeFactory(
+                "ProductVariant", id=new_id, title=title, forProperties=properties)
+
+    def deleteVariants(self, ids):
+        """Deletes variants with given ids.
+        """
+        if not isinstance(ids, (list, tuple)):
+            ids = (ids,)
+        
+        self.context.manage_delObjects(ids)
+                
     def getDefaultVariant(self):
         """
         """
@@ -64,3 +75,29 @@ class ProductVariantsManagement:
                 return variant
 
         return self.getDefaultVariant()
+        
+    def hasVariant(self, properties):
+        """
+        """
+        properties.sort()
+        for variant in self.getVariants():
+            for_properties = list(variant.getForProperties())
+            for_properties.sort()
+            if properties == for_properties:
+                return True
+        return False
+        
+    def _cartesian_product(self, *seqin):
+        """Calculates the cartesian product of given lists.
+        """
+        # Found in ASPN Cookbook
+        def rloop(seqin, comb):
+            if seqin:
+                for item in seqin[0]:
+                    newcomb = comb + [item]
+                    for item in rloop(seqin[1:], newcomb):
+                        yield item
+            else:
+                yield comb
+        
+        return rloop(seqin, [])

@@ -33,7 +33,7 @@
         for="easyshop.core.interfaces.IProductVariants"
         class=".manage_variants_view.ManageVariantsView"
         template="manage_variants_view.pt"
-        allowed_attributes="addVariant"
+        allowed_attributes="addVariants deleteVariants"
         permission="zope.Public" />
 
     <!-- Category -->

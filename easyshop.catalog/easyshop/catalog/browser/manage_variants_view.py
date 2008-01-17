@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop.imports
 from easyshop.catalog.adapters.property_management import getTitlesByIds
+from easyshop.catalog.adapters.property_management import getOptionsForProperty
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IPrices
@@ -16,25 +17,39 @@ from easyshop.core.interfaces import IShopManagement
 class ManageVariantsView(BrowserView):
     """
     """ 
-    def addVariant(self):
+    def addVariants(self):
         """
         """    
+        putils = getToolByName(self.context, "plone_utils")
+                
         title = self.request.get("title", "")
-        properties = getPropertiesAsList(self.request)
+        properties = self._getPropertiesAsList()
         
         pvm = IProductVariantsManagement(self.context)
-        pvm.addVariant(title, properties)
+        result = pvm.addVariants(title, properties)
         
-        putils = getToolByName(self.context, "plone_utils")
-        putils.addPortalMessage(MESSAGES["VARIANT_ADDED"])
+        if result == False:
+            putils.addPortalMessage(MESSAGES["VARIANT_ALREADY_EXISTS"])
+        else:
+            putils.addPortalMessage(MESSAGES["VARIANT_ADDED"])
         
         url = self.context.absolute_url() + "/manage-variants-view"
         self.request.response.redirect(url)
         
-    def deleteVariant(self):
+    def deleteVariants(self):
         """
         """
-        pass
+        ids = self.request.get("id", None)
+        
+        if id is not None:
+            pvm = IProductVariantsManagement(self.context)        
+            pvm.deleteVariants(ids)
+
+        putils = getToolByName(self.context, "plone_utils")
+        putils.addPortalMessage("Deleted")
+
+        url = self.context.absolute_url() + "/manage-variants-view"
+        self.request.response.redirect(url)
 
     def getProperties(self):
         """
@@ -49,7 +64,7 @@ class ManageVariantsView(BrowserView):
             })
         
         return result
-        
+    
     def getVariants(self):
         """
         """
@@ -82,6 +97,7 @@ class ManageVariantsView(BrowserView):
                     variant.aq_inner.aq_parent.Title()
             
             result.append({
+                "id"         : variant.getId(),
                 "title"      : title,
                 "url"        : variant.absolute_url(),                
                 "properties" : properties,
@@ -90,14 +106,20 @@ class ManageVariantsView(BrowserView):
         return result
         
         
-def getPropertiesAsList(request):
-    """
-    """
-    selected_properties = []
-    for name, value in request.form.items():
-        if name.startswith("property"):
-            selected_properties.append("%s:%s" % (name[9:], value))
+    def _getPropertiesAsList(self):
+        """
+        """
+        selected_properties = []
+        for name, value in self.request.form.items():
+            if name.startswith("property"):
+                name = name[9:]
+                if value == "all":
+                    temp = []
+                    for option in getOptionsForProperty(self.context, name):
+                        temp.append("%s:%s" % (name, option["id"]))
+                    selected_properties.append(temp)
+                else:
+                    selected_properties.append(["%s:%s" % (name, value)])
     
-    selected_properties.sort()
-    
-    return selected_properties
+        selected_properties.sort()    
+        return selected_properties

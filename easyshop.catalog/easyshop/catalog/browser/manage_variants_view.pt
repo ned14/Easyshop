@@ -4,13 +4,29 @@
       i18n:domain="EasyShop">
       
     <body>
-        <div metal:fill-slot="main">
+        <div metal:fill-slot="main"
+             tal:define="properties view/getProperties">
             <form id="manage-variants"
                   method="post"
                   action="."
                   tal:attributes="action context/REQUEST/URL">
                 <table>
+                    <tr>
+                        <th></th>
+                        <th i18n:translate="title_label">
+                            Title
+                        </th>
+                        <th tal:repeat="property properties"
+                            tal:content="property/title">
+                            Title
+                        </th>
+                    </tr>
                     <tr tal:repeat="variant view/getVariants">
+                        <td>
+                            <input type="checkbox" 
+                                   name="id"
+                                   tal:attributes="value variant/id" />
+                        </td>                        
                         <td>
                             <a href="."
                                tal:attributes="href string:${variant/url}/edit"
@@ -32,7 +48,7 @@
                            <input type="text"
                                   name="title" />
                         </td>
-                        <tal:block tal:repeat="property view/getProperties">
+                        <tal:block tal:repeat="property properties">
                             <td>
                                 <select tal:attributes="name property/id">
                                     <option value="all"
@@ -53,7 +69,12 @@
                         <td>
                             <input type="submit"
                                    value="add" 
-                                   name="addVariant:method" />
+                                   name="addVariants:method" />
+
+                            <input type="submit"
+                                   value="delete" 
+                                   name="deleteVariants:method" />
+                                   
                         </td>
                     </tr>     
                 </table>
