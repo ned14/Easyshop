@@ -23,6 +23,7 @@ from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
@@ -87,12 +88,18 @@ class CartFormView(BrowserView):
                     
                 if result is None:
                     continue
+
+                if IProductVariant.providedBy(product) == True:
+                    show_price = False
+                else:
+                    show_price = True
                     
                 properties.append({
                     "id" : selected_property["id"],
                     "selected_option" : titles["option"],
                     "title" : titles["property"],
-                    "price" : cm.priceToString(property_price)
+                    "price" : cm.priceToString(property_price),
+                    "show_price" : show_price,
                 })
 
             # Discount
