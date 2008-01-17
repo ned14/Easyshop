@@ -134,26 +134,30 @@ class ProductVariantsPrices(ProductPrices):
         pvm = IProductVariantsManagement(context)
         self.product_variant = pvm.getSelectedVariant()
         
-    def getPriceForCustomer(self, effective=True):
+    def getPriceForCustomer(self, effective=True, variant_price=True):
         """
         """
-        if self.product_variant and self.product_variant.getPrice() != 0:
+        if self.product_variant and variant_price and \
+           self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceForCustomer()
         else:
-            return super(ProductVariantsPrices, self).getPriceForCustomer(effective)
+            base = super(ProductVariantsPrices, self)
+            return base.getPriceForCustomer(effective)
             
-    def getPriceNet(self, effective=True):
+    def getPriceNet(self, effective=True, variant_price=True):
         """
         """
-        if self.product_variant and self.product_variant.getPrice() != 0:
+        if self.product_variant and variant_price and \
+           self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceNet()
         else:
             return super(ProductVariantsPrices, self).getPriceNet(effective)
 
-    def getPriceGross(self, effective=True):
+    def getPriceGross(self, effective=True, variant_price=True):
         """
         """
-        if self.product_variant and self.product_variant.getPrice() != 0:
+        if self.product_variant and variant_price and \
+           self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceGross()
         else:
             return super(ProductVariantsPrices, self).getPriceGross(effective)
@@ -174,22 +178,25 @@ class ProductVariantPrices(ProductPrices):
         """
         """
         if self.context.getPrice() != 0:
-            return super(ProductVariantPrices, self).getPriceForCustomer(effective)
+            base = super(ProductVariantPrices, self)
+            return base.getPriceForCustomer(effective)
         else:
-            return IPrices(self.parent).getPriceForCustomer()
+            return IPrices(self.parent).getPriceForCustomer(variant_price=False)
             
     def getPriceNet(self, effective=True):
         """
         """
         if self.context.getPrice() != 0:
-            return super(ProductVariantPrices, self).getPriceNet(effective)
+            base = super(ProductVariantPrices, self)
+            return base.getPriceNet(effective)
         else:
-            return IPrices(self.parent).getPriceNet()
+            return IPrices(self.parent).getPriceNet(variant_price=False)
 
     def getPriceGross(self, effective=True):
         """
         """
         if self.context.getPrice() != 0:
-            return super(ProductVariantPrices, self).getPriceGross(effective)
+            base = super(ProductVariantPrices, self)
+            return base.getPriceGross(effective)
         else:
-            return IPrices(self.parent).getPriceGross()
+            return IPrices(self.parent).getPriceGross(variant_price=False)
