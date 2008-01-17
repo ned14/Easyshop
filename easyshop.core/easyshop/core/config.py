@@ -27,11 +27,12 @@ DEFAULT_SHOP_FORM = os.path.sep.join([home, "browser", "default_shop_form.pt"])
 
 
 MESSAGES = {
-    "CART_ADDED_PRODUCT"    : _(u"The product has been added to the cart."),
-    "CART_INCREASED_AMOUNT" : _(u"The amount of the product has been increased."),
-    "ORDER_RECEIVED"        : _(u"Your order has been received. Thank you!"),
-    "NO_PRODUCTS_FOUND"     : _(u"No products found."),
-    "VARIANT_ADDED"         : _(u"The product variant has been added."),
+    "CART_ADDED_PRODUCT"     : _(u"The product has been added to the cart."),
+    "CART_INCREASED_AMOUNT"  : _(u"The amount of the product has been increased."),
+    "ORDER_RECEIVED"         : _(u"Your order has been received. Thank you!"),
+    "NO_PRODUCTS_FOUND"      : _(u"No products found."),
+    "VARIANT_ADDED"          : _(u"The product variant has been added."),
+    "VARIANT_ALREADY_EXISTS" : _(u"The product variant already exists."),
 }
 
 IMAGE_SIZES = {'large'   : (768, 768),

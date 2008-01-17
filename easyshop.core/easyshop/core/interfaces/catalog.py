@@ -142,8 +142,12 @@ class IProductVariant(IProduct):
 class IProductVariantsManagement(Interface):
     """Provides methods to manage product variants.
     """
-    def addProductVariant(title, properties):
+    def addVariants(title, properties):
         """Adds a product variant.
+        """
+    
+    def deleteVariants(ids):
+        """Deletes variants with given ids.
         """
         
     def getDefaultVariant():
@@ -155,9 +159,12 @@ class IProductVariantsManagement(Interface):
         """
 
     def getSelectedVariant(properties):
-        """Returns existing product variants.
+        """Returns selected product.
         """
-    
+
+    def hasVariant(properties):
+        """Returns True if a variant with given properties exists.
+        """
 ################################################################################
 # Property        
 ################################################################################
@@ -168,7 +175,11 @@ class IProperty(Interface):
     
 class IPropertyManagement(Interface):
     """Provides methods to manage property content objects.
-    """    
+    """ 
+    def getOptionsForProperty(property_id):
+        """Return all options of the given property id.
+        """
+        
     def getPriceForCustomer(property_id, option_name):
         """Returns the customer price of a context's property with given id and
         option name.
