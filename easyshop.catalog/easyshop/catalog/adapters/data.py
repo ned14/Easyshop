@@ -79,6 +79,9 @@ class ProductVariantData:
                       self.parent.getShortTitle() or \
                       title
         
+        # article id
+        article_id = self.context.getArticleId() or \
+                     self.parent.getArticleId()
         # text 
         text = self.context.getText() or self.parent.getText()
 
@@ -92,7 +95,8 @@ class ProductVariantData:
             })
         
         return {
-            "title"       : title,
+            "article_id"  : article_id,
+            "title"       : title,            
             "short_title" : short_title,
             "url"         : self.context.absolute_url(),
             "image"       : image,

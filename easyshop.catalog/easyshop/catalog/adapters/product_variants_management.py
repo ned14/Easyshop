@@ -17,7 +17,7 @@ class ProductVariantsManagement:
         """
         self.context = context
 
-    def addVariants(self, title, properties):
+    def addVariants(self, properties, title="", article_id=""):
         """
         """
         cp = self._cartesian_product(*properties)
@@ -27,7 +27,11 @@ class ProductVariantsManagement:
                 continue
             new_id = self.context.generateUniqueId("ProductVariant")
             self.context.invokeFactory(
-                "ProductVariant", id=new_id, title=title, forProperties=properties)
+                "ProductVariant", 
+                id=new_id, 
+                title=title, 
+                article_id=article_id, 
+                forProperties=properties)
 
     def deleteVariants(self, ids):
         """Deletes variants with given ids.

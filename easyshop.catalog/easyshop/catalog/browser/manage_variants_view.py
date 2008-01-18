@@ -23,10 +23,12 @@ class ManageVariantsView(BrowserView):
         putils = getToolByName(self.context, "plone_utils")
                 
         title = self.request.get("title", "")
+        article_id = self.request.get("article_id", "")
+        
         properties = self._getPropertiesAsList()
         
         pvm = IProductVariantsManagement(self.context)
-        result = pvm.addVariants(title, properties)
+        result = pvm.addVariants(properties, title, article_id)
         
         if result == False:
             putils.addPortalMessage(MESSAGES["VARIANT_ALREADY_EXISTS"])
@@ -72,6 +74,14 @@ class ManageVariantsView(BrowserView):
         pvm = IProductVariantsManagement(self.context)
         
         for variant in  pvm.getVariants():
+
+            # article id
+            article_id = variant.getArticleId() or \
+                         variant.aq_inner.aq_parent.getArticleId()
+            
+            # Title
+            title = variant.Title() or \
+                    variant.aq_inner.aq_parent.Title()
                         
             # Options 
             properties = []
@@ -91,13 +101,10 @@ class ManageVariantsView(BrowserView):
                 price = IPrices(variant).getPriceNet()
                 
             price = cm.priceToString(price)        
-            
-            # Title
-            title = variant.Title() or \
-                    variant.aq_inner.aq_parent.Title()
-            
+                        
             result.append({
                 "id"         : variant.getId(),
+                "article_id" : article_id,
                 "title"      : title,
                 "url"        : variant.absolute_url(),                
                 "properties" : properties,

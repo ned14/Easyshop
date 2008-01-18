@@ -10,9 +10,12 @@
                   method="post"
                   action="."
                   tal:attributes="action context/REQUEST/URL">
-                <table>
+                <table class="listing">
                     <tr>
                         <th></th>
+                        <th i18n:translate="article_id_label">
+                            Article ID
+                        </th>    
                         <th i18n:translate="title_label">
                             Title
                         </th>
@@ -20,13 +23,19 @@
                             tal:content="property/title">
                             Title
                         </th>
+                        <th i18n:translate="price_label">
+                            Price
+                        </th>
                     </tr>
                     <tr tal:repeat="variant view/getVariants">
                         <td>
                             <input type="checkbox" 
                                    name="id"
                                    tal:attributes="value variant/id" />
-                        </td>                        
+                        </td>    
+                        <td tal:content="variant/article_id">
+                            Article ID
+                        </td>                    
                         <td>
                             <a href="."
                                tal:attributes="href string:${variant/url}/edit"
@@ -44,10 +53,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <td></td>                                                                        
                         <td>
                            <input type="text"
                                   name="title" />
                         </td>
+                        <td>
+                           <input type="text"
+                                  name="article_id" />
+                        </td>
+
                         <tal:block tal:repeat="property properties">
                             <td>
                                 <select tal:attributes="name property/id">
@@ -66,6 +81,7 @@
                         <td></td>
                     </tr>           
                     <tr>
+                        <td></td>
                         <td>
                             <input type="submit"
                                    value="add" 
@@ -76,6 +92,10 @@
                                    name="deleteVariants:method" />
                                    
                         </td>
+                        <td></td>
+                        <td></td>                        
+                        <td></td>
+                        <td></td>
                     </tr>     
                 </table>
             </form>    

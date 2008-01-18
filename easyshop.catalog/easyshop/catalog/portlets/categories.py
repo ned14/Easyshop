@@ -226,7 +226,7 @@ class Renderer(base.Renderer):
         if context_url.startswith(category_url):
             return True
             
-        elif self.context.portal_type == "Product":
+        elif self.context.portal_type in ("Product", "ProductVariants"):
             try:
                 product_category = self.context.getBRefs("categories_products")[0]
             except IndexError:
