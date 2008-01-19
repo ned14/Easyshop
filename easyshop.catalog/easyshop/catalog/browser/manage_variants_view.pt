@@ -10,6 +10,11 @@
                   method="post"
                   action="."
                   tal:attributes="action context/REQUEST/URL">
+                  
+                <input type="submit"
+                       value="Add Property" 
+                       name="addProperty:method" />
+                       
                 <table class="listing">
                     <tr>
                         <th></th>
@@ -93,9 +98,9 @@
                                    
                         </td>
                         <td></td>
-                        <td></td>                        
                         <td></td>
-                        <td></td>
+                        <td tal:repeat="property properties">
+                        </td>    
                     </tr>     
                 </table>
             </form>    

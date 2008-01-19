@@ -1,6 +1,12 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
     <subscriber
-        handler=".subscribers.createContainers" />
+        handler=".containers.createContainers" />
+
+    <subscriber
+        handler=".variants.addProperty" />
+
+    <subscriber
+        handler=".variants.deleteProperty" />
 
 </configure>

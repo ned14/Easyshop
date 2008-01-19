@@ -103,8 +103,13 @@ class ProductPropertyManagement(object):
         # Get all properties as dict
         result = self._getProperties()
         
+        if result.has_key(property_id) == False:
+            return {
+                "property" : property_id, 
+                "option" : option_id,
+            }
+
         property = result[property_id]
-        
         for option in property.getOptions():
             if option["id"] == option_id:
                 return {

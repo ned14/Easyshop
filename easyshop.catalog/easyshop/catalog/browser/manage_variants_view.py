@@ -14,9 +14,21 @@ from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
 
+from easyshop.catalog.content import ProductProperty
+
 class ManageVariantsView(BrowserView):
     """
     """ 
+    def addProperty(self):
+        """
+        """
+        id = self.context.generateUniqueId("Property")                
+        property = ProductProperty(id)
+        self.context._setObject(id, property)
+        
+        url = self.context.absolute_url() + "/manage-variants-view"
+        self.request.response.redirect(url)
+        
     def addVariants(self):
         """
         """    
