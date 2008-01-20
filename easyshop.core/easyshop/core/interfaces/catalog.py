@@ -1,4 +1,5 @@
 from zope.interface import Interface
+from zope.interface import Attribute
 
 ################################################################################
 # Category        
@@ -170,7 +171,11 @@ class IProductVariantsManagement(Interface):
 ################################################################################
 
 class IProperty(Interface):
-    """A marker interface for a property content objects.
+    """A property for various content objects.
+    """
+    
+class IPropertyOption(Interface):
+    """A property for various content objects.
     """
     
 class IPropertyManagement(Interface):
