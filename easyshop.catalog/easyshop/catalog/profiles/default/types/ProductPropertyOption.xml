@@ -1,24 +1,22 @@
 <?xml version="1.0"?>
-<object name="ProductProperty"
+<object name="ProductPropertyOption"
    meta_type="Factory-based Type Information"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Product Property</property>
+ <property name="title">Option</property>
  <property name="description">
       </property>
  <property name="content_icon">document_icon.gif</property>
- <property name="content_meta_type">ProductProperty</property>
+ <property name="content_meta_type">ProductPropertyOption</property>
  <property name="product">easyshop.shop</property>
- <property name="factory">addProductProperty</property>
- <property name="immediate_view">product-property-view</property>
+ <property name="factory">addProductPropertyOption</property>
+ <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
- <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-  <element value="ProductPropertyOption"/>
- </property>      
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <alias from="(Default)" to="product-property-view"/> 
+ <alias from="(Default)" to="base_view"/> 
  <alias from="edit" to="base_edit"/>
- <alias from="view" to="product-property-view"/> 
+ <alias from="view" to="base_view"/> 
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}" visible="True">
   <permission value="View"/>

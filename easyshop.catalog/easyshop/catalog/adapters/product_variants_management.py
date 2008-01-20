@@ -20,17 +20,29 @@ class ProductVariantsManagement:
     def addVariants(self, properties, title="", article_id=""):
         """
         """
-        cp = self._cartesian_product(*properties)
+        article_id = article_id.replace("%A", self.context.getArticleId())
+        article_id = article_id.replace("%T", self.context.Title())        
+
+        title = title.replace("%A", self.context.getArticleId())
+        title = title.replace("%T", self.context.Title())
         
-        for properties in cp:
+        i=0
+        for properties in self._cartesian_product(*properties):
+            
             if self.hasVariant(properties):
                 continue
+            
+            # format string
+            i += 1
+            new_article_id = article_id.replace("%n", str(i))
+            new_title = title.replace("%n", str(i))
+            
             new_id = self.context.generateUniqueId("ProductVariant")
             self.context.invokeFactory(
                 "ProductVariant", 
                 id=new_id, 
-                title=title, 
-                article_id=article_id, 
+                title=new_title, 
+                articleId=new_article_id,
                 forProperties=properties)
 
     def deleteVariants(self, ids):

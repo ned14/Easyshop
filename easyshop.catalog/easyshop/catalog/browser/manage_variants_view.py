@@ -14,29 +14,28 @@ from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
 
-from easyshop.catalog.content import ProductProperty
-
 class ManageVariantsView(BrowserView):
     """
     """ 
     def addProperty(self):
         """
         """
-        id = self.context.generateUniqueId("Property")                
-        property = ProductProperty(id)
-        self.context._setObject(id, property)
-        
-        url = self.context.absolute_url() + "/manage-variants-view"
-        self.request.response.redirect(url)
+        pass
+        # id = self.context.generateUniqueId("Property")                
+        # property = ProductProperty(id)
+        # self.context._setObject(id, property)
+        # 
+        # url = self.context.absolute_url() + "/manage-variants-view"
+        # self.request.response.redirect(url)
         
     def addVariants(self):
         """
-        """    
+        """
         putils = getToolByName(self.context, "plone_utils")
                 
         title = self.request.get("title", "")
         article_id = self.request.get("article_id", "")
-        
+                
         properties = self._getPropertiesAsList()
         
         pvm = IProductVariantsManagement(self.context)
@@ -53,14 +52,12 @@ class ManageVariantsView(BrowserView):
     def deleteVariants(self):
         """
         """
-        ids = self.request.get("id", None)
-        
-        if id is not None:
-            pvm = IProductVariantsManagement(self.context)        
-            pvm.deleteVariants(ids)
+        paths = self.request.get("paths", None)
 
-        putils = getToolByName(self.context, "plone_utils")
-        putils.addPortalMessage("Deleted")
+        if paths is not None:
+            putils = getToolByName(self.context, "plone_utils")
+            putils.deleteObjectsByPaths(paths)
+            putils.addPortalMessage(MESSAGES["VARIANTS_DELETED"])
 
         url = self.context.absolute_url() + "/manage-variants-view"
         self.request.response.redirect(url)
@@ -85,7 +82,7 @@ class ManageVariantsView(BrowserView):
         result = []
         pvm = IProductVariantsManagement(self.context)
         
-        for variant in  pvm.getVariants():
+        for variant in pvm.getVariants():
 
             # article id
             article_id = variant.getArticleId() or \
@@ -112,10 +109,9 @@ class ManageVariantsView(BrowserView):
             else:
                 price = IPrices(variant).getPriceNet()
                 
-            price = cm.priceToString(price)        
-                        
             result.append({
                 "id"         : variant.getId(),
+                "path"       : "/".join(variant.getPhysicalPath()),
                 "article_id" : article_id,
                 "title"      : title,
                 "url"        : variant.absolute_url(),                
@@ -124,6 +120,32 @@ class ManageVariantsView(BrowserView):
             })                
         return result
         
+    def saveVariants(self):
+        """Saves all variants.
+        """
+        article_ids = {}                
+        prices = {}
+        titles = {}        
+        for id, value in self.request.form.items():
+            if id.startswith("price"):
+                prices[id[6:]] = value
+            elif id.startswith("article-id"):
+                article_ids[id[11:]] = value
+            elif id.startswith("title"):
+                titles[id[6:]] = value
+
+        pvm = IProductVariantsManagement(self.context)
+        for variant in pvm.getVariants():
+            variant.setArticleId(article_ids[variant.getId()])
+            variant.setPrice(prices[variant.getId()])
+            variant.setTitle(titles[variant.getId()])
+            variant.reindexObject()
+            
+        putils = getToolByName(self.context, "plone_utils")
+        putils.addPortalMessage(MESSAGES["VARIANTS_SAVED"])
+        
+        url = self.context.absolute_url() + "/manage-variants-view"
+        self.request.response.redirect(url)
         
     def _getPropertiesAsList(self):
         """

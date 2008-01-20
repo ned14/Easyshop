@@ -34,6 +34,10 @@
  <object
      name="ProductProperty"
      meta_type="Factory-based Type Information"/>
+
+ <object
+     name="ProductPropertyOption"
+     meta_type="Factory-based Type Information"/>
      
  <object
      name="ProductSelector"

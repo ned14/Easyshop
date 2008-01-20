@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <div metal:fill-slot="main">
+            <h1 class="documentFirstHeading"
+                i18n:translate="properties_label">
+                Properties
+            </h1>
+            <form action="."
+                  method="post"
+                  tal:attributes="action context/REQUEST/URL">
+
+                <input type="text"
+                       name="title" />
+                   
+                <input type="submit"
+                       value="Add Property"
+                       name="addProperty:method"
+                       i18n:attributes="value add_property_label;" />
+            
+            </form>           
+            <br />
+            <tal:block tal:repeat="property view/getProperties">
+                <form action="."
+                      method="post"
+                      enctype="multipart/form-data"
+                      tal:attributes="action context/REQUEST/URL">
+                           
+                    <h2>
+                        <input type="checkbox"
+                               name="paths:list"
+                               tal:attributes="value property/path" />
+                        
+                        <span tal:content="property/title">
+                            Property Title
+                        </span>
+                    </h2>
+                    <table class="listing">
+                        <tr>
+                            <th>
+                            </th>
+                            <th i18n:translate="image_label">
+                                Image
+                            </th>
+                            <th i18n:translate="title_label">
+                                Title
+                            </th>
+                        </tr>
+                        <tr tal:repeat="option property/options">
+                            <td>
+                                <input type="checkbox"
+                                       name="paths:list"
+                                       tal:attributes="value option/path" />
+                            </td>                            
+                            <td>
+                               <img tal:condition="option/image_url"
+                                    tal:attributes="src option/image_url;
+                                                    alt option/name" />
+                            </td>
+                            <td> 
+                                <a href="."                                  
+                                   tal:content="option/name"
+                                   tal:attributes="href string:${option/url}/edit">
+                                    Option Title
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input name="file" 
+                                       type="file" 
+                                       size="10" 
+                                       accept="text/*" />
+                            </td>
+                            <td>
+                                <input type="hidden"
+                                       name="property_id"
+                                       tal:attributes="value property/id" />
+
+                                <input type="text"
+                                       name="title" />
+                           
+                                <input type="submit"
+                                       value="Add Option"
+                                       name="addOption:method"
+                                       i18n:attributes="value add_option_label;" />
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit"
+                           name="deletePaths:method"
+                           value="Delete"
+                           i18n:attributes="value delete_label;" />
+                </form>                       
+            </tal:block>    
+
+        </div>    
+    </body>
+    
+</html>

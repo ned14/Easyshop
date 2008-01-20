@@ -34,7 +34,6 @@ def addProperty(property, event):
 def deleteProperty(property, event):
     """Removes property from all existing product variants.
     """
-    import pdb; pdb.set_trace()
     product = property.aq_inner.aq_parent
     if IProductVariants.providedBy(product) == False:
         return 

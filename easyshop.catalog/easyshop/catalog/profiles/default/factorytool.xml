@@ -6,6 +6,7 @@
   <type portal_type="EasyShopImage"/> 
   <type portal_type="Product"/>   
   <type portal_type="ProductProperty"/> 
+  <type portal_type="ProductPropertyOption"/> 
   <type portal_type="ProductSelector"/> 
  </factorytypes>
 </object>
