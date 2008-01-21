@@ -61,7 +61,7 @@ class CatalogKSSView(PloneKSSView):
             if letter == "All":
                 products = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    portal_type = ["Product", "ProductVariants"],
+                    portal_type = "Product",
                     sort_on = "sortable_title",
                 )
                         
