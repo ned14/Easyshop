@@ -90,7 +90,7 @@ class ProductVariantsManagement:
             if result.lower() == for_properties.lower():
                 return variant
 
-        return self.getDefaultVariant()
+        return None
         
     def hasVariant(self, properties):
         """

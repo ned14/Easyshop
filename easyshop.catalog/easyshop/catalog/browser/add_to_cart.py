@@ -79,8 +79,9 @@ class ProductVariantsAddToCartView(BrowserView):
     def addToCart(self):
         """
         """
+        import pdb; pdb.set_trace()
         pvm = IProductVariantsManagement(self.context)
-        product_variant = pvm.getSelectedVariant()
+        product_variant = pvm.getSelectedVariant() or pvm.getDefaultVariant()
         
         shop = IShopManagement(product_variant).getShop()        
         cm = ICartManagement(shop)
@@ -90,16 +91,11 @@ class ProductVariantsAddToCartView(BrowserView):
             cart = cm.createCart()
 
         properties = []
-        for property_id, selected_option in self.request.form.items():
-            if property_id.startswith("property") == False:
-                continue
-                
-            if selected_option == "please_select":
-                continue
-                    
+        for property in product_variant.getForProperties():
+            property_id, selected_option = property.split(":")
             properties.append(
-                {"id" : property_id[9:], 
-                 "selected_option" : selected_option 
+                {"id" : property_id,
+                 "selected_option" : selected_option,
                 }
             )
 

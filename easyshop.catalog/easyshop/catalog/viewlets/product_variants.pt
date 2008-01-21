@@ -142,6 +142,10 @@
                                             Title
                                          </td>
                                          <td>
+                                             <input type="hidden"
+                                                    name="variant_selected"
+                                                    value="1" />
+                                                    
                                              <select style="font-size:12px; width:200px"
                                                      onchange="document.product_form.submit();"
                                                      tal:attributes="name property/id">

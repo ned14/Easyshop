@@ -114,9 +114,9 @@ class ProductVariantsData(ProductData):
         """
         """
         pvm = IProductVariantsManagement(self.context)
-        product_variant = pvm.getSelectedVariant()
+        product_variant = pvm.getSelectedVariant() or pvm.getDefaultVariant()
         
         if product_variant is None:
-            return super(ProductVariantsData, self).asDict()
+            return super(ProductVariantsData, self).asDict()                    
         else:
             return IData(product_variant).asDict()

@@ -25,6 +25,7 @@
     <browser:page
         name="product-variants-view"        
         for="easyshop.core.interfaces.IProductVariants"
+        class=".product_variants_view.ProductVariantsView"
         template="product_variants_view.pt"
         permission="zope.Public" />
 
