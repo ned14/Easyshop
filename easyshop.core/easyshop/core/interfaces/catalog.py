@@ -166,6 +166,11 @@ class IProductVariantsManagement(Interface):
     def hasVariant(properties):
         """Returns True if a variant with given properties exists.
         """
+
+    def hasVariants():
+        """Returns True if context has at least one variant.
+        """
+        
 ################################################################################
 # Property        
 ################################################################################
