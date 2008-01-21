@@ -23,11 +23,12 @@
             
             </form>           
             <br />
-            <tal:block tal:repeat="property view/getProperties">
-                <form action="."
-                      method="post"
-                      enctype="multipart/form-data"
-                      tal:attributes="action context/REQUEST/URL">
+            <form action="."
+                  method="post"
+                  enctype="multipart/form-data"
+                  tal:attributes="action context/REQUEST/URL">
+            
+                <tal:block tal:repeat="property view/getProperties">
                            
                     <h2>
                         <input type="checkbox"
@@ -95,9 +96,8 @@
                            name="deletePaths:method"
                            value="Delete"
                            i18n:attributes="value delete_label;" />
-                </form>                       
-            </tal:block>    
-
+                </tal:block>    
+            </form>                                   
         </div>    
     </body>
     

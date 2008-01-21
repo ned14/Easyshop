@@ -78,32 +78,57 @@ class ProductVariantsAddToCartView(BrowserView):
 
     def addToCart(self):
         """
-        """
-        import pdb; pdb.set_trace()
-        pvm = IProductVariantsManagement(self.context)
-        product_variant = pvm.getSelectedVariant() or pvm.getDefaultVariant()
-        
-        shop = IShopManagement(product_variant).getShop()        
+        """        
+        shop = IShopManagement(self.context).getShop()
         cm = ICartManagement(shop)
         
         cart = cm.getCart()
         if cart is None:
             cart = cm.createCart()
+        
+        pvm = IProductVariantsManagement(self.context)
+        if pvm.hasVariants():
 
-        properties = []
-        for property in product_variant.getForProperties():
-            property_id, selected_option = property.split(":")
-            properties.append(
-                {"id" : property_id,
-                 "selected_option" : selected_option,
-                }
-            )
+            # Get the actual "product"
+            product = pvm.getSelectedVariant() or pvm.getDefaultVariant()
+            
+            # Using here the selected product ensures that we save the right
+            # properties. This is important when the selected variant doesn't 
+            # exist.
+            properties = []
+            for property in product.getForProperties():
+                property_id, selected_option = property.split(":")
+                properties.append(
+                    {"id" : property_id,
+                     "selected_option" : selected_option,
+                    }
+                )
+        else:
+            
+            # The product is the context
+            product = self.context
 
+            # Unlike above we take the properties out of the request, because 
+            # there is no object wich stores the different properties.
+            properties = []
+            for property_id, selected_option in self.request.form.items():
+                if property_id.startswith("property") == False:
+                    continue
+             
+                if selected_option == "please_select":
+                    continue
+                 
+                properties.append(
+                    {"id" : property_id[9:], 
+                     "selected_option" : selected_option 
+                    }
+                )
+        
         # get quantity
         quantity = int(self.context.request.get("quantity", 1))
 
         # returns true if the product was already within the cart    
-        result = IItemManagement(cart).addItem(product_variant, tuple(properties), quantity)
+        result = IItemManagement(cart).addItem(product, tuple(properties), quantity)
         
         # Set portal message
         putils = getToolByName(self.context, "plone_utils")        

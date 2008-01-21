@@ -38,38 +38,41 @@ class ProductVariantsViewlet(ViewletBase):
     def getPriceForCustomer(self):
         """
         """
-        pm = IPropertyManagement(self.context)
-        
-        total_diff = 0.0
-        for property_id, selected_option in self.request.form.items():
-            if property_id.startswith("property"):                
-                total_diff += pm.getPriceForCustomer(
-                    property_id[9:],
-                    selected_option
-                )
-
         p = IPrices(self.context)
-        price = p.getPriceForCustomer() + total_diff
-
+        price = p.getPriceForCustomer()
+        
+        if IProductVariantsManagement(self.context).hasVariants() == False:
+            total_diff = 0.0
+            pm = IPropertyManagement(self.context)
+            for property_id, selected_option in self.request.form.items():
+                if property_id.startswith("property"):                
+                    total_diff += pm.getPriceForCustomer(
+                        property_id[9:],
+                        selected_option
+                    )            
+            price += total_diff
+            
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
 
     def getStandardPriceForCustomer(self):
+        """Returns the standard price for a customer when the product is for 
+        sale. Used to display the crossed-out standard price.
         """
-        """
-        pm = IPropertyManagement(self.context)
-        
-        total_diff = 0.0
-        for property_id, selected_option in self.request.form.items():
-            if property_id.startswith("property"):                
-                total_diff += pm.getPriceForCustomer(
-                    property_id[9:],
-                    selected_option
-                )
-
         p = IPrices(self.context)
-        price = p.getPriceForCustomer(effective=False) + total_diff
-
+        price = p.getPriceForCustomer(effective=False)
+        
+        if IProductVariantsManagement(self.context).hasVariants() == False:
+            total_diff = 0.0
+            pm = IPropertyManagement(self.context)
+            for property_id, selected_option in self.request.form.items():
+                if property_id.startswith("property"):                
+                    total_diff += pm.getPriceForCustomer(
+                        property_id[9:],
+                        selected_option
+                    )            
+            price + total_diff
+            
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price)
                             
@@ -80,6 +83,63 @@ class ProductVariantsViewlet(ViewletBase):
         return data.asDict()
 
     def getProperties(self):
+        """
+        """    
+        pvm = IProductVariantsManagement(self.context)
+        if pvm.hasVariants():
+            return self._getPropertiesForVariants()
+        else:
+            return self._getPropertiesForConfiguration()
+            
+    def _getPropertiesForConfiguration(self):
+        """
+        """
+        u = queryUtility(INumberConverter)
+        cm = ICurrencyManagement(self.context)
+                        
+        selected_options = {}
+        for name, value in self.request.items():
+            if name.startswith("property"):
+                selected_options[name[9:]] = value
+        
+        pm = IPropertyManagement(self.context)
+        
+        result = []
+        for property in pm.getProperties():
+            options = []
+            for option in property.getOptions():
+
+                # generate value string
+                option_id    = option["id"]
+                option_name  = option["name"]
+                option_price = option["price"]
+
+                if option_price != "":
+                    option_price = u.stringToFloat(option_price)
+                    option_price = cm.priceToString(option_price, "long", "after")
+                    content = "%s %s" % (option_name, option_price)
+                else:
+                    content = option_name
+                        
+                # is option selected?
+                selected_option = selected_options.get(property.getId(), "")
+                selected = option_id == selected_option
+                
+                options.append({
+                    "id"       : option_id,
+                    "title"    : content,
+                    "selected" : selected,
+                })
+                
+            result.append({
+                "id"      : "property_" + property.getId(),
+                "title"   : property.Title(),
+                "options" : options,
+            })
+
+        return result
+        
+    def _getPropertiesForVariants(self):
         """
         """
         u = queryUtility(INumberConverter)

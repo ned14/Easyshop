@@ -28,7 +28,7 @@ class ProductPropertyManagement(object):
         property = self.getProperty(property_id)
         return property.getOptions()
         
-    def getPriceForCustomer(self, property_id, option_name):
+    def getPriceForCustomer(self, property_id, option_id):
         """
         """
         # Get the tax rate for the product to which the property belongs.
@@ -36,17 +36,17 @@ class ProductPropertyManagement(object):
         # same as for the product.
         tax_rate_for_customer = ITaxes(self.context).getTaxRateForCustomer()
         
-        price_net = self.getPriceNet(property_id, option_name)
+        price_net = self.getPriceNet(property_id, option_id)
         price_for_customer =  price_net * ((tax_rate_for_customer + 100) / 100)
 
         return price_for_customer
         
-    def getPriceGross(self, property_id, option_name):
+    def getPriceGross(self, property_id, option_id):
         """
         """
         shop     = IShopManagement(self.context).getShop()
         tax_rate = ITaxes(self.context).getTaxRate()
-        price    = self._calcPrice(property_id, option_name)
+        price    = self._calcPrice(property_id, option_id)
 
         # The price entered is considered as gross price, so we simply
         # return it.
@@ -58,7 +58,7 @@ class ProductPropertyManagement(object):
         else:
             return price * ((tax_rate + 100) / 100)
         
-    def getPriceNet(self, property_id, option_name):
+    def getPriceNet(self, property_id, option_id):
         """
         """
         # Get the tax rate for the product to which the property belongs.
@@ -66,7 +66,7 @@ class ProductPropertyManagement(object):
         # same as for the product.
         shop     = IShopManagement(self.context).getShop()
         tax_rate = ITaxes(self.context).getTaxRate()
-        price    = self._calcPrice(property_id, option_name)
+        price    = self._calcPrice(property_id, option_id)
 
 
         # The price entered is considered as gross price. So we have to 
@@ -137,7 +137,7 @@ class ProductPropertyManagement(object):
             
         return result
         
-    def _calcPrice(self, property_id, option_name):
+    def _calcPrice(self, property_id, option_id):
         """
         """
         found = False
@@ -151,7 +151,7 @@ class ProductPropertyManagement(object):
                     
         found = False
         for option in property.getOptions():
-            if option["name"] == option_name:
+            if option["id"] == option_id:
                 found = True
                 break
                 

@@ -14,8 +14,10 @@ class ProductVariantsView(BrowserView):
     def __call__(self):
         """
         """
-        if self.request.get("variant_selected", None) is not None:
-            pvm = IProductVariantsManagement(self.context)
+        pvm = IProductVariantsManagement(self.context)
+        if pvm.hasVariants() == True and \
+           self.request.get("variant_selected", None) is not None:
+        
             selected_variant = pvm.getSelectedVariant()
         
             if selected_variant is None:

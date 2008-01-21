@@ -102,6 +102,14 @@ class ProductVariantsManagement:
             if properties == for_properties:
                 return True
         return False
+
+    def hasVariants(self):
+        """
+        """
+        if len(self.getVariants()) > 0:
+            return True
+        else:
+            return False
         
     def _cartesian_product(self, *seqin):
         """Calculates the cartesian product of given lists.
