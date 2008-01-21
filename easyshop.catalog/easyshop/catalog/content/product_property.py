@@ -34,5 +34,14 @@ class ProductProperty(OrderedBaseFolder):
              })
         
         return result
-            
+
+    def base_view(self):
+        """Overwritten to redirect to manage-properties-view of parent product 
+        or group.
+        """
+        parent = self.aq_inner.aq_parent
+        
+        url = parent.absolute_url() + "/" + "manage-properties-view"
+        self.REQUEST.RESPONSE.redirect(url)
+        
 registerType(ProductProperty, PROJECTNAME)

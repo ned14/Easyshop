@@ -38,5 +38,15 @@ class ProductPropertyOption(BaseContent):
     """
     implements(IPropertyOption)
     schema = BaseContent.schema.copy() + schema
+
+    def base_view(self):
+        """Overwritten to redirect to manage-properties-view of parent product 
+        or group.
+        """
+        parent = self.aq_inner.aq_parent
+        grant_parent = parent.aq_inner.aq_parent
         
+        url = grant_parent.absolute_url() + "/" + "manage-properties-view"
+        self.REQUEST.RESPONSE.redirect(url)
+                
 registerType(ProductPropertyOption, PROJECTNAME)
