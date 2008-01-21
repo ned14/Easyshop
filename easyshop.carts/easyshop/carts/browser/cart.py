@@ -16,6 +16,7 @@ from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement 
 from easyshop.core.interfaces import IPaymentInformationManagement
@@ -114,10 +115,14 @@ class CartFormView(BrowserView):
                 }
 
                 total_price = price - discount_price
-                
+            
+            # Product title
+            data = IData(product).asDict()
+            title = data["title"]
+            
             result.append({
                 "id"            : cart_item.getId(),
-                "product_title" : product.Title(),
+                "product_title" : title,
                 "product_url"   : product.absolute_url(),
                 "product_price" : product_price,
                 "price"         : cm.priceToString(price),
