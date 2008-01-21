@@ -94,7 +94,7 @@ class ManageProductsView(BrowserView):
         if searchable_text != "":
             result = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
-                portal_type = ["Product", "ProductVariants"],
+                portal_type = "Product",
                 SearchableText = searchable_text,
                 sort_on = "sortable_title",
             )        
@@ -107,14 +107,14 @@ class ManageProductsView(BrowserView):
             if letter == "All":
                 result = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    portal_type = ["Product", "ProductVariants"],
+                    portal_type = "Product",
                     sort_on = "sortable_title",
                 )
             
             elif letter == "0-9":
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    portal_type = ["Product", "ProductVariants"],
+                    portal_type = "Product",
                     sort_on = "sortable_title",
                 )
                     
@@ -124,7 +124,7 @@ class ManageProductsView(BrowserView):
             else:
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    portal_type = ["Product", "ProductVariants"],
+                    portal_type = "Product",
                     Title = "%s*" % letter,
                     sort_on = "sortable_title",
                 )

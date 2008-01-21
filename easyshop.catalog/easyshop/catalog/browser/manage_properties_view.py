@@ -24,10 +24,21 @@ class ManagePropertiesView(BrowserView):
                 
         new_id    = self.context.generateUniqueId("ProductPropertyOption")
         title     = self.request.get("title", "")
+        price     = self.request.get("price", "")
         file_name = self.request.get("file", "")
 
-        property.invokeFactory("ProductPropertyOption", new_id, title=title, image=file_name)
-
+        # Price
+        try:
+            price = float(price)
+        except ValueError:
+            price = 0.0
+            
+        new_id = property.invokeFactory("ProductPropertyOption", new_id, title=title, 
+            image=file_name, price=price)
+        
+        option = property[new_id]
+        option._renameAfterCreation(check_auto_id=True)
+        
         putils = getToolByName(self.context, "plone_utils")
         putils.addPortalMessage(MESSAGES["ADDED_PRODUCT_OPTION"])
         
@@ -80,9 +91,49 @@ class ManagePropertiesView(BrowserView):
             options = property.getOptions()
             result.append({
                 "id"      : property.getId(),
-                "title"   : property.Title(),
+                "title"   : property.Title(),                
                 "path"    : "/".join(property.getPhysicalPath()),
                 "options" : options,
             })
         
         return result
+
+    def saveOptions(self):
+        """Saves all variants.
+        """
+        names = {}
+        prices = {}
+        images = {}
+
+        for id, value in self.request.form.items():
+            if id.startswith("price"):
+                prices[id[6:]] = value
+            elif id.startswith("name"):
+                names[id[5:]] = value
+            elif id.startswith("image"):
+                images[id[6:]] = value
+
+        property_id = self.request.get("property_id")
+        property = self.context.get(property_id, None)
+        
+        if property is None:
+            return 
+            
+        for option in property.objectValues("ProductPropertyOption"):
+            
+            try:
+                price = float(prices[option.getId()])
+            except ValueError:
+                price = 0.0
+                
+            option.setPrice(price)
+            option.setTitle(names[option.getId()])
+            
+            image = images[option.getId()]
+            option.setImage(image)
+            
+        putils = getToolByName(self.context, "plone_utils")
+        putils.addPortalMessage(MESSAGES["PROPERTY_OPTIONS_SAVED"])
+    
+        url = self.context.absolute_url() + "/manage-properties-view"
+        self.request.response.redirect(url)

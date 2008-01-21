@@ -22,10 +22,6 @@
    <bound-workflow workflow_id="easyshop_product_workflow"/>
   </type>
 
-  <type type_id="ProductVariants">
-   <bound-workflow workflow_id="easyshop_product_workflow"/>
-  </type>
-
   <type type_id="ProductSelector">
    <bound-workflow workflow_id="easyshop_default_workflow"/>
   </type>

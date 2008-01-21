@@ -38,7 +38,8 @@ class ProductPropertyOption(BaseContent):
     """
     implements(IPropertyOption)
     schema = BaseContent.schema.copy() + schema
-
+    _at_rename_after_creation = True
+    
     def base_view(self):
         """Overwritten to redirect to manage-properties-view of parent product 
         or group.

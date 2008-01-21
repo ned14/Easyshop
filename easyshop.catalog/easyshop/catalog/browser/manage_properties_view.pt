@@ -23,12 +23,11 @@
             
             </form>           
             <br />
-            <form action="."
-                  method="post"
-                  enctype="multipart/form-data"
-                  tal:attributes="action context/REQUEST/URL">
-            
-                <tal:block tal:repeat="property view/getProperties">
+            <tal:block tal:repeat="property view/getProperties">
+                <form action="."
+                      method="post"
+                      enctype="multipart/form-data"
+                      tal:attributes="action context/REQUEST/URL">
                            
                     <h2>
                         <input type="checkbox"
@@ -39,7 +38,7 @@
                             Property Title
                         </span>
                     </h2>
-                    <table class="listing">
+                    <table class="listing shop-default">
                         <tr>
                             <th>
                             </th>
@@ -49,6 +48,12 @@
                             <th i18n:translate="title_label">
                                 Title
                             </th>
+                            <th i18n:translate="price_label">
+                                Price
+                            </th>
+                            <th i18n:translate="manage_label">
+                                Manage
+                            </th>                            
                         </tr>
                         <tr tal:repeat="option property/options">
                             <td>
@@ -57,24 +62,57 @@
                                        tal:attributes="value option/path" />
                             </td>                            
                             <td>
-                               <img tal:condition="option/image_url"
-                                    tal:attributes="src option/image_url;
-                                                    alt option/name" />
+                                <img tal:condition="option/image_url"
+                                     tal:attributes="src option/image_url;
+                                                     alt option/name" />
+
+                                <input type="file"
+                                       tal:attributes="name string:image-${option/id}" />
+                                                    
                             </td>
-                            <td> 
-                                <a href="."                                  
-                                   tal:content="option/name"
-                                   tal:attributes="href string:${option/url}/edit">
-                                    Option Title
-                                </a>
+                            <td>
+                                <input type="text"
+                                       tal:attributes="name string:name-${option/id};
+                                                       value option/name" />
+                            </td>
+                            <td>
+                               <input type="text"
+                                      name="price"
+                                      tal:attributes="name string:price-${option/id};
+                                                      value option/price" />
+                            </td>
+                            <td>
+                                <a href="."
+                                   tal:attributes="href string:${option/url}/edit"
+                                   i18n:translate="edit_label">
+                                   Edit
+                                </a>   
                             </td>
                         </tr>
+                        <tr>
+                            <td></td>                            
+                            <td>
+                                
+                                <input type="submit"
+                                       name="deletePaths:method"
+                                       value="Delete"
+                                       i18n:attributes="value delete_label;" />                                
+
+                                <input type="submit"
+                                       name="saveOptions:method"
+                                       value="Save"
+                                       i18n:attributes="value save_label;" />
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                            
+                        </tr>
+                        
                         <tr>
                             <td></td>
                             <td>
                                 <input name="file" 
                                        type="file" 
-                                       size="10" 
                                        accept="text/*" />
                             </td>
                             <td>
@@ -85,19 +123,29 @@
                                 <input type="text"
                                        name="title" />
                            
-                                <input type="submit"
-                                       value="Add Option"
-                                       name="addOption:method"
-                                       i18n:attributes="value add_option_label;" />
                             </td>
+                            <td>
+                                <input type="text"
+                                       name="price" />                                
+                            </td>
+                            <td>
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit"
+                                       value="Add"
+                                       name="addOption:method"
+                                       i18n:attributes="value add_option_label;" />                                                                
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </table>
-                    <input type="submit"
-                           name="deletePaths:method"
-                           value="Delete"
-                           i18n:attributes="value delete_label;" />
-                </tal:block>    
-            </form>                                   
+                </form>                                   
+            </tal:block>
         </div>    
     </body>
     

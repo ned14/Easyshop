@@ -15,7 +15,6 @@
  <property name="allowed_content_types">
   <element value="Product"/>
   <element value="ProductsContainer"/>
-  <element value="ProductVariants"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="manage-products-view"/>
