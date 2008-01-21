@@ -3,8 +3,9 @@
 
     <!-- Product -->       
     <browser:page
-        name="product-view"        
+        name="product-view"
         for="easyshop.core.interfaces.IProduct"
+        class=".product_view.ProductView"
         template="product_view.pt"
         permission="zope.Public" />
 
@@ -23,15 +24,8 @@
 
     <!-- Product Variants -->
     <browser:page
-        name="product-variants-view"        
-        for="easyshop.core.interfaces.IProductVariants"
-        class=".product_variants_view.ProductVariantsView"
-        template="product_variants_view.pt"
-        permission="zope.Public" />
-
-    <browser:page
         name="manage-variants-view"
-        for="easyshop.core.interfaces.IProductVariants"
+        for="easyshop.core.interfaces.IProduct"
         class=".manage_variants_view.ManageVariantsView"
         template="manage_variants_view.pt"
         allowed_attributes="addVariants deleteVariants saveVariants"
@@ -40,7 +34,7 @@
     <!-- Product Property -->
     <browser:page
         name="manage-properties-view"
-        for="easyshop.core.interfaces.IProductVariants"
+        for="easyshop.core.interfaces.IProduct"
         class=".manage_properties_view.ManagePropertiesView"
         template="manage_properties_view.pt"
         allowed_attributes="addProperty addOption deletePaths"
@@ -73,7 +67,6 @@
         template="category_categories_view.pt"
         permission="zope.Public" />
 
-
     <!-- Containers -->    
     <browser:page
         name="manage-categories-view"
@@ -94,13 +87,6 @@
         name="addToCart"
         for="easyshop.core.interfaces.IProduct"
         class=".add_to_cart.ProductAddToCartView"
-        attribute="addToCart" 
-        permission="zope.Public" />
-
-    <browser:page
-        name="addToCart"
-        for="easyshop.core.interfaces.IProductVariants"
-        class=".add_to_cart.ProductVariantsAddToCartView"
         attribute="addToCart" 
         permission="zope.Public" />
 

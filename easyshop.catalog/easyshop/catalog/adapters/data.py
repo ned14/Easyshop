@@ -9,7 +9,6 @@ from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IProductVariant
-from easyshop.core.interfaces import IProductVariants
 from easyshop.core.interfaces import IProductVariantsManagement
 
 class ProductData(object):
@@ -26,26 +25,32 @@ class ProductData(object):
     def asDict(self):
         """
         """
-        # price
-        cm    = ICurrencyManagement(self.context)
-        price = IPrices(self.context).getPriceForCustomer()
-        price = cm.priceToString(price)
-
-        # image
-        image = IImageManagement(self.context).getMainImage()
-        if image is not None:
-            image = "%s/image_%s" % (image.absolute_url(), "preview")
+        pvm = IProductVariantsManagement(self.context)
+        
+        if pvm.hasVariants() == True:
+            variant = pvm.getSelectedVariant() or pvm.getDefaultVariant()
+            return IData(variant).asDict()
         else:
-            image = None
-              
-        return {
-            "title"       : self.context.Title(),
-            "short_title" : self.context.getShortTitle() or self.context.Title(),
-            "url"         : self.context.absolute_url(),
-            "price"       : price,
-            "image"       : image,
-            "text"        : self.context.getText(),
-        }        
+            # price
+            cm    = ICurrencyManagement(self.context)
+            price = IPrices(self.context).getPriceForCustomer()
+            price = cm.priceToString(price)
+
+            # image
+            image = IImageManagement(self.context).getMainImage()
+            if image is not None:
+                image = "%s/image_%s" % (image.absolute_url(), "preview")
+            else:
+                image = None
+          
+            return {
+                "title"       : self.context.Title(),
+                "short_title" : self.context.getShortTitle() or self.context.Title(),
+                "url"         : self.context.absolute_url(),
+                "price"       : price,
+                "image"       : image,
+                "text"        : self.context.getText(),
+            }        
         
 class ProductVariantData:
     """An adapter which provides IData for product variant content objects.
@@ -102,21 +107,4 @@ class ProductVariantData:
             "image"       : image,
             "text"        : text,
             "options"     : options,
-        }                
-        
-class ProductVariantsData(ProductData):
-    """An adapter which provides IData for product variants content objects.
-    """    
-    implements(IData)
-    adapts(IProductVariants)
-
-    def asDict(self):
-        """
-        """
-        pvm = IProductVariantsManagement(self.context)
-        product_variant = pvm.getSelectedVariant() or pvm.getDefaultVariant()
-        
-        if product_variant is None:
-            return super(ProductVariantsData, self).asDict()                    
-        else:
-            return IData(product_variant).asDict()
+        }

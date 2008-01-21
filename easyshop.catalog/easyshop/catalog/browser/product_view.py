@@ -8,7 +8,7 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import IProductVariantsManagement
 
-class ProductVariantsView(BrowserView):
+class ProductView(BrowserView):
     """
     """ 
     def __call__(self):
@@ -24,4 +24,4 @@ class ProductVariantsView(BrowserView):
                 putils = getToolByName(self.context, "plone_utils")
                 putils.addPortalMessage(MESSAGES["VARIANT_DONT_EXIST"])
 
-        return super(ProductVariantsView, self).__call__()
+        return super(ProductView, self).__call__()

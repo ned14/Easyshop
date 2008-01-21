@@ -5,7 +5,7 @@
       
     <body>
         <div metal:fill-slot="main">
-            <div tal:replace="structure provider:easyshop.product-manager" />
+            <div tal:replace="structure provider:easyshop.product-variants-manager" />
         </div>    
     </body>
     

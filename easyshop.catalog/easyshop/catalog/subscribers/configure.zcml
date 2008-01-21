@@ -4,9 +4,6 @@
         handler=".containers.createContainers" />
 
     <subscriber
-        handler=".variants.addProperty" />
-
-    <subscriber
         handler=".variants.deleteProperty" />
 
 </configure>

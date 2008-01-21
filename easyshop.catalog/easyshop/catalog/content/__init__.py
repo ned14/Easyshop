@@ -6,4 +6,3 @@ import product_property
 import product_property_option
 import product_selector
 import product_variant
-import product_variants

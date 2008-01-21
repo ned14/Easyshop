@@ -3,14 +3,14 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IProductVariants
+from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IProductVariantsManagement
 
 class ProductVariantsManagement:
     """Provides IProductVariantsManagement for product content objects.
     """
     implements(IProductVariantsManagement)
-    adapts(IProductVariants)
+    adapts(IProduct)
 
     def __init__(self, context):
         """

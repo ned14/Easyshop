@@ -7,16 +7,10 @@
         factory=".data.ProductVariantData" />
 
     <adapter
-        factory=".data.ProductVariantsData" />
-
-    <adapter
         factory=".product_variants_management.ProductVariantsManagement" />
 
     <adapter
         factory=".prices.ProductVariantPrices" />
-
-    <adapter
-        factory=".prices.ProductVariantsPrices" />
 
     <adapter
         factory=".taxes.ProductVariantTaxes" />

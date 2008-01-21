@@ -6,54 +6,67 @@ from zope.component import adapts
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IProductVariant
-from easyshop.core.interfaces import IProductVariants
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
 class ProductPrices(object):
-    """Provides IPrices for product content object.
+    """Provides IPrices for product variants content object.
     """
     implements(IPrices)
     adapts(IProduct)
-    
+
     def __init__(self, context):
         """
         """
-        self.context = context
-        self.gross_prices = IShopManagement(context).getShop().getGrossPrices()
-        self.taxes = ITaxes(self.context)
-
-    def getPriceForCustomer(self, effective=True):
-        """Returns the end price of the customer. It is the net price plus
-        the tax for the customer. By default (or in most cases) this should 
-        be the same price as price gross (as an customer will get the standard
-        taxes of the country the shop is running).
-        """        
-        if effective == True:
-            return self._getEffectivePriceForCustomer()
-        else:
-            return self._getStandardPriceForCustomer()
+        pvm  = IProductVariantsManagement(context)
+        shop = IShopManagement(context).getShop()
         
-    def getPriceNet(self, effective=True):
-        """Returns the net price of the product. It is just the difference of 
-        price gross and the default tax (which mean the standard tax for the 
-        country in which the shop is running) for the product. 
-        """
-        if effective == True:
-            return self._getEffectivePriceNet()
-        else:
-            return self._getStandardPriceNet()
+        self.context = context
 
-    def getPriceGross(self, effective=True):
-        """Returns the gross price of the product. This is entered by the 
-        customer and the base for all other prices (price net, price for 
-        customer but also for cart, cart item, order and order item)
+        self.gross_prices = shop.getGrossPrices()
+        self.has_variants = pvm.hasVariants()
+        self.taxes = ITaxes(context)
+
+        if self.has_variants:
+            self.product_variant = \
+                pvm.getSelectedVariant() or pvm.getDefaultVariant()
+                                   
+    def getPriceForCustomer(self, effective=True, variant_price=True):
         """
-        if effective == True:
-            return self._getEffectivePriceGross()
+        """
+        if self.has_variants and variant_price and \
+           self.product_variant.getPrice() != 0:
+            return IPrices(self.product_variant).getPriceForCustomer()
         else:
-            return self._getStandardPriceGross()
+            if effective == True:
+                return self._getEffectivePriceForCustomer()
+            else:
+                return self._getStandardPriceForCustomer()
+            
+    def getPriceNet(self, effective=True, variant_price=True):
+        """
+        """
+        if self.has_variants and variant_price and \
+           self.product_variant.getPrice() != 0:
+            return IPrices(self.product_variant).getPriceNet()
+        else:
+            if effective == True:
+                return self._getEffectivePriceNet()
+            else:
+                return self._getStandardPriceNet()
+
+    def getPriceGross(self, effective=True, variant_price=True):
+        """
+        """
+        if self.has_variants and variant_price and \
+           self.product_variant.getPrice() != 0:
+            return IPrices(self.product_variant).getPriceGross()
+        else:
+            if effective == True:
+                return self._getEffectivePriceGross()
+            else:
+                return self._getStandardPriceGross()
 
     # Effective Price
     def _getEffectivePriceForCustomer(self):
@@ -119,48 +132,6 @@ class ProductPrices(object):
             return self.context.getPrice()
         else:
             return self.context.getPrice() + self.taxes.getTax(False)
-
-class ProductVariantsPrices(ProductPrices):
-    """Provides IPrices for product variants content object.
-    """
-    implements(IPrices)
-    adapts(IProductVariants)
-
-    def __init__(self, context):
-        """
-        """
-        super(ProductVariantsPrices, self).__init__(context)
-        
-        pvm = IProductVariantsManagement(context)
-        self.product_variant = pvm.getSelectedVariant()
-        
-    def getPriceForCustomer(self, effective=True, variant_price=True):
-        """
-        """
-        if self.product_variant and variant_price and \
-           self.product_variant.getPrice() != 0:
-            return IPrices(self.product_variant).getPriceForCustomer()
-        else:
-            base = super(ProductVariantsPrices, self)
-            return base.getPriceForCustomer(effective)
-            
-    def getPriceNet(self, effective=True, variant_price=True):
-        """
-        """
-        if self.product_variant and variant_price and \
-           self.product_variant.getPrice() != 0:
-            return IPrices(self.product_variant).getPriceNet()
-        else:
-            return super(ProductVariantsPrices, self).getPriceNet(effective)
-
-    def getPriceGross(self, effective=True, variant_price=True):
-        """
-        """
-        if self.product_variant and variant_price and \
-           self.product_variant.getPrice() != 0:
-            return IPrices(self.product_variant).getPriceGross()
-        else:
-            return super(ProductVariantsPrices, self).getPriceGross(effective)
             
 class ProductVariantPrices(ProductPrices):
     """Provides IPrices for product variant content object.
