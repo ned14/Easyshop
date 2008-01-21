@@ -45,6 +45,14 @@
         allowed_attributes="addProperty addOption deletePaths"
         permission="zope.Public" />
 
+    <browser:page
+        name="manage-properties-view"
+        for="easyshop.core.interfaces.IProductGroup"
+        class=".manage_properties_view.ManagePropertiesView"
+        template="manage_properties_view.pt"
+        allowed_attributes="addProperty addOption deletePaths"
+        permission="zope.Public" />
+
     <!-- Category -->
     <browser:page
         name="products-view"

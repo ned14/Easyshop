@@ -35,6 +35,9 @@
                         <th i18n:translate="price_label">
                             Price
                         </th>
+                        <th i18n:translate="manage_label">
+                            Manage
+                        </th>
                     </tr>
                     <tr tal:repeat="variant view/getVariants">
                         <td>
@@ -52,20 +55,47 @@
                                    tal:attributes="name string:title-${variant/id};
                                                    value variant/title" />
                         </td>
-                        <td tal:repeat="property variant/properties">
-                            <span tal:content="property/option">
-                                Option Value
-                            </span>    
+                        <td tal:repeat="property view/getProperties">
+
+                            <select tal:attributes="name string:${property/name}|${variant/id}">
+                                <option i18n:translate="select_label">
+                                    Select
+                                </option>    
+                                <option tal:repeat="option property/options"
+                                        tal:attributes="value option/id;
+                                                        selected python:view.isOptionSelected(variant, property['id'], option['id'])"
+                                        tal:content="option/name">
+                                    Option Name                                        
+                                </option>
+                                
+                            </select>
                         </td>
                         <td>
                             <input type="text"                                   
                                    tal:attributes="name string:price-${variant/id};
                                                    value variant/price" />
                         </td>
+                        <td>
+                            <a href="."
+                               tal:attributes="href string:${variant/url}/edit"
+                               i18n:translate="edit_label">
+                                Edit
+                            </a>|
+                            <a href="."
+                               tal:attributes="href string:${variant/url}/view"
+                               i18n:translate="view_label">
+                                View
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
+                            <input type="submit"
+                                   value="Delete"
+                                   name="deleteVariants:method" 
+                                   i18n:attributes="value delete_label;" />
+                            
                             <input type="submit"
                                    value="Save" 
                                    name="saveVariants:method"
@@ -76,8 +106,8 @@
                         <td></td>
                         <td tal:repeat="property properties">
                         </td>    
+                        <td></td>
                     </tr>     
-                    
                     <tr>
                         <td></td>                                                                        
                         <td>
@@ -91,7 +121,7 @@
 
                         <tal:block tal:repeat="property properties">
                             <td>
-                                <select tal:attributes="name property/id">
+                                <select tal:attributes="name string:add_property_${property/id}">
                                     <option value="all"
                                             i18n:attributes="value all_label;">
                                         All
@@ -105,6 +135,7 @@
                             </td>    
                         </tal:block>                    
                         <td></td>
+                        <td></td>                        
                     </tr>           
                     <tr>
                         <td></td>
@@ -113,17 +144,13 @@
                                    value="Add" 
                                    name="addVariants:method"
                                    i18n:attributes="value add_label;" />                                   
-
-                            <input type="submit"
-                                   value="Delete"
-                                   name="deleteVariants:method" 
-                                   i18n:attributes="value delete_label;" />
                                    
                         </td>
                         <td></td>
                         <td></td>
                         <td tal:repeat="property properties">
                         </td>    
+                        <td></td>
                     </tr>     
                 </table>
             </form>    

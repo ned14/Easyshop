@@ -113,14 +113,11 @@ class ProductVariantsViewlet(ViewletBase):
                 # generate value string
                 option_id    = option["id"]
                 option_name  = option["name"]
-                option_price = option["price"]
-
-                if option_price != "":
-                    option_price = u.stringToFloat(option_price)
-                    option_price = cm.priceToString(option_price, "long", "after")
-                    content = "%s %s" % (option_name, option_price)
-                else:
-                    content = option_name
+                # option_price = option["price"]
+                # option_price = u.stringToFloat(option_price)
+                # option_price = cm.priceToString(option_price, "long", "after")
+                # content = "%s %s" % (option_name, option_price)
+                content = option_name
                         
                 # is option selected?
                 selected_option = selected_options.get(property.getId(), "")
