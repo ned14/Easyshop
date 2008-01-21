@@ -132,10 +132,6 @@ class IProductsContainer(Interface):
 # ProductVariants        
 ################################################################################
 
-class IProductVariants(IProduct):
-    """Marker interface to mark product variants content objects.
-    """
-
 class IProductVariant(IProduct):
     """Marker interface to mark product variant content objects.
     """
