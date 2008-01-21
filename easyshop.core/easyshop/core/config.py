@@ -35,7 +35,8 @@ MESSAGES = {
     "VARIANT_ALREADY_EXISTS" : _(u"Variant already exists."),
     "VARIANTS_DELETED"       : _(u"Variant(s) deleted."),
     "VARIANTS_SAVED"         : _(u"Variant(s) saved."),
-    "VARIANT_DONT_EXIST"     : _(u"The selected combination of properties is not available."),
+    "VARIANT_DONT_EXIST"     : _(u"The selected combination of properties is not available."),    
+    "PROPERTY_OPTIONS_SAVED" : _(u"Option(s) saved."),    
     "ADDED_PRODUCT_PROPERTY" : _(u"Property has been added"),
     "ADDED_PRODUCT_OPTION"   : _(u"Option has been added"),
 }
