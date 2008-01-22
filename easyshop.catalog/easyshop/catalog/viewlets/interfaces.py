@@ -12,10 +12,6 @@ class IProductViewletManager(IViewletManager):
     """Viewlet manager for product view.
     """
 
-class IProductVariantsViewletManager(IViewletManager):
-    """Viewlet manager for product variants view.
-    """
-    
 class IProductSelectorViewletManager(IViewletManager):
     """Viewlet manager for product selector view.
     """    

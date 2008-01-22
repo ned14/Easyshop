@@ -134,7 +134,10 @@
                                 </select>
                             </td>    
                         </tal:block>                    
-                        <td></td>
+                        <td>
+                           <input type="text"
+                                  name="price" />
+                        </td>
                         <td></td>                        
                     </tr>           
                     <tr>

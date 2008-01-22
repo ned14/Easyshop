@@ -48,11 +48,17 @@ class ManageVariantsView(BrowserView):
                 
         title = self.request.get("title", "")
         article_id = self.request.get("article_id", "")
-                
+        price = self.request.get("price", 0.0)
+        
+        try:        
+            price = float(price)
+        except ValueError:
+            price = 0.0
+            
         properties = self._getPropertiesAsList()
         
         pvm = IProductVariantsManagement(self.context)
-        result = pvm.addVariants(properties, title, article_id)
+        result = pvm.addVariants(properties, title, article_id, price)
         
         if result == False:
             putils.addPortalMessage(MESSAGES["VARIANT_ALREADY_EXISTS"])

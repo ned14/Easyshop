@@ -5,10 +5,59 @@
       
     <body>
         <div metal:fill-slot="main">
-            <h1 class="documentFirstHeading"
-                i18n:translate="properties_label">
-                Properties
+            <tal:block tal:condition="view/showGlobalProperties">
+                
+                <h1 class="documentFirstHeading"
+                    i18n:translate="global_properties_label">
+                    Global Properties
+                </h1>
+            
+                <tal:block tal:repeat="group view/getGlobalProperties">
+                    <h2>
+                        <a href="."
+                           tal:attributes="href string:${group/group_url}/manage-properties-view" 
+                           tal:content="group/group_title">
+                           Group ID
+                        </a>
+                    </h2>
+                    <tal:block tal:repeat="property group/properties">
+                        <h3 tal:content="property/title">
+                            Property Title
+                        </h3>
+                        <table class="listing shop-default">
+                            <tr>
+                                <th i18n:translate="icon_label">
+                                    Icon
+                                </th>
+                                <th i18n:translate="title_label">
+                                    Title
+                                </th>
+                                <th i18n:translate="price_label">
+                                    Price
+                                </th>
+                            </tr>
+                            <tr tal:repeat="option property/options">
+                                <td> 
+                                    <img tal:condition="option/image_url"
+                                         tal:attributes="src option/image_url;
+                                                         alt option/name" />
+                                </td>
+                                <td tal:content="option/name"> 
+                                    Property Title
+                                </td>
+                                <td tal:content="option/price"> 
+                                    Property Price
+                                </td>
+                            </tr>
+                        </table>    
+                    </tal:block>
+                </tal:block>
+            </tal:block>
+                
+            <h1 i18n:translate="local_properties_label">
+                Local Properties
             </h1>
+                        
             <form action="."
                   method="post"
                   tal:attributes="action context/REQUEST/URL">

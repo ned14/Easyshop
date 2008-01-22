@@ -51,20 +51,6 @@
         class=".product.ProductViewlet"
         permission="zope.Public" />
 
-    <!-- Product -->
-    <browser:viewletManager
-        name="easyshop.product-variants-manager"
-        provides=".interfaces.IProductVariantsViewletManager"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
-        permission="zope.Public" />
-
-    <browser:viewlet
-        name="easyshop.product-viewlet"
-        for="easyshop.core.interfaces.IProduct"
-        manager=".interfaces.IProductVariantsViewletManager"
-        class=".product_variants.ProductVariantsViewlet"
-        permission="zope.Public" />
-        
     <!-- Product Selector -->
     <browser:viewletManager
         name="easyshop.product-selector-manager"

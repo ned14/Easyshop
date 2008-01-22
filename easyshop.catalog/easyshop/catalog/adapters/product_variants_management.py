@@ -17,7 +17,7 @@ class ProductVariantsManagement:
         """
         self.context = context
 
-    def addVariants(self, properties, title="", article_id=""):
+    def addVariants(self, properties, title="", article_id="", price=0.0):
         """
         """
         article_id = article_id.replace("%A", self.context.getArticleId())
@@ -41,8 +41,9 @@ class ProductVariantsManagement:
             self.context.invokeFactory(
                 "ProductVariant", 
                 id=new_id, 
-                title=new_title, 
+                title=new_title,                 
                 articleId=new_article_id,
+                price=price,
                 forProperties=properties)
 
     def deleteVariants(self, ids):
