@@ -123,7 +123,7 @@
                             <td>
                                 <select tal:attributes="name string:add_property_${property/id}">
                                     <option value="all"
-                                            i18n:attributes="value all_label;">
+                                            i18n:translate="all_label">
                                         All
                                     </option>
                                     <option tal:repeat="option property/options"

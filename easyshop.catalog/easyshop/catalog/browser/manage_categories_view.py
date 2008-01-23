@@ -64,7 +64,6 @@ class ManageCategoriesView(BrowserView):
         line = []
         products = []
         for i, product in enumerate(IProductManagement(category).getAllProducts()):
-            import pdb; pdb.set_trace()
             line.append({
                 "title" : product.Title(),
                 "url"   : product.absolute_url(),
