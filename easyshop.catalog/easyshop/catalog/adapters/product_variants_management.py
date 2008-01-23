@@ -80,17 +80,15 @@ class ProductVariantsManagement:
         for key, value in selected_properties.items():
             result.append("%s:%s" % (key, value))
             
-        result.sort()
-        result = "|".join(result)
-        
-        for variant in self.context.objectValues("ProductVariant"):
-            for_properties = list(variant.getForProperties())
-            for_properties.sort()
-            for_properties = "|".join(for_properties)
-            
-            if result.lower() == for_properties.lower():
-                return variant
-
+        for variant in self.getVariants():
+            found = True
+            for selected_property in result:
+                if selected_property not in variant.getForProperties():
+                    found = False
+                    break
+            if found == True:
+                return variant    
+                    
         return None
         
     def hasVariant(self, properties):

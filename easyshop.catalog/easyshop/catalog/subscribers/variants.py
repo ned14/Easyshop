@@ -5,6 +5,7 @@ from zope.component import adapter
 # easyshop imports
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IProperty
+from easyshop.core.interfaces import IPropertyOption
 
 @adapter(IProperty, IObjectRemovedEvent)
 def deleteProperty(property, event):
@@ -26,3 +27,11 @@ def deleteProperty(property, event):
         new_properties.sort()
 
         variant.setForProperties(new_properties)
+        
+@adapter(IPropertyOption, IObjectRemovedEvent)
+def deleteProperty(option, event):
+    """Removes property from all existing product variants.
+    """
+    property = option.aq_inner.aq_parent
+    if property.getOptions() == 0:
+        deleteProperty(property, event)

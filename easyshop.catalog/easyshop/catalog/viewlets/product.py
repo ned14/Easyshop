@@ -107,12 +107,18 @@ class ProductViewlet(ViewletBase):
         
         result = []
         for property in pm.getProperties():
+            
+            # Only properties with at least one option are displayed.
+            if len(property.getOptions()) == 0:
+                continue
+            
             # Preset with select option
             options = [{
                 "id"       : "select",
                 "title"    : _(u"Select"),
                 "selected" : False,
             }]
+            
             for option in property.getOptions():
 
                 # generate value string
@@ -173,6 +179,11 @@ class ProductViewlet(ViewletBase):
         
         result = []
         for property in pm.getProperties():
+            
+            # Only properties with at least one option are displayed.
+            if len(property.getOptions()) == 0:
+                continue
+            
             options = []
             for option in property.getOptions():
 

@@ -84,16 +84,18 @@ class ManageVariantsView(BrowserView):
         result = []
         pm = IPropertyManagement(self.context)
         for property in pm.getProperties():
-            # Only properties with at least one option are available for
-            # selection
+
+            # Only properties with at least one option are displayed.
             options = property.getOptions()
-            if len(options) > 0:
-                result.append({
-                    "id"      : property.getId(),
-                    "name"    : "property_" + property.getId(),
-                    "title"   : property.Title(),
-                    "options" : property.getOptions(),
-                })
+            if len(options) == 0:
+                continue
+                
+            result.append({
+                "id"      : property.getId(),
+                "name"    : "property_" + property.getId(),
+                "title"   : property.Title(),
+                "options" : options,
+            })
         
         return result
     

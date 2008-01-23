@@ -14,6 +14,7 @@ from Products.Archetypes.event import ObjectInitializedEvent
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import IGroupManagement
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IPropertyManagement
 
 class ManagePropertiesView(BrowserView):
     """
@@ -91,6 +92,7 @@ class ManagePropertiesView(BrowserView):
         result = []
         for group in IGroupManagement(self.context).getGroups():
             properties = []
+            # TODO: Change to IPropertyManagement().getProperties()
             for property in group.objectValues("ProductProperty"):
                 properties.append({
                     "id"      : property.getId(),
@@ -111,6 +113,7 @@ class ManagePropertiesView(BrowserView):
         """
         """
         result = []
+        # TODO: Change to IPropertyManagement().getProperties()
         for property in self.context.objectValues("ProductProperty"):
             result.append({
                 "id"      : property.getId(),
