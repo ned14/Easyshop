@@ -23,7 +23,6 @@ from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
-from easyshop.core.interfaces import IPhotoManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShippingMethodManagement
@@ -110,9 +109,6 @@ class CartFormView(BrowserView):
 
                 total_price = price - discount_price
                 
-            # Photo
-            photo = IPhotoManagement(product).getMainPhoto()
-
             # After we have taken properties and stuff from canonical we change
             # to translation to get translated title and url. 
             if HAS_LINGUA_PLONE:
@@ -128,7 +124,6 @@ class CartFormView(BrowserView):
                 "properties"    : properties,
                 "total_price"   : cm.priceToString(total_price),
                 "discount"      : discount,
-                "photo_url"     : "%s/image_tile" % photo.absolute_url(),
             })
         
         return result

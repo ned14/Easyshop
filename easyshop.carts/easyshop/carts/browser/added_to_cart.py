@@ -71,13 +71,6 @@ class AddedToCartView(BrowserView):
         if HAS_LINGUA_PLONE:
             product = product.getTranslation()
 
-        # Photo
-        photo = IPhotoManagement(product).getMainPhoto()
-        if photo is not None:
-            image_url = photo.absolute_url()
-        else:
-            image_url = None
-                                    
         return {
             "title"      : product.Title(),
             "url"        : product.absolute_url(),
