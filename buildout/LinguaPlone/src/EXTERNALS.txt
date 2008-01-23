@@ -14,6 +14,7 @@ easyshop.discounts https://easyshop-for-plone.googlecode.com/svn/easyshop.discou
 easyshop.groups https://easyshop-for-plone.googlecode.com/svn/easyshop.groups/branches/linguaplone
 easyshop.information https://easyshop-for-plone.googlecode.com/svn/easyshop.information/branches/linguaplone
 easyshop.kss https://easyshop-for-plone.googlecode.com/svn/easyshop.kss/branches/linguaplone
+easyshop.linguaplone https://easyshop-for-plone.googlecode.com/svn/easyshop.linguaplone/branches/linguaplone
 easyshop.login https://easyshop-for-plone.googlecode.com/svn/easyshop.login/branches/linguaplone
 easyshop.order https://easyshop-for-plone.googlecode.com/svn/easyshop.order/branches/linguaplone
 easyshop.payment https://easyshop-for-plone.googlecode.com/svn/easyshop.payment/branches/linguaplone
