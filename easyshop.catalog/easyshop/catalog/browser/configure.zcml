@@ -45,7 +45,7 @@
         for="easyshop.core.interfaces.IProductGroup"
         class=".manage_properties_view.ManagePropertiesView"
         template="manage_properties_view.pt"
-        allowed_attributes="addProperty addOption deletePaths"
+        allowed_attributes="addProperty addOption deletePaths saveOptions"
         permission="zope.Public" />
 
     <!-- Category -->

@@ -8,11 +8,8 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.catalog.adapters.property_management import getOptionsForProperty
 from easyshop.core.config import MESSAGES
-from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IPropertyManagement
-from easyshop.core.interfaces import IShopManagement
 
 class ManageVariantsView(BrowserView):
     """
@@ -123,14 +120,6 @@ class ManageVariantsView(BrowserView):
                     continue
                 properties.append(titles)
 
-            # Price
-            shop  = IShopManagement(self.context).getShop()
-            cm    = ICurrencyManagement(self.context)
-            if shop.getGrossPrices() == True:
-                price = IPrices(variant).getPriceGross()
-            else:
-                price = IPrices(variant).getPriceNet()
-                
             result.append({
                 "id"             : variant.getId(),
                 "path"           : "/".join(variant.getPhysicalPath()),
@@ -139,7 +128,7 @@ class ManageVariantsView(BrowserView):
                 "url"            : variant.absolute_url(),                
                 "properties"     : properties,
                 "properties_ids" : properties_ids,
-                "price"          : price,
+                "price"          : variant.getPrice(),
             })                
         return result
         
