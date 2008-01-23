@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <adapter for="easyshop.core.interfaces.ICategoriesContainer *"
+           name="plone.contentmenu.factories"
+           factory=".factories_sub_menu.EasyShopFactoriesSubMenuItem"
+           provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+
+  <adapter for="easyshop.core.interfaces.IProductsContainer *"
+           name="plone.contentmenu.factories"
+           factory=".factories_sub_menu.EasyShopFactoriesSubMenuItem"
+           provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+
+</configure>

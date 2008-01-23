@@ -1,0 +1,9 @@
+Changelog for easyshop.linguaplone
+
+    (name of developer listed in brackets)
+
+easyshop.linguaplone - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+

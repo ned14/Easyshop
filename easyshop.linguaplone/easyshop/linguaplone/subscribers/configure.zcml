@@ -1,0 +1,25 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Category -->
+    <subscriber
+        for="easyshop.core.interfaces.ICategory 
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".translations.syncCategoryTranslations" />
+
+    <subscriber
+        for="easyshop.core.interfaces.ICategory 
+             Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".translations.syncCategoryTranslations" />
+
+    <!-- Product -->    
+    <subscriber
+        for="easyshop.core.interfaces.IProduct
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".translations.syncProductTranslations" />
+
+    <subscriber
+        for="easyshop.core.interfaces.IProduct
+             Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".translations.syncProductTranslations" />
+
+</configure>
