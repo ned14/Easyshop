@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="easyshop" version="20080101-01"
+               handler="easyshop.shop.setuphandlers.importVarious"
+               title="Various EasyShop Settings">
+
+    <dependency step="catalog"/>
+    <dependency step="cssregistry"/>               
+    <dependency step="factorytool"/>
+    <dependency step="jsregistry"/>
+    <dependency step="properties"/>               
+    <dependency step="skins"/>    
+    <dependency step="typeinfo"/>
+    <dependency step="workflow"/>
+    
+ </import-step>
+</import-steps>

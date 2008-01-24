@@ -104,7 +104,7 @@ schema = Schema((
 ),
 )
 
-class Category(ATFolder):
+class ESCategory(ATFolder):
     """
     """
     implements(ICategory)
@@ -123,4 +123,4 @@ class Category(ATFolder):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath()) + "/products"
 
-registerType(Category, PROJECTNAME)
+registerType(ESCategory, PROJECTNAME)

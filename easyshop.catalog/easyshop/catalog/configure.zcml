@@ -7,7 +7,7 @@
         initialize=".initialize" />
 
     <five:implements
-        class=".content.category.Category"
+        class=".content.category.ESCategory"
         interface="zope.app.annotation.interfaces.IAttributeAnnotatable" />
 
     <include

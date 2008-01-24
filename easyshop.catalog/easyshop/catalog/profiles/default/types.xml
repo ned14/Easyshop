@@ -4,7 +4,7 @@
     name="title">Controls the available content types in your portal</property>
 
  <object
-     name="Category"
+     name="ESCategory"
      meta_type="Factory-based Type Information with dynamic views"/>
 
  <object

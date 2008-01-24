@@ -27,7 +27,7 @@ class TestEnvironmentView(BrowserView):
         categories = []
         for i in range(1, 21):
             id = "category-%s" % i
-            shop.categories.manage_addProduct["easyshop.shop"].addCategory(id, title="Category %s" %i)
+            shop.categories.manage_addProduct["easyshop.shop"].addESCategory(id, title="Category %s" %i)
             
             category = shop.categories.get(id)
             categories.append(category)
