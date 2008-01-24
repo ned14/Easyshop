@@ -31,9 +31,9 @@ class NochexPaymentProcessor:
     def process(self, order=None):
         """
         """    
-        shop = IShopManagement(self.context).getShop()                        
-        notify_url = "%s/paypal?order=%s" % (shop.absolute_url(), order.UID())
-        return_url = "%s/thank-you" % shop.absolute_url()
+        shop = IShopManagement(self.context).getShop()
+        callback_url = "%s/nochex?order=%s" % (shop.absolute_url(), order.UID())
+        success_url  = "%s/thank-you" % shop.absolute_url()
         
         pc = IPrices(order)
         price_gross = "%.2f" % pc.getPriceGross()
@@ -42,6 +42,8 @@ class NochexPaymentProcessor:
             "merchant_id" : NOCHEX_ID,
             "amount" : price_gross,
             "order_id": order.getId(),
+            "success_url" : success_url,
+            "callback_url" : callback_url,
         }
 
         # redirect to paypal    
