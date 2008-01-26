@@ -272,6 +272,11 @@
                             <span tal:content="property/selected_option">
                                 Red
                             </span>
+                            
+                            <tal:block tal:condition="property/show_price">
+                                (<span tal:content="property/price" />)
+                            </tal:block>
+                            
                         </div>
                     </td>  
                     <td nowrap="nowrap" 

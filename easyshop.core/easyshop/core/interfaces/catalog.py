@@ -1,4 +1,5 @@
 from zope.interface import Interface
+from zope.interface import Attribute
 
 ################################################################################
 # Category        
@@ -126,18 +127,65 @@ class IProductManagement(Interface):
 class IProductsContainer(Interface):
     """Marker interface for product folder content objects.
     """    
+
+################################################################################
+# ProductVariants        
+################################################################################
+
+class IProductVariant(IProduct):
+    """Marker interface to mark product variant content objects.
+    """
+
+class IProductVariantsManagement(Interface):
+    """Provides methods to manage product variants.
+    """
+    def addVariants(title, properties):
+        """Adds a product variant.
+        """
     
+    def deleteVariants(ids):
+        """Deletes variants with given ids.
+        """
+        
+    def getDefaultVariant():
+        """Returns the default product variant.
+        """
+    
+    def getVariants():
+        """Returns existing product variants.
+        """
+
+    def getSelectedVariant(properties):
+        """Returns selected product.
+        """
+
+    def hasVariant(properties):
+        """Returns True if a variant with given properties exists.
+        """
+
+    def hasVariants():
+        """Returns True if context has at least one variant.
+        """
+        
 ################################################################################
 # Property        
 ################################################################################
 
 class IProperty(Interface):
-    """A marker interface for a property content objects.
+    """A property for various content objects.
+    """
+    
+class IPropertyOption(Interface):
+    """A property for various content objects.
     """
     
 class IPropertyManagement(Interface):
     """Provides methods to manage property content objects.
-    """    
+    """ 
+    def getOptionsForProperty(property_id):
+        """Return all options of the given property id.
+        """
+        
     def getPriceForCustomer(property_id, option_name):
         """Returns the customer price of a context's property with given id and
         option name.
@@ -170,7 +218,10 @@ class IPropertyManagement(Interface):
         This requires, that title per property is unique. This will be done in
         edit view.
         """
-        
+
+    def getTitlesByIds(property_id, option_id):
+        """Returns the titles of property and option with given id.
+        """
 ################################################################################
 # Selector        
 ################################################################################

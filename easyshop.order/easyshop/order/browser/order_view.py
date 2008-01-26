@@ -19,8 +19,9 @@ from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPaymentInformationManagement
-from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IPaymentProcessing
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IType
 
@@ -148,6 +149,13 @@ class OrderView(BrowserView):
             else:
                 title = product.Title()
                 url = product.absolute_url()
+            
+            # Properties 
+            for property in item.getProperties():
+                if IProductVariant.providedBy(product) == True:
+                    property["show_price"] = False
+                else:
+                    property["show_price"] = True
                 
             temp = {
                 "product_title"        : title,

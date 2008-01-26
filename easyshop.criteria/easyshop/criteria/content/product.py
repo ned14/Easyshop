@@ -57,7 +57,7 @@ class ProductCriteria(BaseContent):
         dl = DisplayList()
         catalog = getToolByName(self, "portal_catalog")
 
-        for product in catalog.searchResults(portal_type="Product"):
+        for product in catalog.searchResults(portal_type=["Product", "ProductVariant"]):
             dl.add(product.id, product.Title)
 
         dl.add("shipping", "Shipping")

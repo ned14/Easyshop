@@ -37,7 +37,7 @@ class CatalogKSSView(PloneKSSView):
         if searchable_text != "":
             products = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
-                portal_type = "Product",
+                object_provides = "easyshop.core.interfaces.catalog.IProduct",
                 SearchableText = searchable_text,
                 sort_on = "sortable_title",
             )
@@ -68,7 +68,7 @@ class CatalogKSSView(PloneKSSView):
             elif letter == "0-9":
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    portal_type = "Product",
+                    object_provides = "easyshop.core.interfaces.catalog.IProduct",
                     sort_on = "sortable_title",
                 )
                     
@@ -78,7 +78,7 @@ class CatalogKSSView(PloneKSSView):
             else:
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    portal_type = "Product",
+                    object_provides = "easyshop.core.interfaces.catalog.IProduct",
                     Title = "%s*" % letter,
                     sort_on = "sortable_title",
                 )

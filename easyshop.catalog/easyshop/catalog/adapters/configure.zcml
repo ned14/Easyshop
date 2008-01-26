@@ -2,6 +2,19 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five">
 
+    <!-- IProductVariants -->
+    <adapter
+        factory=".data.ProductVariantData" />
+
+    <adapter
+        factory=".product_variants_management.ProductVariantsManagement" />
+
+    <adapter
+        factory=".prices.ProductVariantPrices" />
+
+    <adapter
+        factory=".taxes.ProductVariantTaxes" />
+
     <!-- ICategoryManagement -->
     <adapter
         factory=".category_management.CategoryCategoryManagement" />
@@ -36,7 +49,6 @@
     <adapter
         factory=".prices.ProductPrices" />
 
-
     <!-- IProductManagement -->
     <adapter
         factory=".product_management.CategoryProductManagement" />
@@ -57,3 +69,4 @@
         factory=".taxes.ProductTaxes" />
         
 </configure>
+

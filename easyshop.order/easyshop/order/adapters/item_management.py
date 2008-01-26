@@ -4,6 +4,7 @@ from zope.component import adapts
 from zope.component import getMultiAdapter
 
 # easyshop imports
+from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement
@@ -114,24 +115,30 @@ class OrderItemManagement:
         pm = IPropertyManagement(product)
         for selected_property in cart_item.getProperties():
 
+            # Get the price
             property_price = pm.getPriceForCustomer(
                 selected_property["id"], 
                 selected_property["selected_option"])
 
-            # This could happen if a property is deleted and there are 
-            # still product with this selected property in the cart.
-            # Todo: Think about, whether theses properties are not to 
-            # display. See also checkout_order_preview
-            try:    
-                property_title = pm.getProperty(
-                    selected_property["id"]).Title()
-            except AttributeError:
-                property_title = selected_property["id"]
-                
+            # By default we save the titles of the properties and selected 
+            # options In this way they are kept if the title of a property or 
+            # option will be changed after the product has been bought.
+            titles = getTitlesByIds(
+                product,
+                selected_property["id"], 
+                selected_property["selected_option"])
+
+            # If we don't find the property or option we ignore the property. 
+            # This can only happen if the property has been deleted after a 
+            # product has been added to the cart. In this case we don't want the 
+            # property at all (I think).
+            if titles is None:
+                continue
+                                    
             properties.append({
-                "title" : property_title,            
-                "selected_option" : selected_property["selected_option"],
-                "price" : str(property_price)
+                "title" : titles["property"],
+                "selected_option" : titles["option"],
+                "price" : str(property_price),
             })
                             
         new_item.setProperties(properties)
