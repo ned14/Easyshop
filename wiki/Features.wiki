@@ -5,16 +5,16 @@ An out-of-the-box online-shop for Plone.
 
 == Categories == 
 
-  * Arbitrary amount of categories and products
-  * Categories can be arbitrary nested.
+  * Arbitrary amount of categories
+  * Categories can be arbitrary nested
 
 == Products == 
 
-  * Arbitrary amount of categories and products
+  * Arbitrary products
   * Products can be assigned to an arbitrary amount of categories
-  * Products can have a arbitrary amount of properties, which are optional price changing.
-  * Products can have a arbitrary amount of variants based of above-mentioned properties, which can have optional different content than the parent product like: price, images, descriptions, etc.
-  * Products can have sale prices. Overwrite default price with a special sale price, which is displayed emphasized.
+  * Products can have a arbitrary amount of properties, which are optional price changing
+  * Products can have a arbitrary amount of variants based on above-mentioned properties. Variants can have different content than the parent product like: title, article id, price, images, descriptions, etc.
+  * Products can have sale prices. Overwrite default price with a special sale price, which is displayed emphasized
 
 == Checkout ==
 
