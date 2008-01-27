@@ -1,0 +1,91 @@
+An out-of-the-box online-shop for Plone.
+
+= Features =
+
+== Catalog == 
+
+  * Arbitrary amount of categories and products
+  * Categories can be arbitrary nested.
+  * Products can belong to arbitrary categories
+  * Products can have a arbitrary amount of properties, which are optional price changing.
+  * Product can have a arbitrary amount of variants, which can have optional different content than the parent product like: price, images, descriptions, etc.
+  * Sale Prices. Overwrite default price with a special sale price, which is displayed emphasized.
+
+== Checkout ==
+
+  * Anonymous and/or member checkout
+
+== Criteria ==
+
+  * Criteria are used to make several objects available to different customers
+  * Criteria are used at the moment for: 
+     * Payment methods/prices
+     * Shipping methods/prices
+     * Taxes
+  * Following criteria are available at the moment (it is easy to write own ones) 
+     * Category
+     * Customer
+     * Country
+     * Date
+     * Group
+     * Payment Method     
+     * Cart Price
+     * Product
+     * Shipping Method
+     * Weight
+  * Examples: 
+     * Credit card payment is available from a certain price on
+     * Payment method cash is only available for shipping method pick up.
+     * Shipping prices for several weights
+     * Special taxes for customers abroad 
+
+== Discounts == 
+
+  * Arbitrary discounts based on criteria (see criteria)
+  * discounts for products and/or cart items
+  * Absolute and/or percentage based discounts
+ 
+== Layout ==
+
+  * There are several concepts to arrange views:
+     * Several ready-made views to show contents of shop, categories and products. The looking of that views can be modified conveniently by formats (One can change for instance: image size, text type, rows and columns).
+     * Selectors to select arbitrary categories or products of the shop or a category.
+     * Several ready-made templates for EasyArticle
+     * Collage (in planning)
+
+== Payment == 
+
+  * Cash on Delivery
+  * Credit Card (via different payment processors, e.g. Authorize.net)
+  * Direct Debit
+  * PayPal
+  * Prepayment
+
+  * Arbitrary amount of payment prices (e.g. for cash on delivery) based on criteria (see criteria)
+  
+== Shipping == 
+
+  * Arbitrary amount of shipping methods based on criteria (see criteria)
+  * Arbitrary amount of shipping prices based on criteria (see criteria)
+
+== Stock management ==
+
+  * Product's stock amounts are decreased when product is sold.
+  * Arbitrary amount of stock and shipping information based on criteria (see criteria)
+  * Examples:
+      * Display delivery time dependend on category and/or groups
+      * Display availability and delivery time dependend on stock amounts
+ 
+== Taxes ==
+
+  * Included or additional taxes
+  * Arbitrary amount of taxes based on criteria (see criteria)
+
+== Misc === 
+
+  * LinguaPlone support
+
+== Work in Progress == 
+
+  * Discounts for carts (combined products, etc.)
+  * Discounts based on marketing codes (special offers, etc.)
