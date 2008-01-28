@@ -33,17 +33,8 @@
 
     <!-- IFormat -->
     <adapter
-        for="easyshop.core.interfaces.ICategory"
+        for="easyshop.core.interfaces.IFormatable"
         factory=".formats.FormatterInfos" />
-
-    <adapter
-        for="easyshop.core.interfaces.IProductSelector"
-        factory=".formats.FormatterInfos" />
-
-    <adapter
-        for="easyshop.core.interfaces.IShop"
-        factory=".formats.FormatterInfos" />
-        
 
     <!-- IPrices -->    
     <adapter

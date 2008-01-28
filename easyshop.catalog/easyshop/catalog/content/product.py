@@ -7,6 +7,8 @@ from Products.ATContentTypes.content.folder import ATFolder
 
 # ATBackRef imports
 from Products.ATBackRef.BackReferenceField import *
+
+# ATReferenceBrowserWidget imports
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
 # easyshop imports

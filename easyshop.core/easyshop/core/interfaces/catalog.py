@@ -2,10 +2,37 @@ from zope.interface import Interface
 from zope.interface import Attribute
 
 ################################################################################
+# Formatter        
+################################################################################
+    
+class IFormatter(Interface):
+    """Marker interface to mark formatter content objects.
+    
+    A formatter provides informations of how products of a shop/category/selector
+    are displayed. The first formatter which is found is taken. Is no formatter
+    is found default values are taken.
+    """
+
+class IFormats(Interface):
+    """Provides methods to get an formater resp. formatter infos.
+    """    
+    def getFormats():
+        """Returns the infos of the found formatter as dict.
+        """
+
+    def setFormats(data):
+        """Sets format with given data. Data has to be dictionary.
+        """
+
+class IFormatable(Interface):
+    """Marker interface to mark objects as formatable.
+    """
+    
+################################################################################
 # Category        
 ################################################################################
         
-class ICategory(Interface):
+class ICategory(IFormatable):
     """Marker interface to mark category content objects. 
 
     A Category groups arbitrary Products together.
@@ -42,29 +69,6 @@ class ICategoryManagement(Interface):
 class ICategoriesContainer(Interface):
     """A marker interface for categories containers.
     """
-
-################################################################################
-# Formatter        
-################################################################################
-    
-class IFormatter(Interface):
-    """Marker interface to mark category content objects.
-    
-    A formatter provides informations of how products of a shop/category/selector
-    are displayed. The first formatter which is found is taken. Is no formatter
-    is found default values are taken.
-    """
-
-class IFormats(Interface):
-    """Provides methods to get an formater resp. formatter infos.
-    """    
-    def getFormats():
-        """Returns the infos of the found formatter as dict.
-        """
-
-    def setFormats(data):
-        """Sets format with given data. Data has to be dictionary.
-        """
 
 ################################################################################
 # Image        
@@ -226,7 +230,7 @@ class IPropertyManagement(Interface):
 # Selector        
 ################################################################################
 
-class IProductSelector(Interface):
+class IProductSelector(IFormatable):
     """A marker interface for product selector content objects.
     """
         

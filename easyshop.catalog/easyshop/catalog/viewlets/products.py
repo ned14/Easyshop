@@ -76,7 +76,7 @@ class ProductsViewlet(ViewletBase):
         f = self.getFormatInfo()
         products_per_line = f["products_per_line"]
         
-        line   = []
+        line = []
         products = []        
         for index, product in enumerate(batch):
 

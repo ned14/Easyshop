@@ -1,6 +1,10 @@
+# zope imports
 from zope.interface import Interface
 
-class IShop(Interface):
+# easyshop.imports
+from easyshop.core.interfaces import IFormatable
+
+class IShop(IFormatable):
     """Marker interface to mark shop content objects.
     """
     
