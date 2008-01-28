@@ -1,1 +1,1 @@
-PROJECTNAME   = "easyshop.easyarticle"
+PROJECTNAME = "easyshop.easyarticle"

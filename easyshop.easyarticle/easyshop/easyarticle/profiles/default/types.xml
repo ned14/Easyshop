@@ -3,7 +3,17 @@
     <property
         name="title">Controls the available content types in your portal</property>
 
+        <object name="EasyArticle"
+                meta_type="Factory-based Type Information"/>
+
         <object name="ESReference"
                 meta_type="Factory-based Type Information"/>
+
+        <object name="ESImage"
+                meta_type="Factory-based Type Information"/>
+
+
+        <object name="EasyShop"
+                meta_type="Factory-based Type Information with dynamic views"/>
                 
 </object>

@@ -1,0 +1,160 @@
+<div id="products-list"
+     i18n:domain="EasyShop"
+     tal:define="formats view/getFormats">
+
+    <!-- <h1 class="documentFirstHeading"
+        tal:content="object_title">
+        Title or id
+    </h1>
+
+    <div metal:use-macro="here/document_byline/macros/byline">
+        Get the byline - contains details about author and modification date.
+    </div> -->
+
+    <table class="products">                          
+        <tr tal:repeat="line view/getProducts">
+            
+            <td tal:repeat="object line"
+                tal:attributes="width view/getTdWidth;
+                                class object/klass;">
+
+                <div>
+                    <metal:block use-macro="context/easyarticle_macros/macros/edit_functions" />
+                </div>
+
+                 
+                <table tal:condition="python:object['portal_type'] == 'ESImage'"
+                       class="product-content">
+                    <tr>
+                       <td class="sub-title"
+                           colspan="2">
+                           <a href="#"
+                              title="#"
+                              tal:content="object/title"
+                              tal:attributes="href object/url;
+                                              title object/title">
+                               Product Name
+                           </a>                                    
+                       </td> 
+                    </tr>                               
+                    <tr tal:attributes="style string:background-color:${object/background_color}">
+                        <td class="product-image"
+                            style="padding-right:10px; width:1px"
+                            tal:attributes="height formats/product_height">
+                            <a tal:omit-tag="not: object/url"
+                               href="#"
+                               tal:attributes="href object/url;
+                                               title object/title;
+                                               alt object/title">
+                            
+                                <img tal:attributes="src string:${object/image_url};
+                                                     alt object/title" />
+                            </a>                         
+                        </td>
+                        <td tal:content="structure object/text">
+                            Text goes here
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="product-control"
+                            colspan="2">
+
+                            <input type="button"
+                                   class="context"
+                                   id="product-details"
+                                   value="Details"
+                                   title="Details"
+                                   i18n:attributes="title details_label;"
+                                   tal:attributes="onclick string:location.href='${object/url}'" />                                           
+                        </td>
+                    </tr>
+                           
+                </table>
+                                  
+                <table tal:condition="python:object['portal_type'] in ['Category', 'Product']"
+                       class="product-content">
+                    <tr>
+                       <td class="sub-title"
+                           colspan="2">
+                           <a href="#"
+                              title="#"
+                              tal:content="object/title"
+                              tal:attributes="href object/url;
+                                              title object/title">
+                               Product Name
+                           </a>                                    
+                       </td> 
+                    </tr>
+                    <tr>
+                        <td class="product-image"
+                            tal:attributes="height formats/product_height">
+                            <a tal:condition="object/image_url"
+                               href="#"
+                               tal:attributes="href object/url;
+                                               title object/title;
+                                               alt object/title">
+                                <img tal:attributes="src string:${object/image_url}" />
+                            </a>
+                        </td>
+                        <td class="product-description"
+                            tal:content="structure object/text">
+                            <tal:block tal:condition="object/text">
+                                Description
+                            </tal:block>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="product-control"
+                            colspan="2">
+
+                            <input type="button"
+                                   class="context"
+                                   id="product-details"
+                                   value="Details"
+                                   title="Details"
+                                   i18n:attributes="title details_label;"
+                                   tal:attributes="onclick string:location.href='${object/url}'" />
+                                   
+                            <tal:block tal:condition="python:object['portal_type'] == 'Product'">
+                                <form tal:attributes="action object/url"
+                                      method="post">
+
+                                    <input type="hidden"
+                                           name="quantity"
+                                           value="1" />
+
+                                    <input class="context"
+                                           id="add-product"
+                                           name="addToCart:method" 
+                                           value="Add to Cart"
+                                           type="submit"
+                                           title="Add to Cart"
+                                           i18n:attributes="title add_to_cart_label;
+                                                            value add_to_cart_label;" />
+                                </form>
+                                            
+                                <tal:block tal:condition="object/for_sale">
+                                    <span class="product-price"
+                                          style="text-decoration:line-through;"
+                                          tal:content="object/standard_price">
+                                        42.00
+                                    </span>
+                                    <span class="product-price"
+                                          tal:content="object/price">
+                                        42.00
+                                    </span>
+                                </tal:block>                        
+                                <tal:block tal:condition="not:object/for_sale">
+                                    <span class="product-price"
+                                          tal:content="object/price">
+                                        42.00
+                                    </span>                                    
+                                </tal:block>                                
+                            </tal:block>    
+                        </td>
+                    </tr>
+                </table>
+            </td>    
+        </tr>    
+    </table>    
+</div>            

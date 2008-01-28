@@ -6,11 +6,19 @@
         package="." 
         initialize=".initialize" />
 
+    <!-- Make formatter portlet appear for an EasyArticle -->
+    <five:implements 
+        class="Products.EasyArticle.content.article.Article"
+        interface="easyshop.core.interfaces.IFormatable" /> 
+        
     <include
         package=".adapters" /> 
 
     <include
         package=".browser" /> 
+
+    <include
+        package=".viewlets" /> 
 
     <include 
         file="profiles.zcml" />

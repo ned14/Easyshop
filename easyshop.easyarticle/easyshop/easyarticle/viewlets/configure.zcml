@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:viewlet
+        name="easyshop.products-viewlet"
+        for="Products.EasyArticle.interfaces.IEasyArticle"
+        manager="easyshop.catalog.viewlets.interfaces.IProductsViewletManager"
+        class=".overview.ContentViewlet"
+        permission="zope.Public" />
+
+</configure>

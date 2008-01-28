@@ -3,10 +3,9 @@
            i18n_domain="EasyShop">
 
     <browser:page
-        name="products-1"
+        name="overview"
         for="*"
-        class=".products_1.ProductsView"
-        template="products_1.pt"
+        template="overview.pt"
         permission="zope2.Public" />  
 
 </configure>

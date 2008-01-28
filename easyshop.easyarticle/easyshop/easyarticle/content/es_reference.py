@@ -8,7 +8,6 @@ from zope.interface import implements
 from Products.ATContentTypes.configuration import zconf
 
 # Archetypes imports
-
 from Products.Archetypes.atapi import *
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
@@ -20,6 +19,18 @@ from easyshop.easyarticle.config import *
 from easyshop.easyarticle.interfaces import IESReference
 
 schema = Schema((
+    BooleanField(
+        name="overwriteTitle",
+        languageIndependent=True,
+        widget = BooleanWidget(
+            label="Overwrite Title",
+            label_msgid="schema_overwrite_title_label",
+            description = "If selected the title from this reference is taken. Otherwise the title of the referenced object.",  
+            description_msgid="schema_overwrite_text_title",
+            i18n_domain="EasyArticle",
+        ),
+    ),
+
     ReferenceField(
         name='objectReference',
         multiValued=0,
@@ -30,7 +41,7 @@ schema = Schema((
             label_msgid="schema_object_label",
             description="",
             description_msgid="schema_object_description",
-            i18n_domain='EasyShop',
+            i18n_domain='EasyArticle',
             show_path=1,        
             allow_search=1, 
             allow_browse=1,
@@ -40,13 +51,25 @@ schema = Schema((
             available_indexes={'Title'         : "Product's Title",
                                'SearchableText':'Free text search',
                                'Description'   : "Object's description"})),
+                               
+    BooleanField(
+        name="overwriteText",
+        languageIndependent=True,
+        widget = BooleanWidget(
+            label="Overwrite Text",
+            label_msgid="schema_overwrite_text_label",
+            description = "If selected the text from this reference is taken. Otherwise the text of the referenced object.",
+            description_msgid="schema_overwrite_text_description",
+            i18n_domain="EasyArticle",
+        ),
+    ),
+                               
     TextField('text',
               required=False,
               searchable=True,
               primary=True,
               storage = AnnotationStorage(migrate=True),
               validators = ('isTidyHtmlWithCleanup',),
-              #validators = ('isTidyHtml',),
               default_content_type = zconf.ATDocument.default_content_type,
               default_output_type = 'text/x-html-safe',
               allowable_content_types = zconf.ATDocument.allowed_content_types,
@@ -71,15 +94,18 @@ schema = Schema((
         widget=ImageWidget(
             label='Image',
             label_msgid='schema_image_label',
-            i18n_domain='EasyShop',
+            i18n_domain='EasyArticle',
         ),
         storage=AttributeStorage()
     ),
+
 ),
 )
 
 schema = BaseSchema.copy() + schema.copy()
+
 schema["title"].required = False
+schema.moveField('title', after='overwriteTitle')
 
 class ESReference(BaseContent):
     """A reference for EasyShop.
@@ -111,4 +137,5 @@ class ESReference(BaseContent):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath())
 
+        
 registerType(ESReference, PROJECTNAME)

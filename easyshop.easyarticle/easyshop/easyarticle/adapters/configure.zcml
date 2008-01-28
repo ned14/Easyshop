@@ -1,5 +1,9 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- IData -->
+    <adapter 
+        factory=".data.ESImageData" />
+    
     <adapter 
         factory=".data.ESReferenceData" />
     

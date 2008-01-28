@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<object name="EasyArticle"
+   meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title">EasyArticle</property>
+ <property
+    name="description"></property>
+ <property name="content_icon">easyarticle_icon.gif</property>
+ <property name="content_meta_type">Article</property>
+ <property name="product">EasyArticle</property>
+ <property name="factory">addArticle</property>
+ <property name="immediate_view">info-right</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+  <element value="ESReference" />
+  <element value="ESImage" />
+  <element value="Document" />
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">info-right</property>
+ <property name="view_methods">
+  <element value="info-right" />
+  <element value="info-below-other" />  
+  <element value="overview" />
+ </property>
+ <property name="default_view_fallback">False</property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="edit" to="base_edit"/>
+ <alias from="properties" to="base_metadata"/>
+ <alias from="view" to="(selected layout)"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/base_edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/base_metadata"
+    visible="True">
+  <permission value="Modify portal content"/>
+ <action title="Sharing" action_id="local_roles" category="object"
+    condition_expr="" url_expr="string:${object_url}/sharing" visible="True">
+  <permission value="Manage properties"/>
+ </action>
+  
+ </action>
+</object>
