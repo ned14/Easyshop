@@ -106,15 +106,7 @@ class ManageVariantsView(BrowserView):
         pvm = IProductVariantsManagement(self.context)
         
         for variant in pvm.getVariants():
-
-            # article id
-            article_id = variant.getArticleId() or \
-                         variant.aq_inner.aq_parent.getArticleId()
             
-            # Title
-            title = variant.Title() or \
-                    variant.aq_inner.aq_parent.Title()
-                        
             # Options 
             properties = []
             properties_ids = {}
@@ -129,8 +121,8 @@ class ManageVariantsView(BrowserView):
             result.append({
                 "id"             : variant.getId(),
                 "path"           : "/".join(variant.getPhysicalPath()),
-                "article_id"     : article_id,
-                "title"          : title,
+                "article_id"     : variant.getArticleId(),
+                "title"          : variant.Title(),
                 "url"            : variant.absolute_url(),                
                 "properties"     : properties,
                 "properties_ids" : properties_ids,

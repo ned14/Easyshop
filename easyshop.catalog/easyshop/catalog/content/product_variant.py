@@ -13,9 +13,9 @@ from easyshop.core.interfaces import IProductVariant
 schema = Schema((
 
     LinesField(
-        name="forProperties",
+        name="forProperties",        
         widget=LinesWidget(
-            # visible={'edit':'invisible', 'view':'invisible'},
+            visible={'edit':'invisible', 'view':'invisible'},
             label="For Properties",
             label_msgid="schema_for_properties_label",
             description = "",
