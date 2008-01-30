@@ -26,6 +26,7 @@ from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import IPaymentInformationManagement
@@ -178,10 +179,12 @@ class OrderPreviewForm(formbase.AddForm):
                 }
 
                 total_price = price - discount_price
-                
+            
+            # Data    
+            data = IData(product).asDict()
             
             result.append({
-                "product_title" : product.Title(),
+                "product_title" : data["title"],
                 "product_price" : product_price,
                 "properties"    : properties,
                 "price"         : cm.priceToString(price),
