@@ -40,8 +40,6 @@ class ProductData(object):
             image = IImageManagement(self.context).getMainImage()
             if image is not None:
                 image = "%s/image_%s" % (image.absolute_url(), "preview")
-            else:
-                image = None
           
             return {
                 "title"       : self.context.Title(),
@@ -69,12 +67,8 @@ class ProductVariantData:
         """
         # image
         image = IImageManagement(self.context).getMainImage()
-        if image is None:
-            image = IImageManagement(self.parent).getMainImage()
         if image is not None:
             image = "%s/image_%s" % (image.absolute_url(), "preview")
-        else:
-            image = None
         
         # title 
         title = self.context.Title() or self.parent.Title()

@@ -84,7 +84,7 @@
             <tr>
                 <td>
                     <table class="product-content"
-                           tal:define="zoom_url string:${context/absolute_url}/product-zoom-view;">
+                           tal:define="zoom_url string:${product_data/url}/product-zoom-view;">
                         <tr>
                             <td class="sub-title"
                                 colspan="2">
