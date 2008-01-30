@@ -42,6 +42,7 @@ class ProductData(object):
                 image = "%s/image_%s" % (image.absolute_url(), "preview")
           
             return {
+                "article_id"  : self.context.getArticleId(),
                 "title"       : self.context.Title(),
                 "short_title" : self.context.getShortTitle() or self.context.Title(),
                 "url"         : self.context.absolute_url(),

@@ -140,14 +140,12 @@ class OrderView(BrowserView):
             tax = cm.priceToString(item.getTax())
             price_gross = cm.priceToString(item.getPriceGross())
 
-            # Get title and url. Takes care of, if the product has been deleted 
-            # in the meanwhile.
+            # Get url. Takes care of, if the product has been deleted in the 
+            # meanwhile.
             product = item.getProduct()
             if product is None:
-                title = item.getProductTitle()
                 url = None
             else:
-                title = product.Title()
                 url = product.absolute_url()
             
             # Properties 
@@ -158,7 +156,7 @@ class OrderView(BrowserView):
                     property["show_price"] = True
                 
             temp = {
-                "product_title"        : title,
+                "product_title"        : item.getProductTitle(),
                 "product_quantity"     : item.getProductQuantity(),
                 "product_url"          : url,
                 "product_price_gross"  : product_price_gross,

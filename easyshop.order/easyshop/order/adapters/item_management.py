@@ -6,6 +6,7 @@ from zope.component import getMultiAdapter
 # easyshop imports
 from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrder
@@ -107,8 +108,9 @@ class OrderItemManagement:
         new_item.setProduct(product)
 
         # Set product name and id
-        new_item.setProductTitle(product.Title())
-        new_item.setArticleId(product.getArticleId())
+        data = IData(product).asDict()
+        new_item.setProductTitle(data["title"])
+        new_item.setArticleId(data["article_id"])
 
         # Set properties
         properties = []
