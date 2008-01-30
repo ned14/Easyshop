@@ -36,7 +36,7 @@
                     </tal:block>
             
                     <a href="."
-                       tal:attributes="href string:${context/absolute_url}/my-account"
+                       tal:attributes="href view/getMyAccountURL"
                        i18n:translate="my_account_label">    
                         My Account</a>.    
                 </div>    

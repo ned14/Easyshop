@@ -11,11 +11,14 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.config import _
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
+
 from easyshop.shop.utilities.misc import sendMultipartMail
 
 class ThankYouPageView(BrowserView):
@@ -83,6 +86,14 @@ class ThankYouPageView(BrowserView):
         
         return result
 
+    def getMyAccountURL(self):
+        """
+        """
+        shop = IShopManagement(self.context).getShop()
+        customer = ICustomerManagement(shop).getAuthenticatedCustomer()
+        
+        return customer.absolute_url() + "/" + "my-account"
+        
     def getProducts(self):
         """
         """
