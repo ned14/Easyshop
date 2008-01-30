@@ -17,12 +17,16 @@ class AddedToCartView(BrowserView):
     def getProduct(self):
         """Returns the last input product of the cart.
         """
+        import pdb; pdb.set_trace()
+        cart_item_id = self.request.get("id", None)
+        if cart_item_id is None:
+            return None
+                    
         cart = ICartManagement(self.context).getCart()
-
-        try:
-            cart_item = IItemManagement(cart).getItems()[-1]
-        except IndexError:
-            return []
+        cart_item = IItemManagement(cart).getItem(cart_item_id)
+        
+        if cart_item is None:
+            return None
                 
         # Price
         price = IPrices(cart_item).getPriceForCustomer()

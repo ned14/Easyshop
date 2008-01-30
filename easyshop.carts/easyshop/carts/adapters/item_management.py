@@ -40,7 +40,7 @@ class CartItemManagement:
             cart_item.setAmount(cart_item.getAmount() + quantity)
             
             # to set modification date etc.    
-            cart_item.reindexObject()                              
+            cart_item.reindexObject()
         else:
             new_id = len(cart_items)
 
@@ -55,7 +55,7 @@ class CartItemManagement:
             cart_item.setProperties(properties)
             cart_item.setProduct(product)
 
-        return product_is_already_in_cart
+        return (product_is_already_in_cart, cart_item.getId())
 
     def addItemsFromCart(self, cart):
         """
@@ -89,7 +89,15 @@ class CartItemManagement:
             return False
 
         return True
-        
+
+    def getItem(self, id):
+        """
+        """        
+        try:
+            return self.context[id]
+        except KeyError:
+            return None
+            
     def getItems(self):
         """
         """
