@@ -29,11 +29,11 @@ class PaymentMethodsView(BrowserView):
         return result
         
     def _getAmountOfCriteria(self, id):
-        """Returns amount of criteria for tax with given id.
+        """Returns amount of criteria for payment method with given id.
         """
         try:
             method = self.context[id]
-        except IndexError:
+        except KeyError:
             return 0
             
         return len(method.objectIds())
