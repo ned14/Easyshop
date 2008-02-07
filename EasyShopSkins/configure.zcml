@@ -1,0 +1,23 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+    <include package="easyshop.core" />
+    <include package="easyshop.catalog"/>
+    <include package="easyshop.carts"/>
+    <include package="easyshop.checkout"/>
+    <include package="easyshop.criteria"/>
+    <include package="easyshop.customers"/>
+    <include package="easyshop.discounts"/>
+    <include package="easyshop.groups"/>
+    <include package="easyshop.information"/>
+    <include package="easyshop.login"/>
+    <include package="easyshop.order"/>
+    <include package="easyshop.payment"/>
+    <include package="easyshop.shipping"/>
+    <include package="easyshop.shop"/>
+    <include package="easyshop.stocks"/>
+    <include package="easyshop.taxes"/>
+    <include package="iqpp.sessions"/>
+
+</configure>
