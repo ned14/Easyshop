@@ -1,4 +1,10 @@
 # Zope imports
+from AccessControl.SecurityManagement import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import setSecurityManager
+from AccessControl.User import UnrestrictedUser
+
+# zope imports
 from zope import schema
 from zope.app.form.interfaces import WidgetInputError
 from zope.component import getMultiAdapter
@@ -102,14 +108,32 @@ class OrderPreviewForm(formbase.AddForm):
             # Set order to pending (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
             wftool.doActionFor(new_order, "submit")
-
+            
             putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
-                        
+
         if result.code == PAYED:
+
             # Set order to payed (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
-            wftool.doActionFor(new_order, "pay_not_sent")
 
+            # We need a new security manager here, because this transaction 
+            # should usually just be allowed by a Manager except here.
+            old_sm = getSecurityManager()
+            tmp_user = UnrestrictedUser(
+                old_sm.getUser().getId(),
+                '', ['Manager'], 
+                ''
+            )
+
+            portal = getToolByName(self.context, 'portal_url').getPortalObject()
+            tmp_user = tmp_user.__of__(portal.acl_users)
+            newSecurityManager(None, tmp_user)
+
+            wftool.doActionFor(new_order, "pay_not_sent")
+            
+            ## Reset security manager
+            setSecurityManager(old_sm)
+            
         # Redirect
         customer = \
             ICustomerManagement(self.context).getAuthenticatedCustomer()
