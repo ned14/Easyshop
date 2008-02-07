@@ -1,4 +1,5 @@
 # python imports
+import cgi
 import re
 
 # kss imports
@@ -104,7 +105,10 @@ class CatalogKSSView(PloneKSSView):
             
         html += "</tr></table>"
 
-        kss_core.replaceInnerHTML('#products', safe_unicode(html))
+        html = cgi.escape(html)
+        html = safe_unicode(html)
+                
+        kss_core.replaceInnerHTML('#products', html)
         kss_core.replaceInnerHTML('#product-details-box', "")
                         
     @kssaction    
@@ -170,4 +174,7 @@ class CatalogKSSView(PloneKSSView):
             pd += GROUPS_FOOTER
         
         kss_core  = self.getCommandSet("core")
-        kss_core.replaceInnerHTML('#product-details-box', safe_unicode(pd))
+        
+        pd = cgi.escape(pd)
+        pd = safe_unicode(pd)
+        kss_core.replaceInnerHTML('#product-details-box', pd)
