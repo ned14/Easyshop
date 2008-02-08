@@ -207,8 +207,7 @@
                         </tal:block>
                         
                         <tal:block tal:condition="python:payment_portal_type == 'PayPalPaymentMethod'">
-                        <div>
-                             i18n:translate="paypal_label">
+                        <div i18n:translate="paypal_label">
                             PayPal
                         </div>
                         </tal:block>
@@ -273,6 +272,11 @@
                             <span tal:content="property/selected_option">
                                 Red
                             </span>
+                            
+                            <tal:block tal:condition="property/show_price">
+                                (<span tal:content="property/price" />)
+                            </tal:block>
+                            
                         </div>
                     </td>  
                     <td nowrap="nowrap" 
