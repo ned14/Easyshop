@@ -6,7 +6,6 @@ from zope import event
 from Products.Archetypes.event import ObjectInitializedEvent
 
 # easyshop imports 
-from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IOrderManagement
 
 class TestSession:
@@ -59,46 +58,51 @@ def createTestEnvironment(self):
     self.product_1.setStockAmount(10.0)
 
     # Properties
-    color = [
+    colors = [
         {"name"  : "Red",   "price" : "-10.0"},
         {"name"  : "Blue",  "price" :   "0.0"},
         {"name"  : "Green", "price" :  "15.0"}
     ]
 
     # Note this will be overwritten by product's properties
-    color_for_groups = [
+    colors_for_groups = [
         {"name"  : "Red",   "price" : "1000.0"},
         {"name"  : "Blue",  "price" : "2000.0"},
         {"name"  : "Green", "price" : "3000.0"}
     ]
 
-    material = [
+    materials = [
         {"name"  : "Iron", "price" : "-100.0"},
         {"name"  : "Wood", "price" :    "0.0"},
         {"name"  : "Gold", "price" :  "150.0"}
     ]
 
-    quality = [
+    qualities = [
         {"name"  : "Low",    "price" : "-1000.0"},
         {"name"  : "Medium", "price" :     "0.0"},
         {"name"  : "High",   "price" :  "1500.0"}
     ]
 
-    size_for_groups = [
+    sizes_for_groups = [
         {"name"  : "Small",  "price" : "-11.0"},
         {"name"  : "Medium", "price" :   "1.0"},
         {"name"  : "Large",  "price" :  "22.0"}
     ]
-
     
-    self.product_1.manage_addProduct["easyshop.shop"].addProductProperty(id="color", title="Color")
-    self.product_1.color.setOptions(color)
+    self.product_1.invokeFactory("ProductProperty", id="color", title="Color")
+    for option in colors:
+        self.product_1.color.invokeFactory(
+            "ProductPropertyOption", id=option["name"], title=option["name"], price=option["price"])
 
-    self.product_1.manage_addProduct["easyshop.shop"].addProductProperty(id="material", title="Material")
-    self.product_1.material.setOptions(material)
+    self.product_1.invokeFactory("ProductProperty", id="material", title="Material")
+    for option in materials:
+        self.product_1.material.invokeFactory(
+            "ProductPropertyOption", id=option["name"], title=option["name"], price=option["price"])
 
-    self.product_1.manage_addProduct["easyshop.shop"].addProductProperty(id="quality", title="Quality")
-    self.product_1.quality.setOptions(quality)
+    self.product_1.invokeFactory("ProductProperty", id="quality", title="Quality")
+    for option in qualities:
+        self.product_1.quality.invokeFactory(
+            "ProductPropertyOption", id=option["name"], title=option["name"], price=option["price"])
     
     self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_2", price=19.0)
     self.product_2 = self.shop.products.product_2
@@ -111,18 +115,22 @@ def createTestEnvironment(self):
     self.product_42.setStockAmount(0.0)
     
     # Groups
-    self.shop.groups.manage_addProduct["easyshop.shop"].addProductGroup(id="group_1")
-    self.shop.groups.manage_addProduct["easyshop.shop"].addProductGroup(id="group_2")
+    self.shop.groups.invokeFactory("ProductGroup", id="group_1")
+    self.shop.groups.invokeFactory("ProductGroup", id="group_2")    
     self.group_1 = self.shop.groups.group_1
     self.group_2 = self.shop.groups.group_2
 
     # Add properties to groups
-    self.group_1.manage_addProduct["easyshop.shop"].addProductProperty(id="color", title="Color")
-    self.group_1.color.setOptions(color_for_groups)    
+    self.group_1.invokeFactory("ProductProperty", id="color", title="Color")
+    for option in colors_for_groups:
+        self.group_1.color.invokeFactory(
+            "ProductPropertyOption", id=option["name"], title=option["name"], price=option["price"])
 
-    self.group_1.manage_addProduct["easyshop.shop"].addProductProperty(id="size", title="Size")
-    self.group_1.size.setOptions(size_for_groups)    
-        
+    self.group_1.invokeFactory("ProductProperty", id="size", title="Size")
+    for option in sizes_for_groups:
+        self.group_1.size.invokeFactory(
+            "ProductPropertyOption", id=option["name"], title=option["name"], price=option["price"])
+
     # Assign products to groups
     self.group_1.addReference(self.product_1, "groups_products")
     self.group_1.addReference(self.product_2, "groups_products")  
@@ -161,5 +169,3 @@ def createTestOrder(self):
 
     om = IOrderManagement(self.shop)
     self.order = om.addOrder()
-
-    

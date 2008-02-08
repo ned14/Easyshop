@@ -150,14 +150,25 @@ a.terms-and-conditions {
 table.product-content,
 table.products {
     width:100%;
-    border-collapse: collapse;
+    border-collapse: collapse;    
 }
 
-table.product-content td,
 table.products td {
+    vertical-align:top;
+}
+
+table.product-content td.product-image {
+    padding:0;
+}
+
+table.product-content td.sub-title {
     padding:2px 0 0 0;
+}
+
+table.product-content td {
     vertical-align:top;    
 }
+
 
 table.product-content td.category-link {
     vertical-align:bottom;

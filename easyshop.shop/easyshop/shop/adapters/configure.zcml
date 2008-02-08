@@ -18,6 +18,9 @@
         for="easyshop.core.interfaces.ICategory"
         factory=".image_management.ImageManagement" />
 
+    <adapter
+        factory=".image_management.ProductVariantImageManagement" />
+
     <!-- IShopManagement -->
     <adapter
         factory=".shop_management.ShopManagement" />
