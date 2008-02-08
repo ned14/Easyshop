@@ -16,8 +16,8 @@ from Products.Five.browser import BrowserView
 # easyshop imports
 from easyshop.core.config import _
 from easyshop.core.config import TEXTS, IMAGE_SIZES
-from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import IFormats
+from easyshop.core.interfaces import IFormatable
 from easyshop.core.interfaces import IProductSelector
 from easyshop.core.interfaces import IShop
 
@@ -53,9 +53,7 @@ class Renderer(base.Renderer):
         if not mtool.checkPermission("Manage portal", self.context):
             return False
              
-        if (ICategory.providedBy(self.context) or  \
-            IShop.providedBy(self.context)     or  \
-            IProductSelector.providedBy(self.context)) == False:
+        if IFormatable.providedBy(self.context) == False:
             return False
 
         return True        

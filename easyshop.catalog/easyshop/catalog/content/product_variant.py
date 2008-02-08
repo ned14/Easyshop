@@ -1,27 +1,28 @@
 # zope imports
 from zope.interface import implements
 
-# ATBackRef imports
-from Products.ATBackRef.BackReferenceField import *
-
-# ATReferenceBrowserWidget imports
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
-
 # Archetypes imports
+from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.folder import ATFolder
-try:
-    from Products.LinguaPlone.public import *
-except ImportError:
-    from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import IImageConversion
-from easyshop.core.interfaces import IProduct
-from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IProductVariant
 
 schema = Schema((
+
+    LinesField(
+        name="forProperties",        
+        widget=LinesWidget(
+            visible={'edit':'invisible', 'view':'invisible'},
+            label="For Properties",
+            label_msgid="schema_for_properties_label",
+            description = "",
+            description_msgid="schema_for_properties_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
 
     StringField(
         name="shortTitle",
@@ -37,7 +38,6 @@ schema = Schema((
 
     StringField(
         name='articleId',
-        languageIndependent=True,
         widget=StringWidget(
             label="Article ID",
             label_msgid='schema_article_id_label',
@@ -95,7 +95,6 @@ schema = Schema((
 
     ImageField(
         name='image',
-        languageIndependent=True,
         sizes= {'large'   : (768, 768),
                 'preview' : (400, 400),
                 'mini'    : (200, 200),
@@ -114,7 +113,6 @@ schema = Schema((
 
     BooleanField(
         name="unlimitedAmount",
-        languageIndependent=True,        
         schemata="advanced",
         widget = BooleanWidget(
             label="Unlimited Amount",
@@ -127,7 +125,6 @@ schema = Schema((
     
     FloatField(
         name="stockAmount",
-        languageIndependent=True,        
         schemata="advanced",
         default=0.0,
         widget=DecimalWidget(
@@ -141,7 +138,6 @@ schema = Schema((
 
     FloatField(
         name='weight',
-        languageIndependent=True,        
         schemata="advanced",        
         default=0.0,
         widget=DecimalWidget(
@@ -155,7 +151,6 @@ schema = Schema((
     
     FloatField(
         name='price',
-        languageIndependent=True,
         default=0.0,
         widget=DecimalWidget(
             size="10",
@@ -189,84 +184,13 @@ schema = Schema((
         )
     ),
 
-    BackReferenceField( 
-        name='categories',
-        multiValued=1,
-        relationship='categories_products',
-        allowed_types=("Category",),
-        widget=BackReferenceBrowserWidget(
-            condition="python:object.isCanonical()",
-            label="Categories",
-            label_msgid="schema_categories_label",
-            description='Please select all catgories, which should be associated with this product.',
-            description_msgid="schema_categories_description",        
-            i18n_domain='EasyShop',            
-            show_path=1,        
-            allow_search=1, 
-            allow_browse=1,
-            allow_sorting=1,             
-            restrict_browsing_to_startup_directory=1,
-            startup_directory="getStartupDirectoryForCategories",
-            available_indexes={'Title'         : "Product's Title",
-                               'SearchableText':'Free text search',
-                               'Description'   : "Object's description"},
-            ),    
-    ),        
-    
-    ReferenceField( 
-        name='relatedProducts',
-        languageIndependent=True,
-        schemata="advanced",
-        multiValued=1,
-        relationship='products_products',
-        allowed_types=("Product",),
-        widget=ReferenceBrowserWidget(
-            condition="python:object.isCanonical()",
-            label="Related Products",
-            label_msgid="schema_related_products_label",
-            description='Please select all products, which should be associated with this product.',
-            description_msgid="schema_products_description",
-            i18n_domain='EasyShop',            
-            show_path=1,        
-            allow_search=1, 
-            allow_browse=1,
-            allow_sorting=1,
-            restrict_browsing_to_startup_directory=1,
-            startup_directory="getStartupDirectoryForProducts",
-            available_indexes={'Title'         : "Product's Title",
-                               'SearchableText':'Free text search',
-                               'Description'   : "Object's description"},
-            ),    
-    ),        
-    
-    BackReferenceField( 
-        name='groups',
-        schemata="advanced",
-        multiValued=1,
-        relationship='groups_products',
-        allowed_types=("ProductGroup",),
-        widget=BackReferenceBrowserWidget(
-            condition="python:object.isCanonical()",
-            label="Groups",
-            label_msgid="schema_groups_label",
-            description='Please select all groups, which should be associated with this product.',
-            description_msgid="schema_groups_description",
-            i18n_domain='EasyShop',            
-            show_path=1,        
-            allow_search=1, 
-            allow_browse=1,
-            allow_sorting=1,             
-            restrict_browsing_to_startup_directory=1,
-            startup_directory="getStartupDirectoryForGroups",
-            available_indexes={'Title'         : "Product's Title",
-                               'SearchableText':'Free text search',
-                               'Description'   : "Object's description"},
-            ),    
-    ),        
 ),
 )
 
 schema = ATFolder.schema.copy() + schema
+
+# Misc
+schema["title"].required = False
 
 # Dates
 schema.changeSchemataForField('effectiveDate',  'plone')
@@ -290,73 +214,37 @@ schema.changeSchemataForField('allowDiscussion', 'plone')
 schema.changeSchemataForField('excludeFromNav', 'plone')
 schema.changeSchemataForField('nextPreviousEnabled', 'plone')
 
-class Product(ATFolder):
-    """A Product is offered for sale.
+class ProductVariant(ATFolder):
+    """A ProductVariant.
     """
-    implements(IProduct)
+    implements(IProductVariant)
     schema = schema
 
-    def setImage(self, data, **kwargs):
+    def setImage(self, data):
         """
         """
         if data and data != "DELETE_IMAGE":
             data = IImageConversion(self).convertImage(data)
         self.getField("image").set(self, data)
 
-    def getStartupDirectoryForProducts(self):
-        """
-        """
-        shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/products"
-        
-    def getStartupDirectoryForCategories(self):
-        """
-        """
-        shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/categories"
-        
-    def getStartupDirectoryForGroups(self):
-        """
-        """
-        shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/groups"
-
-    def setCategories(self, value):
-        """
-        """
-        # save the old categories
-        old_categories = self.getCategories()
-
-        # Set the new values
-        self.getField("categories").set(self, value)
-
-        # Reindex to get the new values ...
-        self.reindexObject()        
-                
-        # ... here. Now reindex all categories of this product and all parent 
-        # categories of them.
-        
-        # Todo: Reindex categories which are kept only once.
-        for category in old_categories:
-            obj = category
-            while ICategory.providedBy(obj):
-                obj.reindexObject()
-                obj = obj.aq_inner.aq_parent
-        
-        for category in self.getCategories():
-            obj = category
-            while ICategory.providedBy(obj):
-                obj.reindexObject()
-                obj = obj.aq_inner.aq_parent
-        
     def SearchableText(self):
         """
         """
-        return " ".join((
-            self.Title(),
-            self.getShortTitle(),
-            self.Description(),
-            self.getArticleId(),
-        ))
+        # TODO: Implement.
+
+    def base_view(self):
+        """
+        """
+        properties = {}
+        for property in self.getForProperties():
+            name, value = property.split(":")
+            properties["property_" + name] = value
+
+        parameters = "&".join(["%s=%s" % (k, v) for (k, v) 
+                                                in properties.items()])
+        parent = self.aq_inner.aq_parent        
+        url = parent.absolute_url() + "?" + parameters
                 
-registerType(Product, PROJECTNAME)
+        self.REQUEST.RESPONSE.redirect(url)
+        
+registerType(ProductVariant, PROJECTNAME)

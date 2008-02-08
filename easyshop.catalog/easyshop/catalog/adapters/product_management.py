@@ -114,7 +114,7 @@ class ShopProductManagement:
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides = "easyshop.core.interfaces.catalog.product.IProduct",
+            portal_type = "Product",
             path = "/".join(self.context.products.getPhysicalPath()),
             sort_on = "sortable_title",
         )

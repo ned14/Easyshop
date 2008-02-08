@@ -72,10 +72,9 @@ class ProductCategoryManagement:
     def getTopLevelCategories(self):
         """Returns objects.
         """
-        # Need the try/except here, because the of the temporary created
-        # shipping product, which has no context and hence no access to 
-        # tools and catalogs (and it doesn't need it, but I have to catch 
-        # the error.)
+        # Need the try/except here, because the temporary created shipping 
+        # product, which has no context and hence no access to tools and 
+        # catalogs (and it doesn't need it, but I have to catch the error.)
         try:
             mtool = getToolByName(self.context, "portal_membership")            
             categories = self.context.getBRefs("categories_products")
@@ -86,7 +85,7 @@ class ProductCategoryManagement:
         for category in categories:
             if mtool.checkPermission("View", category):
                 result.append(category)
-            
+        
         return result
         
 class ShopCategoryManagement:

@@ -1,40 +1,47 @@
-# Zope imports
-from AccessControl import ClassSecurityInfo
-
 # zope imports
 from zope.interface import implements
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
-# DataGridField imports
-from Products.DataGridField import DataGridField, DataGridWidget
-from Products.DataGridField.Column import Column
-
 # easyshop imports
-from easyshop.core.config import *
+from easyshop.core.config import PROJECTNAME
 from easyshop.core.interfaces import IProperty
 
-schema = Schema((
-       DataGridField('Options',
-                searchable = True,
-                columns=("name", "price"),
-                widget = DataGridWidget(
-                    columns={
-                        'name'  : Column("Name"),
-                        'price' : Column("Price"),
-                    },
-                 ),
-         ),
-),
-)
-
-class ProductProperty(BaseContent):
-    """
+class ProductProperty(OrderedBaseFolder):
+    """Product properties hold selectable options.
     """
     implements(IProperty)    
-    security = ClassSecurityInfo()
-    _at_rename_after_creation = True
-    schema = BaseSchema.copy() + schema.copy()
 
+    def getOptions(self):
+        """
+        """
+        result = []
+        for option in self.objectValues():
+            # image
+            if len(option.getImage()) > 0:
+                image_url = option.absolute_url() + "/image_listing"
+            else:
+                image_url = None
+                
+            result.append({
+                "id"        : option.getId(),
+                "name"      : option.Title(),                
+                "url"       : option.absolute_url(),
+                "path"      : "/".join(option.getPhysicalPath()),
+                "image_url" : image_url,
+                "price"     : str(option.getPrice()),
+             })
+        
+        return result
+
+    def base_view(self):
+        """Overwritten to redirect to manage-properties-view of parent product 
+        or group.
+        """
+        parent = self.aq_inner.aq_parent
+        
+        url = parent.absolute_url() + "/" + "manage-properties-view"
+        self.REQUEST.RESPONSE.redirect(url)
+        
 registerType(ProductProperty, PROJECTNAME)

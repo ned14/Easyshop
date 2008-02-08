@@ -5,12 +5,13 @@ from zope.component import adapts
 # easyshop imports
 from easyshop.core.interfaces import IGroupManagement
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
 
-class ProductPropertyManagement:
+class ProductPropertyManagement(object):
     """Provides IPropertyManagement for product content objects.
     """
     implements(IPropertyManagement)
@@ -20,8 +21,14 @@ class ProductPropertyManagement:
         """
         """
         self.context = context
-
-    def getPriceForCustomer(self, property_id, option_name):
+        
+    def getOptionsForProperty(self, property_id):
+        """
+        """
+        property = self.getProperty(property_id)
+        return property.getOptions()
+        
+    def getPriceForCustomer(self, property_id, option_id):
         """
         """
         # Get the tax rate for the product to which the property belongs.
@@ -29,22 +36,20 @@ class ProductPropertyManagement:
         # same as for the product.
         tax_rate_for_customer = ITaxes(self.context).getTaxRateForCustomer()
         
-        price_net = self.getPriceNet(property_id, option_name)
+        price_net = self.getPriceNet(property_id, option_id)
         price_for_customer =  price_net * ((tax_rate_for_customer + 100) / 100)
 
         return price_for_customer
         
-    def getPriceGross(self, property_id, option_name):
+    def getPriceGross(self, property_id, option_id):
         """
         """
         shop     = IShopManagement(self.context).getShop()
         tax_rate = ITaxes(self.context).getTaxRate()
-        price    = self._calcPrice(property_id, option_name)
-
+        price    = self._calcPrice(property_id, option_id)
 
         # The price entered is considered as gross price, so we simply
         # return it.
-        
         if shop.getGrossPrices() == True:
             return price
 
@@ -53,7 +58,7 @@ class ProductPropertyManagement:
         else:
             return price * ((tax_rate + 100) / 100)
         
-    def getPriceNet(self, property_id, option_name):
+    def getPriceNet(self, property_id, option_id):
         """
         """
         # Get the tax rate for the product to which the property belongs.
@@ -61,7 +66,7 @@ class ProductPropertyManagement:
         # same as for the product.
         shop     = IShopManagement(self.context).getShop()
         tax_rate = ITaxes(self.context).getTaxRate()
-        price    = self._calcPrice(property_id, option_name)
+        price    = self._calcPrice(property_id, option_id)
 
 
         # The price entered is considered as gross price. So we have to 
@@ -76,10 +81,47 @@ class ProductPropertyManagement:
             return price
                 
     def getProperties(self):
-        """Returns all Properties for a Product.
+        """
+        """
+        # Get unique properties as dict
+        result = self._getProperties()
                 
-           Properties from the Product have higher precedence than Properties
-           from a Group.
+        return result.values()
+
+    def getProperty(self, id):
+        """
+        """
+        for property in self.getProperties():
+            if property.getId() == id:
+                return property
+        
+        return None
+
+    def getTitlesByIds(self, property_id, option_id):
+        """
+        """
+        # Get all properties as dict
+        result = self._getProperties()
+        
+        if result.has_key(property_id) == False:
+            return {
+                "property" : property_id, 
+                "option" : option_id,
+            }
+
+        property = result[property_id]
+        for option in property.getOptions():
+            if option["id"] == option_id:
+                return {
+                    "property" : property.Title(), 
+                    "option" : option["name"],
+                }
+        
+        return None
+
+    def _getProperties(self):
+        """Returns all unique Properties for a Product, wheras properties from 
+        the Product have higher precedence than Properties from a Group.
         """
         groups = IGroupManagement(self.context).getGroups()
 
@@ -93,18 +135,9 @@ class ProductPropertyManagement:
         for property in self.context.objectValues("ProductProperty"):
             result[property.getId()] = property
             
-        return result.values()
-
-    def getProperty(self, id):
-        """
-        """
-        for property in self.getProperties():
-            if property.getId() == id:
-                return property
+        return result
         
-        return None
-        
-    def _calcPrice(self, property_id, option_name):
+    def _calcPrice(self, property_id, option_id):
         """
         """
         found = False
@@ -118,7 +151,7 @@ class ProductPropertyManagement:
                     
         found = False
         for option in property.getOptions():
-            if option["name"] == option_name:
+            if option["id"] == option_id:
                 found = True
                 break
                 
@@ -131,4 +164,26 @@ class ProductPropertyManagement:
             price = 0.0
 
         return price
-        
+
+
+def getTitlesByIds(product, property_id, option_id):
+    # TODO: This may not be the cleanest way. Rethink it. YAGNI?
+    """A simple wrapper to get the variants options (global options) of a 
+    variant. In this way the adapter still works for local properties (price 
+    changing) of a variant, which may later used additional to the global ones.
+    """
+    
+    if IProductVariant.providedBy(product) == True:
+        product = product.aq_inner.aq_parent
+
+    pm = IPropertyManagement(product)
+    return pm.getTitlesByIds(property_id, option_id)
+    
+def getOptionsForProperty(product, property_id):
+    """Returns all options for a given property id.
+    """
+    if IProductVariant.providedBy(product) == True:
+        product = product.aq_inner.aq_parent
+
+    pm = IPropertyManagement(product)
+    return pm.getOptionsForProperty(property_id)

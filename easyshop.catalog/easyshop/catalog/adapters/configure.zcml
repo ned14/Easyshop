@@ -2,6 +2,19 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five">
 
+    <!-- IProductVariants -->
+    <adapter
+        factory=".data.ProductVariantData" />
+
+    <adapter
+        factory=".product_variants_management.ProductVariantsManagement" />
+
+    <adapter
+        factory=".prices.ProductVariantPrices" />
+
+    <adapter
+        factory=".taxes.ProductVariantTaxes" />
+
     <!-- ICategoryManagement -->
     <adapter
         factory=".category_management.CategoryCategoryManagement" />
@@ -20,22 +33,12 @@
 
     <!-- IFormat -->
     <adapter
-        for="easyshop.core.interfaces.ICategory"
+        for="easyshop.core.interfaces.IFormatable"
         factory=".formats.FormatterInfos" />
-
-    <adapter
-        for="easyshop.core.interfaces.IProductSelector"
-        factory=".formats.FormatterInfos" />
-
-    <adapter
-        for="easyshop.core.interfaces.IShop"
-        factory=".formats.FormatterInfos" />
-        
 
     <!-- IPrices -->    
     <adapter
         factory=".prices.ProductPrices" />
-
 
     <!-- IProductManagement -->
     <adapter
@@ -57,3 +60,4 @@
         factory=".taxes.ProductTaxes" />
         
 </configure>
+

@@ -158,7 +158,7 @@ class ManageProductsView(BrowserView):
     def showNoProducts(self):
         """
         """
-        # If there was as search return False
+        # If there was a search then return False
         if (self.request.get("letter", None) is not None or \
             self.request.get("searchable_text", None) is not None):
             return False

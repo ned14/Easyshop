@@ -3,8 +3,8 @@
 
     <form name="product_form" 
           action="#"
-          tal:define="product view/getProduct"                                  
-          tal:attributes="action product/url"
+          tal:define="product_data view/getProductData"
+          tal:attributes="action context/absolute_url"
           method="post">
                   
         <table class="products">
@@ -84,7 +84,7 @@
             <tr>
                 <td>
                     <table class="product-content"
-                           tal:define="zoom_url string:${context/absolute_url}/product-zoom-view;">
+                           tal:define="zoom_url string:${product_data/url}/product-zoom-view;">
                         <tr>
                             <td class="sub-title"
                                 colspan="2">
@@ -96,14 +96,13 @@
                         <tr>
                             <td class="product-image"
                                 tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')">
-                                <img tal:condition="product/image"
-                                     tal:attributes="src product/image;
-                                                     alt product/title;" />
+                                
+                                <img tal:condition="product_data/image"
+                                     tal:attributes="src product_data/image;
+                                                     alt product_data/title;" />
                             </td>
-                            <td class="product-description">
-                                <metal:field use-macro="python:here.widget('text', mode='view')">
-                                    Product text
-                                </metal:field>
+                            <td class="product-description"
+                                tal:content="structure product_data/text">
                             </td>
                         </tr>
                         <tr tal:define="stock_information view/getStockInformation"
@@ -143,17 +142,17 @@
                                             Title
                                          </td>
                                          <td>
+                                             <input type="hidden"
+                                                    name="variant_selected"
+                                                    value="1" />
+                                                    
                                              <select style="font-size:12px; width:200px"
                                                      onchange="document.product_form.submit();"
-                                                     tal:attributes="name string:property-${property/id}">
+                                                     tal:attributes="name property/id">
            
-                                                 <option i18n:translate="please_select_label">
-                                                     Please Select
-                                                 </option>
-                                       
                                                  <option tal:repeat="option property/options"
-                                                         tal:content="option/content"
-                                                         tal:attributes="value option/value;
+                                                         tal:content="option/title"
+                                                         tal:attributes="value option/id;
                                                                          selected option/selected">
                                                      Red
                                                  </option>                           
@@ -185,6 +184,10 @@
                                        name="quantity"
                                        value="1" />
 
+                                <input type="hidden"
+                                       name="url"
+                                       value="product_data/url" />
+                                       
                                 <input class="context"
                                        id="add-product"
                                        name="addToCart:method" 
