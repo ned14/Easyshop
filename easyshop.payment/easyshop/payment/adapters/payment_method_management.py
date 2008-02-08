@@ -6,6 +6,7 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
+from easyshop.core.interfaces import IPaymentMethod
 from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import ISelectablePaymentMethod
 from easyshop.core.interfaces import IShop
@@ -49,6 +50,9 @@ class PaymentMethodManagement:
             
         result = []
         for object in self.paymentmethods.objectValues():
+
+            if IPaymentMethod.providedBy(object) == False:
+                continue
 
             if check_validity and \
                IValidity(object).isValid(object) == False:

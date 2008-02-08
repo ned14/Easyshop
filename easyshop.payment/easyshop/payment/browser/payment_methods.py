@@ -33,7 +33,7 @@ class PaymentMethodsView(BrowserView):
         """
         try:
             method = self.context[id]
-        except IndexError:
+        except KeyError:
             return 0
             
         return len(method.objectIds())

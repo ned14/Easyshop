@@ -38,7 +38,7 @@ class PaymentPricesView(BrowserView):
         """
         try:
             tax = self.context[id]
-        except IndexError:
+        except KeyError:
             return 0
             
         return len(tax.objectIds())
