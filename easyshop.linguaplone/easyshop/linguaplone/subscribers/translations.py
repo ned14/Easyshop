@@ -21,7 +21,8 @@ def syncProductTranslations(product, event):
     # all categories of the first translation which is not canonical. With just
     # the approach above we would not get the category, hence they would not get
     # updated.
-    
+
+    translation = None
     for language in ltool.getSupportedLanguages():
         if language != default_language:
             translation = product.getTranslation(language)
