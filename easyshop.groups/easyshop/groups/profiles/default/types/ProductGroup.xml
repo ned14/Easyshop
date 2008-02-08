@@ -19,11 +19,15 @@
  <alias from="view" to="group-view"/>
  <alias from="edit" to="atct_edit"/>
  <action title="View" action_id="view" category="object" condition_expr=""
-    url_expr="string:${object_url}/base_view" visible="True">
+    url_expr="string:${object_url}" visible="True">
   <permission value="View"/>
  </action>
  <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/base_edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Product Properties" action_id="product-properties" category="object" condition_expr=""
+    url_expr="string:${object_url}/manage-properties-view" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Properties" action_id="metadata" category="object"
