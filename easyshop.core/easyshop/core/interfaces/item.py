@@ -17,11 +17,15 @@ class IItemManagement(Interface):
         """
 
     def deleteItem(id):
-        """deletes the Item by passed id.
+        """Deletes item with passed id.
+        """
+
+    def getItem(id):
+        """Returns item with passed id.
         """
 
     def getItems():
-        """Returns all cart items.
+        """Returns all items.
         """
 
     def hasItems():
