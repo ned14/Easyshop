@@ -312,6 +312,7 @@ class CartFormView(BrowserView):
         if cart is None:
             url = "%s/cart" % self.context.absolute_url()
             self.context.request.response.redirect(url)
+            return
                         
         item_manager = IItemManagement(cart)
 
