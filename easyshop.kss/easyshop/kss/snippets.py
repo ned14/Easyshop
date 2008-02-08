@@ -1,7 +1,8 @@
 PRODUCT_DETAILS = """
 <table class="shop-default">
     <tr>
-        <td class="image">
+        <td width="210px"
+            class="image">
             <img src="%(url)s/image_mini" />
         </td>
         

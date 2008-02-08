@@ -39,5 +39,11 @@ class FormatterKSSView(PloneKSSView):
                                     manager="easyshop.product-selector-manager",
                                     name="easyshop.product-selector-viewlet")                                    
 
+        # For easyshop.easyarticle
+        elif layout == "overview":
+            kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("products-list"),
+                                    manager="easyshop.products-manager",
+                                    name="easyshop.products-viewlet")
+
         kss_plone.refreshPortlet(portlethash)                                    
         
