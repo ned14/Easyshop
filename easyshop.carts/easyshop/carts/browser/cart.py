@@ -309,6 +309,10 @@ class CartFormView(BrowserView):
             safe_unicode(self.request.get("selected_payment_method"))
             
         cart = self._getCart()
+        if cart is None:
+            url = "%s/cart" % self.context.absolute_url()
+            self.context.request.response.redirect(url)
+                        
         item_manager = IItemManagement(cart)
 
         i = 1
@@ -336,7 +340,7 @@ class CartFormView(BrowserView):
         else:
             url = "%s/cart" % self.context.absolute_url()
 
-        return  self.context.request.response.redirect(url)        
+        self.context.request.response.redirect(url)
 
     def showCheckOutButton(self):
         """
