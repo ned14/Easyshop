@@ -14,10 +14,12 @@ from plone.memoize.instance import memoize
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 
 # easyshop imports
+from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement 
 from easyshop.core.interfaces import IPaymentInformationManagement
@@ -25,10 +27,12 @@ from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
+
 
 class CartFormView(BrowserView):
     """
@@ -79,21 +83,26 @@ class CartFormView(BrowserView):
                     selected_property["id"], 
                     selected_property["selected_option"]) 
 
-                # This could happen if a property is deleted and there are 
-                # still product with this selected property in the cart.
-                # Todo: Think about, whether theses properties are not to 
-                # display. See also checkout_order_preview
-                try:    
-                    property_title = pm.getProperty(
-                        selected_property["id"]).Title()
-                except AttributeError:
-                    property_title = selected_property["id"]
+                # Get titles of property and option
+                titles = getTitlesByIds(
+                    product,
+                    selected_property["id"], 
+                    selected_property["selected_option"])
+                    
+                if titles is None:
+                    continue
+
+                if IProductVariant.providedBy(product) == True:
+                    show_price = False
+                else:
+                    show_price = True
                     
                 properties.append({
                     "id" : selected_property["id"],
-                    "selected_option" : selected_property["selected_option"],
-                    "title" : property_title,
-                    "price" : cm.priceToString(property_price)
+                    "selected_option" : titles["option"],
+                    "title" : titles["property"],
+                    "price" : cm.priceToString(property_price),
+                    "show_price" : show_price,
                 })
 
             # Discount
@@ -108,7 +117,11 @@ class CartFormView(BrowserView):
                 }
 
                 total_price = price - discount_price
-                
+            
+            # Product title
+            data = IData(product).asDict()
+            title = data["title"]
+            
             # After we have taken properties and stuff from canonical we change
             # to translation to get translated title and url. 
             if HAS_LINGUA_PLONE:
@@ -116,7 +129,7 @@ class CartFormView(BrowserView):
                 
             result.append({
                 "id"            : cart_item.getId(),
-                "product_title" : product.Title(),
+                "product_title" : title,
                 "product_url"   : product.absolute_url(),
                 "product_price" : product_price,
                 "price"         : cm.priceToString(price),

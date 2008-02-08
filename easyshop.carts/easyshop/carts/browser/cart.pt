@@ -142,7 +142,9 @@
                                     <div tal:repeat="property cart_item/properties">
                                         <span tal:content="property/title" /> :
                                         <span tal:content="property/selected_option" />
-                                        (<span tal:content="property/price" />)
+                                        <tal:block tal:condition="property/show_price">
+                                            (<span tal:content="property/price" />)
+                                        </tal:block>
                                     </div>                  
                                                                                                                                             
                                 </td>    
