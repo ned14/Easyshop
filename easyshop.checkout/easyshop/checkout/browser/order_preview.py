@@ -1,4 +1,10 @@
 # Zope imports
+from AccessControl.SecurityManagement import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import setSecurityManager
+from AccessControl.User import UnrestrictedUser
+
+# zope imports
 from zope import schema
 from zope.app.form.interfaces import WidgetInputError
 from zope.component import getMultiAdapter
@@ -16,6 +22,7 @@ from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
 
 # easyshop imports
+from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.config import _
 from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import IAsynchronPaymentMethod
@@ -25,6 +32,7 @@ from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICompleteness
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import IPaymentInformationManagement
@@ -32,6 +40,7 @@ from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPaymentProcessing
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IShippingMethodManagement
@@ -99,14 +108,32 @@ class OrderPreviewForm(formbase.AddForm):
             # Set order to pending (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
             wftool.doActionFor(new_order, "submit")
-
+            
             putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
-                        
+
         if result.code == PAYED:
+
             # Set order to payed (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
-            wftool.doActionFor(new_order, "pay_not_sent")
 
+            # We need a new security manager here, because this transaction 
+            # should usually just be allowed by a Manager except here.
+            old_sm = getSecurityManager()
+            tmp_user = UnrestrictedUser(
+                old_sm.getUser().getId(),
+                '', ['Manager'], 
+                ''
+            )
+
+            portal = getToolByName(self.context, 'portal_url').getPortalObject()
+            tmp_user = tmp_user.__of__(portal.acl_users)
+            newSecurityManager(None, tmp_user)
+
+            wftool.doActionFor(new_order, "pay_not_sent")
+            
+            ## Reset security manager
+            setSecurityManager(old_sm)
+            
         # Redirect
         customer = \
             ICustomerManagement(self.context).getAuthenticatedCustomer()
@@ -142,21 +169,26 @@ class OrderPreviewForm(formbase.AddForm):
                     selected_property["id"], 
                     selected_property["selected_option"]) 
 
-                # This could happen if a property is deleted and there are 
-                # still product with this selected property in the cart.
-                # Todo: Think about, whether theses properties are not to 
-                # display. See also cart.py
-                try:                                        
-                    property_title = pm.getProperty(
-                        selected_property["id"]).Title()
-                except AttributeError:
-                    property_title = selected_property["id"]
-                
+                # Get titles of property and option
+                titles = getTitlesByIds(
+                    product,
+                    selected_property["id"], 
+                    selected_property["selected_option"])
+                    
+                if titles is None:
+                    continue
+
+                if IProductVariant.providedBy(product) == True:
+                    show_price = False
+                else:
+                    show_price = True
+
                 properties.append({
                     "id" : selected_property["id"],
-                    "selected_option" : selected_property["selected_option"],
-                    "title" : property_title,
-                    "price" : cm.priceToString(property_price)
+                    "selected_option" : titles["option"],
+                    "title" : titles["property"],
+                    "price" : cm.priceToString(property_price),
+                    "show_price" : show_price,
                 })
 
             # Discount
@@ -171,10 +203,12 @@ class OrderPreviewForm(formbase.AddForm):
                 }
 
                 total_price = price - discount_price
-                
+            
+            # Data    
+            data = IData(product).asDict()
             
             result.append({
-                "product_title" : product.Title(),
+                "product_title" : data["title"],
                 "product_price" : product_price,
                 "properties"    : properties,
                 "price"         : cm.priceToString(price),
