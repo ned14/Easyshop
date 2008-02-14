@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <div metal:fill-slot="main">
+            <h1 class="documentFirstHeading"
+                tal:content="object_title">
+                Title or id
+            </h1>
+            <div tal:repeat="shop view/getShops">
+                <a href="."
+                   tal:attributes="href shop/url"
+                   tal:content="shop/title">
+                   Shop Title
+                </a>   
+            </div>
+
+            <div tal:replace="structure provider:plone.belowcontentbody" />
+
+        </div>    
+    </body>
+    
+</html>

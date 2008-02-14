@@ -1,0 +1,12 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+           
+    <browser:page
+        name="mall-view"
+        for="easymall.mall.interfaces.IMall"
+        class=".mall_view.MallView"
+        template="mall_view.pt"
+        permission="zope2.Public" />
+
+</configure>

@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="EasyMall"
+        directory="profiles/default"
+        description="A mall holds several EasyShops."
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+  
+</configure>

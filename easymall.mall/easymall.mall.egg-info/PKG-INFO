@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: easymall.mall
+Version: 0.1dev-r1906
+Summary: UNKNOWN
+Home-page: http://iqpp.de
+Author: Kai Diefenbach
+Author-email: kai.diefenbach@iqpp.de
+License: GPL
+Description: UNKNOWN
+Keywords: Zope,Plone,e-commerce,shop,online-shop,e-shop
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
