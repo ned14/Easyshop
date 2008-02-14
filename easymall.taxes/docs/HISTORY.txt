@@ -1,0 +1,9 @@
+Changelog for easymall.taxes
+
+    (name of developer listed in brackets)
+
+easymall.taxes - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
