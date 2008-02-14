@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        factory=".payment_method_management.ShopPaymentMethodManagement" />
+
+    <adapter
+        factory=".payment_price_management.ShopPaymentPriceManagement" />
+
+</configure>
