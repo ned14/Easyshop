@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+    <include
+        package=".adapters" />
+
+    <!-- <subscriber
+        for="easymall.mall.interfaces.IMall
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler="easyshop.customers.subscribers.subscribers.createContainer" /> -->
+        
+</configure>

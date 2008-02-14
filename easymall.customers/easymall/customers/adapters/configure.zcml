@@ -1,0 +1,8 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope">
+
+    <!-- CustomerManagement -->    
+    <adapter
+        factory=".customer_management.MallCustomerManagement" />
+        
+</configure>
