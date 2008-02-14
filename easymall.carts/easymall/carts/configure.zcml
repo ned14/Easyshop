@@ -1,0 +1,42 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"    
+    xmlns:five="http://namespaces.zope.org/five">
+
+    <include
+        package=".adapters" />
+
+    <!-- <subscriber
+        for="easymall.mall.interfaces.IMall
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler="easyshop.carts.subscribers.subscribers.createContainers" /> -->
+
+    <browser:page
+        for="easymall.mall.interfaces.IMall"
+        name="cart"
+        class="easyshop.carts.browser.cart.CartFormView"
+        template="cart.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        for="easymall.mall.interfaces.IMall"
+        name="deleteItem"
+        class="easyshop.carts.browser.cart.CartFormView"
+        attribute="deleteItem" 
+        permission="zope.Public" />
+
+    <browser:page
+        for="easymall.mall.interfaces.IMall"
+        name="refreshCart"
+        class="easyshop.carts.browser.cart.CartFormView"
+        attribute="refreshCart" 
+        permission="zope.Public" />
+
+    <browser:page
+        for="easymall.mall.interfaces.IMall"
+        name="added-to-cart"
+        template="added_to_cart.pt"
+        class="easyshop.carts.browser.added_to_cart.AddedToCartView"
+        permission="zope.Public" />
+        
+</configure>

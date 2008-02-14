@@ -1,0 +1,9 @@
+Changelog for easymall.carts
+
+    (name of developer listed in brackets)
+
+easymall.carts - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
