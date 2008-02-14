@@ -1,0 +1,12 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+    
+    <browser:page  
+        name="create-test-content"  
+        for="*"
+        class=".utils.UtilsView"
+        attribute="createTestContent"
+        permission="zope2.Public" />  
+      
+</configure>
