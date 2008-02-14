@@ -15,7 +15,7 @@ from easyshop.core.interfaces import IShop
 from easyshop.catalog.content.product import Product
 from easyshop.core.interfaces import IShopManagement
 
-class ShippingPriceManagement:
+class ShippingPriceManagement(object):
     """An adapter which provides IShippingPriceManagement for shop content objects.
     """    
     implements(IShippingPriceManagement)

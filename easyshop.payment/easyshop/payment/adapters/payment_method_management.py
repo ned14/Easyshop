@@ -12,7 +12,7 @@ from easyshop.core.interfaces import ISelectablePaymentMethod
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IValidity
 
-class PaymentMethodManagement:
+class PaymentMethodManagement(object):
     """An adapter which provides IPaymentMethodManagement for shop content
     objects.
     """

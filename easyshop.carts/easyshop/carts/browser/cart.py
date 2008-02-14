@@ -150,7 +150,7 @@ class CartFormView(BrowserView):
     def getCountries(self):
         """Returns available countries.
         """
-        result = []                
+        result = []
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         shop = IShopManagement(self.context).getShop()
         for country in shop.getCountries():

@@ -12,7 +12,7 @@ from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import ITaxes
 from easyshop.core.interfaces import IValidity
 
-class PaymentPriceManagement:
+class PaymentPriceManagement(object):
     """Provides IPaymentPriceManagement for shop content objects.
     """
     implements(IPaymentPriceManagement)
@@ -22,11 +22,12 @@ class PaymentPriceManagement:
         """
         """
         self.context = context
+        self.paymentprices = self.context.paymentprices
         
     def getPaymentPrices(self):
         """
         """
-        prices = self.context.paymentprices.objectValues("PaymentPrice")
+        prices = self.paymentprices.objectValues("PaymentPrice")
         
         result = []
         for price in prices:

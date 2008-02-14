@@ -41,7 +41,13 @@ class CartItemDiscountsCalculation:
     def getDiscount(self):
         """Returns the first valid discount or None.
         """
-        shop = IShopManagement(self.context).getShop()
+
+        # NOTE: Using the product to get the shop is due to EasyMall. The 
+        # product lives in the several shops and can used to get the mall and/or
+        # the Shop, whereas the item lives in the all and there would be no 
+        # way back to the origin shop.
+
+        shop = IShopManagement(self.context.getProduct()).getShop()
         for discount in IDiscountsManagement(shop).getDiscounts():
             if IValidity(discount).isValid(self.context) == True:
                 return discount

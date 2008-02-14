@@ -17,7 +17,7 @@ from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import ISessionManagement
 from easyshop.core.interfaces import IShop
 
-class CustomerManagement:
+class CustomerManagement(object):
     """Provides customer management for shop content objects.
     """
     implements(ICustomerManagement)

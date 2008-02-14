@@ -30,7 +30,7 @@ class UnrestrictedUser(BaseUnrestrictedUser):
         """
         return self.getUserName()
 
-class OrderManagement:
+class OrderManagement(object):
     """An adapter, which provides order management for shop content objects.
     """
     implements(IOrderManagement)

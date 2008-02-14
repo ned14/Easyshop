@@ -12,7 +12,7 @@ from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import ISessionManagement
 from easyshop.core.interfaces import IShop
 
-class CartManagement:
+class CartManagement(object):
     """Adapter which provides ICartManagement for shop content objects.
     """
     implements(ICartManagement)
@@ -22,11 +22,12 @@ class CartManagement:
         """
         """
         self.context = context
+        self.carts = self.context.carts
 
     def addCart(self, id):
         """
         """
-        self.context.carts.manage_addProduct["easyshop.shop"].addCart(id = id)
+        self.carts.manage_addProduct["easyshop.shop"].addCart(id = id)
         return self.getCartById(id)
 
     def createCart(self):
@@ -34,11 +35,11 @@ class CartManagement:
         """
         cart_id = self._getCartId()
         
-        self.context.carts.manage_addProduct["easyshop.shop"].addCart(
+        self.carts.manage_addProduct["easyshop.shop"].addCart(
             id = cart_id
         )
         
-        return self.context.carts[cart_id]
+        return self.carts[cart_id]
         
     def deleteCart(self, id=None):
         """Deletes a cart
@@ -47,7 +48,7 @@ class CartManagement:
             id = self._getCartId()
 
         # needs no permissions
-        self.context.carts._delObject(id)
+        self.carts._delObject(id)
 
     def getCart(self):
         """
@@ -61,7 +62,7 @@ class CartManagement:
             
         # Get anonymous cart here, because we need it in any case.
         try:
-            anonymous_cart = self.context.carts[sid]
+            anonymous_cart = self.carts[sid]
         except KeyError:
             anonymous_cart = None
 
@@ -78,7 +79,7 @@ class CartManagement:
             # there is one, otherwise we return nothing.
             if anonymous_cart is None:
                 try:
-                    cart = self.context.carts[mid]
+                    cart = self.carts[mid]
                 except KeyError:
                     cart = None
                     
@@ -86,7 +87,7 @@ class CartManagement:
             # copy the items from anonymous to member cart.
             else:
                 try:
-                    cart = self.context.carts[mid]
+                    cart = self.carts[mid]
                 except KeyError:
                     cart = self.createCart()
                             
@@ -98,7 +99,7 @@ class CartManagement:
     def getCarts(self, sort_on="created", sort_order="descending"):
         """
         """
-        path = "/".join(self.context.carts.getPhysicalPath())
+        path = "/".join(self.carts.getPhysicalPath())
         
         query = {
             "path"        : path,
@@ -115,7 +116,7 @@ class CartManagement:
     def getCartById(self, id):
         """
         """
-        return self.context.carts.get(id)
+        return self.carts.get(id)
 
     def getCartByUID(self, uid):
         """Returns a cart by given uid.        
@@ -132,7 +133,7 @@ class CartManagement:
         # (getattr) and to have no need to use of external dependancies like
         # shasattr or aq_base.
         try:
-            self.context.carts[self._getCartId()]
+            self.carts[self._getCartId()]
         except KeyError:
             return False
         else:

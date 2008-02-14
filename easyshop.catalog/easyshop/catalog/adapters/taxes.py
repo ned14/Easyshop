@@ -89,7 +89,7 @@ class ProductTaxes(object):
             price = self.context.getSalePrice()
         else:
             price = self.context.getPrice()
-        
+
         if self.shop.getGrossPrices() == True:
             tax_abs = (tax_rate/(tax_rate+100)) * price
         else:
