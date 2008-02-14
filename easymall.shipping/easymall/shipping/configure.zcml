@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="easymall.shipping">
+
+    <include
+        package=".adapters" />
+
+    <!-- <subscriber
+        for="easymall.mall.interfaces.IMall
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler="easyshop.shipping.subscribers.subscribers.createContainers" /> -->
+        
+</configure>

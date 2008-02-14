@@ -1,0 +1,9 @@
+Changelog for easymall.shipping
+
+    (name of developer listed in brackets)
+
+easymall.shipping - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
