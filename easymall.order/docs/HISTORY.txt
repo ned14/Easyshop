@@ -1,0 +1,9 @@
+Changelog for easymall.order
+
+    (name of developer listed in brackets)
+
+easymall.order - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
