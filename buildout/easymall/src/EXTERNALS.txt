@@ -21,7 +21,7 @@ easyshop.stocks https://easyshop-for-plone.googlecode.com/svn/easyshop.stocks/tr
 easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
 
 easymall.carts https://easyshop-for-plone.googlecode.com/svn/easymall.carts/trunk
-easymall.customers https://easyshop-for-plone.googlecode.com/svn/easyshop.customers/trunk
+easymall.customers https://easyshop-for-plone.googlecode.com/svn/easymall.customers/trunk
 easymall.mall https://easyshop-for-plone.googlecode.com/svn/easymall.mall/trunk
 easymall.order https://easyshop-for-plone.googlecode.com/svn/easymall.order/trunk
 easymall.payment https://easyshop-for-plone.googlecode.com/svn/easymall.payment/trunk
