@@ -2,6 +2,9 @@
     xmlns="http://namespaces.zope.org/zope">
 
     <adapter
+        factory=".product_management.CategoryProductManagement" />
+
+    <adapter
         factory=".shop_management.ShopManagement" />
     
 </configure>

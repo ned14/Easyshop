@@ -7,3 +7,10 @@ from easyshop.core.interfaces import IShop
 class IMall(IShop):
     """A mall holds several shops.
     """
+    
+class IMallManagement(Interface):
+    """
+    """    
+    def getMall():
+        """Returns mall
+        """
