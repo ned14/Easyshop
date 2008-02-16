@@ -12,7 +12,7 @@ from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShop
 
-class CategoryProductManagement:
+class CategoryProductManagement(object):
     """An adapter which provides IProductManagement for category content
     objects.
     """
@@ -86,7 +86,7 @@ class CategoryProductManagement:
         return products              
         
 
-class ShopProductManagement:
+class ShopProductManagement(object):
     """An adapter which provides IProductManagement for shop content objects.
     """
     implements(IProductManagement)

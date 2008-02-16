@@ -14,7 +14,7 @@ from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IShop
 
-class CategoryCategoryManagement:
+class CategoryCategoryManagement(object):
     """Adapter which provides ICategoryManagement for category content 
     objects.
     """
@@ -53,7 +53,7 @@ class CategoryCategoryManagement:
 
         return brains
         
-class ProductCategoryManagement:
+class ProductCategoryManagement(object):
     """Adapter which provides ICategoryManagement for product content objects.
     """
     implements(ICategoryManagement)
@@ -88,7 +88,7 @@ class ProductCategoryManagement:
         
         return result
         
-class ShopCategoryManagement:
+class ShopCategoryManagement(object):
     """An adapter which provides ICategoryManagement for shop content objects.
     """
     implements(ICategoryManagement)
