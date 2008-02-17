@@ -62,7 +62,7 @@ class CatalogKSSView(PloneKSSView):
             if letter == "All":
                 products = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    portal_type = "Product",
+                    object_provides = "easyshop.core.interfaces.catalog.IProduct",
                     sort_on = "sortable_title",
                 )
                         

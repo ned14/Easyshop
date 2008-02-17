@@ -29,7 +29,7 @@ class CategoryCategoryManagement(object):
     def getCategories(self):
         """
         """
-        query = Eq("portal_type", "Category") & \
+        query = Eq("object_provides", "easyshop.core.interfaces.catalog.ICategory") & \
                 Eq("path", "/".join(self.context.getPhysicalPath())) & \
                 ~ Eq("id", self.context.getId())
         
@@ -46,7 +46,7 @@ class CategoryCategoryManagement(object):
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            portal_type = "Category",
+            object_provides = "easyshop.core.interfaces.catalog.ICategory",
             path = {"query"       : "/".join(self.context.getPhysicalPath()),
                     "depth"       : 1},
         )
@@ -106,7 +106,7 @@ class ShopCategoryManagement(object):
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
             path = "/".join(self.categories.getPhysicalPath()),
-            portal_type="Category",
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
             sort_on = "getObjPositionInParent")
 
         return brains
@@ -115,9 +115,10 @@ class ShopCategoryManagement(object):
         """Return brains.
         """ 
         catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog(portal_type="Category",
-                         path = {"query" : "/".join(self.categories.getPhysicalPath()),
-                                 "depth" : 1},
-                         sort_on = "getObjPositionInParent")
+        brains = catalog(
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
+            path = {"query" : "/".join(self.categories.getPhysicalPath()),
+                    "depth" : 1},
+            sort_on = "getObjPositionInParent")
 
         return brains
