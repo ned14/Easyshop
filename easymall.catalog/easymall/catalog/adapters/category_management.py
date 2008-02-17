@@ -12,9 +12,11 @@ from easyshop.catalog.adapters.category_management \
 
 # easymall imports
 from easymall.mall.interfaces import IMallProduct
-    
+from easymall.mall.interfaces import IMallCategory
+
 class MallProductCategoryManagement(ProductCategoryManagement):
-    """Adapter which provides ICategoryManagement for mall product content objects.
+    """Adapter which provides ICategoryManagement for mall product content
+    objects.
     """
     implements(ICategoryManagement)
     adapts(IMallProduct)

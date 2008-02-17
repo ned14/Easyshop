@@ -25,6 +25,11 @@ class UtilsView(BrowserView):
         mall.at_post_create_script()
         event.notify(ObjectInitializedEvent(mall))
         mall._at_creation_flag = False
+
+        mall.categories.invokeFactory(
+            "MallCategory",
+            id="mc1",
+            title="MC1")
         
         # Add Shop 1
         mall.invokeFactory(
@@ -74,5 +79,8 @@ class UtilsView(BrowserView):
 
         shop1.categories.c1.addReference(shop1.products.p1, "categories_products")
         shop2.categories.c1.addReference(shop2.products.p1, "categories_products")
-                    
+        
+        mall.categories.mc1.addReference(shop1.products.p1, "mall_categories_products")
+        mall.categories.mc1.addReference(shop2.products.p1, "mall_categories_products")
+                                    
         self.request.response.redirect(".")

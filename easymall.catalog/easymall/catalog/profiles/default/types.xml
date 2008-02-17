@@ -4,8 +4,16 @@
     name="title">Controls the available content types in your portal</property>
 
  <object
+     name="MallCategory"
+     meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object
      name="MallProduct"
      meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object 
+     name="MallCategoriesContainer"
+     meta_type="Factory-based Type Information" />
 
  <object 
      name="ProductsContainer"

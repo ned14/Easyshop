@@ -91,7 +91,7 @@ class EasyMall(ATFolder):
 
         # Create containers
         self.manage_addProduct["easyshop.shop"].addCartsContainer(id="carts", title="Carts")
-        self.manage_addProduct["easyshop.shop"].addCategoriesContainer(id="categories", title="Categories")        
+        self.manage_addProduct["easymall.mall"].addMallCategoriesContainer(id="categories", title="Categories")
         self.manage_addProduct["easyshop.shop"].addCustomersContainer(id="customers", title="Customers")
         self.manage_addProduct["easyshop.shop"].addSessionsContainer(id="sessions", title="Sessions")
         self.manage_addProduct["easyshop.shop"].addGroupsContainer(id="groups", title="Groups")

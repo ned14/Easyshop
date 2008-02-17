@@ -5,7 +5,7 @@
         name="default"
         title="easymall.catalog"
         directory="profiles/default"
-        description="Catalog for EasyMall"
+        description="A catalog replacment for EasyMall"
         provides="Products.GenericSetup.interfaces.EXTENSION" />
   
 </configure>
