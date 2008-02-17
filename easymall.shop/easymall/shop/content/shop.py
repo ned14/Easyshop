@@ -174,19 +174,6 @@ class MallEasyShop(ATFolder):
         assignable = getMultiAdapter((self, leftColumn,), ILocalPortletAssignmentManager)
         assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
 
-        # Add right portlets 
-        rightColumn = getUtility(IPortletManager, name=u'plone.rightcolumn', context=self)
-        right = getMultiAdapter((self, rightColumn,), IPortletAssignmentMapping, context=self)
-
-        if u'portlets.Formatter' not in right:
-            right[u'portlets.Formatter'] = formatter.Assignment()
-            order = [right.keys()[-1]]+right.keys()[:-1]
-            right.updateOrder(list(order))
-
-        # Block default portlets
-        assignable = getMultiAdapter((self, rightColumn,), ILocalPortletAssignmentManager)
-        assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
-
         # Create containers
         self.manage_addProduct["easyshop.shop"].addCategoriesContainer(id="categories", title="Categories")
         self.manage_addProduct["easyshop.shop"].addDiscountsContainer(id="discounts", title="Discounts")
