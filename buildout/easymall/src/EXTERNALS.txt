@@ -21,11 +21,13 @@ easyshop.stocks https://easyshop-for-plone.googlecode.com/svn/easyshop.stocks/tr
 easyshop.taxes https://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
 
 easymall.carts https://easyshop-for-plone.googlecode.com/svn/easymall.carts/trunk
+easymall.catalog https://easyshop-for-plone.googlecode.com/svn/easymall.catalog/trunk
 easymall.customers https://easyshop-for-plone.googlecode.com/svn/easymall.customers/trunk
 easymall.mall https://easyshop-for-plone.googlecode.com/svn/easymall.mall/trunk
 easymall.order https://easyshop-for-plone.googlecode.com/svn/easymall.order/trunk
 easymall.payment https://easyshop-for-plone.googlecode.com/svn/easymall.payment/trunk
 easymall.shipping https://easyshop-for-plone.googlecode.com/svn/easymall.shipping/trunk
+easymall.shop https://easyshop-for-plone.googlecode.com/svn/easymall.shop/trunk
 easymall.taxes https://easyshop-for-plone.googlecode.com/svn/easymall.taxes/trunk
 
 iqpp.sessions https://easyshop-for-plone.googlecode.com/svn/iqpp.sessions/trunk
