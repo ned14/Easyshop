@@ -250,6 +250,7 @@ class Renderer(base.Renderer):
 class AddForm(base.AddForm):
     """
     """
+    form_fields = form.Fields(ICategoriesPortlet)
     def create(self, data):
         """
         """

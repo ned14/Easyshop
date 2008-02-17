@@ -14,7 +14,4 @@
     <include
         package=".browser" />
 
-    <include
-        package=".subscribers" />
-
 </configure>

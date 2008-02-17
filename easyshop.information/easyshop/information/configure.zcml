@@ -10,9 +10,6 @@
         package=".browser" />
 
     <include
-        package=".subscribers" />
-        
-    <include
         file="profiles.zcml" />
         
 </configure>

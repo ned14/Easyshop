@@ -3,6 +3,9 @@ from zope.interface import implements
 from zope.component import getUtility
 from zope.component import getMultiAdapter
 
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
@@ -227,7 +230,57 @@ class EasyShop(ATFolder):
         assignable = getMultiAdapter((self, rightColumn,), ILocalPortletAssignmentManager)
         assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
 
-                
+        # Create containers
+        self.manage_addProduct["easyshop.shop"].addCartsContainer(id="carts", title="Carts")
+        self.manage_addProduct["easyshop.shop"].addProductsContainer(id="products", title="Products")
+        self.manage_addProduct["easyshop.shop"].addCategoriesContainer(id="categories", title="Categories")
+        self.manage_addProduct["easyshop.shop"].addCustomersContainer(id="customers", title="Customers")
+        self.manage_addProduct["easyshop.shop"].addSessionsContainer(id="sessions", title="Sessions")
+        self.manage_addProduct["easyshop.shop"].addDiscountsContainer(id="discounts", title="Discounts")
+        self.manage_addProduct["easyshop.shop"].addGroupsContainer(id="groups", title="Groups")
+        self.manage_addProduct["easyshop.shop"].addTaxesContainer(id="taxes", title="Taxes")
+        self.manage_addProduct["easyshop.shop"].addStockInformationContainer(id="stock-information", 
+            title="Stock Information")    
+        
+        ### Information        
+        self.manage_addProduct["easyshop.shop"].addInformationContainer(id="information", title="Information")
+        self.information.manage_addProduct["easyshop.shop"].addInformationPage(
+            id="terms-and-conditions", title="Terms And Conditions")
+
+        ### Orders
+        self.manage_addProduct["easyshop.shop"].addOrdersContainer(id="orders", title="Orders")
+        self.orders.manage_permission('Add portal content', ['Member'], 1)
+
+        ### Payment            
+        self.manage_addProduct["easyshop.shop"].addPaymentMethodsContainer(id="paymentmethods", 
+            title="Payment Methods")
+            
+        self.manage_addProduct["easyshop.shop"].addPaymentPricesContainer(
+            id="paymentprices", title="Payment Prices")        
+        self.paymentmethods.manage_addProduct["easyshop.shop"].addGenericPaymentMethod(
+            id="cash-on-delivery", title="Cash on Delivery")                
+        self.paymentmethods.manage_addProduct["easyshop.shop"].addCreditCardPaymentMethod(
+            id="credit-card", title="Credit Card")                
+        self.paymentmethods.manage_addProduct["easyshop.shop"].addDirectDebitPaymentMethod(
+            id="direct-debit", title="Direct Debit")
+        self.manage_addProduct["easyshop.shop"].addPayPalPaymentMethod(id="paypal",  title="PayPal")
+        self.manage_addProduct["easyshop.shop"].addaddGenericPaymentMethod(id="prepayment", 
+            title="Prepayment")   
+
+        wftool = getToolByName(self, "portal_workflow")
+        for payment_method in self.paymentmethods.objectValues():
+            wftool.doActionFor(payment_method, "publish")
+
+        ### Shipping    
+        self.manage_addProduct["easyshop.shop"].addShippingPricesContainer(id="shippingprices", 
+            title="Shipping Prices")
+        self.manage_addProduct["easyshop.shop"].addShippingMethodsContainer(id="shippingmethods",
+            title="Shipping Methods")
+        self.manage_addProduct["easyshop.shop"].addShippingMethod(id="default", title="Default")
+
+        for shipping_method in self.shippingmethods.objectValues():
+            wftool.doActionFor(shipping_method, "publish")
+                                
     def setImage(self, data):
         """
         """

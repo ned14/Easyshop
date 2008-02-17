@@ -3,7 +3,7 @@
   
  <portlet 
      addview="portlets.MyAccount"
-     title="EasyShop: My Account"
+     title="EasyShop My Account"
      description="Portlet to display a 'My Account'." />
 
 </portlets>

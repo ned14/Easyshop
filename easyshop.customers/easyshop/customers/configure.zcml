@@ -20,9 +20,6 @@
         package=".portlets" />
 
     <include 
-        package=".subscribers" />
-
-    <include 
         package=".viewlets" />
 
     <include 
