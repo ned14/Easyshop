@@ -2,7 +2,7 @@
 <object name="MallProduct"
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Mall Product</property>
+ <property name="title">Product</property>
  <property name="description"
      i18n:translate="">A Product is offered for sale.</property>
  <property name="content_icon">document_icon.gif</property>

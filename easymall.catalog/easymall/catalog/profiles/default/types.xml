@@ -7,4 +7,8 @@
      name="MallProduct"
      meta_type="Factory-based Type Information with dynamic views"/>
 
+ <object 
+     name="ProductsContainer"
+     meta_type="Factory-based Type Information" />
+
 </object>

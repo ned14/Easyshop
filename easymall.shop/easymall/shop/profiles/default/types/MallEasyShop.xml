@@ -10,7 +10,7 @@
  <property name="product">easymall.mall</property>
  <property name="factory">addMallEasyShop</property>
  <property name="immediate_view">categories-view</property>
- <property name="global_allow">True</property>
+ <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="Document"/>

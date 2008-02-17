@@ -17,16 +17,14 @@ from Products.ATContentTypes.content.folder import ATFolder
 
 # easyshop imports
 from easyshop.core.interfaces import IImageConversion
-
 from easyshop.catalog.portlets import categories
 from easyshop.catalog.portlets import formatter
 
-from easyshop.carts.portlets import cart
-from easyshop.customers.portlets import my_account
-
 # easymall imports
-from easymall.mall.portlets import shop_admin
 from easymall.mall.config import *
+from easymall.catalog.portlets import categories as mall_categories
+from easymall.mall.portlets import mall_admin
+from easymall.mall.portlets import shop_admin
 from easymall.mall.interfaces import IMallShop
 
 schema = Schema((
@@ -157,10 +155,24 @@ class MallEasyShop(ATFolder):
             order = [left.keys()[-1]]+left.keys()[:-1]
             left.updateOrder(list(order))
 
+        if u'portlets.MallAdmin' not in left:
+            left[u'portlets.MallAdmin'] = mall_admin.Assignment()
+            order = [left.keys()[-1]]+left.keys()[:-1]
+            left.updateOrder(list(order))
+        
         if u'portlets.Categories' not in left:
             left[u'portlets.Categories'] = categories.Assignment()
             order = [left.keys()[-1]]+left.keys()[:-1]
             left.updateOrder(list(order))
+
+        if u'portlets.MallCategories' not in left:
+            left[u'portlets.MallCategories'] = mall_categories.Assignment()
+            order = [left.keys()[-1]]+left.keys()[:-1]
+            left.updateOrder(list(order))
+
+        # Block default portlets
+        assignable = getMultiAdapter((self, leftColumn,), ILocalPortletAssignmentManager)
+        assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
 
         # Add right portlets 
         rightColumn = getUtility(IPortletManager, name=u'plone.rightcolumn', context=self)
