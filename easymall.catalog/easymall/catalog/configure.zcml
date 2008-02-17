@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five">
+    
+    <include
+        package=".adapters" />
+
+    <include
+        package=".portlets" />
+
+    <include
+        file="profiles.zcml" />
+        
+</configure>

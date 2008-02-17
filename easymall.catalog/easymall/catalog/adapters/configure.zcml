@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <adapter
+        factory=".category_management.MallProductCategoryManagement" />
+    
+</configure>

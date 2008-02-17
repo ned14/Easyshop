@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets>
+  
+ <portlet 
+     addview="portlets.MallCategories"
+     title="EasyMall Categories"
+     description="Portlet to browse through the mall's catalog." />
+
+</portlets>
