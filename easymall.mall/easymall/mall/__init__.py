@@ -9,7 +9,8 @@ def initialize(context):
     """Initializer called when used as a Zope 2 product.
     """
     import easymall.mall.content
-    import easymall.catalog.content    
+    import easymall.catalog.content
+    import easymall.shop.content
 
     # Initialize portal content
     all_content_types, all_constructors, all_ftis = process_types(

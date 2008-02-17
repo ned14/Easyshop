@@ -5,4 +5,8 @@
         package=".adapters"
         file="overrides.zcml" />
 
+    <include
+        package=".portlets"
+        file="overrides.zcml" />
+
 </configure>

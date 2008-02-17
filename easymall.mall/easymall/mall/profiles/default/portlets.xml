@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets>
+
+    <portlet 
+        addview="portlets.MallAdmin"
+        title="EasyMall Manager"
+        description="Portlet to admin EasyMall." />
+   
+</portlets>

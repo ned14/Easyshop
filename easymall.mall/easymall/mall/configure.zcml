@@ -16,6 +16,9 @@
         package=".browser" />
 
     <include 
+        package=".portlets" />
+
+    <include 
         package=".utils" />
 
 </configure>

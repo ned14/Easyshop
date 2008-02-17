@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+    
+    <include 
+        package="plone.app.portlets" />
+       
+    <plone:portlet
+        name="portlets.MallAdmin"
+        interface=".mall_admin.IMallAdminPortlet"
+        assignment=".mall_admin.Assignment"
+        renderer=".mall_admin.Renderer"
+        addview=".mall_admin.AddForm" />
+
+
+</configure>

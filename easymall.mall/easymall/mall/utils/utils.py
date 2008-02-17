@@ -28,7 +28,7 @@ class UtilsView(BrowserView):
         
         # Add Shop 1
         mall.invokeFactory(
-            "EasyShop", 
+            "MallEasyShop",
             id="shop-1", 
             title="Shop 1",
             shopOwner="Shop 1",
@@ -44,14 +44,14 @@ class UtilsView(BrowserView):
             title="C1 in Shop1")
 
         shop1.products.invokeFactory(
-            "Product",
+            "MallProduct",
             id="p1",
             title="P1 in Shop 1",
             price=10.00)
 
         # Add Shop 2
         mall.invokeFactory(
-            "EasyShop", 
+            "MallEasyShop",
             id="shop-2", 
             title="Shop 2",
             shopOwner="Shop 2",
@@ -67,7 +67,7 @@ class UtilsView(BrowserView):
             title="C1 in Shop2")
 
         shop2.products.invokeFactory(
-            "Product",
+            "MallProduct",
             id="p1",
             title="P1 in Shop 2",
             price=100.00)

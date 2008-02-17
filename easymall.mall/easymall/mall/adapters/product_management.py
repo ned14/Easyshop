@@ -19,8 +19,8 @@ class CategoryProductManagement(EasyShopCategoryProductManagement):
         """
         shop_or_mall = IShopManagement(self.context).getShop()
 
-        # NOTE: The more specific one has to be the first, because Mall is also 
-        # a shop
+        # NOTE: The more specific one has to be the first, because a mall is 
+        # also a shop
         if IMall.providedBy(shop_or_mall):
             reference = "mall_categories_products"
         elif IShop.providedBy(shop_or_mall):
