@@ -45,8 +45,9 @@ class Renderer(base.Renderer):
     def available(self):
         """
         """
-        mtool = getToolByName(self.context, "portal_membership")
-        if mtool.checkPermission("Manage portal", self.context):
+        mtool = getToolByName(self.context, "portal_membership")        
+        member = mtool.getAuthenticatedMember()
+        if member.has_role(("Manager",)):
             return True
         else:
             return False

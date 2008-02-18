@@ -1,7 +1,13 @@
 # Zope imports
+from AccessControl import ClassSecurityInfo
+
+# zope imports
 from zope.interface import implements
 from zope.component import getUtility
 from zope.component import getMultiAdapter
+
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
@@ -36,6 +42,18 @@ schema = Schema((
             label="Shop Owner",
             label_msgid="schema_shop_owner_label",
             description = "",
+            description_msgid="schema_shop_owner_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    StringField(
+        name="shopOwnerId",
+        condition="python:object.displayShopOwnerId()",
+        widget=StringWidget(
+            label="Shop Owner Id",
+            label_msgid="schema_shop_owner_label",
+            description = "The member id of the shop owner",
             description_msgid="schema_shop_owner_description",
             i18n_domain="EasyShop",
         ),
@@ -135,6 +153,7 @@ class MallEasyShop(ATFolder):
     implements(IMallShop)
     _at_rename_after_creation = True
     schema = schema
+    security = ClassSecurityInfo()
 
     def at_post_create_script(self):
         """Overwritten to create some objects.
@@ -147,8 +166,10 @@ class MallEasyShop(ATFolder):
         ctr.assignTypeName("EasyShopImage", "EasyShopImage")
         
         # Add left portlets 
-        leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)
-        left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, context=self)
+        leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', 
+            context=self)
+        left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, 
+            context=self)
 
         if u'portlets.Admin' not in left:
             left[u'portlets.Admin'] = shop_admin.Assignment()
@@ -171,26 +192,68 @@ class MallEasyShop(ATFolder):
             left.updateOrder(list(order))
 
         # Block default portlets
-        assignable = getMultiAdapter((self, leftColumn,), ILocalPortletAssignmentManager)
+        assignable = getMultiAdapter((self, leftColumn,), 
+            ILocalPortletAssignmentManager)
         assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
 
         # Create containers
-        self.manage_addProduct["easyshop.shop"].addCategoriesContainer(id="categories", title="Categories")
-        self.manage_addProduct["easyshop.shop"].addDiscountsContainer(id="discounts", title="Discounts")
-        self.manage_addProduct["easyshop.shop"].addProductsContainer(id="products", title="Products")        
-        self.manage_addProduct["easyshop.shop"].addStockInformationContainer(id="stock-information", 
-            title="Stock Information")    
+        self.manage_addProduct["easyshop.shop"].addCategoriesContainer(
+            id="categories", title="Categories")
+        self.manage_addProduct["easyshop.shop"].addDiscountsContainer(
+            id="discounts", title="Discounts")
+        self.manage_addProduct["easyshop.shop"].addProductsContainer(
+            id="products", title="Products")        
+        self.manage_addProduct["easyshop.shop"].addStockInformationContainer(
+            id="stock-information", title="Stock Information")    
                 
         ### Information
         self.manage_addProduct["easyshop.shop"].addInformationContainer(id="information", title="Information")
         self.information.manage_addProduct["easyshop.shop"].addInformationPage(
             id="terms-and-conditions", title="Terms And Conditions")
+
+        # Set local roles
+        self.setShopOwnerId(self.getShopOwnerId())
+        
+    def displayShopOwnerId(self):
+        """
+        """
+        mtool = getToolByName(self, "portal_membership")
+        if mtool.checkPermission("Manage portal", self):
+            return True
+        else:
+            return False
         
     def setImage(self, data):
         """
         """
         if data and data != "DELETE_IMAGE":
             data = IImageConversion(self).convertImage(data)
-        self.getField("image").set(self, data)        
-    
+        self.getField("image").set(self, data)
+        
+    def setShopOwnerId(self, value):
+        """
+        """
+        if value == "":
+            return
+        
+        old_value = self.getField("shopOwnerId").get(self)
+        self.getField("shopOwnerId").set(self, value)
+        
+        self.manage_delLocalRoles((old_value,))
+        self.manage_addLocalRoles(value, ["Shop Owner"])
+        
+        folder_ids = ["categories", "discounts", "products", "stock-information"]
+        
+        for folder_id in folder_ids:
+            try:
+                folder = self[folder_id]
+            except KeyError:
+                continue
+
+            # revove old one
+            folder.manage_delLocalRoles((old_value,))
+                
+            # add new one
+            folder.manage_addLocalRoles(value, ["Manager"])
+        
 registerType(MallEasyShop, PROJECTNAME)

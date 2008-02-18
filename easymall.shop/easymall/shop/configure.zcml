@@ -1,6 +1,10 @@
 <configure
     xmlns="http://namespaces.zope.org/zope">
 
+    <five:registerPackage 
+        package="." 
+        initialize=".initialize" />
+
     <include 
         file="profiles.zcml" />
 

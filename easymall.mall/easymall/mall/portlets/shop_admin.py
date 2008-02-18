@@ -48,8 +48,15 @@ class Renderer(base.Renderer):
         mtool = getToolByName(self.context, "portal_membership")
         if mtool.checkPermission("Manage portal", self.context):
             return True
-        else:
-            return False
+        
+        
+        member_id = mtool.getAuthenticatedMember().getId()
+        shop = IShopManagement(self.context).getShop()
+        
+        if shop.getShopOwnerId() == member_id:
+            return True
+            
+        return False
 
     def getShopURL(self):
         """

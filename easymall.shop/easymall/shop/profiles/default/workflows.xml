@@ -6,7 +6,7 @@
  <bindings>
      
   <type type_id="MallEasyShop">
-   <bound-workflow workflow_id="easyshop_shop_workflow"/>
+   <bound-workflow workflow_id="easymall_shop_workflow"/>
   </type>
 
  </bindings>
