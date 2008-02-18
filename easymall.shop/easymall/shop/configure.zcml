@@ -1,9 +1,9 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope">
-
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five">
+    
     <five:registerPackage 
-        package="." 
-        initialize=".initialize" />
+        package="." />
 
     <include 
         file="profiles.zcml" />

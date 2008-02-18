@@ -48,9 +48,9 @@ schema = Schema((
     ),
 
     StringField(
-        name="shopOwnerId",
-        condition="python:object.displayShopOwnerId()",
+        name="shopOwnerId",        
         widget=StringWidget(
+            condition="python:object.displayShopOwnerId()",
             label="Shop Owner Id",
             label_msgid="schema_shop_owner_label",
             description = "The member id of the shop owner",
