@@ -127,11 +127,12 @@ class EasyMall(ATFolder):
             wftool.doActionFor(payment_method, "publish")
 
         ### Shipping    
-        self.manage_addProduct["easyshop.shop"].addShippingPricesContainer(id="shippingprices", 
-            title="Shipping Prices")
-        self.manage_addProduct["easyshop.shop"].addShippingMethodsContainer(id="shippingmethods",
-            title="Shipping Methods")
-        self.manage_addProduct["easyshop.shop"].addShippingMethod(id="default", title="Default")
+        self.manage_addProduct["easyshop.shop"].addShippingPricesContainer(
+            id="shippingprices", title="Shipping Prices")
+        self.manage_addProduct["easyshop.shop"].addShippingMethodsContainer(
+            id="shippingmethods", title="Shipping Methods")
+        self.shippingmethods.manage_addProduct["easyshop.shop"].addShippingMethod(
+            id="default", title="Default")
 
         for shipping_method in self.shippingmethods.objectValues():
             wftool.doActionFor(shipping_method, "publish")
