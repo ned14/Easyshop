@@ -20,6 +20,17 @@ class MallShippingPriceManagement(BaseShippingPriceManagement):
     implements(IShippingPriceManagement)
     adapts(IMall)
 
+    def getPriceGross(self):
+        """
+        """
+        amount_of_shops = ICartManagement(self.context).getAmountOfShops()
+        
+        for price in self.getShippingPrices():
+            if IValidity(price).isValid() == True:
+                return price.getPrice() * amount_of_shops
+        
+        return 0
+        
 class ShopShippingPriceManagement(BaseShippingPriceManagement):
     """An adapter which provides IShippingPriceManagement for shop content objects.
     """    
