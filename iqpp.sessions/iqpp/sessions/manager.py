@@ -11,18 +11,18 @@ class SessionManagement:
     """
     implements(ISessionManagement)
     
-    def getSID(self, request):
+    def getSID(self, request, id):
         """
         """
         # First we try to get the session id out of a cookie. If there is none, 
         # we get the session id out of the request and create a cookie.
         
-        sid = request.cookies.get("easyshop-sid", None)
+        sid = request.cookies.get(id, None)
         if sid is None:            
             try:                
                 sid = request.SESSION.getId()
                 expires = (DateTime() + 10).toZone('GMT').rfc822()
-                request.RESPONSE.setCookie("easyshop-sid", sid, expires=expires)
+                request.RESPONSE.setCookie(id, sid, expires=expires)
             except AttributeError:
                 sid = "DUMMY_SESSION"
         
