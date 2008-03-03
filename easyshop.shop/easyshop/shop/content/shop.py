@@ -263,9 +263,10 @@ class EasyShop(ATFolder):
             id="credit-card", title="Credit Card")                
         self.paymentmethods.manage_addProduct["easyshop.shop"].addDirectDebitPaymentMethod(
             id="direct-debit", title="Direct Debit")
-        self.manage_addProduct["easyshop.shop"].addPayPalPaymentMethod(id="paypal",  title="PayPal")
-        self.manage_addProduct["easyshop.shop"].addaddGenericPaymentMethod(id="prepayment", 
-            title="Prepayment")   
+        self.manage_addProduct["easyshop.shop"].addPayPalPaymentMethod(
+            id="paypal",  title="PayPal")
+        self.manage_addProduct["easyshop.shop"].addGenericPaymentMethod(
+            id="prepayment", title="Prepayment")
 
         wftool = getToolByName(self, "portal_workflow")
         for payment_method in self.paymentmethods.objectValues():
