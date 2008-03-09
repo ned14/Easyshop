@@ -12,7 +12,7 @@ from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import IValidity
 
-class ShippingMethodManagement:
+class ShippingMethodManagement(object):
     """An adapter which provides IShippingMethodManagement for shop content 
     objects.
     """    
