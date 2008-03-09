@@ -9,7 +9,7 @@
  <property name="content_meta_type">Article</property>
  <property name="product">EasyArticle</property>
  <property name="factory">addArticle</property>
- <property name="immediate_view">info-right</property>
+ <property name="immediate_view">overview</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
@@ -18,7 +18,7 @@
   <element value="Document" />
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">info-right</property>
+ <property name="default_view">overview</property>
  <property name="view_methods">
   <element value="info-right" />
   <element value="info-below-other" />  

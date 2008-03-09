@@ -8,7 +8,7 @@
 
     <!-- Make formatter portlet appear for an EasyArticle -->
     <five:implements 
-        class="Products.EasyArticle.content.article.Article"
+        class="easyarticle.core.content.EasyArticle"
         interface="easyshop.core.interfaces.IFormatable" /> 
         
     <include

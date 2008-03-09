@@ -1,12 +1,15 @@
-# zope imports
-from zope.component import getMultiAdapter
-
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
 
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+# EasyArticle imports
+from easyarticle.core.interfaces import IObjectsManagement
 
 # Easyshop imports
 from easyshop.core.interfaces import IFormats
@@ -20,8 +23,6 @@ class ContentViewlet(ViewletBase):
         """
         """
         super(ContentViewlet, self).__init__(context, request, view, manager)
-        self.article_view = getMultiAdapter(
-            (self.context, self.request), name="article_view")
 
     @memoize
     def getFormats(self):
@@ -37,7 +38,9 @@ class ContentViewlet(ViewletBase):
         
         lines = []
         line  = []
-        for i, product in enumerate(self.article_view.getObjects()):
+
+        om = IObjectsManagement(self.context)
+        for i, product in enumerate(om.getObjectsAsDict()):
             line.append(product)
 
             # CSS Class    
@@ -51,8 +54,11 @@ class ContentViewlet(ViewletBase):
             product["klass"] = klass
 
             # image
+            if product["image_size"] == "formatter":
+                product["image_size"] = f.get("image_size")
+                                
             if product["image_url"] is not None:
-                product["image_url"] = "%s/image_%s" % (product["image_url"], f.get("image_size"))
+                product["image_url"] = "%s/image_%s" % (product["image_url"], product["image_size"])
                         
             if (i+1) % products_per_line == 0:
                 lines.append(line)
@@ -63,11 +69,17 @@ class ContentViewlet(ViewletBase):
             
         return lines
 
-    @memoize        
+    @memoize
     def showEditFunctions(self):
         """
         """
-        return self.article_view.showEditFunctions()        
+        mtool = getToolByName(self.context, "portal_membership")
+        
+        # "not" works for both: None and False
+        if not mtool.checkPermission("Manage portal", self.context):
+            return False
+            
+        return True
 
     @memoize
     def getTdWidth(self):

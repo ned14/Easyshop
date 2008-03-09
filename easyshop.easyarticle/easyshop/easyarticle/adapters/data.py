@@ -3,8 +3,8 @@ from zope.component import adapts
 from zope.interface import implements
 
 # EasyArticle imports
-from Products.EasyArticle.interfaces import IData
-from Products.EasyArticle.adapters.data import GenericData
+from easyarticle.core.interfaces import IData
+from easyarticle.core.adapters.data import GenericData
 
 # easyarticle imports
 from easyshop.easyarticle.interfaces import IESReference
@@ -21,20 +21,29 @@ class ESImageData(GenericData):
     implements(IData)
     adapts(IESImage)
 
-    def getDict(self):
+    def getContent(self):
         """
         """
         # Adding the background color of the image
-        aDict = super(ESImageData, self).getDict()
+        aDict = super(ESImageData, self).getContent()
         aDict["background_color"] = self.context.getBackgroundColor()
+
+        # Set text
+        aDict["text"] = self.context.getText()
+        
+        # Set link to which the image refers
         try:
             aDict["url"] = self.context.getRelatedObject().absolute_url()
         except AttributeError:
             aDict["url"] = None
         
+        # Set image data
+        aDict["image_url"]  = self.context.absolute_url()
+        aDict["image_size"] = self.context.getImageSize()
+        
         return aDict
                 
-class ESReferenceData:
+class ESReferenceData(GenericData):
     """
     """
     implements(IData)
@@ -44,51 +53,52 @@ class ESReferenceData:
         """        
         """
         self.context = context
+        self.object  = context.getObjectReference()
         
-    def getDict(self):
+    def getContent(self):
         """
         """
-        object = self.context.getObjectReference()
-                
         data = {}
 
         # Title
         if self.context.getOverwriteTitle() == True:
             title = self.context.Title()
         else:
-            title = object.Title()
+            title = self.object.Title()
 
         # Text
         if self.context.getOverwriteText() == True:
             text = self.context.getText()
         else:
-            text = object.getText()
+            text = self.object.getText()
 
         # Image    
         if len(self.context.getImage()) != 0:
             image = self.context
         else:
-            image = IImageManagement(object).getMainImage()
+            image = IImageManagement(self.object).getMainImage()
         
         if image is not None:
             image_url = image.absolute_url()
 
         # Price
-        if IProduct.providedBy(object) == True:
-            cm = ICurrencyManagement(object)
-            price = cm.priceToString(object.getPrice())
+        if IProduct.providedBy(self.object) == True:
+            cm = ICurrencyManagement(self.object)
+            price = cm.priceToString(self.object.getPrice())
         else:
             price = "0.0"
             
         data.update({
-            "portal_type" : object.getPortalTypeName(),
-            "url"         : object.absolute_url(),
+            "portal_type" : self.object.getPortalTypeName(),
+            "id"          : self.object.getId(),
+            "url"         : self.object.absolute_url(),
             "title"       : title,
-            "description" : object.Description(),
+            "description" : self.object.Description(),
             "text"        : text,
             "image_url"   : image_url,
             "price"       : price,
             "for_sale"    : False,
+            "image_size"  : self.context.getImageSize(),
         })
-                        
+
         return data

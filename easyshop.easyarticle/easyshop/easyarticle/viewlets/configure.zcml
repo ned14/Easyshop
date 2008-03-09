@@ -3,7 +3,7 @@
 
     <browser:viewlet
         name="easyshop.products-viewlet"
-        for="Products.EasyArticle.interfaces.IEasyArticle"
+        for="easyarticle.core.interfaces.IEasyArticle"
         manager="easyshop.catalog.viewlets.interfaces.IProductsViewletManager"
         class=".overview.ContentViewlet"
         permission="zope.Public" />

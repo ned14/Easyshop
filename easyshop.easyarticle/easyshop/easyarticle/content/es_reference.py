@@ -99,6 +99,19 @@ schema = Schema((
         storage=AttributeStorage()
     ),
 
+    StringField(
+        name="imageSize",
+        vocabulary="_getImageSizesAsDL", 
+        default="formatter",   
+        widget=SelectionWidget(
+            label="Image Size",
+            label_msgid="schema_image_size_label",
+            description = "",
+            description_msgid = "schema_image_size_description",
+            i18n_domain="EasyArticle",        
+        ),
+    ),
+    
 ),
 )
 
@@ -137,5 +150,18 @@ class ESReference(BaseContent):
         shop = IShopManagement(self).getShop()
         return "/".join(shop.getPhysicalPath())
 
+    def _getImageSizesAsDL(self):
+        """
+        """
+        dl = DisplayList()
+        dl.add("formatter", "Formatter")
+        dl.add("preview"  , "Preview")
+        dl.add("mini"     , "Mini")
+        dl.add("thumb"    , "Thumb")
+        dl.add("title"    , "Title")
+        dl.add("icon"     , "Icon")
+        dl.add("listing"  , "Listing")
         
+        return dl
+
 registerType(ESReference, PROJECTNAME)
