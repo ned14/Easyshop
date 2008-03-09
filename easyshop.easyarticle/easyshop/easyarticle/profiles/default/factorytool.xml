@@ -2,5 +2,6 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
  <factorytypes>
      <type portal_type="ESReference"/>
+     <type portal_type="ESImage"/>     
  </factorytypes>
 </object>
