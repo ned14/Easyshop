@@ -17,10 +17,7 @@ from snippets import *
 
 # easyshop.core imports
 from easyshop.core.config import MESSAGES
-from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IShopManagement
 
 class CatalogKSSView(PloneKSSView):
     """
@@ -93,7 +90,7 @@ class CatalogKSSView(PloneKSSView):
         for i, product in enumerate(products):
             html += "<td>"
             html += """<img class="product-details kssattr-uid-%s" alt="info" src="info_icon.gif" />""" % product.UID
-            html += """<div><a href="%s">%s</a></div>""" % (product.getURL(), product.Title)
+            html += """<div><a href="%s">%s</a></div>""" % (product.getURL(), cgi.escape(product.Title))
             html += """</td><td class="image">"""
             html += """<img src="%s/image_tile" /> """  % product.getURL()
             html += """</td>"""
@@ -101,13 +98,11 @@ class CatalogKSSView(PloneKSSView):
                 html += "</tr><tr>"
         
         if len(products) == 0:
-            html += "<td>%s</td>" % MESSAGES["NO_PRODUCTS_FOUND"]
+            html += "<td>%s</td>" % cgi.escape(MESSAGES["NO_PRODUCTS_FOUND"])
             
         html += "</tr></table>"
 
-        html = cgi.escape(html)
         html = safe_unicode(html)
-                
         kss_core.replaceInnerHTML('#products', html)
         kss_core.replaceInnerHTML('#product-details-box', "")
                         
@@ -145,7 +140,7 @@ class CatalogKSSView(PloneKSSView):
             pd += RELATED_PRODUCTS_HEADER
             for related_product in related_products:
                 pd += RELATED_PRODUCTS_BODY % {
-                    "title"      : related_product.Title(),
+                    "title"      : cgi.escape(related_product.Title()),
                     "article_id" : related_product.getArticleId(),
                     "url"        : related_product.absolute_url()
                 }            
@@ -157,7 +152,7 @@ class CatalogKSSView(PloneKSSView):
             pd += CATEGORIES_HEADER
             for category in categories:
                 pd += CATEGORIES_BODY % {
-                    "title"      : category.Title(),
+                    "title"      : cgi.escape(category.Title()),
                     "url"        : category.absolute_url()
                 }            
             pd += CATEGORIES_FOOTER
@@ -168,13 +163,12 @@ class CatalogKSSView(PloneKSSView):
             pd += GROUPS_HEADER
             for group in groups:
                 pd += GROUPS_BODY % {
-                    "title"      : group.Title(),
+                    "title"      : cgi.escape(group.Title()),
                     "url"        : group.absolute_url()
                 }            
             pd += GROUPS_FOOTER
         
         kss_core  = self.getCommandSet("core")
         
-        pd = cgi.escape(pd)
         pd = safe_unicode(pd)
         kss_core.replaceInnerHTML('#product-details-box', pd)
