@@ -7,7 +7,7 @@
     name="description"></property>
  <property name="content_icon">easyarticle_icon.gif</property>
  <property name="content_meta_type">Article</property>
- <property name="product">EasyArticle</property>
+ <property name="product">easyarticle.core</property>
  <property name="factory">addArticle</property>
  <property name="immediate_view">overview</property>
  <property name="global_allow">True</property>

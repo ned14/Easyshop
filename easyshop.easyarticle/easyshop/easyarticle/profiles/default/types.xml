@@ -12,7 +12,6 @@
         <object name="ESImage"
                 meta_type="Factory-based Type Information"/>
 
-
         <object name="EasyShop"
                 meta_type="Factory-based Type Information with dynamic views"/>
                 
