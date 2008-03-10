@@ -1,6 +1,3 @@
-# Zope imports
-from zope.i18nmessageid import MessageFactory
-
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
@@ -13,8 +10,6 @@ from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IShopManagement
-
-_ = MessageFactory("EasyShop")
 
 class ProductAddToCartView(BrowserView):
     """
@@ -77,6 +72,7 @@ class ProductAddToCartView(BrowserView):
         putils = getToolByName(self.context, "plone_utils")        
         if result == True:
             putils.addPortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])
+            
         else:
             putils.addPortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
 
