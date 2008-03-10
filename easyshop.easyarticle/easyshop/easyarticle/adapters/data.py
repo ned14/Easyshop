@@ -95,8 +95,11 @@ class ESReferenceData(GenericData):
             standard_price = p.getPriceForCustomer(effective=False)
             standard_price = cm.priceToString(
                 standard_price, symbol="symbol", position="before")
-        
+            
+            for_sale = self.object.getForSale()
+            
         else:
+            for_sale = False
             standard_price = "0.0"
             price = "0.0"
             
