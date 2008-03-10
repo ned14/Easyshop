@@ -7,7 +7,7 @@
  <property name="content_icon">payment_method_icon.png</property>
  <property name="content_meta_type">PayPalPaymentMethod</property>
  <property name="product">easyshop.shop</property>
- <property name="factory">addPayPal</property>
+ <property name="factory">addPayPalPaymentMethod</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
