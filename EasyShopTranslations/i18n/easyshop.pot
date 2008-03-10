@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-03-10 08:40+0000\n"
+"POT-Creation-Date: 2008-03-10 09:00+0000\n"
 "PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -46,6 +46,10 @@ msgstr ""
 
 #: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop/core/config.py:86
+msgid "American Express"
 msgstr ""
 
 #: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:58
@@ -116,7 +120,7 @@ msgstr ""
 msgid "Day"
 msgstr ""
 
-#: extras | stock information
+#: ../../../src/easyshop.core/easyshop/core/config.py:142
 msgid "Days"
 msgstr ""
 
@@ -214,6 +218,10 @@ msgstr ""
 
 #: extras | formatter.pt
 msgid "Long Text"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop/core/config.py:85
+msgid "MasterCard/EuroCard"
 msgstr ""
 
 #: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.py:40
@@ -365,10 +373,6 @@ msgstr ""
 msgid "The address has been deleted."
 msgstr ""
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/browser/add_to_cart.py:76
-msgid "The amount of the product has been increased."
-msgstr ""
-
 #: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:17
 msgid "The information as HTML"
 msgstr ""
@@ -401,11 +405,15 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+#: ../../../src/easyshop.core/easyshop/core/config.py:84
+msgid "Visa"
+msgstr ""
+
 #: extras | stock information
 msgid "Week"
 msgstr ""
 
-#: extras | stock information
+#: ../../../src/easyshop.core/easyshop/core/config.py:143
 msgid "Weeks"
 msgstr ""
 
