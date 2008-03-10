@@ -525,7 +525,7 @@ msgstr "In den Warenkorb"
 #. Default: "This Article has been added to the cart"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:15
 msgid "added_to_cart_label"
-msgstr "Dieser Artikel wurde dem Warenkorb hinzugefügt."
+msgstr "Dieser Artikel wurde dem Warenkorb hinzugefügt"
 
 #. Default: "Addresses"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:30
@@ -842,7 +842,6 @@ msgstr "Weiter einkaufen"
 
 #. Default: "Go to cart"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:62
-#, fuzzy
 msgid "go_to_cart_label"
 msgstr "Zur Karte"
 
