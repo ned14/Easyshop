@@ -15,21 +15,21 @@ class IAddress(Interface):
     """
     firstname = schema.TextLine(
         title=_(u'Firstname'),
-        description=_(u"Please enter your firstname"),
+        description=_(u"Please enter your firstname."),
         default=u'',
         required=True,
     )
 
     lastname = schema.TextLine(
         title=_(u'Lastname'),
-        description=_(u"Please enter your lastname"),
+        description=_(u"Please enter your lastname."),
         default=u'',
         required=True,
     )
 
     company_name = schema.TextLine(
         title=_(u'Company Name'),
-        description=_(u"Please enter your company name"),
+        description=_(u"Please enter your company name."),
         default=u'',
         required=False,
     )
@@ -147,7 +147,7 @@ class ICustomer(Interface):
     )
 
     email = schema.TextLine(
-        title=_(u'E-mail'),
+        title=_(u'E-Mail'),
         description=_(u"Please enter your e-mail."),
         default=u'',
         required=True,

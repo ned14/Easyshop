@@ -186,7 +186,7 @@
                                 <input type="submit"
                                        value="Add"
                                        name="addOption:method"
-                                       i18n:attributes="value add_option_label;" />                                                                
+                                       i18n:attributes="value add_label;" />                                                                
                             </td>
                             <td></td>
                             <td></td>

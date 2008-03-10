@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="EasyShop">
 <body>
 
 <metal:main fill-slot="main">
@@ -13,7 +13,7 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading"
-            i18n:translate="input_title_label"> 
+            i18n:translate="added_to_cart_label"> 
             This Article has been added to the cart
         </h1>
 

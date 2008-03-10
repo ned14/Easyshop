@@ -22,7 +22,7 @@ class IUserAddForm(Interface):
     """
     username = schema.TextLine(
         title=_(u'Username'),
-        description=_(u"Username."),
+        description=_(u"Username"),
         default=u'',
         required=False,
     )

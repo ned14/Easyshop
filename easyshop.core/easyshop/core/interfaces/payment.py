@@ -86,7 +86,7 @@ class ICreditCard(IPaymentInformation):
     
     card_owner = schema.TextLine(
         title=_(u'Card Owner'),
-        description=_(u"Please enter your the name of the card owner."),
+        description=_(u"Please enter the name of the card owner."),
         default=u'',
         required=True,
     )

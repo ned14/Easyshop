@@ -76,9 +76,9 @@ class ProductAddToCartView(BrowserView):
         # Set portal message
         putils = getToolByName(self.context, "plone_utils")        
         if result == True:
-            putils.addPortalMessage(_(MESSAGES["CART_INCREASED_AMOUNT"]))
+            putils.addPortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])
         else:
-            putils.addPortalMessage(_(MESSAGES["CART_ADDED_PRODUCT"]))
+            putils.addPortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
 
         url = "%s/added-to-cart?id=%s" % (shop.absolute_url(), item_id)
         self.context.request.response.redirect(url)

@@ -109,8 +109,8 @@ class OrderPreviewForm(formbase.AddForm):
             wftool = getToolByName(self.context, "portal_workflow")
             wftool.doActionFor(new_order, "submit")
             
-            putils.addPortalMessage(_(MESSAGES["ORDER_RECEIVED"]))
-
+            putils.addPortalMessage(MESSAGES["ORDER_RECEIVED"])
+                        
         if result.code == PAYED:
 
             # Set order to payed (Mails will be sent)

@@ -72,7 +72,7 @@ class PaymentForm(formbase.EditForm):
                 if self.request.get("form.%s" % widget_name, u"") == u"":
                     widget = self.widgets[widget_name]
                     error = WidgetInputError(
-                        widget.name, widget.label, _(u"%s is required" % widget.label)
+                        widget.name, widget.label, "%s" +  _(u" is required" % widget.label)
                     )
                     widget._error = error
                     errors.append(error)
@@ -83,7 +83,7 @@ class PaymentForm(formbase.EditForm):
                 if self.request.get("form.%s" % widget_name, u"") == u"":
                     widget = self.widgets[widget_name]
                     error = WidgetInputError(
-                        widget.name, widget.label, _(u"%s is required" % widget.label)
+                        widget.name, widget.label, "%s" +  _(u" is required" % widget.label)
                     )
                     widget._error = error
                     errors.append(error)
