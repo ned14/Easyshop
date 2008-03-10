@@ -75,12 +75,14 @@ class ESReferenceData(GenericData):
 
         # Image    
         if len(self.context.getImage()) != 0:
-            image = self.context
+            image = self.context            
         else:
             image = IImageManagement(self.object).getMainImage()
         
         if image is not None:
             image_url = image.absolute_url()
+        else:
+            image_url = None
 
         # Price
         if IProduct.providedBy(self.object) == True:
