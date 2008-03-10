@@ -67,7 +67,7 @@ class ShippingSelectForm(formbase.EditForm):
 
             if selected_shipping_id == safe_unicode(shipping.getId()):
                 checked = True
-            elif selected_shipping_id == u"" and shipping.getId() == "default":
+            elif selected_shipping_id == u"" and shipping.getId() == "standard":
                 checked = True
             else:
                 checked = False
