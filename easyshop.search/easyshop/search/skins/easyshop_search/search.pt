@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border', 1)" />
+    <!-- <metal:block fill-slot="column_one_slot" /> -->
+    <!-- <metal:block fill-slot="column_two_slot" /> -->
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     tal:define="use_types_blacklist request/use_types_blacklist | python:True;
+                 use_navigation_root request/use_navigation_root | python:True;
+                 results context/@@getSearchResults;
+                 Batch python:modules['Products.CMFPlone'].Batch;
+                 b_size python:20;b_start python:0;b_start request/b_start | b_start;
+                 searchterm request/SearchableText|nothing;
+                 use_view_action site_properties/typesUseViewActionInListings|python:();">
+
+    <form name="searchform"
+          action="search"
+          class="searchPage">
+        <input class="searchPage"
+               name="SearchableText"
+               type="text"
+               size="25"
+               title="Search Site"
+               i18n:attributes="title title_search_title;"
+               tal:attributes="value request/SearchableText|nothing;"
+               />
+        <input class="searchPage searchButton"
+               type="submit"
+               value="Search"
+               i18n:attributes="value label_search;"/>
+               
+    </form>
+
+
+    <h1 class="documentFirstHeading">
+        <span i18n:translate="heading_search_results">
+            Search results
+        </span>
+        <span class="discreet">
+        &mdash;
+        <span i18n:translate="batch_x_items_matching_your_criteria"
+        ><span i18n:name="number" 
+        tal:omit-tag="" 
+        tal:content="python:len(results)">234</span> items matching your search terms</span>
+    </h1>
+
+    <div tal:condition="not: results">
+        <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+    </div>
+
+    <div tal:condition="results"
+         tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+       <table>
+           <tr tal:repeat="result batch">
+               <tal:block tal:define="result_url result/getURL;
+                                      url python:'%s?searchterm=%s'%(result_url, searchterm);">
+                   <td valign="top"
+                       style="padding-right:20px">
+                        <a tal:attributes="href result_url">
+                            <img tal:attributes="src string:$result_url/image_tile" />
+                        </a>    
+                   </td>
+                   <td valign="top">                                    
+                       <div class="search">
+                           <a href="#" 
+                              tal:attributes="href url"
+                              tal:content="result/pretty_title_or_id" />
+                       </div>
+            
+                       <div>
+                           <span tal:replace="result/Description">
+                                Cropped description
+                           </span>
+                       </div>    
+                   </td>    
+               </tal:block>               
+           </tr>
+       </table>    
+      <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+    </div>
+
+</div>
+</body>
+</html>
+
