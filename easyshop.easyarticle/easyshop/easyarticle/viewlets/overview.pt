@@ -116,6 +116,7 @@
                                    tal:attributes="onclick string:location.href='${object/url}'" />
                                    
                             <tal:block tal:condition="python:object['portal_type'] == 'Product'">
+                            <!-->    
                                 <form tal:attributes="action object/url"
                                       method="post">
 
@@ -132,7 +133,7 @@
                                            i18n:attributes="title add_to_cart_label;
                                                             value add_to_cart_label;" />
                                 </form>
-                                            
+                            -->                
                                 <tal:block tal:condition="object/for_sale">
                                     <span class="product-price"
                                           style="text-decoration:line-through;"

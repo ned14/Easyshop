@@ -13,6 +13,7 @@ from easyshop.easyarticle.interfaces import IESImage
 # easyshop imports
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IImageManagement
+from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
 
 class ESImageData(GenericData):
@@ -83,22 +84,33 @@ class ESReferenceData(GenericData):
 
         # Price
         if IProduct.providedBy(self.object) == True:
-            cm = ICurrencyManagement(self.object)
-            price = cm.priceToString(self.object.getPrice())
+            cm = ICurrencyManagement(self.object)            
+            p = IPrices(self.object)
+
+            # Effective price
+            price = p.getPriceForCustomer()
+            price = cm.priceToString(price, symbol="symbol", position="before")
+        
+            # Standard price
+            standard_price = p.getPriceForCustomer(effective=False)
+            standard_price = cm.priceToString(
+                standard_price, symbol="symbol", position="before")
+        
         else:
             price = "0.0"
             
         data.update({
-            "portal_type" : self.object.getPortalTypeName(),
-            "id"          : self.object.getId(),
-            "url"         : self.object.absolute_url(),
-            "title"       : title,
-            "description" : self.object.Description(),
-            "text"        : text,
-            "image_url"   : image_url,
-            "price"       : price,
-            "for_sale"    : False,
-            "image_size"  : self.context.getImageSize(),
+            "portal_type"    : self.object.getPortalTypeName(),
+            "id"             : self.object.getId(),
+            "url"            : self.object.absolute_url(),
+            "title"          : title,
+            "description"    : self.object.Description(),
+            "text"           : text,
+            "image_url"      : image_url,
+            "price"          : price,
+            "standard_price" : standard_price,
+            "for_sale"       : self.object.getForSale(),
+            "image_size"     : self.context.getImageSize(),
         })
 
         return data
