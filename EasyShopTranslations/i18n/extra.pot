@@ -91,3 +91,19 @@ msgstr ""
 #: extras | formatter.pt
 msgid "Long Text"
 msgstr ""
+
+#: extras | stock information
+msgid "Day"
+msgstr ""
+
+#: extras | stock information
+msgid "Days"
+msgstr ""
+
+#: extras | stock information
+msgid "Week"
+msgstr ""
+
+#: extras | stock information
+msgid "Weeks"
+msgstr ""
