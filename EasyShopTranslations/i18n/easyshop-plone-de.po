@@ -87,3 +87,39 @@ msgstr "Steuer (Standard)"
 msgid "Taxes"
 msgstr "Steuern"
 
+msgid "The amount of the product has been increased."
+msgstr "Das Produkt wurde zum Warenkorb hinzugefügt."
+
+msgid "The amount of the product has been increased.",
+msgstr "Die Menge des Produktes wurde erhöht."
+
+msgid "Your order has been received. Thank you!",
+msgstr "Ihre Bestellung wurde übersendet. Vielen Dank!"
+
+msgid "No products found.",
+msgstr "Es wurden keine Produkte gefunden."
+
+msgid "Variant has been added."
+msgstr "Die Variante wurde hinzugefügt."
+
+msgid "Variant already exists."
+msgstr "Die Variant existiert bereits."
+
+msgid "Variant(s) deleted."
+msgstr "Die Variante(n) wurde(n) gelöscht."
+
+msgid "Variant(s) saved."
+msgstr "Die Variante(n) wurde(n) gespeichert"
+
+msgid "The selected combination of properties is not available."    
+msgstr "Die ausgewählte Kombination von Eigenschaften ist nicht vorhanden."
+
+msgid "Option(s) saved."
+msgstr "Die Option(en) wurde(n) gespeichert."
+
+msgid "Property has been added"
+msgstr "Die Eigenschaft wurde hinzugefügt."
+
+msgid "Option has been added",
+msgstr "Die Option wurde hinzugefügt."
+

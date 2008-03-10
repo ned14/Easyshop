@@ -21,10 +21,6 @@ msgid "The product has been added to the cart."
 msgstr ""
 
 #: extras | config.py
-msgid "The amount of the product has been increased."
-msgstr ""
-
-#: extras | config.py
 msgid "Your order has been received. Thank you!"    
 msgstr ""
 

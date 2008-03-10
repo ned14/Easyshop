@@ -16,6 +16,9 @@ msgstr ""
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: plone\n"
 
+msgid "The amount of the product has been increased."
+msgstr ""
+
 msgid "Bank Account"
 msgstr ""
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-03-10 07:12+0000\n"
+"POT-Creation-Date: 2008-03-10 08:40+0000\n"
 "PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -46,10 +46,6 @@ msgstr ""
 
 #: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:86
-msgid "American Express"
 msgstr ""
 
 #: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:58
@@ -120,7 +116,7 @@ msgstr ""
 msgid "Day"
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:142
+#: extras | stock information
 msgid "Days"
 msgstr ""
 
@@ -220,10 +216,6 @@ msgstr ""
 msgid "Long Text"
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:85
-msgid "MasterCard/EuroCard"
-msgstr ""
-
 #: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.py:40
 msgid "My Account"
 msgstr ""
@@ -233,20 +225,8 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:33
-msgid "No products found."
-msgstr ""
-
 #: extras | formatter.pt
 msgid "None"
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:41
-msgid "Option has been added"
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:39
-msgid "Option(s) saved."
 msgstr ""
 
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:31
@@ -265,7 +245,7 @@ msgstr ""
 msgid "Please add a e-mail address."
 msgstr ""
 
-#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:63
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:69
 msgid "Please confirm our terms and conditions."
 msgstr ""
 
@@ -357,10 +337,6 @@ msgstr ""
 msgid "Prepayment"
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:40
-msgid "Property has been added"
-msgstr ""
-
 #: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:118
 msgid "Select"
 msgstr ""
@@ -389,7 +365,7 @@ msgstr ""
 msgid "The address has been deleted."
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:31
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/add_to_cart.py:76
 msgid "The amount of the product has been increased."
 msgstr ""
 
@@ -401,12 +377,8 @@ msgstr ""
 msgid "The information as downloadable file."
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:30
+#: extras | config.py
 msgid "The product has been added to the cart."
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:38
-msgid "The selected combination of properties is not available."
 msgstr ""
 
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:266
@@ -429,31 +401,11 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:35
-msgid "Variant already exists."
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:34
-msgid "Variant has been added."
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:36
-msgid "Variant(s) deleted."
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:37
-msgid "Variant(s) saved."
-msgstr ""
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:84
-msgid "Visa"
-msgstr ""
-
 #: extras | stock information
 msgid "Week"
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:143
+#: extras | stock information
 msgid "Weeks"
 msgstr ""
 
@@ -470,7 +422,7 @@ msgstr ""
 msgid "Your order has been payed."
 msgstr ""
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:32
+#: extras | config.py
 msgid "Your order has been received. Thank you!"
 msgstr ""
 
@@ -897,7 +849,7 @@ msgid "label_add_address"
 msgstr ""
 
 #. Default: "Buy"
-#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:72
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:78
 msgid "label_buy"
 msgstr ""
 

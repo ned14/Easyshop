@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-03-10 07:12+0000\n"
+"POT-Creation-Date: 2008-03-10 08:40+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -46,10 +46,6 @@ msgstr "In den Warenkorb"
 #: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
 msgstr "Adresse 1"
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:86
-msgid "American Express"
-msgstr "American Express"
 
 #: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:58
 msgid "Bank Information Code"
@@ -119,7 +115,7 @@ msgstr "Neuen Kunden hinzufügen"
 msgid "Day"
 msgstr "Tag"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:142
+#: extras | stock information
 msgid "Days"
 msgstr "Tage"
 
@@ -219,10 +215,6 @@ msgstr "Nachname"
 msgid "Long Text"
 msgstr "Langtext"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:85
-msgid "MasterCard/EuroCard"
-msgstr "MasterCard/EuroCard"
-
 #: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.py:40
 msgid "My Account"
 msgstr "Mein Konto"
@@ -232,21 +224,9 @@ msgstr "Mein Konto"
 msgid "No"
 msgstr "Nein"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:33
-msgid "No products found."
-msgstr "Es wurden keine Produkte gefunden."
-
 #: extras | formatter.pt
 msgid "None"
 msgstr "Ohne"
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:41
-msgid "Option has been added"
-msgstr "Eine Option wurde hinzugefügt"
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:39
-msgid "Option(s) saved."
-msgstr "Optionen wurden gespeichert."
 
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:31
 msgid "Password"
@@ -264,7 +244,7 @@ msgstr "Telefon"
 msgid "Please add a e-mail address."
 msgstr "Bitte eine E-Mail Adresse hinzufügen!"
 
-#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:63
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:69
 msgid "Please confirm our terms and conditions."
 msgstr "Bitte bestätigen Sie unsere AGB"
 
@@ -356,10 +336,6 @@ msgstr "Bitte geben Sie den Type Ihre Karte ein!"
 msgid "Prepayment"
 msgstr "Vorauszahlung"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:40
-msgid "Property has been added"
-msgstr "Eigenschaft wurde hinzugefügt"
-
 #: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:118
 msgid "Select"
 msgstr "Bitte wählen!"
@@ -388,7 +364,7 @@ msgstr "Text"
 msgid "The address has been deleted."
 msgstr "Die Adresse wurde gelöscht."
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:31
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/add_to_cart.py:76
 msgid "The amount of the product has been increased."
 msgstr "Die Menge des Produktes wurde erhöht."
 
@@ -400,13 +376,9 @@ msgstr "Die Information als HTML."
 msgid "The information as downloadable file."
 msgstr "Die Information als herunterladbare Datei."
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:30
+#: extras | config.py
 msgid "The product has been added to the cart."
 msgstr "Das Produkt wurde zum Warenkorb hinzugefügt."
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:38
-msgid "The selected combination of properties is not available."
-msgstr "Die ausgewählte Kombination von Eigenschaften ist nicht verfügbar."
 
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:266
 msgid "This portlet displays the categories of an EasyShop."
@@ -428,31 +400,11 @@ msgstr "Um Ihre Kreditkarte zu ändern, bearbeiten Sie bitte das Formular und dr
 msgid "Username"
 msgstr "Benutzername"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:35
-msgid "Variant already exists."
-msgstr "Die Variante existiert bereits."
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:34
-msgid "Variant has been added."
-msgstr "Die Variante wurde hinzugefügt."
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:36
-msgid "Variant(s) deleted."
-msgstr "Die Variant(en) wurde(n) gelöscht."
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:37
-msgid "Variant(s) saved."
-msgstr "Die Variant(en) wurde(n) gespeichert."
-
-#: ../../../src/easyshop.core/easyshop/core/config.py:84
-msgid "Visa"
-msgstr "Visa"
-
 #: extras | stock information
 msgid "Week"
 msgstr "Woche"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:143
+#: extras | stock information
 msgid "Weeks"
 msgstr "Wochen"
 
@@ -469,7 +421,7 @@ msgstr "Ihre E-Mail wurde versendet."
 msgid "Your order has been payed."
 msgstr "Ihre Bestellung wurde bezahlt."
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:32
+#: extras | config.py
 msgid "Your order has been received. Thank you!"
 msgstr "Ihre Bestellung wurde übersendet. Vielen Dank!"
 
@@ -896,7 +848,7 @@ msgid "label_add_address"
 msgstr "Adresse hinzufügen"
 
 #. Default: "Buy"
-#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:72
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:78
 msgid "label_buy"
 msgstr "Kaufe"
 
