@@ -113,7 +113,7 @@ class ESReferenceData(GenericData):
             "image_url"      : image_url,
             "price"          : price,
             "standard_price" : standard_price,
-            "for_sale"       : self.object.getForSale(),
+            "for_sale"       : for_sale,
             "image_size"     : self.context.getImageSize(),
         })
 
