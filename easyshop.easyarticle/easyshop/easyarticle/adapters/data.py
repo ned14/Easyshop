@@ -97,6 +97,7 @@ class ESReferenceData(GenericData):
                 standard_price, symbol="symbol", position="before")
         
         else:
+            standard_price = "0.0"
             price = "0.0"
             
         data.update({
