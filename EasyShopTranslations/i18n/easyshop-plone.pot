@@ -90,3 +90,39 @@ msgstr ""
 
 msgid "Taxes"
 msgstr ""
+
+msgid "The product has been added to the cart."
+msgstr ""
+
+msgid "The amount of the product has been increased.",
+msgstr ""
+
+msgid "Your order has been received. Thank you!",
+msgstr ""
+
+msgid "No products found.",
+msgstr ""
+
+msgid "Variant has been added."
+msgstr ""
+
+msgid "Variant already exists."
+msgstr ""
+
+msgid "Variant(s) deleted."
+msgstr ""
+
+msgid "Variant(s) saved."
+msgstr ""
+
+msgid "The selected combination of properties is not available."    
+msgstr ""
+
+msgid "Option(s) saved."
+msgstr ""
+
+msgid "Property has been added"
+msgstr ""
+
+msgid "Option has been added",
+msgstr ""

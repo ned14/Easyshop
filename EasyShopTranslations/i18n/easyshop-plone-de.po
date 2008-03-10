@@ -48,6 +48,15 @@ msgstr "Informationsseite"
 msgid "Information Page Container"
 msgstr "Ordner für Informationsseiten"
 
+msgid "No products found."
+msgstr "Es wurden keine Produkte gefunden."
+
+msgid "Option has been added"
+msgstr "Die Option wurde hinzugefügt."
+
+msgid "Option(s) saved."
+msgstr "Die Option(en) wurde(n) gespeichert."
+
 msgid "Order"
 msgstr "Bestellung"
 
@@ -62,6 +71,9 @@ msgstr "Produkt"
 
 msgid "Products Container"
 msgstr "Produktordner"
+
+msgid "Property has been added"
+msgstr "Die Eigenschaft wurde hinzugefügt."
 
 msgid "Shipping"
 msgstr "Lieferung"
@@ -89,4 +101,25 @@ msgstr "Steuern"
 
 msgid "The amount of the product has been increased."
 msgstr "Die Menge des Produktes wurde erhöht."
+
+msgid "The product has been added to the cart."
+msgstr "Dieser Artikel wurde dem Warenkorb hinzugefügt"
+
+msgid "The selected combination of properties is not available."
+msgstr "Die ausgewählte Kombination von Eigenschaften ist nicht vorhanden."
+
+msgid "Variant already exists."
+msgstr "Die Variant existiert bereits."
+
+msgid "Variant has been added."
+msgstr "Die Variante wurde hinzugefügt."
+
+msgid "Variant(s) deleted."
+msgstr "Die Variante(n) wurde(n) gelöscht."
+
+msgid "Variant(s) saved."
+msgstr "Die Variante(n) wurde(n) gespeichert"
+
+msgid "Your order has been received. Thank you!"
+msgstr "Ihre Bestellung wurde übersendet. Vielen Dank!"
 
