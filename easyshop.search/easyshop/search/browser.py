@@ -20,16 +20,27 @@ class SearchView(BrowserView):
         if searchable_text == "":
             return []
         
-        if re.match("^\w+$", searchable_text) is not None:
-            searchable_text = "%" + searchable_text
-            
-        shop    = IShopManagement(self.context).getShop()
-        
+        shop = IShopManagement(self.context).getShop()
         catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
+
+        results_glob = catalog.searchResults(
             path = "/".join(shop.getPhysicalPath()),
             portal_type = "Product",
             SearchableText = searchable_text,
         )
+
+        searchable_text = searchable_text.replace("*", "")
+        results_similar = catalog.searchResults(
+            path = "/".join(shop.getPhysicalPath()),
+            portal_type = "Product",
+            SearchableText = "%" + searchable_text,
+        )
+
+        unique = {}
+        for result in results_glob:
+            unique[result.UID] = result
+
+        for result in results_similar:
+            unique[result.UID] = result
     
-        return brains
+        return unique.values()

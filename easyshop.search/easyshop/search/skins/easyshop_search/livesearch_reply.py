@@ -69,8 +69,17 @@ searchterms = url_quote_plus(r)
 site_encoding = context.plone_utils.getSiteEncoding()
 if path is None:
     path = getNavigationRoot(context)
-results = catalog(SearchableText=temp, portal_type="Product", path=path)
+results_glob = catalog(SearchableText=temp, portal_type="Product", path=path)
+results_similar = catalog(SearchableText= "%" + r, portal_type="Product", path=path)
 
+unique = {}
+for result in results_glob:
+    unique[result.UID] = result
+for result in results_similar:
+    unique[result.UID] = result
+    
+results = unique.values()
+    
 searchterm_query = '?searchterm=%s'%url_quote_plus(q)
 
 RESPONSE = context.REQUEST.RESPONSE
