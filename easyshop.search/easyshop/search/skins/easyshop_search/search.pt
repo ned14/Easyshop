@@ -42,7 +42,7 @@
                
     </form>
 
-    <tal:block tal:condition="python: (results > 0) and 'submit' in context.REQUEST.keys()">
+    <tal:block tal:condition="python: (len(results) > 0) or ('SearchableText' in context.REQUEST.keys())">
         <h1 class="documentFirstHeading">
             <span i18n:translate="heading_search_results">
                 Search results
