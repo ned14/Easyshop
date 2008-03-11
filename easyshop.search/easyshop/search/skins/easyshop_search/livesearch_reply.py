@@ -6,7 +6,7 @@
 ##bind subpath=traverse_subpath
 ##parameters=q,limit=5,path=None
 ##title=Determine whether to show an id in an edit form
-
+limit=5
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFPlone.browser.navtree import getNavigationRoot
@@ -62,13 +62,14 @@ for char in '?-+*':
     q = q.replace(char, ' ')
 r=q.split()
 r = " AND ".join(r)
-r = quote_bad_chars(r)+'*'
+temp = quote_bad_chars(r)+'*'
+
 searchterms = url_quote_plus(r)
 
 site_encoding = context.plone_utils.getSiteEncoding()
 if path is None:
     path = getNavigationRoot(context)
-results = catalog(SearchableText=r, portal_type="Product", path=path)
+results = catalog(SearchableText=temp, portal_type="Product", path=path)
 
 searchterm_query = '?searchterm=%s'%url_quote_plus(q)
 
@@ -80,7 +81,7 @@ RESPONSE.setHeader('Content-Type', 'text/xml;charset=%s' % site_encoding)
 #   &hellip;    --> &#8230;
 legend_livesearch = _('legend_livesearch', default='LiveSearch &#8595;')
 label_no_results_found = _('label_no_results_found', default='No matching results found.')
-label_advanced_search = _('label_advanced_search', default='Advanced Search&#8230;')
+label_search_form = _('label_search_form', default='Search Form&#8230;')
 label_show_all = _('label_show_all', default='Show all&#8230;')
 
 ts = getToolByName(context, 'translation_service')
@@ -97,7 +98,6 @@ if not results:
     write('''<div class="LSIEFix">''')
     write('''<div id="LSNothingFound">%s</div>''' % ts.translate(label_no_results_found))
     write('''<div class="LSRow">''')
-    write('<a href="search_form" style="font-weight:normal">%s</a>' % ts.translate(label_advanced_search))
     write('''</div>''')
     write('''</div>''')
     write('''</fieldset>''')
@@ -107,7 +107,7 @@ else:
     write('''<legend id="livesearchLegend">%s</legend>''' % ts.translate(legend_livesearch))
     write('''<div class="LSIEFix">''')
     write('''<ul class="LSTable">''')
-    for result in results[:5]:
+    for result in results[:limit]:
 
         icon = plone_view.getIcon(result)
         itemUrl = result.getURL()
@@ -117,8 +117,8 @@ else:
 
         write('''<li class="LSRow">''')
         if icon.url is not None and icon.description is not None:
-            write('''<img style="float:left;padding:2px 5px 2px 0" src="%s" alt="%s" />''' % (result.getURL() + "/image_tile",
-                                                     icon.description))
+            write('''<img style="float:left; padding:0 5px 5px 0" src="%s" alt="%s" />''' % (result.getURL() + "/image_tile",
+                                                                            icon.description))
         full_title = safe_unicode(pretty_title_or_id(result))
         if len(full_title) > MAX_TITLE:
             display_title = ''.join((full_title[:MAX_TITLE],'...'))
@@ -133,7 +133,7 @@ else:
         # need to quote it, to avoid injection of html containing javascript and other evil stuff
         display_description = html_quote(display_description)
         write('''<div class="discreet" style="margin-left: 2.5em;">%s</div>''' % (display_description))
-        write('''</li><br clear="all"/>''')
+        write('''</li><br clear="both"/>''')
         full_title, display_title, display_description = None, None, None
 
     if len(results)>limit:
@@ -141,7 +141,6 @@ else:
         write('''<li class="LSRow">''')
         write( '<a href="%s" style="font-weight:normal">%s</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all)))
         write('''</li>''')
-        
     write('''</ul>''')
     write('''</div>''')
     write('''</fieldset>''')

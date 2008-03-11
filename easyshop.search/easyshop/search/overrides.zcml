@@ -1,0 +1,9 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="EasyShop">
+
+    <include 
+        file="viewlets/overrides.zcml" />
+
+
+</configure>

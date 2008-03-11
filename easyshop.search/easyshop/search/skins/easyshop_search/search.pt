@@ -42,23 +42,24 @@
                
     </form>
 
+    <tal:block tal:condition="python: (results > 0) and 'submit' in context.REQUEST.keys()">
+        <h1 class="documentFirstHeading">
+            <span i18n:translate="heading_search_results">
+                Search results
+            </span>
+            <span class="discreet">
+            &mdash;
+            <span i18n:translate="batch_x_items_matching_your_criteria"
+            ><span i18n:name="number" 
+            tal:omit-tag="" 
+            tal:content="python:len(results)">234</span> items matching your search terms</span>
+        </h1>
 
-    <h1 class="documentFirstHeading">
-        <span i18n:translate="heading_search_results">
-            Search results
-        </span>
-        <span class="discreet">
-        &mdash;
-        <span i18n:translate="batch_x_items_matching_your_criteria"
-        ><span i18n:name="number" 
-        tal:omit-tag="" 
-        tal:content="python:len(results)">234</span> items matching your search terms</span>
-    </h1>
-
-    <div tal:condition="not: results">
-        <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
-    </div>
-
+        <div>
+            <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+        </div>
+    </tal:block>
+    
     <div tal:condition="results"
          tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 

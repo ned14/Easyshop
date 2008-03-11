@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- The search box -->
+    <browser:viewlet
+        name="plone.searchbox"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="easyshop.search.viewlets.searchbox.SearchBoxViewlet"
+        permission="zope2.View" 
+        />
+
+</configure>
