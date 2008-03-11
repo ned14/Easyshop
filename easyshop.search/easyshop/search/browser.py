@@ -23,6 +23,9 @@ class SearchView(BrowserView):
         shop = IShopManagement(self.context).getShop()
         catalog = getToolByName(self.context, "portal_catalog")
 
+        if searchable_text.find("*") == -1:
+            searchable_text += "*"
+            
         results_glob = catalog.searchResults(
             path = "/".join(shop.getPhysicalPath()),
             portal_type = "Product",

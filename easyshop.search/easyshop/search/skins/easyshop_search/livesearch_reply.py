@@ -62,15 +62,17 @@ for char in '?-+*':
     q = q.replace(char, ' ')
 r=q.split()
 r = " AND ".join(r)
-temp = quote_bad_chars(r)+'*'
+r = quote_bad_chars(r)
+r_similar = "%" + r
+r += "*"
 
 searchterms = url_quote_plus(r)
 
 site_encoding = context.plone_utils.getSiteEncoding()
 if path is None:
     path = getNavigationRoot(context)
-results_glob = catalog(SearchableText=temp, portal_type="Product", path=path)
-results_similar = catalog(SearchableText= "%" + r, portal_type="Product", path=path)
+results_glob = catalog(SearchableText=r, portal_type="Product", path=path)
+results_similar = catalog(SearchableText= r_similar, portal_type="Product", path=path)
 
 unique = {}
 for result in results_glob:
@@ -91,7 +93,7 @@ RESPONSE.setHeader('Content-Type', 'text/xml;charset=%s' % site_encoding)
 legend_livesearch = _('legend_livesearch', default='LiveSearch &#8595;')
 label_no_results_found = _('label_no_results_found', default='No matching results found.')
 label_search_form = _('label_search_form', default='Search Form&#8230;')
-label_show_all = _('label_show_all', default='Show all&#8230;')
+label_show_all = _('my_label_show_all', default='Show all')
 
 ts = getToolByName(context, 'translation_service')
 
@@ -148,7 +150,7 @@ else:
     if len(results)>limit:
         # add a more... row
         write('''<li class="LSRow">''')
-        write( '<a href="%s" style="font-weight:normal">%s</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all)))
+        write( '<a href="%s" style="font-weight:normal">%s (%s)</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all), len(results)))
         write('''</li>''')
     write('''</ul>''')
     write('''</div>''')
