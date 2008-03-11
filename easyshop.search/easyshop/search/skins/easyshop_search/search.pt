@@ -55,7 +55,7 @@
             tal:content="python:len(results)">234</span> items matching your search terms</span>
         </h1>
 
-        <div>
+        <div tal:condition="python: (len(results) == 0) and ('SearchableText' in context.REQUEST.keys())">
             <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
         </div>
     </tal:block>
