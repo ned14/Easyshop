@@ -278,7 +278,7 @@ class EasyShop(ATFolder):
         self.manage_addProduct["easyshop.shop"].addShippingMethodsContainer(id="shippingmethods",
             title="Shipping Methods")
         self.shippingmethods.manage_addProduct["easyshop.shop"].addShippingMethod(
-            id="default", title="Default")
+            id="standard", title="Standard")
 
         for shipping_method in self.shippingmethods.objectValues():
             wftool.doActionFor(shipping_method, "publish")
