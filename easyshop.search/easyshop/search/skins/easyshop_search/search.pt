@@ -43,7 +43,7 @@
     </form>
 
     <tal:block tal:condition="python: (len(results) > 0) or ('SearchableText' in context.REQUEST.keys())">
-        <h1 class="documentFirstHeading">
+        <h1>
             <span i18n:translate="heading_search_results">
                 Search results
             </span>
