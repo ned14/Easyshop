@@ -111,19 +111,12 @@ class OrderView(BrowserView):
     def getEmail(self):
         """
         """                
+        # Todo: Create an adapter Address Management for IOrder
         customer = self.context.getCustomer()
+        am = IAddressManagement(customer)
+        address = am.getShippingAddress()
         
-        mtool = getToolByName(self.context, "portal_membership")
-
-        try:
-            member = mtool.getMemberById(customer.getId())
-        except Unauthorized:
-            return None
-        else:
-            if member is not None:
-                return member.getProperty("email")
-            
-        return None
+        return address.email
                 
     def getItems(self):
         """
