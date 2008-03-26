@@ -342,7 +342,7 @@ msgstr "Bitte geben Sie den Type Ihre Karte ein!"
 
 #: extras | checkout-order-preview-view.py
 msgid "Prepayment"
-msgstr "Vorauszahlung"
+msgstr "Vorab Überweisung"
 
 #: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:118
 msgid "Select"
@@ -803,7 +803,7 @@ msgstr "Weiter einkaufen"
 #. Default: "Go to cart"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:62
 msgid "go_to_cart_label"
-msgstr "Zur Karte"
+msgstr "Zum Warenkorb"
 
 #. Default: "Group"
 #: ../../../src/easyshop.groups/easyshop/groups/browser/groups_view.pt:41
