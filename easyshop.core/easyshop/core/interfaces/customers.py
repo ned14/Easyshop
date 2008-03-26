@@ -117,11 +117,11 @@ class IAddressManagement(Interface):
         """Returns True if context has at least one address.
         """
 
-    def getInvoiceAddress():
+    def hasInvoiceAddress():
         """Returns True if a invoice address exists.
         """
 
-    def getShippingAddress():
+    def hasShippingAddress():
         """Returns True if a shipping address exists.
         """
                 
