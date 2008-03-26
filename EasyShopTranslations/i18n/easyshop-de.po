@@ -342,7 +342,7 @@ msgstr "Bitte geben Sie den Type Ihre Karte ein!"
 
 #: extras | checkout-order-preview-view.py
 msgid "Prepayment"
-msgstr "Vorab Überweisung"
+msgstr "Vorabüberweisung"
 
 #: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:118
 msgid "Select"
