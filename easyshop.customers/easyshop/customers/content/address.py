@@ -24,6 +24,7 @@ class Address(Item):
     city          = FieldProperty(IAddress["city"])
     country       = FieldProperty(IAddress["country"])
     phone         = FieldProperty(IAddress["phone"])
+    email         = FieldProperty(IAddress["email"])
 
     country = u""
     

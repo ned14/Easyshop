@@ -37,6 +37,7 @@ class CustomerAddressManager:
         address.city         = data.get("city", u"")            
         address.country      = data.get("country", u"")
         address.phone        = data.get("phone", u"")
+        address.email        = data.get("email", u"")
         
         self.context._setObject(id, address)
         
@@ -99,3 +100,19 @@ class CustomerAddressManager:
         """
         """
         return len(self.getAddresses()) > 0
+        
+    def hasInvoiceAddress(self):
+        """
+        """
+        if shasattr(self.context, self.context.selected_invoice_address):
+            return True
+        else:
+            return False
+
+    def hasShippingAddress(self):
+        """
+        """
+        if shasattr(self.context, self.context.selected_shipping_address):
+            return True
+        else:
+            return False        
