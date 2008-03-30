@@ -48,6 +48,6 @@ class EasyShopImage(ATImage):
         """
         if data and data != "DELETE_IMAGE":
             data = IImageConversion(self).convertImage(data)
-        self.getField("image").set(self, data)
+        super(EasyShopImage, self).setImage(data)
 
 registerType(EasyShopImage, PROJECTNAME)
