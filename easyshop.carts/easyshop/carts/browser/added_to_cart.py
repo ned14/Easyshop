@@ -60,6 +60,8 @@ class AddedToCartView(BrowserView):
 
             if IProductVariant.providedBy(product) == True:
                 show_price = False
+            elif property_price == 0.0:
+                show_price = False                
             else:
                 show_price = True
                 

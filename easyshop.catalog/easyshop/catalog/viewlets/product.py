@@ -126,7 +126,7 @@ class ProductViewlet(ViewletBase):
                 option_name  = option["name"]
                 option_price = option["price"]
 
-                if option_price != "":
+                if option_price != "0.0":
                     option_price = u.stringToFloat(option_price)
                     option_price = cm.priceToString(option_price, "long", "after")
                     content = "%s %s" % (option_name, option_price)
