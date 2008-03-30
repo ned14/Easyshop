@@ -72,6 +72,10 @@ msgstr ""
 msgid "Direct Debit"
 msgstr ""
 
+#: extras | checkout-order-preview-view.py
+msgid "Credit Card"
+msgstr ""
+
 #: extras | formatter.pt
 msgid "None"
 msgstr ""
