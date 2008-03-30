@@ -94,47 +94,13 @@
                             </td> 
                         </tr>
                         <tr>
-                            <td class="product-image"
-                                tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')">
+                            <td class="product-image">
                                 
                                 <img tal:condition="product_data/image"
-                                     tal:attributes="src product_data/image;
-                                                     alt product_data/title;" />
-                            </td>
-                            <td class="product-description"
-                                tal:content="structure product_data/text">
-                            </td>
-                        </tr>
-                        <tr tal:define="stock_information view/getStockInformation"
-                            tal:condition="stock_information">
-                            <td></td>
-                            <td>
-                                <tal:block tal:condition="stock_information/available">
-                                    <tal:block i18n:translate="deliverable_label">
-                                        Deliverable
-                                    </tal:block>
-                                    <div>
-                                        <tal:block i18n:translate="delivery_period_label">
-                                            Delivery Period</tal:block>:
-                                        <tal:block tal:content="stock_information/time_period">
-                                            2-3 Weeks
-                                        </tal:block>    
-                                        <tal:block i18n:translate=""
-                                                   tal:content="stock_information/time_unit">
-                                            Weeks
-                                        </tal:block>    
-                                    </div>    
-                                </tal:block>
-                                <tal:block tal:condition="not:stock_information/available"
-                                           i18n:translate="not_deliverable_label">
-                                    Not deliverable
-                                </tal:block>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="product-properties">
+                                     tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805');
+                                                     src product_data/image;
+                                                     alt product_data/title;" />´
+                                                     
                                  <table>
                                      <tr tal:repeat="property view/getProperties">
                                          <td style="vertical-align:bottom; padding-right:20px"
@@ -162,7 +128,38 @@
                                  </table>     
 
                             </td>
-                        </tr> 
+                            <td class="product-description"
+                                tal:content="structure product_data/text">
+                            </td>                            
+                        </tr>
+                        
+                        <tr tal:define="stock_information view/getStockInformation"
+                            tal:condition="stock_information">
+                            <td></td>
+                            <td>
+                                <tal:block tal:condition="stock_information/available">
+                                    <tal:block i18n:translate="deliverable_label">
+                                        Deliverable
+                                    </tal:block>
+                                    <div>
+                                        <tal:block i18n:translate="delivery_period_label">
+                                            Delivery Period</tal:block>:
+                                        <tal:block tal:content="stock_information/time_period">
+                                            2-3 Weeks
+                                        </tal:block>    
+                                        <tal:block i18n:translate=""
+                                                   tal:content="stock_information/time_unit">
+                                            Weeks
+                                        </tal:block>    
+                                    </div>    
+                                </tal:block>
+                                <tal:block tal:condition="not:stock_information/available"
+                                           i18n:translate="not_deliverable_label">
+                                    Not deliverable
+                                </tal:block>
+                                
+                            </td>
+                        </tr>
                         <tr>
                             <td class="product-control"
                                 colspan="2">
