@@ -224,13 +224,13 @@ class CartFormView(BrowserView):
         
         if selected_payment_method is None: 
             return {
-                "display"     : False
+                "display" : False
             }
         else:    
             return {
-                "price"       : price,
-                "title"       : selected_payment_method.Title(),
-                "display"     : len(self.getCartItems()) > 0,
+                "price"   : price,
+                "title"   : selected_payment_method.Title(),
+                "display" : len(self.getCartItems()) > 0,
             }
 
     def getShippingMethods(self):
@@ -279,7 +279,7 @@ class CartFormView(BrowserView):
                 "price"       : price,
                 "title"       : method.Title(),
                 "description" : method.Description(),
-                "display"     : self.getCartItems() > 0
+                "display"     : len(self.getCartItems()) > 0
             }        
 
     def getTaxForCustomer(self):
