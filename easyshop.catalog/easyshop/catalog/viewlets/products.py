@@ -121,7 +121,7 @@ class ProductsViewlet(ViewletBase):
                 chars = 0
             
             if (chars != 0) and (len(title) > chars):
-                title = title[:chars-3]
+                title = title[:chars]
                 title += "..."
                     
             # CSS Class

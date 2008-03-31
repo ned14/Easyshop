@@ -30,7 +30,7 @@
                     <div class="sub-title">
                         <a href="#"
                            title="#"
-                           tal:content="product/short_title"
+                           tal:content="product/title"
                            tal:attributes="href product/url;
                                             title product/title">
                            Product Name

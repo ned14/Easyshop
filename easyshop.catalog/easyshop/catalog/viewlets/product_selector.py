@@ -79,15 +79,32 @@ class ProductSelectorViewlet(ViewletBase):
                 if image is not None:
                     image = "%s/image_%s" % (image.absolute_url(), fi.get("image_size"))
 
-                t = fi.get("text")
-                if t == "description":
+                # Text    
+                temp = fi.get("text")
+                if temp == "description":
                     text = product.getDescription()
-                elif t == "short_text":
+                elif temp == "short_text":
                     text = product.getShortText()
-                elif t == "text":
+                elif temp == "text":
                     text = product.getText()
                 else:
                     text = ""
+
+                # Title
+                temp = fi.get("title")
+                if temp == "title":
+                    title = product.Title()
+                elif temp == "short_title":
+                    title = product.getShortTitle()
+
+                try:
+                    chars = int(fi.get("chars"))
+                except TypeError:
+                    chars = 0
+            
+                if (chars != 0) and (len(title) > chars):
+                    title = title[:chars]
+                    title += "..."
                 
                 if (index + 1) % products_per_line == 0:
                     klass = "last"
@@ -95,8 +112,7 @@ class ProductSelectorViewlet(ViewletBase):
                     klass = "notlast"
                                         
                 products.append({
-                    "title"                    : product.Title(),
-                    "short_title"              : product.getShortTitle() or product.Title(),                    
+                    "title"                    : title,
                     "url"                      : product.absolute_url(),
                     "price"                    : price,
                     "image"                    : image,
