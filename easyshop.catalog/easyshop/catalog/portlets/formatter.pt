@@ -97,6 +97,35 @@
             </div>
 
             <div class="field">
+                <label i18n:translate="title_label">
+                    Title
+                </label>                      
+                
+                <select name="title">
+                    <option i18n:translate=""
+                            tal:repeat="title view/getTitles"
+                            tal:content="title/title"
+                            tal:attributes="selected title/selected;
+                                            value title/id">
+                        Title
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label i18n:translate="show_chars_label">
+                    Show Chars
+                </label>                      
+                <div>
+                    <input name="chars"
+                           type="text"                
+                           value="42"
+                           size="4"
+                           tal:attributes="value format_info/chars" />
+                </div>           
+            </div>
+
+            <div class="field">
                 <label i18n:translate="text_label">
                     Text
                 </label>                      

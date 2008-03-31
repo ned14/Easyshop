@@ -96,17 +96,34 @@ class ProductsViewlet(ViewletBase):
             image = IImageManagement(product).getMainImage()
             if image is not None:
                 image = "%s/image_%s" % (image.absolute_url(), f.get("image_size"))
-                
-            t = f.get("text")
-            if t == "description":
+            
+            # Text    
+            temp = f.get("text")
+            if temp == "description":
                 text = product.getDescription()
-            elif t == "short_text":
+            elif temp == "short_text":
                 text = product.getShortText()
-            elif t == "text":
+            elif temp == "text":
                 text = product.getText()
             else:
                 text = ""
 
+            # Title
+            temp = f.get("title")
+            if temp == "title":
+                title = product.Title()
+            elif temp == "short_title":
+                title = product.getShortTitle()
+
+            try:
+                chars = int(f.get("chars"))
+            except TypeError:
+                chars = 0
+            
+            if (chars != 0) and (len(title) > chars):
+                title = title[:chars-3]
+                title += "..."
+                    
             # CSS Class
             if (index + 1) % products_per_line == 0:
                 klass = "last"
@@ -114,8 +131,7 @@ class ProductsViewlet(ViewletBase):
                 klass = "notlast"
                             
             line.append({
-                "title"                    : product.Title(),
-                "short_title"              : product.getShortTitle() or product.Title(),
+                "title"                    : title,
                 "text"                     : text,
                 "url"                      : "%s?sorting=%s" % (product.absolute_url(), sorting),
                 "image"                    : image,

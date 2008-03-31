@@ -50,6 +50,11 @@ IMAGE_SIZES = {'large'   : (768, 768),
                'listing' : (16, 16),
                }
 
+TITLES = (
+    ("title", "Title"),
+    ("short_title", "Short Title"),
+)
+
 TEXTS = (
     ("none", "None"),
     ("description", "Description"),

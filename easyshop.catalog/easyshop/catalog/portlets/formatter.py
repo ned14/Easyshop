@@ -15,7 +15,7 @@ from Products.Five.browser import BrowserView
 
 # easyshop imports
 from easyshop.core.config import _
-from easyshop.core.config import TEXTS, IMAGE_SIZES
+from easyshop.core.config import TEXTS, TITLES, IMAGE_SIZES
 from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IFormatable
 from easyshop.core.interfaces import IProductSelector
@@ -64,6 +64,22 @@ class Renderer(base.Renderer):
         """
         fi = IFormats(self.context)
         return fi.getFormats(effective=False)
+
+    def getTitles(self):
+        """
+        """
+        fi = self.getFormatInfo()
+        selected_title = fi["title"]
+        
+        result = []
+        for title in TITLES:        
+            result.append({
+                "id" : title[0],
+                "title" : title[1],
+                "selected" : selected_title == title[0],
+            })
+    
+        return result
 
     def getTexts(self):
         """

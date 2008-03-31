@@ -26,6 +26,8 @@ class FormatterInfos:
             # Set defaults
             formats["enabled"]           = False
             formats["text"]              = "short_text"
+            formats["title"]             = "title"
+            formats["chars"]             = "20"
             formats["image_size"]        = "mini"
             formats["lines_per_page"]    = "1"
             formats["products_per_line"] = "2"
@@ -35,7 +37,7 @@ class FormatterInfos:
         self.formats = formats
 
     def getFormats(self, effective=True):
-        """Returns either the first object with formats enabled or the shop 
+        """Returns either the first object with formats enabled or the shop
         content object
         """
         object = self.context
@@ -74,6 +76,8 @@ class FormatterInfos:
             "product_height"    : product_height,
             "image_size"        : fi.formats["image_size"],
             "text"              : fi.formats["text"],            
+            "title"             : fi.formats["title"],
+            "chars"             : fi.formats["chars"],
         }
         
     def setFormats(self, data):
@@ -88,6 +92,8 @@ class FormatterInfos:
             
         self.formats["enabled"]           = enabled
         self.formats["text"]              = data.get("text")
+        self.formats["title"]             = data.get("title")
+        self.formats["chars"]             = data.get("chars")
         self.formats["image_size"]        = data.get("image_size")
         self.formats["lines_per_page"]    = data.get("lines_per_page")
         self.formats["products_per_line"] = data.get("products_per_line")

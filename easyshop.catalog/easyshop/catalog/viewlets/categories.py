@@ -44,12 +44,12 @@ class CategoriesViewlet(ViewletBase):
                 image_url = None
 
             # Text    
-            t = f.get("text")
-            if t == "description":
+            temp = f.get("text")
+            if temp == "description":
                 text = category.getDescription()
-            elif t == "short_text":
+            elif temp == "short_text":
                 text = category.getShortText()
-            elif t == "text":
+            elif temp == "text":
                 text = category.getText()
             else:
                 text = ""
