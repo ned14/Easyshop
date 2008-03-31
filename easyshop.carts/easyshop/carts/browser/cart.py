@@ -49,7 +49,8 @@ class CartFormView(BrowserView):
         if goto != "": url += "?goto=%s" % goto
                     
         self.context.request.response.redirect(url)
-        
+    
+    @memoize
     def getCartItems(self):
         """
         """    
@@ -221,10 +222,16 @@ class CartFormView(BrowserView):
         pim = IPaymentInformationManagement(customer)
         selected_payment_method = pim.getSelectedPaymentMethod()
         
-        return {
-            "price"       : price,
-            "title"       : selected_payment_method.Title(),
-        }
+        if selected_payment_method is None: 
+            return {
+                "display"     : False
+            }
+        else:    
+            return {
+                "price"       : price,
+                "title"       : selected_payment_method.Title(),
+                "display"     : len(self.getCartItems()) > 0,
+            }
 
     def getShippingMethods(self):
         """
@@ -262,12 +269,18 @@ class CartFormView(BrowserView):
         cm = ICurrencyManagement(self.context)
         price = cm.priceToString(shipping_price)
         method = IShippingMethodManagement(self.context).getSelectedShippingMethod()
-                
-        return {
-            "price"       : price,
-            "title"       : method.Title(),
-            "description" : method.Description()
-        }
+        
+        if method is None:
+            return {
+                "display"     : False,
+            }        
+        else:
+            return {
+                "price"       : price,
+                "title"       : method.Title(),
+                "description" : method.Description(),
+                "display"     : self.getCartItems() > 0
+            }        
 
     def getTaxForCustomer(self):
         """

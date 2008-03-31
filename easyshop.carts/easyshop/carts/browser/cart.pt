@@ -196,54 +196,56 @@
                                 </tr>
                             </tal:block>    
                         </tal:block>       
-<!-- Shipping -->                        
-                        <tr>
-                            <td colspan="5">
-                                 <h3 i18n:translate="shipping_label">
-                                     Shipping
-                                 </h3>    
-                            </td>    
-                        </tr>       
+<!-- Shipping -->          
+                        <tal:block tal:define="shipping_info view/getShippingInfo"
+                                   tal:condition="shipping_info/display">
+                            <tr>
+                                <td colspan="5">
+                                     <h3 i18n:translate="shipping_label">
+                                         Shipping
+                                     </h3>    
+                                </td>    
+                            </tr>       
 
-                        <tr tal:define="shipping_info view/getShippingInfo"
-                            tal:condition="view/getCartItems">
-                            <td colspan="4"
-                                nowrap="nowrap"
-                                class="text">
-            		            <span tal:content="shipping_info/title"
-            		                  i18n:translate="">
-            		                Express
-            		            </span>
-            		        </td> 
-                            <td nowrap="nowrap"
-                                class="number"
-                                tal:content="shipping_info/price" />
-                        </tr>  
-
+                            <tr>
+                                <td colspan="4"
+                                    nowrap="nowrap"
+                                    class="text">
+                		            <span tal:content="shipping_info/title"
+                		                  i18n:translate="">
+                		                Express
+                		            </span>
+                		        </td> 
+                                <td nowrap="nowrap"
+                                    class="number"
+                                    tal:content="shipping_info/price" />
+                            </tr>  
+                        </tal:block>                        
 <!-- Payment -->
-                        <tr>
-                            <td colspan="5">
-                                 <h3 i18n:translate="payment_method_label">
-                                     Payment
-                                 </h3>    
-                            </td>    
-                        </tr>       
+                        <tal:block tal:define="payment_info view/getPaymentInfo"
+                                   tal:condition="payment_info/display">
+                            <tr>
+                                <td colspan="5">
+                                     <h3 i18n:translate="payment_method_label">
+                                         Payment
+                                     </h3>    
+                                </td>    
+                            </tr>       
  
-                        <tr tal:define="payment_info view/getPaymentInfo"
-                            tal:condition="view/getCartItems">
-                            <td colspan="4"
-                                nowrap="nowrap"
-                                class="text">
-            		            <span tal:content="payment_info/title"
-            		                  i18n:translate="">
-            		                Cash On Delievery
-            		            </span>
-            		        </td> 
-                            <td nowrap="nowrap"
-                                class="number"
-                                tal:content="payment_info/price" />
-                        </tr>  
-
+                            <tr>
+                                <td colspan="4"
+                                    nowrap="nowrap"
+                                    class="text">
+                		            <span tal:content="payment_info/title"
+                		                  i18n:translate="">
+                		                Cash On Delievery
+                		            </span>
+                		        </td> 
+                                <td nowrap="nowrap"
+                                    class="number"
+                                    tal:content="payment_info/price" />
+                            </tr>  
+                        </tal:block>
 <!-- Discounts -->
                         <tal:block tal:define="discounts view/getDiscounts"
                                    tal:condition="discounts">
