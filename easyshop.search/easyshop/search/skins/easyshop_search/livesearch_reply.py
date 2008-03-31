@@ -125,17 +125,20 @@ else:
         if result.portal_type in useViewAction:
             itemUrl += '/view'
         itemUrl = itemUrl + searchterm_query
-
-        write('''<li class="LSRow">''')
-        if icon.url is not None and icon.description is not None:
-            write('''<img style="float:left; padding:0 5px 5px 0" src="%s" alt="%s" />''' % (result.getURL() + "/image_tile",
-                                                                            icon.description))
         full_title = safe_unicode(pretty_title_or_id(result))
         if len(full_title) > MAX_TITLE:
             display_title = ''.join((full_title[:MAX_TITLE],'...'))
         else:
             display_title = full_title
         full_title = full_title.replace('"', '&quot;')
+                
+        write('''<li class="LSRow">''')
+        if icon.url is not None and icon.description is not None:
+            write('''<a href="%s" title="%s">''' % (itemUrl, full_title))
+            write('''<img style="float:left; padding:0 5px 5px 0" src="%s" alt="%s" />''' % (result.getURL() + "/image_tile",
+                                                                            icon.description))
+            write('''</a>''')
+
         write('''<a href="%s" title="%s">%s</a>''' % (itemUrl, full_title, display_title))
         write('''<span class="discreet">[%s%%]</span>''' % result.data_record_normalized_score_)
         display_description = safe_unicode(result.Description)
