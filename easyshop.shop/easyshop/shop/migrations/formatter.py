@@ -26,4 +26,4 @@ class FormatterView(BrowserView):
             annotations = IAnnotations(object)
             if annotations.has_key(KEY) == True:
                 annotations[KEY]["title"] = "title"
-                annotations[KEY]["chars"] = "20"
+                annotations[KEY]["chars"] = "0"
