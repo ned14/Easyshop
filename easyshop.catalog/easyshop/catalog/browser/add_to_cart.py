@@ -9,6 +9,7 @@ from easyshop.core.config import MESSAGES
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IProductVariantsManagement
+from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IShopManagement
 
 class ProductAddToCartView(BrowserView):
@@ -49,16 +50,22 @@ class ProductAddToCartView(BrowserView):
             # Unlike above we take the properties out of the request, because 
             # there is no object wich stores the different properties.
             properties = []
-            for property_id, selected_option in self.request.form.items():
+            for property_id, selected_option_id in self.request.form.items():
                 if property_id.startswith("property") == False:
                     continue
-             
-                if selected_option == "please_select":
-                    continue
+                
+                property_id = property_id[9:]
+
+                # If nothing is selected we take the first option of the 
+                # property
+                if selected_option_id == "select":
+                    property = IPropertyManagement(product).getProperty(property_id)
+                    selected_option = property.getOptions()[0]
+                    selected_option_id = selected_option["id"]
                  
                 properties.append(
-                    {"id" : property_id[9:], 
-                     "selected_option" : selected_option 
+                    {"id" : property_id, 
+                     "selected_option" : selected_option_id
                     }
                 )
         
