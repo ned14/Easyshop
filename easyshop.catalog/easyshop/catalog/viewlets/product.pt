@@ -3,7 +3,8 @@
 
     <form name="product_form" 
           action="#"
-          tal:define="product_data view/getProductData"
+          tal:define="product_data view/getProductData;
+                      zoom_url string:${product_data/url}/product-zoom-view;"
           tal:attributes="action context/absolute_url"
           method="post">
                   
@@ -83,8 +84,7 @@
             </tr>                                    
             <tr>
                 <td>
-                    <table class="product-content"
-                           tal:define="zoom_url string:${product_data/url}/product-zoom-view;">
+                    <table class="product-content">
                         <tr>
                             <td class="sub-title">
                                  <metal:field use-macro="python:here.widget('description', mode='view')">
@@ -93,30 +93,28 @@
                             </td> 
                             <td class="sub-title" 
                                 align="right"
-                                width="1px">
-                                <div>
-                                    <input type="button"
-                                           class="context"
-                                           id="product-details"
-                                           value="Zoom"
-                                           title="Zoom"
-                                           i18n:attributes="title zoom_label;"
-                                           tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
+                                nowrap="nowrap">
+                                <input type="button"
+                                       class="context"
+                                       id="product-details"
+                                       value="Zoom"
+                                       title="Zoom"
+                                       i18n:attributes="title zoom_label;"
+                                       tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
 
-                                    <input class="context"
-                                           id="add-product"
-                                           name="addToCart:method" 
-                                           value="Add to Cart"
-                                           type="submit"
-                                           title="Add to Cart"
-                                           i18n:attributes="title add_to_cart_label;
-                                                            value add_to_cart_label;" />
-                                </div>
-                                
-                                
-                            </td>                             
-                            
+                                <input class="context"
+                                       id="add-product"
+                                       name="addToCart:method" 
+                                       value="Add to Cart"
+                                       type="submit"
+                                       title="Add to Cart"
+                                       i18n:attributes="title add_to_cart_label;
+                                                        value add_to_cart_label;" />
+                                                            
+                            </td>                                                     
                         </tr>
+                    </table>
+                    <table>
                         <tr>
                             <td class="product-image">
                                 
