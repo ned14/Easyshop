@@ -114,7 +114,7 @@
                             </td>                                                     
                         </tr>
                     </table>
-                    <table>
+                    <table class="product-content">
                         <tr>
                             <td class="product-image">
                                 
