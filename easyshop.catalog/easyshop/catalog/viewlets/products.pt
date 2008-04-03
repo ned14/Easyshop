@@ -113,7 +113,7 @@
                                    i18n:attributes="title details_label;"
                                    tal:attributes="onclick string:location.href='${product/url}'" />
 
-<!-- 
+
                             <form tal:attributes="action product/url"
                                   method="post">
 
@@ -130,7 +130,7 @@
                                        i18n:attributes="title add_to_cart_label;
                                                         value add_to_cart_label;" />
                             </form>
--->                                                        
+
                             <tal:block tal:condition="product/for_sale">
                                 <span class="product-price"
                                       style="text-decoration:line-through;"
