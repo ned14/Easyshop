@@ -1,5 +1,6 @@
 # zope imports
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -11,6 +12,7 @@ from Products.CMFPlone.utils import safe_unicode
 from plone.memoize.instance import memoize
 
 # easyshop imports
+from easyshop.core.config import _
 from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
@@ -19,12 +21,14 @@ from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import IDiscountsCalculation
 from easyshop.core.interfaces import IItemManagement 
+from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import IPaymentInformationManagement
 from easyshop.core.interfaces import IPaymentMethodManagement
 from easyshop.core.interfaces import IPaymentPriceManagement
 from easyshop.core.interfaces import IPropertyManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProductVariant
+from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
@@ -73,39 +77,6 @@ class CartFormView(BrowserView):
             
             price = IPrices(cart_item).getPriceForCustomer()
 
-            # Properties
-            properties = []
-            pm = IPropertyManagement(product)
-
-            for selected_property in cart_item.getProperties():
-                property_price = pm.getPriceForCustomer(
-                    selected_property["id"], 
-                    selected_property["selected_option"]) 
-
-                # Get titles of property and option
-                titles = getTitlesByIds(
-                    product,
-                    selected_property["id"], 
-                    selected_property["selected_option"])
-                    
-                if titles is None:
-                    continue
-
-                if IProductVariant.providedBy(product) == True:
-                    show_price = False
-                elif property_price == 0.0:
-                    show_price = False
-                else:
-                    show_price = True
-                    
-                properties.append({
-                    "id" : selected_property["id"],
-                    "selected_option" : titles["option"],
-                    "title" : titles["property"],
-                    "price" : cm.priceToString(property_price),
-                    "show_price" : show_price,
-                })
-
             # Discount
             total_price = 0
             discount = IDiscountsCalculation(cart_item).getDiscount()
@@ -130,7 +101,7 @@ class CartFormView(BrowserView):
                 "product_price" : product_price,
                 "price"         : cm.priceToString(price),
                 "amount"        : cart_item.getAmount(),
-                "properties"    : properties,
+                "properties"    : self._getPropertiesForConfiguration(cart_item),
                 "total_price"   : cm.priceToString(total_price),
                 "discount"      : discount,
             })
@@ -233,6 +204,76 @@ class CartFormView(BrowserView):
                 "display" : len(self.getCartItems()) > 0,
             }
 
+    def getProperties(self):
+        """
+        """    
+        pvm = IProductVariantsManagement(self.context)
+        if pvm.hasVariants():
+            return self._getPropertiesForVariants()
+        else:
+            return self._getPropertiesForConfiguration()
+            
+    def _getPropertiesForConfiguration(self, cart_item):
+        """
+        """        
+        u = getUtility(INumberConverter)
+        cm = ICurrencyManagement(self.context)
+
+        # Store all selected options for lookup below
+        selected_options = {}
+        
+        for property in cart_item.getProperties():
+            selected_options[property["id"]] = property["selected_option"]
+
+        product = cart_item.getProduct()
+        pm = IPropertyManagement(product)
+        
+        result = []
+        for property in pm.getProperties():
+            
+            # Only properties with at least one option are displayed.
+            if len(property.getOptions()) == 0:
+                continue
+            
+            # Preset with select option
+            options = [{
+                "id"       : "select",
+                "title"    : _(u"Select"),
+                "selected" : False,
+            }]
+            
+            for option in property.getOptions():
+
+                # generate value string
+                option_id    = option["id"]
+                option_name  = option["name"]
+                option_price = option["price"]
+
+                if option_price != "0.0":
+                    option_price = u.stringToFloat(option_price)
+                    option_price = cm.priceToString(option_price, "long", "after")
+                    content = "%s %s" % (option_name, option_price)
+                else:
+                    content = option_name
+                        
+                # is option selected?
+                selected_option = selected_options.get(property.getId(), "")
+                selected = option_id == selected_option
+                
+                options.append({
+                    "id"       : option_id,
+                    "title"    : content,
+                    "selected" : selected,
+                })
+                
+            result.append({
+                "id"      : "property_" + property.getId(),
+                "title"   : property.Title(),
+                "options" : options,
+            })
+
+        return result
+
     def getShippingMethods(self):
         """
         """
@@ -328,14 +369,30 @@ class CartFormView(BrowserView):
             url = "%s/cart" % self.context.absolute_url()
             self.context.request.response.redirect(url)
             return
+
+        # Collect cart item properties for lookup
+        selected_properties = {}
+        for key, value in self.context.request.items():
+            if key.startswith("property_"):
+                property_id, cart_item_id = key.split(":")
+                property_id = property_id[9:]
+
+                if selected_properties.has_key(cart_item_id) == False:
+                    selected_properties[cart_item_id] = []
+
+                selected_properties[cart_item_id].append({
+                    "id" : property_id,
+                    "selected_option" : value})
+        
+        import pdb; pdb.set_trace()
                         
-        item_manager = IItemManagement(cart)
+        im = IItemManagement(cart)
 
         i = 1
-        for cart_item in item_manager.getItems():
+        for cart_item in im.getItems():
             ci = "cart_item_%s" % i
             amount = self.context.REQUEST.get(ci)
-            
+                        
             try:
                 amount = int(amount)
             except ValueError:
@@ -345,11 +402,15 @@ class CartFormView(BrowserView):
                 continue
                     
             if amount == 0:
-                item_manager.deleteItemByOrd(i-1)
+                im.deleteItemByOrd(i-1)
             else:    
                 cart_item.setAmount(amount)
             i += 1
 
+            # Set properties
+            if selected_properties.has_key(cart_item.getId()):
+                cart_item.setProperties(selected_properties[cart_item.getId()])
+            
         # next template
         if self.context.REQUEST.get("goto", "") == "order-preview":
             url = "%s/checkout-order-preview" % self.context.absolute_url()

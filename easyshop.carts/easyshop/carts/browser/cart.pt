@@ -138,15 +138,34 @@
                                            tal:content="cart_item/product_title">
                                             Product Title
                                         </a> 
-                                    </div>       
-                                    <div tal:repeat="property cart_item/properties">
-                                        <span tal:content="property/title" /> :
-                                        <span tal:content="property/selected_option" />
-                                        <tal:block tal:condition="property/show_price">
-                                            (<span tal:content="property/price" />)
-                                        </tal:block>
-                                    </div>                  
-                                                                                                                                            
+                                    </div>
+<!-- Properties -->
+                                    <table>
+                                        <tr tal:repeat="property cart_item/properties">
+                                            <td style="vertical-align:bottom; padding-right:20px"
+                                                tal:content="property/title">
+                                               Title
+                                            </td>
+                                            <td>
+                                                <input type="hidden"
+                                                       name="variant_selected"
+                                                       value="1" />
+                                                   
+                                                <select style="font-size:12px; width:200px"
+                                                        onchange="document.product_form.submit();"
+                                                        tal:attributes="name string:${property/id}:${cart_item/id}">
+          
+                                                    <option tal:repeat="option property/options"
+                                                            tal:content="option/title"
+                                                            tal:attributes="value option/id;
+                                                                            selected option/selected">
+                                                        Red
+                                                    </option>                           
+                                                </select>                                                                       
+                                            </td>
+                                        </tr>
+                                    </table>     
+                                         
                                 </td>    
 
                                 <td class="number">
