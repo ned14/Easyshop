@@ -384,8 +384,6 @@ class CartFormView(BrowserView):
                     "id" : property_id,
                     "selected_option" : value})
         
-        import pdb; pdb.set_trace()
-                        
         im = IItemManagement(cart)
 
         i = 1
