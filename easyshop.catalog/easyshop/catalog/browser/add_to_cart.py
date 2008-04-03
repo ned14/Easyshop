@@ -50,25 +50,22 @@ class ProductAddToCartView(BrowserView):
             # Unlike above we take the properties out of the request, because 
             # there is no object wich stores the different properties.
             properties = []
-            for property_id, selected_option_id in self.request.form.items():
-                if property_id.startswith("property") == False:
-                    continue
+            for property in IPropertyManagement(product).getProperties():
+                selected_option_id = self.request.get("property_%s" % property.getId())
                 
-                property_id = property_id[9:]
-
                 # If nothing is selected we take the first option of the 
                 # property
-                if selected_option_id == "select":
-                    property = IPropertyManagement(product).getProperty(property_id)
+                if (selected_option_id is None) or (selected_option_id == "select"):
+                    property = IPropertyManagement(product).getProperty(property.getId())
                     selected_option = property.getOptions()[0]
                     selected_option_id = selected_option["id"]
                  
                 properties.append(
-                    {"id" : property_id, 
+                    {"id" : property.getId(), 
                      "selected_option" : selected_option_id
                     }
                 )
-        
+            
         # get quantity
         quantity = int(self.context.request.get("quantity", 1))
 
