@@ -92,7 +92,8 @@
                                  </metal:field>
                             </td> 
                             <td class="sub-title" 
-                                align="right">
+                                align="right"
+                                width="1px">
                                 <div>
                                     <input type="button"
                                            class="context"
