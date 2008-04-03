@@ -86,12 +86,35 @@
                     <table class="product-content"
                            tal:define="zoom_url string:${product_data/url}/product-zoom-view;">
                         <tr>
-                            <td class="sub-title"
-                                colspan="2">
+                            <td class="sub-title">
                                  <metal:field use-macro="python:here.widget('description', mode='view')">
                                     Our Products Are The Best
                                  </metal:field>
                             </td> 
+                            <td class="sub-title" 
+                                align="right">
+                                <div>
+                                    <input type="button"
+                                           class="context"
+                                           id="product-details"
+                                           value="Zoom"
+                                           title="Zoom"
+                                           i18n:attributes="title zoom_label;"
+                                           tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
+
+                                    <input class="context"
+                                           id="add-product"
+                                           name="addToCart:method" 
+                                           value="Add to Cart"
+                                           type="submit"
+                                           title="Add to Cart"
+                                           i18n:attributes="title add_to_cart_label;
+                                                            value add_to_cart_label;" />
+                                </div>
+                                
+                                
+                            </td>                             
+                            
                         </tr>
                         <tr>
                             <td class="product-image">
