@@ -235,13 +235,7 @@ class CartFormView(BrowserView):
             if len(property.getOptions()) == 0:
                 continue
             
-            # Preset with select option
-            options = [{
-                "id"       : "select",
-                "title"    : _(u"Select"),
-                "selected" : False,
-            }]
-            
+            options = []
             for option in property.getOptions():
 
                 # generate value string

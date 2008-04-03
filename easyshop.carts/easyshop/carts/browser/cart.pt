@@ -21,8 +21,9 @@
                       class="documentFirstHeading">Cart</span>
             </h1>
       
-            <form action="#"
-                  tal:attributes="action context/absolute_url"
+            <form name="product_form"
+                  action="#"
+                  tal:attributes="action string:${context/absolute_url}/@@refreshCart"
                   method="post">
                 <table class="parameters">
                     <tr>
@@ -152,7 +153,7 @@
                                                        value="1" />
                                                    
                                                 <select style="font-size:12px; width:200px"
-                                                        onchange="document.product_form.submit();"
+                                                        onchange="document.product_form.submit('refreshCart');"
                                                         tal:attributes="name string:${property/id}:${cart_item/id}">
           
                                                     <option tal:repeat="option property/options"
