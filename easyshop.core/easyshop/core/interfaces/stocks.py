@@ -1,4 +1,5 @@
 # zope imports
+from zope.interface import Attribute
 from zope.interface import Interface
 
 class IStockInformation(Interface):
@@ -31,3 +32,10 @@ class IAvailablility(Interface):
     def isAvailable():
         """Returns True if the product is available.
         """
+        
+class IStockAmountIsZeroEvent(Interface):
+    """An event which is sent when the stock amount of a product is zero or 
+    less.
+    """
+    product = Attribute("The product for which the stock amount is zero.")
+    
