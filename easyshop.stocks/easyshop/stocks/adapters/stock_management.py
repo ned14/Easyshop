@@ -4,11 +4,11 @@ from zope.event import notify
 from zope.interface import implements
 
 # easyshop imports
-from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IStockManagement
 from easyshop.core.interfaces import IValidity
+from easyshop.stocks.events import StockAmountIsZeroEvent
 
 class StockManagement:
     """Adapter which provides IStockManagement for shop content objects.
@@ -50,4 +50,3 @@ class StockManagement:
                 
                 if new_amount <= 0:
                     notify(StockAmountIsZeroEvent(product))
-                    
