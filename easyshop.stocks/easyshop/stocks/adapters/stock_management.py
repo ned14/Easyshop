@@ -1,5 +1,6 @@
 # zope imports
 from zope.component import adapts
+from zope.event import notify
 from zope.interface import implements
 
 # easyshop imports
@@ -46,3 +47,7 @@ class StockManagement:
                 amount = cart_item.getAmount()
                 new_amount = product.getStockAmount() - amount
                 product.setStockAmount(new_amount)
+                
+                if new_amount <= 0:
+                    notify(StockAmountIsZeroEvent(product))
+                    
