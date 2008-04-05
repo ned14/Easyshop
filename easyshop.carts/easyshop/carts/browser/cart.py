@@ -12,8 +12,6 @@ from Products.CMFPlone.utils import safe_unicode
 from plone.memoize.instance import memoize
 
 # easyshop imports
-from easyshop.core.config import _
-from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
@@ -101,7 +99,7 @@ class CartFormView(BrowserView):
                 "product_price" : product_price,
                 "price"         : cm.priceToString(price),
                 "amount"        : cart_item.getAmount(),
-                "properties"    : self._getPropertiesForConfiguration(cart_item),
+                "properties"    : self._getProperties(cart_item),
                 "total_price"   : cm.priceToString(total_price),
                 "discount"      : discount,
             })
@@ -204,15 +202,17 @@ class CartFormView(BrowserView):
                 "display" : len(self.getCartItems()) > 0,
             }
 
-    def getProperties(self):
+    def _getProperties(self, cart_item):
         """
-        """    
-        pvm = IProductVariantsManagement(self.context)
-        if pvm.hasVariants():
-            return self._getPropertiesForVariants()
+        """
+        product = cart_item.getProduct()
+        if IProductVariant.providedBy(product):
+            return self._getPropertiesForVariants(cart_item)
         else:
-            return self._getPropertiesForConfiguration()
-            
+            return self._getPropertiesForConfiguration(cart_item)
+    
+    # TODO: Try to factory this out to use this just on one place. See
+    # catalog/vievlets/product.py
     def _getPropertiesForConfiguration(self, cart_item):
         """
         """        
@@ -249,6 +249,55 @@ class CartFormView(BrowserView):
                     content = "%s %s" % (option_name, option_price)
                 else:
                     content = option_name
+                        
+                # is option selected?
+                selected_option = selected_options.get(property.getId(), "")
+                selected = option_id == selected_option
+                
+                options.append({
+                    "id"       : option_id,
+                    "title"    : content,
+                    "selected" : selected,
+                })
+                
+            result.append({
+                "id"      : "property_" + property.getId(),
+                "title"   : property.Title(),
+                "options" : options,
+            })
+
+        return result
+
+    def _getPropertiesForVariants(self, cart_item):
+        """
+        """        
+        u = getUtility(INumberConverter)
+        cm = ICurrencyManagement(self.context)
+
+        variant = cart_item.getProduct()
+        product = variant.aq_inner.aq_parent
+
+        selected_options = {}
+        for property in variant.getForProperties():
+            name, value = property.split(":")
+            selected_options[name] = value
+            
+        pm = IPropertyManagement(product)
+        
+        result = []
+        for property in pm.getProperties():
+            
+            # Only properties with at least one option are displayed.
+            if len(property.getOptions()) == 0:
+                continue
+            
+            options = []
+            for option in property.getOptions():
+
+                # generate value string
+                option_id = option["id"]
+                option_name = option["name"]
+                content = option_name
                         
                 # is option selected?
                 selected_option = selected_options.get(property.getId(), "")
@@ -400,8 +449,30 @@ class CartFormView(BrowserView):
             i += 1
 
             # Set properties
-            if selected_properties.has_key(cart_item.getId()):
+            product = cart_item.getProduct()
+            if IProductVariant.providedBy(product):
+                product = product.aq_inner.aq_parent
+                pvm = IProductVariantsManagement(product)
+                
+                # We need the properties also as dict to get the selected 
+                # variant. Feels somewhat dirty. TODO: Try to unify the data 
+                # model for properties.
+                properties = {}
+                for property in selected_properties[cart_item.getId()]:
+                    properties[property["id"]] = property["selected_option"]                    
+                    
+                variant = pvm.getSelectedVariant(properties)
+                cart_item.setProduct(variant)
+                
+                # TODO: At the moment we have to set the properties of the cart
+                # item too. This is used in checkout-order-preview. Think about 
+                # to get rid of this because the properties are already available 
+                # in the variant.
                 cart_item.setProperties(selected_properties[cart_item.getId()])
+                
+            else:
+                if selected_properties.has_key(cart_item.getId()):
+                    cart_item.setProperties(selected_properties[cart_item.getId()])
             
         # next template
         if self.context.REQUEST.get("goto", "") == "order-preview":

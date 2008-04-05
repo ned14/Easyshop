@@ -72,6 +72,9 @@ class CartItem(BaseContent):
     def setProduct(self, product):
         """Sets the product of the cart item.
         """
+        # First we delete an old reference. (This is used for changing 
+        # properties/variants within cart)
+        self.deleteReferences("cartitem_product")
         self.addReference(product, "cartitem_product")
                 
 registerType(CartItem, PROJECTNAME)
