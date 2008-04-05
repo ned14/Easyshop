@@ -14,15 +14,15 @@ class TestShippingMethodManagement(EasyShopTestCase):
         sm = IShippingMethodManagement(self.shop)
         result = sm.getSelectedShippingMethod()
         
-        self.assertEqual(result.getId(), "default")
+        self.assertEqual(result.getId(), "standard")
         
     def testGetShippingMethod_1(self):
         """Requested shipping method exists.
         """
         sm = IShippingMethodManagement(self.shop)
-        result = sm.getShippingMethod("default")        
+        result = sm.getShippingMethod("standard")        
 
-        self.assertEqual(result.getId(), "default")
+        self.assertEqual(result.getId(), "standard")
 
     def testGetShippingMethod_2(self):
         """Requested shipping method doesn't exist.
@@ -39,7 +39,7 @@ class TestShippingMethodManagement(EasyShopTestCase):
         methods = sm.getShippingMethods()
         ids = [method.getId() for method in methods]
 
-        self.assertEqual(ids, ["default"])
+        self.assertEqual(ids, ["standard"])
 
 def test_suite():
     from unittest import TestSuite, makeSuite

@@ -69,7 +69,7 @@ class TestDiscountPrices(EasyShopTestCase):
         
         cart = ICartManagement(self.shop).getCart()
         item = IItemManagement(cart).getItems()[0]
-        
+            
         prices = getMultiAdapter((discount, item), IPrices)
         price_net = "%.2f" % prices.getPriceNet()
         price_gross = "%.2f" % prices.getPriceGross()

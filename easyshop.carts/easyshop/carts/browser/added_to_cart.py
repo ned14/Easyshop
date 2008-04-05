@@ -21,12 +21,13 @@ class AddedToCartView(BrowserView):
         if cart_item_id is None:
             return None
 
-        product = cart_item.getProduct()
-                            
         cart = ICartManagement(self.context).getCart()
         cart_item = IItemManagement(cart).getItem(cart_item_id)
-        
         if cart_item is None:
+            return None
+
+        product = cart_item.getProduct()
+        if product is None:
             return None
                 
         # Price

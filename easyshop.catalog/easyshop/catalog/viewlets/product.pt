@@ -103,7 +103,7 @@
                                        tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
 
                                 <input class="context"
-                                       id="add-product"
+                                       id="add-product-top"
                                        name="addToCart:method" 
                                        value="Add to Cart"
                                        type="submit"
@@ -208,9 +208,9 @@
                                        value="product_data/url" />
                                        
                                 <input class="context"
-                                       id="add-product"
+                                       id="add-product-bottom"
                                        name="addToCart:method" 
-                                       value="Add to Cart"
+                                       value="Add To Cart"
                                        type="submit"
                                        title="Add to Cart"
                                        i18n:attributes="title add_to_cart_label;

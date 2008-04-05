@@ -26,7 +26,7 @@ class Browser(BaseBrowser):
         self.addHeader('Authorization', 'Basic %s:%s' % (user, password))
         return self
     
-    def dc(self, filename="/Users/Kai/Temp/test-output.html"):
+    def dc(self, filename="/Users/Kai/Downloads/test-output.html"):
         open(filename, 'w').write(self.contents)
             
 class EasyShopLayer(PloneSite):

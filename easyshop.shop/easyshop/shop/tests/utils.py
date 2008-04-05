@@ -45,6 +45,9 @@ def createTestEnvironment(self):
     self.shop = self.myshop
     self.shop.at_post_create_script()
 
+    # Enter paypal id 
+    self.shop.setPayPalId("haendler@iqpp.de")
+    
     # Add shipping and payment price
     self.shop.shippingprices.manage_addProduct["easyshop.shop"].addShippingPrice(id="default", price=10.0)
     self.shop.shippingprices.default.reindexObject()
@@ -59,34 +62,39 @@ def createTestEnvironment(self):
 
     # Properties
     colors = [
-        {"name"  : "Red",   "price" : "-10.0"},
-        {"name"  : "Blue",  "price" :   "0.0"},
-        {"name"  : "Green", "price" :  "15.0"}
+        {"name"  : "Default", "price" : "0.0"},    
+        {"name"  : "Red",     "price" : "-10.0"},
+        {"name"  : "Blue",    "price" :   "0.0"},
+        {"name"  : "Green",   "price" :  "15.0"}
     ]
 
     # Note this will be overwritten by product's properties
     colors_for_groups = [
-        {"name"  : "Red",   "price" : "1000.0"},
-        {"name"  : "Blue",  "price" : "2000.0"},
-        {"name"  : "Green", "price" : "3000.0"}
+        {"name"  : "Default", "price" : "0.0"},
+        {"name"  : "Red",     "price" : "1000.0"},
+        {"name"  : "Blue",    "price" : "2000.0"},
+        {"name"  : "Green",   "price" : "3000.0"}
     ]
 
     materials = [
-        {"name"  : "Iron", "price" : "-100.0"},
-        {"name"  : "Wood", "price" :    "0.0"},
-        {"name"  : "Gold", "price" :  "150.0"}
+        {"name"  : "Default", "price" : "0.0"},
+        {"name"  : "Iron",    "price" : "-100.0"},
+        {"name"  : "Wood",    "price" :    "0.0"},
+        {"name"  : "Gold",    "price" :  "150.0"}
     ]
 
     qualities = [
-        {"name"  : "Low",    "price" : "-1000.0"},
-        {"name"  : "Medium", "price" :     "0.0"},
-        {"name"  : "High",   "price" :  "1500.0"}
+        {"name"  : "Default", "price" : "0.0"},
+        {"name"  : "Low",     "price" : "-1000.0"},
+        {"name"  : "Medium",  "price" :     "0.0"},
+        {"name"  : "High",    "price" :  "1500.0"}
     ]
 
     sizes_for_groups = [
-        {"name"  : "Small",  "price" : "-11.0"},
-        {"name"  : "Medium", "price" :   "1.0"},
-        {"name"  : "Large",  "price" :  "22.0"}
+        {"name"  : "Default", "price" : "0.0"},
+        {"name"  : "Small",   "price" : "-11.0"},
+        {"name"  : "Medium",  "price" :   "1.0"},
+        {"name"  : "Large",   "price" :  "22.0"}
     ]
     
     self.product_1.invokeFactory("ProductProperty", id="color", title="Color")

@@ -47,6 +47,7 @@ class TestPayPalValidity(EasyShopTestCase):
     def testValidity(self):
         """
         """
+        self.shop.setPayPalId("")
         paypal = self.shop.paymentmethods.paypal
         result = IValidity(paypal).isValid()        
         self.failUnless(result == False)

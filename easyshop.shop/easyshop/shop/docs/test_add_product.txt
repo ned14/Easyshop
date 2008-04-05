@@ -6,7 +6,6 @@ First, some set-up:
 
     >>> self.logout()
     
-    
 View the shop
 ------------------------------
     >>> browser.open(self.portal.myshop.absolute_url())
@@ -22,7 +21,6 @@ We browse to the document, we want to buy.
     '...19,00...'
 
 And add it to the cart     
-
     >>> browser.getControl('Add to Cart').click()
     >>> browser.contents
     '...The product has been added to the cart...'
@@ -60,8 +58,8 @@ And join the site.
     >>> browser.getControl('Password').value = '11111'
     >>> browser.getControl('Confirm password').value = '11111'
     >>> browser.getControl('Register').click()
-                
     >>> browser.contents
+    
     '...You are now logged in...'
 
 Now we add a new address.
