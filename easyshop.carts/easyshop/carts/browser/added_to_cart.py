@@ -28,7 +28,7 @@ class AddedToCartView(BrowserView):
             return None
                 
         # Price
-        price = IPrices(cart_item).getPriceForCustomer()
+        price = IPrices(cart_item.getProduct()).getPriceForCustomer()
         cm    = ICurrencyManagement(self.context)
         price = cm.priceToString(price)        
         
