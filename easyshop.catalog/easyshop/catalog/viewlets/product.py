@@ -234,19 +234,20 @@ class ProductViewlet(ViewletBase):
         sm = IStockManagement(shop)
         
         pvm = IProductVariantsManagement(self.context)
-        product_variant = pvm.getSelectedVariant()
         
-        if product_variant is None:
-            return None
+        if pvm.hasVariants() == False:
+            stock_information = sm.getStockInformationFor(self.context)            
+        else:
+            product_variant = pvm.getSelectedVariant()
+
+            # First, we try to get information for the selected product variant
+            stock_information = sm.getStockInformationFor(product_variant)
+
+            # If nothing is found, we try to get information for parent product 
+            # variants object.
+            if stock_information is None:
+                stock_information = sm.getStockInformationFor(self.context)
             
-        # First, we try to get information for the selected product variant
-        stock_information = sm.getStockInformationFor(product_variant)
-        
-        # If nothing is found, we try to get information for parent product 
-        # variants object.
-        if stock_information is None:
-            stock_information = sm.getStockInformationFor(self.context)
-        
         if stock_information is None:
             return None
             
