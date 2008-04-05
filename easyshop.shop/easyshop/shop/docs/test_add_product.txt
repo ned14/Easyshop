@@ -59,7 +59,6 @@ And join the site.
     >>> browser.getControl('Confirm password').value = '11111'
     >>> browser.getControl('Register').click()
     >>> browser.contents
-    
     '...You are now logged in...'
 
 Now we add a new address.
