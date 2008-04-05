@@ -20,7 +20,9 @@ class AddedToCartView(BrowserView):
         cart_item_id = self.request.get("id", None)
         if cart_item_id is None:
             return None
-                    
+
+        product = cart_item.getProduct()
+                            
         cart = ICartManagement(self.context).getCart()
         cart_item = IItemManagement(cart).getItem(cart_item_id)
         
@@ -28,7 +30,7 @@ class AddedToCartView(BrowserView):
             return None
                 
         # Price
-        price = IPrices(cart_item.getProduct()).getPriceForCustomer()
+        price = IPrices(product).getPriceForCustomer()
         cm    = ICurrencyManagement(self.context)
         price = cm.priceToString(price)        
         
