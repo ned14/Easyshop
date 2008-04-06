@@ -70,14 +70,14 @@ class ProductPrices(object):
 
     # Effective Price
     def _getEffectivePriceForCustomer(self):
-        """Returns the effective price for customer, dependend of whether this 
-        product is for sale or not.
+        """Returns the effective price for customer, dependend of the product 
+        is for sale or not.
         """
         tax_abs_customer = self.taxes.getTaxForCustomer()
         return self._getEffectivePriceNet() + tax_abs_customer
 
     def _getEffectivePriceNet(self):
-        """Returns the effective price net, dependend of whether this product
+        """Returns the effective price for customer, dependend of the product 
         is for sale or not.
         """
         if self.context.getForSale() == True:
@@ -91,7 +91,7 @@ class ProductPrices(object):
             return price
 
     def _getEffectivePriceGross(self):
-        """Returns the effective price gross, dependend of whether this product
+        """Returns the effective price for customer, dependend of the product 
         is for sale or not.
         """
         if self.context.getForSale() == True:
