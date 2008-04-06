@@ -11,7 +11,7 @@ from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
 
 class ProductPrices(object):
-    """Provides IPrices for product variants content object.
+    """Provides IPrices for product content object.
     """
     implements(IPrices)
     adapts(IProduct)
