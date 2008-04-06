@@ -1,7 +1,11 @@
+# zope imports
+from zope.component import getUtility
+
 # Five imports
 from Products.Five.browser import BrowserView
 
 # easyshop imports
+from easyshop.core.interfaces import INumberConverter
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IShopManagement
 
@@ -30,6 +34,10 @@ class DiscountView(BrowserView):
         
     def getValue(self):
         """
-        """        
-        cm = ICurrencyManagement(IShopManagement(self.context).getShop())
-        return cm.priceToString(self.context.getValue())
+        """
+        if self.context.getType() == "absolute":
+            cm = ICurrencyManagement(IShopManagement(self.context).getShop())
+            return cm.priceToString(self.context.getValue())
+        else:
+            c = getUtility(INumberConverter)
+            return c.floatToTaxString(self.context.getValue())
