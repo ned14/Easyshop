@@ -55,7 +55,7 @@ class ExportView(BrowserView):
             "Image",]
 
         line = ['"%s"' % field for field in line]
-        line = "#".join(line)
+        line = "\t".join(line)
         
         result.append(line)
             
@@ -87,7 +87,7 @@ class ExportView(BrowserView):
                 line.append(url)
                 
             line = ['"%s"' % field for field in line]
-            line = "#".join(line)
+            line = "\t".join(line)
             
             result.append(line)
             
