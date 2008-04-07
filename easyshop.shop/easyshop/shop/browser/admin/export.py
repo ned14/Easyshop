@@ -64,7 +64,9 @@ class ExportView(BrowserView):
             
             # Price 
             price = IPrices(product).getPriceGross()
-
+            text = product.getText()
+            text = text.replace("\n", "")
+            
             line = [
                 product.Title(),
                 product.absolute_url(),
@@ -72,9 +74,9 @@ class ExportView(BrowserView):
                 product.getShortTitle(),
                 product.getArticleId(),
                 product.Description(),
-                product.getWeight(),                
+                product.getWeight(),
                 product.getShortText(),
-                product.getText(),
+                text,
             ]
                         
             # Images 
@@ -91,10 +93,10 @@ class ExportView(BrowserView):
             
             result.append(line)
             
-        self.request.response.setHeader('Content-type', 'text/csv')
+        self.request.response.setHeader('Content-type', 'text/plain')
         self.request.response.setHeader(
             'Content-disposition',
-            'attachment; filename=%s' % "products.csv"
+            'attachment; filename=%s' % "products.txt"
         )
 
         return "\n".join(result)
