@@ -9,6 +9,13 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
+        for="easyshop.core.interfaces.IShop"
+        name="export-products-std"
+        class=".export.ExportView"
+        attribute="getProducts"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
         for="*"
         name="create-products-1"
         class=".test_environment.TestEnvironmentView"
