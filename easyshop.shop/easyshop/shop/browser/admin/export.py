@@ -88,8 +88,8 @@ class ExportView(BrowserView):
                 product.getArticleId(),
                 description,
                 product.getWeight(),
-                short_text,
                 text,
+                short_text,
             ]
                         
             # Images 
