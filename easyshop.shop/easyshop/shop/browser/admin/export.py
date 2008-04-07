@@ -49,8 +49,8 @@ class ExportView(BrowserView):
             "Description",
             "Short Text",
             "Text",
-            "Weight"
-            "Image"]
+            "Weight",
+            "Image",]
 
         line = ['"%s"' % field for field in line]
         line = ";".join(line)
