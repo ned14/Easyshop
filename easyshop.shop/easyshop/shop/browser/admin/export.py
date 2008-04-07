@@ -50,8 +50,8 @@ class ExportView(BrowserView):
             "Article ID",
             "Description",
             "Weight",
-            "Short Text",
             "Text",
+            "Short Text",
             "Image",]
 
         line = ['"%s"' % field for field in line]
@@ -64,9 +64,21 @@ class ExportView(BrowserView):
             
             # Price 
             price = IPrices(product).getPriceGross()
+            
             text = product.getText()
             text = text.replace("\n", "")
             text = text.replace("\r", "")
+            text = text.replace("\t", "")
+
+            short_text = product.getShortText()
+            short_text = short_text.replace("\n", "")
+            short_text = short_text.replace("\r", "")
+            short_text = short_text.replace("\t", "")
+
+            description = product.Description()
+            description = description.replace("\n", "")
+            description = description.replace("\r", "")
+            description = description.replace("\t", "")
             
             line = [
                 product.Title(),
@@ -74,9 +86,9 @@ class ExportView(BrowserView):
                 price,
                 product.getShortTitle(),
                 product.getArticleId(),
-                product.Description(),
+                description,
                 product.getWeight(),
-                product.getShortText(),
+                short_text,
                 text,
             ]
                         
