@@ -13,6 +13,7 @@ from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrderManagement
+from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShopManagement
 
 class IExportView(Interface):    
@@ -42,34 +43,40 @@ class ExportView(BrowserView):
         result = []
 
         line = [
-            "Url",
             "Title",
+            "Url",  
+            "Price",          
             "Short Title",
             "Article ID",
             "Description",
+            "Weight",
             "Short Text",
             "Text",
-            "Weight",
             "Image",]
 
         line = ['"%s"' % field for field in line]
-        line = ";".join(line)
+        line = "#".join(line)
         
         result.append(line)
             
         for brain in brains:
             product = brain.getObject()
+            
+            # Price 
+            price = IPrices(product).getPriceGross()
+
             line = [
-                product.absolute_url(),
                 product.Title(),
+                product.absolute_url(),
+                price,
                 product.getShortTitle(),
                 product.getArticleId(),
                 product.Description(),
+                product.getWeight(),                
                 product.getShortText(),
                 product.getText(),
-                product.getWeight(),
             ]
-            
+                        
             # Images 
             im = IImageManagement(product)
             for image in im.getImages():
@@ -80,7 +87,7 @@ class ExportView(BrowserView):
                 line.append(url)
                 
             line = ['"%s"' % field for field in line]
-            line = ";".join(line)
+            line = "#".join(line)
             
             result.append(line)
             
