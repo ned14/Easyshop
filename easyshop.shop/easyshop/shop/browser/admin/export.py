@@ -10,6 +10,7 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import IShopManagement
@@ -17,6 +18,10 @@ from easyshop.core.interfaces import IShopManagement
 class IExportView(Interface):    
     """
     """
+    def getProducts():
+        """
+        """
+        
     def getOrders():
         """
         """
@@ -26,6 +31,67 @@ class ExportView(BrowserView):
     """
     implements(IExportView)
     
+    def getProducts(self):
+        """
+        """
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            portal_type = "Product"
+        )
+
+        result = []
+
+        line = [
+            "Url",
+            "Title",
+            "Short Title",
+            "Article ID",
+            "Description",
+            "Short Text",
+            "Text",
+            "Weight"
+            "Image"]
+
+        line = ['"%s"' % field for field in line]
+        line = ";".join(line)
+        
+        result.append(line)
+            
+        for brain in brains:
+            product = brain.getObject()
+            line = [
+                product.absolute_url(),
+                product.Title(),
+                product.getShortTitle(),
+                product.getArticleId(),
+                product.Description(),
+                product.getShortText(),
+                product.getText(),
+                product.getWeight(),
+            ]
+            
+            # Images 
+            im = IImageManagement(product)
+            for image in im.getImages():
+                if image.absolute_url() == product.absolute_url():
+                    url = image.absolute_url() + "/image"
+                else:
+                    url = image.absolute_url()
+                line.append(url)
+                
+            line = ['"%s"' % field for field in line]
+            line = ";".join(line)
+            
+            result.append(line)
+            
+        self.request.response.setHeader('Content-type', 'text/csv')
+        self.request.response.setHeader(
+            'Content-disposition',
+            'attachment; filename=%s' % "products.csv"
+        )
+
+        return "\n".join(result)
+                
     def getOrders(self):
         """
         """
