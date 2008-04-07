@@ -99,7 +99,7 @@ class ExportView(BrowserView):
             'attachment; filename=%s' % "products.txt"
         )
 
-        return "\n".join(result)
+        return "\r\n".join(result)
                 
     def getOrders(self):
         """
