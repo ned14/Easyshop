@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+
+    <object name="easyshop_search" 
+            meta_type="Filesystem Directory View"
+            directory="easyshop.search:skins/easyshop_search" />
+
+    <skin-path name="*">
+
+        <layer name="easyshop_search"
+               insert-after="custom" />
+    </skin-path>
+    
+</object>
