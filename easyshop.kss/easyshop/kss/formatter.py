@@ -12,17 +12,17 @@ class FormatterKSSView(PloneKSSView):
     """
     """
     @kssaction
-    def saveFormatter(self, portlethash):
+    def saveFormatter(self, form, portlethash):
         """
         """
-        fi = IFormats(self.context)
-        fi.setFormats(self.request.form)
+        fi = IFormats(self.context)        
+        fi.setFormats(form)
         
         kss_core  = self.getCommandSet("core")
         kss_zope  = self.getCommandSet("zope")
         kss_plone = self.getCommandSet("plone")
         
-        layout = self.request.form.get("layout")
+        layout = form.get("layout")
 
         if layout == "categories-view":
             kss_zope.refreshViewlet(kss_core.getHtmlIdSelector("categories-list"),
@@ -45,4 +45,5 @@ class FormatterKSSView(PloneKSSView):
                                     manager="easyshop.products-manager",
                                     name="easyshop.products-viewlet")
 
-        kss_plone.refreshPortlet(portlethash)
+        kss_plone.refreshPortlet(portlethash)                                    
+        
