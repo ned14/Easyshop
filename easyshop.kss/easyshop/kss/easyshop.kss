@@ -1,8 +1,8 @@
 input#save-formatter:click {
     evt-click-preventdefault: True;
     action-server: kss_save_formatter;
+    kss_save_formatter-kssSubmitForm: currentForm();
     kss_save_formatter-portlethash: kssAttr(portlethash, True);
-    kss_save_formatter-form: currentForm();
 }
 
 img.product-details:click {
@@ -20,7 +20,7 @@ div#letters a:click {
 input#search-products:click {
     evt-click-preventdefault: True;    
     action-server: kss_show_products;
-    kss_show_products-form: currentForm();
+    kss_show_products-kssSubmitForm: currentForm();
     
 }
 
@@ -35,19 +35,19 @@ input#add-address-form-button:click {
 input.edit-address-form-button:click {
     evt-click-preventdefault: True;
     action-server: kss_show_edit_address_form;
-    kss_show_edit_address_form-form: currentForm();
+    kss_show_edit_address_form-kssSubmitForm: currentForm();
 }
 
 input#add-address:click {
     evt-click-preventdefault: True;
     action-server: kss_add_address;
-    kss_add_address-form: currentForm();
+    kss_add_address-kssSubmitForm: currentForm();
 }
 
 input#edit-address:click {
     evt-click-preventdefault: True;
     action-server: kss_edit_address;
-    kss_edit_address-form: currentForm();
+    kss_edit_address-kssSubmitForm: currentForm();
 }
 
 input#cancel-address:click {
