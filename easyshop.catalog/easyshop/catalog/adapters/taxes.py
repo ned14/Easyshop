@@ -149,5 +149,5 @@ class ProductVariantTaxes(ProductTaxes):
     def __init__(self, context):
         """
         """
-        self.context = context.aq_inner.aq_parent
+        self.context = context
         self.shop = IShopManagement(context).getShop()
