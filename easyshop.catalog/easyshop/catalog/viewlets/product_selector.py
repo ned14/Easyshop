@@ -99,7 +99,7 @@ class ProductSelectorViewlet(ViewletBase):
 
                 try:
                     chars = int(fi.get("chars"))
-                except TypeError:
+                except (ValueError, TypeError):
                     chars = 0
             
                 if (chars != 0) and (len(title) > chars):

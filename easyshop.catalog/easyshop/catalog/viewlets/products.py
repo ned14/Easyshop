@@ -117,7 +117,7 @@ class ProductsViewlet(ViewletBase):
 
             try:
                 chars = int(f.get("chars"))
-            except TypeError:
+            except (TypeError, ValueError):
                 chars = 0
             
             if (chars != 0) and (len(title) > chars):

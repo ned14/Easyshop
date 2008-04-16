@@ -56,17 +56,17 @@ class FormatterInfos:
         
         try:
             lines_per_page = int(fi.formats["lines_per_page"])
-        except TypeError:
+        except (TypeError, ValueError):
             lines_per_page = 1
 
         try:
             products_per_line = int(fi.formats["products_per_line"])
-        except TypeError:
+        except (TypeError, ValueError):
             products_per_line = 2
 
         try:
             product_height = int(fi.formats["product_height"])
-        except TypeError:
+        except (TypeError, ValueError):
             product_height = 0
             
         return {
