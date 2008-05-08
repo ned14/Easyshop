@@ -46,10 +46,10 @@ class CategoryCategoryManagement(object):
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides = "easyshop.core.interfaces.catalog.ICategory",
+            object_provides = "easyshop.core.interfaces.catalog.ICategory",            
             path = {"query"       : "/".join(self.context.getPhysicalPath()),
                     "depth"       : 1},
-        )
+            sort_on = "getObjPositionInParent")
 
         return brains
         
