@@ -70,9 +70,17 @@ class ProductSelectorViewlet(ViewletBase):
                 if mtool.checkPermission("View", product) is None:
                     continue
 
-                cm    = ICurrencyManagement(self.context)
-                price = IPrices(product).getPriceForCustomer()
-                price = cm.priceToString(price)
+                # Price
+                cm = ICurrencyManagement(self.context)
+                p = IPrices(product)
+                
+                # Effective price
+                price = p.getPriceForCustomer()                                
+                price = cm.priceToString(price, symbol="symbol", position="before")
+            
+                # Standard price
+                standard_price = p.getPriceForCustomer(effective=False)
+                standard_price = cm.priceToString(standard_price, symbol="symbol", position="before")
                 
                 # image
                 image = IImageManagement(product).getMainImage()
@@ -114,7 +122,9 @@ class ProductSelectorViewlet(ViewletBase):
                 products.append({
                     "title"                    : title,
                     "url"                      : product.absolute_url(),
+                    "for_sale"                 : product.getForSale(),
                     "price"                    : price,
+                    "standard_price"           : standard_price,
                     "image"                    : image,
                     "text"                     : text,
                     "class"                    : klass,
