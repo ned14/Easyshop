@@ -156,6 +156,7 @@ table.products {
 
 table.products td {
     vertical-align:top;
+    padding:2px 0 0 0;    
 }
 
 table.product-content td.product-image {
@@ -206,9 +207,9 @@ table.products td.last {
 
 .sub-title {
     background-color: &dtml-globalBackgroundColor;;
-    line-height:40px;
     height:40px;
-    padding: 0 10px !important;    
+    padding: 0 10px !important;
+    vertical-align:middle !important;    
 }
 
 td.product-text {
