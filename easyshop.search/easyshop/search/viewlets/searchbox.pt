@@ -26,7 +26,7 @@
 
 
             <div class="searchSection">
-                <a href="search">Search Form</a>
+                <a href="search">Suchformular</a>
             </div>
 
             <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
