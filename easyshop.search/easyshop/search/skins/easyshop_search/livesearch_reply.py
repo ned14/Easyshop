@@ -70,7 +70,8 @@ searchterms = url_quote_plus(r)
 
 site_encoding = context.plone_utils.getSiteEncoding()
 if path is None:
-    path = getNavigationRoot(context)
+    path = siteProperties.easyshop_path
+
 results_glob = catalog(SearchableText=r, portal_type="Product", path=path)
 results_similar = catalog(SearchableText= r_similar, portal_type="Product", path=path)
 
@@ -120,7 +121,6 @@ else:
     write('''<ul class="LSTable">''')
     for result in results[:limit]:
 
-        icon = plone_view.getIcon(result)
         itemUrl = result.getURL()
         if result.portal_type in useViewAction:
             itemUrl += '/view'
@@ -133,11 +133,9 @@ else:
         full_title = full_title.replace('"', '&quot;')
                 
         write('''<li class="LSRow">''')
-        if icon.url is not None and icon.description is not None:
-            write('''<a href="%s" title="%s">''' % (itemUrl, full_title))
-            write('''<img style="float:left; padding:0 5px 5px 0" src="%s" alt="%s" />''' % (result.getURL() + "/image_tile",
-                                                                            icon.description))
-            write('''</a>''')
+        write('''<a href="%s" title="%s">''' % (itemUrl, full_title))
+        write('''<img style="float:left; padding:0 5px 5px 0" src="%s" />''' % (result.getURL() + "/image_tile"))
+        write('''</a>''')
 
         write('''<a href="%s" title="%s">%s</a>''' % (itemUrl, full_title, display_title))
         write('''<span class="discreet">[%s%%]</span>''' % result.data_record_normalized_score_)
@@ -153,7 +151,7 @@ else:
     if len(results)>limit:
         # add a more... row
         write('''<li class="LSRow">''')
-        write( '<a href="%s" style="font-weight:normal">%s (%s)</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all), len(results)))
+        write( '<a href="%s" style="font-weight:normal">%s (%s)</a>' % ('search?SearchableText=' + searchterms, "Zeige Alle", len(results)))
         write('''</li>''')
     write('''</ul>''')
     write('''</div>''')

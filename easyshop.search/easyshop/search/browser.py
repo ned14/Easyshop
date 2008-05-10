@@ -19,22 +19,24 @@ class SearchView(BrowserView):
         searchable_text = self.request.get("SearchableText", "")
         if searchable_text == "":
             return []
-        
-        shop = IShopManagement(self.context).getShop()
+
+        properties = getToolByName(self.context, "portal_properties").site_properties
+        shop_path = properties.easyshop_path
+                    
         catalog = getToolByName(self.context, "portal_catalog")
 
         if searchable_text.find("*") == -1:
             searchable_text += "*"
             
         results_glob = catalog.searchResults(
-            path = "/".join(shop.getPhysicalPath()),
+            path = shop_path,
             portal_type = "Product",
             SearchableText = searchable_text,
         )
 
         searchable_text = searchable_text.replace("*", "")
         results_similar = catalog.searchResults(
-            path = "/".join(shop.getPhysicalPath()),
+            path = shop_path,
             portal_type = "Product",
             SearchableText = "%" + searchable_text,
         )
