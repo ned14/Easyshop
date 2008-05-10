@@ -343,4 +343,7 @@ img.product-details {
     padding-right: 10px;
 }
 
+span.invoice-field {
+    color: white !important;
+}
 /* </dtml-with> */
