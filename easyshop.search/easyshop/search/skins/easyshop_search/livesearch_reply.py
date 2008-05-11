@@ -93,6 +93,7 @@ RESPONSE.setHeader('Content-Type', 'text/xml;charset=%s' % site_encoding)
 #   &hellip;    --> &#8230;
 legend_livesearch = _('legend_livesearch', default='LiveSearch &#8595;')
 label_no_results_found = _('label_no_results_found', default='No matching results found.')
+label_advanced_search = _('label_advanced_search', default='Advanced Search&#8230;')
 label_search_form = _('label_search_form', default='Search Form&#8230;')
 label_show_all = _('my_label_show_all', default='Show all')
 
@@ -121,23 +122,27 @@ else:
     write('''<ul class="LSTable">''')
     for result in results[:limit]:
 
+        icon = plone_view.getIcon(result)
         itemUrl = result.getURL()
         if result.portal_type in useViewAction:
             itemUrl += '/view'
         itemUrl = itemUrl + searchterm_query
+
+        write('''<li class="LSRow">''')
+        if icon.url is not None and icon.description is not None:
+            write('''<img src="%s" alt="%s" width="%i" height="%i" />''' % (icon.url,
+                                                                            icon.description,
+                                                                            icon.width,
+                                                                            icon.height))
         full_title = safe_unicode(pretty_title_or_id(result))
         if len(full_title) > MAX_TITLE:
             display_title = ''.join((full_title[:MAX_TITLE],'...'))
         else:
             display_title = full_title
         full_title = full_title.replace('"', '&quot;')
-                
-        write('''<li class="LSRow">''')
-        write('''<a href="%s" title="%s">''' % (itemUrl, full_title))
-        write('''<img style="float:left; padding:0 5px 5px 0" src="%s" />''' % (result.getURL() + "/image_tile"))
-        write('''</a>''')
 
-        write('''<a href="%s" title="%s">%s</a>''' % (itemUrl, full_title, display_title))
+        write('''<img style="float:left; padding:0 5px 5px 0" src="%s" alt="Image" />''' % (result.getURL() + "/image_tile"))        
+        write('''<a href="%s" title="%s">%s</a>''' % (itemUrl, full_title, display_title))        
         write('''<span class="discreet">[%s%%]</span>''' % result.data_record_normalized_score_)
         display_description = safe_unicode(result.Description)
         if len(display_description) > MAX_DESCRIPTION:
@@ -145,13 +150,18 @@ else:
         # need to quote it, to avoid injection of html containing javascript and other evil stuff
         display_description = html_quote(display_description)
         write('''<div class="discreet" style="margin-left: 2.5em;">%s</div>''' % (display_description))
-        write('''</li><br clear="both"/>''')
+        write('''</li>''')
+        write('''<br clear="both"/>''')
         full_title, display_title, display_description = None, None, None
+
+    write('''<li class="LSRow">''')
+    write( '<a href="search_form" style="font-weight:normal">%s</a>' % ts.translate(label_advanced_search))
+    write('''</li>''')
 
     if len(results)>limit:
         # add a more... row
         write('''<li class="LSRow">''')
-        write( '<a href="%s" style="font-weight:normal">%s (%s)</a>' % ('search?SearchableText=' + searchterms, "Zeige Alle", len(results)))
+        write( '<a href="%s" style="font-weight:normal">%s</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all)))
         write('''</li>''')
     write('''</ul>''')
     write('''</div>''')
