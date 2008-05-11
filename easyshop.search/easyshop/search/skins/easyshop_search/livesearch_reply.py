@@ -94,8 +94,7 @@ RESPONSE.setHeader('Content-Type', 'text/xml;charset=%s' % site_encoding)
 legend_livesearch = _('legend_livesearch', default='LiveSearch &#8595;')
 label_no_results_found = _('label_no_results_found', default='No matching results found.')
 label_advanced_search = _('label_advanced_search', default='Advanced Search&#8230;')
-label_search_form = _('label_search_form', default='Search Form&#8230;')
-label_show_all = _('my_label_show_all', default='Show all')
+label_show_all = _('label_show_all', default='Show all&#8230;')
 
 ts = getToolByName(context, 'translation_service')
 
@@ -150,18 +149,19 @@ else:
         # need to quote it, to avoid injection of html containing javascript and other evil stuff
         display_description = html_quote(display_description)
         write('''<div class="discreet" style="margin-left: 2.5em;">%s</div>''' % (display_description))
+        write('''<br clear="both">''')        
         write('''</li>''')
-        write('''<br clear="both"/>''')
         full_title, display_title, display_description = None, None, None
 
-    write('''<li class="LSRow">''')
-    write( '<a href="search_form" style="font-weight:normal">%s</a>' % ts.translate(label_advanced_search))
-    write('''</li>''')
+    # write('''<li class="LSRow">''')
+    # write( '<a href="search_form" style="font-weight:normal">%s</a>' % ts.translate(label_advanced_search))
+    # write('''</li>''')
 
-    if len(results)>limit:
+    amount = len(results)
+    if amount>limit:
         # add a more... row
         write('''<li class="LSRow">''')
-        write( '<a href="%s" style="font-weight:normal">%s</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all)))
+        write( '<a href="%s" style="font-weight:normal">%s (%s)</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all), amount))
         write('''</li>''')
     write('''</ul>''')
     write('''</div>''')
