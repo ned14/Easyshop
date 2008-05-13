@@ -22,7 +22,7 @@ class SessionManagement:
             try:                
                 sid = request.SESSION.getId()
                 expires = (DateTime() + 10).toZone('GMT').rfc822()
-                request.RESPONSE.setCookie("easyshop-sid", sid, expires=expires)
+                request.RESPONSE.setCookie("easyshop-sid", sid, expires=expires, path="/")
             except AttributeError:
                 sid = "DUMMY_SESSION"
         
