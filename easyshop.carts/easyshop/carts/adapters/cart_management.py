@@ -24,20 +24,11 @@ class CartManagement(object):
         self.context = context
         self.carts = self.context.carts
 
-    def addCart(self, id):
-        """
-        """
-        self.carts.manage_addProduct["easyshop.shop"].addCart(id = id)
-        return self.getCartById(id)
-
     def createCart(self):
         """
         """
         cart_id = self._getCartId()
-        
-        self.carts.manage_addProduct["easyshop.shop"].addCart(
-            id = cart_id
-        )
+        self.carts.manage_addProduct["easyshop.shop"].addCart(id=cart_id)
         
         return self.carts[cart_id]
         
@@ -54,8 +45,8 @@ class CartManagement(object):
         """
         """
         # Note: generally, carts aren't created until a product is put into the 
-        # cart. We create a cart here only when a member logs in and has haved 
-        # already anonymous cart.
+        # cart. We create a cart here only when a member logs in and has had
+        # already an anonymous cart.
         
         mtool = getToolByName(self.context, "portal_membership")
         sid = getUtility(ISessionManagement).getSID(self.context.REQUEST)                
