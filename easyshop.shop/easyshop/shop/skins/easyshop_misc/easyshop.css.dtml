@@ -344,6 +344,6 @@ img.product-details {
 }
 
 span.invoice-field {
-    color: white !important;
+    color: white;
 }
 /* </dtml-with> */

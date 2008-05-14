@@ -21,12 +21,6 @@ class TestCartManagement(EasyShopTestCase):
         super(TestCartManagement, self).afterSetUp()
         self.cm = ICartManagement(self.shop)
 
-    def testAddCart(self):
-        """
-        """
-        self.cm.addCart("test")        
-        self.assertEqual(self.shop.carts.test.getId(), "test")
-        
     def testCreateCart_1(self):
         """Create cart for anonymous.
         """

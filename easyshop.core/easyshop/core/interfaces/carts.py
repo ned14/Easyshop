@@ -15,10 +15,6 @@ class ICartsContainer(Interface):
 class ICartManagement(Interface):
     """Provides methods to manage cart content objects
     """
-    def addCart(id):
-       """Adds a cart
-       """
-
     def createCart():
         """Creates a cart for the current user.
         """

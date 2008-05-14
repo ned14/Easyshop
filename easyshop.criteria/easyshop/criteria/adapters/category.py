@@ -22,8 +22,8 @@ class CategoryCriteriaValidity:
         """Returns True if the given product has at least one of the selected 
         categories of the criterion.
         """
-        category_manager = ICategoryManagement(product)
-        product_categories = ["/".join(c.getPhysicalPath()) for c in category_manager.getTopLevelCategories()]
+        cm = ICategoryManagement(product)
+        product_categories = ["/".join(c.getPhysicalPath()) for c in cm.getTopLevelCategories()]
         criteria_categories = self.context.getCategories()
 
         for criteria_category in criteria_categories:

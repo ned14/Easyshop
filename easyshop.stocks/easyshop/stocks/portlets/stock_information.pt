@@ -14,12 +14,12 @@
         <tal:block tal:condition="stock_information/available">
             <table cellspacing="0" cellpadding="0">
                 <tr>
-                    <td style="padding-right:3px;">
+                    <td style="width:16px">
                         <img src="."            
                              alt="Icon"            
                              tal:attributes="src string:${stock_information/url}/image" />                        
                     </td>
-                    <td style="padding-bottom:3px">
+                    <td style="padding-bottom:3px; padding-left:3px;">
                         <tal:block i18n:translate="deliverable_label">
                             Deliverable
                         </tal:block>                        
