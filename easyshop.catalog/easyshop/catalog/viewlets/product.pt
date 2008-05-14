@@ -154,7 +154,8 @@
                                 tal:content="structure product_data/text">
                             </td>                            
                         </tr>
-                        
+
+<!--
                         <tr tal:define="stock_information view/getStockInformation"
                             tal:condition="stock_information">
                             <td></td>
@@ -182,6 +183,7 @@
                                 
                             </td>
                         </tr>
+-->                        
                         <tr>
                             <td class="product-control"
                                 colspan="2">
