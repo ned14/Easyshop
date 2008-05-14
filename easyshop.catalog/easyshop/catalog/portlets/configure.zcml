@@ -34,4 +34,11 @@
         renderer=".sorting.Renderer"
         addview=".sorting.AddForm" />
 
+    <plone:portlet
+        name="portlets.RelatedProducts"
+        interface=".related_products.IRelatedProductsPortlet"
+        assignment=".related_products.Assignment"
+        renderer=".related_products.Renderer"
+        addview=".related_products.AddForm" />
+
 </configure>

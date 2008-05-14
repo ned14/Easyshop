@@ -1,0 +1,33 @@
+<dl class="portlet portletRelatedProducts"
+    i18n:domain="plone">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <tal:block i18n:translate="related_products_label">
+            Related Products
+        </tal:block>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:block tal:repeat="product view/related_products">
+        <dd class="portletItem">
+            <img src="."
+                 tal:attributes="src string:${product/image_url}/image_thumb;
+                                 title product/title;
+                                 alt product/title" />
+                                 
+            <div tal:content="product/title">
+                Title
+            </div>
+
+            <div tal:content="product/price"
+                 style="font-weight:bold">
+                42,00
+            </div>
+            
+        </dd>
+    </tal:block>    
+
+    <span class="portletBottomLeft"></span>
+    <span class="portletBottomRight"></span>
+</dl>
