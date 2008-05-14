@@ -52,7 +52,6 @@
 
                             <input type="button"
                                    class="context"
-                                   id="product-details"
                                    value="Details"
                                    title="Details"
                                    i18n:attributes="title details_label;"

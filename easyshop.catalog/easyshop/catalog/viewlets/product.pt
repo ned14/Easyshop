@@ -96,7 +96,6 @@
                                 nowrap="nowrap">
                                 <input type="button"
                                        class="context"
-                                       id="product-details"
                                        value="Zoom"
                                        title="Zoom"
                                        i18n:attributes="title zoom_label;"
@@ -190,7 +189,6 @@
 
                                 <input type="button"
                                        class="context"
-                                       id="product-details"
                                        value="Zoom"
                                        title="Zoom"
                                        i18n:attributes="title zoom_label;"
