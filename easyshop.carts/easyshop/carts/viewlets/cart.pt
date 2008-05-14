@@ -1,4 +1,5 @@
-<div id="portlet-cart"
+<dl id="portlet-cart"
+    class="portlet"   
      i18n:domain="EasyShop">
         <dt class="portletHeader">
             <a tal:attributes="href string:${view/getShopUrl}/cart"
@@ -29,4 +30,4 @@
                 </tal:block>
             </a>
         </dd>
-</div>        
+</dl>
