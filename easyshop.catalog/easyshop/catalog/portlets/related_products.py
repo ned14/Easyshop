@@ -74,8 +74,8 @@ class Renderer(base.Renderer):
             image_url = image.absolute_url() + "/image_thumb"
             
             # Price
-            price = IPrices(self.context).getPriceGross()
-            cm = ICurrencyManagement(self.context)
+            price = IPrices(product).getPriceGross()
+            cm = ICurrencyManagement(product)
             price = cm.priceToString(price)
                         
             result.append({
