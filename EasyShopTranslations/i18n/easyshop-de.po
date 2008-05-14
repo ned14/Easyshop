@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-03-10 09:08+0000\n"
+"POT-Creation-Date: 2008-05-14 20:28+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -35,6 +35,10 @@ msgstr "Bankverbindung hinzufügen"
 msgid "Add Credit Card"
 msgstr "Kreditkarte hinzufügen"
 
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:94
+msgid "Add Related Products Portlet"
+msgstr "Zugehörige Produkte"
+
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:65
 msgid "Add User"
 msgstr "Benutzer hinzufügen"
@@ -47,7 +51,7 @@ msgstr "In den Warenkorb"
 msgid "Address 1"
 msgstr "Adresse 1"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:86
+#: ../../../src/easyshop.core/easyshop/core/config.py:91
 msgid "American Express"
 msgstr "American Express"
 
@@ -99,7 +103,7 @@ msgstr "Firmenname"
 msgid "Country"
 msgstr "Land"
 
-#: ../../../src/easyshop.customers/easyshop/customers/content/address.py:49
+#: ../../../src/easyshop.customers/easyshop/customers/content/address.py:50
 msgid "Create a new address"
 msgstr "Neue Adresse hinzufügen"
 
@@ -115,11 +119,15 @@ msgstr "Neue Kreditkarte hinzufügen"
 msgid "Create a new customer"
 msgstr "Neuen Kunden hinzufügen"
 
+#: extras | checkout-order-preview-view.py
+msgid "Credit Card"
+msgstr "Kreditkarte"
+
 #: extras | stock information
 msgid "Day"
 msgstr "Tag"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:142
+#: ../../../src/easyshop.core/easyshop/core/config.py:147
 msgid "Days"
 msgstr "Tage"
 
@@ -151,9 +159,17 @@ msgstr "EasyShop: Kategorien"
 msgid "EasyShop: Formatter"
 msgstr "EasyShop: Formatierer"
 
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:39
+msgid "EasyShop: Related Products"
+msgstr "EasyShop: Zugehörige Produkte"
+
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.py:33
 msgid "EasyShop: Sorting"
 msgstr "EasyShop: Sortierung"
+
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.py:36
+msgid "EasyShop: Stock Information"
+msgstr "EasyShop: Lagerinformationen"
 
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_edit.py:29
 msgid "Edit Address"
@@ -171,9 +187,13 @@ msgstr "Kreditkarte bearbeiten"
 msgid "Edit Customer"
 msgstr "Benutzer bearbeiten"
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:265
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:266
 msgid "Edit EasyShop Categories Portlet"
 msgstr "EasyShop Kategorien Portlet bearbeiten"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:104
+msgid "Edit Related Products Portlet"
+msgstr "Portlet Zugehörige Produkte bearbeiten"
 
 #: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:57
 msgid "Edit canceled"
@@ -199,6 +219,10 @@ msgstr "Datei"
 msgid "Firstname"
 msgstr "Vorname"
 
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:21
+msgid "How many products to list. 0 for all."
+msgstr "Wieviele Produkte werden angezeigt. 0 für alle."
+
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:29
 msgid "If selected all categories are expanded by default."
 msgstr "Falls ausgewählt, werden alle Kategorien ausgeklappt."
@@ -219,7 +243,7 @@ msgstr "Nachname"
 msgid "Long Text"
 msgstr "Langtext"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:85
+#: ../../../src/easyshop.core/easyshop/core/config.py:90
 msgid "MasterCard/EuroCard"
 msgstr "MasterCard/EuroCard"
 
@@ -235,6 +259,10 @@ msgstr "Nein"
 #: extras | formatter.pt
 msgid "None"
 msgstr "Ohne"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:20
+msgid "Number of products to display"
+msgstr "Anzahl der Produkte die angezeigt werden."
 
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:31
 msgid "Password"
@@ -308,7 +336,7 @@ msgstr "Bitte geben Sie Ihr Land ein!"
 msgid "Please enter your e-mail address."
 msgstr "Bitte geben Sie Ihre E-Mail Adresse ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:151
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:159
 msgid "Please enter your e-mail."
 msgstr "Bitte geben Sie Ihre E-Mail Adresse ein!"
 
@@ -384,7 +412,11 @@ msgstr "Die Information als herunterladbare Datei."
 msgid "The product has been added to the cart."
 msgstr "Das Produkt wurde zum Warenkorb hinzugefügt."
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:266
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:95
+msgid "This portlet displays related products."
+msgstr "Diese Portlet zeigt zugehörige Produkte an."
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:267
 msgid "This portlet displays the categories of an EasyShop."
 msgstr "Diese Portlet zeigt die Kategorien des EasyShops an"
 
@@ -404,7 +436,7 @@ msgstr "Um Ihre Kreditkarte zu ändern, bearbeiten Sie bitte das Formular und dr
 msgid "Username"
 msgstr "Benutzername"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:84
+#: ../../../src/easyshop.core/easyshop/core/config.py:89
 msgid "Visa"
 msgstr "Visa"
 
@@ -412,7 +444,7 @@ msgstr "Visa"
 msgid "Week"
 msgstr "Woche"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:143
+#: ../../../src/easyshop.core/easyshop/core/config.py:148
 msgid "Weeks"
 msgstr "Wochen"
 
@@ -478,7 +510,7 @@ msgid "add_property_label"
 msgstr "Eigenschaft hinzufügen"
 
 #. Default: "Add to Cart"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:191
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:104
 msgid "add_to_cart_label"
 msgstr "In den Warenkorb"
 
@@ -508,7 +540,7 @@ msgid "also_invoice_address_label"
 msgstr "Das ist auch meine Rechnungsadresse"
 
 #. Default: "Amount"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:90
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:94
 msgid "amount_label"
 msgstr "Menge"
 
@@ -528,7 +560,7 @@ msgid "article_id_label"
 msgstr "Article ID"
 
 #. Default: "Article"
-#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:15
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:16
 msgid "article_label"
 msgstr "Artikel"
 
@@ -538,7 +570,7 @@ msgid "ascending_label"
 msgstr "Aufsteigend"
 
 #. Default: "Availability"
-#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_view.pt:30
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_view.pt:35
 msgid "availability_label"
 msgstr "Lieferbar"
 
@@ -617,7 +649,7 @@ msgid "catgories_tree_label"
 msgstr "Kategorienbaum"
 
 #. Default: "Check Out"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:306
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:333
 msgid "checkout_label"
 msgstr "Zur Kasse"
 
@@ -627,7 +659,7 @@ msgid "checkout_recommendation_2"
 msgstr "Bitte geben Sie eine E-Mail Adresse ein:"
 
 #. Default: "Total Sum:"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:272
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:299
 msgid "checkout_total_sum_label"
 msgstr "Gesamt"
 
@@ -651,7 +683,7 @@ msgid "complete_order_label"
 msgstr "Bestellung abschliessen"
 
 #. Default: "Country"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:29
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:30
 msgid "country_label"
 msgstr "Land"
 
@@ -696,7 +728,7 @@ msgid "date_label"
 msgstr "Datum"
 
 #. Default: "Delete Article"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:122
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:126
 msgid "delete_article_label"
 msgstr "Artikel löschen"
 
@@ -706,12 +738,12 @@ msgid "delete_label"
 msgstr "Löschen"
 
 #. Default: "Deliverable"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:113
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:23
 msgid "deliverable_label"
 msgstr "Lieferbar"
 
 #. Default: "Delivery Period"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:117
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:32
 msgid "delivery_period_label"
 msgstr "Lieferzeit"
 
@@ -741,12 +773,12 @@ msgid "direct_debit_label"
 msgstr "Banküberweisung"
 
 #. Default: "Discount"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:180
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:203
 msgid "discount_label"
 msgstr "Rabatt"
 
 #. Default: "Discounts"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:247
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:274
 msgid "discounts_label"
 msgstr "Rabatte"
 
@@ -766,7 +798,7 @@ msgid "expiration_date_label"
 msgstr "Ablaufdatum"
 
 #. Default: "First"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:32
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:33
 msgid "first_label"
 msgstr "Erste"
 
@@ -836,7 +868,7 @@ msgid "image_size_label"
 msgstr "Bildgröße"
 
 #. Default: "incl. Tax ="
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:283
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:310
 msgid "incl_tax_label"
 msgstr "inkl. MwSt. ="
 
@@ -876,7 +908,7 @@ msgid "label_save"
 msgstr "Speichern"
 
 #. Default: "Last"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:72
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:73
 msgid "last_label"
 msgstr "Letzte"
 
@@ -981,7 +1013,7 @@ msgid "name_label"
 msgstr "Name"
 
 #. Default: "Next"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:60
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:61
 msgid "next_label"
 msgstr "Nächste"
 
@@ -1071,7 +1103,7 @@ msgid "no_stock_information_label"
 msgstr "Es sind keine Lager information vorhanden"
 
 #. Default: "Not deliverable"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:128
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:46
 msgid "not_deliverable_label"
 msgstr "Nicht lieferbar"
 
@@ -1140,7 +1172,7 @@ msgid "payment_label"
 msgstr "Bezahlen"
 
 #. Default: "Payment Method"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:35
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:36
 msgid "payment_method_label"
 msgstr "Zahlungsweise"
 
@@ -1184,7 +1216,7 @@ msgid "preview_order_form_title"
 msgstr "Bestellung abschließen"
 
 #. Default: "Previous"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:44
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:45
 msgid "previous_label"
 msgstr "Vorhergehend"
 
@@ -1199,7 +1231,7 @@ msgid "price_descending_label"
 msgstr "Preis absteigend"
 
 #. Default: "Price"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:95
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:99
 msgid "price_label"
 msgstr "Preis"
 
@@ -1214,7 +1246,7 @@ msgid "product_height_label"
 msgstr "Produkthöhe"
 
 #. Default: "Product"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:84
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:88
 msgid "product_label"
 msgstr "Produkt"
 
@@ -1254,7 +1286,7 @@ msgid "redo_label"
 msgstr "Zahlung wiederholen"
 
 #. Default: "Refresh"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:72
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:76
 msgid "refresh_label"
 msgstr "Aktualisieren"
 
@@ -1338,12 +1370,12 @@ msgid "shipping_address_label"
 msgstr "Lieferadresse"
 
 #. Default: "Shipping"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:199
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:224
 msgid "shipping_label"
 msgstr "Versand"
 
 #. Default: "Shipping Method"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:32
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:33
 msgid "shipping_method_label"
 msgstr "Lieferart"
 
@@ -1371,6 +1403,11 @@ msgstr "Shop"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:47
 msgid "shop_recommendation_1"
 msgstr "Wenn Sie mit unserem Service zufrieden waren, empfehlen Sie uns doch weiter."
+
+#. Default: "Show Chars"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:116
+msgid "show_chars_label"
+msgstr "Anzahl Buchstaben"
 
 #. Default: "Sorting"
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:4
@@ -1408,7 +1445,7 @@ msgid "terms_and_conditions_label_3"
 msgstr "von"
 
 #. Default: "Text"
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:100
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:129
 msgid "text_label"
 msgstr "Text"
 
@@ -1438,7 +1475,7 @@ msgid "title_label"
 msgstr "Titel"
 
 #. Default: "Total"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:100
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:104
 msgid "total_label"
 msgstr "Gesamt"
 
@@ -1478,7 +1515,7 @@ msgid "welcome_label"
 msgstr "Willkommen!"
 
 #. Default: "Zoom"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:170
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:97
 msgid "zoom_label"
 msgstr "Zoom"
 
