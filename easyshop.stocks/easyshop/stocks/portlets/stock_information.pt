@@ -1,0 +1,53 @@
+<dl class="portlet portlet-stock-information"
+    i18n:domain="EasyShop" 
+    tal:define="stock_information view/stock_information"
+    tal:condition="view/available">
+
+    <dt class="portletHeader"
+        i18n:translate="stock_information_label">
+           Stock Information
+    </dt>
+
+    <dd align="center"
+        class="portletItem">
+        
+        <tal:block tal:condition="stock_information/available">
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="padding-right:3px;">
+                        <img src="."            
+                             alt="Icon"            
+                             tal:attributes="src string:${stock_information/url}/image" />                        
+                    </td>
+                    <td style="padding-bottom:3px">
+                        <tal:block i18n:translate="deliverable_label">
+                            Deliverable
+                        </tal:block>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div>
+                            <tal:block i18n:translate="delivery_period_label">
+                                Delivery Period</tal:block>:
+                            <tal:block tal:content="stock_information/time_period">
+                                2-3 Weeks
+                            </tal:block>    
+                            <tal:block i18n:translate=""
+                                       tal:content="stock_information/time_unit">
+                                Weeks
+                            </tal:block>    
+                        </div>                            
+                    </td>
+                </tr>
+            </table>
+        </tal:block>
+        <tal:block tal:condition="not:stock_information/available"
+                   i18n:translate="not_deliverable_label">
+            Not deliverable
+        </tal:block>
+        
+    </dd>
+
+</dl>

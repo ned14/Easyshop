@@ -38,4 +38,5 @@ class StockInformationData:
             "available"   : self.context.getAvailable(),
             "time_period" : time_period,
             "time_unit"   : time_unit,
+            "url"         : self.context.absolute_url()
         }

@@ -27,6 +27,11 @@
             
             <div class="tax_rate"
                  tal:define="stock_information view/getStockInformation">
+
+               <img src="."
+                    alt="Icon"
+                    tal:attributes="src string:${context/absolute_url}/image" />
+                        
                 <tal:block i18n:translate="availability_label">
                     Availability</tal:block>:
                 <span tal:content="stock_information/available">

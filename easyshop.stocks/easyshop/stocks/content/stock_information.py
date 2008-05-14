@@ -62,6 +62,16 @@ schema = Schema((
         ),
     ),
 
+    ImageField(
+        name='image',
+        widget=ImageWidget(
+            label='Image',
+            label_msgid='schema_image_label',
+            i18n_domain='EasyShop',
+        ),
+        storage=AttributeStorage()
+    ),
+
 ),
 )
 
