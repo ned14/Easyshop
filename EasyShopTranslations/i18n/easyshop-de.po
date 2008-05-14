@@ -1293,7 +1293,7 @@ msgstr "Aktualisieren"
 #. Default: "Related Products"
 #: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:143
 msgid "related_products_label"
-msgstr "Dazu passende Produkte"
+msgstr "Passende Produkte"
 
 #. Default: "Received at"
 #: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:46
