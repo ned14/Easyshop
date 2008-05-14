@@ -39,6 +39,7 @@
         interface=".related_products.IRelatedProductsPortlet"
         assignment=".related_products.Assignment"
         renderer=".related_products.Renderer"
-        addview=".related_products.AddForm" />
+        addview=".related_products.AddForm" 
+        editview=".related_products.EditForm" />
 
 </configure>

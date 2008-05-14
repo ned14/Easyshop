@@ -11,20 +11,23 @@
 
     <tal:block tal:repeat="product view/related_products">
         <dd class="portletItem">
-            <img src="."
-                 tal:attributes="src string:${product/image_url}/image_thumb;
-                                 title product/title;
-                                 alt product/title" />
+            <a href="."
+               tal:attributes="href product/url">
+               
+                <img src="."
+                     tal:attributes="src string:${product/image_url}/image_thumb;
+                                     title product/title;
+                                     alt product/title" />
                                  
-            <div tal:content="product/title">
-                Title
-            </div>
+                <div tal:content="product/title">
+                    Title
+                </div>
 
-            <div tal:content="product/price"
-                 style="font-weight:bold">
-                42,00
-            </div>
-            
+                <div tal:content="product/price"
+                     style="font-weight:bold">
+                    42,00
+                </div>
+            </a>
         </dd>
     </tal:block>    
 
