@@ -28,7 +28,10 @@
                            </a>                                    
                        </td> 
                     </tr>
-                    <tr>
+                    <tr style="cursor:pointer"
+                        tal:attributes="onclick string:window.location='${category/url}'"
+                        onmouseover="javascript:this.style.background = '#cedcee'"
+                        onmouseout="javascript:this.style.background = 'white'">
                         <td class="product-image"
                             tal:attributes="height formats/product_height">
                             <a tal:condition="category/image_url"
