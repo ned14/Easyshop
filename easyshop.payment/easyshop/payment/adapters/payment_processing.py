@@ -280,7 +280,7 @@ class PayPalSimplePaymentProcessor:
             "state" : invoice_address.country.encode(site_encoding),
             "zip" : invoice_address.zip_code.encode(site_encoding),
             "no_shipping" : "1",
-            "item_name" : "EasyShop",
+            "item_name" : shop.getShopOwner(),
             "amount" : price_net,
             "tax" : tax,
         }
