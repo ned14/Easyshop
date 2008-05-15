@@ -288,7 +288,6 @@ class PayPalSimplePaymentProcessor:
         
         site_encoding = self.context.plone_utils.getSiteEncoding()
         parameters = parameters.encode(site_encoding)
-        parameters = urllib.quote_plus(parameters)
         
         url = PAYPAL_URL + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
