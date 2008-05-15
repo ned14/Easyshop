@@ -129,6 +129,8 @@ td.number {
 
 a.terms-and-conditions {
     cursor: pointer;
+    font-weight:bold;
+    text-decoration:underline;
 }
 
 .order-info td {
@@ -148,10 +150,14 @@ a.terms-and-conditions {
     margin-bottom: 10px;
 }
 
-table.product-content,
-table.products {
+table.product-content {
     width:100%;
     border-collapse: collapse;    
+}
+
+table.products {
+    width:100%;
+    border-collapse: collapse;
 }
 
 table.products td {
