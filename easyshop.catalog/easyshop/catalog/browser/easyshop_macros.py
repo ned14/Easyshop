@@ -66,6 +66,7 @@ class NavigationMacroView(BrowserView):
                 temp["next"] = None
                 temp["last"] = None
 
+            temp["category_url"] = category.absolute_url()
             temp["category"] = category.Title()
             temp["position"] = index + 1
             temp["amount"] = len(products)            

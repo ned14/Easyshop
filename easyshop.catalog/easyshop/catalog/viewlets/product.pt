@@ -4,79 +4,88 @@
     <form name="product_form" 
           action="#"
           tal:define="product_data view/getProductData;
-                      zoom_url string:${product_data/url}/product-zoom-view;"
+                      zoom_url string:${product_data/url}/product-zoom-view;
+                      navigationMacroView context/@@navigationMacroView;
+                      product_urls navigationMacroView/getProductURLs;"
           tal:attributes="action context/absolute_url"
           method="post">
                   
         <table class="products">
+            <tr>
+                <td>
+                    <table class="shop-default product-navigation">
+                        <tr tal:repeat="product_url product_urls">
+                            <td class="left">
+                                <a href="#"
+                                   tal:attributes="href product_url/category_url"
+                                   i18n:translate="back_to_overview_label">
+                                   Back to overview
+                                </a>
+                            </td>
+                            <td class="right">
+                                <a href="#"
+                                   title="First Product"
+                                   tal:omit-tag="not: product_url/first"
+                                   tal:attributes="href product_url/first">
+
+                                    <img src="navigation_first.gif" 
+                                         alt="Navigation First"
+                                         title="First"
+                                         tal:attributes="src string:navigation_first_small.gif"
+                                         i18n:attributes="title first_label;" />
+                                 </a>
+                                 <a href="#"
+                                    title="First Product"
+                                    tal:omit-tag="not: product_url/previous"
+                                    tal:attributes="href product_url/previous">
+
+                                    <img src="navigation_previous.gif" 
+                                         alt="Navigation Previous"
+                                         title="Previous"
+                                         tal:attributes="src string:navigation_previous_small.gif"
+                                         i18n:attributes="title previous_label;" />
+                                 </a>
+                                 <span tal:content="product_url/position">1</span>
+                                 <tal:block i18n:translate="of_label">of</tal:block>
+                                 <span tal:content="product_url/amount">42</span>                    
+                                 <a href="#"
+                                    title="Next Product"
+                                    tal:omit-tag="not: product_url/next"
+                                    tal:attributes="href product_url/next">
+
+                                    <img src="navigation_next.gif" 
+                                         alt="Navigation Next"
+                                         Title="Next"
+                                         tal:attributes="src string:navigation_next_small.gif"
+                                         i18n:attributes="title next_label;" />
+                                 </a>
+                                 <a href="#"
+                                    title="Last Product"
+                                    tal:omit-tag="not: product_url/last"
+                                    tal:attributes="href product_url/last">
+
+                                    <img src="navigation_last.gif" 
+                                         alt="Navigation Last"
+                                         Title="Last"
+                                         tal:attributes="src string:navigation_last_small.gif"
+                                         i18n:attributes="title last_label;" />
+                                 </a>        
+                                
+                            </td>
+                        </tr>
+                    </table>    
+                </td>
+            </tr>                   
            
             <tr>
-                <td class="main-title"  
-                    colspan="2"> 
-                    <table class="shop-default"
-                           tal:define="navigationMacroView context/@@navigationMacroView;
-                                       product_urls navigationMacroView/getProductURLs;">
+                <td class="main-title"> 
+                    <table class="shop-default">
 
                         <tr>
                             <td>
                                 <metal:field use-macro="python:here.widget('title', mode='view')">
                                     Deep Thought    
                                 </metal:field>                                            
-                            </td>
-                            <td class="product-navigation">
-                                <div tal:repeat="product_url product_urls">
-                                    <a href="#"
-                                       title="First Product"
-                                       tal:omit-tag="not: product_url/first"
-                                       tal:attributes="href product_url/first">
-
-                                        <img src="navigation_first.gif" 
-                                             alt="Navigation First"
-                                             title="First"
-                                             tal:attributes="src string:navigation_first_small.gif"
-                                             i18n:attributes="title first_label;" />
-                                     </a>                    
-
-                                     <a href="#"
-                                        title="First Product"
-                                        tal:omit-tag="not: product_url/previous"
-                                        tal:attributes="href product_url/previous">
-
-                                        <img src="navigation_previous.gif" 
-                                             alt="Navigation Previous"
-                                             title="Previous"
-                                             tal:attributes="src string:navigation_previous_small.gif"
-                                             i18n:attributes="title previous_label;" />
-                                     </a>
-
-                                     <span tal:content="product_url/position">1</span>
-                                     /
-                                     <span tal:content="product_url/amount">42</span>                    
-
-                                     <a href="#"
-                                        title="Next Product"
-                                        tal:omit-tag="not: product_url/next"
-                                        tal:attributes="href product_url/next">
-
-                                        <img src="navigation_next.gif" 
-                                             alt="Navigation Next"
-                                             Title="Next"
-                                             tal:attributes="src string:navigation_next_small.gif"
-                                             i18n:attributes="title next_label;" />
-                                     </a>
-
-                                     <a href="#"
-                                        title="Last Product"
-                                        tal:omit-tag="not: product_url/last"
-                                        tal:attributes="href product_url/last">
-
-                                        <img src="navigation_last.gif" 
-                                             alt="Navigation Last"
-                                             Title="Last"
-                                             tal:attributes="src string:navigation_last_small.gif"
-                                             i18n:attributes="title last_label;" />
-                                     </a>        
-                                </div>
                             </td>
                         </tr>
                     </table>
@@ -235,9 +244,71 @@
                                 </tal:block>                                
                             </td>
                         </tr>
-                    </table>                                                                                
+                    </table>                                                                                                    
                 </td>                                              
             </tr>
         </table>
+                    <table class="shop-default product-navigation">
+                        <tr tal:repeat="product_url product_urls">
+                            <td class="left">
+                                <a href="#"
+                                   tal:attributes="href product_url/category_url"
+                                   i18n:translate="back_to_overview_label">
+                                   Back to overview
+                                </a>
+                            </td>
+                            <td class="right">
+                                <a href="#"
+                                   title="First Product"
+                                   tal:omit-tag="not: product_url/first"
+                                   tal:attributes="href product_url/first">
+
+                                    <img src="navigation_first.gif" 
+                                         alt="Navigation First"
+                                         title="First"
+                                         tal:attributes="src string:navigation_first_small.gif"
+                                         i18n:attributes="title first_label;" />
+                                 </a>
+                                 <a href="#"
+                                    title="First Product"
+                                    tal:omit-tag="not: product_url/previous"
+                                    tal:attributes="href product_url/previous">
+
+                                    <img src="navigation_previous.gif" 
+                                         alt="Navigation Previous"
+                                         title="Previous"
+                                         tal:attributes="src string:navigation_previous_small.gif"
+                                         i18n:attributes="title previous_label;" />
+                                 </a>
+                                 <span tal:content="product_url/position">1</span>
+                                 <tal:block i18n:translate="of_label">of</tal:block>
+                                 <span tal:content="product_url/amount">42</span>                    
+                                 <a href="#"
+                                    title="Next Product"
+                                    tal:omit-tag="not: product_url/next"
+                                    tal:attributes="href product_url/next">
+
+                                    <img src="navigation_next.gif" 
+                                         alt="Navigation Next"
+                                         Title="Next"
+                                         tal:attributes="src string:navigation_next_small.gif"
+                                         i18n:attributes="title next_label;" />
+                                 </a>
+                                 <a href="#"
+                                    title="Last Product"
+                                    tal:omit-tag="not: product_url/last"
+                                    tal:attributes="href product_url/last">
+
+                                    <img src="navigation_last.gif" 
+                                         alt="Navigation Last"
+                                         Title="Last"
+                                         tal:attributes="src string:navigation_last_small.gif"
+                                         i18n:attributes="title last_label;" />
+                                 </a>        
+                                
+                            </td>
+                        </tr>
+                    </table>    
+        
     </form>            
 </div>
