@@ -183,6 +183,10 @@ table.product-content td.product-properties {
 }
 
 
+a.product-description {
+    background-color: #aaa !important;
+}
+
 table.products td.notlast {
     padding-right: 2px !important;
 }
@@ -241,9 +245,28 @@ table.address-book td.buttons {
     padding-left: 20px;
 }
 
+table.product-navigation td {
+    background-color: &dtml-globalBackgroundColor;;
+    height:30px;
+    vertical-align:middle !important;
+}
+
+table.product-navigation td.left {
+    text-align:left;
+    padding-left:8px;    
+}
+
+table.product-navigation td.right {
+    text-align:right;
+    padding-right:8px;
+}
+
+table.product-navigation td.right a {
+    text-decoration: none;
+}
+
 
 /*category*/
-td.product-navigation,
 td.category-navigation {
     text-align:right;
 }
@@ -251,7 +274,6 @@ td.category-navigation {
 a.current-category {
     color: red;
 }
-
 
 table.products-list td {
     padding:5px;
