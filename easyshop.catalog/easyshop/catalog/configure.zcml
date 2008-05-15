@@ -25,4 +25,12 @@
     <include
         package=".viewlets" />
 
+    <class class=".content.containers.ProductsContainer">
+        <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+    </class>
+
+    <class class=".content.containers.CategoriesContainer">
+        <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+    </class>
+
 </configure>
