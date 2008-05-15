@@ -34,8 +34,7 @@
                             <a tal:condition="category/image_url"
                                href="#"
                                tal:attributes="href category/url;
-                                               title category/title;
-                                               alt category/title">
+                                               title category/title">
                                 <img tal:attributes="src category/image_url" />
                             </a>
                         </td>

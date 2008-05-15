@@ -89,8 +89,7 @@
                             <a tal:condition="product/image"
                                href="#"
                                tal:attributes="href product/url;
-                                               title product/title;
-                                               alt product/title">
+                                               title product/title">
                                 <img tal:attributes="src product/image" />
                             </a>
                         </td>

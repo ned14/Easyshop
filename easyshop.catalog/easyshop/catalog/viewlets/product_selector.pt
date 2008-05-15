@@ -42,8 +42,7 @@
                                 tal:attributes="height selector/product_height">
                                 <a href="#"
                                    tal:attributes="href product/url;
-                                                   title product/title;
-                                                   alt product/title">
+                                                   title product/title">
                                     <img tal:attributes="src product/image" />
                                 </a>
                             </td>
