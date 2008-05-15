@@ -37,7 +37,10 @@
                         </a>
                     </div>
                     <table class="product-content">
-                        <tr>
+                        <tr style="cursor:pointer"
+                            tal:attributes="onclick string:window.location='${product/url}'"
+                            onmouseover="javascript:this.style.background = '#cedcee'"
+                            onmouseout="javascript:this.style.background = 'white'">
                             <td class="product-image"
                                 tal:attributes="height selector/product_height">
                                 <a href="#"
