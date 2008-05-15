@@ -32,10 +32,10 @@
                     </span>  
                 </a>
               </div>
-            </li>
-            <tal:block tal:condition="category/show_subtree">
-                <div metal:use-macro="context/portlet_easyshopnavigation_macros/macros/navigation_subcategories" />
-            </tal:block>    
+              <tal:block tal:condition="category/show_subtree">
+                  <div metal:use-macro="context/portlet_easyshopnavigation_macros/macros/navigation_subcategories" />
+              </tal:block>    
+             </li>
           </ul> 
       </tal:categories>                 
     </dd>
