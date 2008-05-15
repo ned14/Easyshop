@@ -145,8 +145,9 @@ class ProductsViewlet(ViewletBase):
                 products.append(line)
                 line = []
         
-        # the rest        
-        products.append(line)            
+        # the rest
+        if len(line) > 0:
+            products.append(line)
         
         # Return format infos here, because we need it anyway in this method
         # This is for speed reasons. See above.
