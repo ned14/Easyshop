@@ -1,3 +1,6 @@
+# python 
+import urllib
+
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
@@ -281,7 +284,11 @@ class PayPalSimplePaymentProcessor:
         }
 
         # redirect to paypal    
-        parameters = "&".join(["%s=%s" % (k, v) for (k, v) in info.items()])                
+        parameters = "&".join(["%s=%s" % (k, v) for (k, v) in info.items()])
+        
+        site_encoding = self.context.plone_utils.getSiteEncoding()
+        parameters = parameters.encode(site_encoding)
+        parameters = urllib.quote_plus(parameters)
         
         url = PAYPAL_URL + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
