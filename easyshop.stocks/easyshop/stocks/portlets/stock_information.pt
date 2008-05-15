@@ -8,8 +8,7 @@
            Stock Information
     </dt>
 
-    <dd align="center"
-        class="portletItem">
+    <dd class="portletItem">
         
         <tal:block tal:condition="stock_information/available">
             <table cellspacing="0" cellpadding="0">

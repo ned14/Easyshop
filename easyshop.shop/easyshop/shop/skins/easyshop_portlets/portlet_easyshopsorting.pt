@@ -12,8 +12,7 @@
                Sorting
         </dt>
 
-        <dd align="center"
-            class="portletItem">            
+        <dd class="portletItem">            
             <form action="#"
                   name="sorting"
                   onchange="javascript:document.sorting.submit()"
