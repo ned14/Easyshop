@@ -43,7 +43,8 @@
                                 <a href="#"
                                    tal:attributes="href product/url;
                                                    title product/title">
-                                    <img tal:attributes="src product/image" />
+                                    <img tal:attributes="src product/image;
+                                                         alt product/title" />
                                 </a>
                             </td>
                             <td class="product-text"

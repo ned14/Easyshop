@@ -35,7 +35,8 @@
                                href="#"
                                tal:attributes="href category/url;
                                                title category/title">
-                                <img tal:attributes="src category/image_url" />
+                                <img tal:attributes="src category/image_url;
+                                                     alt product/title" />
                             </a>
                         </td>
                         <td class="product-description"
