@@ -83,7 +83,11 @@
                            </a>                                    
                        </td> 
                     </tr>
-                    <tr>
+                    <tr style="cursor:pointer"
+                        tal:attributes="onclick string:window.location='${product/url}'"
+                        onmouseover="javascript:this.style.background = '#cedcee'"
+                        onmouseout="javascript:this.style.background = 'white'">
+                        
                         <td class="product-image"
                             tal:attributes="height format_info/product_height">
                             <a tal:condition="product/image"
@@ -96,9 +100,7 @@
                         </td>
                         <td class="product-description"
                             tal:content="structure product/text">
-                            <tal:block tal:condition="product/text">
                                 Description
-                            </tal:block>    
                         </td>
                     </tr>
                     <tr>
