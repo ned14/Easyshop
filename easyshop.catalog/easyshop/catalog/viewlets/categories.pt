@@ -36,7 +36,7 @@
                                tal:attributes="href category/url;
                                                title category/title">
                                 <img tal:attributes="src category/image_url;
-                                                     alt product/title" />
+                                                     alt category/title" />
                             </a>
                         </td>
                         <td class="product-description"
