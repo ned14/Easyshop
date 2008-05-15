@@ -39,7 +39,7 @@
                     <table class="product-content">
                         <tr style="cursor:pointer"
                             tal:attributes="onclick string:window.location='${product/url}'"
-                            onmouseover="javascript:this.style.background = '#cedcee'"
+                            onmouseover="javascript:this.style.background = '#fcfcfc'"
                             onmouseout="javascript:this.style.background = 'white'">
                             <td class="product-image"
                                 tal:attributes="height selector/product_height">
