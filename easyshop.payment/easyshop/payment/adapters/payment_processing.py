@@ -262,6 +262,8 @@ class PayPalSimplePaymentProcessor:
         am = IAddressManagement(customer)
         invoice_address  = am.getInvoiceAddress()
         shipping_address = am.getShippingAddress()
+
+        site_encoding = self.context.plone_utils.getSiteEncoding()
         
         info = {
             "cmd" : "_xclick",
@@ -270,13 +272,13 @@ class PayPalSimplePaymentProcessor:
             "currency_code" : "EUR",
             "notify_url" : notify_url,
             "return" : return_url,
-            "first_name" : invoice_address.firstname,
-            "last_name" : invoice_address.lastname,
-            "address1" : invoice_address.address_1,
+            "first_name" : invoice_address.firstname.encode(site_encoding),
+            "last_name" : invoice_address.lastname.encode(site_encoding),
+            "address1" : invoice_address.address_1.encode(site_encoding),
             "address2" : "",
-            "city" : invoice_address.city,
-            "state" : invoice_address.country,
-            "zip" : invoice_address.zip_code,
+            "city" : invoice_address.city.encode(site_encoding),
+            "state" : invoice_address.country.encode(site_encoding),
+            "zip" : invoice_address.zip_code.encode(site_encoding),
             "no_shipping" : "1",
             "item_name" : "EasyShop",
             "amount" : price_net,
@@ -285,9 +287,6 @@ class PayPalSimplePaymentProcessor:
 
         # redirect to paypal    
         parameters = "&".join(["%s=%s" % (k, v) for (k, v) in info.items()])
-        
-        site_encoding = self.context.plone_utils.getSiteEncoding()
-        parameters = parameters.encode(site_encoding)
         
         url = PAYPAL_URL + "?" + parameters
         self.context.REQUEST.RESPONSE.redirect(url)
