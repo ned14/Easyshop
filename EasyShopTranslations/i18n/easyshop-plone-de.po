@@ -24,9 +24,6 @@ msgstr "Warenkorb"
 msgid "Carts"
 msgstr "Warenkörbe"
 
-msgid "Products"
-msgstr "Produkte"
-
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -71,6 +68,9 @@ msgstr "Zahlmethode"
 
 msgid "Product"
 msgstr "Produkt"
+
+msgid "Products"
+msgstr "Produkte"
 
 msgid "Products Container"
 msgstr "Produktordner"

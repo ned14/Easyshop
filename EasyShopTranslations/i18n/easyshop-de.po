@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-05-14 20:28+0000\n"
+"POT-Creation-Date: 2008-05-16 11:18+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -457,7 +457,7 @@ msgstr "Ja"
 msgid "Your mail has been sent."
 msgstr "Ihre E-Mail wurde versendet."
 
-#: ../../../src/easyshop.payment/easyshop/payment/adapters/payment_processing.py:88
+#: ../../../src/easyshop.payment/easyshop/payment/adapters/payment_processing.py:91
 msgid "Your order has been payed."
 msgstr "Ihre Bestellung wurde bezahlt."
 
@@ -510,7 +510,7 @@ msgid "add_property_label"
 msgstr "Eigenschaft hinzufügen"
 
 #. Default: "Add to Cart"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:104
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:113
 msgid "add_to_cart_label"
 msgstr "In den Warenkorb"
 
@@ -579,8 +579,8 @@ msgstr "Lieferbar"
 msgid "available_time_period_label"
 msgstr "Lieferbar / Lieferzeit"
 
-#. Default: "Back to Overview"
-#: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt:25
+#. Default: "Back to overview"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:19
 msgid "back_to_overview_label"
 msgstr "Zurück zur Übersicht"
 
@@ -738,12 +738,12 @@ msgid "delete_label"
 msgstr "Löschen"
 
 #. Default: "Deliverable"
-#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:23
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:22
 msgid "deliverable_label"
 msgstr "Lieferbar"
 
 #. Default: "Delivery Period"
-#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:32
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:31
 msgid "delivery_period_label"
 msgstr "Lieferzeit"
 
@@ -763,7 +763,7 @@ msgid "description_label"
 msgstr "Beschreibung"
 
 #. Default: "Details"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:53
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:56
 msgid "details_label"
 msgstr "Details"
 
@@ -798,7 +798,7 @@ msgid "expiration_date_label"
 msgstr "Ablaufdatum"
 
 #. Default: "First"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:33
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:31
 msgid "first_label"
 msgstr "Erste"
 
@@ -908,7 +908,7 @@ msgid "label_save"
 msgstr "Speichern"
 
 #. Default: "Last"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:73
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:67
 msgid "last_label"
 msgstr "Letzte"
 
@@ -998,12 +998,12 @@ msgid "my_orders_label"
 msgstr "Meine Bestellungen"
 
 #. Default: "Name descending"
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:24
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:23
 msgid "name-descending-label"
 msgstr "Name absteigend"
 
 #. Default: "Name ascending"
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:19
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:18
 msgid "name_ascending_label"
 msgstr "Name aufsteigend"
 
@@ -1013,7 +1013,7 @@ msgid "name_label"
 msgstr "Name"
 
 #. Default: "Next"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:61
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:56
 msgid "next_label"
 msgstr "Nächste"
 
@@ -1103,9 +1103,14 @@ msgid "no_stock_information_label"
 msgstr "Es sind keine Lager information vorhanden"
 
 #. Default: "Not deliverable"
-#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:46
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:45
 msgid "not_deliverable_label"
 msgstr "Nicht lieferbar"
+
+#. Default: "of"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:49
+msgid "of_label"
+msgstr "von"
 
 #. Default: "Date"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:120
@@ -1216,17 +1221,17 @@ msgid "preview_order_form_title"
 msgstr "Bestellung abschließen"
 
 #. Default: "Previous"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:45
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:42
 msgid "previous_label"
 msgstr "Vorhergehend"
 
 #. Default: "Price ascending"
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:29
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:28
 msgid "price_ascending"
 msgstr "Preis aufsteigend"
 
 #. Default: "Price descending"
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:34
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:33
 msgid "price_descending_label"
 msgstr "Preis absteigend"
 
@@ -1515,7 +1520,7 @@ msgid "welcome_label"
 msgstr "Willkommen!"
 
 #. Default: "Zoom"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:97
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:106
 msgid "zoom_label"
 msgstr "Zoom"
 
