@@ -39,7 +39,8 @@
                             </a>
                             <span tal:condition="batch_info/navigation_list"
                                   tal:omit-tag="">
-                                 <span tal:content="batch_info/page_number">Current page number</span> /
+                                 <span tal:content="batch_info/page_number">Current page number</span>
+                                 <tal:block i18n:translate="of_label">of</tal:block>                                 
                                  <span tal:content="batch_info/number_of_pages">Total Number of pages</span>
                             </span>
                             <a tal:omit-tag="not:batch_info/next"
