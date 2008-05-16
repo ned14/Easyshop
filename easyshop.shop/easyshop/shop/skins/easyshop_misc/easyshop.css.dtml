@@ -267,6 +267,7 @@ table.product-navigation td.right {
     padding-right:8px;
 }
 
+table.product-navigation td.left a, 
 table.product-navigation td.right a {
     text-decoration: none;
 }
