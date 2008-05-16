@@ -16,7 +16,7 @@
                class="link-parent"
                tal:attributes="href context/aq_parent/absolute_url"
                i18n:translate="back_to_overview_label">
-                Back to Overview
+                Back to overview
             </a>  
 
             <div class="payment_method">

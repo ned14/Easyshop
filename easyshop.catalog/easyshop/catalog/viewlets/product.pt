@@ -247,7 +247,8 @@
                     </table>                                                                                                    
                 </td>                                              
             </tr>
-        </table>
+            <tr>
+                <td>
                     <table class="shop-default product-navigation">
                         <tr tal:repeat="product_url product_urls">
                             <td class="left">
@@ -305,10 +306,12 @@
                                          tal:attributes="src string:navigation_last_small.gif"
                                          i18n:attributes="title last_label;" />
                                  </a>        
-                                
+                
                             </td>
                         </tr>
                     </table>    
-        
+                </td>
+            </tr>
+        </table>    
     </form>            
 </div>

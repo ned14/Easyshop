@@ -37,6 +37,6 @@ Now we publish the payment method.
 
 Now we go back to the overview and test whether the new payment method is there.
 
-    >>> browser.getLink('Back to Overview').click()    
+    >>> browser.getLink('Back to overview').click()    
     >>> browser.contents
     '...Express...'

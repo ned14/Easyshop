@@ -26,7 +26,7 @@
            class="link-parent"
            tal:attributes="href view/getOverviewURL"
            i18n:translate="back_to_overview_label">
-            Back to Overview
+            Back to overview
         </a>  
         
         <fieldset>
