@@ -169,7 +169,7 @@ msgstr "アイテム数"
 msgid "ascending_label"
 msgstr "昇順"
 
-#. Default: "Back to Overview"
+#. Default: "Back to overview"
 #: ../browser/templates/order_view.pt
 #: ../browser/templates/payment_method.pt
 #: ../browser/templates/payment_price.pt

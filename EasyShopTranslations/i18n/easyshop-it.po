@@ -166,7 +166,7 @@ msgstr "Numero di elementi"
 msgid "ascending_label"
 msgstr "Crescente"
 
-#. Default: "Back to Overview"
+#. Default: "Back to overview"
 #: ../browser/templates/order_view.pt
 #: ../browser/templates/payment_method.pt
 #: ../browser/templates/payment_price.pt

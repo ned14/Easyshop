@@ -173,7 +173,7 @@ msgstr "Artikel ID"
 msgid "back_label"
 msgstr "חזרה"
 
-#. Default: "Back to Overview"
+#. Default: "Back to overview"
 #: ../browser/templates/order_view.pt
 #: ../skins/easyshop_templates/easyshopgroup_view.pt
 msgid "back_to_overview_label"

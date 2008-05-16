@@ -581,7 +581,7 @@ msgid "available_time_period_label"
 msgstr ""
 
 #. Default: "Back to overview"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:19
+#: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt:25
 msgid "back_to_overview_label"
 msgstr ""
 
