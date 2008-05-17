@@ -1,5 +1,11 @@
+# zope imports
+from zope import schema
 from zope.interface import Interface
 from zope.interface import Attribute
+from zope.app.file.interfaces import IImage
+
+# easyshop.core imports
+from easyshop.core.config import _
 
 ################################################################################
 # Formatter        
@@ -105,9 +111,93 @@ class IImageManagement(Interface):
 ################################################################################
         
 class IProduct(Interface):
-    """Marker interface to mark product content objects.
+    """Products are sold in the shop.
     """
+    description = schema.Text(
+        title=_(u"Description"),
+        description=_(u"A short description, which is displayed in search results"),
+        default=u"",
+        required=False,
+    )
 
+    articleId = schema.TextLine(
+        title=_(u"Article Id"),
+        description=_(u"External unique id of the product"),
+        default=u"",
+        required=False,
+    )
+
+    shortTitle = schema.TextLine(
+        title=_(u"Short Title"),
+        description=_(u"Short title of the product, which can be displayed in overviews"),
+        default=u"",
+        required=False,
+    )
+        
+    shortText = schema.TextLine(
+        title=_(u"Short Text"),
+        description=_(u"A short text of the product, which can be displayed in overviews"),
+        default=u"",
+        required=False,
+    )
+
+    text = schema.TextLine(
+        title=_(u"Text"),
+        description=_(u"A text of the product, which is displayed in detailed views"),
+        default=u"",
+        required=False,
+    )
+
+    # image = schema.Object(
+    #     title=_(u"Text"),
+    #     schema = IImage,
+    #     description=_(u"The main image of the product"),
+    #     required=False,
+    # )
+    # 
+    unlimitedAmount = schema.Bool(
+        title=_(u"Unlimited Amount"),
+        description=_(u"If selected, the stock amount of the product is not decreased."),
+        default=False,
+        required=False,
+    )
+
+    stockAmount = schema.Float(
+        title=_(u"Stock Amount"),
+        description=_(u"The amount of this product in stock. This number is decreased automatically when the product has been sold."),
+        default=0.0,
+        required=False,
+    )
+
+    weight = schema.Float(
+        title=_(u"Weight"),
+        description=_(u"The weight of the product."),
+        default=0.0,
+        required=False,
+    )
+
+    price = schema.Float(
+        title=_(u"Price"),
+        description=_(u"The price of the product."),
+        default=0.0,
+        required=False,
+    )
+    
+    forSale = schema.Bool(
+        title=_(u"For Sale"),
+        description=_(u"If selected the sale price is active and displayed additionally."),
+        default=False,
+        required=False,
+    )
+    
+    salePrice = schema.Float(
+        title=_(u"Sale Price"),
+        description=_(u"The sale price of the product."),
+        default=0.0,
+        required=False,
+    )
+
+    
 class IProductManagement(Interface):
     """Provides methods to handle product content objects.
     """
