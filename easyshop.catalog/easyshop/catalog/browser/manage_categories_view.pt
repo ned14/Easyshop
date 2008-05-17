@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main">
+  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="categories_label">
+                Categories
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+    
+            <p class="documentDescription"
+               tal:content="context/Description">
+                Description
+            </p>
+    
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+            
+            <table class="shop-default">
+                <tr>
+                    <td width="50%">
+                        <h1 class="documentFirstHeading"
+                            i18n:translate="catgories_tree_label">
+                                Categories Tree
+                        </h1>                        
+                        <span tal:repeat="category view/getCategories">
+                            <div metal:use-macro="context/categories_macros/macros/category" />
+                        </span>                        
+                    </td>
+                    <td tal:define="products view/getProducts"
+                        tal:condition="products">
+                        <h1 class="documentFirstHeading"
+                            tal:content="products/category_title">
+                                Category Title
+                        </h1>
+                        <div tal:content="structure products/category_description">
+                            Category Description
+                        </div>
+                        <h3 i18n:translate="products_label">
+                            Products
+                        </h3>
+                        <div tal:condition="not:products/products"
+                             i18n:translate="no_products_for_category_label">
+                             There are no products for the selected catagory
+                        </div>    
+                        <table class="products-list"
+                               tal:condition="products/products">
+                            <tr tal:repeat="line products/products">
+                                <tal:block  tal:repeat="product line">
+                                    <td>
+                                        <a href="."
+                                           tal:attributes="href product/url"
+                                           tal:content="product/title">
+                                           Product Title
+                                        </a>
+                                    </td>
+                                    <td class="image">
+                                        <img src="."
+                                             tal:attributes="src string:${product/url}/image_tile" />
+                                    </td>                                                                    
+                                </tal:block>
+                            </tr>                            
+                        </table>    
+                    </td>
+                </tr>
+            </table>    
+    
+            
+          </metal:main>
+    
+    </body>
+</html>
