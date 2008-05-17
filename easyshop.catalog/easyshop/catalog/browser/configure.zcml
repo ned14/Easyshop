@@ -1,6 +1,12 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+    <browser:page
+        name="my-view-test"
+        for="*"
+        class=".product_add_form.MyView"
+        permission="cmf.ModifyPortalContent" />
+
     <!-- Product -->       
     <browser:page
         name="product-view"
