@@ -1,0 +1,42 @@
+<dl class="portlet portlet-category-tree"
+    tal:define="level python:1"
+    i18n:domain="EasyShop"> 
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="#" 
+           class="tile"
+           tal:attributes="href view/getShopUrl"
+           i18n:translate="categories_label">
+            Categories
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem lastItem">      
+      <tal:categories tal:repeat="category view/getCategories">
+          <ul class="portletNavigationTree navTreeLevel0">
+            <li class="navTreeItem">
+              <div class="visualIcon contenttype-easyshopcategory">
+                <a href="#"
+                   class="visualIconPadding"
+                   tal:attributes="href category/url;
+                                   class category/klass;
+                                   title category/description">
+                    <span tal:replace="category/title">
+                      A Category
+                    </span>
+                    <span tal:condition="view/showQuantity"
+                          tal:replace="string:(${category/amount_of_products})">
+                      (2)
+                    </span>  
+                </a>
+              </div>
+              <tal:block tal:condition="category/show_subtree">
+                  <div metal:use-macro="context/portlet_easyshopnavigation_macros/macros/navigation_subcategories" />
+              </tal:block>    
+             </li>
+          </ul> 
+      </tal:categories>                 
+    </dd>
+</dl>   
