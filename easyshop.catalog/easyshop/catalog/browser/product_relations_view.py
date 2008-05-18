@@ -13,7 +13,7 @@ from Products.AdvancedQuery import In
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IShopManagement
 
-class RelationsView(BrowserView):
+class ProductRelationsView(BrowserView):
     """
     """
     def getCategories(self):

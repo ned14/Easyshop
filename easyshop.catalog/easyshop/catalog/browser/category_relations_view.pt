@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main">
+  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="categories_label">
+                Categories
+            </h1>
+
+            <p class="documentDescription"
+               i18n:translate="manage_products_label">
+                Manage products of this category
+            </p>
+    
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <table class="shop-default"
+                   tal:define="products view/getProducts">
+                   
+                <tr>
+                    <td width="50%">
+                        <h2>Add Products</h2>
+                        <form method="post">
+
+                            <input type="text" 
+                                   name="searchtext" />
+                       
+                            <input type="submit"
+                                   value="Search Products"/>
+                                   
+                            <input type="hidden"
+                                   name="sent"
+                                   value="1" />
+                                                   
+                        </form>
+            
+                        <div tal:condition="python:products == []"
+                             i18n:translate="no_products_found_label">
+                             No products found
+                        </div>
+                            
+                        <form method="post"
+                              tal:condition="products">
+
+                            <div tal:repeat="product products">
+                                <input type="checkbox" 
+                                       name="uid"
+                                       tal:attributes="value product/uid" />
+                                <span tal:content="product/title" />
+                            </div>
+
+                            <input type="submit"
+                                   value="Assign products"
+                                   name="assignProducts:method" />
+                        </form>                        
+                    </td>
+                    <td>
+                        <h2>Assigned Products</h2>
+                        <form>
+                            <div tal:repeat="product view/getAssignedProducts">
+                                <input type="checkbox" 
+                                       name="uid"
+                                       tal:attributes="value product/uid" />
+                                <span tal:content="product/title" />
+                            </div>
+                            <input type="submit"
+                                   value="Delete"
+                                   name="deleteProducts:method">
+                        </form>
+                        
+                    </td>
+                </tr>
+            </table>    
+          </metal:main>
+    
+    </body>
+</html>
