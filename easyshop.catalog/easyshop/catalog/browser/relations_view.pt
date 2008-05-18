@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main">
+  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+            <h1 class="documentFirstHeading"
+                i18n:translate="categories_label">
+                Categories
+            </h1>
+
+            <p class="documentDescription"
+               i18n:translate="manage_categories_label">
+                Manage categories of this product
+            </p>
+    
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <table class="shop-default"
+                   tal:define="categories view/getCategories">
+                   
+                <tr>
+                    <td width="50%">
+                        <h2>Add Categories</h2>
+                        <form method="post">
+
+                            <input type="text" 
+                                   name="searchtext" />
+                       
+                            <input type="submit"
+                                   value="Search Categories"/>
+                                   
+                            <input type="hidden"
+                                   name="sent"
+                                   value="1" />
+                                                   
+                        </form>
+            
+                        <div tal:condition="python:categories == []"
+                             i18n:translate="no_categories_found_label">
+                             No categories found
+                        </div>
+                            
+                        <form method="post"
+                              tal:condition="categories">
+
+                            <div tal:repeat="category categories">
+                                <input type="checkbox" 
+                                       name="uid"
+                                       tal:attributes="value category/uid" />
+                                <span tal:content="category/title" />
+                            </div>
+
+                            <input type="submit"
+                                   value="Assign categories"
+                                   name="assignCategories:method" />
+                        </form>                        
+                    </td>
+                    <td>
+                        <h2>Assigned Categories</h2>
+                        <form>
+                            <div tal:repeat="category view/getAssignedCategories">
+                                <input type="checkbox" 
+                                       name="uid"
+                                       tal:attributes="value category/uid" />
+                                <span tal:content="category/title" />
+                            </div>
+                            <input type="submit"
+                                   value="Delete"
+                                   name="deleteCategories:method">
+                        </form>
+                        
+                    </td>
+                </tr>
+            </table>    
+          </metal:main>
+    
+    </body>
+</html>

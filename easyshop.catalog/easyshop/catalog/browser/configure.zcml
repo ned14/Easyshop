@@ -3,6 +3,14 @@
 
     <!-- Product -->       
     <browser:page
+        name="relations-view"
+        for="easyshop.core.interfaces.IProduct"
+        class=".relations_view.RelationsView"
+        template="relations_view.pt"
+        allowed_attributes="assignCategories deleteCategories"
+        permission="zope.Public" />
+
+    <browser:page
         name="product-view"
         for="easyshop.core.interfaces.IProduct"
         class=".product_view.ProductView"
