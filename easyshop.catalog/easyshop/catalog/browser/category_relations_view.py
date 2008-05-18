@@ -84,7 +84,7 @@ class CategoryRelationsView(BrowserView):
             product = brain.getObject()
             self.context.deleteReference(product, "categories_products")
 
-        url = self.context.absolute_url() + "/@@relations-view"
+        url = self.context.absolute_url() + "/relations-view"
         self.request.response.redirect(url)
                     
     def assignProducts(self):
@@ -103,5 +103,5 @@ class CategoryRelationsView(BrowserView):
             product = brain.getObject()
             self.context.addReference(product, "categories_products")
         
-        url = self.context.absolute_url() + "/@@relations-view"
+        url = self.context.absolute_url() + "/relations-view"
         self.request.response.redirect(url)
