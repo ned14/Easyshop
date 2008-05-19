@@ -275,10 +275,6 @@ table.product-navigation td.right a {
 
 
 /*category*/
-td.category-navigation {
-    text-align:right;
-}
-
 a.current-category {
     color: red;
 }
