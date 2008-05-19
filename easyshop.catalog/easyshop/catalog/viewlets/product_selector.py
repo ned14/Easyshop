@@ -11,10 +11,13 @@ from plone.memoize.instance import memoize
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
+from easyshop.core.interfaces import ICategoriesContainer
+from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
 
 class ProductSelectorViewlet(ViewletBase):
     """
@@ -149,6 +152,21 @@ class ProductSelectorViewlet(ViewletBase):
 
         return selectors
 
+    @memoize
+    def getBackToOverViewUrl(self):
+        """
+        """
+        parent = self.context.aq_inner.aq_parent
+        if ICategory.providedBy(parent):
+            parent_url = parent.absolute_url()
+        elif ICategoriesContainer.providedBy(parent):
+            shop = IShopManagement(self.context).getShop()
+            parent_url = shop.absolute_url()
+        else:
+            parent_url = None
+            
+        return parent_url
+        
     @memoize
     def showEditLink(self):
         """
