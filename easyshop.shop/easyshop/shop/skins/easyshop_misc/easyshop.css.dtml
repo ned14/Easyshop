@@ -26,7 +26,7 @@
     background: url(&dtml-portal_url;/arrowRight.gif) no-repeat scroll 0px 4px;
 }
 
-.portlet-category-tree .navTreeCurrentItem.hasCategories {
+.portlet-category-tree .hasCategories.navTreeCurrentItem {
     color: &dtml-globalFontColor;;
     border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor; !important;
     background: &dtml-globalBackgroundColor; url(&dtml-portal_url;/arrowDown.gif) no-repeat scroll -1px 5px !important;
