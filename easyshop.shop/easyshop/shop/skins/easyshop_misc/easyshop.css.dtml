@@ -241,6 +241,7 @@ td.product-control form {
 }
 
 .product-price {
+    white-space:nowrap;
     padding-left:10px;
     font-weight:bold;
 }
