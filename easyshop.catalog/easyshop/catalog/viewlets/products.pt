@@ -16,6 +16,24 @@
 
                 <table class="shop-default product-navigation">
                     <tr>    
+                        <td class="left"
+                            tal:condition="batch_info/parent_url">
+                            <a href="#"
+                               tal:attributes="href batch_info/parent_url">
+                               
+                                <img src="navigation_previous.gif" 
+                                     alt="Navigation Previous"
+                                     title="Previous"
+                                     tal:attributes="src string:navigation_previous_small.gif"
+                                     i18n:attributes="title previous_label;" />
+                                
+                                <span i18n:translate="back_to_overview_label">                                  
+                                    Back to overview
+                                </span>
+                                
+                            </a>
+                        </td>
+                        
                         <td class="right">
                             <a tal:omit-tag="not:batch_info/previous"
                                tal:attributes="href context/absolute_url"> 
@@ -162,6 +180,24 @@
             <td tal:attributes="colspan format_info/products_per_line">
                 <table class="shop-default product-navigation">
                     <tr>    
+                        <td class="left"
+                            tal:condition="batch_info/parent_url">
+                            <a href="#"
+                               tal:attributes="href batch_info/parent_url">
+                               
+                                <img src="navigation_previous.gif" 
+                                     alt="Navigation Previous"
+                                     title="Previous"
+                                     tal:attributes="src string:navigation_previous_small.gif"
+                                     i18n:attributes="title previous_label;" />
+                                
+                                <span i18n:translate="back_to_overview_label">                                  
+                                    Back to overview
+                                </span>
+                                
+                            </a>
+                        </td>
+                        
                         <td class="right">
                             <a tal:omit-tag="not:batch_info/previous"
                                tal:attributes="href context/absolute_url"> 

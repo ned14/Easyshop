@@ -18,13 +18,16 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import Batch      
 
 # Easyshop imports
-from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IImageManagement
-from easyshop.core.interfaces import IProductManagement
-from easyshop.core.interfaces import IPropertyManagement
-from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import ICategory
+from easyshop.core.interfaces import ICategoriesContainer
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IFormats
+from easyshop.core.interfaces import IImageManagement
+from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ProductsViewlet(ViewletBase):
     """
@@ -60,7 +63,18 @@ class ProductsViewlet(ViewletBase):
         # So there is no need of an extra method call within the page 
         # template to get informations we have here already. Same is true 
         # for format infos, see below
+                
+        parent = self.context.aq_inner.aq_parent
+        if ICategory.providedBy(parent):
+            parent_url = parent.absolute_url()
+        elif ICategoriesContainer.providedBy(parent):
+            shop = IShopManagement(self.context).getShop()
+            parent_url = shop.absolute_url()
+        else:
+            parent_url = None
+        
         batch_infos = {
+            "parent_url"       : parent_url,
             "previous_url"     : self._getPreviousUrl(batch),
             "previous"         : batch.previous,
             "next_url"         : self._getNextUrl(batch),
