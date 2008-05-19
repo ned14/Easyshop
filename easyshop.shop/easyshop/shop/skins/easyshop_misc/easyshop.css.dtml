@@ -372,4 +372,8 @@ img.product-details {
 span.invoice-field {
     color: white;
 }
+
+.easyshop-hidden {
+    display:none;
+}
 /* </dtml-with> */
