@@ -16,10 +16,9 @@
                     </a>                             
                 </td>
             </tr>
-            <tr>
-                <td tal:define="back_url view/getBackToOverViewUrl"
-                    tal:condition="back_url">
-
+            <tr tal:define="back_url view/getBackToOverViewUrl"
+                tal:condition="back_url">
+                <td>
                     <table class="shop-default product-navigation">
                         <tr>    
                             <td class="left">
@@ -41,7 +40,7 @@
                         </tr>
                     </table>
                 </td>
-            </tr>            
+            </tr>                        
             <tr tal:condition="selector/show_title">
                 <td class="main-title"
                     tal:attributes="colspan selector/products_per_line"
@@ -132,16 +131,13 @@
                     </table>                            
                 </td>    
             </tr>                        
-            <tr>
-                <td tal:define="back_url view/getBackToOverViewUrl"
-                    tal:condition="back_url">
-
+            <tr tal:define="back_url view/getBackToOverViewUrl"
+                tal:condition="back_url">
+                <td>
                     <table class="shop-default product-navigation">
                         <tr>    
                             <td class="left">
                                 <a href="."
-                                   tal:define="back_url view/getBackToOverViewUrl"
-                                   tal:condition="back_url"
                                    tal:attributes="href back_url">
                            
                                     <img src="navigation_previous.gif" 
@@ -159,8 +155,7 @@
                         </tr>
                     </table>
                 </td>
-            </tr>            
-            
+            </tr>                        
         </table>    
     </tal:block>
 </div>

@@ -10,13 +10,15 @@
             </td>
         </tr>
         
-        <tr>
+        <tr tal:define="back_url view/getBackToOverViewUrl"
+            tal:condition="back_url">
+
             <td>
                 <table class="shop-default product-navigation">
                     <tr>    
                         <td class="left">
                             <a href="."
-                               tal:attributes="href view/getBackToOverViewUrl">
+                               tal:attributes="href back_url">
                                
                                 <img src="navigation_previous.gif" 
                                      alt="Navigation Previous"
@@ -91,13 +93,16 @@
                 </table>
             </td>    
         </tr>    
-        <tr>
+        <tr tal:define="back_url view/getBackToOverViewUrl"
+            tal:condition="back_url">
+
             <td>
                 <table class="shop-default product-navigation">
                     <tr>    
                         <td class="left">
-                            <a href="#"
-                               tal:attributes="href view/getBackToOverViewUrl">
+                            <a href="."
+                               tal:attributes="href back_url">
+                               
                                 <img src="navigation_previous.gif" 
                                      alt="Navigation Previous"
                                      title="Previous"
