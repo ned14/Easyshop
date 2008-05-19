@@ -10,6 +10,31 @@
             </td>
         </tr>
         
+        <tr>
+            <td>
+                <table class="shop-default product-navigation">
+                    <tr>    
+                        <td class="left">
+                            <a href="."
+                               tal:attributes="href view/getBackToOverViewUrl">
+                               
+                                <img src="navigation_previous.gif" 
+                                     alt="Navigation Previous"
+                                     title="Previous"
+                                     tal:attributes="src string:navigation_previous_small.gif"
+                                     i18n:attributes="title previous_label;" />
+                                
+                                <span i18n:translate="back_to_overview_label">                                  
+                                    Back to overview
+                                </span>
+                                
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
         <tr tal:repeat="line lines">
             <td tal:repeat="category line"
                 tal:attributes="width view/getTdWidth;
@@ -66,5 +91,29 @@
                 </table>
             </td>    
         </tr>    
+        <tr>
+            <td>
+                <table class="shop-default product-navigation">
+                    <tr>    
+                        <td class="left">
+                            <a href="#"
+                               tal:attributes="href view/getBackToOverViewUrl">
+                                <img src="navigation_previous.gif" 
+                                     alt="Navigation Previous"
+                                     title="Previous"
+                                     tal:attributes="src string:navigation_previous_small.gif"
+                                     i18n:attributes="title previous_label;" />
+                                
+                                <span i18n:translate="back_to_overview_label">                                  
+                                    Back to overview
+                                </span>
+                                
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
     </table>    
 </div>

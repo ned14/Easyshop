@@ -6,22 +6,17 @@ from plone.memoize.instance import memoize
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
+from easyshop.core.interfaces import ICategoriesContainer
+from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IFormats
+from easyshop.core.interfaces import IShopManagement
 
 class CategoriesViewlet(ViewletBase):
     """
     """
     render = ViewPageTemplateFile('categories.pt')
 
-    @memoize
-    def getFormats(self):
-        """
-        """
-        # Could be overwritten to provide fixed category views.
-        # s. DemmelhuberShop
-        return IFormats(self.context).getFormats()
-    
     def getCategories(self):
         """
         """
@@ -77,7 +72,30 @@ class CategoriesViewlet(ViewletBase):
             lines.append(line)
             
         return lines
+
+    @memoize
+    def getBackToOverViewUrl(self):
+        """
+        """
+        parent = self.context.aq_inner.aq_parent
+        if ICategory.providedBy(parent):
+            parent_url = parent.absolute_url()
+        elif ICategoriesContainer.providedBy(parent):
+            shop = IShopManagement(self.context).getShop()
+            parent_url = shop.absolute_url()
+        else:
+            parent_url = None
+            
+        return parent_url
         
+    @memoize
+    def getFormats(self):
+        """
+        """
+        # Could be overwritten to provide fixed category views.
+        # s. DemmelhuberShop
+        return IFormats(self.context).getFormats()
+    
     @memoize
     def getTdWidth(self):
         """
