@@ -24,12 +24,12 @@ class CountryCriteriaValidity:
         """Returns True if the selected country of the current customer is 
         within selected countries of the criterion.
         """
-        shop            = IShopManagement(self.context).getShop()
-        customer        = ICustomerManagement(shop).getAuthenticatedCustomer()
-        invoice_address = IAddressManagement(customer).getInvoiceAddress()
+        shop             = IShopManagement(self.context).getShop()
+        customer         = ICustomerManagement(shop).getAuthenticatedCustomer()
+        shipping_address = IAddressManagement(customer).getShippingAddress()
         
-        if invoice_address is not None:
-            country = invoice_address.country
+        if shipping_address is not None:
+            country = shipping_address.country
         else:
             country = customer.selected_country
             
