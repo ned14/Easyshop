@@ -49,7 +49,7 @@ msgstr "In den Warenkorb"
 
 #: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
-msgstr "Adresse 1"
+msgstr "Straße/Hausnr."
 
 #: ../../../src/easyshop.core/easyshop/core/config.py:91
 msgid "American Express"
