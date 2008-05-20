@@ -216,9 +216,11 @@
                             <div i18n:translate=""
                                  tal:content="payment_data/payment_method/Title">
                             </div>
+<!--
                             <div i18n:translate=""
                                  tal:content="payment_data/payment_method/Description">
                             </div>
+-->                            
                         </tal:block>                            
 
                         
