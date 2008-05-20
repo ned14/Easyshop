@@ -16,6 +16,7 @@ from easyshop.core.config import _
 from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IData
 from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IPropertyManagement
@@ -83,6 +84,20 @@ class ProductViewlet(ViewletBase):
         data = IData(self.context)
         return data.asDict()
 
+    def getImageUrls(self):
+        """
+        """
+        pm = IImageManagement(self.context)
+
+        result = []
+        for image in pm.getImages():
+            result.append({
+                "tile" : "%s/image_tile"  % image.absolute_url(),
+                "large" : "%s/image_large" % image.absolute_url(),
+            })
+                        
+        return result
+        
     def getProperties(self):
         """
         """    

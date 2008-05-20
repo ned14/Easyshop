@@ -135,10 +135,22 @@
                         <tr>
                             <td class="product-image">
                                 
-                                <img tal:condition="product_data/image"
+                                <img id="image-large"
+                                     tal:condition="product_data/image"
                                      tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805');
                                                      src product_data/image;
-                                                     alt product_data/title;" />´
+                                                     alt product_data/title;" />
+                                                     
+                                 <table>
+                                    <tr>
+                                        <td tal:repeat="image_url view/getImageUrls">
+                                            <img class="thumbnail"
+                                                 src="."
+                                                 alt="Image"
+                                                 tal:attributes="src image_url/tile" />
+                                        </td>
+                                    </tr>
+                                 </table>
                                                                   
                                  <table>
                                      <tr tal:repeat="property view/getProperties">
