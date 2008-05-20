@@ -139,15 +139,7 @@
                                      tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805');
                                                      src product_data/image;
                                                      alt product_data/title;" />´
-                                 
-                                 
-                                 <table>
-                                     <tr>
-                                        <td>
-                                            11
-                                        </td>
-                                     </tr>                    
-                                 </table>     
+                                                                  
                                  <table>
                                      <tr tal:repeat="property view/getProperties">
                                          <td style="vertical-align:bottom; padding-right:20px"
