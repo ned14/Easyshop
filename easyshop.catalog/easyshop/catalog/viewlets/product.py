@@ -91,10 +91,9 @@ class ProductViewlet(ViewletBase):
 
         result = []
         for image in pm.getImages():
-            result.append({
-                "tile" : "%s/image_tile"  % image.absolute_url(),
-                "large" : "%s/image_large" % image.absolute_url(),
-            })
+            result.append(
+                "%s/image_tile"  % image.absolute_url(),
+            )
                         
         return result
         

@@ -147,7 +147,7 @@
                                             <img class="thumbnail"
                                                  src="."
                                                  alt="Image"
-                                                 tal:attributes="src image_url/tile" />
+                                                 tal:attributes="src image_url" />
                                         </td>
                                     </tr>
                                  </table>
