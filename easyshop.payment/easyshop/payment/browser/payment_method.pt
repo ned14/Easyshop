@@ -27,6 +27,18 @@
                 </span>    
             </div>
 
+            <div style="padding-bottom:20px"
+                 tal:content="context/getNote">
+                Note goes here
+            </div>    
+                        
+            <div tal:condition="context/getImage"
+                 style="padding-bottom:20px">
+                <img src="."
+                     tal:attributes="src string:${context/absolute_url}/image_thumb;
+                                     alt context/Title" />
+            </div>
+
             <div tal:condition="not:criteria"
                  i18n:translate="no_criteria_label">
                 There are no criteria.
