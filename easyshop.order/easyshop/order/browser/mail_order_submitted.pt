@@ -401,5 +401,14 @@
                 </td>
             </tr>
         </table>                     
+
+        <h1 i18n:translate="message_label">
+            Message
+        </h1>
+        
+        <div tal:content="context/getMessage">
+            Message goes here
+        </div>    
+        
     </body>
 </html>

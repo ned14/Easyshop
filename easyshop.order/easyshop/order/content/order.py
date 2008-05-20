@@ -97,6 +97,17 @@ schema = Schema((
             i18n_domain='EasyShop',
         )
     ),
+
+    TextField(
+        name="message",
+        widget = TextAreaWidget(
+            label="Message",
+            label_msgid="schema_message_label",
+            description = "Optional message from the customer",
+            description_msgid = "schema_message_description",
+            i18n_domain="EasyShop",
+        )
+    ),
     
 ))
 
