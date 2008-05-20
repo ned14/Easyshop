@@ -141,7 +141,7 @@
                                                      src product_data/image;
                                                      alt product_data/title;" />
                                                      
-                                 <table>
+                                 <table id="image-thumbs">
                                     <tr>
                                         <td tal:repeat="image_url view/getImageUrls">
                                             <img class="thumbnail"

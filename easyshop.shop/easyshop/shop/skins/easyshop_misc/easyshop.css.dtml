@@ -354,17 +354,28 @@ table#bank-account td {
     padding-bottom:4px;
 }
 
+table#image-thumbs {
+    margin:4px 0;
+    border-collapse: collapse;
+}
+
+table#image-thumbs img {
+    border: 1px solid #aaa;
+    padding: 4px;
+    margin-right: 4px;
+}
+
 fieldset.address {
     height:100px;
 }
 
 .product-image {
     width:1%;
-    cursor:pointer;
 }
 
 .product-image img {
     padding-right:10px;
+    cursor:pointer;    
 }
 
 img.product-details {
