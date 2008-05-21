@@ -133,15 +133,25 @@
                     </table>
                     <table class="product-content">
                         <tr>
-                            <td class="product-image">
-                                
-                                <img id="image-large"
-                                     tal:condition="product_data/image"
-                                     tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805');
-                                                     src product_data/image;
-                                                     alt product_data/title;" />
+                            <td width="430px">
+                                <table>
+                                    <tr>
+                                        <td style="min-width:420px; width:420px; height:420px">
+                                            <img id="image-large"
+                                                 tal:condition="product_data/image"
+                                                 tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805');
+                                                                 src product_data/image;
+                                                                 alt product_data/title;" />                                            
+                                        </td>
+                                    </tr>
+                                </table>    
                                                      
                                  <table id="image-thumbs">
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                    </tr> 
                                     <tr>
                                         <td tal:repeat="image_url view/getImageUrls">
                                             <img class="thumbnail"
