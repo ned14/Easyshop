@@ -23,7 +23,8 @@
     </metal:block>
       
     <body>        
-        <div metal:fill-slot="main">
+        <div metal:fill-slot="main">            
+
             <div tal:replace="structure provider:easyshop.product-manager" />
         </div>    
     </body>

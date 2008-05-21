@@ -1,6 +1,9 @@
 # zope imports
 from zope.interface import Interface
 
+# plone imports
+from plone.app.portlets.interfaces import IColumn
+
 # easyshop.imports
 from easyshop.core.interfaces import IFormatable
 
@@ -24,4 +27,12 @@ class IShopManagement(Interface):
 
 class ICountryVocabulary(Interface):
     """
+    """
+    
+class IEasyShopTop(IColumn):
+    """A portlet for EasyShop
+    """
+    
+class IEasyShopBottom(IColumn):
+    """A portlet for EasyShop
     """
