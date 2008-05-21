@@ -15,6 +15,8 @@ from Products.PythonScripts.standard import url_quote
 from Products.PythonScripts.standard import url_quote_plus
 from Products.PythonScripts.standard import html_quote
 
+from zope.component import getMultiAdapter
+
 ploneUtils = getToolByName(context, 'plone_utils')
 portal_url = getToolByName(context, 'portal_url')()
 pretty_title_or_id = ploneUtils.pretty_title_or_id
@@ -157,11 +159,14 @@ else:
     # write( '<a href="search_form" style="font-weight:normal">%s</a>' % ts.translate(label_advanced_search))
     # write('''</li>''')
 
+    view = getMultiAdapter((context, context.REQUEST), name='search-view')
+    search_url = view.getSearchUrl()
+    
     amount = len(results)
     if amount>limit:
         # add a more... row
         write('''<li class="LSRow">''')
-        write( '<a href="%s" style="font-weight:normal">%s (%s)</a>' % ('search?SearchableText=' + searchterms, ts.translate(label_show_all), amount))
+        write( '<a href="%s" style="font-weight:normal">%s (%s)</a>' % (search_url + '?SearchableText=' + searchterms, ts.translate(label_show_all), amount))
         write('''</li>''')
     write('''</ul>''')
     write('''</div>''')

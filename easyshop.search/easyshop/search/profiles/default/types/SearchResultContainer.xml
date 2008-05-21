@@ -9,12 +9,12 @@
  <property name="content_meta_type">SearchResultContainer</property>
  <property name="product">easyshop.shop</property>
  <property name="factory">addSearchResultContainer</property>
- <property name="immediate_view">search</property>
+ <property name="immediate_view">@@search</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">False</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">search</property>
+ <property name="default_view">@@search</property>
  <property name="view_methods">
      <element value="ProductSelector"/>
      

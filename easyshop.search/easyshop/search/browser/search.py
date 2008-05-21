@@ -10,8 +10,8 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports 
 from easyshop.core.interfaces import IShopManagement
 
-class SearchResultsView(BrowserView):
-    """
+class SearchView(BrowserView):
+    """Provides miscellanous methods for searching.
     """
     def getSearchResults(self):
         """
@@ -49,3 +49,11 @@ class SearchResultsView(BrowserView):
             unique[result.UID] = result
     
         return unique.values()
+        
+    def getSearchUrl(self):
+        """
+        """
+        properties = getToolByName(self.context, "portal_properties").site_properties
+        shop_path = properties.easyshop_path
+
+        return shop_path + "/shop-search"

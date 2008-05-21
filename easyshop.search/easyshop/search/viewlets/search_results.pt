@@ -2,10 +2,24 @@
      i18n:domain="EasyShop">
      
     <table class="products"
+           tal:condition="batch_info/amount"           
            tal:define="info view/getInfo;
                        lines info/products;
                        batch_info info/batch_info;
                        format_info info/format_info">    
+                       
+        <h1 style="border-bottom:none">
+            <span i18n:translate="heading_search_results">
+                Search results
+            </span>
+            <span class="discreet">
+            &mdash;
+            <span i18n:translate="batch_x_items_matching_your_criteria"
+            ><span i18n:name="number" 
+            tal:omit-tag="" 
+            tal:content="batch_info/amount">234</span> items matching your search terms</span>
+        </h1>
+                       
         <tr>
             <td tal:attributes="colspan format_info/products_per_line">
 
@@ -73,13 +87,6 @@
                         </td>
                     </tr>
                 </table>
-            </td>
-        </tr>
-        <tr>
-            <td class="main-title" 
-                tal:content="context/Description"
-                tal:attributes="colspan format_info/products_per_line">                
-                Description                                        
             </td>
         </tr>
         <tr tal:repeat="line lines">

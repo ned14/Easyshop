@@ -1,8 +1,8 @@
 <div id="portal-searchbox"
      i18n:domain="plone">
     <form name="searchform"
-          action="search"
-          tal:attributes="action string:${view/portal_url}/search">
+          action="shop-search"
+          tal:attributes="action string:${view/portal_url}/laden/shop-search">
 
         <label for="searchGadget" class="hiddenStructure"
                     i18n:translate="text_search">Search Site</label>
@@ -24,9 +24,9 @@
                    value="Search"
                    i18n:attributes="value label_search;" />
 
-
             <div class="searchSection">
-                <a href="search">Suchformular</a>
+                <a href="search"
+                   tal:attributes="href string:${view/portal_url}/laden/shop-search">Suchformular</a>
             </div>
 
             <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>

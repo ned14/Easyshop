@@ -82,6 +82,7 @@ class SearchResultsViewlet(ViewletBase):
             "navigation_list"  : batch.navlist,
             "number_of_pages"  : batch.numpages,
             "page_number"      : batch.pagenumber,
+            "amount"           : batch.sequence_length,
         }
         
         sorting = self.request.get("sorting", None)
@@ -239,7 +240,7 @@ class SearchResultsViewlet(ViewletBase):
             sorted_on  = "price"
             sort_order = "desc"
         
-        view = getMultiAdapter((self.context, self.request), name='search-results')
+        view = getMultiAdapter((self.context, self.request), name='search-view')
         brains = view.getSearchResults()
         products = [brain.getObject() for brain in brains]
 
@@ -253,7 +254,7 @@ class SearchResultsViewlet(ViewletBase):
         """
         """
         query = make_query(self.request.form, {batch.b_start_str:(batch.numpages-1) * batch.length})
-        return "%s/search-view?%s" % (self.context.absolute_url(), query)
+        return "%s?%s" % (self.context.absolute_url(), query)
 
     def _getNextUrl(self, batch):
         """
@@ -264,7 +265,7 @@ class SearchResultsViewlet(ViewletBase):
             start_str = None 
             
         query = make_query(self.request.form, {batch.b_start_str:start_str})
-        return "%s/search-view?%s" % (self.context.absolute_url(), query)
+        return "%s?%s" % (self.context.absolute_url(), query)
 
     def _getPreviousUrl(self, batch):
         """
@@ -275,4 +276,4 @@ class SearchResultsViewlet(ViewletBase):
             start_str = None 
             
         query = make_query(self.request.form, {batch.b_start_str:start_str})
-        return "%s/search-view?%s" % (self.context.absolute_url(), query)
+        return "%s?%s" % (self.context.absolute_url(), query)

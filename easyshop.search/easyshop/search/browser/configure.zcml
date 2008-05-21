@@ -4,16 +4,16 @@
     i18n_domain="EasyShop">
 
     <browser:page  
-        name="search-view"
+        name="search"
         for="easyshop.core.interfaces.ISearchResultContainer"
-        template="search_view.pt"
+        template="search.pt"
         permission="zope2.Public" />  
 
     <browser:page  
-        name="search-results"
+        name="search-view"
         for="*"
-        class=".search_results.SearchResultsView"
-        allowed_attributes="getSearchResults"
+        class=".search.SearchView"
+        allowed_attributes="getSearchResults getSearchUrl"
         permission="zope2.Public" />  
         
 </configure>
