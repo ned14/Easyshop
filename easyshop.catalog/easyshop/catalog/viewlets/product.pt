@@ -136,7 +136,7 @@
                             <td width="430px">
                                 <table>
                                     <tr>
-                                        <td style="min-width:420px; width:420px; height:420px">
+                                        <td style="min-width:420px; width:420px; height:420px; vertical-align:middle; text-align:center">
                                             <img id="image-large"
                                                  tal:condition="product_data/image"
                                                  tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805');
