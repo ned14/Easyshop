@@ -6,7 +6,8 @@
     <body>        
         <div metal:fill-slot="main">
             <form name="searchform"
-                  class="searchPage">
+                  class="searchPage"
+                  i18n:domain="plone">
                 <input class="searchPage"
                        name="SearchableText"
                        type="text"

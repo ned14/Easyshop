@@ -8,7 +8,8 @@
                        batch_info info/batch_info;
                        format_info info/format_info">    
                        
-        <h1 style="border-bottom:none">
+        <h1 style="border-bottom:none"
+            i18n:domain="plone">
             <span i18n:translate="heading_search_results">
                 Search results
             </span>
