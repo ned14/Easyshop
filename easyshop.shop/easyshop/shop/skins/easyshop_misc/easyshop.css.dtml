@@ -378,9 +378,12 @@ fieldset.address {
     cursor:pointer;    
 }
 
+img#image-large,
+img.thumbnail,
 img.product-details {
     cursor:pointer;
 }
+
 
 #letters {
     padding-bottom:20px;
