@@ -101,15 +101,17 @@
                     Title
                 </label>                      
                 
-                <select name="title">
-                    <option i18n:translate=""
-                            tal:repeat="title view/getTitles"
-                            tal:content="title/title"
-                            tal:attributes="selected title/selected;
-                                            value title/id">
-                        Title
-                    </option>
-                </select>
+                <div>
+                    <select name="title">
+                        <option i18n:translate=""
+                                tal:repeat="title view/getTitles"
+                                tal:content="title/title"
+                                tal:attributes="selected title/selected;
+                                                value title/id">
+                            Title
+                        </option>
+                    </select>
+                </div>    
             </div>
 
             <div class="field">

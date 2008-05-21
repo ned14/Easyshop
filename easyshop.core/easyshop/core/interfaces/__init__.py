@@ -14,6 +14,7 @@ from misc import *
 from orders import *
 from payment import *
 from price import *
+from search import *
 from sessions import *
 from shipping import *
 from shop import *
