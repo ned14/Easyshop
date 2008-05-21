@@ -11,7 +11,7 @@
 
     <browser:page  
         name="search-results"
-        for="easyshop.core.interfaces.ISearchResultContainer"
+        for="*"
         class=".search_results.SearchResultsView"
         allowed_attributes="getSearchResults"
         permission="zope2.Public" />  
