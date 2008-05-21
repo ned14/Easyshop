@@ -14,4 +14,8 @@
     <include 
         package=".viewlets" />
 
+    <include 
+        file="profiles.zcml" />
+
+
 </configure>
