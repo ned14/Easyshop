@@ -1,7 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
-    xmlns:browser="http://namespaces.zope.org/browser"    
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="EasyShop">
 
     <five:registerPackage
@@ -9,13 +9,9 @@
         initialize=".initialize" />
 
     <include 
-        file="profiles.zcml" />
+        package=".browser" />
 
-    <browser:page  
-        name="getSearchResults"
-        for="*"
-        class=".browser.SearchView"  
-        attribute="getSearchResults"
-        permission="zope2.Public" />  
-        
+    <include 
+        package=".viewlets" />
+
 </configure>

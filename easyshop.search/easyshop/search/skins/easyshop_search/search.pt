@@ -6,19 +6,12 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="plone">
 
-<head>
-    
-    <metal:block fill-slot="top_slot"
-                 tal:define="dummy python:request.set('disable_border', 1)" />
-    <!-- <metal:block fill-slot="column_one_slot" /> -->
-    <!-- <metal:block fill-slot="column_two_slot" /> -->
-</head>
-
 <body>
 <div metal:fill-slot="main"
      tal:define="use_types_blacklist request/use_types_blacklist | python:True;
                  use_navigation_root request/use_navigation_root | python:True;
-                 results context/@@getSearchResults;
+                 search_view context/@@search-results;
+                 results python:search_view.getSearchResults();
                  Batch python:modules['Products.CMFPlone'].Batch;
                  b_size python:20;b_start python:0;b_start request/b_start | b_start;
                  searchterm request/SearchableText|nothing;
@@ -63,6 +56,7 @@
     <div tal:condition="results"
          tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 
+       <div metal:use-macro="here/batch_macros/macros/navigation" />
        <table>
            <tr tal:repeat="result batch">
                <tal:block tal:define="result_url result/getURL;

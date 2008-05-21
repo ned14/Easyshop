@@ -10,9 +10,9 @@ from Products.CMFCore.utils import getToolByName
 # easyshop imports 
 from easyshop.core.interfaces import IShopManagement
 
-class SearchView(BrowserView):
+class SearchResultsView(BrowserView):
     """
-    """    
+    """
     def getSearchResults(self):
         """
         """

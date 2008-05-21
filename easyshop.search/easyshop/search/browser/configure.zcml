@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"    
+    i18n_domain="EasyShop">
+
+    <browser:page  
+        name="search-view"
+        for="easyshop.core.interfaces.ISearchResultContainer"
+        template="search_view.pt"
+        permission="zope2.Public" />  
+
+    <browser:page  
+        name="search-results"
+        for="easyshop.core.interfaces.ISearchResultContainer"
+        class=".search_results.SearchResultsView"
+        allowed_attributes="getSearchResults"
+        permission="zope2.Public" />  
+        
+</configure>

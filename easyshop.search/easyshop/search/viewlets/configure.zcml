@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Category  -->
+    <browser:viewletManager
+        name="easyshop.search-results-manager"
+        provides=".interfaces.ISearchResultsViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.search-results-viewlet"
+        for="easyshop.core.interfaces.ISearchResultContainer"
+        manager=".interfaces.ISearchResultsViewletManager"
+        class=".search_results.SearchResultsViewlet"
+        permission="zope.Public" />
+
+</configure>
