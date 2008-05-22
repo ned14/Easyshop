@@ -46,6 +46,7 @@ class SearchView(BrowserView):
 
         # Similarity Search
         searchable_text = searchable_text.replace("*", "")
+        searchable_text = "%" + searchable_text
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
                     Eq("SearchableText", searchable_text))
