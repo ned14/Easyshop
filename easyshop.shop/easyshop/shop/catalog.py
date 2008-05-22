@@ -46,12 +46,18 @@ registerIndexableAttribute('amount_of_categories', amount_of_categories)
 
 def categories(object, portal, **kwargs):
     try:
-        result = []
+        result = {}
         if IProduct.providedBy(object):
             for category in ICategoryManagement(object).getTopLevelCategories():
-                result.append(category.UID())
+                result[category.UID()] = 1
+                
+                # Collect parent categories
+                object = category
+                while ICategory.providedBy(object) == True:
+                    result[object.UID()] = 1
+                    object = object.aq_inner.aq_parent
             
-        return result
+        return result.keys()
         
     except (ComponentLookupError, TypeError, ValueError):
         raise AttributeError
