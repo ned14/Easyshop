@@ -12,4 +12,11 @@
         renderer=".admin.Renderer"
         addview=".admin.AddForm" />
 
+    <plone:portlet
+        name="portlets.PageTemplate"
+        interface=".pagetemplate.IPageTemplatePortlet"
+        assignment=".pagetemplate.Assignment"
+        renderer=".pagetemplate.Renderer"
+        addview=".pagetemplate.AddForm" />
+
 </configure>
