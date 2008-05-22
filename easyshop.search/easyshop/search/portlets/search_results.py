@@ -4,6 +4,7 @@ from zope.interface import implements
 
 # plone imports
 from plone.app.portlets.portlets import base
+from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 
 # Five imports
@@ -42,9 +43,12 @@ class Renderer(base.Renderer):
     def available(self):
         """
         """
-        return True
+        if len(self.getCategories()) > 0:
+            return True
+        else:
+            return False
 
-            
+    @memoize
     def getCategories(self):
         """
         """
@@ -91,22 +95,36 @@ class Renderer(base.Renderer):
             for child in category.objectValues("Category"):
                 child_uid = child.UID()
                 if child_uid in category_titles.keys():
-                    children.append({
-                        "uid"    : child_uid,
-                        "title"  : category_titles[child_uid],
-                        "amount" : category_amounts[child_uid],
-                        "level"  : category_levels[child_uid]
-                    })
                     
+                    # Title
+                    title = category_titles[child_uid]
+                    short_title = title
+                    if len(short_title)>10:
+                        short_title = short_title[:15] + "..."
+                                            
+                    children.append({
+                        "uid"         : child_uid,
+                        "title"       : title,
+                        "short_title" : short_title,
+                        "amount"      : category_amounts[child_uid],
+                        "level"       : category_levels[child_uid]
+                    })
+            
+            # Title
+            title = category_titles[uid]
+            short_title = title            
+            if len(short_title)>10:
+                short_title = short_title[:15] + "..."
+            
             result.append({
-                "uid"      : uid,
-                "title"    : category_titles[uid],
-                "amount"   : category_amounts[uid],
-                "level"    : category_levels[uid],
-                "children" : children
+                "uid"         : uid,
+                "title"       : title,
+                "short_title" : short_title,
+                "amount"      : category_amounts[uid],
+                "level"       : category_levels[uid],
+                "children"    : children
             })
         
-        import pdb; pdb.set_trace()
         return result
 
 class AddForm(base.NullAddForm):

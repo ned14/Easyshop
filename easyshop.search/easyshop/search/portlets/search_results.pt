@@ -13,14 +13,17 @@
         <dd class="portletItem"
             tal:define="searchable_text context/REQUEST/SearchableText|nothing">
             <a href="."
-               tal:attributes="href string:${context/absolute_url}?SearchableText=$searchable_text&amp;category=${category/uid}"
-               tal:content="category/title">Title</a>
+               tal:attributes="href string:${context/absolute_url}?SearchableText=$searchable_text&amp;category=${category/uid};
+                               title category/title"
+               tal:content="category/short_title">Title</a>
             (<span tal:content="category/amount">42</span>)
             
-            <div tal:repeat="child category/children">
-                <a href="."
-                   tal:attributes="href string:${context/absolute_url}?SearchableText=$searchable_text&amp;category=${child/uid}"
-                   tal:content="child/title">Title</a>
+            <div style="padding-left:10px"
+                 tal:repeat="child category/children">
+                <a href="."                
+                   tal:attributes="href string:${context/absolute_url}?SearchableText=$searchable_text&amp;category=${child/uid};
+                                   title child/title"
+                   tal:content="child/short_title">Title</a>
                 (<span tal:content="child/amount">42</span>)
             </div>
         </dd>
