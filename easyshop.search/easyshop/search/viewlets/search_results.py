@@ -241,7 +241,7 @@ class SearchResultsViewlet(ViewletBase):
             sort_order = "desc"
         
         view = getMultiAdapter((self.context, self.request), name='search-view')
-        brains = view.getSearchResults()
+        brains = view.getSearchResults(simple=False)
         products = [brain.getObject() for brain in brains]
 
         # Get start page                             
