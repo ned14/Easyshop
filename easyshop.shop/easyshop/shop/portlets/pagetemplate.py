@@ -43,11 +43,7 @@ class Renderer(base.Renderer):
     def available(self):
         """
         """
-        mtool = getToolByName(self.context, "portal_membership")
-        if mtool.checkPermission("Manage portal", self.context):
-            return True
-        else:
-            return False
+        return True
 
     def getPortalUrl(self):
         """
