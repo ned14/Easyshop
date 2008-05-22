@@ -17,6 +17,10 @@
         <indexed_attr value="parent_categories"/>
     </index>
 
+    <index name="categories" meta_type="KeywordIndex">
+        <indexed_attr value="categories"/>
+    </index>
+
     <column value="amount_of_categories" />
     <column value="fullname" />
     <column value="getShortText" />    

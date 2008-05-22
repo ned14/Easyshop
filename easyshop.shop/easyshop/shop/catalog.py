@@ -4,7 +4,7 @@ from zope.component.exceptions import ComponentLookupError
 # iqpp.rating imports
 from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
-from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import IProduct
 
 # CMFPlone imports
 from Products.CMFPlone.CatalogTool import registerIndexableAttribute
@@ -43,6 +43,20 @@ def amount_of_categories(object, portal, **kwargs):
         raise AttributeError
 
 registerIndexableAttribute('amount_of_categories', amount_of_categories)
+
+def categories(object, portal, **kwargs):
+    try:
+        result = []
+        if IProduct.providedBy(object):
+            for category in ICategoryManagement(object).getTopLevelCategories():
+                result.append(category.UID())
+            
+        return result
+        
+    except (ComponentLookupError, TypeError, ValueError):
+        raise AttributeError
+
+registerIndexableAttribute('categories', categories)
 
 def countCategories(category, counter):
     """
