@@ -31,7 +31,7 @@ class SearchView(BrowserView):
 
         # Glob Search
         if searchable_text.find("*") == -1:
-            searchable_text += "*"
+            searchable_text = "*" + searchable_text + "*"
         
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
