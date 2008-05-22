@@ -31,11 +31,11 @@ class SearchView(BrowserView):
 
         # Glob Search
         if searchable_text.find("*") == -1:
-            searchable_text = "*" + searchable_text + "*"
+            searchable_text_1 = " ".join(["*%s*" % x for x in searchable_text.split(" ")])
         
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
-                    Eq("Title", searchable_text))
+                    Eq("Title", searchable_text_1))
 
         if simple == False:
             category = self.request.get("category")
@@ -46,6 +46,8 @@ class SearchView(BrowserView):
 
         # Similarity Search
         searchable_text = searchable_text.replace("*", "")
+        searchable_text = searchable_text.replace("%", "")
+        
         searchable_text = "%" + searchable_text
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
@@ -56,8 +58,8 @@ class SearchView(BrowserView):
             if category is not None:
                 query = query & Eq("categories", category)
 
-        results_similar = catalog.evalAdvancedQuery(query)        
-
+        results_similar = catalog.evalAdvancedQuery(query)
+        
         unique = {}
         for result in results_glob:
             unique[result.UID] = result
