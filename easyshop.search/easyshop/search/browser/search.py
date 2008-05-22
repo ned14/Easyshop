@@ -16,10 +16,11 @@ class SearchView(BrowserView):
     """
 
     @memoize
-    def getSearchResults(self, simple=True):
+    def getSearchResults(self, simple=True, searchable_text=None):
         """
         """
-        searchable_text = self.request.get("SearchableText", "")
+        if searchable_text is None:
+            searchable_text = self.request.get("SearchableText", "")
                 
         if searchable_text == "":
             return []
@@ -31,7 +32,7 @@ class SearchView(BrowserView):
 
         # Glob Search
         if searchable_text.find("*") == -1:
-            searchable_text_1 = " ".join(["*%s*" % x for x in searchable_text.split(" ")])
+            searchable_text_1 = " ".join(["*%s*" % x for x in searchable_text.split()])
         
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
@@ -48,10 +49,10 @@ class SearchView(BrowserView):
         searchable_text = searchable_text.replace("*", "")
         searchable_text = searchable_text.replace("%", "")
         
-        searchable_text = "%" + searchable_text
+        searchable_text_2 = "%" + searchable_text
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
-                    Eq("Title", searchable_text))
+                    Eq("Title", searchable_text_2))
 
         if simple == False:
             category = self.request.get("category")
@@ -66,8 +67,24 @@ class SearchView(BrowserView):
 
         for result in results_similar:
             unique[result.UID] = result
-    
-        return unique.values()
+
+        result = unique.values()     
+        
+        # If we haven't found anything we join the search terms with "or"
+        if len(result) == 0:
+            searchable_text_3 = " OR ".join(["*%s*" % x for x in searchable_text.split()])
+            query = And(Eq("path", shop_path), 
+                        Eq("portal_type", "Product"),
+                        Eq("Title", searchable_text_3))
+                        
+            if simple == False:
+                category = self.request.get("category")
+                if category is not None:
+                    query = query & Eq("categories", category)
+            
+            result = catalog.evalAdvancedQuery(query)
+
+        return result
 
     @memoize        
     def getSearchUrl(self):

@@ -60,13 +60,12 @@ def quote_bad_chars(s):
 # But we strip these and these so that the catalog does
 # not interpret them as metachars
 ##q = re.compile(r'[\*\?\-\+]+').sub(' ', q)
+q_orig = q
 for char in '?-+*':
     q = q.replace(char, ' ')
 r=q.split()
 r = " AND ".join(r)
 r = quote_bad_chars(r)
-r_similar = "%" + r
-r += "*"
 
 searchterms = url_quote_plus(r)
 
@@ -74,17 +73,10 @@ site_encoding = context.plone_utils.getSiteEncoding()
 if path is None:
     path = siteProperties.easyshop_path
 
-results_glob = catalog(Title=r, portal_type="Product", path=path)
-results_similar = catalog(Title= r_similar, portal_type="Product", path=path)
+from zope.component import getMultiAdapter
+view = getMultiAdapter((context, context.REQUEST), name="search-view")
+results = view.getSearchResults(searchable_text=q_orig)
 
-unique = {}
-for result in results_glob:
-    unique[result.UID] = result
-for result in results_similar:
-    unique[result.UID] = result
-    
-results = unique.values()
-    
 searchterm_query = '?searchterm=%s'%url_quote_plus(q)
 
 RESPONSE = context.REQUEST.RESPONSE
