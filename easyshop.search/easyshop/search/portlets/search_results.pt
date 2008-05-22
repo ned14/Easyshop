@@ -3,7 +3,7 @@
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        <tal:block i18n:translate="search_results_portlet_label">
+        <tal:block i18n:translate="search_results_label">
             Search Results
         </tal:block>
         <span class="portletTopRight"></span>

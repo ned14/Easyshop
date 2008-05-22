@@ -74,8 +74,8 @@ site_encoding = context.plone_utils.getSiteEncoding()
 if path is None:
     path = siteProperties.easyshop_path
 
-results_glob = catalog(SearchableText=r, portal_type="Product", path=path)
-results_similar = catalog(SearchableText= r_similar, portal_type="Product", path=path)
+results_glob = catalog(Title=r, portal_type="Product", path=path)
+results_similar = catalog(Title= r_similar, portal_type="Product", path=path)
 
 unique = {}
 for result in results_glob:

@@ -99,8 +99,8 @@ class Renderer(base.Renderer):
                     # Title
                     title = category_titles[child_uid]
                     short_title = title
-                    if len(short_title)>10:
-                        short_title = short_title[:15] + "..."
+                    if len(short_title)>13:
+                        short_title = short_title[:13] + "..."
                                             
                     children.append({
                         "uid"         : child_uid,
@@ -113,7 +113,7 @@ class Renderer(base.Renderer):
             # Title
             title = category_titles[uid]
             short_title = title            
-            if len(short_title)>10:
+            if len(short_title)>15:
                 short_title = short_title[:15] + "..."
             
             result.append({

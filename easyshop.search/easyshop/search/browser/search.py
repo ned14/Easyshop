@@ -35,7 +35,7 @@ class SearchView(BrowserView):
         
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
-                    Eq("SearchableText", searchable_text))
+                    Eq("Title", searchable_text))
 
         if simple == False:
             category = self.request.get("category")
@@ -49,7 +49,7 @@ class SearchView(BrowserView):
         searchable_text = "%" + searchable_text
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
-                    Eq("SearchableText", searchable_text))
+                    Eq("Title", searchable_text))
 
         if simple == False:
             category = self.request.get("category")
