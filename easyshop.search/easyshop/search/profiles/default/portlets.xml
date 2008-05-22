@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets>
+  
+    <portlet 
+        addview="portlets.SearchResults"
+        title="EasyShop: Search Results"
+        description="Portlet which shows some information about search results." />
+
+</portlets>

@@ -1,0 +1,15 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+    
+    <include 
+        package="plone.app.portlets" />
+        
+    <plone:portlet
+        name="portlets.SearchResults"
+        interface=".search_results.ISearchResultsPortlet"
+        assignment=".search_results.Assignment"
+        renderer=".search_results.Renderer"
+        addview=".search_results.AddForm" />
+
+</configure>
