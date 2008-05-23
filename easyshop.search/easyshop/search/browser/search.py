@@ -30,13 +30,16 @@ class SearchView(BrowserView):
                     
         catalog = getToolByName(self.context, "portal_catalog")
 
+        # Store for later use
+        searchable_text_orig = searchable_text
+        
         # Glob Search
         if searchable_text.find("*") == -1:
-            searchable_text_1 = " ".join(["*%s*" % x for x in searchable_text.split()])
-        
+            searchable_text = " ".join(["*%s*" % x for x in searchable_text.split()])
+
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
-                    Eq("Title", searchable_text_1))
+                    Eq("Title", searchable_text))
 
         if simple == False:
             category = self.request.get("category")
@@ -46,13 +49,14 @@ class SearchView(BrowserView):
         results_glob = catalog.evalAdvancedQuery(query)
 
         # Similarity Search
+        searchable_text = searchable_text_orig
         searchable_text = searchable_text.replace("*", "")
         searchable_text = searchable_text.replace("%", "")
         
-        searchable_text_2 = "%" + searchable_text
+        searchable_text = "%" + searchable_text
         query = And(Eq("path", shop_path), 
                     Eq("portal_type", "Product"),
-                    Eq("Title", searchable_text_2))
+                    Eq("Title", searchable_text))
 
         if simple == False:
             category = self.request.get("category")
@@ -71,11 +75,12 @@ class SearchView(BrowserView):
         result = unique.values()     
         
         # If we haven't found anything we join the search terms with "or"
+        searchable_text = searchable_text_orig
         if len(result) == 0:
-            searchable_text_3 = " OR ".join(["*%s*" % x for x in searchable_text.split()])
+            searchable_text = " OR ".join(["*%s*" % x for x in searchable_text.split()])
             query = And(Eq("path", shop_path), 
                         Eq("portal_type", "Product"),
-                        Eq("Title", searchable_text_3))
+                        Eq("Title", searchable_text))
                         
             if simple == False:
                 category = self.request.get("category")
