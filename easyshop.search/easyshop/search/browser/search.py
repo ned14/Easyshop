@@ -74,10 +74,14 @@ class SearchView(BrowserView):
 
         result = unique.values()     
         
-        # If we haven't found anything we join the search terms with "or"
-        searchable_text = searchable_text_orig
+        # If we haven't found anything so far, we join the search terms with 
+        # "or"
         if len(result) == 0:
+            searchable_text = searchable_text_orig
+
+            searchable_text = searchable_text.replace("*", "")
             searchable_text = " OR ".join(["*%s*" % x for x in searchable_text.split()])
+            
             query = And(Eq("path", shop_path), 
                         Eq("portal_type", "Product"),
                         Eq("Title", searchable_text))
@@ -89,6 +93,7 @@ class SearchView(BrowserView):
             
             result = catalog.evalAdvancedQuery(query)
 
+        import pdb; pdb.set_trace()
         return result
 
     @memoize        

@@ -9,24 +9,25 @@
         <span class="portletTopRight"></span>
     </dt>
 
-    <tal:block tal:repeat="category view/getCategories">
+    <tal:block tal:repeat="category view/getCategories"
+               tal:define="searchable_text context/REQUEST/SearchableText|nothing">
         <dd class="portletItem"
-            tal:define="searchable_text context/REQUEST/SearchableText|nothing">
+            tal:attributes="class string: portletItem ${category/class}">
             <a href="."
                tal:attributes="href string:${context/absolute_url}?SearchableText=$searchable_text&amp;category=${category/uid};
                                title category/title"
                tal:content="category/short_title">Title</a>
             (<span tal:content="category/amount">42</span>)
-            
+
             <div style="padding-left:10px"
                  tal:repeat="child category/children">
-                <a href="."                
+                <a href="."
                    tal:attributes="href string:${context/absolute_url}?SearchableText=$searchable_text&amp;category=${child/uid};
                                    title child/title"
                    tal:content="child/short_title">Title</a>
                 (<span tal:content="child/amount">42</span>)
             </div>
-        </dd>
+        </dd>        
     </tal:block>
 
     <span class="portletBottomLeft"></span>

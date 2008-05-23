@@ -52,6 +52,8 @@ class Renderer(base.Renderer):
     def getCategories(self):
         """
         """
+        current_category_uid = self.request.get("uid")
+        
         view = getMultiAdapter((self.context, self.request), name='search-view')
         brains = view.getSearchResults()
 
@@ -101,13 +103,20 @@ class Renderer(base.Renderer):
                     short_title = title
                     if len(short_title)>13:
                         short_title = short_title[:13] + "..."
-                                            
+                    
+                    # Current
+                    if current_category_uid == child_uid:
+                        klass = "navTreeCurrentItem"
+                    else:
+                        klass = ""
+                        
                     children.append({
                         "uid"         : child_uid,
                         "title"       : title,
                         "short_title" : short_title,
                         "amount"      : category_amounts[child_uid],
-                        "level"       : category_levels[child_uid]
+                        "level"       : category_levels[child_uid],
+                        "class"       : klass,
                     })
             
             # Title
@@ -115,6 +124,12 @@ class Renderer(base.Renderer):
             short_title = title            
             if len(short_title)>15:
                 short_title = short_title[:15] + "..."
+
+            # Current
+            if current_category_uid == uid:
+                klass = "navTreeCurrentItem"
+            else:
+                klass = ""
             
             result.append({
                 "uid"         : uid,
@@ -122,7 +137,8 @@ class Renderer(base.Renderer):
                 "short_title" : short_title,
                 "amount"      : category_amounts[uid],
                 "level"       : category_levels[uid],
-                "children"    : children
+                "children"    : children,
+                "class"       : klass,
             })
         
         return result
