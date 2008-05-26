@@ -313,7 +313,7 @@ a:active { text-decoration:underline; color:#666666;}
         tal:content="payment_data/payment_method/getNote">
     </p>
     
-    <p class="TextGrossGrauLinks">Für Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="maiulto:info@demmelhuber.net">info@demmelhuber.net</a>. 
+    <p class="TextGrossGrauLinks">Für Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 
     Bei Rückfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
     <p class="TextGrossGrauLinks">Mit freundlichen Grüßen<br />
     DEMMELHUBER Holz &amp; Raum GmbH<br />
@@ -324,7 +324,7 @@ a:active { text-decoration:underline; color:#666666;}
             09661 Hainichen/ OT Schlegel</span></td>
             <td width="33%"><span class="TextGrossGrauLinks">Telefon: +49(0)37207.683-66<br />
             Telefax: +49(0)37207.683-50</span></td>
-            <td width="33%"><span class="TextGrossGrauLinks"><a href="www.demmelhuber.net">Homepage: www.demmelhuber.net</a><a href="http://www.demmelhuber.net/laden"><br />
+            <td width="33%"><span class="TextGrossGrauLinks"><a href="http://www.demmelhuber.net">Homepage: www.demmelhuber.net</a><a href="http://www.demmelhuber.net/laden"><br />
             Online Shop: www.demmelhuber.net/laden</a></span></td>
         </tr>
     </table>
