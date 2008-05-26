@@ -133,10 +133,10 @@
                     </table>
                     <table class="product-content">
                         <tr>
-                            <td width="400px">
+                            <td style="min-width:400px; width:400px">
                                 <table>
                                     <tr>
-                                        <td style="padding-right:10px; min-width:400px; width:400px; height:405px; vertical-align:middle; text-align:center">
+                                        <td style="min-width:400px; width:400px; height:405px; vertical-align:middle; text-align:center">
                                             <img id="image-large"
                                                  tal:condition="product_data/image"
                                                  tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805');
@@ -189,7 +189,8 @@
                                  </table>     
 
                             </td>
-                            <td class="product-description"
+                            <td style="padding-left:10px"
+                                class="product-description"
                                 tal:content="structure product_data/text">
                             </td>                            
                         </tr>
