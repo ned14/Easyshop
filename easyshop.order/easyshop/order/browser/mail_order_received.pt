@@ -154,7 +154,7 @@ a:active { text-decoration:underline; color:#666666;}
         </a>        
     </td>
     <td width="15%" class="TextGrossGrauLinksFett">Status:</td>
-    <td width="35%" class="TextGrossGrauLinks" tal:content="view/getState">In Bearbeitung</td>
+    <td width="35%" class="TextGrossGrauLinks" i18n:translate="" tal:content="view/getState">In Bearbeitung</td>
     </tr>
     <tr>
     <td width="15%" class="TextGrossGrauLinksFett">Telefon: </td>
