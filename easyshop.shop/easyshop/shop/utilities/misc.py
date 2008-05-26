@@ -26,8 +26,8 @@ def sendMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", text
         
     mail['From']    = sender
     mail['To']      = receiver
-    mail['Bcc']     = "".join(cc)
-    mail['Bcc']     = "".join(bcc)
+    mail['Bcc']     = ", ".join(cc)
+    mail['Bcc']     = ", ".join(bcc)
     mail['Subject'] = subject
     mail.epilogue   = ''
 
