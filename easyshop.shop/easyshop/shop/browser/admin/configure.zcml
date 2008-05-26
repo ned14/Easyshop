@@ -28,5 +28,13 @@
         class=".test_environment.TestEnvironmentView"
         attribute="createProducts2"
         permission="cmf.ManagePortal" />
-       
+
+    <browser:page
+        for="*"
+        name="test-mail"
+        class=".test_environment.TestEnvironmentView"
+        attribute="testMail"
+        permission="cmf.ManagePortal" />
+
+
 </configure>

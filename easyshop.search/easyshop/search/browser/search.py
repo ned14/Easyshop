@@ -93,7 +93,6 @@ class SearchView(BrowserView):
             
             result = catalog.evalAdvancedQuery(query)
 
-        import pdb; pdb.set_trace()
         return result
 
     @memoize        
