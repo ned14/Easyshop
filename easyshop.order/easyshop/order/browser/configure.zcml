@@ -48,6 +48,13 @@
 
     <browser:page
         for="easyshop.core.interfaces.IOrder"
+        name="mail-order-received"
+        class=".order_view.OrderView"
+        template="mail_order_received.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IOrder"
         name="mail-order-sent"
         class=".order_view.OrderView"
         template="mail_order_sent.pt"

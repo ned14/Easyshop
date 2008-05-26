@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css">
+
+.HeadGrossGrauLinks {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold;
+text-align: left;
+color: #666666;
+
+}
+.HeadGrossGrauMitte {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+color: #666666;
+
+
+}
+.TextGrossGrauLinks {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+font-weight: normal;
+text-align: left;
+color: #666666;
+line-height: 22px;
+
+}
+.TextGrossGrauMitte {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+font-weight: normal;
+text-align: center;
+color: #666666;
+}
+
+.TextKleinGrauLinks {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: normal;
+text-align: left;
+color: #666666;
+}
+
+.HeadHintergrundLinks {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+font-weight: bold;
+text-align: left;
+color: #666666;
+background-color: #F2F2F2;
+padding-left: 10px;
+vertical-align: middle;
+}
+.HeadHintergrundMitte {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+color: #666666;
+background-color: #F2F2F2;
+vertical-align: middle;
+}
+.HeadHintergrundLinksGross {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold;
+text-align: left;
+color: #666666;
+background-color: #F2F2F2;
+font-variant: small-caps;
+padding-left: 10px;
+vertical-align: middle;
+
+}
+.HeadHintergrundMitteGross {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+color: #666666;
+background-color: #F2F2F2;
+font-variant: small-caps;
+vertical-align: middle;
+}
+.RahmenGrossGrau {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+border: thin solid #CCCCCC;
+color: #666666;
+text-indent: 0pt;
+padding-top: 8px;
+}
+.TextGrossGrauLinksFett {
+
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+font-weight: bold;
+text-align: left;
+color: #666666;
+}
+
+a{font-size:14px;:text-decoration:underline;font-weight;}
+a:link { text-decoration:underline; color:#666666; }
+a:visited { text-decoration:underline; color:#cccccc; }
+a:hover { text-decoration:underline; color:#cccccc;}
+a:active { text-decoration:underline; color:#666666;} 
+
+</style>
+
+</head>
+
+    <body tal:define="invoice_address view/getInvoiceAddress;
+                      shipping_address view/getShippingAddress;
+                      payment_data view/getSelectedPaymentData;
+                      payment_information python:payment_data['information'];
+                      payment_portal_type payment_data/portal_type">
+
+    <div align="right"><img src="http://www.demmelhuber.net/logo.jpg" width="327" height="60" alt="Demmelhuber" longdesc="http://www.demmelhuber.net/laden" /></div>
+    
+    <p class="TextGrossGrauLinks">
+        Sehr geehrte/r 
+        <tal:block tal:condition="view/getCustomerFullname">Dirk Kommol</tal:block>,<br />
+        <br />
+        vielen Dank für Ihre Bestellung bei www.demmelhuber.net. Hiermit erhalten Sie Ihre Bestellbestätigung:
+    </p>
+    <table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
+    <tr>
+    <td colspan="4" class="HeadHintergrundMitteGross">BESTELLUNG <tal:block tal:content="context/id">1211793802901</tal:block></td>
+    </tr>
+    <tr>
+    <td width="15%" class="TextGrossGrauLinksFett">Name:</td>
+    <td width="35%" bordercolor="#000000" class="TextGrossGrauLinks" tal:content="view/getCustomerFullname"></td>
+    <td width="15%" class="TextGrossGrauLinksFett">Datum</td>
+    <td width="35%" class="TextGrossGrauLinks" tal:content="view/getCreationDate"></td>
+    </tr>
+    <tr>
+    <td width="15%" class="TextGrossGrauLinksFett">E-Mail</td>
+    <td width="35%" class="TextGrossGrauLinks" 
+        tal:define="email view/getEmail">
+        <a href="."
+           tal:condition="email"
+           tal:content="email"
+           tal:attributes="href string:mailto:$email">
+           usenet@diefenba.ch
+        </a>        
+    </td>
+    <td width="15%" class="TextGrossGrauLinksFett">Status:</td>
+    <td width="35%" class="TextGrossGrauLinks" tal:content="view/getState">In Bearbeitung</td>
+    </tr>
+    <tr>
+    <td width="15%" class="TextGrossGrauLinksFett">Telefon: </td>
+    <td width="35%" class="TextGrossGrauLinks" tal:content="shipping_address/phone"></td>
+    <td width="15%" class="TextGrossGrauLinksFett">Betrag:</td>
+    <td width="35%" class="TextGrossGrauLinks" tal:content="view/getPriceForCustomer">42</td>
+    </tr>
+    <tr>
+    <td colspan="4" class="TextGrossGrauLinksFett">&nbsp;</td>
+    </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+    <tr>
+    <td class="HeadHintergrundLinks">Rechnungsadresse</td>
+    <td class="HeadHintergrundLinks">Lieferadresse</td>
+    <td class="HeadHintergrundLinks">Zahlungsweise</td>
+    <td class="HeadHintergrundLinks"><div align="center">
+    </div></td>
+    </tr>
+    <tr>
+    <td class="TextGrossGrauLinks">
+        <div tal:content="invoice_address/name">
+            John Doe
+        </div>    
+        <div tal:content="invoice_address/address1">
+            John-Doe-Str. 1
+        </div>    
+        <div>
+            <span tal:content="invoice_address/zipcode">
+                99999
+            </span>    
+            <span tal:content="invoice_address/city">
+                L.A.
+            </span>    
+        </div>             
+        <div tal:content="invoice_address/country">           
+            Wonderland
+        </div>
+    </td>
+    <td class="TextGrossGrauLinks">
+        <div tal:content="shipping_address/name">
+            John Doe                                
+        </div>
+        <div tal:content="shipping_address/address1">
+            John-Doe-Str. 1                                
+        </div>
+        <div>
+            <span tal:content="shipping_address/zipcode">
+                99999                                    
+            </span>    
+            <span tal:content="shipping_address/city">
+                L.A.                                    
+            </span>    
+        </div>             
+        <div tal:content="shipping_address/country">
+            Wonderland                                
+        </div>    
+    </td>
+    <td colspan="2" class="TextGrossGrauLinksFett">
+        <tal:block tal:condition="python:payment_portal_type == 'CreditCardPaymentType'">
+            <div tal:content="payment_information/card_type">Card Type</div>
+            <div tal:content="payment_information/card_number">Bank</div>
+            <div>      
+                <span tal:content="payment_information/card_expiration_date_month">Account-Number</span>/<span tal:content="payment_information/card_expiration_date_month">Account-Number</span>
+            </div>
+            <div tal:content="payment_information/card_owner">Depositor</div>
+        </tal:block>
+
+        <tal:block tal:condition="python:payment_portal_type == 'DirectDebitPaymentMethod'">
+            <div tal:content="payment_information/bank_name">Bank</div>
+            <div tal:content="payment_information/bank_identification_code">Bank</div>      
+            <div tal:content="payment_information/account_number">Account-Number</div>  
+            <div tal:content="payment_information/depositor">Depositor</div>
+        </tal:block>
+        
+        <tal:block tal:condition="python:payment_portal_type == 'PayPalPaymentMethod'">
+        <div i18n:translate="paypal_label">
+            PayPal
+        </div>
+        </tal:block>
+        
+        <tal:block tal:condition="python:payment_portal_type == 'GenericPaymentMethod'">
+            <div i18n:translate=""
+                 tal:content="payment_data/payment_method/Title">
+            </div>
+        </tal:block>                            
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+            <td class="HeadHintergrundLinks">Produkt</td>
+            <td class="HeadHintergrundLinks">Eigenschaften</td>
+            <td class="HeadHintergrundMitte">E - Preis</td>
+            <td class="HeadHintergrundMitte">Menge</td>
+            <td class="HeadHintergrundMitte">G - Preis</td>
+        </tr>
+        <tal:block tal:repeat="item view/getItems">
+            <tr>
+                <td class="TextGrossGrauLinks" tal:content="item/product_title">Spielturm Jungle Gym FARM - Kletterturm mit Rutsche</td>
+                <td class="TextGrossGrauLinks">
+                    <div tal:repeat="property item/properties">
+                        <span tal:content="property/title">
+                            Color
+                        </span> : 
+                        <span tal:content="property/selected_option">
+                            Red
+                        </span>
+                    </div>                
+                </td>
+                <td class="TextGrossGrauLinks"><div align="right" tal:content="item/product_price_gross">€ 629,00</div></td>
+                <td class="TextGrossGrauLinks"><div align="right" tal:content="item/product_quantity">1,0</div></td>
+                <td class="TextGrossGrauLinks"><div align="right" tal:content="item/price_gross">€ 629,00</div></td>
+            </tr>        
+        </tal:block>
+        <tr tal:define="payment view/getPaymentValues"
+            tal:condition="payment/display">
+            <td class="TextGrossGrauLinks" tal:content="payment/title">Nachnahmebehühr</td>
+            <td class="TextGrossGrauLinks">&nbsp;</td>
+            <td class="TextGrossGrauLinks"><div align="right" tal:content="payment/price_gross">€ 17,95</div></td>
+            <td class="TextGrossGrauLinks"><div align="right" >1,0</div></td>
+            <td class="TextGrossGrauLinks"><div align="right" tal:content="payment/price_gross">€ 17,95</div></td>
+        </tr>
+
+        <tr tal:define="shipping view/getShipping">
+            <td class="TextGrossGrauLinks">Versandkosten</td>
+            <td class="TextGrossGrauLinks">&nbsp;</td>
+            <td class="TextGrossGrauLinks"><div align="right" tal:content="shipping/price_gross">€ 17,95</div></td>
+            <td class="TextGrossGrauLinks"><div align="right" >1,0</div></td>
+            <td class="TextGrossGrauLinks"><div align="right" tal:content="shipping/price_gross">€ 17,95</div></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="HeadHintergrundLinks"><div align="right">Gesamtwert Ihrer Bestellung inkl. 19% MwSt.:</div></td>
+            <td class="HeadHintergrundLinks"><div align="right" tal:content="view/getPriceForCustomer">€ 646,95</div></td>
+        </tr>
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+    </table>
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+            <td class="HeadHintergrundLinks">Hinweis zur Bestellung</td>
+        </tr>
+        <tr>
+            <td class="TextGrossGrauLinks" tal:content="context/getMessage">
+                Message
+            </td>
+        </tr>
+    </table>
+    
+    <p class="RahmenGrossGrau"
+        tal:content="payment_data/payment_method/Description">
+    </p>
+    
+    <p class="TextGrossGrauLinks">Für Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="maiulto:info@demmelhuber.net">info@demmelhuber.net</a>. 
+    Bei Rückfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
+    <p class="TextGrossGrauLinks">Mit freundlichen Grüßen<br />
+    DEMMELHUBER Holz &amp; Raum GmbH<br />
+    <img src="http://www.demmelhuber.net/logo.jpg" alt="Demmelhuber" width="327" height="60" longdesc="http://www.demmelhuber.net/laden" /></p>
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+            <td width="33%"><span class="TextGrossGrauLinks">Am Gewerbegebiet 3<br />
+            09661 Hainichen/ OT Schlegel</span></td>
+            <td width="33%"><span class="TextGrossGrauLinks">Telefon: +49(0)37207.683-66<br />
+            Telefax: +49(0)37207.683-50</span></td>
+            <td width="33%"><span class="TextGrossGrauLinks"><a href="www.demmelhuber.net">Homepage: www.demmelhuber.net</a><a href="http://www.demmelhuber.net/laden"><br />
+            Online Shop: www.demmelhuber.net/laden</a></span></td>
+        </tr>
+    </table>
+    <p class="TextGrossGrauLinks"><span class="TextKleinGrauBlock"> Sitz der Gesellschaft: Demmelhuber Holz &amp; Raum GmbH, Am Gewerbegebiet 3, 09661 Hainichen/ OT Schlegel<br />
+    Geschäftsführer: Rüdiger Schmidt, Erfüllungsort und Gerichtsstand Hainichen, Registergericht: AG Chemnitz HRB 16407, Ust-ID: DE 812638837 </span></p>
+    <p class="TextGrossGrauLinks"><br />
+    </p>
+    </body>
+</html>

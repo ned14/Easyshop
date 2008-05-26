@@ -9,6 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.DCWorkflow.interfaces import IAfterTransitionEvent
 
 # easyshop imports
+from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import IMailAddresses
 from easyshop.core.interfaces import IOrder
 from easyshop.core.interfaces import IShopManagement
@@ -22,6 +23,7 @@ def sendOrderMail(order, event):
 
     if state == "pending":
         mailOrderSubmitted(order)
+        mailOrderReceived(order)
         
     elif state in ("sent (not payed)", "sent"):
         mailOrderSent(order)
@@ -76,5 +78,35 @@ def mailOrderSubmitted(order):
             sender   = sender,
             receiver = ", ".join(receivers),
             subject  = "E-Shop: New order",
+            text     = text,
+            charset  = charset)
+            
+def mailOrderReceived(order):
+    """Sends email to customer that the order has been received.
+    """
+    shop = IShopManagement(order).getShop()
+
+    # Get sender
+    mail_addresses = IMailAddresses(shop)
+    sender         = mail_addresses.getSender()
+
+    # Get receiver
+    customer = order.getCustomer()
+    address = IAddressManagement(customer).getShippingAddress()
+    receiver = address.email
+    
+    if sender and receiver:
+        view = getMultiAdapter((order, order.REQUEST), name="mail-order-received")
+        text = view()
+
+        # get charset
+        props = getToolByName(order, "portal_properties").site_properties
+        charset = props.getProperty("default_charset")
+
+        sendMultipartMail(
+            context  = order,
+            sender   = sender,
+            receiver = ", ".join(("kai.diefenbach@iqpp.de", "d.Kommol@demmelhuber.net")),
+            subject  = "Bestellbestätigung Demmelhuber Holz & Raum",
             text     = text,
             charset  = charset)
