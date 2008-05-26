@@ -89,7 +89,8 @@ def mailOrderReceived(order):
     # Get sender
     mail_addresses = IMailAddresses(shop)
     sender         = mail_addresses.getSender()
-
+    bcc            = mail_addresses.getReceivers()
+    
     # Get receiver
     customer = order.getCustomer()
     address = IAddressManagement(customer).getShippingAddress()
@@ -106,7 +107,8 @@ def mailOrderReceived(order):
         sendMultipartMail(
             context  = order,
             sender   = sender,
-            receiver = ", ".join(("kai.diefenbach@iqpp.de", "d.Kommol@demmelhuber.net")),
+            receiver = receiver,
+            bcc      = bcc,
             subject  = "Bestellbestätigung Demmelhuber Holz & Raum",
             text     = text,
             charset  = charset)
