@@ -270,7 +270,7 @@ a:active { text-decoration:underline; color:#666666;}
         </tal:block>
         <tr tal:define="payment view/getPaymentValues"
             tal:condition="payment/display">
-            <td class="TextGrossGrauLinks" tal:content="payment/title">Nachnahmebehühr</td>
+            <td class="TextGrossGrauLinks" tal:content="payment/title" i18n:translate="">Nachnahmebehühr</td>
             <td class="TextGrossGrauLinks">&nbsp;</td>
             <td class="TextGrossGrauLinks"><div align="right" tal:content="payment/price_gross">€ 17,95</div></td>
             <td class="TextGrossGrauLinks"><div align="right" >1,0</div></td>
