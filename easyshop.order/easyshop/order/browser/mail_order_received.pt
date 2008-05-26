@@ -127,7 +127,7 @@ a:active { text-decoration:underline; color:#666666;}
     
     <p class="TextGrossGrauLinks">
         Sehr geehrte/r 
-        <tal:block tal:condition="view/getCustomerFullname">Dirk Kommol</tal:block>,<br />
+        <tal:block tal:content="view/getCustomerFullname">Dirk Kommol</tal:block>,<br />
         <br />
         vielen Dank für Ihre Bestellung bei www.demmelhuber.net. Hiermit erhalten Sie Ihre Bestellbestätigung:
     </p>
