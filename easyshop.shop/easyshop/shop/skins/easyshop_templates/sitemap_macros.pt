@@ -16,19 +16,22 @@
                   </span>             
               </a>
             </div>  
-          </li>
-          <ul>
-              <li tal:attributes="class string:navTree navTreeLevel$level"
-                  tal:repeat="product category/products">
-                  <a href="."
-                     tal:attributes="href product/url;
-                                     title product/title"
-                     tal:content="product/title">
-                     Product Title
-                  </a>   
-              </li>
-          </ul>
-          <div metal:use-macro="context/sitemap_macros/macros/subcategories" />
+
+            <ul tal:define="products category/products"
+                tal:condition="products">
+  
+                <li tal:attributes="class string:navTree navTreeLevel$level"
+                    tal:repeat="product products">
+                    <a href="."
+                       tal:attributes="href product/url;
+                                       title product/title"
+                       tal:content="product/title">
+                       Product Title
+                    </a>   
+                </li>
+            </ul>
+            <div metal:use-macro="context/sitemap_macros/macros/subcategories" />
+            </li>          
         </ul>
     </tal:subcategories>                        
   

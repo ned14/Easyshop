@@ -54,8 +54,9 @@
                                 </span>
                             </a>
                           </div>
-                          <ul>
-                              <li tal:repeat="product category/products">
+                          <ul tal:define="products category/products"
+                              tal:condition="products">
+                              <li tal:repeat="product products">
                                   <a href="."
                                      tal:attributes="href product/url"
                                      tal:content="product/title">
@@ -70,13 +71,11 @@
                 </li>
             </ul>    
         </li>    
+        <tal:block tal:define="view context/@@sitemap_view;">
+            <tal:sitemap replace="structure view/createSiteMap" />
+        </tal:block>
     </ul>
     
-    <ul id="portal-sitemap"
-        class="navTreeLevel0 visualNoMarker"
-        tal:define="view context/@@sitemap_view;">
-        <tal:sitemap replace="structure view/createSiteMap" />
-    </ul>
         
 </metal:main>
 </body>
