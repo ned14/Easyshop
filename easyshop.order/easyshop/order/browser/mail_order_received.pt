@@ -252,7 +252,19 @@ a:active { text-decoration:underline; color:#666666;}
         </tr>
         <tal:block tal:repeat="item view/getItems">
             <tr>
-                <td class="TextGrossGrauLinks" tal:content="item/product_title">Spielturm Jungle Gym FARM - Kletterturm mit Rutsche</td>
+                <td class="TextGrossGrauLinks">
+                    <div tal:content="item/product_title">
+                        A Product
+                    </div>
+                    <div tal:condition="item/has_discount">
+                        <tal:block i18n:translate="discount_label">
+                            Discount
+                        </tal:block>                        
+                        (<tal:block tal:content="item/discount_description">
+                            Discount Description</tal:block>)
+                    </div>    
+                    
+                </td>
                 <td class="TextGrossGrauLinks">
                     <div tal:repeat="property item/properties">
                         <span tal:content="property/title">
@@ -265,7 +277,15 @@ a:active { text-decoration:underline; color:#666666;}
                 </td>
                 <td class="TextGrossGrauLinks"><div align="right" tal:content="item/product_price_gross">€ 629,00</div></td>
                 <td class="TextGrossGrauLinks"><div align="right" tal:content="item/product_quantity">1,0</div></td>
-                <td class="TextGrossGrauLinks"><div align="right" tal:content="item/price_gross">€ 629,00</div></td>
+                <td class="TextGrossGrauLinks"><div align="right">
+                    <div tal:content="item/price_gross">
+                        42.0
+                    </div>
+                    <div tal:condition="item/has_discount"
+                         tal:content="item/discount">
+                        -23.0
+                    </div>
+                </td>
             </tr>        
         </tal:block>
         <tr tal:define="payment view/getPaymentValues"
