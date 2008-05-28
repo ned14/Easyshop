@@ -43,7 +43,7 @@ class EasyShopImage(ATImage):
         file.seek(0)
         self.setImage(file)
         
-    def setImage(self, data):
+    def setImage(self, data, **kwargs):
         """
         """
         if data and data != "DELETE_IMAGE":
