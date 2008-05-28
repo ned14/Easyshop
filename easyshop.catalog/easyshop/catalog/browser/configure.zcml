@@ -98,10 +98,10 @@
         permission="zope2.Public" />  
 
     <browser:page
-        name="es-sitemap"
+        name="sitemap"
         for="*" 
-        template="es_sitemap.pt"
-        class=".es_sitemap.SitemapView"
+        template="sitemap.pt"
+        class=".sitemap.SitemapView"
         permission="zope2.Public" />
 
     

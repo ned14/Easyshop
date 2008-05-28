@@ -11,7 +11,6 @@ from Products.Five.browser import BrowserView
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IProductManagement
-from easyshop.core.interfaces import IShopManagement
 
 class SitemapView(BrowserView):
     """
@@ -44,8 +43,13 @@ class SitemapView(BrowserView):
     def getShopUrl(self):
         """
         """
-        shop = self._getShop()
-        return shop.absolute_url()
+        utool = getToolByName(self.context, "portal_url")
+        portal = utool.getPortalObject()
+
+        props = getToolByName(self.context, "portal_properties").site_properties
+        shop_path = props.easyshop_path
+        
+        return portal.absolute_url() + shop_path
         
     def _getSubCategories(self, category):
         """
@@ -120,4 +124,12 @@ class SitemapView(BrowserView):
     def _getShop(self):
         """
         """
-        return IShopManagement(self.context).getShop()
+        props = getToolByName(self.context, "portal_properties").site_properties
+        shop_path = props.easyshop_path
+        
+        utool = getToolByName(self.context, "portal_url")
+        portal = utool.getPortalObject()
+        
+        shop = portal.restrictedTraverse(shop_path)
+        
+        return shop

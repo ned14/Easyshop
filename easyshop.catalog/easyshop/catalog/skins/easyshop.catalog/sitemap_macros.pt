@@ -3,15 +3,14 @@
 
     <tal:subcategories tal:repeat="category category/subcategories">
                        
-        <ul class="portletNavigationTree"
-            tal:attributes="class string:portletNavigationTree navTreeLevel$level">
+        <ul class="navTree"
+            tal:attributes="class string:navTree navTreeLevel$level">
           <li class="navTreeItem visualNoMarker">
             <div class="visualIcon contenttype-easyshopcategory">
               <a href="#"
                  class="visualIconPadding"
                  tal:attributes="href category/url;
-                                 title category/description;
-                                 class category/klass">
+                                 title category/description;">
                   <span tal:replace="category/title">
                     A Category
                   </span>             
@@ -19,9 +18,11 @@
             </div>  
           </li>
           <ul>
-              <li tal:repeat="product category/products">
+              <li tal:attributes="class string:navTree navTreeLevel$level"
+                  tal:repeat="product category/products">
                   <a href="."
-                     tal:attributes="href product/url"
+                     tal:attributes="href product/url;
+                                     title product/title"
                      tal:content="product/title">
                      Product Title
                   </a>   
