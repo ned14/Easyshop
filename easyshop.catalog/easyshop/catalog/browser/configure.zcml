@@ -97,5 +97,12 @@
         allowed_interface=".easyshop_macros.INavigationMacroView"
         permission="zope2.Public" />  
 
+    <browser:page
+        name="es-sitemap"
+        for="*" 
+        template="es_sitemap.pt"
+        class=".es_sitemap.SitemapView"
+        permission="zope2.Public" />
+
     
 </configure>
