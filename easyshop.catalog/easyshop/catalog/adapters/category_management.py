@@ -98,14 +98,13 @@ class ShopCategoryManagement(object):
         """
         """
         self.context = context
-        self.categories = context.categories
 
     def getCategories(self):
         """Returns brains.
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            path = "/".join(self.categories.getPhysicalPath()),
+            path = "/".join(self.context.getPhysicalPath()),
             object_provides="easyshop.core.interfaces.catalog.ICategory",
             sort_on = "getObjPositionInParent")
 
@@ -117,8 +116,8 @@ class ShopCategoryManagement(object):
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog(
             object_provides="easyshop.core.interfaces.catalog.ICategory",
-            path = {"query" : "/".join(self.categories.getPhysicalPath()),
-                    "depth" : 1},
+            path = {"query" : "/".join(self.context.getPhysicalPath()),
+                    "depth" : 2},
             sort_on = "getObjPositionInParent")
 
         return brains

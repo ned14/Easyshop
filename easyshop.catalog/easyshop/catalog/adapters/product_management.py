@@ -113,7 +113,7 @@ class ShopProductManagement(object):
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
             portal_type = "Product",
-            path = "/".join(self.context.products.getPhysicalPath()),
+            path = "/".join(self.context.getPhysicalPath()),
             sort_on = "sortable_title",
         )
 
