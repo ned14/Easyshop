@@ -78,7 +78,7 @@ class Renderer(base.Renderer):
         for product in products:
             
             mtool = getToolByName(self.context, "portal_membership")
-            if mtool.checkPermission("View", self.context) == True:
+            if mtool.checkPermission("View", product) == True:
                 
                 # Image
                 image = IImageManagement(product).getMainImage()
