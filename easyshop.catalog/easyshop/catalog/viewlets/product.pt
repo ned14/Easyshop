@@ -6,7 +6,9 @@
           tal:define="product_data view/getProductData;
                       zoom_url string:${product_data/url}/product-zoom-view;
                       navigationMacroView context/@@navigationMacroView;
-                      product_urls navigationMacroView/getProductURLs;"
+                      product_urls navigationMacroView/getProductURLs;
+                      standard_price_for_customer view/getStandardPriceForCustomer;
+                      price_for_customer view/getPriceForCustomer"
           tal:attributes="action context/absolute_url"
           method="post">
                   
@@ -127,7 +129,25 @@
                                        title="Add to Cart"
                                        i18n:attributes="title add_to_cart_label;
                                                         value add_to_cart_label;" />
-                                                            
+                                                        
+                                <tal:block tal:condition="context/forSale">
+                                    <span class="product-price"
+                                          style="text-decoration:line-through;"
+                                          tal:content="standard_price_for_customer">
+                                        42.00
+                                    </span>
+                                    <span class="product-price"
+                                          tal:content="price_for_customer">
+                                        42.00
+                                    </span>
+                                </tal:block>                        
+                                <tal:block tal:condition="not:context/forSale">
+                                    <span class="product-price"
+                                          tal:content="price_for_customer">
+                                        42.00
+                                    </span>                                    
+                                </tal:block>                                
+                                                                                                                    
                             </td>                                                     
                         </tr>
                     </table>
@@ -260,17 +280,17 @@
                                 <tal:block tal:condition="context/forSale">
                                     <span class="product-price"
                                           style="text-decoration:line-through;"
-                                          tal:content="view/getStandardPriceForCustomer">
+                                          tal:content="standard_price_for_customer">
                                         42.00
                                     </span>
                                     <span class="product-price"
-                                          tal:content="view/getPriceForCustomer">
+                                          tal:content="price_for_customer">
                                         42.00
                                     </span>
                                 </tal:block>                        
                                 <tal:block tal:condition="not:context/forSale">
                                     <span class="product-price"
-                                          tal:content="view/getPriceForCustomer">
+                                          tal:content="price_for_customer">
                                         42.00
                                     </span>                                    
                                 </tal:block>                                
