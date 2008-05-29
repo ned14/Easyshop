@@ -1,13 +1,21 @@
+# zope imports
 from zope import schema
 from zope.formlib import form
 from zope.interface import implements
 
+# plone imports
 from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 
+# Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+# CMFPlone imports
 from Products.CMFPlone import PloneMessageFactory as _
+
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
 from easyshop.core.interfaces import ICurrencyManagement
@@ -69,21 +77,24 @@ class Renderer(base.Renderer):
         result = []
         for product in products:
             
-            # Image
-            image = IImageManagement(product).getMainImage()
-            image_url = image.absolute_url() + "/image_thumb"
+            mtool = getToolByName(self.context, "portal_membership")
+            if mtool.checkPermission("View", self.context) == True:
+                
+                # Image
+                image = IImageManagement(product).getMainImage()
+                image_url = image.absolute_url() + "/image_thumb"
             
-            # Price
-            price = IPrices(product).getPriceGross()
-            cm = ICurrencyManagement(product)
-            price = cm.priceToString(price)
+                # Price
+                price = IPrices(product).getPriceGross()
+                cm = ICurrencyManagement(product)
+                price = cm.priceToString(price)
                         
-            result.append({
-                "title"     : product.Title(),
-                "url"       : product.absolute_url(),
-                "image_url" : image_url,
-                "price"     : price,
-            })
+                result.append({
+                    "title"     : product.Title(),
+                    "url"       : product.absolute_url(),
+                    "image_url" : image_url,
+                    "price"     : price,
+                })
             
         return result
         
