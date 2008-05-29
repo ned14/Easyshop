@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/simple_main_template/macros/master"
+      i18n:domain="rating">
+    <body>
+
+        <metal:main fill-slot="main">
+
+            <h1 class="documentFirstHeading"
+                i18n:translate="thank_you_label">
+                Thank You
+            </h1>
+            
+            <p>
+                Vielen Dank für Ihre Bewertung!
+            </p>
+            
+            <p>
+                Wir werden diese in Kürze freischalten
+            </p>
+
+        </metal:main>    
+    </body>
+</html>

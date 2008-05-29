@@ -1,0 +1,28 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+    <include 
+        package="iqpp.plone.rating"
+        file="permissions.zcml" />
+        
+    <browser:page
+        name="add-rating-form"
+        for="iqpp.plone.rating.interfaces.IRateable"
+        class="easyshop.shop.browser.rating.rating_add_form.RatingAddForm"
+        permission="iqpp.plone.rating.view" />
+
+    <browser:page
+        name="preview-rating"
+        for="iqpp.plone.rating.interfaces.IRateable"
+        class="iqpp.plone.rating.browser.preview.PreviewRatingView"
+        template="preview.pt"
+        permission="iqpp.plone.rating.view" />
+
+    <browser:page
+        name="rating-thank-you"
+        for="iqpp.plone.rating.interfaces.IRateable"
+        template="rating_thank_you.pt"
+        permission="iqpp.plone.rating.view" />
+
+</configure>
