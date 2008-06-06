@@ -31,9 +31,9 @@
 
     <browser:page
         for="*"
-        name="test-mail"
+        name="setPrices"
         class=".test_environment.TestEnvironmentView"
-        attribute="testMail"
+        attribute="setPrices"
         permission="cmf.ManagePortal" />
 
 
