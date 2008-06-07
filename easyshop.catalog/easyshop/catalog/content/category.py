@@ -5,6 +5,9 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
 # ATContentTypes imports
 from Products.ATContentTypes.content.folder import ATFolder
 
@@ -121,6 +124,18 @@ class Category(ATFolder):
         """
         """
         shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/products"
-
+        shop_path = "/".join(shop.getPhysicalPath())
+        
+        catalog = getToolByName(self, "portal_catalog")
+        brains = catalog.searchResults(
+            path = shop_path,
+            object_provides = "easyshop.core.interfaces.catalog.IProductsContainer"
+        )
+        
+        if len(brains) > 0:
+            products_folder = brains[0]
+            return products_folder.getPath()
+        else:
+            return shop_path
+            
 registerType(Category, PROJECTNAME)

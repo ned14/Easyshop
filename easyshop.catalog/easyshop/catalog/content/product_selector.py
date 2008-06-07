@@ -4,6 +4,9 @@ from AccessControl import ClassSecurityInfo
 # zope imports
 from zope.interface import implements
 
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
 # Archetypes imports
 from Products.Archetypes.atapi import *
 
@@ -13,8 +16,6 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 # easyshop imports
 from easyshop.core.config import *
 from easyshop.core.interfaces import IProductSelector
-from easyshop.core.interfaces import ICategoryManagement
-from easyshop.core.interfaces import IProductManagement
 from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
@@ -73,6 +74,18 @@ class ProductSelector(BaseContent):
         """
         """
         shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/products"
+        shop_path = "/".join(shop.getPhysicalPath())
+        
+        catalog = getToolByName(self, "portal_catalog")
+        brains = catalog.searchResults(
+            path = shop_path,
+            object_provides = "easyshop.core.interfaces.catalog.IProductsContainer"
+        )
+        
+        if len(brains) > 0:
+            products_folder = brains[0]
+            return products_folder.getPath()
+        else:
+            return shop_path
             
 registerType(ProductSelector, PROJECTNAME)
