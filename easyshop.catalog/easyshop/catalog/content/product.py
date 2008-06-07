@@ -5,6 +5,9 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.folder import ATFolder
 
+# CMFCore imports
+from Products.CMFCore.utils import getToolByName
+
 # ATBackRef imports
 from Products.ATBackRef.BackReferenceField import *
 
@@ -294,19 +297,55 @@ class Product(ATFolder):
         """
         """
         shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/products"
+        shop_path = "/".join(shop.getPhysicalPath())
+        
+        catalog = getToolByName(self, "portal_catalog")
+        brains = catalog.searchResults(
+            path = shop_path,
+            object_provides = "easyshop.core.interfaces.catalog.IProductsContainer"
+        )
+        
+        if len(brains) > 0:
+            products_folder = brains[0]
+            return products_folder.getPath()
+        else:
+            return shop_path
         
     def getStartupDirectoryForCategories(self):
         """
         """
         shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/categories"
+        shop_path = "/".join(shop.getPhysicalPath())
+        
+        catalog = getToolByName(self, "portal_catalog")
+        brains = catalog.searchResults(
+            path = shop_path,
+            object_provides = "easyshop.core.interfaces.catalog.ICategoriesContainer"
+        )
+        
+        if len(brains) > 0:
+            products_folder = brains[0]
+            return products_folder.getPath()
+        else:
+            return shop_path
         
     def getStartupDirectoryForGroups(self):
         """
         """
         shop = IShopManagement(self).getShop()
-        return "/".join(shop.getPhysicalPath()) + "/groups"
+        shop_path = "/".join(shop.getPhysicalPath())
+        
+        catalog = getToolByName(self, "portal_catalog")
+        brains = catalog.searchResults(
+            path = shop_path,
+            object_provides = "easyshop.core.interfaces.catalog.IGroupsContainer"
+        )
+        
+        if len(brains) > 0:
+            products_folder = brains[0]
+            return products_folder.getPath()
+        else:
+            return shop_path
 
     def setCategories(self, value):
         """
