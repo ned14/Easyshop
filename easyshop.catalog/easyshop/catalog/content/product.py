@@ -338,7 +338,7 @@ class Product(ATFolder):
         catalog = getToolByName(self, "portal_catalog")
         brains = catalog.searchResults(
             path = shop_path,
-            object_provides = "easyshop.core.interfaces.catalog.IGroupsContainer"
+            object_provides = "easyshop.core.interfaces.groups.IGroupsContainer"
         )
         
         if len(brains) > 0:
