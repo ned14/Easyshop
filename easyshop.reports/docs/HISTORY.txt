@@ -1,0 +1,9 @@
+Changelog for easyshop.reports
+
+    (name of developer listed in brackets)
+
+easyshop.reports - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
