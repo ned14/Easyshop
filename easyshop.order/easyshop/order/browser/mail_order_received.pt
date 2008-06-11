@@ -330,7 +330,7 @@ a:active { text-decoration:underline; color:#666666;}
     </table>
     
     <p class="RahmenGrossGrau"
-        tal:content="payment_data/payment_method/getNote">
+        tal:content="structure view/getNote">
     </p>
     
     <p class="TextGrossGrauLinks">Für Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 

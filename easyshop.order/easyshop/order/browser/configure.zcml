@@ -11,9 +11,9 @@
     <!-- Order View -->
     <browser:page
         for="easyshop.core.interfaces.IOrder"
-        name="redo-payment"
+        name="pay"
         class=".order_view.OrderView"
-        attribute="redoPayment"
+        attribute="pay"
         permission="zope.Public" />
 
     <!-- TODO: get rid of this -->
@@ -49,7 +49,7 @@
     <browser:page
         for="easyshop.core.interfaces.IOrder"
         name="mail-order-received"
-        class=".order_view.OrderView"
+        class=".mail_order_received.MailOrderReceivedView"
         template="mail_order_received.pt"
         permission="zope.Public" />
 

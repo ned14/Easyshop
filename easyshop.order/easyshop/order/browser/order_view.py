@@ -73,12 +73,12 @@ class IOrderView(Interface):
         """Returns the workflow state of the order.
         """
 
-    def isRedoPaymentAllowed():
+    def isPaymentAllowed():
         """Returns True if the redo of a payment is allowed.
         """
             
-    def redoPayment():
-        """Does the payment process again.
+    def pay():
+        """Does the payment process.
 
         This is used for payment with paypal, at the moment, when the customer
         knows that something has gone wrong (broken connection, etc.) for the 
@@ -284,7 +284,7 @@ class OrderView(BrowserView):
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(self.context.getTax())
         
-    def isRedoPaymentAllowed(self):
+    def isPaymentAllowed(self):
         """
         """
         pm = IPaymentInformationManagement(self.context.getCustomer())
@@ -301,10 +301,10 @@ class OrderView(BrowserView):
 
         return True
 
-    def redoPayment(self):
+    def pay(self):
         """
         """
         # ATM only PayPal is allowed, so I haven't to differ and no redirect
         # is needed as the paypal process redirects to paypal.com
-        if self.isRedoPaymentAllowed():
+        if self.isPaymentAllowed():
             IPaymentProcessing(self.context).process()

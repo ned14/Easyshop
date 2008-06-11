@@ -247,9 +247,10 @@
                         </tal:block>
                         
                         <tal:block tal:condition="python:payment_portal_type == 'PayPalPaymentMethod'">
-                        <div i18n:translate="paypal_label">
-                            PayPal
-                        </div>
+                            <div i18n:translate="paypal_label">
+                                PayPal
+                            </div>
+                           
                         </tal:block>
                         
                         <tal:block tal:condition="python:payment_portal_type == 'GenericPaymentMethod'">
