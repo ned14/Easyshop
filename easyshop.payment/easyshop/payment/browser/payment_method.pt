@@ -28,7 +28,7 @@
             </div>
 
             <div style="padding-bottom:20px"
-                 tal:content="context/getNote">
+                 tal:content="structure context/getNote">
                 Note goes here
             </div>    
                         
