@@ -1457,7 +1457,7 @@ msgstr "Text"
 #. Default: "Your order has been successfully completed. You will get a confirmation e-mail very soon."
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:15
 msgid "thank_you_description_1"
-msgstr "Ihre Bestellung wurde erfolgreich übertragen."
+msgstr "Ihre Bestellung wurde erfolgreich übertragen. Sie erhalten in Kürze eine Bestellbestätigung per E-Mail."
 
 #. Default: "We have accepted you order with number"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:25
