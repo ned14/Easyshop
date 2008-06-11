@@ -153,7 +153,7 @@ a.terms-and-conditions {
     margin: 10px 0;
 }
 
-.checkout-recommendation {
+#checkout-recommendation {
     background-color: &dtml-globalBackgroundColor;;
     border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
     padding: 10px; 
