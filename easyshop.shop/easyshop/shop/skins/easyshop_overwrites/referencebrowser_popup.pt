@@ -184,7 +184,7 @@
                 <span i18n:translate="referencebrowser_heading_search_results">Search results</span>
             </div>
             <!-- breadcrums -->
-<!-- 
+
                <div style="border-top:1px solid black;border-bottom:1px solid black;"
                      tal:attributes="style string:border-top:1px solid ${border_color};;
                                            border-bottom:1px solid ${border_color};;
@@ -193,7 +193,7 @@
                      tal:define=    "portal here/portal_url/getPortalObject;
                                      putils nocall:portal/plone_utils;
                                      crumbs python:putils.createBreadCrumbs(here);
-                                     crumbs python: test(True, context.referencebrowser_filterBreadCrumbs(crumbs, widget.startup_directory), crumbs); 
+                                     crumbs python: test(True, context.referencebrowser_filterBreadCrumbs(crumbs, '/'), crumbs); 
                                      isRTL python:portal.restrictedTraverse('@@plone_portal_state').is_rtl();
                                      parents request/PARENTS;
                                      nil python: parents.reverse();">
@@ -230,7 +230,6 @@
              
 
             </div>
--->
         
            <!-- object list -->
            <tal:noresults tal:condition="python:(search_text!='' or not allow_browse) and query_results==[]">
