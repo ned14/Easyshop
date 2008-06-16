@@ -82,7 +82,7 @@
                     </tr>
                 </table>
                 <hr />
-                <table class="cart shop-default">
+                <table class="cart shop-default" style="width:98%">
                     <thead>
                         <tr>
                             <th class="text"

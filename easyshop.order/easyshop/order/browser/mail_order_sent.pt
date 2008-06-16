@@ -218,12 +218,12 @@
                                 Payment Method
                             </span>
 
-                                <input tal:condition="view/isRedoPaymentAllowed" class="context" 
+                                <!-- <input tal:condition="view/isRedoPaymentAllowed" class="context" 
                                        type="button"
                                        name="redo_payment"
                                        value="Redo payment" 
                                        i18n:attributes="value redo_label;"
-                                       tal:attributes="onclick string:location.href='${context/absolute_url}/redo-payment'" />
+                                       tal:attributes="onclick string:location.href='${context/absolute_url}/redo-payment'" /> -->
 
                                   <!-- <tal:block tal:define="easyhelp context/@@easyhelp"
                                              tal:content="structure python:easyhelp.getHTMLForUID('6d995b53e583386971f6ad6c7073016b')" /> -->
@@ -247,8 +247,7 @@
                         </tal:block>
                         
                         <tal:block tal:condition="python:payment_portal_type == 'PayPalPaymentMethod'">
-                        <div>
-                             i18n:translate="paypal_label">
+                        <div i18n:translate="paypal_label">
                             PayPal
                         </div>
                         </tal:block>
