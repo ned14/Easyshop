@@ -1,6 +1,9 @@
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
+# CMFPlone imports
+from Products.CMFPlone.utils import safe_unicode
+
 # email imports
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
@@ -59,6 +62,7 @@ def sendNonMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", t
     mail['Bcc']     = ", ".join(bcc)
     mail['Subject'] = subject
 
+    text = text.encode("utf-8")
     mail.set_payload(text)
-
+    
     context.MailHost.send(mail.as_string())
