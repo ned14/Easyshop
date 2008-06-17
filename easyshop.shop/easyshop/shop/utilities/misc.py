@@ -4,6 +4,7 @@ from Products.CMFCore.utils import getToolByName
 # email imports
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
+from email.MIMENonMultipart import MIMENonMultipart
 
 # TODO: Move this to a local utility
 def getObjectByUID(context, uid):
@@ -47,3 +48,17 @@ def sendMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", text
     #     # catch and do nothing, so that the user doesn't notice an error
     #     pass
         
+def sendNonMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", text="", charset="utf-8"):
+    """
+    """
+    mail = MIMENonMultipart("text", "plain")
+
+    mail['From']    = sender
+    mail['To']      = receiver
+    mail['Cc']      = ", ".join(cc)
+    mail['Bcc']     = ", ".join(bcc)
+    mail['Subject'] = subject
+
+    mail.set_payload(text)
+
+    context.MailHost.send(mail.as_string())
