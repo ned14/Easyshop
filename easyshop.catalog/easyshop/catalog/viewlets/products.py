@@ -243,8 +243,8 @@ class ProductsViewlet(ViewletBase):
         pm = IProductManagement(self.context)
         products = pm.getAllProducts(sorted_on=sorted_on,
                                      sort_order = sort_order)
-
-        # Get start page                             
+        
+        # Get start page
         b_start  = self.request.get('b_start', 0);
 
         # Calculate Batch

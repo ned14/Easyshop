@@ -45,7 +45,7 @@ class CategoryProductManagement(object):
         
         cm = ICategoryManagement(self.context)
         for category in cm.getCategories():
-            pm = IProductManagement(category.getObject())
+            pm = IProductManagement(category)
             products.extend(pm.getProducts())
             
         if sorted_on == "name":

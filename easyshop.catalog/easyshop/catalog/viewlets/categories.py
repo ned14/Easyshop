@@ -29,8 +29,6 @@ class CategoriesViewlet(ViewletBase):
         lines = []
         for i, category in enumerate(cm.getTopLevelCategories()):
 
-            category = category.getObject()
-
             # Image
             if len(category.getImage()) != 0:
                 image_url = "%s/image_%s" % \

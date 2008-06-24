@@ -178,7 +178,7 @@ class EasyShop(ATFolder):
     implements(IShop)
     _at_rename_after_creation = True
     schema = schema
-
+    
     def at_post_create_script(self):
         """Overwritten to create some objects.
         """

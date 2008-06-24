@@ -8,9 +8,6 @@ from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.memoize.instance import memoize
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
-
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -20,6 +17,7 @@ from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IShop
 
 class ICategoriesPortlet(IPortletDataProvider):
     """
@@ -77,7 +75,6 @@ class Renderer(base.Renderer):
 
             result = []
             for category in categories:
-                
                 show_subtree = self._showSubTree(category)
                 if show_subtree == True:
                     sub_categories = self._getSubCategories(category)
@@ -86,18 +83,18 @@ class Renderer(base.Renderer):
 
                 klass = "visualIconPadding"
                                                 
-                if category.amount_of_categories > 0:
-                    klass += " hasCategories"  
+                # if category.amount_of_categories > 0:
+                #     klass += " hasCategories"
 
-                if self._isCurrentItem(category) == True:
+                if show_subtree == True:
                     klass += " navTreeCurrentItem"
                         
                 result.append({
                     "klass"                : klass,
-                    "url"                  : category.getURL,
-                    "description"          : category.Description,
-                    "title"                : category.Title,
-                    "amount_of_products"   : category.total_amount_of_products,
+                    "url"                  : category.absolute_url(),
+                    "description"          : category.Description(),
+                    "title"                : category.Title(),
+                    "amount_of_products"   : 1,
                     "subcategories"        : sub_categories,
                     "show_subtree"         : show_subtree,
                 })
@@ -135,14 +132,19 @@ class Renderer(base.Renderer):
         """
         if self.data.expand_all == True:
             return True
+        
+        if self.context == category:
+            return True
+            
+        # Check if the passed category is ancestor of context
+        if ICategory.providedBy(self.context) == True:
+            obj = category
+            while IShop.providedBy(obj) == False:
+                if self.context in category.getRefs("categories_categories"):
+                    return True
+                obj = obj.aq_inner.aq_parent
 
-        context_url  = self.context.absolute_url()
-        category_url = category.getURL()
-
-        if context_url.startswith(category_url) == True:
-            return True  
-                  
-        elif IProduct.providedBy(self.context) == True:
+        if IProduct.providedBy(self.context) == True:
             cm = ICategoryManagement(self.context)
             try:
                 product_category = cm.getTopLevelCategories()[0]
@@ -161,15 +163,10 @@ class Renderer(base.Renderer):
         """
         result = []
     
-        # Use catalog search directly here for speed reasons. Using 
-        # ICategoryManagement() would force me to get the object out of the brain.
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog(portal_type="Category",
-                         path = {"query" : category.getPath(),
-                                 "depth" : 1},
-                         sort_on = "getObjPositionInParent")
-
-        for category in brains:
+        cm = ICategoryManagement(category)
+        categories = cm.getTopLevelCategories()
+        
+        for category in categories:
 
             show_subtree = self._showSubTree(category)
             if show_subtree == True:
@@ -179,52 +176,37 @@ class Renderer(base.Renderer):
 
             klass = "visualIconPadding"
                                             
-            if category.amount_of_categories > 0:
-                klass += " hasCategories"  
+            # if category.amount_of_categories > 0:
+            #     klass += " hasCategories"  
 
-            if self._isCurrentItem(category) == True:
+            if show_subtree == True:
                 klass += " navTreeCurrentItem"
                     
             result.append({
                 "klass"                : klass,
-                "url"                  : category.getURL,
-                "description"          : category.Description,
-                "title"                : category.Title,
-                "amount_of_products"   : category.total_amount_of_products,
+                "url"                  : category.absolute_url(),
+                "description"          : category.Description(),
+                "title"                : category.Title(),
+                "amount_of_products"   : 1,
                 "subcategories"        : sub_categories,
                 "show_subtree"         : show_subtree,
             })
 
         return result 
 
-    # def _isCurrentItem(self, category):
-    #     """Only the selected category is current category
-    #     """
-    #     context_url  = self.context.absolute_url()
-    #     category_url = category.getURL()
-    # 
-    #     if context_url == category_url:
-    #         return True
-    #     elif self.context.portal_type == "Product":
-    #         try:
-    #             product_category = self.context.getBRefs("categories_products")[0]
-    #         except IndexError:
-    #             return False
-    #     
-    #         # UID doesn't work here. Don't know why yet.
-    #         if category.getPath() == "/".join(product_category.getPhysicalPath()):
-    #             return True
-    #         
-    #     return False
-    
     def _isCurrentItem(self, category):
         """Selected category and parent are current categories.
         """
-        context_url  = self.context.absolute_url()
-        category_url = category.getURL()
-    
-        if context_url.startswith(category_url):
+        if self.context == category:
             return True
+            
+        # Check if the passed category is ancestor of context
+        if ICategory.providedBy(self.context) == True:
+            obj = category
+            while IShop.providedBy(obj) == False:
+                if self.context in category.getRefs("categories_categories"):
+                    return True
+                obj = obj.aq_inner.aq_parent
             
         elif IProduct.providedBy(self.context):
             try:

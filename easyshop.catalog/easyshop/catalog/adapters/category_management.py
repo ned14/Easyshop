@@ -25,33 +25,29 @@ class CategoryCategoryManagement(object):
         """
         """
         self.context = context
-
+        
+        
     def getCategories(self):
         """
         """
-        query = Eq("object_provides", "easyshop.core.interfaces.catalog.ICategory") & \
-                Eq("path", "/".join(self.context.getPhysicalPath())) & \
-                ~ Eq("id", self.context.getId())
+        self.categories = []
         
+        for category in self.getTopLevelCategories():
+            self.categories.append(category)
+            self._getCategories(category)
         
-        catalog = getToolByName(self.context, "portal_catalog")
-        
-        brains = catalog.evalAdvancedQuery(
-                        query, ("getObjPositionInParent", ))
+        return self.categories
 
-        return brains
-                                  
-    def getTopLevelCategories(self):
-        """Returns brains.
+    def _getCategories(self, category):
         """
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            object_provides = "easyshop.core.interfaces.catalog.ICategory",            
-            path = {"query"       : "/".join(self.context.getPhysicalPath()),
-                    "depth"       : 1},
-            sort_on = "getObjPositionInParent")
-
-        return brains
+        """
+        for category in category.getRefs():
+            self._getCategories(category)
+        
+    def getTopLevelCategories(self):
+        """Returns objects.
+        """
+        return self.context.getRefs("categories_categories")
         
 class ProductCategoryManagement(object):
     """Adapter which provides ICategoryManagement for product content objects.
@@ -112,12 +108,10 @@ class ShopCategoryManagement(object):
     
     def getTopLevelCategories(self):
         """Return brains.
-        """ 
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog(
-            object_provides="easyshop.core.interfaces.catalog.ICategory",
-            path = {"query" : "/".join(self.context.getPhysicalPath()),
-                    "depth" : 2},
-            sort_on = "getObjPositionInParent")
-
-        return brains
+        """
+        result = []
+        for category in self.context.kategorien.objectValues("Category"):
+            if len(category.getBRefs("categories_categories")) == 0:
+                result.append(category)
+            
+        return result
