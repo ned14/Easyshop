@@ -46,13 +46,15 @@
                     <tr>
                        <td class="sub-title"
                            colspan="2">
-                           <a href="#"
-                              title="#"
-                              tal:content="category/title"
-                              tal:attributes="href category/url;
-                                              title category/title">
-                               Product Name
-                           </a>                                    
+                           <h1 class="shop-title">
+                               <a href="#"
+                                  title="#"
+                                  tal:content="category/title"
+                                  tal:attributes="href category/url;
+                                                  title category/title">
+                                   Product Name
+                               </a>
+                           </h1>   
                        </td> 
                     </tr>
                     <tr style="cursor:pointer"

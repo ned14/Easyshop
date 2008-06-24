@@ -94,9 +94,11 @@
 
                         <tr>
                             <td>
-                                <metal:field use-macro="python:here.widget('title', mode='view')">
-                                    Deep Thought    
-                                </metal:field>                                            
+                                <h1 class="shop-title">
+                                    <metal:field use-macro="python:here.widget('title', mode='view')">
+                                        Deep Thought    
+                                    </metal:field>
+                                </h1>
                             </td>
                         </tr>
                     </table>

@@ -53,13 +53,15 @@
                                     class product/class"
                     tal:repeat="product line">
                     <div class="sub-title">
-                        <a href="#"
-                           title="#"
-                           tal:content="product/title"
-                           tal:attributes="href product/url;
-                                            title product/title">
-                           Product Name
-                        </a>
+                        <h1 class="shop-title">
+                            <a href="#"
+                               title="#"
+                               tal:content="product/title"
+                               tal:attributes="href product/url;
+                                                title product/title">
+                               Product Name
+                            </a>
+                        </h1>    
                     </div>
                     <table class="product-content">
                         <tr style="cursor:pointer"
