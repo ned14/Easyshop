@@ -18,6 +18,15 @@
 
 /*Workaround to revert Plone's to overriding. See public.css line 990*/
 
+h1.shop-title {
+    font-size:100%;
+    padding:0;
+    margin:0;
+    text-decoration: none;
+    border:none;
+    font-weight:bold;
+}
+
 .portlet-category-tree .navTreeItem a {
     padding-left: 10px;
 }
