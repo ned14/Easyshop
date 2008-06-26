@@ -42,7 +42,8 @@ class CategoryCategoryManagement(object):
         mtool = getToolByName(self.context, "portal_membership")
 
         for category in category.getBRefs("parent_category"):
-            if mtool.checkPermission("View", self.context):
+
+            if mtool.checkPermission("View", category) != True:
                 continue
 
             self._getCategories(category)
@@ -51,9 +52,8 @@ class CategoryCategoryManagement(object):
         """Returns objects.
         """
         mtool = getToolByName(self.context, "portal_membership")
-            
         return [c for c in self.context.getBRefs("parent_category") 
-                           if mtool.checkPermission("View", c) != True]
+                           if mtool.checkPermission("View", c) == True]
 
         
 class ProductCategoryManagement(object):
@@ -86,6 +86,7 @@ class ProductCategoryManagement(object):
 
         result = []
         for category in categories:
+
             if mtool.checkPermission("View", category):
                 result.append(category)
         
@@ -120,7 +121,8 @@ class ShopCategoryManagement(object):
             
         result = []
         for category in self.context.objectValues("Category"):
-            if mtool.checkPermission("View", self.context):
+
+            if mtool.checkPermission("View", category) != True:
                 continue
 
             if len(category.getRefs("parent_category")) == 0:
