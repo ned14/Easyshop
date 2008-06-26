@@ -2,9 +2,6 @@
 from zope.interface import implements
 from zope.component import adapts
 
-# AdvancedQuery
-from Products.AdvancedQuery import Eq
- 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
@@ -33,6 +30,7 @@ class CategoryCategoryManagement(object):
         self.categories = []
         
         for category in self.getTopLevelCategories():
+            
             self.categories.append(category)
             self._getCategories(category)
         
@@ -41,13 +39,22 @@ class CategoryCategoryManagement(object):
     def _getCategories(self, category):
         """
         """
+        mtool = getToolByName(self.context, "portal_membership")
+
         for category in category.getBRefs("parent_category"):
+            if mtool.checkPermission("View", self.context):
+                continue
+
             self._getCategories(category)
         
     def getTopLevelCategories(self):
         """Returns objects.
         """
-        return self.context.getBRefs("parent_category")
+        mtool = getToolByName(self.context, "portal_membership")
+            
+        return [c for c in self.context.getBRefs("parent_category") 
+                           if mtool.checkPermission("View", c) != True]
+
         
 class ProductCategoryManagement(object):
     """Adapter which provides ICategoryManagement for product content objects.
@@ -109,8 +116,13 @@ class ShopCategoryManagement(object):
     def getTopLevelCategories(self):
         """Return brains.
         """
+        mtool = getToolByName(self.context, "portal_membership")
+            
         result = []
         for category in self.context.objectValues("Category"):
+            if mtool.checkPermission("View", self.context):
+                continue
+
             if len(category.getRefs("parent_category")) == 0:
                 result.append(category)
             
