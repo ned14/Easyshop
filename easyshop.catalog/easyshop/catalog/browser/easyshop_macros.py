@@ -60,7 +60,7 @@ class NavigationMacroView(BrowserView):
                 temp["first"] = "%s?sorting=%s" % (products[0].absolute_url(), sorting)
             try:
                 product = products[index+1]
-                temp["next"] = "%s?sorting=%s" % ("/shop/" + product.id, sorting)
+                temp["next"] = "%s?sorting=%s" % (product.absolute_url(), sorting)
                 temp["last"] = "%s?sorting=%s" % (products[-1].absolute_url(), sorting)
             except IndexError:
                 temp["next"] = None
