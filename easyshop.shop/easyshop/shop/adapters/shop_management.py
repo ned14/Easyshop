@@ -23,7 +23,7 @@ class ShopManagement:
         """
         object = self.context
         try:
-            while object.meta_type != "EasyShop":
+            while IShop.providedBy(object) == False:
                 if object.meta_type == "Plone Factory Tool":
                     object = object.aq_parent
                 else:
