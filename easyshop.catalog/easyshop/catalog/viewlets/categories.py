@@ -73,12 +73,15 @@ class CategoriesViewlet(ViewletBase):
     def getBackToOverViewUrl(self):
         """
         """
+        if IShop.providedBy(self.context):
+            return None
+        
         parent_category = self.context.getRefs("parent_category")
         if len(parent_category) > 0:
             return parent_category[0].absolute_url()
-        else:
-            shop = IShopManagement(self.context).getShop()
-            return shop.absolute_url()
+
+        shop = IShopManagement(self.context).getShop()
+        return shop.absolute_url()
         
     @memoize
     def getFormats(self):
