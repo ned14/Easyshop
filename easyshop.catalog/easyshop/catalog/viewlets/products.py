@@ -63,16 +63,14 @@ class ProductsViewlet(ViewletBase):
         # So there is no need of an extra method call within the page 
         # template to get informations we have here already. Same is true 
         # for format infos, see below
-                
-        parent = self.context.aq_inner.aq_parent
-        if ICategory.providedBy(parent):
-            parent_url = parent.absolute_url()
-        elif ICategoriesContainer.providedBy(parent):
+
+        parent_category = self.context.getRefs("parent_category")
+        if len(parent_category) > 0:
+            parent_url = parent_category[0].absolute_url()
+        else:
             shop = IShopManagement(self.context).getShop()
             parent_url = shop.absolute_url()
-        else:
-            parent_url = None
-        
+            
         batch_infos = {
             "parent_url"       : parent_url,
             "previous_url"     : self._getPreviousUrl(batch),

@@ -71,8 +71,9 @@ class Renderer(base.Renderer):
         if category is None:
             return []
         else:
-            categories = ICategoryManagement(category).getTopLevelCategories()
-
+            categories = ICategoryManagement(category).getTopLevelCategories()            
+            categories.sort(lambda a, b: cmp(a.getPositionInParent(), b.getPositionInParent()))
+            
             result = []
             for category in categories:
                 show_subtree = self._showSubTree(category)
@@ -140,7 +141,7 @@ class Renderer(base.Renderer):
         if ICategory.providedBy(self.context) == True:
             obj = category
             while IShop.providedBy(obj) == False:
-                if self.context in category.getRefs("categories_categories"):
+                if self.context in category.getBRefs("parent_category"):
                     return True
                 obj = obj.aq_inner.aq_parent
 
@@ -164,7 +165,8 @@ class Renderer(base.Renderer):
         result = []
     
         cm = ICategoryManagement(category)
-        categories = cm.getTopLevelCategories()
+        categories = cm.getTopLevelCategories()                    
+        categories.sort(lambda a, b: cmp(a.getPositionInParent(), b.getPositionInParent()))
         
         for category in categories:
 

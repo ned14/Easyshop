@@ -41,13 +41,13 @@ class CategoryCategoryManagement(object):
     def _getCategories(self, category):
         """
         """
-        for category in category.getRefs():
+        for category in category.getBRefs("parent_category"):
             self._getCategories(category)
         
     def getTopLevelCategories(self):
         """Returns objects.
         """
-        return self.context.getRefs("categories_categories")
+        return self.context.getBRefs("parent_category")
         
 class ProductCategoryManagement(object):
     """Adapter which provides ICategoryManagement for product content objects.
@@ -110,8 +110,8 @@ class ShopCategoryManagement(object):
         """Return brains.
         """
         result = []
-        for category in self.context.kategorien.objectValues("Category"):
-            if len(category.getBRefs("categories_categories")) == 0:
+        for category in self.context.objectValues("Category"):
+            if len(category.getRefs("parent_category")) == 0:
                 result.append(category)
             
         return result

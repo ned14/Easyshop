@@ -82,15 +82,15 @@ schema = Schema((
     ),
 
     ReferenceField(
-        name='categories', 
-        multiValued=1,
-        relationship='categories_categories',
+        name='parentCategory',
+        multiValued=0,
+        relationship='parent_category',
         allowed_types=("Category",),
         widget=ReferenceBrowserWidget(        
-            label='Categories',
-            label_msgid='schema_categories_label',
-            description='Select all child categories.',
-            description_msgid="schema_categories_description",
+            label='Parent Category',
+            label_msgid='schema_categoy_label',
+            description='Select the parent category.',
+            description_msgid="schema_category_description",
             i18n_domain='EasyShop',                    
             show_path=1,
             allow_search=1, 
@@ -101,9 +101,21 @@ schema = Schema((
             available_indexes={'Title'         : "Categories' Title",
                                'SearchableText':'Free text search',
                                'Description'   : "Object's description"},
-            ),    
-    ),    
-
+            ),
+    ),
+    
+    IntegerField(
+        name='positionInParent',
+        default="0",
+        widget=IntegerWidget(
+            label="Position in parent",
+            label_msgid="schema_position_in_parent_label",
+            description = "The position of the category in parent category",
+            description_msgid = "schema_position_in_parent_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
     ReferenceField( 
         name='products', 
         multiValued=1,
@@ -167,16 +179,6 @@ class Category(ATFolder):
         shop = IShopManagement(self).getShop()
         shop_path = "/".join(shop.getPhysicalPath())
         
-        catalog = getToolByName(self, "portal_catalog")
-        brains = catalog.searchResults(
-            path = shop_path,
-            object_provides = "easyshop.core.interfaces.catalog.ICategoriesContainer"
-        )
-        
-        if len(brains) > 0:
-            products_folder = brains[0]
-            return products_folder.getPath()
-        else:
-            return shop_path
+        return shop_path
             
 registerType(Category, PROJECTNAME)

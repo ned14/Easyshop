@@ -22,24 +22,20 @@ class ManageCategoriesView(BrowserView):
         """
         """        
         categories = []
-        
-        try:
-            obj = obj.getObject()
-        except AttributeError:
-            pass
             
-        for category in ICategoryManagement(obj).getTopLevelCategories():
+        tl_categories = ICategoryManagement(obj).getTopLevelCategories()
+        for tl_category in tl_categories:
             
-            if category.UID == self.context.UID():
+            if tl_category.UID == self.context.UID():
                 klass = "current-category"
             else:
                 klass = ""
                 
             categories.append({
-                "title"    : category.Title,
-                "uid"      : category.UID,
-                "url"      : category.getURL(),
-                "children" : self._getCategories(category),
+                "title"    : tl_category.Title(),
+                "uid"      : tl_category.UID(),
+                "url"      : tl_category.absolute_url,
+                "children" : self._getCategories(tl_category),
                 "class"    : klass,
             })
         return categories
