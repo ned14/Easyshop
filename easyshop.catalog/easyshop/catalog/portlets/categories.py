@@ -17,7 +17,6 @@ from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import IShop
 
 class ICategoriesPortlet(IPortletDataProvider):
     """
@@ -134,16 +133,17 @@ class Renderer(base.Renderer):
         if self.data.expand_all == True:
             return True
         
-        if self.context == category:
-            return True
-            
         # Check if the passed category is ancestor of context
         if ICategory.providedBy(self.context) == True:
-            obj = category
-            while IShop.providedBy(obj) == False:
-                if self.context in category.getBRefs("parent_category"):
+            obj = self.context
+            while obj is not None:
+                if category == obj:
                     return True
-                obj = obj.aq_inner.aq_parent
+                try:
+                    obj = obj.getRefs("parent_category")[0]
+                except IndexError:
+                    obj = None
+                    
 
         if IProduct.providedBy(self.context) == True:
             cm = ICategoryManagement(self.context)
@@ -195,35 +195,6 @@ class Renderer(base.Renderer):
             })
 
         return result 
-
-    def _isCurrentItem(self, category):
-        """Selected category and parent are current categories.
-        """
-        if self.context == category:
-            return True
-            
-        # Check if the passed category is ancestor of context
-        if ICategory.providedBy(self.context) == True:
-            obj = category
-            while IShop.providedBy(obj) == False:
-                if self.context in category.getRefs("categories_categories"):
-                    return True
-                obj = obj.aq_inner.aq_parent
-            
-        elif IProduct.providedBy(self.context):
-            try:
-                product_category = self.context.getBRefs("categories_products")[0]
-            except IndexError:
-                return False
-        
-            # UID doesn't work here. Don't know why yet.
-            category_url = category.getPath()
-            context_url  = "/".join(product_category.getPhysicalPath())
-            
-            if context_url.startswith(category_url):
-                return True
-            
-        return False
 
     @memoize
     def _getShop(self):
