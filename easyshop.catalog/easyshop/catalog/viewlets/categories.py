@@ -8,6 +8,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 # easyshop imports
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IFormats
+from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import IShopManagement
 
 class CategoriesViewlet(ViewletBase):
