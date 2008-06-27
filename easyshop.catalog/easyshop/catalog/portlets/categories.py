@@ -83,8 +83,8 @@ class Renderer(base.Renderer):
 
                 klass = "visualIconPadding"
                                                 
-                # if category.amount_of_categories > 0:
-                #     klass += " hasCategories"
+                if len(category.getBRefs("parent_category")) > 0:
+                    klass += " hasCategories"
 
                 if show_subtree == True:
                     klass += " navTreeCurrentItem"
