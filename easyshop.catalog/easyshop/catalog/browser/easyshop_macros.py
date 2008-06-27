@@ -28,7 +28,8 @@ class NavigationMacroView(BrowserView):
     def getProductURLs(self):
         """
         """
-        sorting = self.request.get("sorting", None)        
+        sorting = self.request.SESSION.get("sorting")
+        import pdb; pdb.set_trace()
         try:
             sorted_on, sort_order = sorting.split("-")
         except (AttributeError, ValueError):
@@ -56,12 +57,12 @@ class NavigationMacroView(BrowserView):
                 temp["first"] = None
             else:
                 product = products[index-1]
-                temp["previous"] = "%s?sorting=%s" % (product.absolute_url(), sorting)
-                temp["first"] = "%s?sorting=%s" % (products[0].absolute_url(), sorting)
+                temp["previous"] = product.absolute_url()
+                temp["first"] = products[0].absolute_url()
             try:
                 product = products[index+1]
-                temp["next"] = "%s?sorting=%s" % (product.absolute_url(), sorting)
-                temp["last"] = "%s?sorting=%s" % (products[-1].absolute_url(), sorting)
+                temp["next"] = product.absolute_url()
+                temp["last"] = products[-1].absolute_url()
             except IndexError:
                 temp["next"] = None
                 temp["last"] = None

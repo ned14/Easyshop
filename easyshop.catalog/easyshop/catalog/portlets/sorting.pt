@@ -7,10 +7,9 @@
     </dt>
 
     <dd class="portletItem">            
-        <form action="#"
+        <form action="@@set-sorting"
               name="sorting"
               onchange="javascript:document.sorting.submit()"
-              tal:attributes="action context/absolute_url"
               tal:define="selected_id context/REQUEST/sorting|nothing;
                           selected_id python: str(selected_id)">
                       

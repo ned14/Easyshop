@@ -85,7 +85,7 @@ class SearchResultsViewlet(ViewletBase):
             "amount"           : batch.sequence_length,
         }
         
-        sorting = self.request.get("sorting", None)
+        sorting = self.request.SESSION.get("sorting")
 
         f = self.getFormatInfo()
         products_per_line = f["products_per_line"]
@@ -147,7 +147,7 @@ class SearchResultsViewlet(ViewletBase):
             line.append({
                 "title"                    : title,
                 "text"                     : text,
-                "url"                      : "%s?sorting=%s" % (product.absolute_url(), sorting),
+                "url"                      : product.absolute_url(),
                 "image"                    : image,
                 "for_sale"                 : product.getForSale(),
                 "price"                    : price,

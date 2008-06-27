@@ -50,3 +50,18 @@ class AddForm(base.NullAddForm):
         """
         """
         return Assignment()
+
+# Five imports
+from Products.Five.browser import BrowserView
+
+class SortingPortletView(BrowserView):
+    """
+    """ 
+    def setSorting(self):
+        """
+        """
+        sorting = self.request.get("sorting")
+        self.request.SESSION["sorting"] = sorting
+        
+        url = self.context.absolute_url()
+        self.request.response.redirect(url)

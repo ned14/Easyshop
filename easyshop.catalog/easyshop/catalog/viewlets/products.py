@@ -83,7 +83,7 @@ class ProductsViewlet(ViewletBase):
             "page_number"      : batch.pagenumber,
         }
         
-        sorting = self.request.get("sorting", None)
+        sorting = self.request.SESSION.get("sorting")
 
         f = self.getFormatInfo()
         products_per_line = f["products_per_line"]
@@ -145,7 +145,7 @@ class ProductsViewlet(ViewletBase):
             line.append({
                 "title"                    : title,
                 "text"                     : text,
-                "url"                      : "%s?sorting=%s" % (product.absolute_url(), sorting),
+                "url"                      : product.absolute_url(),
                 "image"                    : image,
                 "for_sale"                 : product.getForSale(),
                 "price"                    : price,
@@ -231,7 +231,7 @@ class ProductsViewlet(ViewletBase):
 
         # Get all products                    
         mtool = getToolByName(self.context, "portal_membership")        
-        sorting = self.request.get("sorting", None)
+        sorting = self.request.SESSION.get("sorting")
         try:
             sorted_on, sort_order = sorting.split("-")
         except (AttributeError, ValueError):
