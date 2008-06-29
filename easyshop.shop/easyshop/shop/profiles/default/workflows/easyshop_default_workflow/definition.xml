@@ -7,6 +7,7 @@
  <permission>Access contents information</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
+ <permission>EasyShop: Checkout</permission>
  <state state_id="private" title="Private">
   <description>Can only be seen and edited by the owner.
 </description>
@@ -14,6 +15,9 @@
   <exit-transition transition_id="submit"/>
   <permission-map name="Access contents information"
                   acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Checkout" acquired="False">
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
@@ -31,6 +35,10 @@
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Anonymous</permission-role>
+  </permission-map>
+  <permission-map name="EasyShop: Checkout" acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">

@@ -13,6 +13,10 @@
    <bound-workflow workflow_id="easyshop_shop_workflow"/>
   </type>
 
+  <type type_id="EasyShop2">
+   <bound-workflow workflow_id="easyshop_shop_workflow"/>
+  </type>
+
   <type type_id="SessionsContainer">
    <bound-workflow workflow_id="easyshop_containers_workflow"/>
   </type>
