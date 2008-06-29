@@ -29,7 +29,6 @@ class NavigationMacroView(BrowserView):
         """
         """
         sorting = self.request.SESSION.get("sorting")
-        import pdb; pdb.set_trace()
         try:
             sorted_on, sort_order = sorting.split("-")
         except (AttributeError, ValueError):

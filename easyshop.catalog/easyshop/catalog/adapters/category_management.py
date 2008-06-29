@@ -115,7 +115,7 @@ class ShopCategoryManagement(object):
         return brains
     
     def getTopLevelCategories(self):
-        """Return brains.
+        """Returns objects.
         """
         mtool = getToolByName(self.context, "portal_membership")
             

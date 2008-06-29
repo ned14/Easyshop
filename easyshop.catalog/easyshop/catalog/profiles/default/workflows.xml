@@ -7,8 +7,9 @@
   <type type_id="CategoriesContainer"/>
   <type type_id="ProductProperty" />
   <type type_id="ProductPropertyOption" />  
-  <type type_id="ProductVariant" />  
-  <type type_id="ProductsContainer"/>     
+  <type type_id="ProductVariant" />
+  <type type_id="ProductsContainer"/>
+  <type type_id="EasyShopImage"/>
         
   <type type_id="Category">
    <bound-workflow workflow_id="easyshop_product_workflow"/>
