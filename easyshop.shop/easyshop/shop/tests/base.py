@@ -13,7 +13,23 @@ from Products.PloneTestCase.layer import PloneSite
 from Products.Five.testbrowser import Browser as BaseBrowser
 
 PloneTestCase.setupPloneSite(
-    products=["easyshop.shop",])
+    products=["easyshop.shop",
+              "easyshop.catalog",
+              "easyshop.carts",
+              "easyshop.criteria",
+              "easyshop.customers",
+              "easyshop.discounts",
+              "easyshop.groups",
+              "easyshop.information",
+              "easyshop.kss",
+              "easyshop.login",
+              "easyshop.order",
+              "easyshop.payment",
+              "easyshop.shipping",
+              "easyshop.stocks",
+              "easyshop.taxes",
+             ])
+
 
 # easyshop imports
 from easyshop.shop.tests import utils
@@ -36,11 +52,21 @@ class EasyShopLayer(PloneSite):
     def setUp(cls):
         app = ZopeTestCase.app()
         portal = app.plone
-        
-        ZopeTestCase.installPackage("easyshop.catalog")
-        ZopeTestCase.installPackage("easyshop.checkout")
-        ZopeTestCase.installPackage("easyshop.login")
         ZopeTestCase.installPackage("easyshop.shop")
+        ZopeTestCase.installPackage("easyshop.catalog")
+        ZopeTestCase.installPackage("easyshop.carts")
+        ZopeTestCase.installPackage("easyshop.criteria")
+        ZopeTestCase.installPackage("easyshop.customers")
+        ZopeTestCase.installPackage("easyshop.discounts")
+        ZopeTestCase.installPackage("easyshop.groups")
+        ZopeTestCase.installPackage("easyshop.information")
+        ZopeTestCase.installPackage("easyshop.kss")
+        ZopeTestCase.installPackage("easyshop.login")
+        ZopeTestCase.installPackage("easyshop.order")
+        ZopeTestCase.installPackage("easyshop.payment")
+        ZopeTestCase.installPackage("easyshop.shipping")
+        ZopeTestCase.installPackage("easyshop.stocks")
+        ZopeTestCase.installPackage("easyshop.taxes")
 
         # login as admin (copied from `loginAsPortalOwner`)
         uf = app.acl_users
