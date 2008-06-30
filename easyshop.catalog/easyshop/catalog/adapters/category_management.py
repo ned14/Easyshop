@@ -36,17 +36,16 @@ class CategoryCategoryManagement(object):
         
         return self.categories
 
-    def _getCategories(self, category):
+    def _getCategories(self, parent_category):
         """
         """
         mtool = getToolByName(self.context, "portal_membership")
 
-        for category in category.getBRefs("parent_category"):
+        for category in parent_category.getBRefs("parent_category"):
 
-            if mtool.checkPermission("View", category) != True:
-                continue
-
-            self._getCategories(category)
+            if mtool.checkPermission("View", category) == True:
+                self.categories.append(category)
+                self._getCategories(category)
         
     def getTopLevelCategories(self):
         """Returns objects.
