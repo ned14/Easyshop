@@ -20,10 +20,17 @@ class ShopGroupManagement:
         """
         self.context = context
 
-    def addGroup(group):
+    def addGroup(self, name):
         """
         """
-        raise Exception
+        putils = getToolByName(self.context, "plone_utils")
+        normalized_id = putils.normalizeString(name)
+        if self.getGroup(normalized_id) is None:
+            self.context.groups.manage_addProduct["easyshop.shop"].addProductGroup(id=normalized_id, title=name)
+            return self.getGroup(normalized_id)
+
+        else:
+            return False
         
     def deleteGroup(id):
         """
