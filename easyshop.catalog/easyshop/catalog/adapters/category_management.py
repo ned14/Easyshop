@@ -68,8 +68,8 @@ class ProductCategoryManagement(object):
 
     def getCategories(self):
         """
-        """    
-        raise Exception
+        """
+        return self.context.getCategories()
         
     def getTopLevelCategories(self):
         """Returns objects.
