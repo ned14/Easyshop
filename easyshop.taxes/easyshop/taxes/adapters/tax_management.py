@@ -7,8 +7,8 @@ from easyshop.core.interfaces import IShop
 from easyshop.core.interfaces import ITaxManagement
 
 class TaxManagement:
-    """An adapter, which provides methods to manage tax objects for shop 
-    context objects
+    """An adapter, which provides methods to manage tax objects for shop context
+    objects.
     """
     implements(ITaxManagement)
     adapts(IShop)

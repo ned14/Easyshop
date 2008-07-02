@@ -9,14 +9,15 @@ from Products.Archetypes.atapi import *
 
 # ATContentTypes imports
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
-from Products.ATContentTypes.content.document import ATDocument
+from Products.ATContentTypes.content.folder import ATFolder
+from Products.ATContentTypes.content.folder import ATFolderSchema
 from Products.ATContentTypes.content.document import ATDocumentSchema
 
 # drako.knowledgebase imports
 from easyshop.core.config import *
 from easyshop.core.interfaces import IInformationPage
 
-schema = ATDocumentSchema.copy() + Schema ((    
+schema = ATFolderSchema.copy() + ATDocumentSchema.copy() + Schema ((
     FileField(
         name='file',
         widget=FileWidget(
@@ -30,7 +31,7 @@ schema = ATDocumentSchema.copy() + Schema ((
 ))
 
 finalizeATCTSchema(schema, moveDiscussion=False)
-class InformationPage(ATDocument):
+class InformationPage(ATFolder):
     """
     """
     implements(IInformationPage)

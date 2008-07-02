@@ -76,8 +76,8 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
-        name="manage-products-view"        
-        for="easyshop.core.interfaces.IProductsContainer"
+        name="manage-products-view"
+        for="easyshop.core.interfaces.IShop"
         template="manage_products_view.pt"
         class=".manage_products_view.ManageProductsView"
         permission="cmf.ManagePortal" />

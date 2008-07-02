@@ -73,9 +73,6 @@ class OrderManagement(object):
         self.orders.invokeFactory("Order", id=new_id)
         new_order = getattr(self.orders, new_id)
         
-        # Set message to shop owner
-        new_order.setMessage(self.context.request.get("form.message", ""))
-        
         # Add cart items to order
         IItemManagement(new_order).addItemsFromCart(cart)
 

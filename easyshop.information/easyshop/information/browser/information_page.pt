@@ -1,57 +1,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
-<body>
+      i18n:domain="EasyShop">
+    <body>
 
-<metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main"
-           tal:define="kssClassesView context/@@kss_field_decorator_view;
-                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                       templateId template/getId;
-                       text here/getText;">
+        <metal:main fill-slot="main"
+                    tal:define="criteria view/getCriteria">
+                    
+            <h1 tal:content="object_title" class="documentFirstHeading">
+                Title or id
+            </h1>
 
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="back_to_overview_label">
+                Back to overview
+            </a>  
 
-        <h1 class="documentFirstHeading"> 
-            <metal:field use-macro="python:here.widget('title', mode='view')">
-            Title
-            </metal:field>
-        </h1>
+            <p class="documentDescription"
+               tal:content="here/Description"
+               tal:condition="here/Description">
+                Description
+            </p>
+            
+            <p>
+                <a class="terms-and-conditions"
+                   tal:attributes="onclick string:easyShopZoomWindow('information-page-popup?page_id=${context/id}', '800', '800')"
+                   tal:content="context/title">
+                    Popup
+                </a>
+            </p>
+            <div tal:condition="not:criteria"
+                 i18n:translate="no_criteria_label">            
+                There are no criteria.
+            </div>    
 
-        <a href="#"
-           class="link-parent"
-           tal:attributes="href context/aq_parent/absolute_url"
-           i18n:translate="overview_label">
-            Overview
-        </a>  
+            <tal:block tal:condition="criteria">
 
-
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
-        <div tal:replace="structure provider:plone.abovecontentbody" />
-
-        <p tal:condition="python: not text and is_editable"
-           i18n:translate="no_body_text"
-           class="discreet">
-            This item does not have any body text, click the edit tab to change it.
-        </p>
-
-        <metal:field use-macro="python:here.widget('text', mode='view')">
-            Body text
-        </metal:field>
-
-        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
-            show related items if they exist
-        </div>
-
-        <div tal:replace="structure provider:plone.belowcontentbody" />
-
-    </tal:main-macro>
-</metal:main>
-
-</body>
+                <h1 i18n:translate="criteria_label">
+                    Criteria
+                </h1>
+                
+                <table class="listing shop-default"
+                       tal:condition="criteria">
+                    <tr>
+                        <th i18n:translate="criteria_label">
+                            Criteria
+                        </th>
+                        <th i18n:translate="value_label">
+                            Value
+                        </th>
+                    </tr>
+                    <tr tal:repeat="criterion criteria"
+                        tal:attributes="class criterion/class">
+                        <td class="text"
+                            nowrap="nowrap">
+                            <img src="."
+                                 tal:attributes="src string:$portal_url/criterion_icon.png" />
+                             
+                            <a href="."
+                               tal:content="criterion/title"
+                               tal:attributes="href string:${criterion/url}/base_edit">
+                                Title
+                            </a>    
+                        </td>
+                        <td class="text"
+                            tal:content="criterion/value">
+                            Value 1, Value 2, ...
+                        </td>                    
+                    </tr>
+                </table>
+            </tal:block>
+                
+        </metal:main>    
+        
+  </body>
 </html>
-

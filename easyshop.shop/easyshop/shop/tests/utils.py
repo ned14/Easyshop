@@ -145,16 +145,23 @@ def createTestEnvironment(self):
     self.group_2.addReference(self.product_1, "groups_products")    
     
     # Categories
-    self.shop.categories.manage_addProduct["easyshop.shop"].addCategory(id="category_1")
-    self.shop.categories.category_1.manage_addProduct["easyshop.shop"].addCategory(id="category_11")
-    self.shop.categories.category_1.manage_addProduct["easyshop.shop"].addCategory(id="category_12")
-    self.shop.categories.category_1.category_11.manage_addProduct["easyshop.shop"].addCategory(id="category_111")
-    self.shop.categories.manage_addProduct["easyshop.shop"].addCategory(id="category_2")
-    self.shop.categories.manage_addProduct["easyshop.shop"].addCategory(id="category_3")    
+    self.shop.manage_addProduct["easyshop.shop"].addCategory(id="category_1")
+    self.shop.category_1.manage_addProduct["easyshop.shop"].addCategory(id="category_11")
+    self.shop.category_1.manage_addProduct["easyshop.shop"].addCategory(id="category_12")
+    self.shop.category_1.category_11.manage_addProduct["easyshop.shop"].addCategory(id="category_111")
+    self.shop.manage_addProduct["easyshop.shop"].addCategory(id="category_2")
+    self.shop.manage_addProduct["easyshop.shop"].addCategory(id="category_3")
     
     self.category_1 = self.shop.categories.category_1
     self.category_2 = self.shop.categories.category_2
     self.category_3 = self.shop.categories.category_3
+    
+    # Create category hierarchy (yet by references)
+    self.category_1.category_11.setPositionInParent(0)
+    self.category_1.category_12.setPositionInParent(1)
+    self.category_1.category_11.setParentCategory(self.category_1)
+    self.category_1.category_12.setParentCategory(self.category_1)
+    self.category_1.category_11.category_111.setParentCategory(self.category_1.category_11)
     
     # Assign products to categories
     self.category_1.category_11.addReference(self.product_1, "categories_products")
@@ -169,6 +176,7 @@ def createTestEnvironment(self):
 def createTestOrder(self):
     """
     """
+    
     view = getMultiAdapter((self.shop.products.product_1, self.shop.products.product_1.REQUEST), name="addToCart")
     view.addToCart()
 

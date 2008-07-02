@@ -13,8 +13,10 @@
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
+  <element value="Category"/>
   <element value="Document"/>
   <element value="EasyShopImage"/>  
+  <element value="Product"/>
   <element value="ProductSelector"/>
  </property>
  <property name="allow_discussion">False</property>

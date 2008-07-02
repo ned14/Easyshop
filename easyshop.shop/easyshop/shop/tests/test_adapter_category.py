@@ -17,8 +17,8 @@ class TestCategoryCategoryManagement(EasyShopTestCase):
         """
         """
         cm = ICategoryManagement(self.portal.myshop.categories.category_1)
-        category_ids = [c.getId for c in cm.getTopLevelCategories()]
-
+        category_ids = [c.id for c in cm.getTopLevelCategories()]
+        
         self.failUnless(len(category_ids) == 2)
         for id in ["category_11", "category_12"]:
             self.failUnless(id in category_ids)

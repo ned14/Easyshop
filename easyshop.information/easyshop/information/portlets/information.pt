@@ -1,0 +1,22 @@
+<dl class="portlet portlet-stock-information"
+    i18n:domain="EasyShop" 
+    tal:condition="view/available">
+
+    <dt class="portletHeader"
+        i18n:translate="information_label">
+           Information
+    </dt>
+
+    <dd class="portletItem"
+        tal:repeat="information view/information">
+
+        <a class="terms-and-conditions"
+           tal:attributes="onclick string:easyShopZoomWindow('information-page-popup?page_id=${information/id}', '800', '800')"
+           tal:content="information/title">
+            Title
+       </a>
+       
+    </dd>
+
+
+</dl>

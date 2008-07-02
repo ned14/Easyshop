@@ -28,9 +28,9 @@ class TestShopCategoryManagement(EasyShopTestCase):
         
     def testGetTopLevelCategories(self):
         """
-        """ 
+        """
         cm = ICategoryManagement(self.shop)
-        ids = [c.getId for c in cm.getTopLevelCategories()]
+        ids = [c.id for c in cm.getTopLevelCategories()]
         
         self.assertEqual(ids, ["category_1", "category_2", "category_3"])
         

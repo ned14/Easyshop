@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets>
+  
+ <portlet 
+     addview="portlets.Information"
+     title="EasyShop: Information"
+     description="Portlet which displays Information." />
+
+</portlets>

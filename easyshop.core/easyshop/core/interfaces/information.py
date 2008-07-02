@@ -24,3 +24,16 @@ class IInformationPage(Interface):
         description=_(u"The information as downloadable file."),
         required=False,
     )
+    
+    
+class IInformationManagement(Interface):
+    """Provides methods to manage information pages.
+    """
+
+    def getInformationPages(self):
+        """Returns all information pages.
+        """
+        
+    def getInformationPagesFor(product):
+        """Returns valid information pages for given product.
+        """

@@ -1,38 +1,30 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
-# CMFCore imports
-from Products.CMFCore.utils import getToolByName
+# easyshop imports
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IInformationManagement
 
 class InformationContainerView(BrowserView):
     """
     """
     def getInformationPages(self):
-        """Returns all information pages.
         """
-        mtool = getToolByName(self.context, "portal_membership")
-        if mtool.checkPermission("Manage portal", self.context) == True:
-            omit_edit_link = False
-        else:
-            omit_edit_link = True
-        
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            path = "/".join(self.context.getPhysicalPath()),
-            portal_type = "InformationPage",
-            sort_on = "getObjPositionInParent",
-        )
-            
+        """
+        shop = IShopManagement(self.context).getShop()
+        im   = IInformationManagement(shop)
+                
         result = []
-        for page in brains:
+        for information in im.getInformationPages():
+            
             result.append({
-                "id"             : page.getId,
-                "title"          : page.Title,
-                "description"    : page.Description,
-                "omit_edit_link" : omit_edit_link,
-                "url"            : page.getURL(),
-                "edit_url"       : "%s/edit" % page.getURL(),
-                "download_url"   : "%s/at_download/file" % page.getURL(),
+                "id"          : information.getId(),
+                "title"       : information.Title(),
+                "url"         : information.absolute_url(),
+                "description" : information.Description(),
+                "up_url"      : "%s/es_folder_position?position=up&id=%s" % (self.context.absolute_url(), information.getId()),
+                "down_url"    : "%s/es_folder_position?position=down&id=%s" % (self.context.absolute_url(), information.getId()),
+                "amount_of_criteria" : len(information.objectIds()),                
             })
 
         return result

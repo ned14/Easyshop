@@ -12,7 +12,14 @@
  <property name="immediate_view">information-page</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types"/>
+ <property name="allowed_content_types">
+  <element value="CategoryCriteria"/>
+  <element value="CountryCriteria"/>
+  <element value="CustomerCriteria"/>  
+  <element value="DateCriteria"/>
+  <element value="GroupCriteria"/>
+  <element value="ProductCriteria"/>
+ </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">information-page</property>
  <property name="view_methods">

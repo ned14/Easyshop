@@ -11,6 +11,7 @@
     <browser:page
         for="easyshop.core.interfaces.IInformationPage"
         name="information-page"
+        class=".information_page.InformationPageView"
         template="information_page.pt"
         permission="zope.Public" />
 
@@ -19,6 +20,13 @@
         name="information-container-view"
         class=".information_container_view.InformationContainerView"
         template="information_container_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        for="easyshop.core.interfaces.IInformationContainer"
+        name="information-container-view-2"
+        class=".information_container_view_2.InformationContainerView"
+        template="information_container_view_2.pt"
         permission="zope.Public" />
 
 </configure>

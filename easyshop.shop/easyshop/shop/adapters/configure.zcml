@@ -29,9 +29,13 @@
     <adapter
         factory=".shop_management.ShopManagement" />
 
-    <!-- IValidity -->    
+    <!-- IValidity -->
     <adapter
         for="easyshop.core.interfaces.IDiscount"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IInformationPage"
         factory=".validity.Validity" />
     
     <adapter
