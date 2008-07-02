@@ -73,7 +73,7 @@ class Renderer(base.Renderer):
     def available(self):
         """
         """
-        return len(self._information) > 0
+        return len(self._information()) > 0
         
 class AddForm(base.NullAddForm):
     """
