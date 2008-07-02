@@ -73,7 +73,7 @@ class Renderer(base.Renderer):
     def available(self):
         """
         """
-        return IProduct.providedBy(self.context) and self._information
+        return len(self._information) > 0
         
 class AddForm(base.NullAddForm):
     """
