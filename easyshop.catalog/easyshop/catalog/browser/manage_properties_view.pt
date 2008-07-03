@@ -1,0 +1,201 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <div metal:fill-slot="main">
+            <tal:block tal:condition="view/showGlobalProperties">
+                
+                <h1 class="documentFirstHeading"
+                    i18n:translate="global_properties_label">
+                    Global Properties
+                </h1>
+            
+                <tal:block tal:repeat="group view/getGlobalProperties">
+                    <h2>
+                        <a href="."
+                           tal:attributes="href string:${group/group_url}/manage-properties-view" 
+                           tal:content="group/group_title">
+                           Group ID
+                        </a>
+                    </h2>
+                    <tal:block tal:repeat="property group/properties">
+                        <h3 tal:content="property/title">
+                            Property Title
+                        </h3>
+                        <table class="listing shop-default">
+                            <tr>
+                                <th i18n:translate="icon_label">
+                                    Icon
+                                </th>
+                                <th i18n:translate="title_label">
+                                    Title
+                                </th>
+                                <th i18n:translate="price_label">
+                                    Price
+                                </th>
+                            </tr>
+                            <tr tal:repeat="option property/options">
+                                <td> 
+                                    <img tal:condition="option/image_url"
+                                         tal:attributes="src option/image_url;
+                                                         alt option/name" />
+                                </td>
+                                <td tal:content="option/name"> 
+                                    Property Title
+                                </td>
+                                <td tal:content="option/price"> 
+                                    Property Price
+                                </td>
+                            </tr>
+                        </table>    
+                    </tal:block>
+                </tal:block>
+            </tal:block>
+                
+            <h1 i18n:translate="local_properties_label">
+                Local Properties
+            </h1>
+                        
+            <form action="."
+                  method="post"
+                  tal:attributes="action context/REQUEST/URL">
+
+                <input type="text"
+                       name="title" />
+                   
+                <input type="submit"
+                       value="Add Property"
+                       name="addProperty:method"
+                       i18n:attributes="value add_property_label;" />
+            
+            </form>           
+            <br />
+            <tal:block tal:repeat="property view/getProperties">
+                <form action="."
+                      method="post"
+                      enctype="multipart/form-data"
+                      tal:attributes="action context/REQUEST/URL">
+                           
+                    <h2>
+                        <input type="checkbox"
+                               name="paths:list"
+                               tal:attributes="value property/path" />
+                        
+                        <span tal:content="property/title">
+                            Property Title
+                        </span>
+                    </h2>
+                    <table class="listing shop-default">
+                        <tr>
+                            <th>
+                            </th>
+                            <th i18n:translate="icon_label">
+                                Icon
+                            </th>
+                            <th i18n:translate="title_label">
+                                Title
+                            </th>
+                            <th i18n:translate="price_label">
+                                Price
+                            </th>
+                            <th i18n:translate="manage_label">
+                                Manage
+                            </th>                            
+                        </tr>
+                        <tr tal:repeat="option property/options">
+                            <td>
+                                <input type="checkbox"
+                                       name="paths:list"
+                                       tal:attributes="value option/path" />
+                            </td>                            
+                            <td>
+                                <img tal:condition="option/image_url"
+                                     tal:attributes="src option/image_url;
+                                                     alt option/name" />
+
+                                <input type="file"
+                                       tal:attributes="name string:image-${option/id}" />
+                                                    
+                            </td>
+                            <td>
+                                <input type="text"
+                                       tal:attributes="name string:name-${option/id};
+                                                       value option/name" />
+                            </td>
+                            <td>
+                               <input type="text"
+                                      name="price"
+                                      tal:attributes="name string:price-${option/id};
+                                                      value option/price" />
+                            </td>
+                            <td>
+                                <a href="."
+                                   tal:attributes="href string:${option/url}/edit"
+                                   i18n:translate="edit_label">
+                                   Edit
+                                </a>   
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>                            
+                            <td>
+                                
+                                <input type="submit"
+                                       name="deletePaths:method"
+                                       value="Delete"
+                                       i18n:attributes="value delete_label;" />                                
+
+                                <input type="submit"
+                                       name="saveOptions:method"
+                                       value="Save"
+                                       i18n:attributes="value save_label;" />
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                            
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input name="file" 
+                                       type="file" 
+                                       accept="text/*" />
+                            </td>
+                            <td>
+                                <input type="hidden"
+                                       name="property_id"
+                                       tal:attributes="value property/id" />
+
+                                <input type="text"
+                                       name="title" />
+                           
+                            </td>
+                            <td>
+                                <input type="text"
+                                       name="price" />                                
+                            </td>
+                            <td>
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit"
+                                       value="Add"
+                                       name="addOption:method"
+                                       i18n:attributes="value add_label;" />                                                                
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>                                   
+            </tal:block>
+        </div>    
+    </body>
+    
+</html>

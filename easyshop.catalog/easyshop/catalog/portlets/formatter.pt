@@ -1,0 +1,160 @@
+<dl class="portlet portlet-easyshop-formatter"
+    tal:define="format_info view/getFormatInfo"
+    i18n:domain="EasyShop">
+                
+    <dt class="portletHeader"
+        i18n:translate="formatter_label">
+        EasyShop Formatter
+    </dt>
+
+    <dd class="portletItem">
+        <form action="."
+              method="post"
+              tal:attributes="action context/absolute_url">
+
+            <div  tal:condition="python: template.id == 'thank-you'"> 
+                <input type="hidden"
+                       name="lines_per_page"
+                       value="42"
+                       tal:attributes="value format_info/lines_per_page" />
+                       
+                <label i18n:translate="selected_products_label">
+                    Selected Products:
+                </label>       
+                <!-- <span tal:content="view/getNumberOfSelectedProducts">
+                    42
+                </span> -->
+            </div>       
+            <div tal:condition="view/showEnabledField"
+                 class="field">
+                <label i18n:translate="enabled_label">
+                    Enabled
+                </label>
+                <div>
+                    <input name="enabled"
+                           type="checkbox"
+                           tal:attributes="checked format_info/enabled" />
+                </div>
+            </div>                
+
+            <div tal:condition="view/showLinesPerPage"
+                 class="field">
+                <label i18n:translate="lines_per_page_label">
+                    Lines Per Page
+                </label>
+                <div>
+                    <input name="lines_per_page"
+                           type="text"                 
+                           size="2" 
+                           value="42" 
+                           tal:attributes="value format_info/lines_per_page" />
+                </div>
+            </div>                
+            <input tal:condition="not:view/showLinesPerPage"
+                   name="lines_per_page"
+                   type="hidden"                 
+                   value="42" 
+                   tal:attributes="value format_info/lines_per_page" />
+                       
+            <div class="field">                     
+                <label i18n:translate="products_per_line_label">
+                    Products Per Line
+                </label>
+                <div>                      
+                    <input name="products_per_line"
+                           type="text"                
+                           value="42"                      
+                           size="2"
+                           tal:attributes="value format_info/products_per_line" />
+                </div>           
+            </div>
+
+            <div class="field">
+                <label i18n:translate="image_size_label">
+                    Image Size
+                </label>                      
+                
+                <select name="image_size">
+                    <option tal:repeat="size view/getImageSizes"
+                            tal:content="size/title"
+                            tal:attributes="selected size/selected">
+                        mini
+                    </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label i18n:translate="product_height_label">
+                    Product Height
+                </label>                      
+                <div>
+                    <input name="product_height"
+                           type="text"                
+                           value="42"
+                           size="4"
+                           tal:attributes="value format_info/product_height" />
+                </div>           
+            </div>
+
+            <div class="field">
+                <label i18n:translate="title_label">
+                    Title
+                </label>                      
+                
+                <div>
+                    <select name="title">
+                        <option i18n:translate=""
+                                tal:repeat="title view/getTitles"
+                                tal:content="title/title"
+                                tal:attributes="selected title/selected;
+                                                value title/id">
+                            Title
+                        </option>
+                    </select>
+                </div>    
+            </div>
+
+            <div class="field">
+                <label i18n:translate="show_chars_label">
+                    Show Chars
+                </label>                      
+                <div>
+                    <input name="chars"
+                           type="text"                
+                           value="42"
+                           size="4"
+                           tal:attributes="value format_info/chars" />
+                </div>           
+            </div>
+
+            <div class="field">
+                <label i18n:translate="text_label">
+                    Text
+                </label>                      
+                
+                <select name="text">
+                    <option i18n:translate=""
+                            tal:repeat="text view/getTexts"
+                            tal:content="text/title"
+                            tal:attributes="selected text/selected;
+                                            value text/id">
+                        Short Text
+                    </option>
+                </select>
+            </div>
+
+            <input type="hidden"
+                   name="layout"
+                   tal:attributes="value context/getLayout|nothing" />
+                       
+            <div class="button">
+                <input id="save-formatter"
+                       class="context"
+                       name="save-formatter:method"
+                       value="Save"
+                       type="submit"
+                       i18n:attributes="value save_label;" />
+            </div>                                  
+        </form>            
+    </dd>        
+</dl>

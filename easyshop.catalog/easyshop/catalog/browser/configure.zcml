@@ -1,0 +1,100 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Product -->       
+    <browser:page
+        name="product-view"
+        for="easyshop.core.interfaces.IProduct"
+        class=".product_view.ProductView"
+        template="product_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        name="product-selector-view"
+        for="*"
+        template="product_selector_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        name="product-zoom-view"        
+        for="easyshop.core.interfaces.IProduct"
+        class=".product_zoom_view.ProductZoomView"
+        template="product_zoom_view.pt"
+        permission="zope.Public" />
+
+    <!-- Product Variants -->
+    <browser:page
+        name="manage-variants-view"
+        for="easyshop.core.interfaces.IProduct"
+        class=".manage_variants_view.ManageVariantsView"
+        template="manage_variants_view.pt"
+        allowed_attributes="addVariants deleteVariants saveVariants"
+        permission="zope.Public" />
+
+    <!-- Product Property -->
+    <browser:page
+        name="manage-properties-view"
+        for="easyshop.core.interfaces.IProduct"
+        class=".manage_properties_view.ManagePropertiesView"
+        template="manage_properties_view.pt"
+        allowed_attributes="addProperty addOption deletePaths saveOptions"
+        permission="zope.Public" />
+
+    <browser:page
+        name="manage-properties-view"
+        for="easyshop.core.interfaces.IProductGroup"
+        class=".manage_properties_view.ManagePropertiesView"
+        template="manage_properties_view.pt"
+        allowed_attributes="addProperty addOption deletePaths saveOptions"
+        permission="zope.Public" />
+
+    <!-- Category -->
+    <browser:page
+        name="products-view"
+        for="easyshop.core.interfaces.ICategory"
+        template="category_products_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        name="categories-view"
+        for="easyshop.core.interfaces.ICategory"
+        template="category_categories_view.pt"
+        permission="zope.Public" />
+
+    <browser:page
+        name="categories-view"
+        for="easyshop.core.interfaces.IShop"
+        template="category_categories_view.pt"
+        permission="zope.Public" />
+
+    <!-- Containers -->    
+    <browser:page
+        name="manage-categories-view"
+        for="*"
+        template="manage_categories_view.pt"
+        class=".manage_categories_view.ManageCategoriesView"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="manage-products-view"
+        for="easyshop.core.interfaces.IShop"
+        template="manage_products_view.pt"
+        class=".manage_products_view.ManageProductsView"
+        permission="cmf.ManagePortal" />
+
+    <!-- Add to Cart -->
+    <browser:page
+        name="addToCart"
+        for="easyshop.core.interfaces.IProduct"
+        class=".add_to_cart.ProductAddToCartView"
+        attribute="addToCart" 
+        permission="zope.Public" />
+
+    <browser:page  
+        name="navigationMacroView"
+        for="*" 
+        class=".easyshop_macros.NavigationMacroView"  
+        allowed_interface=".easyshop_macros.INavigationMacroView"
+        permission="zope2.Public" />  
+
+</configure>

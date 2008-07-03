@@ -1,0 +1,126 @@
+<div id="categories-list"
+     i18n:domain="EasyShop">
+    <table class="products"
+           tal:define="lines view/getCategories;
+                       formats view/getFormats">
+
+        <tr tal:condition="not:lines">
+            <td i18n:translate="no_categories_label">
+                There are no categories.
+            </td>
+        </tr>
+        
+        <tr tal:define="back_url view/getBackToOverViewUrl"
+            tal:condition="back_url">
+
+            <td>
+                <table class="shop-default product-navigation">
+                    <tr>    
+                        <td class="left">
+                            <a href="."
+                               tal:attributes="href back_url">
+                               
+                                <img src="navigation_previous.gif" 
+                                     alt="Navigation Previous"
+                                     title="Previous"
+                                     tal:attributes="src string:navigation_previous_small.gif"
+                                     i18n:attributes="title previous_label;" />
+                                
+                                <span i18n:translate="back_to_overview_label">                                  
+                                    Back to overview
+                                </span>
+                                
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
+        <tr tal:repeat="line lines">
+            <td tal:repeat="category line"
+                tal:attributes="width view/getTdWidth;
+                                class category/klass">
+    
+                <table class="product-content">
+                    <tr>
+                       <td class="sub-title"
+                           colspan="2">
+                           <h1 class="shop-title">
+                               <a href="#"
+                                  title="#"
+                                  tal:content="category/title"
+                                  tal:attributes="href category/url;
+                                                  title category/title">
+                                   Product Name
+                               </a>
+                           </h1>   
+                       </td> 
+                    </tr>
+                    <tr style="cursor:pointer"
+                        tal:attributes="onclick string:window.location='${category/url}'"
+                        onmouseover="javascript:this.style.background = '#f9f9f9'"
+                        onmouseout="javascript:this.style.background = 'white'">
+                        <td class="product-image"
+                            tal:attributes="height formats/product_height">
+                            <a tal:condition="category/image_url"
+                               href="#"
+                               tal:attributes="href category/url;
+                                               title category/title">
+                                <img tal:attributes="src category/image_url;
+                                                     alt category/title" />
+                            </a>
+                        </td>
+                        <td class="product-description"
+                            tal:content="structure category/text">
+                            <tal:block tal:condition="category/text">
+                                Description
+                            </tal:block>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="product-control"
+                            colspan="2">
+
+                            <input type="button"
+                                   class="context"
+                                   value="Details"
+                                   title="Details"
+                                   i18n:attributes="title details_label;"
+                                   tal:attributes="onclick string:location.href='${category/url}'" />
+                       
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>    
+        </tr>    
+        <tr tal:define="back_url view/getBackToOverViewUrl"
+            tal:condition="back_url">
+
+            <td>
+                <table class="shop-default product-navigation">
+                    <tr>    
+                        <td class="left">
+                            <a href="."
+                               tal:attributes="href back_url">
+                               
+                                <img src="navigation_previous.gif" 
+                                     alt="Navigation Previous"
+                                     title="Previous"
+                                     tal:attributes="src string:navigation_previous_small.gif"
+                                     i18n:attributes="title previous_label;" />
+                                
+                                <span i18n:translate="back_to_overview_label">                                  
+                                    Back to overview
+                                </span>
+                                
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
+    </table>    
+</div>

@@ -1,0 +1,53 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+    
+    <include 
+        package="plone.app.portlets" />
+        
+    <plone:portlet
+        name="portlets.Formatter"
+        interface=".formatter.IFormatterPortlet"
+        assignment=".formatter.Assignment"
+        renderer=".formatter.Renderer"
+        addview=".formatter.AddForm" />
+
+    <browser:page
+        for="*"
+        name="save-formatter"
+        class=".formatter.FormatterView"
+        attribute="saveFormatter"
+        permission="cmf.ManagePortal" />
+
+    <plone:portlet
+        name="portlets.Categories"
+        interface=".categories.ICategoriesPortlet"
+        assignment=".categories.Assignment"
+        renderer=".categories.Renderer"
+        addview=".categories.AddForm"
+        editview=".categories.EditForm" />        
+
+    <plone:portlet
+        name="portlets.Sorting"
+        interface=".sorting.ISortingPortlet"
+        assignment=".sorting.Assignment"
+        renderer=".sorting.Renderer"
+        addview=".sorting.AddForm" />
+
+    <browser:page
+        for="*"
+        name="set-sorting"
+        class=".sorting.SortingPortletView"
+        attribute="setSorting"
+        permission="zope2.View" />
+
+    <plone:portlet
+        name="portlets.RelatedProducts"
+        interface=".related_products.IRelatedProductsPortlet"
+        assignment=".related_products.Assignment"
+        renderer=".related_products.Renderer"
+        addview=".related_products.AddForm" 
+        editview=".related_products.EditForm" />
+
+
+</configure>

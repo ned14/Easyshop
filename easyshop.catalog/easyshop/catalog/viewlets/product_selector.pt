@@ -1,0 +1,163 @@
+<div id="products-list"
+     i18n:domain="EasyShop">
+    <div tal:repeat="image view/getImages">
+        <img src="."
+             tal:attributes="src string:${image/getURL}/image;
+                             alt image/Title" />
+    </div>
+    <tal:block tal:repeat="selector view/getSelectors">                   
+
+        <table class="products">
+            <tr tal:condition="view/showEditLink">
+                <td>
+                    <a href="#"
+                       tal:attributes="href selector/edit_url">
+                       Edit
+                    </a>                             
+                </td>
+            </tr>
+            <tr tal:define="back_url view/getBackToOverViewUrl"
+                tal:condition="back_url">
+                <td>
+                    <table class="shop-default product-navigation">
+                        <tr>    
+                            <td class="left">
+                                <a href="."
+                                   tal:attributes="href back_url">
+                           
+                                    <img src="navigation_previous.gif" 
+                                         alt="Navigation Previous"
+                                         title="Previous"
+                                         tal:attributes="src string:navigation_previous_small.gif"
+                                         i18n:attributes="title previous_label;" />
+                            
+                                    <span i18n:translate="back_to_overview_label">                                  
+                                        Back to overview
+                                    </span>
+                            
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>                        
+            <tr tal:condition="selector/show_title">
+                <td class="main-title"
+                    tal:attributes="colspan selector/products_per_line"
+                    tal:content="selector/title">
+                    Title
+                </td>
+            </tr>
+            <tr tal:repeat="line selector/lines">
+                <td tal:attributes="width selector/td_width;
+                                    class product/class"
+                    tal:repeat="product line">
+                    <div class="sub-title">
+                        <h1 class="shop-title">
+                            <a href="#"
+                               title="#"
+                               tal:content="product/title"
+                               tal:attributes="href product/url;
+                                                title product/title">
+                               Product Name
+                            </a>
+                        </h1>    
+                    </div>
+                    <table class="product-content">
+                        <tr style="cursor:pointer"
+                            tal:attributes="onclick string:window.location='${product/url}'"
+                            onmouseover="javascript:this.style.background = '#f9f9f9'"
+                            onmouseout="javascript:this.style.background = 'white'">
+                            <td class="product-image"
+                                tal:attributes="height selector/product_height">
+                                <a href="#"
+                                   tal:attributes="href product/url;
+                                                   title product/title">
+                                    <img tal:attributes="src product/image;
+                                                         alt product/title" />
+                                </a>
+                            </td>
+                            <td class="product-text"
+                                tal:content="structure product/text">
+                                Text
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="product-control"
+                                colspan="2">
+
+                                <input type="button"
+                                       class="context"
+                                       value="Details"
+                                       title="Details"
+                                       i18n:attributes="title details_label;"
+                                       tal:attributes="onclick string:location.href='${product/url}'" />
+                           
+                                <form action="#"                                  
+                                      tal:attributes="action product/url"
+                                      method="post">
+
+                                   <input type="hidden"
+                                          name="quantity"
+                                          value="1" />
+
+                                    <input class="context"
+                                           name="addToCart:method" 
+                                           value="Add to Cart"
+                                           title="Add to Cart"                                                   
+                                           type="submit"
+                                           i18n:attributes="title add_to_cart_label;
+                                                            value add_to_cart_label;" />
+                                </form>
+               
+                                <tal:block tal:condition="product/for_sale">
+                                    <span class="product-price"
+                                          style="text-decoration:line-through;"
+                                          tal:content="product/standard_price">
+                                        42.00
+                                    </span>
+                                    <span class="product-price"
+                                          tal:content="product/price">
+                                        42.00
+                                    </span>
+                                </tal:block>                        
+                                <tal:block tal:condition="not:product/for_sale">
+                                    <span class="product-price"
+                                          tal:content="product/price">
+                                        42.00
+                                    </span>                                    
+                                </tal:block>                                
+                            
+                            </td>
+                        </tr>
+                    </table>                            
+                </td>    
+            </tr>                        
+            <tr tal:define="back_url view/getBackToOverViewUrl"
+                tal:condition="back_url">
+                <td>
+                    <table class="shop-default product-navigation">
+                        <tr>    
+                            <td class="left">
+                                <a href="."
+                                   tal:attributes="href back_url">
+                           
+                                    <img src="navigation_previous.gif" 
+                                         alt="Navigation Previous"
+                                         title="Previous"
+                                         tal:attributes="src string:navigation_previous_small.gif"
+                                         i18n:attributes="title previous_label;" />
+                            
+                                    <span i18n:translate="back_to_overview_label">                                  
+                                        Back to overview
+                                    </span>
+                            
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>                        
+        </table>    
+    </tal:block>
+</div>

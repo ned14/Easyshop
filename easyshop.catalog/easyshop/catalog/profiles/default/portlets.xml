@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<portlets>
+  
+ <portlet 
+     addview="portlets.Formatter"
+     title="EasyShop: Formatter"
+     description="Portlet to format views." />
+
+ <portlet 
+     addview="portlets.Categories"
+     title="EasyShop: Categories"
+     description="Portlet to browse through the shop's catalog." />
+
+ <portlet 
+     addview="portlets.Sorting"
+     title="EasyShop: Sorting"
+     description="Portlet to sort products." />
+
+ <portlet 
+     addview="portlets.RelatedProducts"
+     title="EasyShop: Related Products"
+     description="Portlet to display related products." />
+
+</portlets>

@@ -1,0 +1,9 @@
+Changelog for easyshop.catalog
+
+    (name of developer listed in brackets)
+
+easyshop.catalog - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
