@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets>
+  
+ <portlet 
+     addview="portlets.Cart"
+     title="EasyShop Cart"
+     description="Portlet to display a cart." />
+
+</portlets>

@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+    <!-- ICartItemManagement -->
+    <adapter
+        factory=".item_management.CartItemManagement" />
+
+
+    <!-- ICartManagement -->
+    <adapter
+        factory=".cart_management.CartManagement" />
+
+
+    <!-- IPrices -->
+    <adapter
+        factory=".prices.CartPrices" />
+
+    <adapter
+        factory=".prices.CartItemPrices" />
+
+    
+    <!-- ITaxes -->
+    <adapter
+        factory=".taxes.CartTaxes" />
+
+    <adapter
+        factory=".taxes.CartItemTaxes" />
+
+
+    <!-- IDiscounts -->
+    <adapter
+        factory=".discounts_calculation.CartDiscountsCalculation" />
+
+    <adapter
+        factory=".discounts_calculation.CartItemDiscountsCalculation" />
+
+    
+</configure>

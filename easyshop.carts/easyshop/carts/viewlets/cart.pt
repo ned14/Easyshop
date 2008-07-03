@@ -1,0 +1,33 @@
+<dl id="portlet-cart"
+    class="portlet"   
+     i18n:domain="EasyShop">
+        <dt class="portletHeader">
+            <a tal:attributes="href string:${view/getShopUrl}/cart"
+               i18n:translate="cart_label">
+                Cart
+             </a>
+        </dt>
+
+        <dd class="portletItem">
+            <div align="center">
+                <span tal:content="view/getAmountOfArticles">
+                    3
+                </span>
+                <span i18n:translate="article_label">
+                    Article
+                </span>    
+            </div>
+            <div align="center"
+                 tal:content="view/getCartPrice">
+                42.0
+            </div>
+        </dd>
+        
+        <dd class="portletFooter">
+            <a tal:attributes="href string:${view/getShopUrl}/checkout">
+                <tal:block i18n:translate="checkout_label">
+                    Check Out
+                </tal:block>
+            </a>
+        </dd>
+</dl>

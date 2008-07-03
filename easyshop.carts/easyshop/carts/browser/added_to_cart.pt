@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"
+            i18n:translate="added_to_cart_label"> 
+            This Article has been added to the cart
+        </h1>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <table class="shop-default"
+               tal:define="product view/getProduct">
+            <tr>
+                <td width="1px">
+                    <a tal:condition="product/image_url"
+                       href="."
+                       tal:attributes="href product/url">
+                        <img class="added-to-cart-image"
+                             src="."
+                             tal:attributes="src string:${product/image_url}/image_mini;
+                                             alt product/title" />
+                    </a>
+                </td>
+                <td>
+                    <a href="."
+                       tal:attributes="href product/url"
+                       tal:content="product/title">
+                        Title
+                    </a>
+                    <div tal:repeat="property product/properties">
+                        <span tal:content="property/title" /> :
+                        <span tal:content="property/selected_option" />
+                        <tal:block tal:condition="property/show_price">
+                            (<span tal:content="property/price" />)
+                        </tal:block>
+                    </div>
+                </td>
+                <td tal:content="product/price">
+                    Price
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="added-to-cart-buttons">
+                    <input class="context"  
+                           value="Go on shopping" 
+                           type="button" 
+                           tal:attributes="onclick string:window.location='${context/REQUEST/HTTP_REFERER}'"
+                           i18n:attributes="value go_on_shopping_label;" />
+
+                    <input class="context"  
+                           value="Go to cart" 
+                           type="button" 
+                           tal:attributes="onclick string:window.location='${context/absolute_url}/cart'"
+                           i18n:attributes="value go_to_cart_label;" />
+                    
+                </td>
+                <td></td>
+            </tr>
+        </table>
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+
