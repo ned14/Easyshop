@@ -65,6 +65,7 @@ class ExportView(BrowserView):
             # Price 
             price = IPrices(product).getPriceGross()
             
+            # This is crap and has to be optimized.
             text = product.getText()
             text = text.replace("\n", "")
             text = text.replace("\r", "")
