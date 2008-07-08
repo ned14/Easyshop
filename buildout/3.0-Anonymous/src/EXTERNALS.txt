@@ -13,6 +13,7 @@ easyshop.groups http://easyshop-for-plone.googlecode.com/svn/easyshop.groups/tru
 easyshop.information http://easyshop-for-plone.googlecode.com/svn/easyshop.information/trunk
 easyshop.kss http://easyshop-for-plone.googlecode.com/svn/easyshop.kss/trunk
 easyshop.login http://easyshop-for-plone.googlecode.com/svn/easyshop.login/trunk
+easyshop.management http://easyshop-for-plone.googlecode.com/svn/easyshop.management/trunk
 easyshop.order http://easyshop-for-plone.googlecode.com/svn/easyshop.order/trunk
 easyshop.payment http://easyshop-for-plone.googlecode.com/svn/easyshop.payment/trunk
 easyshop.shipping http://easyshop-for-plone.googlecode.com/svn/easyshop.shipping/trunk
