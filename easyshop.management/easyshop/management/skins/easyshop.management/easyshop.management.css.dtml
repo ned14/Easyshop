@@ -1,0 +1,3 @@
+table.easyshop-management td {
+    vertical-align:top;
+}

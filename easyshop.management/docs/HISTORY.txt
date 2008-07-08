@@ -1,0 +1,9 @@
+Changelog for easyshop.management
+
+    (name of developer listed in brackets)
+
+easyshop.management - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+

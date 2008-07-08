@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <h1 class="documentFirstHeading"> 
+            Manage Products
+        </h1>
+        
+        <div tal:repeat="redirection view/getRedirections">
+            <span tal:content="redirection/old_path" /> <span tal:content="redirection/new_path" />
+        </div>
+            
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

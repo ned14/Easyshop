@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object>
+
+  <order manager="easyshop.management.products-management" skinname="Plone Default">
+      <viewlet name="easyshop.management.select-products" />
+      <viewlet name="easyshop.management.actions" />
+  </order>
+
+</object>
