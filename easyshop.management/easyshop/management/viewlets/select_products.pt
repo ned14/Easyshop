@@ -21,11 +21,12 @@
             <td>
                 <select name="search_category"
                         multiple="multiple"
+                        size="5"
                         tal:define="selected_categories view/getSelectedCategories">
                     <option tal:repeat="category context/@@manage-products/getCategories"                            
-                            tal:attributes="value category/uid;
-                                            selected python: category['uid'] in selected_categories"
-                            tal:content="category/title">
+                            tal:attributes="value category/UID;
+                                            selected python: category['UID'] in selected_categories"
+                            tal:content="category/Title">
                        Category Title
                     </option>    
                 </select>                

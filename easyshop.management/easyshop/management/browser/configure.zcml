@@ -95,4 +95,19 @@
         attribute="deselectCategories"
         permission="cmf.ManagePortal" />
 
+    <!-- For Categories -->    
+    <browser:page
+        name="manage-products"
+        for="easyshop.core.interfaces.ICategory"
+        class=".category_manage_products.ManageProductsView"
+        template="category_manage_products.pt"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="add-products"
+        for="easyshop.core.interfaces.ICategory"
+        class=".category_manage_products.ManageProductsView"
+        attribute="addProducts"
+        permission="cmf.ManagePortal" />
+
 </configure>

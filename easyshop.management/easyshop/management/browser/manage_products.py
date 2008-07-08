@@ -36,13 +36,14 @@ class ManageProductsView(BrowserView):
         cm = ICategoryManagement(self.context)
         
         result = []
-        for category in cm.getCategories():
-            result.append({
-                "uid"   : category.UID,
-                "title" : category.Title
-            })
         
-        return result
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            path = "/".join(self.context.getPhysicalPath()),
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
+            sort_on = "sortable_title")
+        
+        return brains
 
     def moveToCategory(self):
         """
@@ -78,7 +79,8 @@ class ManageProductsView(BrowserView):
                     existing_categories.remove(target_category)
                 except IndexError:
                     pass
-
+            
+            # NOTE: the product is reindexed within "setCategories"
             product.setCategories(existing_categories)
 
         return self._showView()
@@ -125,6 +127,8 @@ class ManageProductsView(BrowserView):
             if kind == "add":
                 existing_categories = ICategoryManagement(product).getCategories()
                 all_target_categories.extend(existing_categories)
+                
+            # NOTE: the product is reindexed within "setCategories"
             product.setCategories(all_target_categories)
 
         return self._showView()
