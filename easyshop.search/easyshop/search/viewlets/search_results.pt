@@ -46,7 +46,7 @@
                         
                         <td class="right">
                             <a tal:omit-tag="not:batch_info/previous"
-                               tal:attributes="href context/absolute_url"> 
+                               tal:attributes="href batch_info/first_url"> 
                                <img src="navigation_first.gif" 
                                     alt="Navigation First"
                                     title="First"

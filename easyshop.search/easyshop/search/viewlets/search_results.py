@@ -74,6 +74,7 @@ class SearchResultsViewlet(ViewletBase):
         
         batch_infos = {
             "parent_url"       : parent_url,
+            "first_url"        : self._getFirstUrl(batch),
             "previous_url"     : self._getPreviousUrl(batch),
             "previous"         : batch.previous,
             "next_url"         : self._getNextUrl(batch),
@@ -249,6 +250,13 @@ class SearchResultsViewlet(ViewletBase):
 
         # Calculate Batch
         return Batch(products, products_per_page, int(b_start), orphan=0);
+
+
+    def _getFirstUrl(self,batch):
+        """
+        """
+        query = make_query(self.request.form, {batch.b_start_str:0})
+        return "%s?%s" % (self.context.absolute_url(), query)     
 
     def _getLastUrl(self, batch):
         """
