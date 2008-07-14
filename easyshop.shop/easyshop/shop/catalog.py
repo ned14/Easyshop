@@ -45,6 +45,8 @@ def amount_of_categories(object, portal, **kwargs):
 registerIndexableAttribute('amount_of_categories', amount_of_categories)
 
 def categories(object, portal, **kwargs):
+    """Indexes all categories and parent categories of a product.
+    """
     try:
         result = {}
         if IProduct.providedBy(object):
@@ -53,9 +55,9 @@ def categories(object, portal, **kwargs):
                 
                 # Collect parent categories
                 object = category
-                while ICategory.providedBy(object) == True:
+                while object is not None:
                     result[object.UID()] = 1
-                    object = object.aq_inner.aq_parent
+                    object = object.getParentCategory()
             
         return result.keys()
         
