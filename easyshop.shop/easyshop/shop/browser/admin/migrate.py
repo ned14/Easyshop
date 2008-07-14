@@ -33,25 +33,25 @@ class MigrateView(BrowserView):
                 category.setParentCategory(parent)
                 category.setPositionInParent(category.getObjPositionInParent())
                 
-        transaction.commit()
-        
-        for brain in brains:
-            category = brain.getObject()
-
-            if len(category.getPhysicalPath()) == 5:
-                ids = category.objectIds("Category")
-                if len(ids) > 0:
-                    data = category.manage_cutObjects(ids)
-                    shop.manage_pasteObjects(data)
-
-        transaction.commit()
-        
-        for brain in brains:
-            category = brain.getObject()
-
-            if len(category.getPhysicalPath()) == 4:
-                ids = category.objectIds("Category")
-                if len(ids) > 0:
-                    data = category.manage_cutObjects(ids)
-                    shop.manage_pasteObjects(data)
-                    
+        # transaction.commit()
+        # 
+        # for brain in brains:
+        #     category = brain.getObject()
+        # 
+        #     if len(category.getPhysicalPath()) == 5:
+        #         ids = category.objectIds("Category")
+        #         if len(ids) > 0:
+        #             data = category.manage_cutObjects(ids)
+        #             shop.manage_pasteObjects(data)
+        # 
+        # transaction.commit()
+        # 
+        # for brain in brains:
+        #     category = brain.getObject()
+        # 
+        #     if len(category.getPhysicalPath()) == 4:
+        #         ids = category.objectIds("Category")
+        #         if len(ids) > 0:
+        #             data = category.manage_cutObjects(ids)
+        #             shop.manage_pasteObjects(data)
+        #             
