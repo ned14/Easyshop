@@ -148,6 +148,22 @@ class Category(ATFolder):
     implements(ICategory)
     schema = ATFolder.schema.copy() + schema.copy()
 
+    def setProducts(self, value):
+        """
+        """
+        old_products = self.getProducts()
+        
+        # Set the new values
+        self.getField("products").set(self, value)
+
+        # Reindex the old products in case a product has been deleted.
+        for product in old_products:
+            product.reindexObject()
+            
+        # Reindex all products of the category to update the "categories" index. 
+        for product in self.getProducts():
+            product.reindexObject()
+
     def setImage(self, data):
         """
         """
