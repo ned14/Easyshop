@@ -70,8 +70,6 @@ r = quote_bad_chars(r)
 searchterms = url_quote_plus(r)
 
 site_encoding = context.plone_utils.getSiteEncoding()
-if path is None:
-    path = siteProperties.easyshop_path
 
 from zope.component import getMultiAdapter
 view = getMultiAdapter((context, context.REQUEST), name="search-view")

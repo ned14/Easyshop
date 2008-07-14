@@ -15,5 +15,8 @@ class SearchBoxViewlet(Base):
     def getShopUrl(self):
         """
         """
+        utool = getToolByName(self.context, "portal_url")
+        portal = utool.getPortalObject().absolute_url()
+                
         ptool = getToolByName(self.context, "portal_properties")
-        return ptool.site_properties.easyshop_path
+        return portal + ptool.site_properties.easyshop_path

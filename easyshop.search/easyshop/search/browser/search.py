@@ -15,7 +15,7 @@ class SearchView(BrowserView):
     """Provides miscellanous methods for searching.
     """
 
-    @memoize
+    # @memoize
     def getSearchResults(self, simple=True, searchable_text=None):
         """
         """
@@ -24,10 +24,13 @@ class SearchView(BrowserView):
                 
         if searchable_text == "":
             return []
-
+        
+        utool = getToolByName(self.context, "portal_url")
+        portal_url = "/".join(utool.getPortalObject().getPhysicalPath())
+        
         properties = getToolByName(self.context, "portal_properties").site_properties
-        shop_path = properties.easyshop_path
-                    
+        shop_path = portal_url + properties.easyshop_path
+                
         catalog = getToolByName(self.context, "portal_catalog")
 
         # Store for later use
