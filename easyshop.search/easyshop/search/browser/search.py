@@ -15,7 +15,7 @@ class SearchView(BrowserView):
     """Provides miscellanous methods for searching.
     """
 
-    # @memoize
+    @memoize
     def getSearchResults(self, simple=True, searchable_text=None):
         """
         """
