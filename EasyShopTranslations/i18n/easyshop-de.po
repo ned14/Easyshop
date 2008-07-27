@@ -1150,7 +1150,7 @@ msgstr "Bitte überprüfen Sie die Bestellung. Wenn Sie fertig sind, bestätigen
 #. Default: "State"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:132
 msgid "order_state_label"
-msgstr "Bestellstatus:"
+msgstr "Bestellstatus"
 
 #. Default: "Total"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:150
