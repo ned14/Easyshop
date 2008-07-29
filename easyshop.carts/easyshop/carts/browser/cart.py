@@ -377,7 +377,7 @@ class CartFormView(BrowserView):
         else:
             tax  = ITaxes(cart).getTaxForCustomer()
 
-        return cm.priceToString(tax)
+        return cm.priceToString(tax, suffix=None)
         
     def getGoto(self):
         """
