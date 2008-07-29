@@ -130,7 +130,7 @@ a:active { text-decoration:underline; color:#666666;}
         Sehr geehrte/r 
         <tal:block tal:content="view/getCustomerFullname">Dirk Kommol</tal:block>,<br />
         <br />
-        vielen Dank für Ihre Bestellung bei www.demmelhuber.net. Hiermit erhalten Sie Ihre Bestellbestätigung:
+        vielen Dank f&uuml;r Ihre Bestellung bei www.demmelhuber.net. Hiermit erhalten Sie Ihre Bestellbest&auml;tigung:
     </p>
     <table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr>
@@ -333,9 +333,9 @@ a:active { text-decoration:underline; color:#666666;}
         tal:content="structure view/getNote">
     </p>
     
-    <p class="TextGrossGrauLinks">Für Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 
-    Bei Rückfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
-    <p class="TextGrossGrauLinks">Mit freundlichen Grüßen<br />
+    <p class="TextGrossGrauLinks">F&uuml;r Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 
+    Bei R&uuml;ckfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
+    <p class="TextGrossGrauLinks">Mit freundlichen Gr&uuml;&szig;en<br />
     DEMMELHUBER Holz &amp; Raum GmbH<br />
     <img src="http://www.demmelhuber.net/logo.jpg" alt="Demmelhuber" width="327" height="60" longdesc="http://www.demmelhuber.net/laden" /></p>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -349,7 +349,7 @@ a:active { text-decoration:underline; color:#666666;}
         </tr>
     </table>
     <p class="TextGrossGrauLinks"><span class="TextKleinGrauBlock"> Sitz der Gesellschaft: Demmelhuber Holz &amp; Raum GmbH, Am Gewerbegebiet 3, 09661 Hainichen/ OT Schlegel<br />
-    Geschäftsführer: Rüdiger Schmidt, Erfüllungsort und Gerichtsstand Hainichen, Registergericht: AG Chemnitz HRB 16407, Ust-ID: DE 812638837 </span></p>
+    Gesch&auml;ftsf&uuml;hrer: R&uuml;diger Schmidt, Erf&uuml;llungsort und Gerichtsstand Hainichen, Registergericht: AG Chemnitz HRB 16407, Ust-ID: DE 812638837 </span></p>
     <p class="TextGrossGrauLinks"><br />
     </p>
     </body>
