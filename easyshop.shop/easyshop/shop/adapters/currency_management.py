@@ -37,7 +37,7 @@ class CurrencyManagement:
         currency = self.shop.getCurrency()
         return CURRENCIES[currency]["symbol"]
         
-    def priceToString(self, price, symbol="symbol", position="before", prefix=None, suffix=" *"):
+    def priceToString(self, price, symbol="symbol", position="before", prefix=None, suffix="*"):
         """
         """
         price = "%.2f" % price
