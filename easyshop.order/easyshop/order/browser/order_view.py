@@ -128,10 +128,10 @@ class OrderView(BrowserView):
         item_manager = IItemManagement(self.context)
         for item in item_manager.getItems():
 
-            product_price_gross = cm.priceToString(item.getProductPriceGross())
+            product_price_gross = cm.priceToString(item.getProductPriceGross(), suffix=None)
             tax_rate = nc.floatToTaxString(item.getTaxRate())
-            tax = cm.priceToString(item.getTax())
-            price_gross = cm.priceToString(item.getPriceGross())
+            tax = cm.priceToString(item.getTax(), suffix=None)
+            price_gross = cm.priceToString(item.getPriceGross(), suffix=None)
 
             # Get url. Takes care of, if the product has been deleted in the 
             # meanwhile.
@@ -159,7 +159,7 @@ class OrderView(BrowserView):
                 "properties"           : item.getProperties(),
                 "has_discount"         : abs(item.getDiscountGross()) > 0,
                 "discount_description" : item.getDiscountDescription(),
-                "discount"             : cm.priceToString(item.getDiscountGross(), prefix="-"),
+                "discount"             : cm.priceToString(item.getDiscountGross(), prefix="-", suffix=None),
             }
             
             items.append(temp)
@@ -172,10 +172,10 @@ class OrderView(BrowserView):
         nc = queryUtility(INumberConverter)
         cm = ICurrencyManagement(self.context)
 
-        price_net = cm.priceToString(self.context.getPaymentPriceNet())
-        price_gross = cm.priceToString(self.context.getPaymentPriceGross())
-        tax_rate = nc.floatToTaxString(self.context.getPaymentTaxRate())
-        tax = cm.priceToString(self.context.getPaymentTax())
+        price_net = cm.priceToString(self.context.getPaymentPriceNet(), suffix=None)
+        price_gross = cm.priceToString(self.context.getPaymentPriceGross(), suffix=None)
+        tax_rate = nc.floatToTaxString(self.context.getPaymentTaxRate(), suffix=None)
+        tax = cm.priceToString(self.context.getPaymentTax(), suffix=None)
         
         return {
             "display" : self.context.getPaymentPriceGross() != 0,
@@ -209,7 +209,7 @@ class OrderView(BrowserView):
         price = p.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(price)
+        return cm.priceToString(price, suffix=None)
         
     def getInvoiceAddress(self):
         """
@@ -260,10 +260,10 @@ class OrderView(BrowserView):
         nc = queryUtility(INumberConverter)
         cm = ICurrencyManagement(self.context)
 
-        price_net = cm.priceToString(self.context.getShippingPriceNet())
-        price_gross = cm.priceToString(self.context.getShippingPriceGross())
-        tax_rate = nc.floatToTaxString(self.context.getShippingTaxRate())
-        tax = cm.priceToString(self.context.getShippingTax())
+        price_net = cm.priceToString(self.context.getShippingPriceNet(), suffix=None)
+        price_gross = cm.priceToString(self.context.getShippingPriceGross(), suffix=None)
+        tax_rate = nc.floatToTaxString(self.context.getShippingTaxRate(), suffix=None)
+        tax = cm.priceToString(self.context.getShippingTax(), suffix=None)
         
         return {
             "price_net" : price_net,
@@ -282,7 +282,7 @@ class OrderView(BrowserView):
         """
         """
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(self.context.getTax())
+        return cm.priceToString(self.context.getTax(), suffix=None)
         
     def isPaymentAllowed(self):
         """
