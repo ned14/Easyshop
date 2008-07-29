@@ -174,7 +174,7 @@ class OrderView(BrowserView):
 
         price_net = cm.priceToString(self.context.getPaymentPriceNet(), suffix=None)
         price_gross = cm.priceToString(self.context.getPaymentPriceGross(), suffix=None)
-        tax_rate = nc.floatToTaxString(self.context.getPaymentTaxRate(), suffix=None)
+        tax_rate = nc.floatToTaxString(self.context.getPaymentTaxRate())
         tax = cm.priceToString(self.context.getPaymentTax(), suffix=None)
         
         return {
@@ -262,7 +262,7 @@ class OrderView(BrowserView):
 
         price_net = cm.priceToString(self.context.getShippingPriceNet(), suffix=None)
         price_gross = cm.priceToString(self.context.getShippingPriceGross(), suffix=None)
-        tax_rate = nc.floatToTaxString(self.context.getShippingTaxRate(), suffix=None)
+        tax_rate = nc.floatToTaxString(self.context.getShippingTaxRate())
         tax = cm.priceToString(self.context.getShippingTax(), suffix=None)
         
         return {
