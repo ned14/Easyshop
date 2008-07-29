@@ -19,3 +19,13 @@ class MailOrderReceivedView(OrderView):
         note = note.replace("[payment-url]", payment_url)
         
         return note
+        
+    def getPriceForCustomer(self):
+        """
+        """
+        p = IPrices(self.context)        
+        price = p.getPriceForCustomer()
+
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(price, suffix=None)
+        
