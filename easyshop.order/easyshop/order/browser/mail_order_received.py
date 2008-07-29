@@ -1,6 +1,9 @@
 # easyshop imports
 from easyshop.order.browser.order_view import OrderView
+
+from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IPaymentInformationManagement
+from easyshop.core.interfaces import IPrices
 
 class MailOrderReceivedView(OrderView):
     """
@@ -28,4 +31,3 @@ class MailOrderReceivedView(OrderView):
 
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price, suffix=None)
-        
