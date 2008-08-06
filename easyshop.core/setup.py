@@ -27,6 +27,25 @@ setup(name='easyshop.core',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          "easyshop.carts",
+          "easyshop.catalog",
+          "easyshop.checkout",
+          "easyshop.criteria",
+          "easyshop.customers",
+          "easyshop.discounts",
+          "easyshop.groups",
+          "easyshop.information",
+          "easyshop.kss",
+          "easyshop.login",
+          "easyshop.order",
+          "easyshop.payment",
+          "easyshop.shipping",
+          "easyshop.shop",
+          "easyshop.stocks",
+          "easyshop.taxes",
+          "iqpp.sessions",
+          "zc.authorizedotnet",
+          "Products.DataGridField"          
       ],
       entry_points="""
       # -*- Entry points: -*-

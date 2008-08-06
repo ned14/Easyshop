@@ -5,13 +5,11 @@ import transaction
 from Products.CMFCore.utils import getToolByName
 
 PRODUCT_DEPENDENCIES = (
-    'ATBackRef',
     'DataGridField',    
 )
                         
 EXTENSION_PROFILES = (
     "easyshop.shop:default",
-
     "easyshop.catalog:default",
     "easyshop.carts:default",
 	"easyshop.criteria:default",

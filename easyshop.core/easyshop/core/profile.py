@@ -21,6 +21,7 @@ class HiddenProducts(object):
             u'easyshop.order',
             u'easyshop.payment',
             u'easyshop.shipping',
+            u'easyshop.shop',
             u'easyshop.stocks',
             u'easyshop.taxes',            
         ]
