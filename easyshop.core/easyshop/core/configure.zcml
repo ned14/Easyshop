@@ -3,6 +3,10 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="easyshop.core">
 
+    <five:registerPackage 
+        package="." 
+        initialize=".initialize" />
+
     <include
         package=".browser" />
 
