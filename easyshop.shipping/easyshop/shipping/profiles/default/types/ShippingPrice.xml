@@ -6,7 +6,7 @@
  <property name="description">A shipping price</property>
  <property name="content_icon">shipping_price_icon.png</property>
  <property name="content_meta_type">ShippingPrice</property>
- <property name="product">easyshop.shop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addShippingPrice</property>
  <property name="immediate_view">shipping-price-view</property>
  <property name="global_allow">False</property>

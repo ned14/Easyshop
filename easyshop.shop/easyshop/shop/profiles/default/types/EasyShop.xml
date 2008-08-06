@@ -7,7 +7,7 @@
      i18n:translate="">An shop where people can offer products for sale.</property>
  <property name="content_icon">cart_icon.png</property>
  <property name="content_meta_type">EasyShop</property>
- <property name="product">easyshop.shop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addEasyShop</property>
  <property name="immediate_view">categories-view</property>
  <property name="global_allow">True</property>

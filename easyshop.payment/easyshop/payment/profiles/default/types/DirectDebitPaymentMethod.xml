@@ -5,7 +5,7 @@
  <property name="description">Direct debit payment method</property>
  <property name="content_icon">payment_method_icon.png</property>
  <property name="content_meta_type">DirectDebitPaymentMethod</property>
- <property name="product">easyshop.shop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addDirectDebitPaymentMethod</property>
  <property name="immediate_view">payment-method-view</property>
  <property name="global_allow">False</property>

@@ -7,7 +7,7 @@
            i18n:translate="">Provides information like Terms and Conditions.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">InformationPage</property>
- <property name="product">easyshop.shop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addInformationPage</property>
  <property name="immediate_view">information-page</property>
  <property name="global_allow">False</property>
