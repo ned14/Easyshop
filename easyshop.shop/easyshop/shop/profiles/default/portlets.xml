@@ -14,10 +14,4 @@
      title="EasyShop Manager"
      description="Portlet to admin EasyShop." />
 
- <portlet 
-     addview="portlets.PageTemplate"
-     title="EasyShop: PageTemplate"
-     description="Portlet to display a pagetemplate." />
-
-
 </portlets>
