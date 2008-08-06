@@ -8,9 +8,6 @@ from Products.ATContentTypes.content.folder import ATFolder
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# ATBackRef imports
-from Products.ATBackRef.BackReferenceField import *
-
 # ATReferenceBrowserWidget imports
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
@@ -183,30 +180,7 @@ schema = Schema((
         )
     ),
 
-    BackReferenceField( 
-        name='categories',
-        multiValued=1,
-        relationship='categories_products',
-        allowed_types=("Category",),
-        widget=BackReferenceBrowserWidget(
-            label="Categories",
-            label_msgid="schema_categories_label",
-            description='Please select all catgories, which should be associated with this product.',
-            description_msgid="schema_categories_description",        
-            i18n_domain='EasyShop',            
-            show_path=1,        
-            allow_search=1, 
-            allow_browse=1,
-            allow_sorting=1,             
-            restrict_browsing_to_startup_directory=1,
-            startup_directory="getStartupDirectoryForCategories",
-            available_indexes={'Title'         : "Product's Title",
-                               'SearchableText':'Free text search',
-                               'Description'   : "Object's description"},
-            ),    
-    ),        
-    
-    ReferenceField( 
+    ReferenceField(
         name='relatedProducts',
         schemata="advanced",
         multiValued=1,
@@ -230,29 +204,6 @@ schema = Schema((
             ),    
     ),        
     
-    BackReferenceField( 
-        name='groups',
-        schemata="advanced",
-        multiValued=1,
-        relationship='groups_products',
-        allowed_types=("ProductGroup",),
-        widget=BackReferenceBrowserWidget(
-            label="Groups",
-            label_msgid="schema_groups_label",
-            description='Please select all groups, which should be associated with this product.',
-            description_msgid="schema_groups_description",
-            i18n_domain='EasyShop',            
-            show_path=1,        
-            allow_search=1, 
-            allow_browse=1,
-            allow_sorting=1,             
-            restrict_browsing_to_startup_directory=1,
-            startup_directory="getStartupDirectoryForGroups",
-            available_indexes={'Title'         : "Product's Title",
-                               'SearchableText':'Free text search',
-                               'Description'   : "Object's description"},
-            ),    
-    ),        
 ),
 )
 
