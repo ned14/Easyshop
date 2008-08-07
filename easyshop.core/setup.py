@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '0.1'
+version = '0.1a1'
 
 setup(name='easyshop.core',
       version=version,
@@ -44,7 +44,6 @@ setup(name='easyshop.core',
           "easyshop.shop",
           "easyshop.stocks",
           "easyshop.taxes",
-          "iqpp.sessions",
           "zc.authorizedotnet",
           "Products.DataGridField"          
       ],
