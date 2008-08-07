@@ -61,27 +61,23 @@ class ManageProductsView(BrowserView):
         target_categories = self.request.form.get("target_category", "no-category")
         if not isinstance(target_categories, (list, tuple)):
             target_categories = (target_categories,)
-        
+
         uids = self.request.get("selected_uids", [])
-                
         if (len(target_categories) == 0) or (len(uids) == 0):
             return self._showView()
-            
-        catalog = getToolByName(self.context, "portal_catalog")
-        for brain in catalog.searchResults(UID = uids):
-            product = brain.getObject()
 
-            cm = ICategoryManagement(product)
-            existing_categories = [c.UID() for c in cm.getCategories()]
-            
-            for target_category in target_categories:
-                try:
-                    existing_categories.remove(target_category)
-                except IndexError:
-                    pass
-            
-            # NOTE: the product is reindexed within "setCategories"
-            product.setCategories(existing_categories)
+        reference_catalog = getToolByName(self.context, "reference_catalog")
+        catalog = getToolByName(self.context, "portal_catalog")
+        
+        for brain in catalog.searchResults(UID = target_categories):
+            category = brain.getObject()
+
+            for brain2 in catalog.searchResults(UID = uids):
+                product = brain2.getObject()
+                reference_catalog.deleteReference(category, product, "categories_products")
+                product.reindexObject()
+                
+            category.reindexObject()    
 
         return self._showView()
         
