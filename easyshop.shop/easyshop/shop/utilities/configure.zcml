@@ -7,6 +7,6 @@
 
     <utility 
         provides="easyshop.core.interfaces.ISessionManagement"
-        factory=".manager.SessionManagement" />
+        factory=".sessions.SessionManagement" />
 
 </configure>
