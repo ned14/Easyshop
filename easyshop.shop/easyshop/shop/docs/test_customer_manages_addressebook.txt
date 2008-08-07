@@ -1,6 +1,6 @@
 First, some set-up:
     
-    >>> from easyshop.shop.tests.base import Browser
+    >>> from easyshop.core.tests.base import Browser
     >>> browser = Browser()
         
 Let us log all exceptions, which is useful for debugging.
