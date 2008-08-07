@@ -36,6 +36,7 @@
     <include package="easyshop.information" />
     <include package="easyshop.kss" />
     <include package="easyshop.login" />
+    <include package="easyshop.management" />
     <include package="easyshop.order" />
     <include package="easyshop.payment" />
     <include package="easyshop.shipping" />
