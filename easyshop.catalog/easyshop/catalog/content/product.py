@@ -310,10 +310,10 @@ class Product(ATFolder):
         old_categories = self.getCategories()
 
         # Set the new values
-        catalog = getToolByName(self, "reference_catalog")
+        reference_catalog = getToolByName(self, "reference_catalog")
         
         for category in categories:
-            catalog.addReference(category, self, "categories_products")
+            reference_catalog.addReference(category, self, "categories_products")
 
         # Reindex to get the new values ...
         self.reindexObject()        
