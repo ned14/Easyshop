@@ -5,4 +5,8 @@
         provides="easyshop.core.interfaces.INumberConverter"
         permission="zope.Public" />  
 
+    <utility 
+        provides="easyshop.core.interfaces.ISessionManagement"
+        factory=".manager.SessionManagement" />
+
 </configure>
