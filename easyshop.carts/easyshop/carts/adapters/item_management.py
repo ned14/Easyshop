@@ -49,7 +49,7 @@ class CartItemManagement:
 
             new_id = str(new_id)
 
-            self.context.manage_addProduct["easyshop.shop"].addCartItem(id = new_id)
+            self.context.manage_addProduct["easyshop.core"].addCartItem(id = new_id)
             cart_item = getattr(self.context, new_id)
             cart_item.setAmount(quantity)
             cart_item.setProperties(properties)

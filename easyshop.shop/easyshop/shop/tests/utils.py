@@ -49,13 +49,13 @@ def createTestEnvironment(self):
     self.shop.setPayPalId("haendler@iqpp.de")
     
     # Add shipping and payment price
-    self.shop.shippingprices.manage_addProduct["easyshop.shop"].addShippingPrice(id="default", price=10.0)
+    self.shop.shippingprices.manage_addProduct["easyshop.core"].addShippingPrice(id="default", price=10.0)
     self.shop.shippingprices.default.reindexObject()
     
-    self.shop.paymentprices.manage_addProduct["easyshop.shop"].addPaymentPrice(id="default", price=100.0)
+    self.shop.paymentprices.manage_addProduct["easyshop.core"].addPaymentPrice(id="default", price=100.0)
     
     self.shop.setCountries(["Germany"])
-    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_1", price=22.0)
+    self.shop.products.manage_addProduct["easyshop.core"].addProduct(id="product_1", price=22.0)
     self.product_1 = self.shop.products.product_1
     self.product_1.setWeight(10.0)
     self.product_1.setStockAmount(10.0)
@@ -112,13 +112,13 @@ def createTestEnvironment(self):
         self.product_1.quality.invokeFactory(
             "ProductPropertyOption", id=option["name"], title=option["name"], price=option["price"])
     
-    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_2", price=19.0)
+    self.shop.products.manage_addProduct["easyshop.core"].addProduct(id="product_2", price=19.0)
     self.product_2 = self.shop.products.product_2
     self.product_2.setWeight(20.0)
     self.product_2.setStockAmount(20.0)
 
     # A product without properties
-    self.shop.products.manage_addProduct["easyshop.shop"].addProduct(id="product_42", price=19.0)
+    self.shop.products.manage_addProduct["easyshop.core"].addProduct(id="product_42", price=19.0)
     self.product_42 = self.shop.products.product_42
     self.product_42.setStockAmount(0.0)
     
@@ -145,12 +145,12 @@ def createTestEnvironment(self):
     self.group_2.addReference(self.product_1, "groups_products")    
     
     # Categories
-    self.shop.manage_addProduct["easyshop.shop"].addCategory(id="category_1")
-    self.shop.category_1.manage_addProduct["easyshop.shop"].addCategory(id="category_11")
-    self.shop.category_1.manage_addProduct["easyshop.shop"].addCategory(id="category_12")
-    self.shop.category_1.category_11.manage_addProduct["easyshop.shop"].addCategory(id="category_111")
-    self.shop.manage_addProduct["easyshop.shop"].addCategory(id="category_2")
-    self.shop.manage_addProduct["easyshop.shop"].addCategory(id="category_3")
+    self.shop.manage_addProduct["easyshop.core"].addCategory(id="category_1")
+    self.shop.category_1.manage_addProduct["easyshop.core"].addCategory(id="category_11")
+    self.shop.category_1.manage_addProduct["easyshop.core"].addCategory(id="category_12")
+    self.shop.category_1.category_11.manage_addProduct["easyshop.core"].addCategory(id="category_111")
+    self.shop.manage_addProduct["easyshop.core"].addCategory(id="category_2")
+    self.shop.manage_addProduct["easyshop.core"].addCategory(id="category_3")
     
     self.category_1 = self.shop.categories.category_1
     self.category_2 = self.shop.categories.category_2
@@ -169,7 +169,7 @@ def createTestEnvironment(self):
     self.category_3.addReference(self.product_42, "categories_products")
     
     # taxes    
-    self.shop.taxes.manage_addProduct["easyshop.shop"].addDefaultTax(id="default", rate=19.0)
+    self.shop.taxes.manage_addProduct["easyshop.core"].addDefaultTax(id="default", rate=19.0)
     
     self.sid = self.REQUEST.SESSION = TestSession("123")
 

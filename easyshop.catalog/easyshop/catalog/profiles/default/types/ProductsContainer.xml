@@ -9,7 +9,7 @@
  <property name="content_meta_type">Products</property>
   <property name="product">easyshop.core</property>
  <property name="factory">addProductsContainer</property>
- <property name="immediate_view">products-view</property>
+ <property name="immediate_view">manage-products</property>
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
@@ -17,9 +17,10 @@
   <element value="ProductsContainer"/>
  </property>
  <property name="allow_discussion">False</property>
- <alias from="(Default)" to="manage-products-view"/>
- <alias from="view" to="manage-products-view"/>
- <alias from="edit" to="atct_edit"/> 
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="edit" to="atct_edit"/>
+ <alias from="sharing" to="@@sharing"/>
+ <alias from="view" to="(selected layout)"/> 
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}/" visible="True">
   <permission value="View"/>

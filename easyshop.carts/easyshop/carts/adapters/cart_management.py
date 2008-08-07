@@ -28,7 +28,7 @@ class CartManagement(object):
         """
         """
         cart_id = self._getCartId()
-        self.carts.manage_addProduct["easyshop.shop"].addCart(id=cart_id)
+        self.carts.manage_addProduct["easyshop.core"].addCart(id=cart_id)
         
         return self.carts[cart_id]
         

@@ -230,41 +230,41 @@ class EasyShop2(ATBTreeFolder):
         assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
 
         # Create containers
-        self.manage_addProduct["easyshop.shop"].addCartsContainer(id="carts", title="Carts")
-        self.manage_addProduct["easyshop.shop"].addProductsContainer(id="products", title="Products")
-        self.manage_addProduct["easyshop.shop"].addCategoriesContainer(id="categories", title="Categories")
-        self.manage_addProduct["easyshop.shop"].addCustomersContainer(id="customers", title="Customers")
-        self.manage_addProduct["easyshop.shop"].addSessionsContainer(id="sessions", title="Sessions")
-        self.manage_addProduct["easyshop.shop"].addDiscountsContainer(id="discounts", title="Discounts")
-        self.manage_addProduct["easyshop.shop"].addGroupsContainer(id="groups", title="Groups")
-        self.manage_addProduct["easyshop.shop"].addTaxesContainer(id="taxes", title="Taxes")
-        self.manage_addProduct["easyshop.shop"].addStockInformationContainer(id="stock-information", 
+        self.manage_addProduct["easyshop.core"].addCartsContainer(id="carts", title="Carts")
+        self.manage_addProduct["easyshop.core"].addProductsContainer(id="products", title="Products")
+        self.manage_addProduct["easyshop.core"].addCategoriesContainer(id="categories", title="Categories")
+        self.manage_addProduct["easyshop.core"].addCustomersContainer(id="customers", title="Customers")
+        self.manage_addProduct["easyshop.core"].addSessionsContainer(id="sessions", title="Sessions")
+        self.manage_addProduct["easyshop.core"].addDiscountsContainer(id="discounts", title="Discounts")
+        self.manage_addProduct["easyshop.core"].addGroupsContainer(id="groups", title="Groups")
+        self.manage_addProduct["easyshop.core"].addTaxesContainer(id="taxes", title="Taxes")
+        self.manage_addProduct["easyshop.core"].addStockInformationContainer(id="stock-information", 
             title="Stock Information")    
         
         ### Information        
-        self.manage_addProduct["easyshop.shop"].addInformationContainer(id="information", title="Information")
-        self.information.manage_addProduct["easyshop.shop"].addInformationPage(
+        self.manage_addProduct["easyshop.core"].addInformationContainer(id="information", title="Information")
+        self.information.manage_addProduct["easyshop.core"].addInformationPage(
             id="terms-and-conditions", title="Terms And Conditions")
 
         ### Orders
-        self.manage_addProduct["easyshop.shop"].addOrdersContainer(id="orders", title="Orders")
+        self.manage_addProduct["easyshop.core"].addOrdersContainer(id="orders", title="Orders")
         self.orders.manage_permission('Add portal content', ['Member'], 1)
 
         ### Payment            
-        self.manage_addProduct["easyshop.shop"].addPaymentMethodsContainer(id="paymentmethods", 
+        self.manage_addProduct["easyshop.core"].addPaymentMethodsContainer(id="paymentmethods", 
             title="Payment Methods")
             
-        self.manage_addProduct["easyshop.shop"].addPaymentPricesContainer(
+        self.manage_addProduct["easyshop.core"].addPaymentPricesContainer(
             id="paymentprices", title="Payment Prices")        
-        self.paymentmethods.manage_addProduct["easyshop.shop"].addGenericPaymentMethod(
+        self.paymentmethods.manage_addProduct["easyshop.core"].addGenericPaymentMethod(
             id="cash-on-delivery", title="Cash on Delivery")                
-        self.paymentmethods.manage_addProduct["easyshop.shop"].addCreditCardPaymentMethod(
+        self.paymentmethods.manage_addProduct["easyshop.core"].addCreditCardPaymentMethod(
             id="credit-card", title="Credit Card")                
-        self.paymentmethods.manage_addProduct["easyshop.shop"].addDirectDebitPaymentMethod(
+        self.paymentmethods.manage_addProduct["easyshop.core"].addDirectDebitPaymentMethod(
             id="direct-debit", title="Direct Debit")
-        self.paymentmethods.manage_addProduct["easyshop.shop"].addPayPalPaymentMethod(
+        self.paymentmethods.manage_addProduct["easyshop.core"].addPayPalPaymentMethod(
             id="paypal",  title="PayPal")
-        self.paymentmethods.manage_addProduct["easyshop.shop"].addGenericPaymentMethod(
+        self.paymentmethods.manage_addProduct["easyshop.core"].addGenericPaymentMethod(
             id="prepayment", title="Prepayment")
 
         wftool = getToolByName(self, "portal_workflow")
@@ -272,11 +272,11 @@ class EasyShop2(ATBTreeFolder):
             wftool.doActionFor(payment_method, "publish")
 
         ### Shipping    
-        self.manage_addProduct["easyshop.shop"].addShippingPricesContainer(id="shippingprices", 
+        self.manage_addProduct["easyshop.core"].addShippingPricesContainer(id="shippingprices", 
             title="Shipping Prices")
-        self.manage_addProduct["easyshop.shop"].addShippingMethodsContainer(id="shippingmethods",
+        self.manage_addProduct["easyshop.core"].addShippingMethodsContainer(id="shippingmethods",
             title="Shipping Methods")
-        self.shippingmethods.manage_addProduct["easyshop.shop"].addShippingMethod(
+        self.shippingmethods.manage_addProduct["easyshop.core"].addShippingMethod(
             id="standard", title="Standard")
 
         for shipping_method in self.shippingmethods.objectValues():

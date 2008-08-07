@@ -105,7 +105,7 @@ class ManageProductsView(BrowserView):
             putils = getToolByName(self.context, "plone_utils")
             normalized_id = putils.normalizeString(new_target_category)
             
-            self.context.manage_addProduct["easyshop.shop"].addCategory(
+            self.context.manage_addProduct["easyshop.core"].addCategory(
                 id = normalized_id, title=new_target_category)
                 
             new_category = self.context.get(normalized_id)

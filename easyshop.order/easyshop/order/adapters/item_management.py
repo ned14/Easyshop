@@ -71,7 +71,7 @@ class OrderItemManagement:
     def _addItemFromCartItem(self, id, cart_item):
         """Sets the item by given cart item.
         """        
-        self.context.manage_addProduct["easyshop.shop"].addOrderItem(id=str(id))
+        self.context.manage_addProduct["easyshop.core"].addOrderItem(id=str(id))
         new_item = getattr(self.context, str(id))
 
         # set product quantity        

@@ -27,7 +27,7 @@ class TestEnvironmentView(BrowserView):
         categories = []
         for i in range(1, 21):
             id = "category-%s" % i
-            shop.categories.manage_addProduct["easyshop.shop"].addCategory(id, title="Category %s" %i)
+            shop.categories.manage_addProduct["easyshop.core"].addCategory(id, title="Category %s" %i)
             
             category = shop.categories.get(id)
             categories.append(category)
@@ -38,7 +38,7 @@ class TestEnvironmentView(BrowserView):
         for i in range(1, 101):
             title = self.createTitle()
             id = title.lower()
-            shop.products.manage_addProduct["easyshop.shop"].addProduct(id, title=title)
+            shop.products.manage_addProduct["easyshop.core"].addProduct(id, title=title)
             product = shop.products.get(id)            
 
             # add category
@@ -55,7 +55,7 @@ class TestEnvironmentView(BrowserView):
         shop = self.context
                 
         id = "category"
-        shop.categories.manage_addProduct["easyshop.shop"].addCategory(id, title="Category")        
+        shop.categories.manage_addProduct["easyshop.core"].addCategory(id, title="Category")        
         category = shop.categories.get(id)
         
         wftool = getToolByName(self.context, "portal_workflow")
@@ -64,7 +64,7 @@ class TestEnvironmentView(BrowserView):
         for i in range(1, 21):
             title = self.createTitle()
             id = title.lower()
-            shop.products.manage_addProduct["easyshop.shop"].addProduct(id, title=title)
+            shop.products.manage_addProduct["easyshop.core"].addProduct(id, title=title)
             product = shop.products.get(id)
 
             img = os.path.join(package_home(globals()), '../../tests/test_2.jpg')
