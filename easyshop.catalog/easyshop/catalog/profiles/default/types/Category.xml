@@ -4,7 +4,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Category</property>
  <property
-    name="description"></property>
+    name="description">To structure products</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">Category</property>
   <property name="product">easyshop.core</property>
