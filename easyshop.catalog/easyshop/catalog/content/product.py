@@ -236,7 +236,12 @@ class Product(ATFolder):
     """
     implements(IProduct)
     schema = schema
-
+    
+    def getCategories(self):
+        """
+        """
+        return self.getBRefs("categories_products")
+        
     def setImage(self, data):
         """
         """
@@ -298,14 +303,17 @@ class Product(ATFolder):
         else:
             return shop_path
 
-    def setCategories(self, value):
+    def setCategories(self, categories):
         """
         """
         # save the old categories
         old_categories = self.getCategories()
 
         # Set the new values
-        self.getField("categories").set(self, value)
+        catalog = getToolByName(self, "reference_catalog")
+        
+        for category in categories:
+            catalog.addReference(category, self, "categories_products")
 
         # Reindex to get the new values ...
         self.reindexObject()        
