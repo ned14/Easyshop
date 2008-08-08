@@ -1,5 +1,6 @@
 # zope imports
 from zope.component import getMultiAdapter
+from zope.interface import implements
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -7,6 +8,9 @@ from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
+
+# plone imports
+from plone.app.layout.globals.interfaces import IViewView
 
 # easyshop imports
 from easyshop.core.interfaces import ICategoryManagement
@@ -23,6 +27,8 @@ def _getContext(self):
 class ManageProductsView(BrowserView):
     """
     """
+    implements(IViewView)
+        
     def __init__(self, context, request):
         self.context = context
         self.request = request

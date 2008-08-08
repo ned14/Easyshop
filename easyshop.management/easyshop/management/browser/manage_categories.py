@@ -1,5 +1,6 @@
 # zope imports
 from zope.component import getMultiAdapter
+from zope.interface import implements
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -10,6 +11,9 @@ from Products.CMFCore.utils import getToolByName
 
 # CMFPlone imports
 from Products.CMFPlone.utils import base_hasattr
+
+# plone imports
+from plone.app.layout.globals.interfaces import IViewView
 
 # easyshop imports
 from easyshop.core.config import MESSAGES
@@ -27,6 +31,8 @@ def _getContext(self):
 class ManageCategoriesView(BrowserView):
     """
     """
+    implements(IViewView)
+    
     def __init__(self, context, request):
         """
         """
