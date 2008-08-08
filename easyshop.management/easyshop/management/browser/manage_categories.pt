@@ -63,27 +63,29 @@
                     <div metal:use-macro="context/categories_macros/macros/category2" />
                 </div>
                 
-                
-                <input tal:condition="not:view/hasSelectedCategories"
-                       value="Select categories"
-                       type="submit"
-                       name="manage-categories:method" />
+                <div style="margin-top:20px">
 
-                <input tal:condition="view/hasSelectedCategories"
-                       type="submit" 
-                       value="Deselect categories"
-                       name="manage-categories-select-categories:method" />
+                    <input tal:condition="not:view/hasSelectedCategories"
+                           value="Select categories"
+                           type="submit"
+                           name="manage-categories:method" />
 
-                <input tal:condition="view/hasSelectedCategories"
-                       type="submit" 
-                       value="Move categories"
-                       name="move-category-to-category:method" />
+                    <input tal:condition="view/hasSelectedCategories"
+                           type="submit" 
+                           value="Deselect categories"
+                           name="manage-categories-select-categories:method" />
+
+                    <input tal:condition="view/hasSelectedCategories"
+                           type="submit" 
+                           value="Move categories"
+                           name="move-category-to-category:method" />
                        
-                <input tal:condition="view/hasSelectedCategories"
-                       type="submit" 
-                       value="Delete categories"
-                       name="manage-categories-delete-categories:method" />
-
+                    <input tal:condition="view/hasSelectedCategories"
+                           type="submit" 
+                           value="Delete categories"
+                           name="manage-categories-delete-categories:method" />
+                </div>
+                
             </form>
                 
         </metal:main>
