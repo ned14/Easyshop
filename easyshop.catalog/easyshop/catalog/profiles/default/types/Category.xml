@@ -40,8 +40,8 @@
     i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>
- <action title="Manage" action_id="manage" category="object" condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
-    url_expr="string:${object_url}/manage" visible="True"
+ <action title="Products" action_id="products" category="object" condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
+    url_expr="string:${object_url}/manage-products" visible="True"
     i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>
