@@ -29,8 +29,11 @@ class IInformationPage(Interface):
 class IInformationManagement(Interface):
     """Provides methods to manage information pages.
     """
-
-    def getInformationPages(self):
+    def getInformationPage(id):
+        """Returns information page by given id
+        """
+        
+    def getInformationPages():
         """Returns all information pages.
         """
         
