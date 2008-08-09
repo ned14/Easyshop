@@ -1,9 +1,10 @@
-# easyshop imports
+# easyshop.order imports
 from easyshop.order.browser.order_view import OrderView
 
-from easyshop.core.interfaces import ICurrencyManagement
+# easyshop.core imports
+from easyshop.core.interfaces import IInformationManagement
 from easyshop.core.interfaces import IPaymentInformationManagement
-from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
 
 class MailOrderReceivedView(OrderView):
     """
@@ -22,3 +23,13 @@ class MailOrderReceivedView(OrderView):
         note = note.replace("[payment-url]", payment_url)
         
         return note
+        
+    def getCancellationInstruction(self):
+        """
+        """
+        shop = IShopManagement(self.context).getShop()
+        im = IInformationManagement(shop)
+        
+        # TODO: Rename to english
+        page = im.getInformationPage("rueckgabebelehrung")
+        return page.getText()

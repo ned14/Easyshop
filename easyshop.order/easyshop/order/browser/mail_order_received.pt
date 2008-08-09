@@ -327,6 +327,11 @@ a:active { text-decoration:underline; color:#666666;}
                 Message
             </td>
         </tr>
+        <tr>
+            <td class="TextGrossGrauLinks" tal:content="structure view/getCancellationInstruction">
+                Cancellation Instruction
+            </td>
+        </tr>
     </table>
     
     <p class="RahmenGrossGrau"
