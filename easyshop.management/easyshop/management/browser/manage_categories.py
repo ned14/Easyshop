@@ -84,8 +84,7 @@ class ManageCategoriesView(BrowserView):
             putils.addPortalMessage(MESSAGES["CATEGORY_ALREADY_EXISTS"], "error")
             return self._showView()
         else:
-            shop.manage_addProduct["easyshop.core"].addCategory(
-                id=normalized_id, title=category_name)
+            shop.invokeFactory("Category", id=normalized_id, title=category_name)
             putils.addPortalMessage(MESSAGES["ADDED_CATEGORY"])
             
         new_category = shop[normalized_id]
