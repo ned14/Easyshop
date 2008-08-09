@@ -22,6 +22,14 @@ class InformationManagement:
         self.context = context
         self.information = context["information"]
 
+    def getInformationPage(self, id):
+        """
+        """
+        try:
+            return self.information[id]
+        except KeyError:
+            return None
+        
     def getInformationPages(self):
         """
         """
