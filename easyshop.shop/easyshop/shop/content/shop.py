@@ -16,7 +16,7 @@ from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
 
 # ATContentTypes imports
-from Products.ATContentTypes.content.folder import ATFolder
+from Products.ATContentTypes.content.folder import ATBTreeFolder
 
 # easyshop imports
 from easyshop.core.config import *
@@ -148,7 +148,7 @@ schema = Schema((
 )
 
 # Move Plone's default fields into one tab, to make some place for own ones.
-schema = ATFolder.schema.copy() + schema
+schema = ATBTreeFolder.schema.copy() + schema
     
 # Dates
 schema.changeSchemataForField('effectiveDate',  'plone')
@@ -170,15 +170,14 @@ schema.changeSchemataForField('rights', 'plone')
 # Settings
 schema.changeSchemataForField('allowDiscussion', 'plone')
 schema.changeSchemataForField('excludeFromNav', 'plone')
-schema.changeSchemataForField('nextPreviousEnabled', 'plone')
 
-class EasyShop(ATFolder):
+class EasyShop2(ATBTreeFolder):
     """An shop where one can offer products for sale.
     """
     implements(IShop)
     _at_rename_after_creation = True
     schema = schema
-    
+
     def at_post_create_script(self):
         """Overwritten to create some objects.
         """
@@ -303,4 +302,4 @@ class EasyShop(ATFolder):
 
         return dl
 
-registerType(EasyShop, PROJECTNAME)
+registerType(EasyShop2, PROJECTNAME)
