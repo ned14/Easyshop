@@ -179,6 +179,9 @@ a:active { text-decoration:underline; color:#666666;}
         <div tal:content="invoice_address/name">
             John Doe
         </div>    
+        <div tal:content="invoice_address/company_name">
+            John Doe
+        </div>    
         <div tal:content="invoice_address/address1">
             John-Doe-Str. 1
         </div>    
@@ -196,6 +199,9 @@ a:active { text-decoration:underline; color:#666666;}
     </td>
     <td class="TextGrossGrauLinks">
         <div tal:content="shipping_address/name">
+            John Doe                                
+        </div>
+        <div tal:content="shipping_address/company_name">
             John Doe                                
         </div>
         <div tal:content="shipping_address/address1">
@@ -317,8 +323,13 @@ a:active { text-decoration:underline; color:#666666;}
             <td colspan="5">&nbsp;</td>
         </tr>
     </table>
-    
-    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+    <p class="RahmenGrossGrau"
+        tal:content="structure view/getNote">
+    </p>
+        
+    <table tal:condition="context/getMessage"
+           width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
             <td class="HeadHintergrundLinks">Hinweis zur Bestellung</td>
         </tr>
@@ -327,16 +338,15 @@ a:active { text-decoration:underline; color:#666666;}
                 Message
             </td>
         </tr>
+    </table>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
             <td class="TextGrossGrauLinks" tal:content="structure view/getCancellationInstruction">
                 Cancellation Instruction
             </td>
         </tr>
     </table>
-    
-    <p class="RahmenGrossGrau"
-        tal:content="structure view/getNote">
-    </p>
     
     <p class="TextGrossGrauLinks">F&uuml;r Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 
     Bei R&uuml;ckfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
