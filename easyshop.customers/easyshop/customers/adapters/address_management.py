@@ -66,13 +66,7 @@ class CustomerAddressManager:
     def getAddresses(self):
         """
         """
-        catalog = getToolByName(self.context, "portal_catalog")
-        brains = catalog.searchResults(
-            portal_type = "Address",
-            path = "/".join(self.context.getPhysicalPath())
-        )
-
-        return [brain.getObject() for brain in brains]
+        return self.context.objectValues("Address")
 
     def getInvoiceAddress(self):
         """
