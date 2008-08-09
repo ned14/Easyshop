@@ -127,14 +127,8 @@ class Order(BaseFolder):
     def getCustomer(self):
         """Returns the customer of the order.
         """
-        catalog = getToolByName(self, "portal_catalog")
-        brains = catalog.searchResults(
-            path = "/".join(self.getPhysicalPath()),
-            portal_type = "Customer",
-        )
-        
         try:
-            return brains[0].getObject()
+            return self.objectValues("Customer")[0]
         except IndexError:
             return None
 
