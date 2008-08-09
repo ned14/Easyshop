@@ -171,7 +171,7 @@ schema.changeSchemataForField('rights', 'plone')
 schema.changeSchemataForField('allowDiscussion', 'plone')
 schema.changeSchemataForField('excludeFromNav', 'plone')
 
-class EasyShop2(ATBTreeFolder):
+class EasyShop(ATBTreeFolder):
     """An shop where one can offer products for sale.
     """
     implements(IShop)
@@ -302,4 +302,4 @@ class EasyShop2(ATBTreeFolder):
 
         return dl
 
-registerType(EasyShop2, PROJECTNAME)
+registerType(EasyShop, PROJECTNAME)
