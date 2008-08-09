@@ -43,6 +43,5 @@
     <include package="easyshop.shop" />
     <include package="easyshop.stocks" />
     <include package="easyshop.taxes" />
-    <include package="iqpp.sessions" />
 
 </configure>
