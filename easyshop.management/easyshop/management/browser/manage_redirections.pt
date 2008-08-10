@@ -16,6 +16,10 @@
         
         <div tal:repeat="redirection view/getRedirections">
             <span tal:content="redirection/old_path" /> <span tal:content="redirection/new_path" />
+            <a href="."
+               tal:attributes="href string:${context/absolute_url}/remove-redirection?path=${redirection/old_path}">
+                Remove
+            </a>
         </div>
             
     </tal:main-macro>
@@ -23,4 +27,3 @@
 
 </body>
 </html>
-

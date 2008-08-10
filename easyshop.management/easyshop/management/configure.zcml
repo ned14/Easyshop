@@ -12,6 +12,9 @@
         package=".browser" />
 
     <include
+        package=".scripts" />
+
+    <include
         package=".viewlets" />
         
     <genericsetup:registerProfile
