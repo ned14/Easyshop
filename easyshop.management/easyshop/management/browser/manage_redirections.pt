@@ -4,24 +4,82 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="EasyShop">
 <body>
 
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main">
+    <tal:main-macro metal:define-macro="main"
+                    tal:define="batch view/getRedirections;
+                                batch_base_url string:${context/absolute_url}/manage-redirections">
 
-        <h1 class="documentFirstHeading"> 
-            Manage Products
+        <h1 class="documentFirstHeading"
+            i18n:translate="manage_redirections_label"> 
+            Manage Redirections
         </h1>
         
-        <div tal:repeat="redirection view/getRedirections">
-            <span tal:content="redirection/old_path" /> <span tal:content="redirection/new_path" />
-            <a href="."
-               tal:attributes="href string:${context/absolute_url}/remove-redirection?path=${redirection/old_path}">
-                Remove
-            </a>
-        </div>
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+        
+        <form method="post"
+              action="#"
+              tal:attributes="action string:${context/absolute_url}/@@add-redirection"
+              class="add-redirection-form">
             
+            <label i18n:translate="paths_label">
+                Old Path / New Path
+            </label>
+              
+            <input type="text"
+                   name="old_path" />
+
+            <input type="text"
+                   name="new_path" />
+
+            <input type="submit"
+                   value="Add Redirection"
+                   i18n:attributes="value add_redirection_label;" />
+        </form>
+        
+        <form method="post"
+              action="#"
+              tal:attributes="action string:${context/absolute_url}/@@remove-redirections">
+        
+            <table class="listing">
+                <tr>
+                    <th>
+                        <input type="checkbox"
+                               name="select-all-paths" />                        
+                    </th>
+                    <th i18n:translate="old_path_label">
+                        Old Path
+                    </th>
+                    <th i18n:translate="new_path_label">
+                        New Path
+                    </th>
+                </tr>
+                <tr tal:repeat="redirection batch">
+                    <td>
+                        <input type="checkbox"
+                               name="paths"
+                               tal:attributes="value redirection/old_path">
+                    </td>
+                    <td tal:content="redirection/old_path">
+                        Old Path
+                    </td>
+                    <td tal:content="redirection/new_path">
+                        New Path
+                    </td>
+                </tr>
+            </table>
+
+            <input type="hidden"
+                   name="b_start"
+                   tal:attributes="value context/REQUEST/b_start|nothing" />
+                   
+            <input type="submit"
+                   value="Delete Redirections" 
+                   i18n:attributes="value delete_redirections_label;" />
+
+        </form>
     </tal:main-macro>
 </metal:main>
 

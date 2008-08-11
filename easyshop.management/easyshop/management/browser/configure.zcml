@@ -4,16 +4,30 @@
 
     <browser:page
         name="manage-redirections"
-        for="easyshop.core.interfaces.IShop"
+        for="*"
         class=".manage_redirections.ManageRedirectionsView"
         template="manage_redirections.pt"
         permission="cmf.ManagePortal" />
-
+        
+    <browser:page
+        name="add-redirection"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        attribute="addRedirection"
+        permission="cmf.ManagePortal" />
+        
     <browser:page
         name="remove-redirection"
-        for="easyshop.core.interfaces.IShop"
+        for="*"
         class=".manage_redirections.ManageRedirectionsView"
-        attribute="removePath"
+        attribute="removeRedirection"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="remove-redirections"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        attribute="removeRedirections"
         permission="cmf.ManagePortal" />
 
     <!-- Product -->       
