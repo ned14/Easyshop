@@ -350,7 +350,7 @@ a:active { text-decoration:underline; color:#666666;}
     
     <p class="TextGrossGrauLinks">F&uuml;r Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 
     Bei R&uuml;ckfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
-    <p class="TextGrossGrauLinks">Mit freundlichen Gr&uuml;&szig;en<br />
+    <p class="TextGrossGrauLinks">Mit freundlichen Gr&uuml;&szlig;en<br />
     DEMMELHUBER Holz &amp; Raum GmbH<br />
     <img src="http://www.demmelhuber.net/logo.jpg" alt="Demmelhuber" width="327" height="60" longdesc="http://www.demmelhuber.net/laden" /></p>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
