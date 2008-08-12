@@ -40,6 +40,7 @@ class FormatterInfos:
         """Returns either the first object with formats enabled or the shop
         content object
         """
+        import pdb; pdb.set_trace()
         object = self.context
         if effective == True:
             while IShop.providedBy(object) == False:
@@ -50,8 +51,14 @@ class FormatterInfos:
                 else:              
                     if fi.formats["enabled"] == True:
                         break
-                object = object.aq_inner.aq_parent
-
+                
+                if object.getParentCategory() is not None:
+                    object = object.getParentCategory()
+                else:
+                    object = object.aq_inner.aq_parent
+        
+        import pdb; pdb.set_trace()
+                    
         fi = IFormats(object)
         
         try:
