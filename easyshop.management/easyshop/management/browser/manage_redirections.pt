@@ -21,29 +21,16 @@
 
         <form method="post"
               action="#"
-              tal:attributes="action string:${context/absolute_url}/@@remove-redirections"
-              class="remove-redirections-form">
-
-            <input type="text"
-                   name="regex" />
-
-            <input type="hidden"
-                   name="b_start"
-                   tal:attributes="value context/REQUEST/b_start|nothing" />
-
-            <input type="submit"
-                   value="Remove Redirections"
-                   i18n:attributes="value remove_redirections_label;" />              
-        </form>
-        
-        <form method="post"
-              action="#"
               tal:attributes="action string:${context/absolute_url}/@@add-redirection"
               class="add-redirection-form">
             
             <label i18n:translate="paths_label">
                 Old Path / New Path
             </label>
+
+            <input type="hidden"
+                   name="amount"
+                   tal:attributes="value context/REQUEST/amount|nothing" />
 
             <input type="hidden"
                    name="b_start"
@@ -93,6 +80,10 @@
             </table>
 
             <input type="hidden"
+                   name="amount"
+                   tal:attributes="value context/REQUEST/amount|nothing" />
+
+            <input type="hidden"
                    name="b_start"
                    tal:attributes="value context/REQUEST/b_start|nothing" />
                    
@@ -101,6 +92,36 @@
                    i18n:attributes="value delete_redirections_label;" />
 
         </form>
+
+        <h1 i18n:translate="advanced_label">
+            Advanced
+        </h1>
+
+        <form method="post"
+              action="#"
+              tal:attributes="action string:${context/absolute_url}/@@remove-redirections"
+              class="remove-redirections-form">
+             
+            <label i18n:translate="regex_label">
+                RegEx
+            </label>
+            <input type="text"
+                   name="regex" />
+
+            <input type="hidden"
+                   name="amount"
+                   tal:attributes="value context/REQUEST/amount|nothing" />
+
+            <input type="hidden"
+                   name="b_start"
+                   tal:attributes="value context/REQUEST/b_start|nothing" />
+
+            <input type="submit"
+                   value="Remove Redirections"
+                   i18n:attributes="value remove_redirections_label;" />              
+        </form>
+        
+        
     </tal:main-macro>
 </metal:main>
 
