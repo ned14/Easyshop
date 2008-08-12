@@ -1,3 +1,6 @@
+# python imports
+import re
+
 # zope imports
 from zope.interface import implements
 
@@ -219,7 +222,25 @@ class ProductVariant(ATFolder):
     """
     implements(IProductVariant)
     schema = schema
-
+    
+    def Title(self):
+        """
+        """
+        title = self.getField("title").get(self)
+        
+        try:
+            url = self.REQUEST.get("URL", "")
+            if re.search("atct_edit$|manage-variants-view$", url):
+                return title
+        except AttributeError:
+            pass
+            
+        if "%" in title:
+            parent_title = self.aq_inner.aq_parent.Title()
+            title = title.replace("%P", parent_title)
+    
+        return title
+        
     def setImage(self, data):
         """
         """

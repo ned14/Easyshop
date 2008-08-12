@@ -34,8 +34,8 @@ class ProductVariantsManagement:
             
             # format string
             i += 1
-            new_article_id = article_id.replace("%n", str(i))
-            new_title = title.replace("%n", str(i))
+            new_article_id = article_id.replace("%N", str(i))
+            new_title = title.replace("%N", str(i))
             
             new_id = self.context.generateUniqueId("ProductVariant")
             self.context.invokeFactory(
