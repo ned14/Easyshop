@@ -104,8 +104,14 @@ class ManageRedirectionsView(BrowserView):
     def _redirect(self):
         """
         """
-        amount  = self.request.get('amount', 0);
-        b_start = self.request.get('b_start', 0);
+        amount  = self.request.get('amount', "");
+        b_start = self.request.get('b_start', "");
+        
+        if amount == "":
+            amount = 0
+            
+        if b_start == "":
+            b_start = 0
             
         url = self.context.absolute_url() + "/manage-redirections?b_start:int=" + str(b_start) + "&amount=" + amount
         self.request.response.redirect(url)
