@@ -222,6 +222,7 @@ class ProductVariant(ATFolder):
     """
     implements(IProductVariant)
     schema = schema
+    _at_rename_after_creation = False
     
     def Title(self):
         """
