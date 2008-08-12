@@ -42,9 +42,10 @@ class ProductData(object):
                 image = "%s/image_%s" % (image.absolute_url(), "preview")
           
             return {
-                "article_id"  : self.context.getArticleId(),
+                "article_id"  : self.context.getArticleId(),                
                 "title"       : self.context.Title(),
                 "short_title" : self.context.getShortTitle() or self.context.Title(),
+                "description" : self.context.Description(),
                 "url"         : self.context.absolute_url(),
                 "price"       : price,
                 "image"       : image,
@@ -82,9 +83,12 @@ class ProductVariantData:
         # article id
         article_id = self.context.getArticleId() or \
                      self.parent.getArticleId()
-        # text 
+        # Text 
         text = self.context.getText() or self.parent.getText()
-
+        
+        # Description
+        description = self.context.Description() or self.parent.Description
+        
         # options
         options = []
         for option in self.context.getForProperties():
@@ -98,6 +102,7 @@ class ProductVariantData:
             "article_id"  : article_id,
             "title"       : title,            
             "short_title" : short_title,
+            "description" : description,
             "url"         : self.context.absolute_url(),
             "image"       : image,
             "text"        : text,
