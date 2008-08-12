@@ -30,6 +30,13 @@
         attribute="removeRedirections"
         permission="cmf.ManagePortal" />
 
+    <browser:page
+        name="cleanup-redirections"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        attribute="cleanupRedirections"
+        permission="cmf.ManagePortal" />
+
     <!-- Product -->       
     <browser:page
         name="manage-products"

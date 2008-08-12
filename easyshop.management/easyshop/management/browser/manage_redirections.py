@@ -47,6 +47,21 @@ class ManageRedirectionsView(BrowserView):
             storage.add(old_path, new_path)
             
         self._redirect()
+
+    def cleanupRedirections(self):
+        """
+        """
+        storage = getUtility(IRedirectionStorage)
+        
+        to_delete_paths = []
+        for key, value in storage._paths.items():
+            if key == value:
+                to_delete_paths.append(key)
+
+        for path in to_delete_paths:
+            storage.remove(path)
+            
+        self._redirect()
         
     def removeRedirection(self):
         """Removes given path
