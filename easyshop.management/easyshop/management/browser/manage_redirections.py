@@ -1,3 +1,6 @@
+# python imports
+import re
+
 # zope imports
 from zope.component import getUtility
 
@@ -62,13 +65,25 @@ class ManageRedirectionsView(BrowserView):
         paths = self.request.get("paths", [])
         if not isinstance(paths, (list, tuple)):
             paths = (paths,)
-
+        
         storage = getUtility(IRedirectionStorage)
-                        
+        
+        # selected paths                
         for path in paths:
             if path != "" and storage.has_path(path):
                 storage.remove(path)
-        
+
+        regex = self.request.get("regex", "")
+        if regex != "":
+            # entered path
+            to_delete_paths = []
+            for path in storage._paths.keys():
+                if re.search(regex, path):
+                    to_delete_paths.append(path)
+
+            for path in to_delete_paths:
+                storage.remove(path)
+            
         self._redirect()
 
     def _redirect(self):

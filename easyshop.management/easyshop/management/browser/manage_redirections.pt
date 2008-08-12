@@ -18,6 +18,19 @@
         </h1>
         
         <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+        <form method="post"
+              action="#"
+              tal:attributes="action string:${context/absolute_url}/@@remove-redirections"
+              class="remove-redirections-form">
+
+            <input type="text"
+                   name="regex" />
+
+            <input type="submit"
+                   value="Remove Redirections"
+                   i18n:attributes="value remove_redirections_label;" />              
+        </form>
         
         <form method="post"
               action="#"
