@@ -94,10 +94,9 @@
 
                         <tr>
                             <td>
-                                <h1 class="shop-title">
-                                    <metal:field use-macro="python:here.widget('title', mode='view')">
-                                        Deep Thought    
-                                    </metal:field>
+                                <h1 class="shop-title"
+                                    tal:content="product_data/title">
+                                    Title
                                 </h1>
                             </td>
                         </tr>
@@ -108,10 +107,9 @@
                 <td>
                     <table class="product-content">
                         <tr>
-                            <td class="sub-title">
-                                 <metal:field use-macro="python:here.widget('description', mode='view')">
-                                    Our Products Are The Best
-                                 </metal:field>
+                            <td class="sub-title"
+                                tal:content="product_data/description">
+                                 Our Products Are The Best
                             </td> 
                             <td class="sub-title" 
                                 align="right"
