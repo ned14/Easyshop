@@ -10,9 +10,15 @@
 
                 $(function(){
                     $("img.thumbnail").click(function () {
-                        var path = $(this).attr("src");
-                        path = path.replace("tile", "preview")
-                        $("#image-large").attr({ src: path });
+                        var thumbnail_path = $(this).attr("src");
+                        var large_path = $("#image-large").attr("src");
+                        thumbnail_path = thumbnail_path.replace("tile", "preview");
+                        if (thumbnail_path != large_path) {
+                            $("#image-large").fadeTo(350, 0, function() {
+                                $("#image-large").attr({ src: thumbnail_path })
+                                $("#image-large").fadeTo(350, 1);
+                            });                            
+                        }
                     });
                 })          
                     
@@ -24,7 +30,6 @@
       
     <body>        
         <div metal:fill-slot="main">            
-
             <div tal:replace="structure provider:easyshop.product-manager" />
         </div>    
     </body>
