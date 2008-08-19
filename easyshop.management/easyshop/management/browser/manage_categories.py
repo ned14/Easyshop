@@ -121,6 +121,7 @@ class ManageCategoriesView(BrowserView):
         
         category.setPositionInParent(category.getPositionInParent()+3)
         self._reindexPositions(category)
+        self._redirect()
 
     def moveCategoryUp(self):
         """
@@ -134,7 +135,8 @@ class ManageCategoriesView(BrowserView):
         
         category.setPositionInParent(category.getPositionInParent()-3)
         self._reindexPositions(category)
-        
+        self._redirect()
+
     def _reindexPositions(self, category):
         """
         """
@@ -150,8 +152,6 @@ class ManageCategoriesView(BrowserView):
             i+=2
             category.setPositionInParent(i)            
             category.reindexObject()
-
-        self._redirect()
 
     def _getCategoryByUID(self, uid):
         """
