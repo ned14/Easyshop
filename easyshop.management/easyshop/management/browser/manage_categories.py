@@ -217,7 +217,7 @@ class ManageCategoriesView(BrowserView):
             
             selected = tl_category.UID() in self.selected_categories
 
-            if selected or self.isChildOfSelected(tl_category):
+            if selected or self._isChildOfSelected(tl_category):
                 display_checkbox = False
             else:
                 display_checkbox = True
@@ -233,7 +233,7 @@ class ManageCategoriesView(BrowserView):
             })
         return categories
     
-    def isChildOfSelected(self, category):
+    def _isChildOfSelected(self, category):
         """Returns true if given category is child of any selected category.
         """
         while category is not None:
