@@ -19,11 +19,6 @@
                 Shop
             </a>  
 
-            <p class="documentDescription"
-               tal:content="context/Description">
-                Description
-            </p>
-
             <div tal:replace="structure provider:plone.abovecontentbody" />
             
             <form action="manage-categories-add-category"

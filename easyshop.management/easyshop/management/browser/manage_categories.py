@@ -108,7 +108,61 @@ class ManageCategoriesView(BrowserView):
         """
         """
         return self.selected_categories
+
+    def moveCategoryDown(self):
+        """
+        """
+        category_uid = self.request.get("category_uid")
+        category = self._getCategoryByUID(category_uid)
         
+        if category is None:
+            self._redirect()
+            return False
+        
+        category.setPositionInParent(category.getPositionInParent()+3)
+        self._reindexPositions(category)
+
+    def moveCategoryUp(self):
+        """
+        """
+        category_uid = self.request.get("category_uid")
+        category = self._getCategoryByUID(category_uid)
+        
+        if category is None:
+            self._redirect()
+            return False
+        
+        category.setPositionInParent(category.getPositionInParent()-3)
+        self._reindexPositions(category)
+        
+    def _reindexPositions(self, category):
+        """
+        """
+        if category.getParentCategory() is not None:
+            parent = category.getParentCategory()
+        else:
+            parent = category.aq_inner.aq_parent        
+
+        category.reindexObject()
+
+        i = 0
+        for category in ICategoryManagement(parent).getTopLevelCategories():
+            i+=2
+            category.setPositionInParent(i)            
+            category.reindexObject()
+
+        self._redirect()
+
+    def _getCategoryByUID(self, uid):
+        """
+        """
+        catalog = getToolByName(self.context, "portal_catalog")
+        category_brains = catalog(UID = uid)
+        if len(category_brains) == 1:
+            return category_brains[0].getObject()
+        else:
+            return None
+                      
     def moveToCategory(self):
         """
         """
@@ -198,3 +252,4 @@ class ManageCategoriesView(BrowserView):
         """
         """
         self.request.response.redirect("manage-categories")
+        

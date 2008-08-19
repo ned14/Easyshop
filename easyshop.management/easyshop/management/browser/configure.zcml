@@ -122,6 +122,20 @@
         class=".manage_categories.ManageCategoriesView"
         attribute="deselectCategories"
         permission="cmf.ManagePortal" />
+        
+    <browser:page
+        name="move-category-up"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="moveCategoryUp"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="move-category-down"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="moveCategoryDown"
+        permission="cmf.ManagePortal" />
 
     <!-- For Categories -->    
     <browser:page
