@@ -73,3 +73,18 @@ def countCategories(category, counter):
         counter += len(category.getProducts())
         counter = countCategories(category, counter)
     return counter
+    
+def getParentCategory(object, portal, **kwargs):
+    try:
+        if ICategory.providedBy(object):
+            parent_category = object.getParentCategory()
+            if parent_category is not None:
+                return parent_category.UID()
+            else: 
+                return None
+        
+    except (ComponentLookupError, TypeError, ValueError):
+        raise AttributeError
+
+registerIndexableAttribute('getParentCategory', getParentCategory)
+    

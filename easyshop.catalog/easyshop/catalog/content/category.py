@@ -147,7 +147,7 @@ class Category(ATFolder):
     """
     implements(ICategory)
     schema = ATFolder.schema.copy() + schema.copy()
-
+    
     def setProducts(self, value):
         """
         """

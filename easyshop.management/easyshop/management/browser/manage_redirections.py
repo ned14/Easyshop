@@ -38,7 +38,6 @@ class ManageRedirectionsView(BrowserView):
     def addRedirection(self):
         """
         """
-        import pdb; pdb.set_trace()
         old_path = self.request.get("old_path", "")
         new_path = self.request.get("new_path", "")
         

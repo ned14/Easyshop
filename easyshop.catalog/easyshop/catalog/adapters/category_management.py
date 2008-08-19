@@ -39,21 +39,24 @@ class CategoryCategoryManagement(object):
     def _getCategories(self, parent_category):
         """
         """
-        mtool = getToolByName(self.context, "portal_membership")
-
-        for category in parent_category.getBRefs("parent_category"):
-
-            if mtool.checkPermission("View", category) == True:
-                self.categories.append(category)
-                self._getCategories(category)
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
+            getParentCategory=parent_category.UID(),
+            sort_on = "getPositionInParent")
+        
+        return [brain.getObject() for brain in brains]
         
     def getTopLevelCategories(self):
         """Returns objects.
         """
-        mtool = getToolByName(self.context, "portal_membership")
-        return [c for c in self.context.getBRefs("parent_category") 
-                           if mtool.checkPermission("View", c) == True]
-
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
+            getParentCategory=self.context.UID(),
+            sort_on = "getPositionInParent")
+        
+        return [brain.getObject() for brain in brains]
         
 class ProductCategoryManagement(object):
     """Adapter which provides ICategoryManagement for product content objects.
@@ -109,22 +112,18 @@ class ShopCategoryManagement(object):
         brains = catalog.searchResults(
             path = "/".join(self.context.getPhysicalPath()),
             object_provides="easyshop.core.interfaces.catalog.ICategory",
-            sort_on = "getObjPositionInParent")
+            sort_on = "getPositionInParent")
 
         return brains
     
     def getTopLevelCategories(self):
         """Returns objects.
         """
-        mtool = getToolByName(self.context, "portal_membership")
-            
-        result = []
-        for category in self.context.objectValues("Category"):
-
-            if mtool.checkPermission("View", category) != True:
-                continue
-
-            if len(category.getRefs("parent_category")) == 0:
-                result.append(category)
-            
-        return result
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            path = "/".join(self.context.getPhysicalPath()),
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
+            sort_on = "getPositionInParent",
+            getParentCategory=None)
+        
+        return [brain.getObject() for brain in brains]

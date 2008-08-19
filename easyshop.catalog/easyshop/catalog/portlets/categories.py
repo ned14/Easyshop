@@ -70,8 +70,7 @@ class Renderer(base.Renderer):
         if category is None:
             return []
         else:
-            categories = ICategoryManagement(category).getTopLevelCategories()            
-            categories.sort(lambda a, b: cmp(a.getPositionInParent(), b.getPositionInParent()))
+            categories = ICategoryManagement(category).getTopLevelCategories()
             
             result = []
             for category in categories:
@@ -165,8 +164,7 @@ class Renderer(base.Renderer):
         result = []
     
         cm = ICategoryManagement(category)
-        categories = cm.getTopLevelCategories()                    
-        categories.sort(lambda a, b: cmp(a.getPositionInParent(), b.getPositionInParent()))
+        categories = cm.getTopLevelCategories()
         
         for category in categories:
 

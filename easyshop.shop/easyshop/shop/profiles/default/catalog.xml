@@ -13,14 +13,20 @@
         <indexed_attr value="getShortText"/>
     </index>
 
-    <index name="parent_categories" meta_type="FieldIndex">
-        <indexed_attr value="parent_categories"/>
+    <index name="getParentCategory" meta_type="FieldIndex">
+        <indexed_attr value="getParentCategory"/>
     </index>
 
     <index name="categories" meta_type="KeywordIndex">
         <indexed_attr value="categories"/>
     </index>
 
+    <index name="getPositionInParent" meta_type="FieldIndex">
+        <indexed_attr value="getPositionInParent"/>
+    </index>
+
+    <column value="getParentCategory" />
+    <column value="getPositionInParent" />
     <column value="amount_of_categories" />
     <column value="fullname" />
     <column value="getShortText" />    
