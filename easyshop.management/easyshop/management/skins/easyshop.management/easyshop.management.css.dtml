@@ -1,3 +1,8 @@
 table.easyshop-management td {
     vertical-align:top;
 }
+
+a.move_category_down,
+a.move_category_up {
+    text-decoration: none;
+}

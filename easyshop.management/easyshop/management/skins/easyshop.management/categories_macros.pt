@@ -54,17 +54,15 @@
         Title
     </a> 
 
-    <a href="."
-       tal:attributes="href string:${context/absolute_url}/move-category-down?category_uid=${category/uid}">
-        <img src="."
-             tal:attributes="src string:${context/absolute_url}/arrowDown.gif" />
-    </a>
+    <a class="move_category_down"
+       href="."
+       tal:attributes="href string:${context/absolute_url}/move-category-down?category_uid=${category/uid};
+                       class string:move_category_down kssattr-uid-${category/uid}">&darr;</a>
     
-    <a href="."
-       tal:attributes="href string:${context/absolute_url}/move-category-up?category_uid=${category/uid}">
-        <img src="."
-             tal:attributes="src string:${context/absolute_url}/arrowUp.gif" />
-    </a>
+    <a class="move_category_up"
+       href="."
+       tal:attributes="href string:${context/absolute_url}/move-category-up?category_uid=${category/uid};
+                       class string:move_category_up kssattr-uid-${category/uid}">&uarr;</a>
              
     <div tal:repeat="category category/children">
         <div style="padding-left:30px; border-left: 2px solid #AAA">

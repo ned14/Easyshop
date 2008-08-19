@@ -53,7 +53,7 @@
                         Shop
                     </span>
                 </tal:block>
-                                
+
                 <div tal:replace="structure provider:easyshop.management.categories-management" />
                 
                 <div style="margin-top:20px">
