@@ -94,6 +94,7 @@ class ManageCategoriesView(BrowserView):
             brains = catalog.searchResults(UID = self.selected_categories)            
             parent_categories = [b.getObject() for b in brains]            
             new_category.setParentCategory(parent_categories)
+            new_category.reindexObject()
 
         return self._showView()
     
@@ -174,6 +175,7 @@ class ManageCategoriesView(BrowserView):
                 brains = catalog.searchResults(UID = selected_category_uid)
                 selected_category = brains[0].getObject()
                 selected_category.setParentCategory(None)
+                selected_category.reindexObject()
         
         elif target_category_uid is not None:
             target_category_brains = catalog(UID = target_category_uid)
@@ -185,6 +187,7 @@ class ManageCategoriesView(BrowserView):
                     brains = catalog.searchResults(UID = selected_category_uid)
                     selected_category = brains[0].getObject()
                     selected_category.setParentCategory(target_category)
+                    selected_category.reindexObject()
         
         putils = getToolByName(self.context, "plone_utils")
         putils.addPortalMessage(MESSAGES["MOVED_CATEGORIES"])
