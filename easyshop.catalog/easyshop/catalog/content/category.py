@@ -108,6 +108,7 @@ schema = Schema((
         name='positionInParent',
         default="0",
         widget=IntegerWidget(
+            visible = {"edit": "invisible", "view": "invisible"},
             label="Position in parent",
             label_msgid="schema_position_in_parent_label",
             description = "The position of the category in parent category",
