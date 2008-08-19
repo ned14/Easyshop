@@ -196,52 +196,6 @@ class ManageCategoriesView(BrowserView):
         """
         return len(self.selected_categories) > 0
 
-    def getCategories(self):
-        """
-        """
-        shop = IShopManagement(self.context).getShop()
-        return self._getCategories(shop)
-
-    def _getCategories(self, obj):
-        """
-        """        
-        categories = []
-            
-        tl_categories = ICategoryManagement(obj).getTopLevelCategories()
-        for tl_category in tl_categories:
-            
-            if tl_category.UID == self.context.UID():
-                klass = "current-category"
-            else:
-                klass = ""
-            
-            selected = tl_category.UID() in self.selected_categories
-
-            if selected or self._isChildOfSelected(tl_category):
-                display_checkbox = False
-            else:
-                display_checkbox = True
-                     
-            categories.append({
-                "title"             : tl_category.Title(),
-                "uid"               : tl_category.UID(),
-                "url"               : tl_category.absolute_url,
-                "selected"          : selected,
-                "display_checkbox"  : display_checkbox,
-                "children"          : self._getCategories(tl_category),
-                "class"             : klass,
-            })
-        return categories
-    
-    def _isChildOfSelected(self, category):
-        """Returns true if given category is child of any selected category.
-        """
-        while category is not None:
-            if category.UID() in self.selected_categories:
-                return True
-            category = category.getParentCategory()
-        return False
-            
     def _showView(self):
         """
         """        

@@ -22,7 +22,8 @@
     </div>    
 </div>
 
-<div metal:define-macro="category2">
+<div class="category"
+     metal:define-macro="category2">
     
     <tal:block tal:condition="not:view/hasSelectedCategories">
         <input tal:condition="not:category/selected"
@@ -56,13 +57,13 @@
     <a href="."
        tal:attributes="href string:${context/absolute_url}/move-category-down?category_uid=${category/uid}">
         <img src="."
-             tal:attributes="src string:$portal_url/arrowDown.gif" />
+             tal:attributes="src string:${context/absolute_url}/arrowDown.gif" />
     </a>
     
     <a href="."
        tal:attributes="href string:${context/absolute_url}/move-category-up?category_uid=${category/uid}">
         <img src="."
-             tal:attributes="src string:$portal_url/arrowUp.gif" />
+             tal:attributes="src string:${context/absolute_url}/arrowUp.gif" />
     </a>
              
     <div tal:repeat="category category/children">

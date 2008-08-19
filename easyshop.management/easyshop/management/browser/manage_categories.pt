@@ -53,10 +53,8 @@
                         Shop
                     </span>
                 </tal:block>
-                              
-                <div tal:repeat="category view/getCategories">
-                    <div metal:use-macro="context/categories_macros/macros/category2" />
-                </div>
+                                
+                <div tal:replace="structure provider:easyshop.management.categories-management" />
                 
                 <div style="margin-top:20px">
 

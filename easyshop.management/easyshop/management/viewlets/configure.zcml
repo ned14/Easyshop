@@ -22,4 +22,18 @@
         class=".select_products.SelectProductsViewlet"
         permission="cmf.ManagePortal" />
 
+    <!-- Categories -->
+    <browser:viewletManager
+        name="easyshop.management.categories-management"
+        provides="..interfaces.ICategoriesManagementViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="cmf.ManagePortal" />
+
+    <browser:viewlet
+        name="easyshop.management.categories"
+        for="easyshop.core.interfaces.IShop"
+        manager="..interfaces.ICategoriesManagementViewletManager"
+        class=".categories.CategoriesViewlet"
+        permission="cmf.ManagePortal" />
+
 </configure>
