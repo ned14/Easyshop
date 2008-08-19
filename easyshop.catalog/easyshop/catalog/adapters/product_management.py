@@ -42,7 +42,7 @@ class CategoryProductManagement(object):
         """
         pm = IProductManagement(self.context)
         products = pm.getProducts()
-        
+
         cm = ICategoryManagement(self.context)
         for category in cm.getCategories():
             pm = IProductManagement(category)

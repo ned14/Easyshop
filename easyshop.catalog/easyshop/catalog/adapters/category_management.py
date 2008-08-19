@@ -45,7 +45,10 @@ class CategoryCategoryManagement(object):
             getParentCategory=parent_category.UID(),
             sort_on = "getPositionInParent")
         
-        return [brain.getObject() for brain in brains]
+        for brain in brains:
+            category = brain.getObject()
+            self.categories.append(category)
+            self._getCategories(category)
         
     def getTopLevelCategories(self):
         """Returns objects.
