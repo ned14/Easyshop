@@ -24,6 +24,12 @@
 
 <div class="category"
      metal:define-macro="category2">
+
+    <span tal:condition="not:category/children"
+          class="toggle-empty"></span>
+     
+    <span tal:condition="category/children"
+          tal:attributes="class string:toggle ${category/children_class}"></span>
     
     <tal:block tal:condition="not:view/hasSelectedCategories">
         <input tal:condition="not:category/selected"
@@ -35,7 +41,7 @@
     </tal:block>
 
     <tal:block tal:condition="view/hasSelectedCategories">
-
+    
         <img tal:condition="category/selected"
              src="selected_category_icon.png" />
              
@@ -63,9 +69,12 @@
        href="."
        tal:attributes="href string:${context/absolute_url}/move-category-up?category_uid=${category/uid};
                        class string:move_category_up kssattr-uid-${category/uid}">&uarr;</a>
-             
-    <div tal:repeat="category category/children">
-        <div style="padding-left:30px; border-left: 2px solid #AAA">
+    
+                       
+    <div class="children"
+         tal:attributes="class string:children ${category/children_class}">
+        <div tal:repeat="category category/children"
+             style="padding-left:35px">
             <div metal:use-macro="context/categories_macros/macros/category2" />
         </div>    
     </div>    

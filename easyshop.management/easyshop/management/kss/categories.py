@@ -46,7 +46,7 @@ class CategoriesKSSView(PloneKSSView):
         kss_zope  = self.getCommandSet("zope")
         
         kss_zope.refreshViewlet(
-            kss_core.getHtmlIdSelector("categories"),
+            kss_core.getHtmlIdSelector("manage-categories"),
             manager="easyshop.management.categories-management",
             name="easyshop.management.categories")
             

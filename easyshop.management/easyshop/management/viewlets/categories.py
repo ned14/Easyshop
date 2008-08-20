@@ -51,7 +51,12 @@ class CategoriesViewlet(ViewletBase):
                 display_checkbox = False
             else:
                 display_checkbox = True
-                     
+            
+            if tl_category.UID() in self.request.SESSION.get("extended", []):
+                children_class = "extended"
+            else:
+                children_class = "collapsed"
+                
             categories.append({
                 "title"             : tl_category.Title(),
                 "uid"               : tl_category.UID(),
@@ -60,6 +65,7 @@ class CategoriesViewlet(ViewletBase):
                 "display_checkbox"  : display_checkbox,
                 "children"          : self._getCategories(tl_category),
                 "class"             : klass,
+                "children_class"    : children_class,
             })
 
         return categories

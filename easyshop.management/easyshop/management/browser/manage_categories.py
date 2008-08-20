@@ -138,6 +138,20 @@ class ManageCategoriesView(BrowserView):
         self._reindexPositions(category)
         self._redirect()
 
+    def setCollapsileState(self):
+        """
+        """
+        set_state = self.request.get("set_state", "false")
+        uid = self.request.get("uid")
+        extended = self.request.SESSION.get("extended", [])
+        
+        if uid is not None:
+            if set_state == "false" and uid not in extended:
+                extended.append(uid)
+                self.request.SESSION["extended"] = extended
+            elif set_state == "true" and uid in extended:
+                del extended[extended.index(uid)]
+        
     def _reindexPositions(self, category):
         """
         """

@@ -137,6 +137,13 @@
         attribute="moveCategoryDown"
         permission="cmf.ManagePortal" />
 
+    <browser:page
+        name="set-collapsile-state"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="setCollapsileState"
+        permission="cmf.ManagePortal" />
+
     <!-- For Categories -->    
     <browser:page
         name="manage-products"
