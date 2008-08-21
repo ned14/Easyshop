@@ -42,8 +42,8 @@ class ProductData(object):
                 image = "%s/image_%s" % (image.absolute_url(), "preview")
 
             images = []
-            for image in IImageManagement(self.context).getImages():
-                images.append("%s/image_tile") % image.absolute_url()
+            for temp in IImageManagement(self.context).getImages():
+                images.append("%s/image_tile" % temp.absolute_url())
             
             return {
                 "article_id"  : self.context.getArticleId(),                
@@ -54,7 +54,7 @@ class ProductData(object):
                 "price"       : price,
                 "image"       : image,
                 "images"      : images,
-                "text"        : self.context.getText()
+                "text"        : self.context.getText(),
                 "short_text"  : self.context.getShortText(),
             }        
         
