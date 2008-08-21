@@ -79,29 +79,43 @@ class ProductPropertyManagement(object):
         # return it.            
         else:
             return price
-                
-    def getProperties(self):
-        """
-        """
-        # Get unique properties as dict
-        result = self._getProperties()
-                
-        return result.values()
 
+    def getProperties(self):
+        """Returns all unique Properties for a Product, wheras properties from 
+        the Product have higher precedence than Properties from a Group.
+        """
+        # NOTE: We can't use dictionaries here to unify properties, because we 
+        # need the properties in the order of positions within the product.
+        
+        property_ids = []
+        properties = []
+        
+        # Get all Properties from Groups        
+        for group in IGroupManagement(self.context).getGroups():
+            for property in group.objectValues("ProductProperty"):
+                property_ids.append(property.getId())
+                properties.append(property)
+        
+        # Overwrite with Properties from Product
+        for property in self.context.objectValues("ProductProperty"):
+            if property.getId() in property_ids:
+                index = property_ids.index(property.getId())
+                properties[index] = property
+            else:
+                properties.append(property)
+            
+        return properties
+                        
     def getProperty(self, id):
         """
         """
-        for property in self.getProperties():
-            if property.getId() == id:
-                return property
-        
-        return None
+        return self._getPropertiesAsDict().get(id)
 
     def getTitlesByIds(self, property_id, option_id):
         """
         """
         # Get all properties as dict
-        result = self._getProperties()
+        result = self._getPropertiesAsDict()
         
         if result.has_key(property_id) == False:
             return {
@@ -119,7 +133,7 @@ class ProductPropertyManagement(object):
         
         return None
 
-    def _getProperties(self):
+    def _getPropertiesAsDict(self):
         """Returns all unique Properties for a Product, wheras properties from 
         the Product have higher precedence than Properties from a Group.
         """
@@ -134,9 +148,9 @@ class ProductPropertyManagement(object):
         # Overwrite with Properties from Product
         for property in self.context.objectValues("ProductProperty"):
             result[property.getId()] = property
-            
-        return result
         
+        return result
+
     def _calcPrice(self, property_id, option_id):
         """
         """
