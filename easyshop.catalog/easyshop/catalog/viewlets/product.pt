@@ -173,7 +173,7 @@
                                         </td>
                                     </tr> 
                                     <tr>
-                                        <td tal:repeat="image_url view/getImageUrls">
+                                        <td tal:repeat="image_url product_data/images">
                                             <img class="thumbnail"
                                                  src="."
                                                  alt="Image"

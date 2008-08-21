@@ -80,7 +80,7 @@ class ProductViewlet(ViewletBase):
                             
     def getProductData(self):
         """
-        """
+        """        
         data = IData(self.context)
         return data.asDict()
 
