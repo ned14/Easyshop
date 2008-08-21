@@ -166,12 +166,8 @@
                                     </tr>
                                 </table>    
                                                      
-                                 <table id="image-thumbs">
-                                    <tr>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr> 
+                                 <table tal:condition="python:len(product_data['images']) > 1" 
+                                        id="image-thumbs">
                                     <tr>
                                         <td tal:repeat="image_url product_data/images">
                                             <img class="thumbnail"
