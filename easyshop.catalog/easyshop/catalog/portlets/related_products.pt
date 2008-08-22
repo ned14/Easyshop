@@ -15,7 +15,7 @@
                tal:attributes="href product/url">
                
                 <img src="."
-                     tal:attributes="src string:${product/image_url}/image_thumb;
+                     tal:attributes="src product/image_url;
                                      title product/title;
                                      alt product/title" />
                                  
