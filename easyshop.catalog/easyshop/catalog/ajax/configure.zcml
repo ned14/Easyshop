@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        name="ajax-changed-property"
+        for="*"
+        class=".properties.PropertiesView"
+        attribute="selectProperties"
+        permission="zope2.View" />
+
+</configure>

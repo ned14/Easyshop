@@ -1,7 +1,29 @@
 <div id="product"
      i18n:domain="EasyShop">
 
-    <form name="product_form" 
+     <script>
+          (function($) { 
+ 
+             $(function(){
+                 $("img.thumbnail").click(function () {
+                     var path = $(this).attr("src");
+                     path = path.replace("tile", "preview")
+                     $("#image-large").attr({ src: path });
+                 });
+             })          
+ 
+             $(function(){
+                 $(".property").change(function () {                     
+                    $('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product"});
+                 });
+             })          
+                 
+          })(jQuery);
+     
+     </script>
+         
+
+    <form id="product_form"
           action="#"
           tal:define="product_data view/getProductData;
                       zoom_url string:${product_data/url}/product-zoom-view;
@@ -11,7 +33,7 @@
                       price_for_customer view/getPriceForCustomer"
           tal:attributes="action context/absolute_url"
           method="post">
-                  
+        
         <table class="products">
             <tr>
                 <td>
@@ -190,7 +212,7 @@
                                                     value="1" />
                                                     
                                              <select style="font-size:12px; width:200px"
-                                                     onchange="document.product_form.submit();"
+                                                     class="property"
                                                      tal:attributes="name property/id">
            
                                                  <option tal:repeat="option property/options"
@@ -199,11 +221,20 @@
                                                                          selected option/selected">
                                                      Red
                                                  </option>                           
-                                             </select>                                                                       
+                                             </select> 
                                          </td>
                                      </tr>
+                                     <tr>
+                                        <td></td>
+                                        <td>
+                                             <noscript>
+                                                 <input type="submit" 
+                                                        value="Update Properties"
+                                                        i18n:attributes="update_properties_label" />                                                
+                                             </noscript>                                            
+                                        </td>
+                                     </tr>                                     
                                  </table>     
-
                             </td>
                             <td style="padding-left:10px"
                                 class="product-description"

@@ -5,21 +5,6 @@
      
     <metal:block metal:fill-slot="javascript_head_slot">
 
-        <script>
-             (function($) { 
-
-                $(function(){
-                    $("img.thumbnail").click(function () {
-                        var path = $(this).attr("src");
-                        path = path.replace("tile", "preview")
-                        $("#image-large").attr({ src: path });
-                    });
-                })          
-                    
-             })(jQuery);
-        
-        </script>
-        
     </metal:block>
       
     <body>        
