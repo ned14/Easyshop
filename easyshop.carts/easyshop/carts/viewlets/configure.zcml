@@ -1,0 +1,17 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:viewletManager
+        name="easyshop.carts.cart-manager"
+        provides="..interfaces.ICartViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.carts.cart-viewlet"
+        for="easyshop.core.interfaces.IShop"
+        manager="..interfaces.ICartViewletManager"
+        class=".cart.CheckoutCartViewlet"
+        permission="zope.Public" />
+
+</configure>

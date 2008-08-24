@@ -13,14 +13,16 @@
 
             <dd class="portletItem">
                 <div align="center">
-                    <span tal:content="view/getAmountOfArticles">
+                    <span class="amount"
+                          tal:content="view/getAmountOfArticles">
                         3
                     </span>
                     <span i18n:translate="article_label">
                         Article
                     </span>    
                 </div>
-                <div align="center"
+                <div class="price" 
+                     align="center"
                      tal:content="view/getCartPrice">
                     42.0
                 </div>

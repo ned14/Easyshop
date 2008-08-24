@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        name="ajax-refresh-cart"
+        for="*"
+        class=".cart.AjaxView"
+        attribute="refreshCart"
+        permission="zope2.View" />
+
+    <browser:page
+        name="ajax-delete-cart-item"
+        for="*"
+        class=".cart.AjaxView"
+        attribute="deleteItem"
+        permission="zope2.View" />
+
+</configure>
