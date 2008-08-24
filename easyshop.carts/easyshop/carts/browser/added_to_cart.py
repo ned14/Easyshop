@@ -17,6 +17,8 @@ class AddedToCartView(BrowserView):
     def getProduct(self):
         """Returns the last input product of the cart.
         """
+        cm = ICurrencyManagement(self.context)
+                
         cart_item_id = self.request.get("id", None)
         if cart_item_id is None:
             return None
@@ -32,8 +34,6 @@ class AddedToCartView(BrowserView):
                 
         # Price
         price = IPrices(product).getPriceForCustomer()
-        cm    = ICurrencyManagement(self.context)
-        price = cm.priceToString(price)        
         
         # Image
         product = cart_item.getProduct()
@@ -46,7 +46,7 @@ class AddedToCartView(BrowserView):
         # Get selected properties
         properties = []
         pm = IPropertyManagement(product)
-
+        
         for selected_property in cart_item.getProperties():
             property_price = pm.getPriceForCustomer(
                 selected_property["id"], 
@@ -61,10 +61,9 @@ class AddedToCartView(BrowserView):
             if titles is None:
                 continue
 
-            if IProductVariant.providedBy(product) == True:
+            if (property_price == 0.0) or \
+               (IProductVariant.providedBy(product)) == True:
                 show_price = False
-            elif property_price == 0.0:
-                show_price = False                
             else:
                 show_price = True
                 
@@ -75,6 +74,10 @@ class AddedToCartView(BrowserView):
                 "price" : cm.priceToString(property_price),
                 "show_price" : show_price,
             })
+            
+            price += property_price
+        
+        price = cm.priceToString(price)        
                         
         return {
             "title"      : product.Title(),
