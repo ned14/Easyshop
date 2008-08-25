@@ -1,4 +1,5 @@
-<div id="cart">
+<div id="cart"
+      i18n:domain="EasyShop">
     <form id="product_form"
           name="product_form"
           action="#"
