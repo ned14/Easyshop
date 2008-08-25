@@ -13,8 +13,11 @@
              })          
  
              $(function(){
-                 $(".property").change(function () {                     
-                    $('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product"});
+                 $(".property").change(function () {
+                    $("#kss-spinner").css("display", "block");
+                    $('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product", success : function() {
+                        $("#kss-spinner").css("display", "none");
+                    }});
                  });
              })          
                  
