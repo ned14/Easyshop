@@ -7,6 +7,7 @@ from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
 from easyshop.core.interfaces import ICategory
+from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IShop
@@ -96,6 +97,28 @@ class ProductCategoryManagement(object):
                 result.append(category)
         
         return result
+
+class ProductVariantCategoryManagement(object):
+    """Adapter which provides ICategoryManagement for product content objects.
+    """
+    implements(ICategoryManagement)
+    adapts(IProductVariant)
+
+    def __init__(self, context):
+        """
+        """
+        self.context = context
+        self.product = context.aq_inner.aq_parent
+        
+    def getCategories(self):
+        """Returns brains.
+        """
+        return ICategoryManagement(self.product).getCategories()
+
+    def getTopLevelCategories(self):
+        """Returns objects.
+        """
+        return ICategoryManagement(self.product).getTopLevelCategories()
         
 class ShopCategoryManagement(object):
     """An adapter which provides ICategoryManagement for shop content objects.

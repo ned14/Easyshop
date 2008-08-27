@@ -22,6 +22,9 @@
     <adapter        
         factory=".category_management.ProductCategoryManagement" />
 
+    <adapter        
+        factory=".category_management.ProductVariantCategoryManagement" />
+
     <adapter
         factory=".category_management.ShopCategoryManagement" />
 
