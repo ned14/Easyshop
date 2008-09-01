@@ -3,5 +3,8 @@
 
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True" expression="" id="easyshop.js" inline="False"/>
+
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="" id="jquery.plugins.js" inline="False"/>
     
 </object>
