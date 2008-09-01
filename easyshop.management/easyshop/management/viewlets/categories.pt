@@ -1,24 +1,4 @@
 <div id="manage-categories">
-    <script>
-         (function($) { 
-                $(function(){
-                    $("span.toggle").click(function() {
-                    
-                        var children = $(this).siblings('.children');
-                        var is_visible = children.is(":visible");
-                        children.slideToggle("fast");
-
-                        var children = $(this).toggleClass("extended")
-                        
-                        var uid = $(this).siblings("input").val();
-                        $.post("set-collapsile-state", { set_state : is_visible, uid:uid });
-                        return false;
-                    });
-                })
-          })(jQuery);
-    
-    </script>   
-    
     <div tal:repeat="category view/getCategories">
         <div metal:use-macro="context/categories_macros/macros/category2" />
     </div>

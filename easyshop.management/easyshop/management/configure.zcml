@@ -9,10 +9,10 @@
         initialize=".initialize" />
 
     <include
-        package=".browser" />
+        package=".ajax" />
 
     <include
-        package=".kss" />
+        package=".browser" />
 
     <include
         package=".scripts" />

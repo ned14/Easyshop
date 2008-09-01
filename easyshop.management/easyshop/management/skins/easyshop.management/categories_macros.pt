@@ -55,7 +55,8 @@
 
     <a href="."
        tal:attributes="href string:${category/url}/manage-categories-view?category_uid=${category/uid};
-                       class category/class"
+                       class category/class;
+                       id string:${category/uid}-title"
        tal:content="category/title">
         Title
     </a> 
@@ -63,12 +64,12 @@
     <a class="move_category_down"
        href="."
        tal:attributes="href string:${context/absolute_url}/move-category-down?category_uid=${category/uid};
-                       class string:move_category_down kssattr-uid-${category/uid}">&darr;</a>
+                       id category/uid">&darr;</a>
     
     <a class="move_category_up"
        href="."
        tal:attributes="href string:${context/absolute_url}/move-category-up?category_uid=${category/uid};
-                       class string:move_category_up kssattr-uid-${category/uid}">&uarr;</a>
+                       id category/uid">&uarr;</a>
     
                        
     <div class="children"

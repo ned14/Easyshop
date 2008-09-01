@@ -2,6 +2,54 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="EasyShop">
+
+    <metal:javascript_head fill-slot="javascript_head_slot">
+        <script>
+            jq(function() {
+                jq("span.toggle").livequery("click", function() {
+
+                    var children = jq(this).siblings('.children');
+                    var is_visible = children.is(":visible");
+                    children.slideToggle("fast");
+
+                    var children = jq(this).toggleClass("extended")
+
+                    var uid = jq(this).siblings("input").val();
+                    jq.post("set-collapsile-state", { set_state : is_visible, uid:uid });
+                    return false;
+                });
+            
+                jq("#add-category-submit").livequery("click", function() {
+                    var name = jq("#category_name").val()
+                    jq.post("ajax-add-category", {name : name}, function(data) {
+                        jq("#manage-categories").html(data);
+                        jq("#category_name").val("");
+                    });
+
+                    return false;
+                });
+
+                jq("a.move_category_down").livequery("click" ,function() {
+                    var uid = jq(this).attr("id");
+                    jq.post("ajax-move-category-down", { uid : uid }, function(data) {
+                        jq("#manage-categories").html(data);
+                    });
+            
+                    return false;
+                });
+                jq("a.move_category_up").livequery("click", function() {
+                    var uid = jq(this).attr("id");
+                    jq.post("ajax-move-category-up", { uid : uid }, function(data) {
+                        jq("#manage-categories").html(data);
+                    });
+                    
+                    return false;
+                });
+            });
+
+        </script>   
+    
+    </metal:javascript_head>    
       
     <body>
         
@@ -25,9 +73,12 @@
             <form action="manage-categories-add-category"
                   method="post">
                 <input type="text"
+                       id="category_name"
                        name="category_name" />
 
-                <input type="submit"
+                <input id="add-category-submit"
+                       class="allowMultiSubmit"
+                       type="submit"
                        value="Add category">
                        
                 <input tal:repeat="selected_category view/getSelectedCategories"
