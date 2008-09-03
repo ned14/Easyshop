@@ -7,7 +7,7 @@
     name="description">A folder to hold groups.</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">GroupsContainer</property>
-  <property name="product">easyshop.core</property>
+  <property name="product">iqpp.easyshop</property>
  <property name="factory">addGroupsContainer</property>
  <property name="immediate_view">groups-view</property>
  <property name="global_allow">False</property>

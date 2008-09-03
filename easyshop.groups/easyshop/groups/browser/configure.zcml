@@ -2,14 +2,14 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
-        for="easyshop.core.interfaces.IGroupsContainer"
+        for="iqpp.easyshop.interfaces.IGroupsContainer"
         name="groups-view"
         template="groups_view.pt"
         class=".groups_view.GroupsView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="easyshop.core.interfaces.IProductGroup"
+        for="iqpp.easyshop.interfaces.IProductGroup"
         name="group-view"
         template="group_view.pt"
         class=".group_view.GroupView"

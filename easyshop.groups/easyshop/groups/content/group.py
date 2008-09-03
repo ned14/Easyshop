@@ -9,9 +9,9 @@ from Products.Archetypes.atapi import *
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
 
 # easyshop imports
-from easyshop.core.interfaces import IProductGroup
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.config import *
+from iqpp.easyshop.interfaces import IProductGroup
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.config import *
 
 schema = Schema((
     TextField(
