@@ -9,10 +9,10 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IPaymentMethodCriteria
-from easyshop.core.interfaces import IPaymentMethodManagement
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IPaymentMethodCriteria
+from iqpp.easyshop.interfaces import IPaymentMethodManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 schema = Schema((
 

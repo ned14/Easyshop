@@ -9,10 +9,10 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IShippingMethodManagement
-from easyshop.core.interfaces import IShippingMethodCriteria
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IShippingMethodManagement
+from iqpp.easyshop.interfaces import IShippingMethodCriteria
+from iqpp.easyshop.interfaces import IShopManagement
 
 schema = Schema((
 

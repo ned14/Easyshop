@@ -12,8 +12,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IPriceCriteria
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IPriceCriteria
 
 
 schema = Schema((

@@ -3,11 +3,11 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IPaymentMethodManagement
-from easyshop.core.interfaces import IPaymentMethodCriteria
-from easyshop.core.interfaces import IValidity
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICustomerManagement
+from iqpp.easyshop.interfaces import IPaymentMethodManagement
+from iqpp.easyshop.interfaces import IPaymentMethodCriteria
+from iqpp.easyshop.interfaces import IValidity
+from iqpp.easyshop.interfaces import IShopManagement
 
 class PaymentMethodCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content objects.

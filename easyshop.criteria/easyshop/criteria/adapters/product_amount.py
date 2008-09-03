@@ -3,8 +3,8 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IValidity
-from easyshop.core.interfaces import IProductAmountCriteria
+from iqpp.easyshop.interfaces import IValidity
+from iqpp.easyshop.interfaces import IProductAmountCriteria
 
 class ProductAmountCriteriaValidity:
     """Adapter which provides IValidity for weight criteria content objects.
