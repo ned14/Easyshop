@@ -6,9 +6,9 @@ from Products.ATContentTypes.content.folder import ATFolder
 from Products.Archetypes.atapi import registerType
 
 # easyshop imports
-from easyshop.core.config import PROJECTNAME
-from easyshop.core.interfaces import IFormatable
-from easyshop.core.interfaces import ISearchResultContainer
+from iqpp.easyshop.config import PROJECTNAME
+from iqpp.easyshop.interfaces import IFormatable
+from iqpp.easyshop.interfaces import ISearchResultContainer
 
 class SearchResultContainer(ATFolder):
     """

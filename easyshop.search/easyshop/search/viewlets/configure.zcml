@@ -10,7 +10,7 @@
 
     <browser:viewlet
         name="easyshop.search-results-viewlet"
-        for="easyshop.core.interfaces.ISearchResultContainer"
+        for="iqpp.easyshop.interfaces.ISearchResultContainer"
         manager=".interfaces.ISearchResultsViewletManager"
         class=".search_results.SearchResultsViewlet"
         permission="zope.Public" />
