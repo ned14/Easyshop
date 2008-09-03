@@ -6,9 +6,9 @@ from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IInformationManagement
-from easyshop.core.interfaces import IValidity
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import IInformationManagement
+from iqpp.easyshop.interfaces import IValidity
 
 class InformationManagement:
     """Adapter which provides InformationManagement for shop content objects.

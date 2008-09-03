@@ -2,7 +2,7 @@
 from Products.Five.browser import BrowserView
 
 # easyhop.core imports
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 class InformationPagePopupView(BrowserView):
     """

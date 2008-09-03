@@ -14,8 +14,8 @@ from Products.ATContentTypes.content.folder import ATFolderSchema
 from Products.ATContentTypes.content.document import ATDocumentSchema
 
 # drako.knowledgebase imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IInformationPage
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IInformationPage
 
 schema = ATFolderSchema.copy() + ATDocumentSchema.copy() + Schema ((
     FileField(
