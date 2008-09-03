@@ -7,8 +7,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.txt')).read()
 setup(name='easyshop.management',
       version=version,
-      description="",
-      long_description= README,      classifiers=[
+      description="Management screens for EasyShop",
+      long_description= README,
+      classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
         "Framework :: Zope3",

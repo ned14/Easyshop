@@ -10,10 +10,10 @@ This is deprecated and is going to be replaced with plain jQuery.
 
 More Information
 ----------------
-- http://pypi.python.org/pypi/iqpp.easyshop
+- http://pypi.python.org/pypi/easyhop.core
   Main product
   
-- http://www.geteasyhop.com
+- http://www.geteasyshop.com
   Main site with feature list, faqs and more 
   
 - http://code.google.com/p/easyshop-for-plone/

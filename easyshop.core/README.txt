@@ -20,7 +20,7 @@ But it might be of interest that there is a live shop which runs for over 18 mon
 More Information
 ----------------
 
-- http://www.geteasyhop.com
+- http://www.geteasyshop.com
   Main site with feature list, faqs and more 
   
 - http://code.google.com/p/easyshop-for-plone/
