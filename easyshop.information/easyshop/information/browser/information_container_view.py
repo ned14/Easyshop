@@ -2,8 +2,8 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import IInformationManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IInformationManagement
 
 class InformationContainerView(BrowserView):
     """

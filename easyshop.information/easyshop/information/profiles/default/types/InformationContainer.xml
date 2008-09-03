@@ -7,7 +7,7 @@
      i18n:translate="">A container to hold information about the shop.</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">InformationContainer</property>
-  <property name="product">iqpp.easyshop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addInformationContainer</property>
  <property name="immediate_view">information-container-view</property>
  <property name="global_allow">False</property>
