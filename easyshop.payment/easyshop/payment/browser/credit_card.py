@@ -11,9 +11,9 @@ from plone.app.form.validators import null_validator
 from plone.app.form.events import EditCancelledEvent, EditSavedEvent
 
 # easyshop imports
-from iqpp.easyshop.config import _
-from iqpp.easyshop.config import DEFAULT_SHOP_FORM
-from iqpp.easyshop.interfaces import ICreditCard
+from easyshop.core.config import _
+from easyshop.core.config import DEFAULT_SHOP_FORM
+from easyshop.core.interfaces import ICreditCard
 from easyshop.payment.content.credit_card import CreditCard
 
 class CreditCardEditForm(base.EditForm):

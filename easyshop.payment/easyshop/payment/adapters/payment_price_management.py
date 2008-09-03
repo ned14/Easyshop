@@ -4,13 +4,13 @@ from zope.component import adapts
 
 # easyshop imports
 from easyshop.catalog.content.product import Product
-from iqpp.easyshop.interfaces import ICartManagement
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import IPaymentPriceManagement
-from iqpp.easyshop.interfaces import IPaymentPrice
-from iqpp.easyshop.interfaces import IShop
-from iqpp.easyshop.interfaces import ITaxes
-from iqpp.easyshop.interfaces import IValidity
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IPaymentPriceManagement
+from easyshop.core.interfaces import IPaymentPrice
+from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import IValidity
 
 class PaymentPriceManagement(object):
     """Provides IPaymentPriceManagement for shop content objects.

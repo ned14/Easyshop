@@ -2,8 +2,8 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IPaymentMethodManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
+from easyshop.core.interfaces import IShopManagement
 
 class PaymentMethodsView(BrowserView):
     """

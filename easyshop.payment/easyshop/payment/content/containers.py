@@ -5,9 +5,9 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from iqpp.easyshop.config import PROJECTNAME
-from iqpp.easyshop.interfaces import IPaymentMethodsContainer
-from iqpp.easyshop.interfaces import IPaymentPriceManagementContainer
+from easyshop.core.config import PROJECTNAME
+from easyshop.core.interfaces import IPaymentMethodsContainer
+from easyshop.core.interfaces import IPaymentPriceManagementContainer
 
 class PaymentMethodsContainer(OrderedBaseFolder):
     """A simple container to hold payment methods.

@@ -13,10 +13,10 @@ from Products.Archetypes.atapi import registerType
 from Products.ATContentTypes.content.base import ATCTMixin
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IDirectDebitPaymentMethod
+from easyshop.core.interfaces import IDirectDebitPaymentMethod
 
 # easyshop imports
-from iqpp.easyshop.config import PROJECTNAME
+from easyshop.core.config import PROJECTNAME
 
 schema = Schema((
     TextField(

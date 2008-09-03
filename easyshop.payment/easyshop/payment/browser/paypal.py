@@ -11,7 +11,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IOrderManagement
+from easyshop.core.interfaces import IOrderManagement
 
 class PayPalView(BrowserView):
     """

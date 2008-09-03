@@ -6,20 +6,20 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.config import _
-from iqpp.easyshop.config import PAYPAL_URL
-from iqpp.easyshop.interfaces import IAddressManagement
-from iqpp.easyshop.interfaces import ICreditCardPaymentMethod
-from iqpp.easyshop.interfaces import ICustomerManagement
-from iqpp.easyshop.interfaces import IDirectDebitPaymentMethod
-from iqpp.easyshop.interfaces import IGenericPaymentMethod
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import IOrder
-from iqpp.easyshop.interfaces import IPaymentInformationManagement
-from iqpp.easyshop.interfaces import IPaymentProcessing
-from iqpp.easyshop.interfaces import IPayPalPaymentMethod
-from iqpp.easyshop.interfaces import IPrices
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.config import _
+from easyshop.core.config import PAYPAL_URL
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICreditCardPaymentMethod
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IDirectDebitPaymentMethod
+from easyshop.core.interfaces import IGenericPaymentMethod
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IOrder
+from easyshop.core.interfaces import IPaymentInformationManagement
+from easyshop.core.interfaces import IPaymentProcessing
+from easyshop.core.interfaces import IPayPalPaymentMethod
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IShopManagement
 from easyshop.payment.config import PAYED, NOT_PAYED, ERROR
 from easyshop.payment.content import PaymentResult
 

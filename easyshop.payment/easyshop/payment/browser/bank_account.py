@@ -11,9 +11,9 @@ from plone.app.form.validators import null_validator
 from plone.app.form.events import EditCancelledEvent, EditSavedEvent
 
 # easyshop imports
-from iqpp.easyshop.config import _
-from iqpp.easyshop.config import DEFAULT_SHOP_FORM
-from iqpp.easyshop.interfaces import IBankAccount
+from easyshop.core.config import _
+from easyshop.core.config import DEFAULT_SHOP_FORM
+from easyshop.core.interfaces import IBankAccount
 from easyshop.payment.content import BankAccount
 
 class BankAccountEditForm(base.EditForm):

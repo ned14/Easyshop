@@ -3,11 +3,11 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ICreditCardPaymentMethod
-from iqpp.easyshop.interfaces import IDirectDebitPaymentMethod
-from iqpp.easyshop.interfaces import IGenericPaymentMethod
-from iqpp.easyshop.interfaces import IPayPalPaymentMethod
-from iqpp.easyshop.interfaces import IType
+from easyshop.core.interfaces import ICreditCardPaymentMethod
+from easyshop.core.interfaces import IDirectDebitPaymentMethod
+from easyshop.core.interfaces import IGenericPaymentMethod
+from easyshop.core.interfaces import IPayPalPaymentMethod
+from easyshop.core.interfaces import IType
 
 class CreditCardType:
     """Provides IType for direct debit content objects.
