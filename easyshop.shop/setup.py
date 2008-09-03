@@ -8,7 +8,7 @@ README = open(os.path.join(here, 'README.txt')).read()
 
 setup(name='easyshop.shop',
       version=version,
-      description="Shop for EasyShop",
+      description="Shop implementation and central services (like currency management) for EasyShop",
       long_description= README,
       classifiers=[
         "Framework :: Plone",
