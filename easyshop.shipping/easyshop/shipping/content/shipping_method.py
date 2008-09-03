@@ -8,8 +8,8 @@ from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTMixin
 
 # easyshop imports
-from easyshop.core.config import PROJECTNAME
-from easyshop.core.interfaces import IShippingMethod
+from iqpp.easyshop.config import PROJECTNAME
+from iqpp.easyshop.interfaces import IShippingMethod
 
 schema = Schema((
     TextField(

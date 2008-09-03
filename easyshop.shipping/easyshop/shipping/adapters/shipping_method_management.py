@@ -6,11 +6,11 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShippingMethodManagement
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import IValidity
+from iqpp.easyshop.interfaces import ICustomerManagement
+from iqpp.easyshop.interfaces import IShippingMethodManagement
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IValidity
 
 class ShippingMethodManagement(object):
     """An adapter which provides IShippingMethodManagement for shop content 
