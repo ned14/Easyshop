@@ -14,12 +14,12 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.config import _
-from easyshop.core.config import TEXTS, TITLES, IMAGE_SIZES
-from easyshop.core.interfaces import IFormats
-from easyshop.core.interfaces import IFormatable
-from easyshop.core.interfaces import IProductSelector
-from easyshop.core.interfaces import IShop
+from iqpp.easyshop.config import _
+from iqpp.easyshop.config import TEXTS, TITLES, IMAGE_SIZES
+from iqpp.easyshop.interfaces import IFormats
+from iqpp.easyshop.interfaces import IFormatable
+from iqpp.easyshop.interfaces import IProductSelector
+from iqpp.easyshop.interfaces import IShop
 
 class IFormatterPortlet(IPortletDataProvider):
     """

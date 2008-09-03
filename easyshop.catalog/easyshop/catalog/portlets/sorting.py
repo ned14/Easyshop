@@ -9,9 +9,9 @@ from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
-from easyshop.core.config import _
-from easyshop.core.interfaces import ICategory
-from easyshop.core.interfaces import IProduct
+from iqpp.easyshop.config import _
+from iqpp.easyshop.interfaces import ICategory
+from iqpp.easyshop.interfaces import IProduct
 
 class ISortingPortlet(IPortletDataProvider):
     """

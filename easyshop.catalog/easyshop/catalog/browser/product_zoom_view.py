@@ -2,7 +2,7 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports 
-from easyshop.core.interfaces import IImageManagement
+from iqpp.easyshop.interfaces import IImageManagement
 
 class ProductZoomView(BrowserView):
     """

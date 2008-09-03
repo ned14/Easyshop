@@ -3,12 +3,12 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IGroupManagement
-from easyshop.core.interfaces import IProduct
-from easyshop.core.interfaces import IProductVariant
-from easyshop.core.interfaces import IPropertyManagement
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import ITaxes
+from iqpp.easyshop.interfaces import IGroupManagement
+from iqpp.easyshop.interfaces import IProduct
+from iqpp.easyshop.interfaces import IProductVariant
+from iqpp.easyshop.interfaces import IPropertyManagement
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ITaxes
 
 
 class ProductPropertyManagement(object):

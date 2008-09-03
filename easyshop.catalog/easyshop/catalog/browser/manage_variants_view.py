@@ -7,9 +7,9 @@ from Products.CMFCore.utils import getToolByName
 # easyshop.imports
 from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.catalog.adapters.property_management import getOptionsForProperty
-from easyshop.core.config import MESSAGES
-from easyshop.core.interfaces import IProductVariantsManagement
-from easyshop.core.interfaces import IPropertyManagement
+from iqpp.easyshop.config import MESSAGES
+from iqpp.easyshop.interfaces import IProductVariantsManagement
+from iqpp.easyshop.interfaces import IPropertyManagement
 
 class ManageVariantsView(BrowserView):
     """

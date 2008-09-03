@@ -3,9 +3,9 @@ from zope.app.container.interfaces import IObjectRemovedEvent
 from zope.component import adapter
 
 # easyshop imports
-from easyshop.core.interfaces import IProductVariantsManagement
-from easyshop.core.interfaces import IProperty
-from easyshop.core.interfaces import IPropertyOption
+from iqpp.easyshop.interfaces import IProductVariantsManagement
+from iqpp.easyshop.interfaces import IProperty
+from iqpp.easyshop.interfaces import IPropertyOption
 
 @adapter(IProperty, IObjectRemovedEvent)
 def deleteProperty(property, event):

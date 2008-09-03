@@ -12,16 +12,16 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.config import _
-from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IData
-from easyshop.core.interfaces import INumberConverter
-from easyshop.core.interfaces import IImageManagement
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IProductVariantsManagement
-from easyshop.core.interfaces import IPropertyManagement
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import IStockManagement
+from iqpp.easyshop.config import _
+from iqpp.easyshop.interfaces import ICurrencyManagement
+from iqpp.easyshop.interfaces import IData
+from iqpp.easyshop.interfaces import INumberConverter
+from iqpp.easyshop.interfaces import IImageManagement
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IProductVariantsManagement
+from iqpp.easyshop.interfaces import IPropertyManagement
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IStockManagement
 
 class ProductViewlet(ViewletBase):
     """

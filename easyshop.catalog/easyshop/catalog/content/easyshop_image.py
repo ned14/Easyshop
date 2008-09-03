@@ -9,9 +9,9 @@ from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.image import ATImage
 
 # easyshop imports
-from easyshop.core.interfaces import IEasyShopImage
-from easyshop.core.interfaces import IImageConversion
-from easyshop.core.config import *
+from iqpp.easyshop.interfaces import IEasyShopImage
+from iqpp.easyshop.interfaces import IImageConversion
+from iqpp.easyshop.config import *
 
 schema = Schema((
 

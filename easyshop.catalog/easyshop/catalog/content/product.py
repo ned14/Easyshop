@@ -12,11 +12,11 @@ from Products.CMFCore.utils import getToolByName
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import ICategory
-from easyshop.core.interfaces import IImageConversion
-from easyshop.core.interfaces import IProduct
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import ICategory
+from iqpp.easyshop.interfaces import IImageConversion
+from iqpp.easyshop.interfaces import IProduct
+from iqpp.easyshop.interfaces import IShopManagement
 
 schema = Schema((
 
@@ -253,7 +253,7 @@ class Product(ATFolder):
         catalog = getToolByName(self, "portal_catalog")
         brains = catalog.searchResults(
             path = shop_path,
-            object_provides = "easyshop.core.interfaces.catalog.IProductsContainer"
+            object_provides = "iqpp.easyshop.interfaces.catalog.IProductsContainer"
         )
         
         if len(brains) > 0:
@@ -271,7 +271,7 @@ class Product(ATFolder):
         catalog = getToolByName(self, "portal_catalog")
         brains = catalog.searchResults(
             path = shop_path,
-            object_provides = "easyshop.core.interfaces.catalog.ICategoriesContainer"
+            object_provides = "iqpp.easyshop.interfaces.catalog.ICategoriesContainer"
         )
         
         if len(brains) > 0:
@@ -289,7 +289,7 @@ class Product(ATFolder):
         catalog = getToolByName(self, "portal_catalog")
         brains = catalog.searchResults(
             path = shop_path,
-            object_provides = "easyshop.core.interfaces.groups.IGroupsContainer"
+            object_provides = "iqpp.easyshop.interfaces.groups.IGroupsContainer"
         )
         
         if len(brains) > 0:

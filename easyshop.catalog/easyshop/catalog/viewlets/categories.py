@@ -6,10 +6,10 @@ from plone.memoize.instance import memoize
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
-from easyshop.core.interfaces import ICategoryManagement
-from easyshop.core.interfaces import IFormats
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICategoryManagement
+from iqpp.easyshop.interfaces import IFormats
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import IShopManagement
 
 class CategoriesViewlet(ViewletBase):
     """

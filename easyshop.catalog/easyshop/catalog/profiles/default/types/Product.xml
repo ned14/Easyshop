@@ -7,7 +7,7 @@
      i18n:translate="">A Product is offered for sale.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">Product</property>
-  <property name="product">easyshop.core</property>
+  <property name="product">iqpp.easyshop</property>
  <property name="factory">addProduct</property>
  <property name="immediate_view">product-view</property>
  <property name="global_allow">False</property>

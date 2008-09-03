@@ -12,10 +12,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.ATContentTypes.content.folder import ATFolder
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IImageConversion
-from easyshop.core.interfaces import ICategory
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IImageConversion
+from iqpp.easyshop.interfaces import ICategory
+from iqpp.easyshop.interfaces import IShopManagement
 
 schema = Schema((
     TextField(
@@ -181,7 +181,7 @@ class Category(ATFolder):
         catalog = getToolByName(self, "portal_catalog")
         brains = catalog.searchResults(
             path = shop_path,
-            object_provides = "easyshop.core.interfaces.catalog.IProductsContainer"
+            object_provides = "iqpp.easyshop.interfaces.catalog.IProductsContainer"
         )
         
         if len(brains) > 0:

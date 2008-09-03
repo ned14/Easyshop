@@ -11,13 +11,13 @@ from plone.memoize.instance import memoize
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
-from easyshop.core.interfaces import ICategoriesContainer
-from easyshop.core.interfaces import ICategory
-from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IFormats
-from easyshop.core.interfaces import IImageManagement
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICategoriesContainer
+from iqpp.easyshop.interfaces import ICategory
+from iqpp.easyshop.interfaces import ICurrencyManagement
+from iqpp.easyshop.interfaces import IFormats
+from iqpp.easyshop.interfaces import IImageManagement
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IShopManagement
 
 class ProductSelectorViewlet(ViewletBase):
     """

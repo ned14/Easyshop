@@ -3,8 +3,8 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IProduct
-from easyshop.core.interfaces import IProductVariantsManagement
+from iqpp.easyshop.interfaces import IProduct
+from iqpp.easyshop.interfaces import IProductVariantsManagement
 
 class ProductVariantsManagement:
     """Provides IProductVariantsManagement for product content objects.
