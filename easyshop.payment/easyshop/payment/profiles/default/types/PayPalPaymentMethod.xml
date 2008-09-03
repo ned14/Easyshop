@@ -6,7 +6,7 @@
     name="description">Holds all relevant informations for a paypal payment.</property>
  <property name="content_icon">payment_method_icon.png</property>
  <property name="content_meta_type">PayPalPaymentMethod</property>
-  <property name="product">easyshop.core</property>
+  <property name="product">iqpp.easyshop</property>
  <property name="factory">addPayPalPaymentMethod</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>

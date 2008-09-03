@@ -11,8 +11,8 @@ from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTMixin
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IGenericPaymentMethod
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IGenericPaymentMethod
 
 schema = Schema((
     TextField(

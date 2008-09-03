@@ -5,8 +5,8 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IPaymentPrice
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IPaymentPrice
 
 schema = Schema((
 

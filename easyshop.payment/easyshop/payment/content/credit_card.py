@@ -18,12 +18,12 @@ from Products.ATContentTypes.content.base import ATCTMixin
 from plone.app.content.item import Item
 
 # easyshop imports
-from easyshop.core.config import _
-from easyshop.core.interfaces import ICreditCard
-from easyshop.core.interfaces import ICreditCardPaymentMethod
+from iqpp.easyshop.config import _
+from iqpp.easyshop.interfaces import ICreditCard
+from iqpp.easyshop.interfaces import ICreditCardPaymentMethod
 
 # easyshop imports
-from easyshop.core.config import PROJECTNAME
+from iqpp.easyshop.config import PROJECTNAME
 
 schema = Schema((
     TextField(

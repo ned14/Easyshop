@@ -2,9 +2,9 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IPaymentPriceManagement
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICurrencyManagement
+from iqpp.easyshop.interfaces import IPaymentPriceManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 class PaymentPricesView(BrowserView):
     """

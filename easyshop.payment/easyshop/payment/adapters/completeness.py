@@ -3,16 +3,16 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IBankAccount
-from easyshop.core.interfaces import ICompleteness
-from easyshop.core.interfaces import ICreditCard
-from easyshop.core.interfaces import ICreditCardPaymentMethod
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IDirectDebitPaymentMethod
-from easyshop.core.interfaces import IGenericPaymentMethod
-from easyshop.core.interfaces import IPaymentInformationManagement
-from easyshop.core.interfaces import IPayPalPaymentMethod
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IBankAccount
+from iqpp.easyshop.interfaces import ICompleteness
+from iqpp.easyshop.interfaces import ICreditCard
+from iqpp.easyshop.interfaces import ICreditCardPaymentMethod
+from iqpp.easyshop.interfaces import ICustomerManagement
+from iqpp.easyshop.interfaces import IDirectDebitPaymentMethod
+from iqpp.easyshop.interfaces import IGenericPaymentMethod
+from iqpp.easyshop.interfaces import IPaymentInformationManagement
+from iqpp.easyshop.interfaces import IPayPalPaymentMethod
+from iqpp.easyshop.interfaces import IShopManagement
 
 class BankAccountCompleteness:
     """Provides ICompleteness for bank account content objects.

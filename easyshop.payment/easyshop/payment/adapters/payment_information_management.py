@@ -7,10 +7,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
 
 # easyshop imports
-from easyshop.core.interfaces import ICustomer
-from easyshop.core.interfaces import IPaymentInformationManagement
-from easyshop.core.interfaces import IPaymentInformation
-from easyshop.core.interfaces import IValidity
+from iqpp.easyshop.interfaces import ICustomer
+from iqpp.easyshop.interfaces import IPaymentInformationManagement
+from iqpp.easyshop.interfaces import IPaymentInformation
+from iqpp.easyshop.interfaces import IValidity
 
 class PaymentInformationManagement:
     """
