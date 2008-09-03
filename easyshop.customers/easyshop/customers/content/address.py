@@ -7,8 +7,8 @@ from zope.schema.fieldproperty import FieldProperty
 from plone.app.content.item import Item
 
 # easyshop imports
-from iqpp.easyshop.config import _
-from iqpp.easyshop.interfaces import IAddress
+from easyshop.core.config import _
+from easyshop.core.interfaces import IAddress
 
 class Address(Item):
     """

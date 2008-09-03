@@ -12,11 +12,11 @@ from plone.app.form.events import EditCancelledEvent
 from plone.app.form.events import EditSavedEvent
 
 # easyshop imports
-from iqpp.easyshop.config import _
-from iqpp.easyshop.config import DEFAULT_SHOP_FORM
-from iqpp.easyshop.interfaces import IAddress
-from iqpp.easyshop.interfaces import IAddressManagement
-from iqpp.easyshop.interfaces import ICustomerManagement
+from easyshop.core.config import _
+from easyshop.core.config import DEFAULT_SHOP_FORM
+from easyshop.core.interfaces import IAddress
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICustomerManagement
 
 class AddressEditForm(base.EditForm):
     """

@@ -8,8 +8,8 @@ from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop Products
-from iqpp.easyshop.interfaces import ICustomerManagement
-from iqpp.easyshop.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IAddressManagement
 
 class ManageAddressBookView(BrowserView):
     """

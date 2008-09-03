@@ -12,10 +12,10 @@ from Products.CMFPlone.utils import safe_unicode
 
 # easyshop imports
 from easyshop.customers.content import Customer
-from iqpp.easyshop.interfaces import ICopyManagement
-from iqpp.easyshop.interfaces import ICustomerManagement
-from iqpp.easyshop.interfaces import ISessionManagement
-from iqpp.easyshop.interfaces import IShop
+from easyshop.core.interfaces import ICopyManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import ISessionManagement
+from easyshop.core.interfaces import IShop
 
 class CustomerManagement(object):
     """Provides customer management for shop content objects.

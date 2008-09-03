@@ -5,7 +5,7 @@
  <property name="description">A simple container to hold customers.</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="content_meta_type">CustomersContainer</property>
-  <property name="product">iqpp.easyshop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addCustomersContainer</property>
  <property name="immediate_view">customers-view</property>
  <property name="global_allow">False</property>
