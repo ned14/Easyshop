@@ -36,7 +36,7 @@
 
     <!-- IFormat -->
     <adapter
-        for="iqpp.easyshop.interfaces.IFormatable"
+        for="easyshop.core.interfaces.IFormatable"
         factory=".formats.FormatterInfos" />
 
     <!-- IPrices -->    

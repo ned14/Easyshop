@@ -3,13 +3,13 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IData
-from iqpp.easyshop.interfaces import ICurrencyManagement
-from iqpp.easyshop.interfaces import IImageManagement
-from iqpp.easyshop.interfaces import IPrices
-from iqpp.easyshop.interfaces import IProduct
-from iqpp.easyshop.interfaces import IProductVariant
-from iqpp.easyshop.interfaces import IProductVariantsManagement
+from easyshop.core.interfaces import IData
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IImageManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariant
+from easyshop.core.interfaces import IProductVariantsManagement
 
 class ProductData(object):
     """An adapter which provides IData for product content objects.

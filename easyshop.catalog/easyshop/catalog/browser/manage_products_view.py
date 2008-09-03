@@ -8,9 +8,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 # easyshop importss
-from iqpp.easyshop.interfaces import ICurrencyManagement
-from iqpp.easyshop.interfaces import IProductManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ManageProductsView(BrowserView):
     """

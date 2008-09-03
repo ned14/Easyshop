@@ -11,10 +11,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.event import ObjectInitializedEvent
 
 # easyshop.imports
-from iqpp.easyshop.config import MESSAGES
-from iqpp.easyshop.interfaces import IGroupManagement
-from iqpp.easyshop.interfaces import IProduct
-from iqpp.easyshop.interfaces import IPropertyManagement
+from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IPropertyManagement
 
 class ManagePropertiesView(BrowserView):
     """

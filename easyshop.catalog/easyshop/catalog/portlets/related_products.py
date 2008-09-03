@@ -18,10 +18,10 @@ from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ICurrencyManagement
-from iqpp.easyshop.interfaces import IImageManagement
-from iqpp.easyshop.interfaces import IPrices
-from iqpp.easyshop.interfaces import IProduct
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IImageManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProduct
 
 class IRelatedProductsPortlet(IPortletDataProvider):
 

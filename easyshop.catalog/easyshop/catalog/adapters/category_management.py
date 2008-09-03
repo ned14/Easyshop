@@ -6,11 +6,11 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ICategory
-from iqpp.easyshop.interfaces import IProductVariant
-from iqpp.easyshop.interfaces import ICategoryManagement
-from iqpp.easyshop.interfaces import IProduct
-from iqpp.easyshop.interfaces import IShop
+from easyshop.core.interfaces import ICategory
+from easyshop.core.interfaces import IProductVariant
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IShop
 
 class CategoryCategoryManagement(object):
     """Adapter which provides ICategoryManagement for category content 
@@ -42,7 +42,7 @@ class CategoryCategoryManagement(object):
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides="iqpp.easyshop.interfaces.catalog.ICategory",
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
             getParentCategory=parent_category.UID(),
             sort_on = "getPositionInParent")
         
@@ -56,7 +56,7 @@ class CategoryCategoryManagement(object):
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides="iqpp.easyshop.interfaces.catalog.ICategory",
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
             getParentCategory=self.context.UID(),
             sort_on = "getPositionInParent")
         
@@ -137,7 +137,7 @@ class ShopCategoryManagement(object):
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
             path = "/".join(self.context.getPhysicalPath()),
-            object_provides="iqpp.easyshop.interfaces.catalog.ICategory",
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
             sort_on = "getPositionInParent")
 
         return brains
@@ -148,7 +148,7 @@ class ShopCategoryManagement(object):
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
             path = "/".join(self.context.getPhysicalPath()),
-            object_provides="iqpp.easyshop.interfaces.catalog.ICategory",
+            object_provides="easyshop.core.interfaces.catalog.ICategory",
             sort_on = "getPositionInParent",
             getParentCategory=None)
         

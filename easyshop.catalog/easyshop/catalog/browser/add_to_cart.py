@@ -5,12 +5,12 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.config import MESSAGES
-from iqpp.easyshop.interfaces import ICartManagement
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import IProductVariantsManagement
-from iqpp.easyshop.interfaces import IPropertyManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IProductVariantsManagement
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ProductAddToCartView(BrowserView):
     """

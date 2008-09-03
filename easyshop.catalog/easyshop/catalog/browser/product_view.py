@@ -5,8 +5,8 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.config import MESSAGES
-from iqpp.easyshop.interfaces import IProductVariantsManagement
+from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import IProductVariantsManagement
 
 class ProductView(BrowserView):
     """

@@ -4,7 +4,7 @@
     <!-- Product -->       
     <browser:page
         name="product-view"
-        for="iqpp.easyshop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         class=".product_view.ProductView"
         template="product_view.pt"
         permission="zope.Public" />
@@ -17,7 +17,7 @@
 
     <browser:page
         name="product-zoom-view"        
-        for="iqpp.easyshop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         class=".product_zoom_view.ProductZoomView"
         template="product_zoom_view.pt"
         permission="zope.Public" />
@@ -25,7 +25,7 @@
     <!-- Product Variants -->
     <browser:page
         name="manage-variants-view"
-        for="iqpp.easyshop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         class=".manage_variants_view.ManageVariantsView"
         template="manage_variants_view.pt"
         allowed_attributes="addVariants deleteVariants saveVariants"
@@ -34,7 +34,7 @@
     <!-- Product Property -->
     <browser:page
         name="manage-properties-view"
-        for="iqpp.easyshop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         class=".manage_properties_view.ManagePropertiesView"
         template="manage_properties_view.pt"
         allowed_attributes="addProperty addOption deletePaths saveOptions"
@@ -42,7 +42,7 @@
 
     <browser:page
         name="manage-properties-view"
-        for="iqpp.easyshop.interfaces.IProductGroup"
+        for="easyshop.core.interfaces.IProductGroup"
         class=".manage_properties_view.ManagePropertiesView"
         template="manage_properties_view.pt"
         allowed_attributes="addProperty addOption deletePaths saveOptions"
@@ -51,19 +51,19 @@
     <!-- Category -->
     <browser:page
         name="products-view"
-        for="iqpp.easyshop.interfaces.ICategory"
+        for="easyshop.core.interfaces.ICategory"
         template="category_products_view.pt"
         permission="zope.Public" />
 
     <browser:page
         name="categories-view"
-        for="iqpp.easyshop.interfaces.ICategory"
+        for="easyshop.core.interfaces.ICategory"
         template="category_categories_view.pt"
         permission="zope.Public" />
 
     <browser:page
         name="categories-view"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         template="category_categories_view.pt"
         permission="zope.Public" />
 
@@ -77,7 +77,7 @@
 
     <browser:page
         name="manage-products-view"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         template="manage_products_view.pt"
         class=".manage_products_view.ManageProductsView"
         permission="cmf.ManagePortal" />
@@ -85,7 +85,7 @@
     <!-- Add to Cart -->
     <browser:page
         name="addToCart"
-        for="iqpp.easyshop.interfaces.IProduct"
+        for="easyshop.core.interfaces.IProduct"
         class=".add_to_cart.ProductAddToCartView"
         attribute="addToCart" 
         permission="zope.Public" />

@@ -4,8 +4,8 @@ from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IFormats
-from iqpp.easyshop.interfaces import IShop
+from easyshop.core.interfaces import IFormats
+from easyshop.core.interfaces import IShop
 
 KEY = "EASYSHOP_FORMAT"
 

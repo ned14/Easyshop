@@ -3,12 +3,12 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IPrices
-from iqpp.easyshop.interfaces import IProduct
-from iqpp.easyshop.interfaces import IProductVariant
-from iqpp.easyshop.interfaces import IProductVariantsManagement
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import ITaxes
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariant
+from easyshop.core.interfaces import IProductVariantsManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import ITaxes
 
 class ProductPrices(object):
     """Provides IPrices for product content object.

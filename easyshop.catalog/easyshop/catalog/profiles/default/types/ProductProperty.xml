@@ -7,7 +7,7 @@
       </property>
  <property name="content_icon">document_icon.gif</property>
  <property name="content_meta_type">ProductProperty</property>
-  <property name="product">iqpp.easyshop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addProductProperty</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>
