@@ -9,8 +9,8 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from iqpp.easyshop.config import *
-from iqpp.easyshop.interfaces import IStockAmountCriteria
+from easyshop.core.config import *
+from easyshop.core.interfaces import IStockAmountCriteria
 
 schema = Schema((
 

@@ -3,10 +3,10 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IShippingMethodCriteria
-from iqpp.easyshop.interfaces import IShippingMethodManagement
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import IValidity
+from easyshop.core.interfaces import IShippingMethodCriteria
+from easyshop.core.interfaces import IShippingMethodManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IValidity
 
 
 class ShippingMethodCriteriaValidity:

@@ -12,9 +12,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from iqpp.easyshop.config import *
-from iqpp.easyshop.interfaces import ICategoryCriteria
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.config import *
+from easyshop.core.interfaces import ICategoryCriteria
+from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 

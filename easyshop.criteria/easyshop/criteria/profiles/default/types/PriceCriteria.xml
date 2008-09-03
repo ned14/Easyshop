@@ -6,7 +6,7 @@
  <property name="description">Select valid prices</property>
  <property name="content_icon">criterion_icon.png</property>
  <property name="content_meta_type">PriceCriteria</property>
-  <property name="product">iqpp.easyshop</property>
+  <property name="product">easyshop.core</property>
  <property name="factory">addPriceCriteria</property>
  <property name="immediate_view">base_view</property>
  <property name="global_allow">False</property>

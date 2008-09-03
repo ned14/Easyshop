@@ -3,8 +3,8 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IValidity
-from iqpp.easyshop.interfaces import IStockAmountCriteria
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IStockAmountCriteria
 
 class StockAmountCriteriaValidity:
     """Adapter which provides IValidity for stock amount content objects.

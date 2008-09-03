@@ -3,12 +3,12 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ICartManagement
-from iqpp.easyshop.interfaces import IGroupCriteria
-from iqpp.easyshop.interfaces import IGroupManagement
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import IValidity
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IGroupCriteria
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IShopManagement
 
 class GroupCriteriaValidity:
     """Adapter which provides IValidity for group criteria content objects.

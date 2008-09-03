@@ -3,11 +3,11 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IAddressManagement
-from iqpp.easyshop.interfaces import ICountryCriteria
-from iqpp.easyshop.interfaces import ICustomerManagement
-from iqpp.easyshop.interfaces import IValidity
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICountryCriteria
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IShopManagement
 
 class CountryCriteriaValidity:
     """Adapter which provides IValidity for country criteria content objects.
