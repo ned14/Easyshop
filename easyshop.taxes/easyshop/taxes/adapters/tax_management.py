@@ -3,8 +3,8 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import ITaxManagement
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import ITaxManagement
 
 class TaxManagement:
     """An adapter, which provides methods to manage tax objects for shop context

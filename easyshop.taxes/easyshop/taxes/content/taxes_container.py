@@ -5,8 +5,8 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import PROJECTNAME
-from easyshop.core.interfaces import ITaxesContainer
+from iqpp.easyshop.config import PROJECTNAME
+from iqpp.easyshop.interfaces import ITaxesContainer
 
 class TaxesContainer(OrderedBaseFolder):
     """A simple container to hold taxes.
