@@ -15,9 +15,9 @@ from Products.CMFCore.utils import getToolByName
 # easyshop.kss imports
 from snippets import *
 
-# easyshop.core imports
-from easyshop.core.config import MESSAGES
-from easyshop.core.interfaces import ICurrencyManagement
+# iqpp.easyshop imports
+from iqpp.easyshop.config import MESSAGES
+from iqpp.easyshop.interfaces import ICurrencyManagement
 
 class CatalogKSSView(PloneKSSView):
     """
@@ -35,7 +35,7 @@ class CatalogKSSView(PloneKSSView):
         if searchable_text != "":
             products = catalog.searchResults(
                 path = "/".join(self.context.getPhysicalPath()),
-                object_provides = "easyshop.core.interfaces.catalog.IProduct",
+                object_provides = "iqpp.easyshop.interfaces.catalog.IProduct",
                 SearchableText = searchable_text,
                 sort_on = "sortable_title",
             )
@@ -59,14 +59,14 @@ class CatalogKSSView(PloneKSSView):
             if letter == "All":
                 products = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    object_provides = "easyshop.core.interfaces.catalog.IProduct",
+                    object_provides = "iqpp.easyshop.interfaces.catalog.IProduct",
                     sort_on = "sortable_title",
                 )
                         
             elif letter == "0-9":
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    object_provides = "easyshop.core.interfaces.catalog.IProduct",
+                    object_provides = "iqpp.easyshop.interfaces.catalog.IProduct",
                     sort_on = "sortable_title",
                 )
                     
@@ -76,7 +76,7 @@ class CatalogKSSView(PloneKSSView):
             else:
                 brains = catalog.searchResults(
                     path = "/".join(self.context.getPhysicalPath()),
-                    object_provides = "easyshop.core.interfaces.catalog.IProduct",
+                    object_provides = "iqpp.easyshop.interfaces.catalog.IProduct",
                     Title = "%s*" % letter,
                     sort_on = "sortable_title",
                 )

@@ -1,4 +1,4 @@
-from easyshop.core.config import _
+from iqpp.easyshop.config import _
 
 def FORM_HEADER(form_id):
     return """
