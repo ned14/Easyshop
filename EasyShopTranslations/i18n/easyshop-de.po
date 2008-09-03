@@ -19,7 +19,7 @@ msgstr ""
 msgid " is required"
 msgstr " ist erforderlich"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:51
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:51
 msgid "Account Number"
 msgstr "Konto Nummer"
 
@@ -47,19 +47,19 @@ msgstr "Benutzer hinzufügen"
 msgid "Add to Cart"
 msgstr "In den Warenkorb"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:38
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
 msgstr "Straße/Hausnr."
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:91
+#: ../../../src/iqpp.easyshop/easyshop/core/config.py:91
 msgid "American Express"
 msgstr "American Express"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:58
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:58
 msgid "Bank Information Code"
 msgstr "Bankleitzahl"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:72
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:72
 msgid "Bank Name"
 msgstr "Bankname"
 
@@ -67,15 +67,15 @@ msgstr "Bankname"
 msgid "Buy Product"
 msgstr "Produkt kaufen"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:95
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:95
 msgid "Card Number"
 msgstr "Kartennummer"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:88
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:88
 msgid "Card Owner"
 msgstr "Kartenbesitzer"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:82
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:82
 msgid "Card Type"
 msgstr "Kartenart"
 
@@ -91,15 +91,15 @@ msgstr "Per Nachname"
 msgid "Changes saved"
 msgstr "Die Änderungen wurden gesichert"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:52
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:52
 msgid "City"
 msgstr "Stadt"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:31
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:31
 msgid "Company Name"
 msgstr "Firmenname"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:59
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:59
 msgid "Country"
 msgstr "Land"
 
@@ -127,11 +127,11 @@ msgstr "Kreditkarte"
 msgid "Day"
 msgstr "Tag"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:147
+#: ../../../src/iqpp.easyshop/easyshop/core/config.py:147
 msgid "Days"
 msgstr "Tage"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:65
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:65
 msgid "Depositor"
 msgstr "Kontoeigentümer"
 
@@ -143,7 +143,7 @@ msgstr "Beschreibung"
 msgid "Direct Debit"
 msgstr "Bankeinzug"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:64
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:64
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -203,19 +203,19 @@ msgstr "Bearbeitung wurde abgebrochen"
 msgid "Expand all"
 msgstr "Alle ausklappen"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:102
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:102
 msgid "Expiration Date Month"
 msgstr "Ablaufdatum Monat"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:109
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:109
 msgid "Expiration Date Year"
 msgstr "Ablaufdatum Jahr"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:23
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/information.py:23
 msgid "File"
 msgstr "Datei"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:17
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:17
 msgid "Firstname"
 msgstr "Vorname"
 
@@ -235,7 +235,7 @@ msgstr "Falls ausgeklappt, wird Anzahl Produkte pro Kategory angezeigt."
 msgid "Item's position has changed."
 msgstr "Die Position wurde verändert."
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:24
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:24
 msgid "Lastname"
 msgstr "Nachname"
 
@@ -243,7 +243,7 @@ msgstr "Nachname"
 msgid "Long Text"
 msgstr "Langtext"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:90
+#: ../../../src/iqpp.easyshop/easyshop/core/config.py:90
 msgid "MasterCard/EuroCard"
 msgstr "MasterCard/EuroCard"
 
@@ -272,7 +272,7 @@ msgstr "Passwort"
 msgid "Password Confirmation"
 msgstr "Passwort (Bestätigung)"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:71
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:71
 msgid "Phone"
 msgstr "Telefon"
 
@@ -292,59 +292,59 @@ msgstr "Bitte bestätigen Sie Ihr Passwort"
 msgid "Please edit the form below and press save."
 msgstr "Bitte bearbeiten Sie das Formular und drücken Sie speichern!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:73
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:73
 msgid "Please enter the bank name"
 msgstr "Bitte Bankname eingeben!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:66
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:66
 msgid "Please enter the depositor of the account"
 msgstr "Bitte Kontobesitzer hinzufügen!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:103
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:103
 msgid "Please enter the expiration date of the card."
 msgstr "Bitte geben Sie den Monat des Ablaufdatums ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:89
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:89
 msgid "Please enter the name of the card owner."
 msgstr "Bitte geben Sie den Namen des Kartenbesitzers ein."
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:52
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:52
 msgid "Please enter your account number"
 msgstr "Bitte bearbeiten Sie Ihre Kontonummer ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:39
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:39
 msgid "Please enter your address."
 msgstr "Bitte geben Sie Ihre Adresse ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:59
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:59
 msgid "Please enter your bank information code"
 msgstr "Bitte geben Sie Ihre Bankverbindung ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:53
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:53
 msgid "Please enter your city."
 msgstr "Bitte geben Sie Ihre Stadt ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:32
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:32
 msgid "Please enter your company name."
 msgstr "Bitte geben Sie Ihren Firmennamen ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:60
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:60
 msgid "Please enter your country."
 msgstr "Bitte geben Sie Ihr Land ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:65
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:65
 msgid "Please enter your e-mail address."
 msgstr "Bitte geben Sie Ihre E-Mail Adresse ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:159
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:159
 msgid "Please enter your e-mail."
 msgstr "Bitte geben Sie Ihre E-Mail Adresse ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:18
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:18
 msgid "Please enter your firstname."
 msgstr "Bitte geben Sie Ihren Vorname ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:25
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:25
 msgid "Please enter your lastname."
 msgstr "Bitte geben Sie Ihren Nachnamen ein!"
 
@@ -352,19 +352,19 @@ msgstr "Bitte geben Sie Ihren Nachnamen ein!"
 msgid "Please enter your password."
 msgstr "Bitte geben Sie Ihr Passwort ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:72
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:72
 msgid "Please enter your phone number."
 msgstr "Bitte geben Sie Ihre Telefonnummer ein."
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:96
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:96
 msgid "Please enter your the card number."
 msgstr "Bitte geben Sie Ihre Kartennummer ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:46
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:46
 msgid "Please enter your zip code."
 msgstr "Bitte geben Sie Ihre Postleitzahl ein!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:83
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/payment.py:83
 msgid "Please select the type of the card."
 msgstr "Bitte geben Sie den Type Ihre Karte ein!"
 
@@ -392,7 +392,7 @@ msgstr "Kurztext"
 msgid "Show quantity"
 msgstr "Anzahl anzeigen"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:16
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/information.py:16
 msgid "Text"
 msgstr "Text"
 
@@ -400,11 +400,11 @@ msgstr "Text"
 msgid "The address has been deleted."
 msgstr "Die Adresse wurde gelöscht."
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:17
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/information.py:17
 msgid "The information as HTML"
 msgstr "Die Information als HTML."
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:24
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/information.py:24
 msgid "The information as downloadable file."
 msgstr "Die Information als herunterladbare Datei."
 
@@ -436,7 +436,7 @@ msgstr "Um Ihre Kreditkarte zu ändern, bearbeiten Sie bitte das Formular und dr
 msgid "Username"
 msgstr "Benutzername"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:89
+#: ../../../src/iqpp.easyshop/easyshop/core/config.py:89
 msgid "Visa"
 msgstr "Visa"
 
@@ -444,7 +444,7 @@ msgstr "Visa"
 msgid "Week"
 msgstr "Woche"
 
-#: ../../../src/easyshop.core/easyshop/core/config.py:148
+#: ../../../src/iqpp.easyshop/easyshop/core/config.py:148
 msgid "Weeks"
 msgstr "Wochen"
 
@@ -465,7 +465,7 @@ msgstr "Ihre Bestellung wurde bezahlt."
 msgid "Your order has been received. Thank you!"
 msgstr "Ihre Bestellung wurde übersendet. Vielen Dank!"
 
-#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:45
+#: ../../../src/iqpp.easyshop/easyshop/core/interfaces/customers.py:45
 msgid "Zip Code"
 msgstr "Postleitzahl"
 
