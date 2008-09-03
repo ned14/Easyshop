@@ -19,9 +19,9 @@ from plone.portlets.interfaces import IPortletManager
 from Products.ATContentTypes.content.folder import ATBTreeFolder
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IImageConversion
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import IImageConversion
 
 from easyshop.catalog.portlets import categories
 from easyshop.catalog.portlets import formatter
@@ -230,41 +230,41 @@ class EasyShop(ATBTreeFolder):
         assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
 
         # Create containers
-        self.manage_addProduct["easyshop.core"].addCartsContainer(id="carts", title="Carts")
-        self.manage_addProduct["easyshop.core"].addProductsContainer(id="products", title="Products")
-        self.manage_addProduct["easyshop.core"].addCategoriesContainer(id="categories", title="Categories")
-        self.manage_addProduct["easyshop.core"].addCustomersContainer(id="customers", title="Customers")
-        self.manage_addProduct["easyshop.core"].addSessionsContainer(id="sessions", title="Sessions")
-        self.manage_addProduct["easyshop.core"].addDiscountsContainer(id="discounts", title="Discounts")
-        self.manage_addProduct["easyshop.core"].addGroupsContainer(id="groups", title="Groups")
-        self.manage_addProduct["easyshop.core"].addTaxesContainer(id="taxes", title="Taxes")
-        self.manage_addProduct["easyshop.core"].addStockInformationContainer(id="stock-information", 
+        self.manage_addProduct["iqpp.easyshop"].addCartsContainer(id="carts", title="Carts")
+        self.manage_addProduct["iqpp.easyshop"].addProductsContainer(id="products", title="Products")
+        self.manage_addProduct["iqpp.easyshop"].addCategoriesContainer(id="categories", title="Categories")
+        self.manage_addProduct["iqpp.easyshop"].addCustomersContainer(id="customers", title="Customers")
+        self.manage_addProduct["iqpp.easyshop"].addSessionsContainer(id="sessions", title="Sessions")
+        self.manage_addProduct["iqpp.easyshop"].addDiscountsContainer(id="discounts", title="Discounts")
+        self.manage_addProduct["iqpp.easyshop"].addGroupsContainer(id="groups", title="Groups")
+        self.manage_addProduct["iqpp.easyshop"].addTaxesContainer(id="taxes", title="Taxes")
+        self.manage_addProduct["iqpp.easyshop"].addStockInformationContainer(id="stock-information", 
             title="Stock Information")    
         
         ### Information        
-        self.manage_addProduct["easyshop.core"].addInformationContainer(id="information", title="Information")
-        self.information.manage_addProduct["easyshop.core"].addInformationPage(
+        self.manage_addProduct["iqpp.easyshop"].addInformationContainer(id="information", title="Information")
+        self.information.manage_addProduct["iqpp.easyshop"].addInformationPage(
             id="terms-and-conditions", title="Terms And Conditions")
 
         ### Orders
-        self.manage_addProduct["easyshop.core"].addOrdersContainer(id="orders", title="Orders")
+        self.manage_addProduct["iqpp.easyshop"].addOrdersContainer(id="orders", title="Orders")
         self.orders.manage_permission('Add portal content', ['Member'], 1)
 
         ### Payment            
-        self.manage_addProduct["easyshop.core"].addPaymentMethodsContainer(id="paymentmethods", 
+        self.manage_addProduct["iqpp.easyshop"].addPaymentMethodsContainer(id="paymentmethods", 
             title="Payment Methods")
             
-        self.manage_addProduct["easyshop.core"].addPaymentPricesContainer(
+        self.manage_addProduct["iqpp.easyshop"].addPaymentPricesContainer(
             id="paymentprices", title="Payment Prices")        
-        self.paymentmethods.manage_addProduct["easyshop.core"].addGenericPaymentMethod(
+        self.paymentmethods.manage_addProduct["iqpp.easyshop"].addGenericPaymentMethod(
             id="cash-on-delivery", title="Cash on Delivery")                
-        self.paymentmethods.manage_addProduct["easyshop.core"].addCreditCardPaymentMethod(
+        self.paymentmethods.manage_addProduct["iqpp.easyshop"].addCreditCardPaymentMethod(
             id="credit-card", title="Credit Card")                
-        self.paymentmethods.manage_addProduct["easyshop.core"].addDirectDebitPaymentMethod(
+        self.paymentmethods.manage_addProduct["iqpp.easyshop"].addDirectDebitPaymentMethod(
             id="direct-debit", title="Direct Debit")
-        self.paymentmethods.manage_addProduct["easyshop.core"].addPayPalPaymentMethod(
+        self.paymentmethods.manage_addProduct["iqpp.easyshop"].addPayPalPaymentMethod(
             id="paypal",  title="PayPal")
-        self.paymentmethods.manage_addProduct["easyshop.core"].addGenericPaymentMethod(
+        self.paymentmethods.manage_addProduct["iqpp.easyshop"].addGenericPaymentMethod(
             id="prepayment", title="Prepayment")
 
         wftool = getToolByName(self, "portal_workflow")
@@ -272,11 +272,11 @@ class EasyShop(ATBTreeFolder):
             wftool.doActionFor(payment_method, "publish")
 
         ### Shipping    
-        self.manage_addProduct["easyshop.core"].addShippingPricesContainer(id="shippingprices", 
+        self.manage_addProduct["iqpp.easyshop"].addShippingPricesContainer(id="shippingprices", 
             title="Shipping Prices")
-        self.manage_addProduct["easyshop.core"].addShippingMethodsContainer(id="shippingmethods",
+        self.manage_addProduct["iqpp.easyshop"].addShippingMethodsContainer(id="shippingmethods",
             title="Shipping Methods")
-        self.shippingmethods.manage_addProduct["easyshop.core"].addShippingMethod(
+        self.shippingmethods.manage_addProduct["iqpp.easyshop"].addShippingMethod(
             id="standard", title="Standard")
 
         for shipping_method in self.shippingmethods.objectValues():

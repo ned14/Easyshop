@@ -7,7 +7,7 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import ICategory
+from iqpp.easyshop.interfaces import ICategory
 
 class MigrateView(BrowserView):
     """

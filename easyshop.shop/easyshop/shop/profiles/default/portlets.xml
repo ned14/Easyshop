@@ -3,11 +3,11 @@
 
  <portletmanager 
     name="easyshop.top"
-    type="easyshop.core.interfaces.IEasyShopTop" />
+    type="iqpp.easyshop.interfaces.IEasyShopTop" />
 
  <portletmanager 
     name="easyshop.bottom"
-    type="easyshop.core.interfaces.IEasyShopBottom" />
+    type="iqpp.easyshop.interfaces.IEasyShopBottom" />
 
  <portlet 
      addview="portlets.Admin"

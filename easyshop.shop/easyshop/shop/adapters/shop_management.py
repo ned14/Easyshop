@@ -4,8 +4,8 @@ from zope.interface import Interface
 from zope.component import adapts
   
 # easyshop imports
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import IShopManagement
 
 class ShopManagement:
     """Provides IShopManagement for arbitrary objects.

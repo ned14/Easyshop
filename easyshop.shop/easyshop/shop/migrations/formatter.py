@@ -18,7 +18,7 @@ class FormatterView(BrowserView):
         """
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides = "easyshop.core.interfaces.catalog.IFormatable"
+            object_provides = "iqpp.easyshop.interfaces.catalog.IFormatable"
         )
 
         for brain in brains:

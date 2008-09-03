@@ -8,9 +8,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.interfaces import ICategoryManagement
-from easyshop.core.interfaces import IProduct
-from easyshop.core.interfaces import IProductManagement
+from iqpp.easyshop.interfaces import ICategoryManagement
+from iqpp.easyshop.interfaces import IProduct
+from iqpp.easyshop.interfaces import IProductManagement
 
 class SitemapView(BrowserView):
     """

@@ -7,8 +7,8 @@ from zope.interface import implements
 from Products.CMFCore.interfaces import ISiteRoot
 
 # easyshop imports
-from easyshop.core.interfaces import IMailAddresses
-from easyshop.core.interfaces import IShop
+from iqpp.easyshop.interfaces import IMailAddresses
+from iqpp.easyshop.interfaces import IShop
 
 class ShopMailAddresses(object):
     """An adapter which provides IMailAddresses for shop content objects.
