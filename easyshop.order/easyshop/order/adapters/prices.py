@@ -3,9 +3,9 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IPrices
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import IOrder
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IOrder
 
 class OrderPrices:
     """Adapter which provides IPrices for order content objects.

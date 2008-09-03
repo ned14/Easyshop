@@ -12,18 +12,18 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.config import *
-from iqpp.easyshop.interfaces import IAddressManagement
-from iqpp.easyshop.interfaces import ICurrencyManagement
-from iqpp.easyshop.interfaces import ICustomerManagement
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import INumberConverter
-from iqpp.easyshop.interfaces import IPaymentInformationManagement
-from iqpp.easyshop.interfaces import IPaymentProcessing
-from iqpp.easyshop.interfaces import IPrices
-from iqpp.easyshop.interfaces import IProductVariant
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import IType
+from easyshop.core.config import *
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import IPaymentInformationManagement
+from easyshop.core.interfaces import IPaymentProcessing
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariant
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IType
 
 class IOrderView(Interface):
     """View for order content objects.

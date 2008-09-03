@@ -11,9 +11,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IOrder
-from iqpp.easyshop.config import *
-from iqpp.easyshop.interfaces import IAddressManagement
+from easyshop.core.interfaces import IOrder
+from easyshop.core.config import *
+from easyshop.core.interfaces import IAddressManagement
 
 schema = Schema((
 
