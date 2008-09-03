@@ -4,7 +4,7 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IImageConversion
+from easyshop.core.interfaces import IImageConversion
 
 class ImageConversion:
     """Dummy adapter to convert image before saving. 

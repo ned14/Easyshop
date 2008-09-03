@@ -1,7 +1,7 @@
 First, some set-up:
 
     >>> self.loginAsPortalOwner()    
-    >>> from iqpp.easyshop.tests.base import Browser
+    >>> from easyshop.core.tests.base import Browser
     >>> browser = Browser()
     >>> browser = browser.addAuthorizationHeader()
     >>> self.portal.error_log._ignored_exceptions = ()

@@ -1,6 +1,6 @@
 First, some set-up:
     
-    >>> from iqpp.easyshop.tests.base import Browser
+    >>> from easyshop.core.tests.base import Browser
     >>> browser = Browser()
     >>> self.portal.error_log._ignored_exceptions = ()
 

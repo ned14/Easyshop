@@ -3,8 +3,8 @@ from DateTime import DateTime
 # zope imports
 from zope.interface import implements
 
-# iqpp.easyshop imports
-from iqpp.easyshop.interfaces import ISessionManagement
+# easyshop.core imports
+from easyshop.core.interfaces import ISessionManagement
 
 class SessionManagement:
     """

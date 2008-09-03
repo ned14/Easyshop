@@ -16,7 +16,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 _ = MessageFactory("EasyShop")
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import IShopManagement
 
 class IAdminPortlet(IPortletDataProvider):
     """

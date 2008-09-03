@@ -2,11 +2,11 @@
   
     <utility
         factory=".converter.NumberConverter"  
-        provides="iqpp.easyshop.interfaces.INumberConverter"
+        provides="easyshop.core.interfaces.INumberConverter"
         permission="zope.Public" />  
 
     <utility 
-        provides="iqpp.easyshop.interfaces.ISessionManagement"
+        provides="easyshop.core.interfaces.ISessionManagement"
         factory=".sessions.SessionManagement" />
 
 </configure>

@@ -15,11 +15,11 @@
 
     <!-- IImageManagement -->
     <adapter
-        for="iqpp.easyshop.interfaces.IProduct"        
+        for="easyshop.core.interfaces.IProduct"        
         factory=".image_management.ImageManagement" />
     
     <adapter
-        for="iqpp.easyshop.interfaces.ICategory"
+        for="easyshop.core.interfaces.ICategory"
         factory=".image_management.ImageManagement" />
 
     <adapter
@@ -31,44 +31,44 @@
 
     <!-- IValidity -->
     <adapter
-        for="iqpp.easyshop.interfaces.IDiscount"
+        for="easyshop.core.interfaces.IDiscount"
         factory=".validity.Validity" />
 
     <adapter
-        for="iqpp.easyshop.interfaces.IInformationPage"
+        for="easyshop.core.interfaces.IInformationPage"
         factory=".validity.Validity" />
     
     <adapter
-        for="iqpp.easyshop.interfaces.IPaymentInformation"
+        for="easyshop.core.interfaces.IPaymentInformation"
         factory=".validity.Validity" />
         
     <adapter
-        for="iqpp.easyshop.interfaces.IPaymentMethod"
+        for="easyshop.core.interfaces.IPaymentMethod"
         factory=".validity.Validity" />
 
     <adapter
-        for="iqpp.easyshop.interfaces.IPaymentPrice"
+        for="easyshop.core.interfaces.IPaymentPrice"
         factory=".validity.Validity" />
 
     <adapter
-        for="iqpp.easyshop.interfaces.IShippingPrice"
+        for="easyshop.core.interfaces.IShippingPrice"
         factory=".validity.Validity" />
 
     <adapter
-        for="iqpp.easyshop.interfaces.IShippingMethod"
+        for="easyshop.core.interfaces.IShippingMethod"
         factory=".validity.Validity" />
 
     <adapter
-        for="iqpp.easyshop.interfaces.IStockInformation"
+        for="easyshop.core.interfaces.IStockInformation"
         factory=".validity.Validity" />
 
     <adapter
-        for="iqpp.easyshop.interfaces.ITax"
+        for="easyshop.core.interfaces.ITax"
         factory=".validity.Validity" />
 
     <!-- PayPal has own validity adapter -->
     <adapter
-        for="iqpp.easyshop.interfaces.IPayPalPaymentMethod"
+        for="easyshop.core.interfaces.IPayPalPaymentMethod"
         factory=".validity.PayPalValidity" />
 
 

@@ -4,9 +4,9 @@ from zope.component import adapts
 from zope.interface import Interface
 
 # easyshop imports
-from iqpp.easyshop.config import CURRENCIES
-from iqpp.easyshop.interfaces import ICurrencyManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.config import CURRENCIES
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IShopManagement
 
 class CurrencyManagement:
     """Provides ICurrencyManagement for serveral content objects.

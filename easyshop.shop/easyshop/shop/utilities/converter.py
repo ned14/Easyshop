@@ -5,7 +5,7 @@ import re
 from zope.interface import implements
 
 # easyshop imports
-from iqpp.easyshop.interfaces import INumberConverter
+from easyshop.core.interfaces import INumberConverter
 
 class NumberConverter:
     """

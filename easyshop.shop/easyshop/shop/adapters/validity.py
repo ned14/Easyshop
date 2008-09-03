@@ -2,8 +2,8 @@
 from zope.interface import implements
   
 # easyshop imports
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import IValidity
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IValidity
 
 class Validity(object):
     """An adapter which provides IValidity for several classes. See 

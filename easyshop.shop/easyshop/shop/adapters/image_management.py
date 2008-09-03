@@ -3,8 +3,8 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IImageManagement
-from iqpp.easyshop.interfaces import IProductVariant
+from easyshop.core.interfaces import IImageManagement
+from easyshop.core.interfaces import IProductVariant
 
 class ImageManagement:
     """Provides IImageManagement for several classes.

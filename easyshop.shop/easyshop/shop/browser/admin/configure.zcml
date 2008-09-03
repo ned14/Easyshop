@@ -2,14 +2,14 @@
            xmlns:browser="http://namespaces.zope.org/browser">
     
     <browser:page
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="export-orders-std"
         class=".export.ExportView"
         attribute="getOrders"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="export-products-std"
         class=".export.ExportView"
         attribute="getProducts"
@@ -37,7 +37,7 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="migrate"
         class=".migrate.MigrateView"
         attribute="migrate"
