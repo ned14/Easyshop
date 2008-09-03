@@ -6,8 +6,8 @@ from Products.Archetypes.atapi import BaseBTreeFolder
 from Products.Archetypes.atapi import registerType
 
 # easyshop imports
-from easyshop.core.config import PROJECTNAME
-from easyshop.core.interfaces import IOrdersContainer
+from iqpp.easyshop.config import PROJECTNAME
+from iqpp.easyshop.interfaces import IOrdersContainer
 
 class OrdersContainer(BaseBTreeFolder):
     """A simple container to hold orders.

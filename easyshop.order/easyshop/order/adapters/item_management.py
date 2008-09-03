@@ -5,15 +5,15 @@ from zope.component import getMultiAdapter
 
 # easyshop imports
 from easyshop.catalog.adapters.property_management import getTitlesByIds
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import IData
-from easyshop.core.interfaces import IDiscountsCalculation
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IOrder
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IPropertyManagement
-from easyshop.core.interfaces import ITaxes
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICartManagement
+from iqpp.easyshop.interfaces import IData
+from iqpp.easyshop.interfaces import IDiscountsCalculation
+from iqpp.easyshop.interfaces import IItemManagement
+from iqpp.easyshop.interfaces import IOrder
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IPropertyManagement
+from iqpp.easyshop.interfaces import ITaxes
+from iqpp.easyshop.interfaces import IShopManagement
 
 class OrderItemManagement:
     """Provides IItemManagement for order content objects.
@@ -71,7 +71,7 @@ class OrderItemManagement:
     def _addItemFromCartItem(self, id, cart_item):
         """Sets the item by given cart item.
         """        
-        self.context.manage_addProduct["easyshop.core"].addOrderItem(id=str(id))
+        self.context.manage_addProduct["iqpp.easyshop"].addOrderItem(id=str(id))
         new_item = getattr(self.context, str(id))
 
         # set product quantity        

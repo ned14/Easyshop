@@ -2,10 +2,10 @@
 from zope.interface import implements
 
 # easyshop imports
-from easyshop.core.interfaces import IOrderClosed
-from easyshop.core.interfaces import IOrderPayed
-from easyshop.core.interfaces import IOrderSent
-from easyshop.core.interfaces import IOrderSubmitted
+from iqpp.easyshop.interfaces import IOrderClosed
+from iqpp.easyshop.interfaces import IOrderPayed
+from iqpp.easyshop.interfaces import IOrderSent
+from iqpp.easyshop.interfaces import IOrderSubmitted
         
 class OrderClosed(object):
     """

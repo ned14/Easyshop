@@ -15,10 +15,10 @@ from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 
 # easyshop imports
-from easyshop.core.interfaces import ITaxes
-from easyshop.core.interfaces import IProductManagement
-from easyshop.core.interfaces import IOrderItem
-from easyshop.core.config import *
+from iqpp.easyshop.interfaces import ITaxes
+from iqpp.easyshop.interfaces import IProductManagement
+from iqpp.easyshop.interfaces import IOrderItem
+from iqpp.easyshop.config import *
 
 schema = Schema((
 

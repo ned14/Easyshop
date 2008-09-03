@@ -12,15 +12,15 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop import
-from easyshop.core.interfaces import IItemManagement 
-from easyshop.core.interfaces import IOrderManagement
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import ICopyManagement
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShippingPriceManagement
-from easyshop.core.interfaces import IPaymentPriceManagement
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import ITaxes
+from iqpp.easyshop.interfaces import IItemManagement 
+from iqpp.easyshop.interfaces import IOrderManagement
+from iqpp.easyshop.interfaces import ICartManagement
+from iqpp.easyshop.interfaces import ICopyManagement
+from iqpp.easyshop.interfaces import ICustomerManagement
+from iqpp.easyshop.interfaces import IShippingPriceManagement
+from iqpp.easyshop.interfaces import IPaymentPriceManagement
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import ITaxes
 
 class UnrestrictedUser(BaseUnrestrictedUser):
     """Unrestricted user that still has an id.

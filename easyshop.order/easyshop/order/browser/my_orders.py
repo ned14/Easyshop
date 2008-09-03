@@ -8,8 +8,8 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import IOrderManagement
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IOrderManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 class MyOrdersView(BrowserView):
     """

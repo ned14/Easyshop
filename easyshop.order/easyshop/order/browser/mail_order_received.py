@@ -1,10 +1,10 @@
 # easyshop.order imports
 from easyshop.order.browser.order_view import OrderView
 
-# easyshop.core imports
-from easyshop.core.interfaces import IInformationManagement
-from easyshop.core.interfaces import IPaymentInformationManagement
-from easyshop.core.interfaces import IShopManagement
+# iqpp.easyshop imports
+from iqpp.easyshop.interfaces import IInformationManagement
+from iqpp.easyshop.interfaces import IPaymentInformationManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 class MailOrderReceivedView(OrderView):
     """

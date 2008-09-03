@@ -9,10 +9,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.DCWorkflow.interfaces import IAfterTransitionEvent
 
 # easyshop imports
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import IMailAddresses
-from easyshop.core.interfaces import IOrder
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IAddressManagement
+from iqpp.easyshop.interfaces import IMailAddresses
+from iqpp.easyshop.interfaces import IOrder
+from iqpp.easyshop.interfaces import IShopManagement
 from easyshop.shop.utilities.misc import sendMultipartMail
 
 @adapter(IOrder, IAfterTransitionEvent)
