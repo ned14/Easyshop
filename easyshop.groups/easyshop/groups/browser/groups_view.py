@@ -2,9 +2,9 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IGroupManagement
-from iqpp.easyshop.interfaces import IProductManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IShopManagement
 
 class GroupsView(BrowserView):
     """

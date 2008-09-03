@@ -6,8 +6,8 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IGroupManagement
-from iqpp.easyshop.interfaces import IShop
+from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IShop
 
 class ShopGroupManagement:
     """An adapter, which provides group management for shop content objects.
@@ -26,7 +26,7 @@ class ShopGroupManagement:
         putils = getToolByName(self.context, "plone_utils")
         normalized_id = putils.normalizeString(name)
         if self.getGroup(normalized_id) is None:
-            self.context.groups.manage_addProduct["iqpp.easyshop"].addProductGroup(id=normalized_id, title=name)
+            self.context.groups.manage_addProduct["easyshop.core"].addProductGroup(id=normalized_id, title=name)
             return self.getGroup(normalized_id)
 
         else:

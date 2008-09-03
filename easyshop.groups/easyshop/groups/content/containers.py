@@ -6,8 +6,8 @@ from Products.Archetypes.atapi import OrderedBaseFolder
 from Products.Archetypes.atapi import registerType
 
 # easyshop imports
-from iqpp.easyshop.config import PROJECTNAME
-from iqpp.easyshop.interfaces import IGroupsContainer
+from easyshop.core.config import PROJECTNAME
+from easyshop.core.interfaces import IGroupsContainer
 
 class GroupsContainer(OrderedBaseFolder):
     """A simple container to hold groups.
