@@ -5,7 +5,7 @@
 
     <browser:page  
         name="search"
-        for="iqpp.easyshop.interfaces.ISearchResultContainer"
+        for="easyshop.core.interfaces.ISearchResultContainer"
         template="search.pt"
         permission="zope2.Public" />  
 
