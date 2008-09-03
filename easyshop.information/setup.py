@@ -5,6 +5,7 @@ version = '0.1a1'
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.txt')).read()
+
 setup(name='easyshop.information',
       version=version,
       description="Information management for EasyShop",
