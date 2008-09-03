@@ -4,7 +4,7 @@ EasyShop shop Readme
 Overview
 --------
 
-Shop for EasyShop
+Shop implementation and central services (like currency management) for EasyShop
 
 More Information
 ----------------
