@@ -12,12 +12,12 @@ from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
 
 # easyshop imports
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import IBankAccount
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import IOrderManagement
-from easyshop.core.interfaces import IPaymentMethodManagement
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IAddressManagement
+from iqpp.easyshop.interfaces import IBankAccount
+from iqpp.easyshop.interfaces import ICartManagement
+from iqpp.easyshop.interfaces import IOrderManagement
+from iqpp.easyshop.interfaces import IPaymentMethodManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 class CustomersContainerView(BrowserView):
     """

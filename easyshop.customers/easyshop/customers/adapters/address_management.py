@@ -10,8 +10,8 @@ from Products.CMFCore.exceptions import BadRequest
 from Products.Archetypes.utils import shasattr
 
 # easyshop imports
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import ICustomer
+from iqpp.easyshop.interfaces import IAddressManagement
+from iqpp.easyshop.interfaces import ICustomer
 from easyshop.customers.content.address import Address
 
 class CustomerAddressManager:

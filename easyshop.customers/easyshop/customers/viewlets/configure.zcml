@@ -4,13 +4,13 @@
     <browser:viewletManager
         name="easyshop.manager.addresses"
         provides=".interfaces.IAddressesViewletManager"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         class="plone.app.viewletmanager.manager.OrderedViewletManager"
         permission="cmf.ModifyPortalContent" />
 
     <browser:viewlet
         name="easyshop.addresses"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         manager=".interfaces.IAddressesViewletManager"
         class=".addresses.AddressesViewlet"
         permission="cmf.ModifyPortalContent" />

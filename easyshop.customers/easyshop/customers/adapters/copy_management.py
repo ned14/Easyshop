@@ -6,13 +6,13 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import IAddress
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import ICopyManagement
-from easyshop.core.interfaces import ICreditCard
-from easyshop.core.interfaces import ICustomer
-from easyshop.core.interfaces import IBankAccount
-from easyshop.core.interfaces import IPaymentInformationManagement
+from iqpp.easyshop.interfaces import IAddress
+from iqpp.easyshop.interfaces import IAddressManagement
+from iqpp.easyshop.interfaces import ICopyManagement
+from iqpp.easyshop.interfaces import ICreditCard
+from iqpp.easyshop.interfaces import ICustomer
+from iqpp.easyshop.interfaces import IBankAccount
+from iqpp.easyshop.interfaces import IPaymentInformationManagement
 
 from easyshop.customers.content import Address
 from easyshop.payment.content import BankAccount

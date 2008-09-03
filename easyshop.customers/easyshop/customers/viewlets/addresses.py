@@ -5,7 +5,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
-from easyshop.core.interfaces import IAddressManagement
+from iqpp.easyshop.interfaces import IAddressManagement
 
 class AddressesViewlet(ViewletBase):
     """

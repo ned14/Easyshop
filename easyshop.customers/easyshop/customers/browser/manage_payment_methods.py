@@ -5,9 +5,9 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # EasyShop Products
-from easyshop.core.interfaces import ICreditCard
-from easyshop.core.interfaces import IBankAccount
-from easyshop.core.interfaces import IPaymentInformationManagement
+from iqpp.easyshop.interfaces import ICreditCard
+from iqpp.easyshop.interfaces import IBankAccount
+from iqpp.easyshop.interfaces import IPaymentInformationManagement
 
 class ManagePaymentMethodsView(BrowserView):
     """

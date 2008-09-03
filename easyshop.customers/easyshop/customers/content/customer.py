@@ -7,9 +7,9 @@ from zope.schema.fieldproperty import FieldProperty
 from plone.app.content.container import Container
 
 # easyshop imports
-from easyshop.core.config import _
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import ICustomer
+from iqpp.easyshop.config import _
+from iqpp.easyshop.interfaces import IAddressManagement
+from iqpp.easyshop.interfaces import ICustomer
 
 from OFS.OrderSupport import OrderSupport
 

@@ -4,33 +4,33 @@
     <!-- Customer's forms -->
     <browser:page
         name="my-account"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         template="my_account.pt"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="manage-password"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         template="manage_password.pt"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="edit"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         class=".customer_forms.CustomerEditForm"
         permission="cmf.ModifyPortalContent" />
 
     <!-- Payment Methods -->       
     <browser:page
         name="manage-payment-methods"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         template="manage_payment_methods.pt"
         class=".manage_payment_methods.ManagePaymentMethodsView"        
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="deletePaymentMethod"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         class = ".manage_payment_methods.ManagePaymentMethodsView"
         attribute="deletePaymentMethod" 
         permission="cmf.ModifyPortalContent" />
@@ -38,39 +38,39 @@
     <!-- Addresses -->    
     <browser:page
         name="manage-addressbook"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         class=".manage_addressbook.ManageAddressBookView"
         template="manage_addressbook.pt"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="easyshop.Address"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         class=".address_forms.AddressAddForm"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
-        for="easyshop.core.interfaces.IAddress"
+        for="iqpp.easyshop.interfaces.IAddress"
         name="view"
         class=".address_forms.AddressEditForm"
         permission="zope2.View" />
     
     <browser:page
         name="edit"
-        for="easyshop.core.interfaces.IAddress"        
+        for="iqpp.easyshop.interfaces.IAddress"        
         class=".address_forms.AddressEditForm"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="deleteAddress"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         class = ".manage_addressbook.ManageAddressBookView"
         attribute="deleteAddress"
         permission="cmf.ModifyPortalContent" />
 
     <browser:page
         name="add-address"
-        for="easyshop.core.interfaces.ICustomer"
+        for="iqpp.easyshop.interfaces.ICustomer"
         class=".address_forms.AddressAddForm"
         permission="zope2.View" />
 
@@ -89,7 +89,7 @@
     <!-- Manager -->    
     <browser:page
         name="customers-view"
-        for="easyshop.core.interfaces.ICustomersContainer"
+        for="iqpp.easyshop.interfaces.ICustomersContainer"
         template="customers_container.pt"
         class=".customers_container.CustomersContainerView"
         permission="cmf.ManagePortal" />

@@ -14,8 +14,8 @@ from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICustomerManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 # create message factory
 _ = MessageFactory("EasyShop")
