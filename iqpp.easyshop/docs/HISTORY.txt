@@ -1,0 +1,9 @@
+Changelog for iqpp.easyshop
+
+    (name of developer listed in brackets)
+
+iqpp.easyshop - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+

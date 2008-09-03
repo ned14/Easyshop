@@ -1,0 +1,12 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page  
+        name="disable-border"  
+        for="*"
+        class=".global.EasyShopView"
+        attribute="disableBorder"  
+        permission="zope2.Public" />  
+    
+</configure>

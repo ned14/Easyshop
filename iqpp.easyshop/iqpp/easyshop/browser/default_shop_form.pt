@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <head> 
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+
+    <body>
+        <div metal:fill-slot="main">
+
+            <form action="." 
+                  metal:define-macro="master"
+                  tal:attributes="action request/URL" method="post"
+                  class="edit-form" enctype="multipart/form-data"
+                  id="zc.page.browser_form">
+          
+                <dl class="portalMessage error"
+                    tal:define="status view/status"
+                    tal:condition="status">
+                    <dd tal:content="status" />
+                </dl>
+
+                <h1 class="documentFirstHeading"
+                     i18n:translate=""
+                     tal:condition="view/label"
+                     tal:content="view/label"
+                     metal:define-slot="heading">
+                     Do something
+                </h1>
+
+                <p tal:content="view/description|nothing">
+                    Description
+                </p>
+
+                <table>
+                    <tal:block tal:repeat="widget view/widgets">
+                    <tr tal:define="description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+                    </tal:block>               
+                </table>
+                
+                <input type="hidden"
+                       name="customer_id"
+                       tal:attributes="value context/REQUEST/customer_id|nothing" />
+                       
+                <input type="hidden"
+                       name="goto"
+                       tal:attributes="value context/REQUEST/goto|nothing" />
+                       
+                <div id="actionsView">
+                    <span class="actionButtons"
+                          tal:condition="view/availableActions"
+                          metal:define-slot="bottom_buttons">
+                        <input tal:repeat="action view/actions"
+                               tal:replace="structure action/render" />
+                    </span>
+                </div>
+            </form>
+
+        </div>
+    </body>
+</html>

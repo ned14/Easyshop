@@ -1,0 +1,47 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="iqpp.easyshop">
+
+    <five:registerPackage 
+        package="." 
+        initialize=".initialize" />
+
+    <include
+        package=".browser" />
+
+    <include 
+        file="permissions.zcml" />
+
+    <include 
+        file="profiles.zcml" />
+    
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
+        component=".vocabularies.countries"
+        name="easyshop.countries" />
+
+    <utility 
+        factory=".profile.HiddenProducts" 
+        name="hidden.products" />
+
+    <include package="iqpp.easyshop" />
+    <include package="easyshop.carts" />        
+    <include package="easyshop.catalog" />
+    <include package="easyshop.checkout" />
+    <include package="easyshop.criteria" />
+    <include package="easyshop.customers" />
+    <include package="easyshop.discounts" />
+    <include package="easyshop.groups" />
+    <include package="easyshop.information" />
+    <include package="easyshop.kss" />
+    <include package="easyshop.login" />
+    <include package="easyshop.management" />
+    <include package="easyshop.order" />
+    <include package="easyshop.payment" />
+    <include package="easyshop.shipping" />
+    <include package="easyshop.shop" />
+    <include package="easyshop.stocks" />
+    <include package="easyshop.taxes" />
+
+</configure>
