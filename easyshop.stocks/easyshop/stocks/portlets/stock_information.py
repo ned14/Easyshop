@@ -9,12 +9,12 @@ from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
-from iqpp.easyshop.config import _
-from iqpp.easyshop.interfaces import IData
-from iqpp.easyshop.interfaces import IProduct
-from iqpp.easyshop.interfaces import IProductVariantsManagement
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import IStockManagement
+from easyshop.core.config import _
+from easyshop.core.interfaces import IData
+from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductVariantsManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IStockManagement
 
 class IStockInformationPortlet(IPortletDataProvider):
     """

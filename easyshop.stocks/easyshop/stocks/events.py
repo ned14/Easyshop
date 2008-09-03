@@ -2,7 +2,7 @@
 from zope.interface import implements
 
 # iqpp imports
-from iqpp.easyshop.interfaces import IStockAmountIsZeroEvent
+from easyshop.core.interfaces import IStockAmountIsZeroEvent
 
 class StockAmountIsZeroEvent(object):
     """
