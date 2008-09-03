@@ -3,11 +3,11 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import ICartItem
-from easyshop.core.interfaces import IDiscount
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import ITaxes
+from iqpp.easyshop.interfaces import ICartItem
+from iqpp.easyshop.interfaces import IDiscount
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ITaxes
 
 class DiscountPrices:
     """Multia adapter which provides IPrices for discount content objects and 

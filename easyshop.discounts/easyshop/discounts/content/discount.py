@@ -5,9 +5,9 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import _
-from easyshop.core.config import PROJECTNAME 
-from easyshop.core.interfaces import IDiscount
+from iqpp.easyshop.config import _
+from iqpp.easyshop.config import PROJECTNAME 
+from iqpp.easyshop.interfaces import IDiscount
 
 schema = Schema((
 
