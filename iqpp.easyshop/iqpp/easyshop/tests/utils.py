@@ -35,7 +35,7 @@ def createTestEnvironment(self):
     """
     createMember(self, "newmember")
     
-    self.invokeFactory("EasyShop2", 
+    self.invokeFactory("EasyShop", <
         id="myshop", 
         title="MyShop", 
         description="My test shop")
