@@ -14,7 +14,7 @@ from Products.AdvancedQuery import Eq
 from Products.AdvancedQuery import In
 
 # easyshop imports
-from easyshop.core.interfaces import ICategoryManagement
+from iqpp.easyshop.interfaces import ICategoryManagement
 
 class SelectProductsViewlet(ViewletBase):
     """
@@ -28,7 +28,7 @@ class SelectProductsViewlet(ViewletBase):
             return []
             
         query =  Eq("path", "/".join(self.context.getPhysicalPath()))
-        query &= Eq("object_provides", "easyshop.core.interfaces.catalog.IProduct")
+        query &= Eq("object_provides", "iqpp.easyshop.interfaces.catalog.IProduct")
         
         search_text = self.request.get("search_text", "")
         search_category = self.request.get("search_category", [])

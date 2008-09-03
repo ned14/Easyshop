@@ -13,8 +13,8 @@ from Products.CMFCore.utils import getToolByName
 from plone.app.layout.globals.interfaces import IViewView
 
 # easyshop imports
-from easyshop.core.interfaces import ICategoryManagement
-from easyshop.core.interfaces import IGroupManagement
+from iqpp.easyshop.interfaces import ICategoryManagement
+from iqpp.easyshop.interfaces import IGroupManagement
 
 def _getContext(self):
     """
@@ -46,7 +46,7 @@ class ManageProductsView(BrowserView):
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
             path = "/".join(self.context.getPhysicalPath()),
-            object_provides="easyshop.core.interfaces.catalog.ICategory",
+            object_provides="iqpp.easyshop.interfaces.catalog.ICategory",
             sort_on = "sortable_title")
         
         return brains
@@ -107,7 +107,7 @@ class ManageProductsView(BrowserView):
             putils = getToolByName(self.context, "plone_utils")
             normalized_id = putils.normalizeString(new_target_category)
             
-            self.context.manage_addProduct["easyshop.core"].addCategory(
+            self.context.manage_addProduct["iqpp.easyshop"].addCategory(
                 id = normalized_id, title=new_target_category)
                 
             new_category = self.context.get(normalized_id)

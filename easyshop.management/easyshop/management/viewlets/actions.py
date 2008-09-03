@@ -9,7 +9,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import ICategoryManagement
+from iqpp.easyshop.interfaces import ICategoryManagement
 
 class ActionsViewlet(ViewletBase):
     """
