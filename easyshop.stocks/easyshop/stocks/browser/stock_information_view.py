@@ -2,7 +2,7 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.interfaces import IData
+from iqpp.easyshop.interfaces import IData
 
 class StockInformationView(BrowserView):
     """

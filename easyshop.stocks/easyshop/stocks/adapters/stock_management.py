@@ -4,10 +4,10 @@ from zope.event import notify
 from zope.interface import implements
 
 # easyshop imports
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IShop
-from easyshop.core.interfaces import IStockManagement
-from easyshop.core.interfaces import IValidity
+from iqpp.easyshop.interfaces import IItemManagement
+from iqpp.easyshop.interfaces import IShop
+from iqpp.easyshop.interfaces import IStockManagement
+from iqpp.easyshop.interfaces import IValidity
 from easyshop.stocks.events import StockAmountIsZeroEvent
 
 class StockManagement:

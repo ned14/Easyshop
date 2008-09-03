@@ -3,8 +3,8 @@ from zope.component import adapts
 from zope.interface import implements
 
 # easyshop imports
-from easyshop.core.interfaces import IData
-from easyshop.core.interfaces import IStockInformation
+from iqpp.easyshop.interfaces import IData
+from iqpp.easyshop.interfaces import IStockInformation
 
 class StockInformationData:
     """

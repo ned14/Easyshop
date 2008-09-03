@@ -8,9 +8,9 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from easyshop.core.config import *
-from easyshop.core.interfaces import IValidity
-from easyshop.core.interfaces import IStockInformation
+from iqpp.easyshop.config import *
+from iqpp.easyshop.interfaces import IValidity
+from iqpp.easyshop.interfaces import IStockInformation
 
 schema = Schema((
 

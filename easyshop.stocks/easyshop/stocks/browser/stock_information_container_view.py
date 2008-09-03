@@ -2,9 +2,9 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.interfaces import IData
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import IStockManagement
+from iqpp.easyshop.interfaces import IData
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IStockManagement
 
 class StockInformationContainerView(BrowserView):
     """
