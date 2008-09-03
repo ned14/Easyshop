@@ -6,10 +6,7 @@ version = '0.1'
 setup(name='easyshop.kss',
       version=version,
       description="KSS layer for EasyShop",
-      long_description="""\
-""",
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
-      classifiers=[
+      long_description= README,      classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
         "Framework :: Zope3",

@@ -1,13 +1,15 @@
+import os
 from setuptools import setup, find_packages
 
 version = '0.1a1'
 
+here = os.path.abspath(os.path.dirname(__file__))
+README = open(os.path.join(here, 'README.txt')).read()
+
 setup(name='easyshop.core',
       version=version,
       description="An out-of-the-box online shop for Plone.",
-      long_description="""\
-""",
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      long_description=README,
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
