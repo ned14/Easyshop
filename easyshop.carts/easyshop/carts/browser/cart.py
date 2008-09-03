@@ -12,25 +12,25 @@ from Products.CMFPlone.utils import safe_unicode
 from plone.memoize.instance import memoize
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IAddressManagement
-from iqpp.easyshop.interfaces import ICartManagement
-from iqpp.easyshop.interfaces import ICustomerManagement
-from iqpp.easyshop.interfaces import ICurrencyManagement
-from iqpp.easyshop.interfaces import IData
-from iqpp.easyshop.interfaces import IDiscountsCalculation
-from iqpp.easyshop.interfaces import IItemManagement 
-from iqpp.easyshop.interfaces import INumberConverter
-from iqpp.easyshop.interfaces import IPaymentInformationManagement
-from iqpp.easyshop.interfaces import IPaymentMethodManagement
-from iqpp.easyshop.interfaces import IPaymentPriceManagement
-from iqpp.easyshop.interfaces import IPropertyManagement
-from iqpp.easyshop.interfaces import IPrices
-from iqpp.easyshop.interfaces import IProductVariant
-from iqpp.easyshop.interfaces import IProductVariantsManagement
-from iqpp.easyshop.interfaces import IShippingMethodManagement
-from iqpp.easyshop.interfaces import IShippingPriceManagement
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import ITaxes
+from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IData
+from easyshop.core.interfaces import IDiscountsCalculation
+from easyshop.core.interfaces import IItemManagement 
+from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import IPaymentInformationManagement
+from easyshop.core.interfaces import IPaymentMethodManagement
+from easyshop.core.interfaces import IPaymentPriceManagement
+from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IPrices
+from easyshop.core.interfaces import IProductVariant
+from easyshop.core.interfaces import IProductVariantsManagement
+from easyshop.core.interfaces import IShippingMethodManagement
+from easyshop.core.interfaces import IShippingPriceManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import ITaxes
 
 
 class CartFormView(BrowserView):

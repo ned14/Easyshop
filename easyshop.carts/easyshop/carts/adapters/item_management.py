@@ -6,8 +6,8 @@ from zope.component import adapts
 from Products.Archetypes.utils import shasattr
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import ICart
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import ICart
 
 class CartItemManagement:
     """Adapter which provides IItemManagement for cart content objects.
@@ -49,7 +49,7 @@ class CartItemManagement:
 
             new_id = str(new_id)
 
-            self.context.manage_addProduct["iqpp.easyshop"].addCartItem(id = new_id)
+            self.context.manage_addProduct["easyshop.core"].addCartItem(id = new_id)
             cart_item = getattr(self.context, new_id)
             cart_item.setAmount(quantity)
             cart_item.setProperties(properties)

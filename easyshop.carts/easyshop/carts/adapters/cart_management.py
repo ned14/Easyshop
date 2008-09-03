@@ -7,10 +7,10 @@ from zope.component import getUtility
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ICartManagement
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import ISessionManagement
-from iqpp.easyshop.interfaces import IShop
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import ISessionManagement
+from easyshop.core.interfaces import IShop
 
 class CartManagement(object):
     """Adapter which provides ICartManagement for shop content objects.
@@ -28,7 +28,7 @@ class CartManagement(object):
         """
         """
         cart_id = self._getCartId()
-        self.carts.manage_addProduct["iqpp.easyshop"].addCart(id=cart_id)
+        self.carts.manage_addProduct["easyshop.core"].addCart(id=cart_id)
         
         return self.carts[cart_id]
         

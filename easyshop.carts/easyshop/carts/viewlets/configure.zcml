@@ -9,7 +9,7 @@
 
     <browser:viewlet
         name="easyshop.carts.cart-viewlet"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         manager="..interfaces.ICartViewletManager"
         class=".cart.CheckoutCartViewlet"
         permission="zope.Public" />

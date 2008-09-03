@@ -2,34 +2,34 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:page
-        for="iqpp.easyshop.interfaces.ICartsContainer"
+        for="easyshop.core.interfaces.ICartsContainer"
         name="carts-view"
         template="carts_container.pt"
         class=".carts_container.CartsView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="cart"
         template="cart.pt"
         permission="zope.Public" />
 
     <browser:page
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="deleteItem"
         class=".cart.CartFormView"
         attribute="deleteItem" 
         permission="zope.Public" />
 
     <browser:page
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="refreshCart"
         class=".cart.CartFormView"
         attribute="refreshCart" 
         permission="zope.Public" />
 
     <browser:page
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         name="added-to-cart"
         template="added_to_cart.pt"
         class=".added_to_cart.AddedToCartView"
