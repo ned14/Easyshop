@@ -1,11 +1,16 @@
+import os
 from setuptools import setup, find_packages
 
-version = 'svn'
+version = '0.1a1'
+
+here = os.path.abspath(os.path.dirname(__file__))
+README = open(os.path.join(here, 'README.txt')).read()
 
 setup(name='easyshop.shop',
       version=version,
       description="",
-      long_description= README,      classifiers=[
+      long_description= README,
+      classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
         "Framework :: Zope3",
