@@ -12,7 +12,7 @@ from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 
 # easyshop imports
-from easyshop.core.interfaces import ICartItem
+from iqpp.easyshop.interfaces import ICartItem
 from easyshop.carts.config import PROJECTNAME
 
 schema = Schema((

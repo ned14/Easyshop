@@ -7,7 +7,7 @@ from Products.Archetypes.atapi import BaseFolderSchema
 from Products.Archetypes.atapi import registerType
 
 # easyshop imports
-from easyshop.core.interfaces.carts import ICart
+from iqpp.easyshop.interfaces.carts import ICart
 from easyshop.carts.config import PROJECTNAME
 
 class Cart(BaseFolder):

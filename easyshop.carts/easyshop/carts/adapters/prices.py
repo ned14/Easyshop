@@ -4,15 +4,15 @@ from zope.component import adapts
 from zope.component import getMultiAdapter
 
 # easyshop imports
-from easyshop.core.interfaces import ICart
-from easyshop.core.interfaces import ICartItem
-from easyshop.core.interfaces import IDiscountsCalculation
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IPaymentPriceManagement
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IPropertyManagement
-from easyshop.core.interfaces import IShippingPriceManagement
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICart
+from iqpp.easyshop.interfaces import ICartItem
+from iqpp.easyshop.interfaces import IDiscountsCalculation
+from iqpp.easyshop.interfaces import IItemManagement
+from iqpp.easyshop.interfaces import IPaymentPriceManagement
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IPropertyManagement
+from iqpp.easyshop.interfaces import IShippingPriceManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 class CartPrices:
     """Adapter which provides IPrices for cart content objects.

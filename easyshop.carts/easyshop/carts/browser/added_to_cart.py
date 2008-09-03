@@ -3,13 +3,13 @@ from Products.Five.browser import BrowserView
 
 # Easyshop imports
 from easyshop.catalog.adapters.property_management import getTitlesByIds
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IImageManagement
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IProductVariant
-from easyshop.core.interfaces import IPropertyManagement
+from iqpp.easyshop.interfaces import ICartManagement
+from iqpp.easyshop.interfaces import ICurrencyManagement
+from iqpp.easyshop.interfaces import IItemManagement
+from iqpp.easyshop.interfaces import IImageManagement
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IProductVariant
+from iqpp.easyshop.interfaces import IPropertyManagement
 
 class AddedToCartView(BrowserView):
     """

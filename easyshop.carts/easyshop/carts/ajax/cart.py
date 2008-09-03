@@ -9,12 +9,12 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from easyshop.core.interfaces import IAddressManagement
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import ICustomerManagement
-from easyshop.core.interfaces import IItemManagement 
-from easyshop.core.interfaces import IProductVariant
-from easyshop.core.interfaces import IProductVariantsManagement
+from iqpp.easyshop.interfaces import IAddressManagement
+from iqpp.easyshop.interfaces import ICartManagement
+from iqpp.easyshop.interfaces import ICustomerManagement
+from iqpp.easyshop.interfaces import IItemManagement 
+from iqpp.easyshop.interfaces import IProductVariant
+from iqpp.easyshop.interfaces import IProductVariantsManagement
 
 class AjaxView(BrowserView):
     """

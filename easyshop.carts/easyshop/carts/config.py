@@ -1,2 +1,2 @@
 # easyshop imports
-from easyshop.core.config import *
+from iqpp.easyshop.config import *

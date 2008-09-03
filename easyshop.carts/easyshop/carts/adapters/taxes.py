@@ -3,14 +3,14 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import ICart
-from easyshop.core.interfaces import ICartItem
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IPaymentPriceManagement
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IShippingPriceManagement
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import ITaxes
+from iqpp.easyshop.interfaces import ICart
+from iqpp.easyshop.interfaces import ICartItem
+from iqpp.easyshop.interfaces import IItemManagement
+from iqpp.easyshop.interfaces import IPaymentPriceManagement
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IShippingPriceManagement
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ITaxes
 
 class CartTaxes:
     """Adapter which provides ITaxes for cart content objects.

@@ -3,12 +3,12 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
-from easyshop.core.interfaces import ICart
-from easyshop.core.interfaces import ICartItem
-from easyshop.core.interfaces import IDiscountsCalculation
-from easyshop.core.interfaces import IDiscountsManagement
-from easyshop.core.interfaces import IShopManagement
-from easyshop.core.interfaces import IValidity
+from iqpp.easyshop.interfaces import ICart
+from iqpp.easyshop.interfaces import ICartItem
+from iqpp.easyshop.interfaces import IDiscountsCalculation
+from iqpp.easyshop.interfaces import IDiscountsManagement
+from iqpp.easyshop.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import IValidity
 
 class CartDiscountsCalculation:
     """An adapter which provides IDiscountsCalculation for cart content objects.

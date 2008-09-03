@@ -5,11 +5,11 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # Easyshop imports
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICartManagement
+from iqpp.easyshop.interfaces import ICurrencyManagement
+from iqpp.easyshop.interfaces import IItemManagement
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IShopManagement
 
 class CartsView(BrowserView):
     """

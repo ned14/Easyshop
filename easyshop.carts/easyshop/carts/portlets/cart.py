@@ -22,11 +22,11 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.memoize.instance import memoize
 
 # easyshop imports
-from easyshop.core.interfaces import ICartManagement
-from easyshop.core.interfaces import ICurrencyManagement
-from easyshop.core.interfaces import IPrices
-from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IShopManagement
+from iqpp.easyshop.interfaces import ICartManagement
+from iqpp.easyshop.interfaces import ICurrencyManagement
+from iqpp.easyshop.interfaces import IPrices
+from iqpp.easyshop.interfaces import IItemManagement
+from iqpp.easyshop.interfaces import IShopManagement
 
 
 class ICartPortlet(IPortletDataProvider):
