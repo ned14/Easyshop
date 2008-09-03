@@ -9,7 +9,8 @@ README = open(os.path.join(here, 'README.txt')).read()
 setup(name='easyshop.carts',
       version=version,
       description="Cart management for EasyShop",
-      long_description= README,      classifiers=[
+      long_description= README,
+      classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
         "Framework :: Zope3",
