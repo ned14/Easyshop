@@ -5,7 +5,7 @@ from zope.component import queryUtility
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.interfaces import INumberConverter
+from easyshop.core.interfaces import INumberConverter
 
 class TaxView(BrowserView):
     """
