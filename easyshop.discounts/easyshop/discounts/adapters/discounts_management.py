@@ -6,9 +6,9 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IDiscountsManagement
-from iqpp.easyshop.interfaces import IShop
-from iqpp.easyshop.interfaces import IValidity
+from easyshop.core.interfaces import IDiscountsManagement
+from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import IValidity
 
 class DiscountsManagement:
     """An adapter which provides IDiscountsManagement for shop content objects.

@@ -4,14 +4,14 @@
 
     <browser:page  
         name="discount-view"
-        for="iqpp.easyshop.interfaces.IDiscount"
+        for="easyshop.core.interfaces.IDiscount"
         class=".discount.DiscountView"
         template="discount.pt"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="discounts-container-view"
-        for="iqpp.easyshop.interfaces.IDiscountsContainer"
+        for="easyshop.core.interfaces.IDiscountsContainer"
         class=".discounts_container.DiscountsContainerView"
         template="discounts_container.pt"
         permission="cmf.ManagePortal" />
