@@ -2,8 +2,8 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IShippingMethodManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import IShippingMethodManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ShippingMethodsView(BrowserView):
     """

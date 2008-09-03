@@ -6,14 +6,14 @@ from zope.component import adapts
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ITaxes
-from iqpp.easyshop.interfaces import IShippingPriceManagement
-from iqpp.easyshop.interfaces import ICartManagement
-from iqpp.easyshop.interfaces import IItemManagement
-from iqpp.easyshop.interfaces import IValidity
-from iqpp.easyshop.interfaces import IShop
+from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import IShippingPriceManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
+from easyshop.core.interfaces import IValidity
+from easyshop.core.interfaces import IShop
 from easyshop.catalog.content.product import Product
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ShippingPriceManagement(object):
     """An adapter which provides IShippingPriceManagement for shop content objects.

@@ -2,9 +2,9 @@
 from Products.Five.browser import BrowserView
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ICurrencyManagement
-from iqpp.easyshop.interfaces import IShippingPriceManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IShippingPriceManagement
+from easyshop.core.interfaces import IShopManagement
 
 class ShippingPricesView(BrowserView):
     """

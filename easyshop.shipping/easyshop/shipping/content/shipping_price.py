@@ -8,11 +8,11 @@ from zope.interface import implements
 from Products.Archetypes.atapi import *
 
 # easyshop imports
-from iqpp.easyshop.config import PROJECTNAME
-from iqpp.easyshop.interfaces import IShippingPrice
+from easyshop.core.config import PROJECTNAME
+from easyshop.core.interfaces import IShippingPrice
 
-from iqpp.easyshop.interfaces import ICartManagement
-from iqpp.easyshop.interfaces import IItemManagement
+from easyshop.core.interfaces import ICartManagement
+from easyshop.core.interfaces import IItemManagement
 
 class ShippingPriceBase(OrderedBaseFolder):
     """The base class for shipping prices. Developer may inherit from it, to 

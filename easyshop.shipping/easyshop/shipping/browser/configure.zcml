@@ -5,7 +5,7 @@
     <!-- Shipping Price -->
     <browser:page  
         name="shipping-price-view"
-        for="iqpp.easyshop.interfaces.IShippingPrice"
+        for="easyshop.core.interfaces.IShippingPrice"
         class=".shipping_price.ShippingPriceView"
         template="shipping_price.pt"
         permission="cmf.ManagePortal" />
@@ -13,21 +13,21 @@
     <!-- Shipping Method -->
     <browser:page  
         name="shipping-method-view"
-        for="iqpp.easyshop.interfaces.IShippingMethod"
+        for="easyshop.core.interfaces.IShippingMethod"
         class=".shipping_method.ShippingMethodView"
         template="shipping_method.pt"
         permission="cmf.ManagePortal" />
 
     <!-- Shipping Containers -->
     <browser:page
-        for="iqpp.easyshop.interfaces.IShippingPricesContainer"
+        for="easyshop.core.interfaces.IShippingPricesContainer"
         name="shipping-prices-view"        
         template="shipping_prices.pt"
         class=".shipping_prices.ShippingPricesView"
         permission="cmf.ManagePortal" />
 
     <browser:page
-        for="iqpp.easyshop.interfaces.IShippingMethodsContainer"
+        for="easyshop.core.interfaces.IShippingMethodsContainer"
         name="shipping-methods-view"
         template="shipping_methods.pt"
         class=".shipping_methods.ShippingMethodsView"
