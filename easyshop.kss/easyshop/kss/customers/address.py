@@ -5,11 +5,11 @@ from kss.core import kssaction
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# iqpp.easyshop imports
-from iqpp.easyshop.config import MESSAGES
-from iqpp.easyshop.config import _
-from iqpp.easyshop.interfaces import ICustomerManagement
-from iqpp.easyshop.interfaces import IShopManagement
+# easyshop.core imports
+from easyshop.core.config import MESSAGES
+from easyshop.core.config import _
+from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShopManagement
 
 from snippets import *
 

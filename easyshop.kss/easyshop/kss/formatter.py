@@ -6,7 +6,7 @@ from plone.app.kss.plonekssview import PloneKSSView
 from kss.core import kssaction
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IFormats
+from easyshop.core.interfaces import IFormats
 
 class FormatterKSSView(PloneKSSView):
     """
