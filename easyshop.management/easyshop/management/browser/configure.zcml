@@ -40,49 +40,49 @@
     <!-- Product -->       
     <browser:page
         name="manage-products"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_products.ManageProductsView"
         template="manage_products.pt"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="change-price"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_products.ManageProductsView"
         attribute="changePrice"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="rename"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_products.ManageProductsView"
         attribute="rename"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="add-to-group"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_products.ManageProductsView"
         attribute="addToGroup"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="add-to-category"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_products.ManageProductsView"
         attribute="addToCategory"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="move-to-category"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_products.ManageProductsView"
         attribute="moveToCategory"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="delete-categories"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_products.ManageProductsView"
         attribute="deleteCategories"
         permission="cmf.ManagePortal" />
@@ -90,56 +90,56 @@
     <!-- Category -->
     <browser:page
         name="manage-categories"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         template="manage_categories.pt"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="move-category-to-category"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         attribute="moveToCategory"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="manage-categories-add-category"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         attribute="addCategory"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="manage-categories-delete-categories"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         attribute="deleteCategories"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="manage-categories-select-categories"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         attribute="deselectCategories"
         permission="cmf.ManagePortal" />
         
     <browser:page
         name="move-category-up"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         attribute="moveCategoryUp"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="move-category-down"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         attribute="moveCategoryDown"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="set-collapsile-state"
-        for="iqpp.easyshop.interfaces.IShop"
+        for="easyshop.core.interfaces.IShop"
         class=".manage_categories.ManageCategoriesView"
         attribute="setCollapsileState"
         permission="cmf.ManagePortal" />
@@ -147,14 +147,14 @@
     <!-- For Categories -->    
     <browser:page
         name="manage-products"
-        for="iqpp.easyshop.interfaces.ICategory"
+        for="easyshop.core.interfaces.ICategory"
         class=".category_manage_products.ManageProductsView"
         template="category_manage_products.pt"
         permission="cmf.ManagePortal" />
 
     <browser:page
         name="add-products"
-        for="iqpp.easyshop.interfaces.ICategory"
+        for="easyshop.core.interfaces.ICategory"
         class=".category_manage_products.ManageProductsView"
         attribute="addProducts"
         permission="cmf.ManagePortal" />

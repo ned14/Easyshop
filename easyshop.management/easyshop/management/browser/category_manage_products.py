@@ -11,8 +11,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import Batch
 
 # easyshop imports
-from iqpp.easyshop.interfaces import IShopManagement
-from iqpp.easyshop.interfaces import IProductManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IProductManagement
 
 class ManageProductsView(BrowserView):
     """

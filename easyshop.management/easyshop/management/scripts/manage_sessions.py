@@ -15,7 +15,7 @@ class ManageSessions:
         
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides="iqpp.easyshop.interfaces.shop.IShop"
+            object_provides="easyshop.core.interfaces.shop.IShop"
         )
 
         for brain in brains:
@@ -44,7 +44,7 @@ class ManageSessions:
         
         catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            object_provides="iqpp.easyshop.interfaces.shop.IShop"
+            object_provides="easyshop.core.interfaces.shop.IShop"
         )
 
         for brain in brains:

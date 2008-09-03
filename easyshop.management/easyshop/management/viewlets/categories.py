@@ -5,8 +5,8 @@ from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
-from iqpp.easyshop.interfaces import ICategoryManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IShopManagement
 
 class CategoriesViewlet(ViewletBase):
     """

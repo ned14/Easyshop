@@ -16,9 +16,9 @@ from Products.CMFPlone.utils import base_hasattr
 from plone.app.layout.globals.interfaces import IViewView
 
 # easyshop imports
-from iqpp.easyshop.config import MESSAGES
-from iqpp.easyshop.interfaces import ICategoryManagement
-from iqpp.easyshop.interfaces import IShopManagement
+from easyshop.core.config import MESSAGES
+from easyshop.core.interfaces import ICategoryManagement
+from easyshop.core.interfaces import IShopManagement
 
 def _getContext(self):
     """
