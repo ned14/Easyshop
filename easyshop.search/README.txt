@@ -22,5 +22,5 @@ Then go to portal_properties -> site_properties and fill in the easyshop_path. T
 Note
 ----
 
-Please note that easyshop.search is not as smart as it could be (and will be recently). At the moment the package only works for one shop (which should be enough for the most use cases) and it has impact on the whole Plone site as only
+Please note that easyshop.search is not as smart as it could be (and will be soon). At the moment the package only works for one shop (which should be enough for the most use cases) and it has impact on the whole Plone site as only
 products will be found - even if the user searches not within a shop.
