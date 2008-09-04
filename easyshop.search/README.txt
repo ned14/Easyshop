@@ -17,7 +17,7 @@ Installation
 
 To get started you will simply need to add the package to your "eggs" and "zcml" sections, run buildout, restart your Plone instance and install the "easyshop.search" package via the "Add-on Products" section in "Site Setup".
 
-Then go to to portal_properties -> site_properties and fill in the easyshop_path This is the shop which should be searched.
+Then go to portal_properties -> site_properties and fill in the easyshop_path. This is the shop which should be searched. If your shop has the id "acme-shop" then you have to enter /acme-shop.
 
 Note
 ----
