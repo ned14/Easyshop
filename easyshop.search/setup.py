@@ -18,10 +18,10 @@ setup(name='easyshop.search',
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='',
-      author='Plone Foundation',
-      author_email='plone-developers@lists.sourceforge.net',
-      url='http://svn.plone.org/svn/plone/plone.example',
+      keywords='plone search e-commerce online-shop',
+      author='Kai Diefenbach',
+      author_email='kai.diefenbach@iqpp.de',
+      url='http://iqpp.de',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['easyshop'],
@@ -30,6 +30,7 @@ setup(name='easyshop.search',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          "Products.TextIndexNG3",
       ],
       entry_points="""
       # -*- Entry points: -*-
