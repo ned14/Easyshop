@@ -10,7 +10,7 @@ It provides:
 
    - similarity search ("summerhose" finds summerhouse) based on TextIndexNG3 (http://pypi.python.org/pypi/Products.TextIndexNG3)
    - extended live search: displaying images of products 
-   - filtering of the search results
+   - filtering of the search results by categories
    
 Installation
 ------------
