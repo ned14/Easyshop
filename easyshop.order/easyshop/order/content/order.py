@@ -109,6 +109,17 @@ schema = Schema((
         )
     ),
     
+    LinesField(
+        name="marketingInfo",
+        widget = LinesWidget(
+            label="Marketing Info",
+            label_msgid="schema_marketing_info_label",
+            description = "",
+            description_msgid = "schema_marketing_info_description",
+            i18n_domain="EasyShop",        
+        )
+    ),
+    
 ))
 
 class Order(BaseFolder):
