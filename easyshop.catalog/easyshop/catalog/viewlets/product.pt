@@ -1,35 +1,26 @@
 <div id="product"
      i18n:domain="EasyShop">
 
-     <script>
-          (function($) { 
- 
-             $(function(){
-                 $("img.thumbnail").click(function () {
-                     var path = $(this).attr("src");
-                     path = path.replace("tile", "preview")
-                     $("#image-large").attr({ src: path });
-                 });
-             })          
- 
-             $(function(){
-                 $(".property").change(function () {
-                    $("#kss-spinner").css("display", "block");
-                    $('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product", success : function() {
-                        $("#kss-spinner").css("display", "none");
-                    }});
-                 });
-             })          
-             
-             jq(function() {                 
-                 if (location.search == "?with-rating=1") {
-                     easyShopZoomWindow("./rating-dispatcher", "800", "700");
-                 }
-             });
-                
-          })(jQuery);
-     
-     </script>
+    <script>
+        jq(function() {
+            jq("img.thumbnail").click(function () {
+                var path = jq(this).attr("src");
+                path = path.replace("tile", "preview")
+                jq("#image-large").attr({ src: path });
+            });
+
+            jq(".property").change(function () {
+               jq("#kss-spinner").css("display", "block");
+               jq('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product", success : function() {
+                   jq("#kss-spinner").css("display", "none");
+               }});
+            });
+
+            if (location.search == "?with-rating=1") {
+                easyShopZoomWindow("./rating-dispatcher", "800", "700");
+            }
+        })     
+    </script>
          
 
     <form id="product_form"
