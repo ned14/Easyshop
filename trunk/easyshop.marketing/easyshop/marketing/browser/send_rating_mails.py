@@ -42,8 +42,6 @@ class SendRatingMailsView(BrowserView):
             if now - order.created() < (6*7):
                 continue
 
-            import pdb; pdb.set_trace()
-                                                
             # Get receiver
             customer = order.getCustomer()
             address = IAddressManagement(customer).getShippingAddress()
