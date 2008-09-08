@@ -47,9 +47,6 @@ def sendMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", text
     mail.attach(html_part)
 
     context.MailHost.send(mail.as_string())
-    # except:
-    #     # catch and do nothing, so that the user doesn't notice an error
-    #     pass
         
 def sendNonMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", text="", charset="utf-8"):
     """
