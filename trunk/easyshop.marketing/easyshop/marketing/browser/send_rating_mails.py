@@ -11,9 +11,11 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 # easyshop imports
-from easyshop.core.interfaces import IOrderManagement
 from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IMailAddresses
+from easyshop.core.interfaces import IOrderManagement
+
 from easyshop.shop.utilities.misc import sendMultipartMail
 
 class SendRatingMailsView(BrowserView):
@@ -25,7 +27,7 @@ class SendRatingMailsView(BrowserView):
         now = DateTime()
         
         # Get sender
-        mail_addresses = IMailAddresses(self.context)        
+        mail_addresses = IMailAddresses(self.context)
         sender         = mail_addresses.getSender()
         bcc            = ["kai.diefenbach@iqpp.de"]
 
@@ -34,6 +36,7 @@ class SendRatingMailsView(BrowserView):
         
         for order in om.getOrders():
             
+            # Send mail only once (below "rating-mail" is set)
             if "rating-mail" in order.getMarketingInfo():
                 continue
             
@@ -41,12 +44,17 @@ class SendRatingMailsView(BrowserView):
             # difference in days (6 weeks)
             if now - order.created() < (6*7):
                 continue
-
+            
+            # Send only mails for orders which have at least on product with 
+            # a valid url (aka product which is not deleted in the meanwhile)
+            if self.hasItems(order) == False:
+                continue
+                
             # Get receiver
             customer = order.getCustomer()
             address = IAddressManagement(customer).getShippingAddress()
             receiver = address.email
-    
+            
             if sender and receiver:
                 view = getMultiAdapter((order, order.REQUEST), name="rating-mail")
                 text = view()
@@ -58,9 +66,9 @@ class SendRatingMailsView(BrowserView):
                 sendMultipartMail(
                     context  = order,
                     sender   = sender,
-                    receiver = "kai.diefenbach@iqpp.de",
+                    receiver = receiver,
                     bcc      = bcc,
-                    subject  = "Bewerten Sie Ihr Produkt",
+                    subject  = "Bitte bewerten Sie Ihr Produkt",
                     text     = text,
                     charset  = charset)
                     
@@ -68,3 +76,12 @@ class SendRatingMailsView(BrowserView):
                 mi = list(order.getMarketingInfo())
                 mi.append("rating-mail")
                 order.setMarketingInfo(mi)
+                
+    def hasItems(self, order):
+        """Returns True if order has at least one item with valid url
+        """
+        for item in IItemManagement(order).getItems():
+            if item.getProduct() is not None:
+                return True
+
+        return False
