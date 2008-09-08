@@ -90,13 +90,13 @@ class OrderView(BrowserView):
     """
     implements(IOrderView)
 
-    def getCreationDate(self):
+    def getCreationDate(self, long_format=True):
         """
         """
         date = self.context.created()        
         
         tool = getToolByName(self.context, 'translation_service')
-        return tool.ulocalized_time(date, long_format=True)
+        return tool.ulocalized_time(date, long_format=long_format)
                 
     def getCustomerFullname(self):
         """
