@@ -1,0 +1,9 @@
+Changelog for easyshop.marketing
+
+    (name of developer listed in brackets)
+
+easyshop.marketing - 0.1a1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
