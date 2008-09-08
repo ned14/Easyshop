@@ -20,7 +20,13 @@
                     }});
                  });
              })          
-                 
+             
+             jq(function() {                 
+                 if (location.search == "?with-rating=1") {
+                     easyShopZoomWindow("./rating-dispatcher", "800", "700");
+                 }
+             });
+                
           })(jQuery);
      
      </script>
