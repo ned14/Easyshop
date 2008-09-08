@@ -37,7 +37,7 @@
                     <strong>
                         <tal:block tal:content="item/product_title">Spielturm Jungle Gym VILLA - Kletterturm mit Rutsche</tal:block> - 
                         <a href="."
-                           tal:attributes="href string:${item/product_url}/rating-dispatcher">&lt; Klicken Sie HIER zur Bewertung &gt;</a>
+                           tal:attributes="href string:${item/product_url}/rating-dispatcher?utm_source=Demmelhuber&utm_medium=E-Mail&utm_campaign=Bewertung">&lt; Klicken Sie HIER zur Bewertung &gt;</a>
                     </strong>
                 </li>
             </tal:block>
