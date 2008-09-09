@@ -120,7 +120,7 @@ class TestProductPropertyManagement(EasyShopTestCase):
         pm = IPropertyManagement(self.shop.products.product_1)
         ids = [p.getId() for p in pm.getProperties()]
         
-        self.assertEqual(ids, ["color", "material", "quality", "size"])
+        self.assertEqual(ids, ['color', 'size', 'material', 'quality'])
 
     def testGetProperty(self):
         """

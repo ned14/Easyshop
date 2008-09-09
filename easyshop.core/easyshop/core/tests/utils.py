@@ -167,6 +167,14 @@ def createTestEnvironment(self):
     self.category_1.category_11.addReference(self.product_1, "categories_products")
     self.category_1.category_11.addReference(self.product_2, "categories_products")
     self.category_3.addReference(self.product_42, "categories_products")
+
+    # Reindex categories to update catalog
+    self.category_1.reindexObject()
+    self.category_2.reindexObject()
+    self.category_3.reindexObject()
+    self.category_1.category_11.reindexObject()
+    self.category_1.category_12.reindexObject()
+    self.category_1.category_11.category_111.reindexObject()
     
     # taxes    
     self.shop.taxes.manage_addProduct["easyshop.core"].addDefaultTax(id="default", rate=19.0)

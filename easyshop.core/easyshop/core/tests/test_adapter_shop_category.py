@@ -29,6 +29,10 @@ class TestShopCategoryManagement(EasyShopTestCase):
     def testGetTopLevelCategories(self):
         """
         """
+        self.shop.category_1.category_11.reindexObject()
+        self.shop.category_1.category_12.reindexObject()
+        self.shop.category_1.category_11.category_111.reindexObject()
+        
         cm = ICategoryManagement(self.shop)
         ids = [c.id for c in cm.getTopLevelCategories()]
         

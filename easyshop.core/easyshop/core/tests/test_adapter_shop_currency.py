@@ -44,16 +44,16 @@ class TestCurrencyManagementEUR(EasyShopTestCase):
         price = 42.0
         
         string = self.cm.priceToString(price)
-        self.assertEqual(string, "€ 42,00")
+        self.assertEqual(string, "€ 42,00*")
         
         string = self.cm.priceToString(price, "short")
-        self.assertEqual(string, "EUR 42,00")
+        self.assertEqual(string, "EUR 42,00*")
         
         string = self.cm.priceToString(price, "long")
-        self.assertEqual(string, "Euro 42,00")
+        self.assertEqual(string, "Euro 42,00*")
 
         string = self.cm.priceToString(price, "long", "after")
-        self.assertEqual(string, "42,00 Euro")
+        self.assertEqual(string, "42,00* Euro")
 
 class TestCurrencyManagementUSD(EasyShopTestCase):
     """
@@ -87,16 +87,16 @@ class TestCurrencyManagementUSD(EasyShopTestCase):
         price = 42.0
         
         string = self.cm.priceToString(price)
-        self.assertEqual(string, "$ 42,00")
+        self.assertEqual(string, "$ 42,00*")
         
         string = self.cm.priceToString(price, "short")
-        self.assertEqual(string, "USD 42,00")
+        self.assertEqual(string, "USD 42,00*")
         
         string = self.cm.priceToString(price, "long")
-        self.assertEqual(string, "US-Dollar 42,00")
+        self.assertEqual(string, "US-Dollar 42,00*")
 
         string = self.cm.priceToString(price, "long", "after")
-        self.assertEqual(string, "42,00 US-Dollar")
+        self.assertEqual(string, "42,00* US-Dollar")
         
 def test_suite():
     from unittest import TestSuite, makeSuite
