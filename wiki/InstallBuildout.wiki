@@ -1,2 +1,8 @@
 #labels Featured
-For installation from trunk: see http://www.geteasyshop.com/documentation/how-to/how-to-install-easyshop
+=== For installation from trunk === 
+
+http://www.geteasyshop.com/documentation/how-to/how-to-install-easyshop
+
+=== Installation from cheeseshop via buildout ===
+
+http://www.geteasyshop.com/blog/it-was-never-easier-to-install-easyshop
