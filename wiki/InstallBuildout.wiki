@@ -1,27 +1,2 @@
 #labels Featured
-== Install the buildout (without admin rights / Google id) ==
-
-   * svn co http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ easyshop.buildout
-   * cd easyshop.buildout
-   * python bootstrap.py
-   * bin/buildout -v (this will take a while)
-   * bin/instance fg
-
-== Install the buildout (with admin rights / Google id) ==
-
-   * svn co https://easyshop-for-plone.googlecode.com/svn/buildout/3.0/ easyshop.buildout
-   * cd easyshop.buildout
-   * python bootstrap.py
-   * bin/buildout -v (this will take a while)
-   * bin/instance fg
-
-== Running tests ==
-
-   * bin/instance test -m easyshop.shop
-
-== Install EasyShop ==
-
-  * Add a Plone instance as you used to do
-  * Go to <Plone instance>/"Site Setup"/"Add-on Products" and install just "EasyShop" (all other packages/Products will be installed automatically)
-  * Now you can add an "EasyShop" object like all other Plone content objects
-  
+For installation from trunk: see http://www.geteasyshop.com/documentation/how-to/how-to-install-easyshop
