@@ -20,5 +20,3 @@ easyshop.shipping http://easyshop-for-plone.googlecode.com/svn/easyshop.shipping
 easyshop.shop http://easyshop-for-plone.googlecode.com/svn/easyshop.shop/trunk
 easyshop.stocks http://easyshop-for-plone.googlecode.com/svn/easyshop.stocks/trunk
 easyshop.taxes http://easyshop-for-plone.googlecode.com/svn/easyshop.taxes/trunk
-
-iqpp.sessions http://easyshop-for-plone.googlecode.com/svn/iqpp.sessions/trunk
