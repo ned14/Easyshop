@@ -38,8 +38,12 @@ class ShopManagement:
             # - adapters/shop/shipping/createTemporaryShippingProduct.            
             # I'm not sure whether this is clean, I assume it is not.
             
-            if IShop.providedBy(object.context):
-                return object.context
-            else:
+            try:
+                if IShop.providedBy(object.context):
+                    return object.context            
+                else:
+                    return None
+            except AttributeError:
                 return None
+                
         return object
