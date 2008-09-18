@@ -1,13 +1,13 @@
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# CMFPlone imports
-from Products.CMFPlone.utils import safe_unicode
-
 # email imports
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMENonMultipart import MIMENonMultipart
+from email.Utils import COMMASPACE, formatdate
+from email.MIMEBase import MIMEBase
+from email import Encoders
 
 # TODO: Move this to a local utility
 def getObjectByUID(context, uid):
@@ -61,5 +61,34 @@ def sendNonMultipartMail(context, sender, receiver, cc=[], bcc=[], subject="", t
 
     text = text.encode("utf-8")
     mail.set_payload(text)
+    
+    context.MailHost.send(mail.as_string())
+    
+    
+def sendMailWithAttachements(context, sender, receiver, cc=[], bcc=[], subject="", text="", files=[]):
+    """
+    """
+    mail = MIMEMultipart()
+    
+    mail['From'] = sender
+    mail['To']  = receiver
+    mail['Cc'] = COMMASPACE.join(cc)
+    mail['Bcc'] = COMMASPACE.join(bcc)        
+    mail['Subject'] = subject
+
+    # text = text.encode("utf-8")
+    # text_part = MIMEText(text, "plain", "utf-8")
+    # mail.attach(text_part)
+
+    # create & attach html part with images
+    text = text.encode("utf-8")
+    mail.attach(MIMEText(text, "html", "utf-8"))
+
+    for filename, file_ in files:
+        attachment_part = MIMEBase('application', "octet-stream")
+        attachment_part.set_payload( file_.data.data )
+        Encoders.encode_base64(attachment_part)
+        attachment_part.add_header('Content-Disposition', 'attachment; filename=%s' % filename)
+        mail.attach(attachment_part)
     
     context.MailHost.send(mail.as_string())
