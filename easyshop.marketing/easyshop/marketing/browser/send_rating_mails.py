@@ -37,8 +37,8 @@ class SendRatingMailsView(BrowserView):
         for order in om.getOrders():
             
             # Send mail only once (below "rating-mail" is set)
-            # if "rating-mail" in order.getMarketingInfo():
-            #     continue
+            if "rating-mail" in order.getMarketingInfo():
+                continue
             
             # Send only mails for orders which are older than 6 weeks
             # difference in days (6 weeks)
