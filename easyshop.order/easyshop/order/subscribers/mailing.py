@@ -10,10 +10,12 @@ from Products.DCWorkflow.interfaces import IAfterTransitionEvent
 
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
+from easyshop.core.interfaces import IInformationManagement
 from easyshop.core.interfaces import IMailAddresses
 from easyshop.core.interfaces import IOrder
 from easyshop.core.interfaces import IShopManagement
 from easyshop.shop.utilities.misc import sendMultipartMail
+from easyshop.shop.utilities.misc import sendMailWithAttachements
 
 @adapter(IOrder, IAfterTransitionEvent)
 def sendOrderMail(order, event):
@@ -85,7 +87,11 @@ def mailOrderReceived(order):
     """Sends email to customer that the order has been received.
     """
     shop = IShopManagement(order).getShop()
-
+    
+    # Get TOC
+    shop = IShopManagement(order).getShop()
+    page = IInformationManagement(shop).getInformationPage("terms-and-conditions")    
+    
     # Get sender
     mail_addresses = IMailAddresses(shop)
     sender         = mail_addresses.getSender()
@@ -104,11 +110,11 @@ def mailOrderReceived(order):
         props = getToolByName(order, "portal_properties").site_properties
         charset = props.getProperty("default_charset")
 
-        sendMultipartMail(
+        sendMailWithAttachements(
             context  = order,
             sender   = sender,
             receiver = receiver,
             bcc      = bcc,
             subject  = "Bestellbestätigung Demmelhuber Holz & Raum",
             text     = text,
-            charset  = charset)
+            files    = [ (page.getFile().filename, page.getFile()) ])
