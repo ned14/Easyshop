@@ -75,7 +75,7 @@ def sendMailWithAttachements(context, sender, receiver, cc=[], bcc=[], subject="
     mail['Cc'] = COMMASPACE.join(cc)
     mail['Bcc'] = COMMASPACE.join(bcc)        
     mail['Subject'] = subject
-
+    
     # text = text.encode("utf-8")
     # text_part = MIMEText(text, "plain", "utf-8")
     # mail.attach(text_part)
@@ -83,10 +83,15 @@ def sendMailWithAttachements(context, sender, receiver, cc=[], bcc=[], subject="
     # create & attach html part with images
     text = text.encode("utf-8")
     mail.attach(MIMEText(text, "html", "utf-8"))
-
+    
     for filename, file_ in files:
+        try:
+            data = file_.data.data
+        except AttributeError:
+            data = file_.data
+            
         attachment_part = MIMEBase('application', "octet-stream")
-        attachment_part.set_payload( file_.data.data )
+        attachment_part.set_payload(data)
         Encoders.encode_base64(attachment_part)
         attachment_part.add_header('Content-Disposition', 'attachment; filename=%s' % filename)
         mail.attach(attachment_part)
