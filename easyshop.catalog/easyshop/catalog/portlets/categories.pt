@@ -16,7 +16,8 @@
     <dd class="portletItem lastItem">      
       <tal:categories tal:repeat="category view/getCategories">
           <ul class="portletNavigationTree navTreeLevel0">
-            <li class="navTreeItem">
+            <li class="navTreeItem"
+                tal:attributes="class string:navTreeItem ${category/klass}">
               <div class="visualIcon contenttype-easyshopcategory">
                 <a href="#"
                    class="visualIconPadding"
