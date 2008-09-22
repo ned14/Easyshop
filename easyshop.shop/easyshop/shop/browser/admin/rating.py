@@ -30,6 +30,12 @@ class RatingView(BrowserView):
             ratings = rm.getAllRatings()
             
             for rating in ratings:
+                
+                if rating.name is not None:
+                    rating.name = rating.name.replace("&Atilde;&curren;", u'\xe4')
+                    rating.name = rating.name.replace("&Atilde;&frac14;", u'\xfc')
+                    rating.name = rating.name.replace("&Atilde;&para;", u'\xf6')
+                    
                 if rating.comment is not None:
                     
                     rating.comment = rating.comment.replace("&Atilde;&curren;", u'\xe4')
