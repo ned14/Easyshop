@@ -25,14 +25,24 @@ class RatingView(BrowserView):
     
         for brain in brains:
             product = brain.getObject()
-            
+            content.append("<a href='%s'>%s</a>" % (product.absolute_url(), product.absolute_url()))
             rm = IRatingManager(product)        
             ratings = rm.getAllRatings()
             
             for rating in ratings:
-                if rating.comment is not None:                     
-                    content.append(rating.comment)
+                if rating.comment is not None:
+                    
+                    rating.comment = rating.comment.replace("&Atilde;&curren;", u'\xe4')
+                    rating.comment = rating.comment.replace("&Atilde;&frac14;", u'\xfc')
+                    rating.comment = rating.comment.replace("&Atilde;&para;", u'\xf6')
+                                        
                 if rating.subject is not None:
-                    content.append(rating.subject)
-                
-        return "<br/>".join(content)
+                    rating.subject = rating.subject.replace("&Atilde;&curren;", u'\xe4')
+                    rating.subject = rating.subject.replace("&Atilde;&frac14;", u'\xfc')
+                    rating.subject = rating.subject.replace("&Atilde;&para;", u'\xf6')
+        
+        result = "<html>"        
+        result += "<br/>".join(content)
+        result += "</html>"
+        
+        return result 
