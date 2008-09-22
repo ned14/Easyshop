@@ -30,6 +30,13 @@
         permission="cmf.ManagePortal" />
 
     <browser:page
+        name="cleanup-ratings"
+        for="*"        
+        class=".rating.RatingView"
+        attribute="cleanupRatings"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
         for="*"
         name="setPrices"
         class=".test_environment.TestEnvironmentView"
