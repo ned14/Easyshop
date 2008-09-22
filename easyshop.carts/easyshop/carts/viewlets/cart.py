@@ -63,7 +63,10 @@ class CheckoutCartViewlet(ViewletBase):
 
         # If there isn't a cart yet
         if cart is None:
-            return []
+            return {
+                "cart_items" : [],
+                "total_amount" : 0
+            }
             
         cm = ICurrencyManagement(self.context)
         
