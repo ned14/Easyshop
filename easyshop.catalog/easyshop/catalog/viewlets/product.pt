@@ -246,12 +246,19 @@
                             <td></td>
                             <td>
                                 <table>
+                                    <tr>
+                                        <td colspan="3" 
+                                            i18n:translate="accessories_label">
+                                            <h2>Accessories</h2>
+                                        </td>
+                                    </tr>
                                     <tal:block tal:repeat="accessory accessories">
                                         <tr> 
                                             <td>
                                                 <input type="checkbox"
                                                        name="accessories"
-                                                       tal:attributes="value accessory/uid" />                                                       
+                                                       tal:attributes="value accessory/uid;
+                                                                       checked accessory/checked" />
                                             </td>
                                             <td>
                                                 <input type="text"                                                    

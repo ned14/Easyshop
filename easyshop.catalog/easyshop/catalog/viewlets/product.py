@@ -2,6 +2,9 @@
 from zope.component import queryUtility
 from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewlet
+
+# CMFPlone imports
+from Products.CMFPlone.utils import tuplize
         
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
@@ -103,7 +106,8 @@ class ProductViewlet(ViewletBase):
         """
         """
         catalog = getToolByName(self.context, "portal_catalog")
-        
+        accessories = tuplize(self.request.get("accessories", []))
+
         result = []
         for uid_with_quantiy in self.context.getAccessories():
             uid, quantity = uid_with_quantiy.split(":")
@@ -111,14 +115,14 @@ class ProductViewlet(ViewletBase):
             product = brain.getObject()
             
             # Same viewlet with the context of the accessory to get the 
-            # properties of the accessory.
-            
+            # properties of the accessory.            
             viewlet = getMultiAdapter((product, self.request, self.view, self.manager), IViewlet, name="easyshop.product-viewlet")
             properties = viewlet.getProperties()
             result.append({
                 "uid" : uid,
                 "title" : brain.Title,
                 "quantity" : quantity,
+                "checked" : uid in accessories,
                 "properties" : properties,
             })
         
@@ -199,7 +203,6 @@ class ProductViewlet(ViewletBase):
         u = queryUtility(INumberConverter)
         cm = ICurrencyManagement(self.context)
         
-        import pdb; pdb.set_trace()                
         selected_options = {}
         for name, value in self.request.items():
             if name.startswith("property"):
