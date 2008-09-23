@@ -97,4 +97,28 @@
         allowed_interface=".easyshop_macros.INavigationMacroView"
         permission="zope2.Public" />  
 
+    <!-- Accessories-->
+    <browser:page
+        name="manage-accessories-view"
+        for="easyshop.core.interfaces.IProduct"
+        template="manage_accessories_view.pt"
+        class=".manage_accessories_view.ManageAccessoriesView"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="add-accessories"
+        for="easyshop.core.interfaces.IProduct"
+        class=".manage_accessories_view.ManageAccessoriesView"
+        attribute="addAccessories"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="update-accessories"
+        for="easyshop.core.interfaces.IProduct"
+        class=".manage_accessories_view.ManageAccessoriesView"
+        attribute="updateAccessories"
+        permission="cmf.ManagePortal" />
+
+
+
 </configure>

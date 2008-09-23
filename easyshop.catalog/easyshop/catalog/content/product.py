@@ -204,6 +204,18 @@ schema = Schema((
             ),    
     ),        
     
+    LinesField(
+        name="accessories",
+        searchable = True,
+        widget = LinesWidget(
+            label="Accessories",
+            label_msgid="accessories_label",
+            description = "",
+            description_msgid = "accessories_description",
+            i18n_domain="EasyShop",
+        )
+    ),
+    
 ),
 )
 

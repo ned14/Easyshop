@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <div metal:fill-slot="main">
+             
+            <h1 class="documentFirstHeading"
+                i18n:translate="accessories_label">
+                Accessories
+            </h1>    
+            
+            <form>
+                <input type="text" 
+                       name="product-title" />
+
+                <input type="submit" />
+            </form>
+            
+            <tal:block tal:define="products view/getProducts"
+                       tal:condition="products">
+                <h1>Suchergebnis</h1>
+                <form action="add-accessories">
+                    <table>
+                        <tr tal:repeat="product products">
+                            <td>
+                               <input type="checkbox"
+                                      name="new-products"
+                                      tal:attributes="value product/uid" /> 
+                            </td>
+                    
+                            <td tal:content="product/title">
+                                title
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" />
+                </form>
+            </tal:block>
+            
+            <tal:block tal:define="accessories view/getAccessories"
+                       tal:condition="accessories">
+                <h1>Zubehör</h1>
+                <form action="update-accessories">
+                    <table>
+                        <tr tal:repeat="accessory accessories">
+                            <td>
+                               <input type="checkbox"
+                                      name="accessories"
+                                      checked="checked"
+                                      tal:attributes="value accessory/uid" /> 
+                            </td>
+                    
+                            <td tal:content="accessory/title">
+                                title
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" 
+                           value="update"
+                           i18n:translate="value update_label;"/>
+                </form>    
+            </tal:block>
+        </div>    
+    </body>
+    
+</html>
+
+
