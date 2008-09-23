@@ -1,3 +1,5 @@
+import re
+
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -19,11 +21,13 @@ class ManageAccessoriesView(BrowserView):
         catalog = getToolByName(self.context, "portal_catalog")
         
         result = []
-        for uid in self.context.getAccessories():
+        for uid_with_quantity in self.context.getAccessories():
+            uid, quantity = uid_with_quantity.split(":")
             brain = catalog.searchResults(UID = uid)[0]
             result.append({
                 "uid"   : uid,
-                "title" : brain.Title
+                "title" : brain.Title,
+                "quantity": quantity,
             })
             
         return result
@@ -52,12 +56,19 @@ class ManageAccessoriesView(BrowserView):
     def addAccessories(self):
         """
         """
-        new_uids = self.request.get("new-products", [])
+        # Collect new products
+        new_uids = self.request.form.get("new-products", [])
         new_uids = utils.tuplize(new_uids)
         
+        # Add quantities to new products
+        new_uids_with_quantities = []
+        for new_uid in new_uids:
+            quantity = self.request.get("%s_quantity" % new_uid, 1)
+            new_uids_with_quantities.append("%s:%s" % (new_uid, quantity))
+            
         existing_uids = self.context.getAccessories()
         
-        unique_uids = self.unify(existing_uids, new_uids)
+        unique_uids = self.unify(existing_uids, new_uids_with_quantities)
         self.context.setAccessories(unique_uids)
 
         self.redirect()
@@ -72,14 +83,21 @@ class ManageAccessoriesView(BrowserView):
         
         self.redirect()
         
-    def unify(self, old, new):
+    def unify(self, old_uids_with_quantities, new_uids_with_quantities):
         """
         """
-        result = list(old)
+        result = list(old_uids_with_quantities)
         
-        for new_uid in new:
-            if new_uid not in old:
-                result.append(new_uid)
+        # collect old uids without quantities        
+        old_uids = []
+        for old_uid in old_uids_with_quantities:
+            uid, quantity = old_uid.split(":")
+            old_uids.append(uid)
+                        
+        for new_uid in new_uids_with_quantities:
+            uid, quantity = new_uid.split(":")
+            if uid not in old_uids:       # compare uids without quantity
+                result.append(new_uid)    # add uid with quantity here
         return result
         
     def redirect(self, url="manage-accessories-view"):

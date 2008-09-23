@@ -1,6 +1,8 @@
 # zope imports
 from zope.component import queryUtility
-
+from zope.component import getMultiAdapter
+from zope.viewlet.interfaces import IViewlet
+        
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
@@ -96,7 +98,33 @@ class ProductViewlet(ViewletBase):
             )
                         
         return result
+    
+    def getAccessories(self):
+        """
+        """
+        catalog = getToolByName(self.context, "portal_catalog")
         
+        result = []
+        for uid_with_quantiy in self.context.getAccessories():
+            uid, quantity = uid_with_quantiy.split(":")
+            brain = catalog.searchResults(UID=uid)[0]
+            product = brain.getObject()
+            
+            # Same viewlet with the context of the accessory to get the 
+            # properties of the accessory.
+            
+            viewlet = getMultiAdapter((product, self.request, self.view, self.manager), IViewlet, name="easyshop.product-viewlet")
+            properties = viewlet.getProperties()
+            result.append({
+                "uid" : uid,
+                "title" : brain.Title,
+                "quantity" : quantity,
+                "properties" : properties,
+            })
+        
+        return result
+            
+    
     def getProperties(self):
         """
         """    
@@ -115,7 +143,7 @@ class ProductViewlet(ViewletBase):
         selected_options = {}
         for name, value in self.request.items():
             if name.startswith("property"):
-                selected_options[name[9:]] = value
+                selected_options[name[42:]] = value
         
         pm = IPropertyManagement(self.context)
         
@@ -158,7 +186,7 @@ class ProductViewlet(ViewletBase):
                 })
                 
             result.append({
-                "id"      : "property_" + property.getId(),
+                "id"      : "property_%s_%s" % (self.context.UID(), property.getId()),
                 "title"   : property.Title(),
                 "options" : options,
             })
@@ -174,7 +202,7 @@ class ProductViewlet(ViewletBase):
         selected_options = {}
         for name, value in self.request.items():
             if name.startswith("property"):
-                selected_options[name[9:]] = value
+                selected_options[name[43:]] = value
 
         # If nothing is selected we select the default variant
         if selected_options == {}:

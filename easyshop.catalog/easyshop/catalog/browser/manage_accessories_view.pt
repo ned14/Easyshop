@@ -29,6 +29,11 @@
                                       name="new-products"
                                       tal:attributes="value product/uid" /> 
                             </td>
+                            <td>
+                                <input type="text"
+                                       size="3"
+                                       tal:attributes="name string:${product/uid}_quantity" />
+                            </td>
                     
                             <td tal:content="product/title">
                                 title
@@ -50,6 +55,12 @@
                                       name="accessories"
                                       checked="checked"
                                       tal:attributes="value accessory/uid" /> 
+                            </td>
+                            <td>
+                                <input type="text"
+                                       size="3"                                       
+                                       tal:attributes="name string:${accessory/uid}_quantity;
+                                                       value accessory/quantity" />
                             </td>
                     
                             <td tal:content="accessory/title">

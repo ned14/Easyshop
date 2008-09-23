@@ -241,7 +241,64 @@
                                 tal:content="structure product_data/text">
                             </td>                            
                         </tr>
-
+                        <tr tal:define="accessories view/getAccessories"
+                            tal:condition="accessories">
+                            <td></td>
+                            <td>
+                                <table>
+                                    <tal:block tal:repeat="accessory accessories">
+                                        <tr> 
+                                            <td>
+                                                <input type="checkbox"
+                                                       name="accessories"
+                                                       tal:attributes="value accessory/uid" />                                                       
+                                            </td>
+                                            <td>
+                                                <input type="text"                                                    
+                                                       tal:attributes="name string:${accessory/uid}_quantity;
+                                                                       value accessory/quantity" />
+                                            </td>
+                                            <td tal:content="accessory/title" />
+                                        </tr>
+                                        <tr tal:repeat="property accessory/properties">
+                                            <td></td>
+                                            <td style="vertical-align:bottom; padding-right:20px"
+                                                tal:content="property/title">
+                                               Title
+                                            </td>
+                                            <td>
+                                                <input type="hidden"
+                                                       name="variant_selected"
+                                                       value="1" />
+                                                   
+                                                <select style="font-size:12px; width:200px"
+                                                        class="property"
+                                                        tal:attributes="name property/id">
+          
+                                                    <option tal:repeat="option property/options"
+                                                            tal:content="option/title"
+                                                            tal:attributes="value option/id;
+                                                                            selected option/selected">
+                                                        Red
+                                                    </option>                           
+                                                </select> 
+                                            </td>
+                                        </tr>
+                                    </tal:block>
+                                    <tr>
+                                       <td></td>
+                                       <td>
+                                            <noscript>
+                                                <input type="submit" 
+                                                       value="Update Properties"
+                                                       i18n:attributes="update_properties_label" />                                                
+                                            </noscript>                                            
+                                       </td>
+                                    </tr>                                     
+                                   
+                                </table>
+                            </td>
+                        </tr>
 <!--
                         <tr tal:define="stock_information view/getStockInformation"
                             tal:condition="stock_information">

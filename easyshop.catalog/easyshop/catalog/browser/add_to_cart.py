@@ -1,3 +1,9 @@
+# zope imports
+from zope.component import getMultiAdapter
+
+# CMFPlone imports
+from Products.CMFPlone.utils import tuplize
+
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
@@ -15,9 +21,9 @@ from easyshop.core.interfaces import IShopManagement
 class ProductAddToCartView(BrowserView):
     """
     """
-    def addToCart(self):
+    def addToCart(self, redirect=True, add_accessories=True):
         """
-        """        
+        """
         shop = IShopManagement(self.context).getShop()
         cm = ICartManagement(shop)
         
@@ -67,18 +73,35 @@ class ProductAddToCartView(BrowserView):
                 )
             
         # get quantity
-        quantity = int(self.context.request.get("quantity", 1))
+        import pdb; pdb.set_trace()
+        quantity = int(self.context.request.get("%s_quantity" % self.context.UID(), 1))
 
         # returns true if the product was already within the cart    
         result, item_id = IItemManagement(cart).addItem(product, tuple(properties), quantity)
         
-        # Set portal message
-        putils = getToolByName(self.context, "plone_utils")        
-        if result == True:
-            putils.addPortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])
+        # Add the accessories
+        if add_accessories == True:
+            catalog = getToolByName(self.context, "portal_catalog")
+            for uid in tuplize(self.request.get("accessories", [])):            
+                try:
+                    brain = catalog.searchResults(UID=uid)[0]
+                except IndexError:
+                    continue
+                
+                # We reuse the same view with an other context. The context are 
+                # the accessories
+                product = brain.getObject()
+                view = getMultiAdapter((product, self.request), name="addToCart")
+                view.addToCart(redirect=False, add_accessories=False)
+        
+        if redirect == True:
+            # Set portal message
+            putils = getToolByName(self.context, "plone_utils")        
+            if result == True:
+                putils.addPortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])
             
-        else:
-            putils.addPortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
+            else:
+                putils.addPortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
 
-        url = "%s/added-to-cart?id=%s" % (shop.absolute_url(), item_id)
-        self.context.request.response.redirect(url)
+            url = "%s/added-to-cart?id=%s" % (shop.absolute_url(), item_id)
+            self.context.request.response.redirect(url)
