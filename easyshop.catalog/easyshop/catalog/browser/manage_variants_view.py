@@ -147,7 +147,7 @@ class ManageVariantsView(BrowserView):
                 titles[id[6:]] = value
             elif id.startswith("property"):
                 property_id, variant_id = id.split("|")
-                property_id = property_id[9:]
+                property_id = property_id[42:]
                 if properties.has_key(variant_id) == False:
                     properties[variant_id] = []
                 properties[variant_id].append("%s:%s" % (property_id, value))

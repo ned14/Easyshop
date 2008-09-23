@@ -74,7 +74,7 @@ class ProductVariantsManagement:
             selected_properties = {}
             for name, value in self.context.REQUEST.items():
                 if name.startswith("property"):
-                    selected_properties[name[9:]] = value
+                    selected_properties[name[42:]] = value
 
         result = []
         for key, value in selected_properties.items():

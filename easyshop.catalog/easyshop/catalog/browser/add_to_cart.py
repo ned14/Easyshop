@@ -57,7 +57,7 @@ class ProductAddToCartView(BrowserView):
             # there is no object wich stores the different properties.
             properties = []
             for property in IPropertyManagement(product).getProperties():
-                selected_option_id = self.request.get("property_%s" % property.getId())
+                selected_option_id = self.request.get("property_%s_%s" % (product.UID(), property.getId()))
                 
                 # If nothing is selected we take the first option of the 
                 # property
@@ -73,7 +73,6 @@ class ProductAddToCartView(BrowserView):
                 )
             
         # get quantity
-        import pdb; pdb.set_trace()
         quantity = int(self.context.request.get("%s_quantity" % self.context.UID(), 1))
 
         # returns true if the product was already within the cart    
