@@ -118,11 +118,13 @@ class ProductViewlet(ViewletBase):
             # properties of the accessory.            
             viewlet = getMultiAdapter((product, self.request, self.view, self.manager), IViewlet, name="easyshop.product-viewlet")
             properties = viewlet.getProperties()
+            
             result.append({
                 "uid" : uid,
                 "title" : brain.Title,
                 "quantity" : quantity,
                 "checked" : uid in accessories,
+                "price"   : viewlet.getPriceForCustomer(),
                 "properties" : properties,
             })
         

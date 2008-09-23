@@ -73,9 +73,9 @@ class ProductVariantsManagement:
         if selected_properties is None:
             selected_properties = {}
             for name, value in self.context.REQUEST.items():
-                if name.startswith("property"):
+                if name.startswith("property_%s" % self.context.UID()):
                     selected_properties[name[42:]] = value
-
+        
         result = []
         for key, value in selected_properties.items():
             result.append("%s:%s" % (key, value))

@@ -247,7 +247,7 @@
                             <td>
                                 <table>
                                     <tr>
-                                        <td colspan="3" 
+                                        <td colspan="5" 
                                             i18n:translate="accessories_label">
                                             <h2>Accessories</h2>
                                         </td>
@@ -261,14 +261,21 @@
                                                                        checked accessory/checked" />
                                             </td>
                                             <td>
-                                                <input type="text"                                                    
+                                                <input type="text"
+                                                       size="5"
                                                        tal:attributes="name string:${accessory/uid}_quantity;
                                                                        value accessory/quantity" />
                                             </td>
-                                            <td tal:content="accessory/title" />
+                                            <td colspan="2" 
+                                                tal:content="accessory/title" />
+                                            <td tal:content="accessory/price">
+                                                42.0
+                                            </td>
+                                                
                                         </tr>
                                         <tr tal:repeat="property accessory/properties">
                                             <td></td>
+                                            <td></td>                                            
                                             <td style="vertical-align:bottom; padding-right:20px"
                                                 tal:content="property/title">
                                                Title
