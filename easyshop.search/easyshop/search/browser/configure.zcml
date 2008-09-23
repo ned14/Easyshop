@@ -13,7 +13,7 @@
         name="search-view"
         for="*"
         class=".search.SearchView"
-        allowed_attributes="getSearchResults getSearchUrl"
+        allowed_attributes="getSearchResults getSearchUrl getSearchPrice"
         permission="zope2.Public" />  
         
 </configure>
