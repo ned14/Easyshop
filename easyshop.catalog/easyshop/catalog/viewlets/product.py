@@ -51,7 +51,7 @@ class ProductViewlet(ViewletBase):
             for property_id, selected_option in self.request.form.items():
                 if property_id.startswith("property"):                
                     total_diff += pm.getPriceForCustomer(
-                        property_id[9:],
+                        property_id[42:],
                         selected_option
                     )            
             price += total_diff
@@ -72,7 +72,7 @@ class ProductViewlet(ViewletBase):
             for property_id, selected_option in self.request.form.items():
                 if property_id.startswith("property"):                
                     total_diff += pm.getPriceForCustomer(
-                        property_id[9:],
+                        property_id[42:],
                         selected_option
                     )            
             price + total_diff
@@ -198,11 +198,12 @@ class ProductViewlet(ViewletBase):
         """
         u = queryUtility(INumberConverter)
         cm = ICurrencyManagement(self.context)
-                        
+        
+        import pdb; pdb.set_trace()                
         selected_options = {}
         for name, value in self.request.items():
             if name.startswith("property"):
-                selected_options[name[43:]] = value
+                selected_options[name[42:]] = value
 
         # If nothing is selected we select the default variant
         if selected_options == {}:
@@ -249,7 +250,7 @@ class ProductViewlet(ViewletBase):
                 })
                 
             result.append({
-                "id"      : "property_" + property.getId(),
+                "id"      : "property_%s_%s" % (self.context.UID(), property.getId()),
                 "title"   : property.Title(),
                 "options" : options,
             })
