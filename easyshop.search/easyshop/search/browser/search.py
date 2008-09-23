@@ -1,6 +1,9 @@
 # plone imports
 from plone.memoize.instance import memoize
 
+#zope imports
+from zope.component import queryUtility
+
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -10,6 +13,12 @@ from Products.CMFCore.utils import getToolByName
 # AdvancedQuery
 from Products.AdvancedQuery import And
 from Products.AdvancedQuery import Eq
+
+# Easyshop imports 
+from easyshop.core.interfaces import INumberConverter
+from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import IPrices
+
 
 class SearchView(BrowserView):
     """Provides miscellanous methods for searching.
@@ -106,3 +115,19 @@ class SearchView(BrowserView):
         shop_path = properties.easyshop_path
 
         return shop_path + "/shop-search"
+
+    @memoize        
+    def getSearchPrice(self, product):
+        """
+        """
+        product = product.getObject()
+
+        # Price
+        cm = ICurrencyManagement(product)
+        p = IPrices(product)
+
+        # Effective price
+        price = p.getPriceForCustomer()                                
+        price = cm.priceToString(price)
+
+        return price
