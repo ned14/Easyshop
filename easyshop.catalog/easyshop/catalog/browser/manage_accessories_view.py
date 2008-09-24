@@ -35,6 +35,8 @@ class ManageAccessoriesView(BrowserView):
     def getProducts(self):
         """
         """
+        accessories_uids = [a["uid"] for a in self.getAccessories()]
+        
         product_title = self.request.get("product-title", "")
         if product_title == "":
             return []
@@ -45,11 +47,12 @@ class ManageAccessoriesView(BrowserView):
         brains = catalog.evalAdvancedQuery(query)
         
         result = []
-        for brain in brains: 
-            result.append({
-                "title" : brain.Title,
-                "uid"   : brain.UID
-            })
+        for brain in brains:
+            if brain.UID not in accessories_uids:
+                result.append({
+                    "title" : brain.Title,
+                    "uid"   : brain.UID
+                })
 
         return result
 
@@ -79,8 +82,12 @@ class ManageAccessoriesView(BrowserView):
         uids = self.request.get("accessories", [])
         uids = utils.tuplize(uids)
         
-        self.context.setAccessories(uids)
+        uids_with_quantities = []
+        for new_uid in uids:
+            quantity = self.request.get("%s_quantity" % new_uid, 1)
+            uids_with_quantities.append("%s:%s" % (new_uid, quantity))
         
+        self.context.setAccessories(uids_with_quantities)
         self.redirect()
         
     def unify(self, old_uids_with_quantities, new_uids_with_quantities):

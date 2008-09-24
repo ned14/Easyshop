@@ -40,12 +40,17 @@
  <action title="Variants" action_id="variants" category="object" condition_expr=""
     url_expr="string:${object_url}/manage-variants-view" visible="True"
     i18n:attributes="title">
-  <permission value="View"/>
+  <permission value="Modify portal content"/>
  </action>
  <action title="Product Properties" action_id="product-properties" category="object" condition_expr=""
     url_expr="string:${object_url}/manage-properties-view" visible="True"
     i18n:attributes="title">
-  <permission value="View"/>
+  <permission value="Modify portal content"/>
+ </action>  
+ <action title="Accessories" action_id="product-accessories" category="object" condition_expr=""
+    url_expr="string:${object_url}/manage-accessories-view" visible="True"
+    i18n:attributes="title">
+  <permission value="Modify portal content"/>
  </action>  
  <action title="References" action_id="references" category="object"
     condition_expr="object/archetype_tool/has_graphviz"
