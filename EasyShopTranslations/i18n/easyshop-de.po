@@ -582,7 +582,6 @@ msgstr "In den Warenkorb"
 
 #. Default: "This Articles have been added to the cart"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:15
-#, fuzzy
 msgid "added_to_cart_label"
 msgstr "Dieser Artikel wurde dem Warenkorb hinzugefügt"
 
