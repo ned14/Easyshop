@@ -106,7 +106,7 @@ msgid "The amount of the product has been increased."
 msgstr "Die Menge des Produktes wurde erhöht."
 
 msgid "The product has been added to the cart."
-msgstr "Dieser Artikel wurde dem Warenkorb hinzugefügt"
+msgstr "Diese Artikel wurden dem Warenkorb hinzugefügt"
 
 msgid "The selected combination of properties is not available."
 msgstr "Die ausgewählte Kombination von Eigenschaften ist nicht vorhanden."
