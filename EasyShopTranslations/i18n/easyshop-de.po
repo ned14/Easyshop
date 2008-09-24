@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-09-24 10:58+0000\n"
+"POT-Creation-Date: 2008-09-24 11:08+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -19,19 +19,19 @@ msgstr ""
 msgid " is required"
 msgstr " ist erforderlich"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:118
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:118
 msgid "A short description, which is displayed in search results"
 msgstr "Eine kurze Beschreibung, die in Suchresultaten angezeigt wird."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:139
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:139
 msgid "A short text of the product, which can be displayed in overviews"
 msgstr "Eine kurze Beschreibung, die in Übersichten angezeigt wird."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:146
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:146
 msgid "A text of the product, which is displayed in detailed views"
 msgstr "Beschreibung des Produkts, die in der Detailansicht angezeigt wird."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:51
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:51
 msgid "Account Number"
 msgstr "Konto Nummer"
 
@@ -51,23 +51,23 @@ msgstr "Benutzer hinzufügen"
 msgid "Add to Cart"
 msgstr "In den Warenkorb"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:38
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
 msgstr "Straße/Hausnr."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:97
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:97
 msgid "American Express"
 msgstr "American Express"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:124
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:124
 msgid "Article Id"
 msgstr "Artikel ID"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:58
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:58
 msgid "Bank Information Code"
 msgstr "Bankleitzahl"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:72
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:72
 msgid "Bank Name"
 msgstr "Bankname"
 
@@ -75,15 +75,15 @@ msgstr "Bankname"
 msgid "Buy Product"
 msgstr "Produkt kaufen"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:95
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:95
 msgid "Card Number"
 msgstr "Kartennummer"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:88
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:88
 msgid "Card Owner"
 msgstr "Kartenbesitzer"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:82
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:82
 msgid "Card Type"
 msgstr "Kartenart"
 
@@ -95,19 +95,19 @@ msgstr "Warenkorb"
 msgid "Cash on delivery"
 msgstr "Per Nachname"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:44
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:44
 msgid "Categories have been deleted."
 msgstr "Kategorien wurden gelöscht."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:47
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:47
 msgid "Categories have been deselected."
 msgstr "Kategorien wurden abgewählt."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:46
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:46
 msgid "Categories have been moved."
 msgstr "Kategorien wurden geändert."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:45
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:45
 msgid "Categories have been selected."
 msgstr "Kategorien wurden ausgewählt."
 
@@ -115,15 +115,15 @@ msgstr "Kategorien wurden ausgewählt."
 msgid "Changes saved"
 msgstr "Die Änderungen wurden gesichert"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:52
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:52
 msgid "City"
 msgstr "Stadt"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:31
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:31
 msgid "Company Name"
 msgstr "Firmenname"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:59
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:59
 msgid "Country"
 msgstr "Land"
 
@@ -143,15 +143,15 @@ msgstr "Kreditkarte"
 msgid "Day"
 msgstr "Tag"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:153
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:153
 msgid "Days"
 msgstr "Tage"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:65
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:65
 msgid "Depositor"
 msgstr "Kontoeigentümer"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:117
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:117
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -159,7 +159,7 @@ msgstr "Beschreibung"
 msgid "Direct Debit"
 msgstr "Bankeinzug"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:64
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:64
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -207,27 +207,27 @@ msgstr "Bearbeitung wurde abgebrochen"
 msgid "Expand all"
 msgstr "Alle ausklappen"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:102
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:102
 msgid "Expiration Date Month"
 msgstr "Ablaufdatum Monat"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:109
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:109
 msgid "Expiration Date Year"
 msgstr "Ablaufdatum Jahr"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:125
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:125
 msgid "External unique id of the product"
 msgstr "Externe Artikel ID"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/information.py:23
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/information.py:23
 msgid "File"
 msgstr "Datei"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:17
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:17
 msgid "Firstname"
 msgstr "Vorname"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:187
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:187
 msgid "For Sale"
 msgstr "Im Angebot"
 
@@ -243,15 +243,15 @@ msgstr "Falls ausgewählt, werden alle Kategorien ausgeklappt."
 msgid "If selected amount of product per categories is displayed."
 msgstr "Falls ausgeklappt, wird Anzahl Produkte pro Kategory angezeigt."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:188
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:188
 msgid "If selected the sale price is active and displayed additionally."
 msgstr "Falls ausgewählt, ist der Angebotspreis aktiv und wird zusätzlich angezeigt."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:160
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:160
 msgid "If selected, the stock amount of the product is not decreased."
 msgstr "Falls ausgewählt, wird der Lagerbestand nicht verringert."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:24
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:24
 msgid "Lastname"
 msgstr "Nachname"
 
@@ -259,7 +259,7 @@ msgstr "Nachname"
 msgid "Long Text"
 msgstr "Langtext"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:96
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:96
 msgid "MasterCard/EuroCard"
 msgstr "MasterCard/EuroCard"
 
@@ -288,7 +288,7 @@ msgstr "Passwort"
 msgid "Password Confirmation"
 msgstr "Passwort (Bestätigung)"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:71
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:71
 msgid "Phone"
 msgstr "Telefon"
 
@@ -308,59 +308,59 @@ msgstr "Bitte bestätigen Sie Ihr Passwort"
 msgid "Please edit the form below and press save."
 msgstr "Bitte bearbeiten Sie das Formular und drücken Sie speichern!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:73
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:73
 msgid "Please enter the bank name"
 msgstr "Bitte Bankname eingeben!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:66
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:66
 msgid "Please enter the depositor of the account"
 msgstr "Bitte Kontobesitzer hinzufügen!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:103
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:103
 msgid "Please enter the expiration date of the card."
 msgstr "Bitte geben Sie den Monat des Ablaufdatums ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:89
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:89
 msgid "Please enter the name of the card owner."
 msgstr "Bitte geben Sie den Namen des Kartenbesitzers ein."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:52
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:52
 msgid "Please enter your account number"
 msgstr "Bitte bearbeiten Sie Ihre Kontonummer ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:39
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:39
 msgid "Please enter your address."
 msgstr "Bitte geben Sie Ihre Adresse ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:59
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:59
 msgid "Please enter your bank information code"
 msgstr "Bitte geben Sie Ihre Bankverbindung ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:53
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:53
 msgid "Please enter your city."
 msgstr "Bitte geben Sie Ihre Stadt ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:32
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:32
 msgid "Please enter your company name."
 msgstr "Bitte geben Sie Ihren Firmennamen ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:60
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:60
 msgid "Please enter your country."
 msgstr "Bitte geben Sie Ihr Land ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:65
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:65
 msgid "Please enter your e-mail address."
 msgstr "Bitte geben Sie Ihre E-Mail Adresse ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:159
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:159
 msgid "Please enter your e-mail."
 msgstr "Bitte geben Sie Ihre E-Mail Adresse ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:18
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:18
 msgid "Please enter your firstname."
 msgstr "Bitte geben Sie Ihren Vorname ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:25
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:25
 msgid "Please enter your lastname."
 msgstr "Bitte geben Sie Ihren Nachnamen ein!"
 
@@ -368,19 +368,19 @@ msgstr "Bitte geben Sie Ihren Nachnamen ein!"
 msgid "Please enter your password."
 msgstr "Bitte geben Sie Ihr Passwort ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:72
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:72
 msgid "Please enter your phone number."
 msgstr "Bitte geben Sie Ihre Telefonnummer ein."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:96
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:96
 msgid "Please enter your the card number."
 msgstr "Bitte geben Sie Ihre Kartennummer ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:46
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:46
 msgid "Please enter your zip code."
 msgstr "Bitte geben Sie Ihre Postleitzahl ein!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/payment.py:83
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:83
 msgid "Please select the type of the card."
 msgstr "Bitte geben Sie den Type Ihre Karte ein!"
 
@@ -388,15 +388,15 @@ msgstr "Bitte geben Sie den Type Ihre Karte ein!"
 msgid "Prepayment"
 msgstr "Vorabüberweisung"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:180
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:180
 msgid "Price"
 msgstr "Preis"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:194
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:194
 msgid "Sale Price"
 msgstr "Angebotspreis"
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:132
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:241
 msgid "Select"
 msgstr "Bitte wählen!"
 
@@ -408,15 +408,15 @@ msgstr "Rechnung an diese Adresse senden"
 msgid "Send products to this address"
 msgstr "Lieferung an diese Adresse senden"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:138
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:138
 msgid "Short Text"
 msgstr "Kurztext"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:131
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:131
 msgid "Short Title"
 msgstr "Kurztitel"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:132
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:132
 msgid "Short title of the product, which can be displayed in overviews"
 msgstr "Kurztitel des Produktes, der in Übersichten angezeigt wird."
 
@@ -424,11 +424,11 @@ msgstr "Kurztitel des Produktes, der in Übersichten angezeigt wird."
 msgid "Show quantity"
 msgstr "Anzahl anzeigen"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:166
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:166
 msgid "Stock Amount"
 msgstr "Lagerbestand"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:145
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:145
 msgid "Text"
 msgstr "Text"
 
@@ -436,27 +436,27 @@ msgstr "Text"
 msgid "The address has been deleted."
 msgstr "Die Adresse wurde gelöscht."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:167
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:167
 msgid "The amount of this product in stock. This number is decreased automatically when the product has been sold."
 msgstr "Die Menge des Produktes im Lager. Diese Zahl wird autamatisch verringert, wenn das Produkt verkauft wird."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:42
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:42
 msgid "The category aleady exits."
 msgstr "Die Kategorie existiert bereits."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:43
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:43
 msgid "The category has been added."
 msgstr "Die Kategorie wurde hinzugefügt."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/information.py:17
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/information.py:17
 msgid "The information as HTML"
 msgstr "Die Information als HTML."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/information.py:24
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/information.py:24
 msgid "The information as downloadable file."
 msgstr "Die Information als herunterladbare Datei."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:181
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:181
 msgid "The price of the product."
 msgstr "Der Produktpreis."
 
@@ -464,11 +464,11 @@ msgstr "Der Produktpreis."
 msgid "The product has been added to the cart."
 msgstr "Das Produkt wurde zum Warenkorb hinzugefügt."
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:195
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:195
 msgid "The sale price of the product."
 msgstr "Der Angebotspreis"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:174
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:174
 msgid "The weight of the product."
 msgstr "Das Gewicht des Produktes."
 
@@ -484,7 +484,7 @@ msgstr "Diese Portlet zeigt die Kategorien des EasyShops an"
 msgid "To change your address edit the form and press save."
 msgstr "Um Ihre Adresse zu ändern, bearbeiten Sie bitte das Formular und drücken Sie \"speichern\""
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:159
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:159
 msgid "Unlimited Amount"
 msgstr "Unbegrenzte Menge"
 
@@ -492,7 +492,7 @@ msgstr "Unbegrenzte Menge"
 msgid "Username"
 msgstr "Benutzername"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:95
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:95
 msgid "Visa"
 msgstr "Visa"
 
@@ -500,11 +500,11 @@ msgstr "Visa"
 msgid "Week"
 msgstr "Woche"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/config.py:154
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:154
 msgid "Weeks"
 msgstr "Wochen"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/catalog.py:173
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:173
 msgid "Weight"
 msgstr "Gewicht"
 
@@ -521,9 +521,14 @@ msgstr "Ihre E-Mail wurde versendet."
 msgid "Your order has been received. Thank you!"
 msgstr "Ihre Bestellung wurde übersendet. Vielen Dank!"
 
-#: ../../../src/easyshop.core/easyshop.core/easyshop/core/interfaces/customers.py:45
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:45
 msgid "Zip Code"
 msgstr "Postleitzahl"
+
+#. Default: "<h2>Accessories</h2>"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:250
+msgid "accessories_label"
+msgstr "Zubehör"
 
 #. Default: "Account-No."
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:229
@@ -560,18 +565,24 @@ msgstr "Wenn Sie fertig sind, klicken Sie bitte auf Weiter"
 msgid "add_label"
 msgstr "Hinzufügen"
 
+#. Default: "Add products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:77
+msgid "add_products_label"
+msgstr "Produkte hinzufügen"
+
 #. Default: "Add Property"
 #: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:68
 msgid "add_property_label"
 msgstr "Eigenschaft hinzufügen"
 
 #. Default: "Add to Cart"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:149
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:146
 msgid "add_to_cart_label"
 msgstr "In den Warenkorb"
 
-#. Default: "This Article has been added to the cart"
+#. Default: "This Articles have been added to the cart"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:15
+#, fuzzy
 msgid "added_to_cart_label"
 msgstr "Dieser Artikel wurde dem Warenkorb hinzugefügt"
 
@@ -804,7 +815,7 @@ msgid "expiration_date_label"
 msgstr "Ablaufdatum"
 
 #. Default: "First"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:67
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:64
 msgid "first_label"
 msgstr "Erste"
 
@@ -824,12 +835,12 @@ msgid "go_label"
 msgstr "Los!"
 
 #. Default: "Go on shopping"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:56
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:55
 msgid "go_on_shopping_label"
 msgstr "Weiter einkaufen"
 
 #. Default: "Go to cart"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:62
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:61
 msgid "go_to_cart_label"
 msgstr "Zum Warenkorb"
 
@@ -909,7 +920,7 @@ msgid "label_save"
 msgstr "Speichern"
 
 #. Default: "Last"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:103
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:100
 msgid "last_label"
 msgstr "Letzte"
 
@@ -937,6 +948,11 @@ msgstr "Anmelden"
 #: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:51
 msgid "logout_label"
 msgstr "Abmelden"
+
+#. Default: "Manage Accessories"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:29
+msgid "manage_accessories_label"
+msgstr "Zubehör bearbeiten"
 
 #. Default: "Manage Account"
 #: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:16
@@ -1004,7 +1020,7 @@ msgid "name_label"
 msgstr "Name"
 
 #. Default: "Next"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:92
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:89
 msgid "next_label"
 msgstr "Nächste"
 
@@ -1074,7 +1090,7 @@ msgid "no_products_label"
 msgstr "Keine Produkte vorhanden."
 
 #. Default: "of"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:85
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:82
 msgid "of_label"
 msgstr "von"
 
@@ -1190,6 +1206,11 @@ msgstr "Passende Produkte"
 #: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:150
 msgid "save_label"
 msgstr "Speichern"
+
+#. Default: "Search products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:38
+msgid "search_products_label"
+msgstr "Produkte suchen"
 
 #. Default: "Please select your addresses"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:17
@@ -1335,6 +1356,10 @@ msgstr "Bitte fügen Sie Username und Passwort hinzu."
 msgid "user_label"
 msgstr "Benutzer"
 
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:121
+msgid "update_accessories_label"
+msgstr "Zubehör aktualisieren"
+
 #. Default: "Value"
 #: ../../../src/easyshop.information/easyshop/information/browser/information_page.pt:51
 msgid "value_label"
@@ -1356,7 +1381,7 @@ msgid "welcome_label"
 msgstr "Willkommen!"
 
 #. Default: "Zoom"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:142
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:139
 msgid "zoom_label"
 msgstr "Zoom"
 
