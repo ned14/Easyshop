@@ -17,7 +17,6 @@ class AddedToCartView(BrowserView):
     def getProducts(self):
         """Returns the last products, which are added to the cart.
         """
-        import pdb; pdb.set_trace()
         cm = ICurrencyManagement(self.context)
         
         result = []

@@ -78,10 +78,16 @@ class ProductAddToCartView(BrowserView):
         # returns true if the product was already within the cart    
         result, item_id = IItemManagement(cart).addItem(product, tuple(properties), quantity)
         
+        # Add product to session (for display on add to cart view)
+        if self.request.SESSION.get("added-to-cart") is None:
+            self.request.SESSION["added-to-cart"] = []
+        self.request.SESSION["added-to-cart"].append(item_id)
+        
         # Add the accessories
         if add_accessories == True:
             catalog = getToolByName(self.context, "portal_catalog")
-            for uid in tuplize(self.request.get("accessories", [])):            
+            accessories = tuplize(self.request.get("accessories", []))
+            for uid in accessories:            
                 try:
                     brain = catalog.searchResults(UID=uid)[0]
                 except IndexError:
@@ -102,5 +108,5 @@ class ProductAddToCartView(BrowserView):
             else:
                 putils.addPortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
 
-            url = "%s/added-to-cart?id=%s" % (shop.absolute_url(), item_id)
-            self.context.request.response.redirect(url)
+            url = "%s/added-to-cart" % shop.absolute_url()
+            self.context.request.response.redirect(url)        
