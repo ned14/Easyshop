@@ -9,7 +9,7 @@
                 jq("#image-large").attr({ src: path });
             });
 
-            jq(".property").change(function () {
+            jq(".property,.quantity").change(function () {
                jq("#kss-spinner").css("display", "block");
                jq('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product", success : function() {
                    jq("#kss-spinner").css("display", "none");
@@ -261,17 +261,46 @@
                                                                        checked accessory/checked" />
                                             </td>
                                             <td>
-                                                <input type="text"
+                                                <input class="quantity" 
+                                                       type="text"
                                                        size="5"
                                                        tal:attributes="name string:${accessory/uid}_quantity;
                                                                        value accessory/quantity" />
                                             </td>
                                             <td colspan="2" 
                                                 tal:content="accessory/title" />
-                                            <td tal:content="accessory/price">
-                                                42.0
-                                            </td>
-                                                
+                                            <td>
+                                                <tal:block tal:condition="accessory/for_sale">
+                                                    <span class="product-price"
+                                                          style="text-decoration:line-through;"
+                                                          tal:content="accessory/standard_price">
+                                                        42.00
+                                                    </span>
+                                                    <span class="product-price"
+                                                          style="text-decoration:line-through;"
+                                                          tal:content="accessory/total_standard_price">
+                                                        42.00
+                                                    </span>
+                                                    <span class="product-price"
+                                                          tal:content="accessory/price">
+                                                        42.00
+                                                    </span>
+                                                    <span class="product-price"
+                                                          tal:content="accessory/total_price">
+                                                        42.00
+                                                    </span>
+                                                </tal:block>                        
+                                                <tal:block tal:condition="not:accessory/for_sale">
+                                                    <span class="product-price"
+                                                          tal:content="accessory/price">
+                                                        42.00
+                                                    </span>                                    
+                                                    <span class="product-price"
+                                                          tal:content="accessory/total_price">
+                                                        42.00
+                                                    </span>
+                                                </tal:block>                                
+                                            </td>    
                                         </tr>
                                         <tr tal:repeat="property accessory/properties">
                                             <td></td>

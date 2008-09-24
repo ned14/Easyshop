@@ -42,7 +42,7 @@ class ProductViewlet(ViewletBase):
         else:
             return "Add to Cart"
 
-    def getPriceForCustomer(self):
+    def getPriceForCustomer(self, formatted=True):
         """
         """
         p = IPrices(self.context)
@@ -58,11 +58,14 @@ class ProductViewlet(ViewletBase):
                         selected_option
                     )            
             price += total_diff
-            
-        cm = ICurrencyManagement(self.context)
-        return cm.priceToString(price)
 
-    def getStandardPriceForCustomer(self):
+        if formatted == True:
+            cm = ICurrencyManagement(self.context)
+            return cm.priceToString(price)
+        else:
+            return price
+
+    def getStandardPriceForCustomer(self, formatted=True):
         """Returns the standard price for a customer when the product is for 
         sale. Used to display the crossed-out standard price.
         """
@@ -79,9 +82,12 @@ class ProductViewlet(ViewletBase):
                         selected_option
                     )            
             price + total_diff
-            
-        cm = ICurrencyManagement(self.context)
-        return cm.priceToString(price)
+        
+        if formatted == True:
+            cm = ICurrencyManagement(self.context)
+            return cm.priceToString(price)
+        else:
+            return price
                             
     def getProductData(self):
         """
@@ -114,17 +120,47 @@ class ProductViewlet(ViewletBase):
             brain = catalog.searchResults(UID=uid)[0]
             product = brain.getObject()
             
+            # Try to get quantity out of request (In case the customer has
+            # changed them within the form). If there is none we take the default
+            # quantity which are given from the shop owner within the accessories
+            # admin interface.
+            quantity = self.request.get("%s_quantity" % product.UID(), quantity)
+            
             # Same viewlet with the context of the accessory to get the 
             # properties of the accessory.            
             viewlet = getMultiAdapter((product, self.request, self.view, self.manager), IViewlet, name="easyshop.product-viewlet")
             properties = viewlet.getProperties()
+            
+            try:
+                quantity = int(quantity)
+            except ValueError:
+                quantity = 1
+                
+            # Standard price
+            standard_price = viewlet.getStandardPriceForCustomer(formatted=False)
+            total_standard_price = quantity * standard_price
+            cm = ICurrencyManagement(self.context)
+            standard_price = cm.priceToString(standard_price)
+            total_standard_price = cm.priceToString(total_price)
+
+            # Effective price
+            price = viewlet.getPriceForCustomer(formatted=False)
+            total_price = quantity * price
+            
+            cm = ICurrencyManagement(self.context)
+            price = cm.priceToString(price)
+            total_price = cm.priceToString(total_price)
             
             result.append({
                 "uid" : uid,
                 "title" : brain.Title,
                 "quantity" : quantity,
                 "checked" : uid in accessories,
-                "price"   : viewlet.getPriceForCustomer(),
+                "for_sale" : product.getForSale(),
+                "standard_price" : standard_price,
+                "total_standard_price" : total_standard_price,
+                "price" : price,
+                "total_price" : total_price,
                 "properties" : properties,
             })
         
