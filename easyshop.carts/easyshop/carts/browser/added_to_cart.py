@@ -20,7 +20,6 @@ class AddedToCartView(BrowserView):
         cm = ICurrencyManagement(self.context)
         
         result = []
-        import pdb; pdb.set_trace()
         for cart_item_id in self.request.SESSION.get("added-to-cart", []):
 
             cart = ICartManagement(self.context).getCart()
@@ -77,12 +76,14 @@ class AddedToCartView(BrowserView):
             
                 price += property_price
         
-            price = cm.priceToString(price)        
+            total = cart_item.getAmount() * price
                         
             result.append({
                 "title"      : product.Title(),
                 "url"        : product.absolute_url(),
-                "price"      : price,
+                "amount"     : cart_item.getAmount(),
+                "total"      : cm.priceToString(total),
+                "price"      : cm.priceToString(price),
                 "image_url"  : image_url,
                 "properties" : properties,
             })
