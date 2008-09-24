@@ -9,6 +9,8 @@ i18ndude rebuild-pot --pot easyshop.pot --create EasyShop --merge extra.pot\
     ../../../src/easyshop.groups\
     ../../../src/easyshop.information\
     ../../../src/easyshop.io\
+    ../../../src/easyshop.management\    
+    ../../../src/easyshop.marketing\    
     ../../../src/easyshop.order\
     ../../../src/easyshop.payment\
     ../../../src/easyshop.shipping\
