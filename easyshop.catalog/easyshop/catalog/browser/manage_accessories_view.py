@@ -1,4 +1,6 @@
-import re
+# zope imports
+from zope.component import getMultiAdapter
+from zope.component.interfaces import ComponentLookupError
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -42,9 +44,14 @@ class ManageAccessoriesView(BrowserView):
             return []
             
         catalog = getToolByName(self.context, "portal_catalog")                
-
-        query = Eq("portal_type", "Product") & Eq("Title", product_title)
-        brains = catalog.evalAdvancedQuery(query)
+        
+        # if easyshop.search ist installed we take that search
+        try:
+            view = getMultiAdapter((self.context, self.request), name="search-view")
+            brains = view.getSearchResults(searchable_text=product_title)
+        except ComponentLookupError:
+            query = Eq("portal_type", "Product") & Eq("Title", product_title)
+            brains = catalog.evalAdvancedQuery(query)
         
         result = []
         for brain in brains:
