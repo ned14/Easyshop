@@ -239,7 +239,7 @@
                                      <tr tal:define="accessories view/getAccessories"
                                          tal:condition="accessories">
                                          <td colspan="2">
-                                             <table>
+                                             <table class="shop-default">
                                                  <tr>
                                                      <td colspan="5">
                                                          <h2 i18n:translate="accessories_label">
@@ -247,6 +247,22 @@
                                                          </h2>
                                                      </td>
                                                  </tr>
+                                                 <tr>
+                                                    <td></td>
+                                                    <td colspan="2"
+                                                        i18n:translate="product_label"
+                                                        style="padding-left:10px">
+                                                        Product
+                                                    </td>
+                                                    <td i18n:translate="amount_label">
+                                                        Amount
+                                                    </td>
+                                                    <td class="number" 
+                                                        i18n:translate="price_label">
+                                                        Price
+                                                    </td>
+                                                 </tr>
+                                                 
                                                  <tal:block tal:repeat="accessory accessories">
                                                      <tr> 
                                                          <td>
@@ -257,6 +273,7 @@
                                                                                     checked accessory/checked" />
                                                          </td>
                                                          <td colspan="2" 
+                                                             style="padding-left:10px"
                                                              tal:content="accessory/title" />
                                                          <td>
                                                              <span style="margin-left:10px"
@@ -273,7 +290,8 @@
                                                                                     value accessory/quantity" /> -->
                                                          </td>
                                                  
-                                                         <td nowrap="nowrap">
+                                                         <td nowrap="nowrap"
+                                                             class="number">
                                                              <tal:block tal:condition="accessory/for_sale">
                                                                  <!-- <span class="product-price"
                                                                        style="text-decoration:line-through;"
@@ -283,12 +301,12 @@
                                                                  <span class="product-price"
                                                                        tal:content="accessory/price">
                                                                      42.00
-                                                                 </span> -->
+                                                                 </span>
                                                                  <span class="product-price"
                                                                        style="text-decoration:line-through;"
                                                                        tal:content="accessory/total_standard_price">
                                                                      42.00
-                                                                 </span>
+                                                                 </span>  -->
                                                                  <span class="product-price"
                                                                        tal:content="accessory/total_price">
                                                                      42.00
@@ -308,8 +326,8 @@
                                                      </tr>
                                                      <tr tal:repeat="property accessory/properties">
                                                          <td></td>
-                                                         <td colspan="4" 
-                                                             style="vertical-align:bottom; padding-right:20px">
+                                                         <td colspan="4"                                                            
+                                                             style="vertical-align:bottom; padding:0 10px;">
                                                              <span tal:content="property/title">
                                                                  Title
                                                             </span>
