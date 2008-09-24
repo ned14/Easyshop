@@ -9,7 +9,7 @@
                 jq("#image-large").attr({ src: path });
             });
 
-            jq(".property,.quantity").change(function () {
+            jq(".property,.quantity,input.accessories").change(function () {
                jq("#kss-spinner").css("display", "block");
                jq('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product", success : function() {
                    jq("#kss-spinner").css("display", "none");
@@ -29,8 +29,8 @@
                       zoom_url string:${product_data/url}/product-zoom-view;
                       navigationMacroView context/@@navigationMacroView;
                       product_urls navigationMacroView/getProductURLs;
-                      standard_price_for_customer view/getStandardPriceForCustomer;
-                      price_for_customer view/getPriceForCustomer"
+                      standard_price_for_customer view/getTotalStandardPriceForCustomer;
+                      price_for_customer view/getTotalPriceForCustomer"
           tal:attributes="action context/absolute_url"
           method="post">
         
@@ -257,6 +257,7 @@
                                             <td>
                                                 <input type="checkbox"
                                                        name="accessories"
+                                                       class="accessories"
                                                        tal:attributes="value accessory/uid;
                                                                        checked accessory/checked" />
                                             </td>
@@ -277,12 +278,12 @@
                                                         42.00
                                                     </span>
                                                     <span class="product-price"
-                                                          style="text-decoration:line-through;"
-                                                          tal:content="accessory/total_standard_price">
+                                                          tal:content="accessory/price">
                                                         42.00
                                                     </span>
                                                     <span class="product-price"
-                                                          tal:content="accessory/price">
+                                                          style="text-decoration:line-through;"
+                                                          tal:content="accessory/total_standard_price">
                                                         42.00
                                                     </span>
                                                     <span class="product-price"

@@ -42,6 +42,25 @@ class ProductViewlet(ViewletBase):
         else:
             return "Add to Cart"
 
+    def getTotalPriceForCustomer(self, formatted=True):
+        """
+        """
+        selected_accessories = self.request.get("accessories", [])
+        selected_accessories = tuplize(selected_accessories)
+        
+        product_price = self.getPriceForCustomer(formatted=False)
+        
+        total_accessories = 0
+        for accessory in self.getAccessories():
+            # We take only selected accessories into account
+            if accessory["uid"] in selected_accessories:
+                total_accessories += accessory["total_raw_price"]
+        
+        total_price = product_price + total_accessories    
+        
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(total_price)
+
     def getPriceForCustomer(self, formatted=True):
         """
         """
@@ -64,7 +83,25 @@ class ProductViewlet(ViewletBase):
             return cm.priceToString(price)
         else:
             return price
-
+    
+    def getTotalStandardPriceForCustomer(self):
+        """
+        """
+        selected_accessories = self.request.get("accessories", [])
+        selected_accessories = tuplize(selected_accessories)
+        
+        product_price = self.getStandardPriceForCustomer(formatted=False)
+        
+        total_accessories = 0
+        for accessory in self.getAccessories():
+            # We take only selected accessories into account
+            if accessory["uid"] in selected_accessories:
+                total_accessories += accessory["total_raw_standard_price"]
+        total_price = product_price + total_accessories    
+        
+        cm = ICurrencyManagement(self.context)
+        return cm.priceToString(total_price)
+        
     def getStandardPriceForCustomer(self, formatted=True):
         """Returns the standard price for a customer when the product is for 
         sale. Used to display the crossed-out standard price.
@@ -138,18 +175,18 @@ class ProductViewlet(ViewletBase):
                 
             # Standard price
             standard_price = viewlet.getStandardPriceForCustomer(formatted=False)
-            total_standard_price = quantity * standard_price
+            total_raw_standard_price = quantity * standard_price
             cm = ICurrencyManagement(self.context)
             standard_price = cm.priceToString(standard_price)
-            total_standard_price = cm.priceToString(total_price)
+            total_standard_price = cm.priceToString(total_raw_standard_price)
 
             # Effective price
             price = viewlet.getPriceForCustomer(formatted=False)
-            total_price = quantity * price
+            total_raw_price = quantity * price
             
             cm = ICurrencyManagement(self.context)
             price = cm.priceToString(price)
-            total_price = cm.priceToString(total_price)
+            total_price = cm.priceToString(total_raw_price)
             
             result.append({
                 "uid" : uid,
@@ -157,6 +194,8 @@ class ProductViewlet(ViewletBase):
                 "quantity" : quantity,
                 "checked" : uid in accessories,
                 "for_sale" : product.getForSale(),
+                "total_raw_price" : total_raw_price, 
+                "total_raw_standard_price" : total_raw_standard_price, 
                 "standard_price" : standard_price,
                 "total_standard_price" : total_standard_price,
                 "price" : price,
