@@ -275,7 +275,7 @@ class CheckoutCartViewlet(ViewletBase):
                 })
                 
             result.append({
-                "id"      : "property_" + property.getId(),
+                "id"      : "property_%s_%s" % (product.UID(), property.getId()),
                 "title"   : property.Title(),
                 "options" : options,
             })
@@ -324,7 +324,7 @@ class CheckoutCartViewlet(ViewletBase):
                 })
                 
             result.append({
-                "id"      : "property_" + property.getId(),
+                "id"      : "property_%s_%s" % (product.UID(), property.getId()),
                 "title"   : property.Title(),
                 "options" : options,
             })
