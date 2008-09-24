@@ -181,7 +181,7 @@ class SearchResultsViewlet(ViewletBase):
         selected_properties = {}
         for name, value in self.request.form.items():
             if name.startswith("property"):
-                selected_properties[name[9:]] = value
+                selected_properties[name[42:]] = value
 
         pm = IPropertyManagement(self.context)
         
