@@ -233,115 +233,126 @@
                                                         i18n:attributes="update_properties_label" />                                                
                                              </noscript>                                            
                                         </td>
-                                     </tr>                                     
+                                     </tr>
+                        
+                                     <!-- start accessories -->             
+                                     <tr tal:define="accessories view/getAccessories"
+                                         tal:condition="accessories">
+                                         <td colspan="2">
+                                             <table>
+                                                 <tr>
+                                                     <td colspan="5">
+                                                         <h2 i18n:translate="accessories_label">
+                                                             Accessories
+                                                         </h2>
+                                                     </td>
+                                                 </tr>
+                                                 <tal:block tal:repeat="accessory accessories">
+                                                     <tr> 
+                                                         <td>
+                                                             <input type="checkbox"
+                                                                    name="accessories"
+                                                                    class="accessories"
+                                                                    tal:attributes="value accessory/uid;
+                                                                                    checked accessory/checked" />
+                                                         </td>
+                                                         <td colspan="2" 
+                                                             tal:content="accessory/title" />
+                                                         <td>
+                                                             <span style="margin-left:10px"
+                                                                   tal:content="accessory/quantity" />
+                                                 
+                                                             <input type="hidden"
+                                                                    tal:attributes="name string:${accessory/uid}_quantity;
+                                                                                    value accessory/quantity" />
+                                                 
+                                                             <!-- <input class="quantity" 
+                                                                    type="text"
+                                                                    size="5"
+                                                                    tal:attributes="name string:${accessory/uid}_quantity;
+                                                                                    value accessory/quantity" /> -->
+                                                         </td>
+                                                 
+                                                         <td nowrap="nowrap">
+                                                             <tal:block tal:condition="accessory/for_sale">
+                                                                 <!-- <span class="product-price"
+                                                                       style="text-decoration:line-through;"
+                                                                       tal:content="accessory/standard_price">
+                                                                     42.00
+                                                                 </span>
+                                                                 <span class="product-price"
+                                                                       tal:content="accessory/price">
+                                                                     42.00
+                                                                 </span> -->
+                                                                 <span class="product-price"
+                                                                       style="text-decoration:line-through;"
+                                                                       tal:content="accessory/total_standard_price">
+                                                                     42.00
+                                                                 </span>
+                                                                 <span class="product-price"
+                                                                       tal:content="accessory/total_price">
+                                                                     42.00
+                                                                 </span>
+                                                             </tal:block>                        
+                                                             <tal:block tal:condition="not:accessory/for_sale">
+                                                                 <!-- <span class="product-price"
+                                                                       tal:content="accessory/price">
+                                                                     42.00
+                                                                 </span>                                     -->
+                                                                 <span class="product-price"
+                                                                       tal:content="accessory/total_price">
+                                                                     42.00
+                                                                 </span>
+                                                             </tal:block>                                
+                                                         </td>    
+                                                     </tr>
+                                                     <tr tal:repeat="property accessory/properties">
+                                                         <td></td>
+                                                         <td colspan="4" 
+                                                             style="vertical-align:bottom; padding-right:20px">
+                                                             <span tal:content="property/title">
+                                                                 Title
+                                                            </span>
+                                                             <select style="font-size:12px; width:200px"
+                                                                     class="property"
+                                                                     tal:attributes="name property/id">
+           
+                                                                 <option tal:repeat="option property/options"
+                                                                         tal:content="option/title"
+                                                                         tal:attributes="value option/id;
+                                                                                         selected option/selected">
+                                                                     Red
+                                                                 </option>                           
+                                                             </select> 
+                                                 
+                                                             <input type="hidden"
+                                                                    name="variant_selected"
+                                                                    value="1" />                                                                                                  
+                                                         </td>
+                                                     </tr>
+                                                 </tal:block>
+                                                 <tr>
+                                                    <td></td>
+                                                    <td>
+                                                         <noscript>
+                                                             <input type="submit" 
+                                                                    value="Update Properties"
+                                                                    i18n:attributes="update_properties_label" />                                                
+                                                         </noscript>                                            
+                                                    </td>
+                                                 </tr>                                     
+                                    
+                                             </table>
+                                         </td>
+                                     </tr> 
+                                     <!-- end accessories -->
+                                                                           
                                  </table>     
                             </td>
                             <td style="padding-left:10px"
                                 class="product-description"
                                 tal:content="structure product_data/text">
                             </td>                            
-                        </tr>
-                        <tr tal:define="accessories view/getAccessories"
-                            tal:condition="accessories">
-                            <td></td>
-                            <td>
-                                <table>
-                                    <tr>
-                                        <td colspan="5" 
-                                            i18n:translate="accessories_label">
-                                            <h2>Accessories</h2>
-                                        </td>
-                                    </tr>
-                                    <tal:block tal:repeat="accessory accessories">
-                                        <tr> 
-                                            <td>
-                                                <input type="checkbox"
-                                                       name="accessories"
-                                                       class="accessories"
-                                                       tal:attributes="value accessory/uid;
-                                                                       checked accessory/checked" />
-                                            </td>
-                                            <td>
-                                                <input class="quantity" 
-                                                       type="text"
-                                                       size="5"
-                                                       tal:attributes="name string:${accessory/uid}_quantity;
-                                                                       value accessory/quantity" />
-                                            </td>
-                                            <td colspan="2" 
-                                                tal:content="accessory/title" />
-                                            <td>
-                                                <tal:block tal:condition="accessory/for_sale">
-                                                    <span class="product-price"
-                                                          style="text-decoration:line-through;"
-                                                          tal:content="accessory/standard_price">
-                                                        42.00
-                                                    </span>
-                                                    <span class="product-price"
-                                                          tal:content="accessory/price">
-                                                        42.00
-                                                    </span>
-                                                    <span class="product-price"
-                                                          style="text-decoration:line-through;"
-                                                          tal:content="accessory/total_standard_price">
-                                                        42.00
-                                                    </span>
-                                                    <span class="product-price"
-                                                          tal:content="accessory/total_price">
-                                                        42.00
-                                                    </span>
-                                                </tal:block>                        
-                                                <tal:block tal:condition="not:accessory/for_sale">
-                                                    <span class="product-price"
-                                                          tal:content="accessory/price">
-                                                        42.00
-                                                    </span>                                    
-                                                    <span class="product-price"
-                                                          tal:content="accessory/total_price">
-                                                        42.00
-                                                    </span>
-                                                </tal:block>                                
-                                            </td>    
-                                        </tr>
-                                        <tr tal:repeat="property accessory/properties">
-                                            <td></td>
-                                            <td></td>                                            
-                                            <td style="vertical-align:bottom; padding-right:20px"
-                                                tal:content="property/title">
-                                               Title
-                                            </td>
-                                            <td>
-                                                <input type="hidden"
-                                                       name="variant_selected"
-                                                       value="1" />
-                                                   
-                                                <select style="font-size:12px; width:200px"
-                                                        class="property"
-                                                        tal:attributes="name property/id">
-          
-                                                    <option tal:repeat="option property/options"
-                                                            tal:content="option/title"
-                                                            tal:attributes="value option/id;
-                                                                            selected option/selected">
-                                                        Red
-                                                    </option>                           
-                                                </select> 
-                                            </td>
-                                        </tr>
-                                    </tal:block>
-                                    <tr>
-                                       <td></td>
-                                       <td>
-                                            <noscript>
-                                                <input type="submit" 
-                                                       value="Update Properties"
-                                                       i18n:attributes="update_properties_label" />                                                
-                                            </noscript>                                            
-                                       </td>
-                                    </tr>                                     
-                                   
-                                </table>
-                            </td>
                         </tr>
 <!--
                         <tr tal:define="stock_information view/getStockInformation"
