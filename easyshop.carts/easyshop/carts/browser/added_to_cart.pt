@@ -14,14 +14,13 @@
 
         <h1 class="documentFirstHeading"
             i18n:translate="added_to_cart_label"> 
-            This Article has been added to the cart
+            This Articles have been added to the cart
         </h1>
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <table class="shop-default"
-               tal:define="product view/getProduct">
-            <tr>
+        <table class="shop-default">
+            <tr tal:repeat="product view/getProducts">
                 <td width="1px">
                     <a tal:condition="product/image_url"
                        href="."
@@ -64,6 +63,12 @@
                            type="button" 
                            tal:attributes="onclick string:window.location='${context/absolute_url}/cart'"
                            i18n:attributes="value go_to_cart_label;" />
+                           
+                    <input class="context"  
+                           value="Zur Kasse" 
+                           type="button" 
+                           tal:attributes="onclick string:window.location='${context/absolute_url}/checkout'" />
+                           
                     
                 </td>
                 <td></td>

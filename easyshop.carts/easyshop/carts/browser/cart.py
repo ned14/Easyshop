@@ -261,7 +261,7 @@ class CartFormView(BrowserView):
                 })
                 
             result.append({
-                "id"      : "property_" + property.getId(),
+                "id"      : "property_%s_%s" % (product.UID(), property.getId()),
                 "title"   : property.Title(),
                 "options" : options,
             })
@@ -310,7 +310,7 @@ class CartFormView(BrowserView):
                 })
                 
             result.append({
-                "id"      : "property_" + property.getId(),
+                "id"      : "property_%s_%s" % (product.UID(), property.getId()),
                 "title"   : property.Title(),
                 "options" : options,
             })
@@ -418,7 +418,7 @@ class CartFormView(BrowserView):
         for key, value in self.context.request.items():
             if key.startswith("property_"):
                 property_id, cart_item_id = key.split(":")
-                property_id = property_id[9:]
+                property_id = property_id[42:]
 
                 if selected_properties.has_key(cart_item_id) == False:
                     selected_properties[cart_item_id] = []

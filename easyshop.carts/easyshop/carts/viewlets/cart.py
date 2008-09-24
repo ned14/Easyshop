@@ -432,7 +432,7 @@ class CheckoutCartViewlet(ViewletBase):
         for key, value in self.context.request.items():
             if key.startswith("property_"):
                 property_id, cart_item_id = key.split(":")
-                property_id = property_id[9:]
+                property_id = property_id[42:]
 
                 if selected_properties.has_key(cart_item_id) == False:
                     selected_properties[cart_item_id] = []
