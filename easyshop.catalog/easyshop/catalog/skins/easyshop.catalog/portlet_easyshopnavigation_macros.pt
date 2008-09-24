@@ -5,8 +5,9 @@
                        
         <ul class="portletNavigationTree"
             tal:attributes="class string:portletNavigationTree navTreeLevel$level">
-          <li class="navTreeItem visualNoMarker"
-              tal:attributes="class string:navTreeItem visualNoMarker ${category/klass}">
+          <li class="navTreeItem visualNoMarker">            
+          <!-- <li class="navTreeItem visualNoMarker"
+              tal:attributes="class string:navTreeItem visualNoMarker ${category/klass}"> -->
             <div class="visualIcon contenttype-easyshopcategory">
               <a href="#"
                  class="visualIconPadding"
