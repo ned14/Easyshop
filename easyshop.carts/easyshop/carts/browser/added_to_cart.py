@@ -20,6 +20,7 @@ class AddedToCartView(BrowserView):
         cm = ICurrencyManagement(self.context)
         
         result = []
+        import pdb; pdb.set_trace()
         for cart_item_id in self.request.SESSION.get("added-to-cart", []):
 
             cart = ICartManagement(self.context).getCart()
@@ -87,6 +88,7 @@ class AddedToCartView(BrowserView):
             })
         
         # Reset session
-        self.request.SESSION.set("added-to-cart", None)
+        if self.request.SESSION.has_key("added-to-cart"):
+            del self.request.SESSION["added-to-cart"]
         return result
         
