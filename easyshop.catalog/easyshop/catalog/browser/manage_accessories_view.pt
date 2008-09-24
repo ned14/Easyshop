@@ -120,7 +120,7 @@
                             <td colspan="2">
                                 <input type="submit" 
                                        value="Update accessories"
-                                       i18n:translate="value update_accessories_label;"/>                                
+                                       i18n:attributes="value update_accessories_label;"/>
                             </td>
                         </tr>
                     </table>

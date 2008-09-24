@@ -149,12 +149,20 @@ class ProductViewlet(ViewletBase):
         """
         """
         catalog = getToolByName(self.context, "portal_catalog")
+        
         accessories = tuplize(self.request.get("accessories", []))
 
         result = []
         for uid_with_quantiy in self.context.getAccessories():
             uid, quantity = uid_with_quantiy.split(":")
-            brain = catalog.searchResults(UID=uid)[0]
+                        
+            try:
+                brain = catalog.searchResults(UID=uid)[0]                
+            except IndexError:
+                # This could happend if the user doesn't have the View 
+                # permission (e.g. product is private)
+                continue
+                
             product = brain.getObject()
             
             # Try to get quantity out of request (In case the customer has
