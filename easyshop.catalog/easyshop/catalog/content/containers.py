@@ -2,6 +2,7 @@
 from zope.interface import implements
 
 # Archetypes imports
+from Products.ATContentTypes.content.folder import ATBTreeFolder
 from Products.Archetypes.atapi import BaseBTreeFolder
 from Products.Archetypes.atapi import OrderedBaseFolder
 from Products.Archetypes.atapi import registerType
@@ -11,7 +12,7 @@ from easyshop.core.config import PROJECTNAME
 from easyshop.core.interfaces import ICategoriesContainer
 from easyshop.core.interfaces import IProductsContainer
 
-class ProductsContainer(BaseBTreeFolder):
+class ProductsContainer(ATBTreeFolder):
     """A simple container to hold products.
     """
     implements(IProductsContainer)

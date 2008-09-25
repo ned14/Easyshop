@@ -3,6 +3,9 @@ from persistent.dict import PersistentDict
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
 
+# CMFPlone imports
+from Products.CMFPlone.utils import base_hasattr
+
 # easyshop imports
 from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IShop
@@ -50,8 +53,9 @@ class FormatterInfos:
                 else:              
                     if fi.formats["enabled"] == True:
                         break
-                
-                if object.getParentCategory() is not None:
+                                
+                if base_hasattr(object, "getParentCategory") and \
+                   object.getParentCategory() is not None:
                     object = object.getParentCategory()
                 else:
                     object = object.aq_inner.aq_parent

@@ -47,6 +47,9 @@
     <adapter
         factory=".product_management.CategoryProductManagement" />
 
+    <adapter
+        factory=".product_management.ProductsContainerProductManagement" />
+
     <adapter 
         factory=".product_management.ShopProductManagement" />
 

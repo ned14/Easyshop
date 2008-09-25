@@ -9,9 +9,40 @@ from Products.CMFCore.utils import getToolByName
 from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProductManagement
+from easyshop.core.interfaces import IProductsContainer
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShop
+from easyshop.core.interfaces import IShopManagement    
 
+class ProductsContainerProductManagement(object):
+    """An adapter which provides IProductManagement for products container 
+    content objects.
+    """
+    implements(IProductManagement)
+    adapts(IProductsContainer)
+    
+    def __init__(self, context):
+        """
+        """
+        self.context = context
+
+    def getAllProducts(self, **kargs):
+        """
+        """
+        shop = IShopManagement(self.context).getShop()
+        catalog = getToolByName(self.context, "portal_catalog")
+        brains = catalog.searchResults(
+            path = "/".join(shop.getPhysicalPath()),
+            portal_type = "Product",
+            sort_on = "sortable_title"
+        )
+        
+        # TODO: This is ugly!
+        result = []
+        for brain in brains:
+            result.append(brain.getObject())
+        return result
+        
 class CategoryProductManagement(object):
     """An adapter which provides IProductManagement for category content
     objects.

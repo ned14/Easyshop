@@ -10,7 +10,7 @@
 
     <browser:viewlet
         name="easyshop.products-viewlet"
-        for="easyshop.core.interfaces.ICategory"
+        for="*"
         manager=".interfaces.IProductsViewletManager"
         class=".products.ProductsViewlet"
         permission="zope.Public" />
