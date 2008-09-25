@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-09-25 08:57+0000\n"
+"POT-Creation-Date: 2008-09-25 10:05+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -578,7 +578,7 @@ msgid "Zip Code"
 msgstr "Postleitzahl"
 
 #. Default: "Accessories"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:245
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:249
 msgid "accessories_label"
 msgstr "Zubehör"
 

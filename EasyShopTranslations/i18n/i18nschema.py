@@ -30,11 +30,15 @@ re_description = re.compile("""description_msgid\s*=\s*["'](.*)["']""")
 msgids = {}    
 result = []
 for root, dirs, files in os.walk('../../../src'):
-
+    
+    if root.find("easyshop") == -1:
+        continue
+        
     if root.find("content") == -1:
         continue
     
     for name in files:
+
         if re.search("py$", name) is None:
             continue
         

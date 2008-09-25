@@ -15,13 +15,31 @@ msgstr ""
 "Domain: EasyShop\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "accessories_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "accessories_label"
+msgstr "Zubehör"
+
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
 #: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
 msgid "help_description"
 msgstr ""
 
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
 #: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
 msgid "label_description"
 msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "schema_accessories_title_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "schema_accessories_title_label"
+msgstr " Title Zubehör"
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/stock_amount.py
 msgid "schema_amount_description"
@@ -32,11 +50,21 @@ msgstr "Geben Sie hier den Lagerbestand ein."
 msgid "schema_amount_label"
 msgstr "Anzahl"
 
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/product_amount.py
+msgid "schema_amount_of_products_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/product_amount.py
+msgid "schema_amount_of_products_label"
+msgstr "Anzahl Produkt"
+
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_article_id_description"
 msgstr "Externe Artikelnummer"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_article_id_label"
 msgstr "Artikelnummer"
 
@@ -48,18 +76,25 @@ msgstr "Bestimmt ob das Produkt lieferbar ist oder nicht."
 msgid "schema_available_label"
 msgstr "Lieferbar"
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
-msgid "schema_categories_description"
-msgstr "Kategorien des Produktes"
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_base_description"
+msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_base_label"
+msgstr "Basis"
+
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/category.py
 msgid "schema_categories_label"
 msgstr "Kategorien"
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/es_image.py
-msgid "schema_content_description"
-msgstr "Verweis zu Inhalt"
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_category_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_categoy_label"
+msgstr "Kategorie"
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_countries_description"
@@ -80,14 +115,6 @@ msgstr "Währung"
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/customer.py
 msgid "schema_customers_label"
 msgstr "Kunden"
-
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
-msgid "schema_cut_image_label"
-msgstr "Bild beschneiden"
-
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
-msgid "schema_cut_image_label_description"
-msgstr "Selektieren um das Bild beschneiden zu lassen."
 
 #: schema | ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
 msgid "schema_delivery_time_max_description"
@@ -113,6 +140,18 @@ msgstr ""
 msgid "schema_delivery_time_unit_label"
 msgstr "Einheit Lieferzeit"
 
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_description_label"
+msgstr "Rabatt"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_gross_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_net_label"
+msgstr "Rabatt netto"
+
 #: schema | ../../../src/easyshop.carts/easyshop/carts/content/cart_item.py
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
 msgid "schema_easyshop_products_label"
@@ -130,6 +169,24 @@ msgstr "Laden Sie hier die PDF-Version hoch. Diese wird als Download angeboten."
 msgid "schema_file_label"
 msgstr "Datei"
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_properties_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_properties_label"
+msgstr "Für Eigenschaften"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_sale_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_sale_label"
+msgstr "Im Angebot"
+
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_gross_prices_description"
 msgstr "Wenn angewählt, gelten alle Preise als Bruttopreise."
@@ -138,11 +195,6 @@ msgstr "Wenn angewählt, gelten alle Preise als Bruttopreise."
 msgid "schema_gross_prices_label"
 msgstr "Brutto Preise"
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
-msgid "schema_groups_description"
-msgstr ""
-
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/group.py
 msgid "schema_groups_label"
 msgstr "Gruppen"
@@ -154,8 +206,8 @@ msgid "schema_help_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_property_option.py
 msgid "schema_image_label"
 msgstr "Bild"
 
@@ -168,12 +220,17 @@ msgid "schema_long_text_label"
 msgstr "Langtext"
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_mail_from_address_label"
+msgstr "Absender"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_mail_from_description"
 msgstr "Diese E-Mail Adresse wird in Shop-Mails als Absender verwendet."
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
-msgid "schema_mail_from_label"
-msgstr "Absender"
+msgid "schema_mail_from_name_label"
+msgstr "Empfänger"
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_mailto_description"
@@ -182,6 +239,34 @@ msgstr "An diese E-Mail Adresse werdena alle Shopmeldungen gesendet."
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_mailto_label"
 msgstr "Empfänger"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_marketing_info_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_marketing_info_label"
+msgstr "Marketing Informationen"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_message_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_message_label"
+msgstr "Nachricht"
+
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+msgid "schema_note_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+msgid "schema_note_label"
+msgstr "Notiz"
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/payment_method.py
 msgid "schema_payment_methods_label"
@@ -219,18 +304,25 @@ msgstr "Geben Sie hier Ihre PayPal-ID ein. Beispiel: hans@mustermann.de."
 msgid "schema_paypal_id_label"
 msgstr "PayPal-ID"
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_position_in_parent_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_position_in_parent_label"
+msgstr "Position"
+
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
 msgid "schema_price_description"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
-#: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
 msgid "schema_price_gross_label"
 msgstr "Preis (Brutto)"
 
-#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
-#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_property_option.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_price_label"
 msgstr "Preis"
 
@@ -241,6 +333,10 @@ msgstr "Preise (Netto)"
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
 msgid "schema_price_type_description"
 msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_id_label"
+msgstr "Product ID"
 
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
 msgid "schema_product_price_gross_label"
@@ -258,6 +354,10 @@ msgstr "Produktmenge"
 msgid "schema_product_tax_label"
 msgstr "Produktsteuer"
 
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_title_label"
+msgstr "Produktname"
+
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
@@ -265,8 +365,8 @@ msgid "schema_products_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/es_image.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/product.py
 msgid "schema_products_label"
 msgstr "Produkte"
 
@@ -278,6 +378,11 @@ msgstr "Rate"
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 msgid "schema_related_products_label"
 msgstr "Passende Produkte"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_sale_price_gross_label"
+msgstr "Angebotspreis (Brutto)"
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
 msgid "schema_shipping_methods_label"
@@ -309,19 +414,23 @@ msgstr "Shopbetreiber"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_description_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_text_label"
 msgstr "Kurztext"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_title_description"
-msgstr ""
+msgstr "Kurztitel"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_title_label"
 msgstr "Kurztitel"
 
@@ -346,21 +455,24 @@ msgid "schema_start_label"
 msgstr "Beginn"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_stock_amount_description"
 msgstr "Geben Sie hier den Lagerbestand des Produktes ein"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_stock_amount_label"
 msgstr "Lagerbestand"
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/easyshop_image.py
 msgid "schema_subtitle_description"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/easyshop_image.py
 msgid "schema_subtitle_label"
 msgstr "Untertitel"
 
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
 msgid "schema_tax_label"
 msgstr "Mehrwertsteuer (Betrag)"
@@ -370,10 +482,12 @@ msgid "schema_tax_rate_label"
 msgstr "Mehrwertsteuer (Rate)"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_text_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_text_label"
 msgstr "Text"
 
@@ -383,24 +497,41 @@ msgstr "Text"
 msgid "schema_title_label"
 msgstr "Titel"
 
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_type_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_type_label"
+msgstr "Typ"
+
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_unlimited_amount_description"
 msgstr "Wenn ausgewählt, wird der Lagerbestand des Produktes nicht verringert."
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_unlimited_amount_label"
 msgstr "Unbegrenzte Anzahl"
 
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_value_description"
+msgstr ""
+
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/country.py
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
 msgid "schema_value_label"
 msgstr "Wert"
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
 msgid "schema_weight_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
 msgid "schema_weight_label"
 msgstr "Gewicht"

@@ -18,12 +18,30 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: EasyShop\n"
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "accessories_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "accessories_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
 #: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
 msgid "help_description"
 msgstr ""
 
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
 #: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
 msgid "label_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "schema_accessories_title_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "schema_accessories_title_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/stock_amount.py
@@ -35,11 +53,21 @@ msgstr ""
 msgid "schema_amount_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/product_amount.py
+msgid "schema_amount_of_products_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/product_amount.py
+msgid "schema_amount_of_products_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_article_id_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_article_id_label"
 msgstr ""
 
@@ -51,17 +79,24 @@ msgstr ""
 msgid "schema_available_label"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
-msgid "schema_categories_description"
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_base_description"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_base_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/category.py
 msgid "schema_categories_label"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/es_image.py
-msgid "schema_content_description"
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_category_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_categoy_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
@@ -82,14 +117,6 @@ msgstr ""
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/customer.py
 msgid "schema_customers_label"
-msgstr ""
-
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
-msgid "schema_cut_image_label"
-msgstr ""
-
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
-msgid "schema_cut_image_label_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
@@ -116,6 +143,18 @@ msgstr ""
 msgid "schema_delivery_time_unit_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_description_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_gross_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_net_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.carts/easyshop/carts/content/cart_item.py
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
 msgid "schema_easyshop_products_label"
@@ -133,6 +172,24 @@ msgstr ""
 msgid "schema_file_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_properties_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_properties_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_sale_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_sale_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_gross_prices_description"
 msgstr ""
@@ -141,11 +198,6 @@ msgstr ""
 msgid "schema_gross_prices_label"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
-msgid "schema_groups_description"
-msgstr ""
-
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/group.py
 msgid "schema_groups_label"
 msgstr ""
@@ -154,14 +206,23 @@ msgstr ""
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 #: schema | ../../../src/easyshop.groups/easyshop/groups/content/group.py
 #: schema | ../../../src/easyshop.groups/easyshop/groups/content/group.py
 msgid "schema_help_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_property_option.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/paypal.py
+#: schema | ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
+#: schema | ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
 msgid "schema_image_label"
 msgstr ""
 
@@ -174,11 +235,16 @@ msgid "schema_long_text_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_mail_from_address_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_mail_from_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
-msgid "schema_mail_from_label"
+msgid "schema_mail_from_name_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
@@ -187,6 +253,38 @@ msgstr ""
 
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_mailto_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_marketing_info_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_marketing_info_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_message_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_message_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/paypal.py
+#: schema | ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
+msgid "schema_note_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/paypal.py
+#: schema | ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
+msgid "schema_note_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/payment_method.py
@@ -225,19 +323,29 @@ msgstr ""
 msgid "schema_paypal_id_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_position_in_parent_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_position_in_parent_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
 msgid "schema_price_description"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
-#: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
-#: schema | ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_price.py
 msgid "schema_price_gross_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_property_option.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
+#: schema | ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
+#: schema | ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_price.py
 msgid "schema_price_label"
 msgstr ""
 
@@ -247,6 +355,10 @@ msgstr ""
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
 msgid "schema_price_type_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_id_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
@@ -265,6 +377,10 @@ msgstr ""
 msgid "schema_product_tax_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_title_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
@@ -273,7 +389,6 @@ msgid "schema_products_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/es_image.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/product.py
 #: schema | ../../../src/easyshop.groups/easyshop/groups/content/group.py
@@ -287,6 +402,11 @@ msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
 msgid "schema_related_products_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_sale_price_gross_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
@@ -319,19 +439,23 @@ msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_description_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_text_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_title_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_short_title_label"
 msgstr ""
 
@@ -356,21 +480,24 @@ msgid "schema_start_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_stock_amount_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_stock_amount_label"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/easyshop_image.py
 msgid "schema_subtitle_description"
 msgstr ""
 
-#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/photo.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/easyshop_image.py
 msgid "schema_subtitle_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
 #: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
 msgid "schema_tax_label"
 msgstr ""
@@ -380,10 +507,12 @@ msgid "schema_tax_rate_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_text_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_text_label"
 msgstr ""
 
@@ -398,24 +527,41 @@ msgstr ""
 msgid "schema_title_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_type_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_type_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_unlimited_amount_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 msgid "schema_unlimited_amount_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_value_description"
+msgstr ""
+
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/country.py
+#: schema | ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
 msgid "schema_value_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
 msgid "schema_weight_description"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
 msgid "schema_weight_label"
 msgstr ""
