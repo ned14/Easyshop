@@ -208,6 +208,7 @@ schema = Schema((
         name="accessories",
         searchable = True,
         widget = LinesWidget(
+            visible = {"edit": "invisible", "view": "invisible"},        
             label="Accessories",
             label_msgid="accessories_label",
             description = "",
@@ -215,6 +216,19 @@ schema = Schema((
             i18n_domain="EasyShop",
         )
     ),
+    
+    StringField(
+        name="accessoriesTitle",
+        schemata="advanced",        
+        widget=StringWidget(        
+            label="Accessories Title",
+            label_msgid="schema_accessories_title_label",
+            description = "The title for accessories",
+            description_msgid = "schema_accessories_title_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+    
     
 ),
 )

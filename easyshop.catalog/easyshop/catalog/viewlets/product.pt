@@ -242,7 +242,12 @@
                                              <table class="shop-default">
                                                  <tr>
                                                      <td colspan="5">
-                                                         <h2 i18n:translate="accessories_label">
+                                                         <h2 tal:condition="context/getAccessoriesTitle"
+                                                             tal:content="context/getAccessoriesTitle">
+                                                             Accessories
+                                                         </h2>
+                                                         <h2 i18n:translate="accessories_label"
+                                                             tal:condition="not: context/getAccessoriesTitle">
                                                              Accessories
                                                          </h2>
                                                      </td>
