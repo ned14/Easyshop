@@ -218,7 +218,7 @@ class IProductManagement(Interface):
         """Returns the amount of products of all subcategories.
         """
         
-class IProductsContainer(Interface):
+class IProductsContainer(IFormatable):
     """Marker interface for product folder content objects.
     """    
 
