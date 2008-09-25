@@ -11,6 +11,8 @@ class PropertiesView(BrowserView):
     def selectProperties(self):
         """
         """
+        # We just have to update the viewlet, everything else is made within the 
+        # viewlet (e.g. calculate price by current selected properties, etc.)
         renderer = getMultiAdapter((self.context, self.request, self), IViewletManager, name="easyshop.product-manager")
         renderer = renderer.__of__(self.context)
         
