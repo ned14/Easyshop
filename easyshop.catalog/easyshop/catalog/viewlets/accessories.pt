@@ -90,15 +90,21 @@
                         title
                     </td>
                     <td>
-                        <a class="move-up" 
+                        <a tal:condition="not:repeat/accessory/start"
+                           style="text-decoration:none"
+                           class="move-up" 
                            tal:attributes="id accessory/uid"
                            href=".">
-                           up
+                           &uarr;
                         </a>  
-                        <a class="move-down" 
+                    </td>        
+                    <td>
+                        <a tal:condition="not:repeat/accessory/end"
+                           style="text-decoration:none"
+                           class="move-down" 
                            tal:attributes="id accessory/uid"                                
                            href=".">
-                           down
+                           &darr;
                         </a>  
                     </td>
                 </tr>
