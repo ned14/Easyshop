@@ -12,6 +12,11 @@
      description="Portlet to browse through the shop's catalog." />
 
  <portlet 
+     addview="portlets.LastSeen"
+     title="EasyShop: Last Seen"
+     description="Portlet to display last seen products." />
+
+ <portlet 
      addview="portlets.Sorting"
      title="EasyShop: Sorting"
      description="Portlet to sort products." />

@@ -49,5 +49,12 @@
         addview=".related_products.AddForm" 
         editview=".related_products.EditForm" />
 
+    <plone:portlet
+        name="portlets.LastSeen"
+        interface=".last_seen.ILastSeenPortlet"
+        assignment=".last_seen.Assignment"
+        renderer=".last_seen.Renderer"
+        addview=".last_seen.AddForm" />
+
 
 </configure>

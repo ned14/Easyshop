@@ -1,0 +1,22 @@
+<dl class="portlet portlet-sorting"
+    i18n:domain="EasyShop"
+    tal:condition="view/available">
+
+    <dt class="portletHeader"
+        i18n:translate="last_seen_label">
+           Last Seen
+    </dt>
+
+    <dd class="portletItem">
+        <ul>
+            <li tal:repeat="product view/getLastSeenProducts">
+                <a href="."
+                   tal:attributes="href product/url"
+                   tal:content="product/title">
+                    Jungle Gym
+                </a>
+            </li>
+        </ul>
+    </dd>
+
+</dl>
