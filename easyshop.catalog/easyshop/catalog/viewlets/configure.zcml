@@ -65,6 +65,19 @@
         class=".product_selector.ProductSelectorViewlet"
         permission="zope.Public" />
         
+    <!-- Accessories -->
+    <browser:viewletManager
+        name="easyshop.manage-accessories-manager"
+        provides=".interfaces.IManageAccessoriesViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="cmf.ManagePortal" />
+
+    <browser:viewlet
+        name="easyshop.manage-accessories-viewlet"
+        for="easyshop.core.interfaces.IProduct"
+        manager=".interfaces.IManageAccessoriesViewletManager"
+        class=".accessories.ManageAccessoriesViewlet"
+        permission="cmf.ManagePortal" />
 
 
 </configure>

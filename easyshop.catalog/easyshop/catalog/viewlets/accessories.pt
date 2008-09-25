@@ -1,0 +1,116 @@
+<div id="accessories">
+    <h1 class="documentFirstHeading"
+        i18n:translate="manage_accessories_label">
+        Manage Accessories
+    </h1>    
+
+    <form method="post">
+        <input type="text" 
+               name="product-title" />
+
+        <input type="submit"
+               value="Search products"
+               i18n:attributes="value search_products_label;"/>
+    
+    </form>
+
+    <tal:block tal:define="products view/getProducts"
+               tal:condition="products">
+        <h1>Suchergebnis</h1>
+        <form action="add-accessories"
+              method="post">
+            <table>
+                <tr>
+                    <td>
+                        <input id="select-all-products"
+                               type="checkbox" />
+                    </td>
+                </tr>
+                <tr tal:repeat="product products">
+                    <td>
+                       <input type="checkbox"
+                              class="new-products"
+                              name="new-products"
+                              tal:attributes="value product/uid" /> 
+                    </td>
+                    <td>
+                        <input type="text"
+                               size="3"
+                               value="1"
+                               tal:attributes="name string:${product/uid}_quantity" />
+                    </td>
+        
+                    <td tal:content="product/title">
+                        title
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        <input type="submit"
+                               value="Add products"
+                               i18n:attributes="value add_products_label;"/>                                
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </tal:block>
+
+    <tal:block tal:define="accessories view/getAccessories"
+               tal:condition="accessories">
+        <h1 i18n:translate="">
+            Accessories
+        </h1>
+        <form action="update-accessories"
+              method="post">
+            <table>
+                <tr>
+                    <td>
+                        <input id="select-all-accessories"
+                               type="checkbox"
+                               checked="checked" />
+                    </td>
+                </tr>
+                <tr tal:repeat="accessory accessories">
+                    <td>
+                       <input type="checkbox"
+                              name="accessories"
+                              class="accessories"
+                              checked="checked"
+                              tal:attributes="value accessory/uid" /> 
+                    </td>
+                    <td>
+                        <input type="text"
+                               size="3"                                       
+                               tal:attributes="name string:${accessory/uid}_quantity;
+                                               value accessory/quantity" />
+                    </td>
+        
+                    <td tal:content="accessory/title">
+                        title
+                    </td>
+                    <td>
+                        <a class="move-up" 
+                           tal:attributes="id accessory/uid"
+                           href=".">
+                           up
+                        </a>  
+                        <a class="move-down" 
+                           tal:attributes="id accessory/uid"                                
+                           href=".">
+                           down
+                        </a>  
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        <input type="submit" 
+                               value="Update accessories"
+                               i18n:attributes="value update_accessories_label;"/>
+                    </td>
+                </tr>
+            </table>
+        </form>    
+    </tal:block>
+</div>

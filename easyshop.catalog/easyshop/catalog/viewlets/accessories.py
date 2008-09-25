@@ -1,9 +1,7 @@
-# zope imports
+# plone imports
+from plone.app.layout.viewlets.common import ViewletBase
 from zope.component import getMultiAdapter
 from zope.component.interfaces import ComponentLookupError
-
-# Five imports
-from Products.Five.browser import BrowserView
 
 # CMFPlone imports
 from Products.CMFPlone import utils
@@ -11,12 +9,18 @@ from Products.CMFPlone import utils
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
+# Five imports
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 # AdvancedQuery
 from Products.AdvancedQuery import Eq
 
-class ManageAccessoriesView(BrowserView):
+
+class ManageAccessoriesViewlet(ViewletBase):
     """
     """
+    render = ViewPageTemplateFile('accessories.pt')
+    
     def getAccessories(self):
         """
         """
@@ -118,4 +122,4 @@ class ManageAccessoriesView(BrowserView):
         """
         """
         url = "%s/%s" % (self.context.absolute_url(), url)
-        self.request.response.redirect(url)
+        self.request.response.redirect(url)    

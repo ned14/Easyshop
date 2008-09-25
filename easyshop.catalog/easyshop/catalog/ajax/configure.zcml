@@ -7,5 +7,20 @@
         class=".properties.PropertiesView"
         attribute="selectProperties"
         permission="zope2.View" />
+    
+    <!-- Accessories -->
+    <browser:page
+        name="ajax-move-accessory-up"
+        for="*"
+        class=".accessories.AccessoriesView"
+        attribute="moveUp"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="ajax-move-accessory-down"
+        for="*"
+        class=".accessories.AccessoriesView"
+        attribute="moveDown"
+        permission="cmf.ManagePortal" />
 
 </configure>

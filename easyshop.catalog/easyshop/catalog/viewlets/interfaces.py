@@ -14,4 +14,9 @@ class IProductViewletManager(IViewletManager):
 
 class IProductSelectorViewletManager(IViewletManager):
     """Viewlet manager for product selector view.
-    """    
+    """
+    
+class IManageAccessoriesViewletManager(IViewletManager):
+    """Viewlet manager for manage accessories view.
+    """
+    

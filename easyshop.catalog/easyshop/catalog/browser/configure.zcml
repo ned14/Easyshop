@@ -102,7 +102,6 @@
         name="manage-accessories-view"
         for="easyshop.core.interfaces.IProduct"
         template="manage_accessories_view.pt"
-        class=".manage_accessories_view.ManageAccessoriesView"
         permission="cmf.ManagePortal" />
 
     <browser:page
