@@ -15,8 +15,9 @@
                 <tr>
                     <td style="width:16px">
                         <img src="."            
-                             alt="Icon"            
-                             tal:attributes="src string:${stock_information/url}/image" />                        
+                             alt="Deliverable"            
+                             tal:attributes="src string:${stock_information/url}/image;"
+                             i18n:attributes="alt deliverable_label;" />
                     </td>
                     <td style="padding-bottom:3px; padding-left:3px;">
                         <tal:block i18n:translate="deliverable_label">
