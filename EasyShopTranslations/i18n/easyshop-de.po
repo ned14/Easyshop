@@ -654,7 +654,6 @@ msgstr "Das ist auch meine Rechnungsadresse"
 
 #. Default: "Menge"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:29
-#, fuzzy
 msgid "amount_label"
 msgstr "Menge"
 
@@ -1371,7 +1370,6 @@ msgstr "Preis absteigend"
 
 #. Default: "Preis"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:33
-#, fuzzy
 msgid "price_label"
 msgstr "Preis"
 
@@ -1611,7 +1609,6 @@ msgstr "Titel"
 
 #. Default: "Gesamt"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:37
-#, fuzzy
 msgid "total_label"
 msgstr "Gesamt"
 
