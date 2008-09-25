@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-09-24 14:25+0000\n"
+"POT-Creation-Date: 2008-09-25 08:57+0000\n"
 "PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -194,6 +194,10 @@ msgstr ""
 
 #: ../../../src/easyshop.information/easyshop/information/portlets/information.py:36
 msgid "EasyShop: Information"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/last_seen.py:34
+msgid "EasyShop: Last Seen"
 msgstr ""
 
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:47
@@ -433,7 +437,7 @@ msgstr ""
 msgid "Sale Price"
 msgstr ""
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:241
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:249
 msgid "Select"
 msgstr ""
 
@@ -574,8 +578,8 @@ msgstr ""
 msgid "Zip Code"
 msgstr ""
 
-#. Default: "<h2>Accessories</h2>"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:250
+#. Default: "Accessories"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:245
 msgid "accessories_label"
 msgstr ""
 
@@ -614,11 +618,6 @@ msgstr ""
 msgid "add_label"
 msgstr ""
 
-#. Default: "Add products"
-#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:77
-msgid "add_products_label"
-msgstr ""
-
 #. Default: "Add Property"
 #: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:68
 msgid "add_property_label"
@@ -654,8 +653,8 @@ msgstr ""
 msgid "also_invoice_address_label"
 msgstr ""
 
-#. Default: "Amount"
-#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:79
+#. Default: "Menge"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:29
 msgid "amount_label"
 msgstr ""
 
@@ -943,12 +942,12 @@ msgid "go_label"
 msgstr ""
 
 #. Default: "Go on shopping"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:55
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:84
 msgid "go_on_shopping_label"
 msgstr ""
 
 #. Default: "Go to cart"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:61
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:90
 msgid "go_to_cart_label"
 msgstr ""
 
@@ -1037,6 +1036,11 @@ msgstr ""
 msgid "last_modification_label"
 msgstr ""
 
+#. Default: "Last Seen"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/last_seen.pt:5
+msgid "last_seen_label"
+msgstr ""
+
 #. Default: "Lines Per Page"
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:42
 msgid "lines_per_page_label"
@@ -1055,11 +1059,6 @@ msgstr ""
 #. Default: "Logout"
 #: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:51
 msgid "logout_label"
-msgstr ""
-
-#. Default: "Manage Accessories"
-#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:29
-msgid "manage_accessories_label"
 msgstr ""
 
 #. Default: "Manage Account"
@@ -1370,8 +1369,8 @@ msgstr ""
 msgid "price_descending_label"
 msgstr ""
 
-#. Default: "Price"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:46
+#. Default: "Preis"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:33
 msgid "price_label"
 msgstr ""
 
@@ -1386,7 +1385,7 @@ msgid "product_height_label"
 msgstr ""
 
 #. Default: "Product"
-#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:73
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:25
 msgid "product_label"
 msgstr ""
 
@@ -1438,11 +1437,6 @@ msgstr ""
 #. Default: "Save"
 #: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:150
 msgid "save_label"
-msgstr ""
-
-#. Default: "Search products"
-#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:38
-msgid "search_products_label"
 msgstr ""
 
 #. Default: "Please select your addresses"
@@ -1614,8 +1608,8 @@ msgstr ""
 msgid "title_label"
 msgstr ""
 
-#. Default: "Total"
-#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:89
+#. Default: "Gesamt"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:37
 msgid "total_label"
 msgstr ""
 
@@ -1632,10 +1626,6 @@ msgstr ""
 #. Default: "User"
 #: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:5
 msgid "user_label"
-msgstr ""
-
-#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_accessories_view.pt:121
-msgid "value update_accessories_label;"
 msgstr ""
 
 #. Default: "Value"
