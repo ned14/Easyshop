@@ -194,8 +194,8 @@
                                         <td tal:repeat="image_url product_data/images">
                                             <img class="thumbnail"
                                                  src="."
-                                                 alt="Image"
-                                                 tal:attributes="src image_url" />
+                                                 tal:attributes="src image_url;
+                                                                 alt product_data/title" />
                                         </td>
                                     </tr>
                                  </table>
