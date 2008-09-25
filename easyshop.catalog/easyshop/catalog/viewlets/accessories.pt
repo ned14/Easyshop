@@ -1,4 +1,5 @@
-<div id="accessories">
+<div id="accessories"
+     domain="Easyshop">
     <h1 class="documentFirstHeading"
         i18n:translate="manage_accessories_label">
         Manage Accessories
