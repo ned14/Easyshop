@@ -18,7 +18,7 @@ setup(name='easyshop.rotating',
       keywords='',
       author='Kai Diefenbach',
       author_email='kai.diefenbach@iqpp.de',
-      url='http://iqpp.d',
+      url='http://iqpp.de',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['easyshop'],
@@ -27,6 +27,7 @@ setup(name='easyshop.rotating',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          "iqpp.plone.rotating",
       ],
       entry_points="""
       # -*- Entry points: -*-

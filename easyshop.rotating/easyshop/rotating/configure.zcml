@@ -1,7 +1,23 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:five="http://namespaces.zope.org/five"    
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="easyshop.rotating">
 
+    <five:registerPackage
+        package="." />
+
+    <include
+        file="profiles.zcml" />
+        
+    <include
+        package="plone.app.portlets" />
+
+    <include
+        package="iqpp.plone.rotating" />
+
+    <plone:portletRenderer
+        portlet="iqpp.plone.rotating.portlets.rotating.IRotatingPortlet"
+        class=".portlet.Renderer" />
 
 </configure>

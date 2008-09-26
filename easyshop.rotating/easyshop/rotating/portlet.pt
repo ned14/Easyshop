@@ -1,0 +1,56 @@
+<dl class="portlet" 
+    tal:define="objects view/getRotatingObjects"
+    tal:condition="objects"
+    id="portlet-random"
+    i18n:domain="EasyShop">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+           <a href="."
+              tal:omit-tag="view/isNoManager"
+              tal:attributes="href view/data/path"
+              tal:content="view/title">
+                 Rotating Portlet
+           </a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:items tal:repeat="item objects">
+
+        <dd tal:define="oddrow repeat/item/odd;"
+            tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+
+            <a style="font-weight:bold" 
+               tal:condition="item/title"
+               href="."
+               tal:attributes="href item/url">
+               <span tal:content="item/title">
+                   Title
+               </span> 
+            </a>
+            
+            <img width="130px"
+                 tal:attributes="src string:${item/url}/image_mini" />
+            
+            <div style="text-align:right; font-weight:bold"
+                 tal:condition="item/for_sale">
+                 <span i18n:translate="price_label">Price</span>
+                <span style="text-decoration:line-through;"
+                     tal:content="item/standard_price">
+                    Price
+                </span>                
+                <span tal:content="item/price">
+                    Price
+                </span>
+            </div>     
+            <div style="text-align:right; font-weight:bold"
+                 tal:condition="not:item/for_sale">
+                 <span i18n:translate="price_label">Price</span>                 
+                <span tal:content="item/price">
+                    Price
+                </span>
+            </div>     
+
+        </dd>        
+    </tal:items> 
+</dl>
