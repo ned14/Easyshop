@@ -7,6 +7,18 @@
       i18n:domain="EasyShop">
 <body>
 
+<metal:javascript_head fill-slot="javascript_head_slot">
+    <script>
+        jq(function() {
+            jq("#select-all-paths").livequery("click", function () {
+                var checkedValue = jq('#select-all-paths').attr('checked') ? 'checked' : ''; 
+                jq(".paths").each(function(){
+                    this.checked = checkedValue;
+                });                    
+            });
+        });
+    </script>            
+</metal:javascript_head>    
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
                     tal:define="batch view/getRedirections;
@@ -55,7 +67,7 @@
                 <tr>
                     <th>
                         <input type="checkbox"
-                               name="select-all-paths" />                        
+                               id="select-all-paths" />
                     </th>
                     <th i18n:translate="old_path_label">
                         Old Path
@@ -67,6 +79,7 @@
                 <tr tal:repeat="redirection batch">
                     <td>
                         <input type="checkbox"
+                               class="paths"
                                name="paths"
                                tal:attributes="value redirection/old_path">
                     </td>
