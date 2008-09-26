@@ -4,12 +4,6 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="easyshop.rotating">
 
-    <five:registerPackage
-        package="." />
-
-    <include
-        file="profiles.zcml" />
-        
     <include
         package="plone.app.portlets" />
 

@@ -29,8 +29,13 @@
                </span> 
             </a>
             
-            <img width="130px"
-                 tal:attributes="src string:${item/url}/image_mini" />
+            <a href="."
+               tal:attributes="href item/url">
+                <img width="130px"
+                     tal:attributes="src string:${item/url}/image_mini;
+                                     alt item/title;
+                                     title item/title" />
+            </a>
             
             <div style="text-align:right; font-weight:bold"
                  tal:condition="item/for_sale">
