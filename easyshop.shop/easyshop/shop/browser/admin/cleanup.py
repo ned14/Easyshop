@@ -38,12 +38,12 @@ class CleanUpView(BrowserView):
             if new_id != product.getId():
                 try:
                     putils._renameObject(product, new_id)
-                    result.append("RedirectMatch ^/%s/%s/(.*) /%s/%s/$1 [R=301]" % (product_url, old_id, product_url, new_id))
+                    result.append("RewriteRule ^/%s/%s(.*) /%s/%s$1 [R=303]" % (product_url, old_id, product_url, new_id))
                 except ResourceLockedError:
                     view = getMultiAdapter((product, self.request), name="plone_lock_operations")
                     view.force_unlock(redirect=False)
                     putils._renameObject(product, new_id)
-                    result.append("RedirectMatch ^%s/%s/(.*) %s/%s/$1 [R=301]" % (product_url, old_id, new_id, product_url))
+                    result.append("RewriteRule ^/%s/%s(.*) /%s/%s$1 [R=303]" % (product_url, old_id, product_url, new_id))
                 except CopyError:
                     LOG("Cleanup Ids:", INFO, "ID exists: %s / Try to rename product %s"  % (new_id, product.getId()))
                     
