@@ -25,6 +25,10 @@
         <indexed_attr value="getPositionInParent"/>
     </index>
 
+    <index name="getForSale" meta_type="FieldIndex">
+        <indexed_attr value="getForSale"/>
+    </index>
+
     <column value="getParentCategory" />
     <column value="getPositionInParent" />
     <column value="amount_of_categories" />
