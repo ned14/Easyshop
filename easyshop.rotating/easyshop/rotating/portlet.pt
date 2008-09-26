@@ -34,7 +34,7 @@
             
             <div style="text-align:right; font-weight:bold"
                  tal:condition="item/for_sale">
-                 <span i18n:translate="price_label">Price</span>
+                 <!-- <span i18n:translate="price_label">Price</span> -->
                 <span style="text-decoration:line-through;"
                      tal:content="item/standard_price">
                     Price
