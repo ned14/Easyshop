@@ -1,5 +1,3 @@
-from AccessControl import Unauthorized
-
 # zope imports
 from zope.interface import Interface
 from zope.interface import implements
@@ -141,6 +139,11 @@ class OrderView(BrowserView):
             else:
                 url = product.absolute_url()
             
+            if IProductVariant.providedBy(product):
+                parent_url = product.aq_inner.aq_parent
+            else:
+                parent_url = None
+                    
             # Properties 
             for property in item.getProperties():
                 if IProductVariant.providedBy(product) == True:
@@ -152,6 +155,7 @@ class OrderView(BrowserView):
                 "product_title"        : item.getProductTitle(),
                 "product_quantity"     : item.getProductQuantity(),
                 "product_url"          : url,
+                "parent_url"           : parent_url,
                 "product_price_gross"  : product_price_gross,
                 "price_gross"          : price_gross,
                 "tax_rate"             : tax_rate,
