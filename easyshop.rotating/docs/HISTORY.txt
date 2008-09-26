@@ -1,0 +1,9 @@
+Changelog for easyshop.rotating
+
+    (name of developer listed in brackets)
+
+easyshop.rotating - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+

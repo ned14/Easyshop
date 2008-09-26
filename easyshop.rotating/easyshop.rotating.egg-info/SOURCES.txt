@@ -1,0 +1,14 @@
+README.txt
+setup.cfg
+setup.py
+easyshop/__init__.py
+easyshop.rotating.egg-info/PKG-INFO
+easyshop.rotating.egg-info/SOURCES.txt
+easyshop.rotating.egg-info/dependency_links.txt
+easyshop.rotating.egg-info/entry_points.txt
+easyshop.rotating.egg-info/namespace_packages.txt
+easyshop.rotating.egg-info/not-zip-safe
+easyshop.rotating.egg-info/requires.txt
+easyshop.rotating.egg-info/top_level.txt
+easyshop/rotating/__init__.py
+easyshop/rotating/tests.py
