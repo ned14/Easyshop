@@ -24,6 +24,8 @@ class SendRatingMailsView(BrowserView):
     def send_rating_mails(self):
         """
         """
+        live = self.request.get("live")
+        
         now = DateTime()
         
         # Get sender
@@ -56,32 +58,50 @@ class SendRatingMailsView(BrowserView):
             if self.hasItems(order) == False:
                 continue
             
-            # Get receiver
-            customer = order.getCustomer()
-            address = IAddressManagement(customer).getShippingAddress()
-            receiver = address.email
-            
-            if sender and receiver:
-                view = getMultiAdapter((order, order.REQUEST), name="rating-mail")
-                text = view()
+            if live is None:
+                receiver = "usenet@diefenba.ch"
+                if sender and receiver:
+                    view = getMultiAdapter((order, order.REQUEST), name="rating-mail")
+                    text = view()
                                 
-                # get charset
-                props = getToolByName(order, "portal_properties").site_properties
-                charset = props.getProperty("default_charset")
+                    # get charset
+                    props = getToolByName(order, "portal_properties").site_properties
+                    charset = props.getProperty("default_charset")
                 
-                sendMultipartMail(
-                    context  = order,
-                    sender   = sender,
-                    receiver = receiver,
-                    bcc      = bcc,
-                    subject  = "Bitte bewerten Sie Ihr Produkt",
-                    text     = text,
-                    charset  = charset)
+                    sendMultipartMail(
+                        context  = order,
+                        sender   = sender,
+                        receiver = receiver,
+                        subject  = "Bitte bewerten Sie Ihr Produkt",
+                        text     = text,
+                        charset  = charset)                    
+            else:
+                # Get receiver
+                customer = order.getCustomer()
+                address = IAddressManagement(customer).getShippingAddress()
+                receiver = address.email
+            
+                if sender and receiver:
+                    view = getMultiAdapter((order, order.REQUEST), name="rating-mail")
+                    text = view()
+                                
+                    # get charset
+                    props = getToolByName(order, "portal_properties").site_properties
+                    charset = props.getProperty("default_charset")
+                
+                    sendMultipartMail(
+                        context  = order,
+                        sender   = sender,
+                        receiver = receiver,
+                        bcc      = bcc,
+                        subject  = "Bitte bewerten Sie Ihr Produkt",
+                        text     = text,
+                        charset  = charset)
                     
-                # set marketing info
-                mi = list(order.getMarketingInfo())
-                mi.append("rating-mail")
-                order.setMarketingInfo(mi)
+                    # set marketing info
+                    mi = list(order.getMarketingInfo())
+                    mi.append("rating-mail")
+                    order.setMarketingInfo(mi)
                 
     def hasItems(self, order):
         """Returns True if order has at least one item with valid url
