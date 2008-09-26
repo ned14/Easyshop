@@ -11,7 +11,7 @@
     <browser:page  
         name="rating-mail"
         for="easyshop.core.interfaces.IOrder"
-        class="easyshop.order.browser.order_view.OrderView"
+        class=".rating_mail.RatingMailView"
         template="rating_mail.pt"
         permission="zope2.Public" />  
 

@@ -55,7 +55,7 @@ class SendRatingMailsView(BrowserView):
             # a valid url (aka product which is not deleted in the meanwhile)
             if self.hasItems(order) == False:
                 continue
-                
+            
             # Get receiver
             customer = order.getCustomer()
             address = IAddressManagement(customer).getShippingAddress()
