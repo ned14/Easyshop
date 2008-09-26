@@ -30,7 +30,9 @@ class SendRatingMailsView(BrowserView):
         mail_addresses = IMailAddresses(self.context)
         sender         = mail_addresses.getSender()
         bcc            = ["kai.diefenbach@iqpp.de"]
-
+        
+        wftool = getToolByName(self.context, "portal_workflow")
+        
         # Get all relevant orders
         om = IOrderManagement(self.context)
         
@@ -39,10 +41,14 @@ class SendRatingMailsView(BrowserView):
             # Send mail only once (below "rating-mail" is set)
             if "rating-mail" in order.getMarketingInfo():
                 continue
-            
-            # Send only mails for orders which are older than 6 weeks
-            # difference in days (6 weeks)
-            if now - order.created() < (3*7):
+
+            # Send mail only for closed orders
+            if wftool.getInfoFor(order, "review_state") != "closed":
+                continue
+                            
+            # Send only mails for orders which are older than 2 weeks
+            # difference in days
+            if now - order.created() < (2*7):
                 continue
             
             # Send only mails for orders which have at least on product with 
