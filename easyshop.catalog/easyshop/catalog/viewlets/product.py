@@ -291,7 +291,7 @@ class ProductViewlet(ViewletBase):
         selected_options = {}
         for name, value in self.request.items():
             if name.startswith("property"):
-                selected_options[name[42:]] = value
+                selected_options[name[9:]] = value
 
         # If nothing is selected we select the default variant
         if selected_options == {}:
