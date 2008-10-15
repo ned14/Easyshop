@@ -291,8 +291,11 @@ class ProductViewlet(ViewletBase):
         selected_options = {}
         for name, value in self.request.items():
             if name.startswith("property"):
-                selected_options[name[9:]] = value
-
+                if len(name) > 42:
+                    selected_options[name[42:]] = value
+                else:
+                    selected_options[name[9:]] = value
+                
         # If nothing is selected we select the default variant
         if selected_options == {}:
             pvm = IProductVariantsManagement(self.context)
