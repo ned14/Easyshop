@@ -10,6 +10,7 @@ from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IShopManagement
 
 class AddedToCartView(BrowserView):
     """
@@ -92,4 +93,9 @@ class AddedToCartView(BrowserView):
         if self.request.SESSION.has_key("added-to-cart"):
             del self.request.SESSION["added-to-cart"]
         return result
+    
+    def getShopURL(self):
+        """
+        """
+        return IShopManagement(self.context).getShop().absolute_url()           
         
