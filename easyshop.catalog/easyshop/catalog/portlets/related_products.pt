@@ -27,9 +27,16 @@
                      style="font-weight:bold">
                     42,00
                 </div>
+
             </a>
         </dd>
     </tal:block>    
+
+    <dd class="portletItem">
+     <div class="product-price-info">
+         *Preis inkl. MwSt. und <a href="javascript:return false" style="text-decoration:underline" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+     </div> 
+    </dd>
 
     <span class="portletBottomLeft"></span>
     <span class="portletBottomRight"></span>
