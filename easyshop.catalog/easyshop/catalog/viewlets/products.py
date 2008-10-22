@@ -64,11 +64,12 @@ class ProductsViewlet(ViewletBase):
         # template to get informations we have here already. Same is true 
         # for format infos, see below
 
+        shop = IShopManagement(self.context).getShop()
+
         parent_category = self.context.getRefs("parent_category")
         if len(parent_category) > 0:
             parent_url = parent_category[0].absolute_url()
         else:
-            shop = IShopManagement(self.context).getShop()
             parent_url = shop.absolute_url()
             
         batch_infos = {
@@ -98,11 +99,11 @@ class ProductsViewlet(ViewletBase):
 
             # Effective price
             price = p.getPriceForCustomer()                                
-            price = cm.priceToString(price, symbol="symbol", position="before")
+            price = cm.priceToString(price, symbol="symbol", position="before", suffix=None)
             
             # Standard price
             standard_price = p.getPriceForCustomer(effective=False)
-            standard_price = cm.priceToString(standard_price, symbol="symbol", position="before")
+            standard_price = cm.priceToString(standard_price, symbol="symbol", position="before", suffix=None)
                                     
             # Image
             image = IImageManagement(product).getMainImage()
@@ -163,10 +164,14 @@ class ProductsViewlet(ViewletBase):
         
         # Return format infos here, because we need it anyway in this method
         # This is for speed reasons. See above.
+        
+        
+        
         return {
             "products"    : products, 
             "batch_info"  : batch_infos,
             "format_info" : f,
+            "shopurl"     : shop.absolute_url() 
         }
 
     def getProperties(self):
@@ -193,7 +198,7 @@ class ProductsViewlet(ViewletBase):
 
                 if price != "":
                     price = u.stringToFloat(price)
-                    price = cm.priceToString(price, "long", "after")
+                    price = cm.priceToString(price, "long", "after", suffix=None)
                     content = "%s %s" % (name, price)
                 else:
                     content = name
