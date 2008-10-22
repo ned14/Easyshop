@@ -254,6 +254,11 @@ td.product-control {
    text-align: right; 
 }
 
+div.product-control-line {
+    margin:0px;
+    padding:0px;
+}
+
 td.product-control form {
     display: inline;
     padding-right:10px;
@@ -263,6 +268,12 @@ td.product-control form {
     white-space:nowrap;
     padding-left:10px;
     font-weight:bold;
+}
+
+.product-price-info {
+     font-size: 8px !important;
+     padding:0px;
+     margin-top:3px;
 }
 
 /* address book */
