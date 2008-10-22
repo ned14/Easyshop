@@ -30,7 +30,8 @@
                       navigationMacroView context/@@navigationMacroView;
                       product_urls navigationMacroView/getProductURLs;
                       standard_price_for_customer view/getTotalStandardPriceForCustomer;
-                      price_for_customer view/getTotalPriceForCustomer"
+                      price_for_customer view/getTotalPriceForCustomer;
+                      shop_url view/getShopURL"
           tal:attributes="action context/absolute_url"
           method="post">
         
@@ -136,39 +137,47 @@
                             <td class="sub-title" 
                                 align="right"
                                 nowrap="nowrap">
-                                <input type="button"
-                                       class="context"
-                                       value="Zoom"
-                                       title="Zoom"
-                                       i18n:attributes="title zoom_label;"
-                                       tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
-
-                                <input class="context"
-                                       id="add-product-top"
-                                       name="addToCart:method" 
-                                       value="Add to Cart"
-                                       type="submit"
-                                       title="Add to Cart"
-                                       i18n:attributes="title add_to_cart_label;
-                                                        value add_to_cart_label;" />
-                                                        
-                                <tal:block tal:condition="context/forSale">
-                                    <span class="product-price"
-                                          style="text-decoration:line-through;"
-                                          tal:content="standard_price_for_customer">
-                                        42.00
-                                    </span>
-                                    <span class="product-price"
-                                          tal:content="price_for_customer">
-                                        42.00
-                                    </span>
-                                </tal:block>                        
-                                <tal:block tal:condition="not:context/forSale">
-                                    <span class="product-price"
-                                          tal:content="price_for_customer">
-                                        42.00
-                                    </span>                                    
-                                </tal:block>                                
+ 
+                                        <div>
+                                                                               
+                                          <input type="button"
+                                                 class="context"
+                                                 value="Zoom"
+                                                 title="Zoom"
+                                                 i18n:attributes="title zoom_label;"
+                                                 tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
+          
+                                          <input class="context"
+                                                 id="add-product-top"
+                                                 name="addToCart:method" 
+                                                 value="Add to Cart"
+                                                 type="submit"
+                                                 title="Add to Cart"
+                                                 i18n:attributes="title add_to_cart_label;
+                                                                  value add_to_cart_label;" />
+                
+                                          <tal:block tal:condition="context/forSale">
+                                              <span class="product-price"
+                                                    style="text-decoration:line-through;"
+                                                    tal:content="standard_price_for_customer">
+                                                  42.00
+                                              </span>
+                                              <span class="product-price"
+                                                    tal:content="price_for_customer">
+                                                  42.00
+                                              </span>
+                                          </tal:block>                        
+                                          <tal:block tal:condition="not:context/forSale">
+                                              <span class="product-price"
+                                                    tal:content="price_for_customer">
+                                                  42.00
+                                              </span>                                    
+                                          </tal:block>
+                                        
+                                        </div> 
+                                        <div class="product-price-info">
+                                           Preis inkl. MwSt. und <a href="javascript:return false" tal:attributes="onclick string:easyShopZoomWindow('${shop_url}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+                                       </div>
                                                                                                                     
                             </td>                                                     
                         </tr>
@@ -407,56 +416,61 @@
                         </tr>
 -->                        
                         <tr>
-                            <td class="product-control"
-                                colspan="2">
-
-                                <input type="button"
-                                       class="context"
-                                       value="Zoom"
-                                       title="Zoom"
-                                       i18n:attributes="title zoom_label;"
-                                       tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
-                   
-                                <input tal:condition="not:view/showAddQuantity"
-                                       type="hidden"
-                                       name="quantity"
-                                       value="1" />
-
-                                <input tal:condition="view/showAddQuantity"
-                                       name="quantity"
-                                       value="1" />
-
-                                <input type="hidden"
-                                       name="url"
-                                       value="product_data/url" />
-                                       
-                                <input class="context"
-                                       id="add-product-bottom"
-                                       name="addToCart:method" 
-                                       value="Add To Cart"
-                                       type="submit"
-                                       title="Add to Cart"
-                                       i18n:attributes="title add_to_cart_label;
-                                                        value add_to_cart_label;" />
-
-                                <tal:block tal:condition="context/forSale">
-                                    <span class="product-price"
-                                          style="text-decoration:line-through;"
-                                          tal:content="standard_price_for_customer">
-                                        42.00
-                                    </span>
-                                    <span class="product-price"
-                                          tal:content="price_for_customer">
-                                        42.00
-                                    </span>
-                                </tal:block>                        
-                                <tal:block tal:condition="not:context/forSale">
-                                    <span class="product-price"
-                                          tal:content="price_for_customer">
-                                        42.00
-                                    </span>                                    
-                                </tal:block>                                
-                            </td>
+                        <td class="product-control"
+                            colspan="2">                                   
+                                  <div>
+                                                              
+                                    <input type="button"
+                                           class="context"
+                                           value="Zoom"
+                                           title="Zoom"
+                                           i18n:attributes="title zoom_label;"
+                                           tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
+                       
+                                    <input tal:condition="not:view/showAddQuantity"
+                                           type="hidden"
+                                           name="quantity"
+                                           value="1" />
+    
+                                    <input tal:condition="view/showAddQuantity"
+                                           name="quantity"
+                                           value="1" />
+    
+                                    <input type="hidden"
+                                           name="url"
+                                           value="product_data/url" />
+                                           
+                                    <input class="context"
+                                           id="add-product-bottom"
+                                           name="addToCart:method" 
+                                           value="Add To Cart"
+                                           type="submit"
+                                           title="Add to Cart"
+                                           i18n:attributes="title add_to_cart_label;
+                                                            value add_to_cart_label;" />
+  
+                                    <tal:block tal:condition="context/forSale">
+                                        <span class="product-price"
+                                              style="text-decoration:line-through;"
+                                              tal:content="standard_price_for_customer">
+                                            42.00
+                                        </span>
+                                        <span class="product-price"
+                                              tal:content="price_for_customer">
+                                            42.00
+                                        </span>
+                                    </tal:block>                        
+                                    <tal:block tal:condition="not:context/forSale">
+                                        <span class="product-price"
+                                              tal:content="price_for_customer">
+                                            42.00
+                                        </span>                                    
+                                    </tal:block> 
+                                  </div>
+                                  <div class="product-price-info">
+                                     Preis inkl. MwSt. und <a href="#" tal:attributes="onclick string:easyShopZoomWindow('${shop_url}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+                                 </div>                                                                
+                          </td>
                         </tr>
                     </table>                                                                                                    
                 </td>                                              
