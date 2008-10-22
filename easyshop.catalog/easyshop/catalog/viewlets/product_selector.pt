@@ -83,52 +83,58 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="product-control"
-                                colspan="2">
+                          <td class="product-control"
+                              colspan="2">
+                                    
+                                    <div>
+  
+                                        <input type="button"
+                                               class="context"
+                                               value="Details"
+                                               title="Details"
+                                               i18n:attributes="title details_label;"
+                                               tal:attributes="onclick string:location.href='${product/url}'" />
+            
+                                        <form tal:attributes="action product/url"
+                                              method="post">
+            
+                                            <input type="hidden"
+                                                   name="quantity"
+                                                   value="1" />
+            
+                                            <input class="context"
+                                                   name="addToCart:method" 
+                                                   value="Add to Cart"
+                                                   type="submit"
+                                                   title="Add to Cart"
+                                                   i18n:attributes="title add_to_cart_label;
+                                                                    value add_to_cart_label;" />
+                                        </form>
+        
 
-                                <input type="button"
-                                       class="context"
-                                       value="Details"
-                                       title="Details"
-                                       i18n:attributes="title details_label;"
-                                       tal:attributes="onclick string:location.href='${product/url}'" />
-                           
-                                <form action="#"                                  
-                                      tal:attributes="action product/url"
-                                      method="post">
+                                    <tal:block tal:condition="product/for_sale">
+                                        <span class="product-price"
+                                              style="text-decoration:line-through;"
+                                              tal:content="product/standard_price">
+                                            42.00
+                                        </span>
+                                        <span class="product-price"
+                                              tal:content="product/price">
+                                            42.00
+                                        </span>
+                                    </tal:block>                        
+                                    <tal:block tal:condition="not:product/for_sale">
+                                        <span class="product-price"
+                                              tal:content="product/price">
+                                            42.00
+                                        </span>                                    
+                                    </tal:block>                                
 
-                                   <input type="hidden"
-                                          name="quantity"
-                                          value="1" />
-
-                                    <input class="context"
-                                           name="addToCart:method" 
-                                           value="Add to Cart"
-                                           title="Add to Cart"                                                   
-                                           type="submit"
-                                           i18n:attributes="title add_to_cart_label;
-                                                            value add_to_cart_label;" />
-                                </form>
-               
-                                <tal:block tal:condition="product/for_sale">
-                                    <span class="product-price"
-                                          style="text-decoration:line-through;"
-                                          tal:content="product/standard_price">
-                                        42.00
-                                    </span>
-                                    <span class="product-price"
-                                          tal:content="product/price">
-                                        42.00
-                                    </span>
-                                </tal:block>                        
-                                <tal:block tal:condition="not:product/for_sale">
-                                    <span class="product-price"
-                                          tal:content="product/price">
-                                        42.00
-                                    </span>                                    
-                                </tal:block>                                
-                            
-                            </td>
+                                </div>
+                                 <div class="product-price-info">
+                                   Preis inkl. MwSt. und <a href="#" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+                                </div>
+                          </td>
                         </tr>
                     </table>                            
                 </td>    
