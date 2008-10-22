@@ -22,6 +22,7 @@ from easyshop.core.interfaces import ICurrencyManagement
 from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IShopManagement
 
 class IRelatedProductsPortlet(IPortletDataProvider):
 
@@ -63,6 +64,11 @@ class Renderer(base.Renderer):
         """
         """
         return self._data()
+
+    def getShopURL(self):
+        """
+        """
+        return IShopManagement(self.context).getShop().absolute_url()   
 
     @memoize
     def _data(self):
