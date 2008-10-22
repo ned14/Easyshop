@@ -77,7 +77,7 @@ class CheckoutCartViewlet(ViewletBase):
             product = cart_item.getProduct()
 
             product_price = IPrices(cart_item).getPriceForCustomer() / cart_item.getAmount()
-            product_price = cm.priceToString(product_price)
+            product_price = cm.priceToString(product_price, suffix=None)
             
             price = IPrices(cart_item).getPriceForCustomer()
 
@@ -89,7 +89,7 @@ class CheckoutCartViewlet(ViewletBase):
 
                 discount = {
                     "title" : discount.Title(),
-                    "value" : cm.priceToString(discount_price, prefix="-"),
+                    "value" : cm.priceToString(discount_price, prefix="-", suffix=None),
                 }
 
                 total_price = price - discount_price
@@ -106,10 +106,10 @@ class CheckoutCartViewlet(ViewletBase):
                 "product_title" : title,
                 "product_url"   : product.absolute_url(),
                 "product_price" : product_price,
-                "price"         : cm.priceToString(price),
+                "price"         : cm.priceToString(price, suffix=None),
                 "amount"        : amount,
                 "properties"    : self._getProperties(cart_item),
-                "total_price"   : cm.priceToString(total_price),
+                "total_price"   : cm.priceToString(total_price, suffix=None),
                 "discount"      : discount,
             })
             
@@ -131,7 +131,7 @@ class CheckoutCartViewlet(ViewletBase):
             price = IPrices(cart).getPriceForCustomer()
         
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(price)
+        return cm.priceToString(price, suffix=None)
 
     def getCountries(self):
         """Returns available countries.
@@ -167,7 +167,7 @@ class CheckoutCartViewlet(ViewletBase):
                 value = getMultiAdapter((discount, cart_item)).getPriceForCustomer()
                 discounts.append({
                     "title" : discount.Title(),
-                    "value" : cm.priceToString(value, prefix="-"),
+                    "value" : cm.priceToString(value, prefix="-", suffix=None),
                 })
         
         return discounts
@@ -199,7 +199,7 @@ class CheckoutCartViewlet(ViewletBase):
         price = pp.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
-        price =  cm.priceToString(price)
+        price =  cm.priceToString(price, suffix=None)
 
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         pim = IPaymentInformationManagement(customer)
@@ -259,7 +259,7 @@ class CheckoutCartViewlet(ViewletBase):
 
                 if option_price != "0.0":
                     option_price = u.stringToFloat(option_price)
-                    option_price = cm.priceToString(option_price, "long", "after")
+                    option_price = cm.priceToString(option_price, "long", "after", suffix=None)
                     content = "%s %s" % (option_name, option_price)
                 else:
                     content = option_name
@@ -365,7 +365,7 @@ class CheckoutCartViewlet(ViewletBase):
         shipping_price = sm.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
-        price = cm.priceToString(shipping_price)
+        price = cm.priceToString(shipping_price, suffix=None)
         method = IShippingMethodManagement(self.context).getSelectedShippingMethod()
         
         if method is None:
