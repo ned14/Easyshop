@@ -26,7 +26,15 @@
                      tal:content="view/getCartPrice">
                     42.0
                 </div>
+                
             </dd>
+
+            <dd class="portletItem">
+             <div class="product-price-info">
+                 *Preis inkl. MwSt. und <a href="javascript:return false" style="text-decoration:underline" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+             </div> 
+            </dd>
+
         
             <dd class="portletFooter">
                 <a tal:attributes="href string:${view/getShopUrl}/checkout">
