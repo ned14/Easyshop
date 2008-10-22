@@ -79,11 +79,11 @@ class ProductSelectorViewlet(ViewletBase):
                 
                 # Effective price
                 price = p.getPriceForCustomer()                                
-                price = cm.priceToString(price, symbol="symbol", position="before")
+                price = cm.priceToString(price, symbol="symbol", position="before", suffix=None)
             
                 # Standard price
                 standard_price = p.getPriceForCustomer(effective=False)
-                standard_price = cm.priceToString(standard_price, symbol="symbol", position="before")
+                standard_price = cm.priceToString(standard_price, symbol="symbol", position="before", suffix=None)
                 
                 # image
                 image = IImageManagement(product).getMainImage()
@@ -151,6 +151,11 @@ class ProductSelectorViewlet(ViewletBase):
             })
 
         return selectors
+
+    def getShopURL(self):
+        """
+        """
+        return IShopManagement(self.context).getShop().absolute_url()
 
     @memoize
     def getBackToOverViewUrl(self):
