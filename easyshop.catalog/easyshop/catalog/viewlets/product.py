@@ -59,7 +59,7 @@ class ProductViewlet(ViewletBase):
         total_price = product_price + total_accessories    
         
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(total_price)
+        return cm.priceToString(total_price, suffix=None)
 
     def getPriceForCustomer(self, formatted=True):
         """
@@ -80,7 +80,7 @@ class ProductViewlet(ViewletBase):
 
         if formatted == True:
             cm = ICurrencyManagement(self.context)
-            return cm.priceToString(price)
+            return cm.priceToString(price, suffix=None)
         else:
             return price
     
@@ -100,7 +100,7 @@ class ProductViewlet(ViewletBase):
         total_price = product_price + total_accessories    
         
         cm = ICurrencyManagement(self.context)
-        return cm.priceToString(total_price)
+        return cm.priceToString(total_price, suffix=None)
         
     def getStandardPriceForCustomer(self, formatted=True):
         """Returns the standard price for a customer when the product is for 
@@ -122,7 +122,7 @@ class ProductViewlet(ViewletBase):
         
         if formatted == True:
             cm = ICurrencyManagement(self.context)
-            return cm.priceToString(price)
+            return cm.priceToString(price, suffix = None)
         else:
             return price
                             
@@ -185,16 +185,16 @@ class ProductViewlet(ViewletBase):
             standard_price = viewlet.getStandardPriceForCustomer(formatted=False)
             total_raw_standard_price = quantity * standard_price
             cm = ICurrencyManagement(self.context)
-            standard_price = cm.priceToString(standard_price)
-            total_standard_price = cm.priceToString(total_raw_standard_price)
+            standard_price = cm.priceToString(standard_price, suffix=None)
+            total_standard_price = cm.priceToString(total_raw_standard_price, suffix=None)
 
             # Effective price
             price = viewlet.getPriceForCustomer(formatted=False)
             total_raw_price = quantity * price
             
             cm = ICurrencyManagement(self.context)
-            price = cm.priceToString(price)
-            total_price = cm.priceToString(total_raw_price)
+            price = cm.priceToString(price, suffix=None)
+            total_price = cm.priceToString(total_raw_price, suffix=None)
             
             result.append({
                 "uid" : uid,
@@ -259,7 +259,7 @@ class ProductViewlet(ViewletBase):
 
                 if option_price != "0.0":
                     option_price = u.stringToFloat(option_price)
-                    option_price = cm.priceToString(option_price, "long", "after")
+                    option_price = cm.priceToString(option_price, "long", "after", suffix=None)
                     content = "%s %s" % (option_name, option_price)
                 else:
                     content = option_name
@@ -392,6 +392,11 @@ class ProductViewlet(ViewletBase):
         """
         shop = self._getShop() 
         return shop.getShowAddQuantity()
+    
+    def getShopURL(self):
+        """
+        """
+        return IShopManagement(self.context).getShop().absolute_url()  
 
     @memoize
     def _getShop(self):
