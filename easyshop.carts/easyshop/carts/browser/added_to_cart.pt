@@ -63,6 +63,7 @@
                             (<span tal:content="property/price" />)
                         </tal:block>
                     </div>
+                    
                 </td>
                 <td class="number"
                     tal:content="product/amount">
@@ -76,10 +77,18 @@
                     tal:content="product/total">
                     Total
                 </td>
-                
             </tr>
             <tr>
-                <td></td>
+                <td colspan="2">
+                <td colspan="3" style="text-align:right">
+                  <div class="product-price-info">
+                     *Preis inkl. MwSt. und <a href="javascript: return false" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+                  </div>
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                </td>
                 <td class="added-to-cart-buttons">
                     <input class="context"  
                            value="Go on shopping" 
