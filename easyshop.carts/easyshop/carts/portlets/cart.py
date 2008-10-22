@@ -111,6 +111,11 @@ class Renderer(base.Renderer):
             return False
         
         return True
+        
+    def getShopURL(self):
+        """
+        """
+        return IShopManagement(self.context).getShop().absolute_url()        
     
     @memoize
     def _getShop(self):
