@@ -274,7 +274,7 @@ td.product-control form {
      font-size: 8px !important;
      padding:0px;
      margin-top:3px;
-     line-height:10px;
+     line-height:10px !important;
 }
 
 /* address book */
