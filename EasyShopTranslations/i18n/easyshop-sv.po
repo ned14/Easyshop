@@ -1,0 +1,1529 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop\n"
+"POT-Creation-Date: 2008-05-16 11:18+0000\n"
+"PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
+"Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
+"Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: sv\n"
+"Language-Name: Swedish\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: EasyShop\n"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.py:75
+msgid " is required"
+msgstr " är nödvändig"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:51
+msgid "Account Number"
+msgstr "Kontonummer"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_add.py:22
+msgid "Add Address"
+msgstr "Lägg till adress"
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/bank_account.py:68
+msgid "Add Bank Information"
+msgstr "Lägg till bankinformation"
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/credit_card.py:68
+msgid "Add Credit Card"
+msgstr "Lägg till kreditkort"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:94
+msgid "Add Related Products Portlet"
+msgstr "Lägg till relaterad produktportlet"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:65
+msgid "Add User"
+msgstr "Lägg till användare"
+
+#: extras | browser/templates/product_view.py
+msgid "Add to Cart"
+msgstr "Lägg till kundvagn"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:38
+msgid "Address 1"
+msgstr "Adress"
+
+#: ../../../src/easyshop.core/easyshop/core/config.py:91
+msgid "American Express"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:58
+msgid "Bank Information Code"
+msgstr "Clearing nummer"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:72
+msgid "Bank Name"
+msgstr "Bankens namn"
+
+#: extras | browser/templates/product_view.py
+msgid "Buy Product"
+msgstr "Köp produkt"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:95
+msgid "Card Number"
+msgstr "Kortnummer"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:88
+msgid "Card Owner"
+msgstr "Kortägare"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:82
+msgid "Card Type"
+msgstr "Korttyp"
+
+#: ../../../src/easyshop.carts/easyshop/carts/portlets/cart.py:32
+msgid "Cart"
+msgstr "Kundvagn"
+
+#: extras | checkout-order-preview-view.py
+msgid "Cash on delivery"
+msgstr "Pengar vid leverans"
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:40
+msgid "Changes saved"
+msgstr "Ändringarna är sparade"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:52
+msgid "City"
+msgstr "Stad"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:31
+msgid "Company Name"
+msgstr "Företagsnamn"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:59
+msgid "Country"
+msgstr "Land"
+
+#: ../../../src/easyshop.customers/easyshop/customers/content/address.py:50
+msgid "Create a new address"
+msgstr "Skapa ny adress"
+
+#: ../../../src/easyshop.payment/easyshop/payment/content/bank_account.py:30
+msgid "Create a new bank account"
+msgstr "Skapa nytt bankkonto"
+
+#: ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py:53
+msgid "Create a new credit card."
+msgstr "Skapa ett nytt kreditkort"
+
+#: ../../../src/easyshop.customers/easyshop/customers/content/customer.py:78
+msgid "Create a new customer"
+msgstr "Skapa en ny kund"
+
+#: extras | checkout-order-preview-view.py
+msgid "Credit Card"
+msgstr "Kreditkort"
+
+#: extras | stock information
+msgid "Day"
+msgstr "Dag"
+
+#: ../../../src/easyshop.core/easyshop/core/config.py:147
+msgid "Days"
+msgstr "Dagar"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:65
+msgid "Depositor"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "Description"
+msgstr "Beskrivning"
+
+#: extras | checkout-order-preview-view.py
+msgid "Direct Debit"
+msgstr "Direktbetalning"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:64
+msgid "E-Mail"
+msgstr "E-post"
+
+#: ../../../src/easyshop.shop/easyshop/shop/portlets/admin.py:37
+msgid "EasyShop Manager"
+msgstr "EasyShop administratör"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:55
+msgid "EasyShop: Categories"
+msgstr "EashShop: Kategorier"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.py:41
+msgid "EasyShop: Formatter"
+msgstr "EashShop: Formatter"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:39
+msgid "EasyShop: Related Products"
+msgstr "EashShop: Relaterade produkter"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.py:33
+msgid "EasyShop: Sorting"
+msgstr "EashShop: Sortering"
+
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.py:36
+msgid "EasyShop: Stock Information"
+msgstr "EashShop: Lagerinformation"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_edit.py:29
+msgid "Edit Address"
+msgstr "Ändra adress"
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/bank_account.py:25
+msgid "Edit Bank Account"
+msgstr "Ändra bankkonto"
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/credit_card.py:25
+msgid "Edit Credit Card"
+msgstr "Ändra kreditkort"
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:29
+msgid "Edit Customer"
+msgstr "Ändra kund"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:266
+msgid "Edit EasyShop Categories Portlet"
+msgstr "Ändra EasyShop kategoriportlet"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:104
+msgid "Edit Related Products Portlet"
+msgstr "Ändra relaterade produkter portlet"
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:57
+msgid "Edit canceled"
+msgstr "Ändring avbruten"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:28
+msgid "Expand all"
+msgstr "Visa alla"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:102
+msgid "Expiration Date Month"
+msgstr "Utgångsmånad"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:109
+msgid "Expiration Date Year"
+msgstr "Utgångsår"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:23
+msgid "File"
+msgstr "Fil"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:17
+msgid "Firstname"
+msgstr "Förnamn"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:21
+msgid "How many products to list. 0 for all."
+msgstr "Hur många produkter ska visas. 0 för alla"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:29
+msgid "If selected all categories are expanded by default."
+msgstr "Välj för att alla kategorier ska visa allt."
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:35
+msgid "If selected amount of product per categories is displayed."
+msgstr "Välj för att visa antal produkter per kategori."
+
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_overwrites/es_folder_position.cpy:33
+msgid "Item's position has changed."
+msgstr "Positionen för objektet är ändrad."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:24
+msgid "Lastname"
+msgstr "Efternamn"
+
+#: extras | formatter.pt
+msgid "Long Text"
+msgstr "Lång text"
+
+#: ../../../src/easyshop.core/easyshop/core/config.py:90
+msgid "MasterCard/EuroCard"
+msgstr ""
+
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.py:40
+msgid "My Account"
+msgstr "Mitt konto"
+
+#. Default: "No"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:375
+msgid "No"
+msgstr "Nej"
+
+#: extras | formatter.pt
+msgid "None"
+msgstr "Inga"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:20
+msgid "Number of products to display"
+msgstr "Antal produkter som ska visas"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:31
+msgid "Password"
+msgstr "Lösenord"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:38
+msgid "Password Confirmation"
+msgstr "Lösenordsverifiering"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:71
+msgid "Phone"
+msgstr "Telefon"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.py:138
+msgid "Please add a e-mail address."
+msgstr "Lägg till en e-postadress"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:69
+msgid "Please confirm our terms and conditions."
+msgstr "Var god bekräfta vilkoren."
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:39
+msgid "Please confirm your password."
+msgstr "Var god bekräfta ditt lösenord."
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:30
+msgid "Please edit the form below and press save."
+msgstr "Var god fyll i formuläret nedanför och spara."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:73
+msgid "Please enter the bank name"
+msgstr "Var god ange bankens namn"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:66
+msgid "Please enter the depositor of the account"
+msgstr "Var god ange xxx för kontot"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:103
+msgid "Please enter the expiration date of the card."
+msgstr "var god ange utgångsdatum för kortet."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:89
+msgid "Please enter the name of the card owner."
+msgstr "Var god ange kortägarens namn."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:52
+msgid "Please enter your account number"
+msgstr "Var god ange kontonummer"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:39
+msgid "Please enter your address."
+msgstr "Var god ange din adress."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:59
+msgid "Please enter your bank information code"
+msgstr "Var god ange din banks clearing nummer."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:53
+msgid "Please enter your city."
+msgstr "var god ange din stad"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:32
+msgid "Please enter your company name."
+msgstr "Var god ange ditt företags namn."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:60
+msgid "Please enter your country."
+msgstr "Var god ange ditt land."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:65
+msgid "Please enter your e-mail address."
+msgstr "Var god ange din e-postadress."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:159
+msgid "Please enter your e-mail."
+msgstr "Var god ange din e-postadress."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:18
+msgid "Please enter your firstname."
+msgstr "Var god ange ditt förnamn."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:25
+msgid "Please enter your lastname."
+msgstr "Var god ange ditt efternamn."
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:32
+msgid "Please enter your password."
+msgstr "Var god ange ditt lösenord."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:72
+msgid "Please enter your phone number."
+msgstr "Var god ange ditt telefonnummer."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:96
+msgid "Please enter your the card number."
+msgstr "Var god ange ditt kreditkortsnummer."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:46
+msgid "Please enter your zip code."
+msgstr "Var god ange ditt postnummer."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/payment.py:83
+msgid "Please select the type of the card."
+msgstr "Var god välj kreditkortstyp."
+
+#: extras | checkout-order-preview-view.py
+msgid "Prepayment"
+msgstr "Förskottsbetalning"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:118
+msgid "Select"
+msgstr "Välj"
+
+#: extras | browser/checkout/checkout.py
+msgid "Send invoice to this address"
+msgstr "Skicka fakturan till denna adress."
+
+#: extras | browser/checkout/checkout.py
+msgid "Send products to this address"
+msgstr "Skicka produkter till denna adress."
+
+#: extras | formatter.pt
+msgid "Short Text"
+msgstr "Kort text"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:34
+msgid "Show quantity"
+msgstr "Visa antal"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:16
+msgid "Text"
+msgstr ""
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_addressbook.py:27
+msgid "The address has been deleted."
+msgstr "Adressen är borttagen."
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:17
+msgid "The information as HTML"
+msgstr "Informationen i HTML format"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/information.py:24
+msgid "The information as downloadable file."
+msgstr "Informaiton som en nedladningsfil."
+
+#: extras | config.py
+msgid "The product has been added to the cart."
+msgstr "Produkten har lagts in i kundvagnen."
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:95
+msgid "This portlet displays related products."
+msgstr "Denna portlet visar relaterade produkter."
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:267
+msgid "This portlet displays the categories of an EasyShop."
+msgstr "Denna portlet visar kategorierna i en EasyShop"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_edit.py:30
+msgid "To change your address edit the form and press save."
+msgstr "För att ändra din adress fyll i formuläret och spara."
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/bank_account.py:26
+msgid "To change your bank information edit the form and press save."
+msgstr "För att ändra din bankinformation fyll i formuläret och spara."
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/credit_card.py:26
+msgid "To change your credit card edit the form and press save."
+msgstr "För att ändra ditt kreditkort fyll formuläret och spara."
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:24
+msgid "Username"
+msgstr "Användarnamn"
+
+#: ../../../src/easyshop.core/easyshop/core/config.py:89
+msgid "Visa"
+msgstr ""
+
+#: extras | stock information
+msgid "Week"
+msgstr "Vecka"
+
+#: ../../../src/easyshop.core/easyshop/core/config.py:148
+msgid "Weeks"
+msgstr "Veckor"
+
+#. Default: "Yes"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:362
+msgid "Yes"
+msgstr "Ja"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.py:161
+msgid "Your mail has been sent."
+msgstr "Ditt email har skickats."
+
+#: ../../../src/easyshop.payment/easyshop/payment/adapters/payment_processing.py:91
+msgid "Your order has been payed."
+msgstr "Din order är betald."
+
+#: extras | config.py
+msgid "Your order has been received. Thank you!"
+msgstr "Din order är mottagen. Tack så mycket!"
+
+#: ../../../src/easyshop.core/easyshop/core/interfaces/customers.py:45
+msgid "Zip Code"
+msgstr "Postnummer"
+
+#. Default: "Account-No."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:229
+msgid "account_no_label"
+msgstr "Kontonummer"
+
+#. Default: "Please add a new addresses"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:16
+msgid "add_address_form_title"
+msgstr "Var god lägg till en adress."
+
+#. Default: "Add Address"
+#: ../../../src/easyshop.customers/easyshop/customers/viewlets/addresses.pt:73
+msgid "add_address_label"
+msgstr "Lägg till adress"
+
+#. Default: "Add Bank Account"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:85
+msgid "add_bank_information_label"
+msgstr "Lägg till bankkonto"
+
+#. Default: "Add Credit Card"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:149
+msgid "add_credit_card_label"
+msgstr "Lägg till kreditkort"
+
+#. Default: "When you are finish, please click on \"Next\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:21
+msgid "add_form_description"
+msgstr "Var god klicka på \"Nästa\" när du är färdig."
+
+#. Default: "Add"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:186
+msgid "add_label"
+msgstr "Lägg till"
+
+#. Default: "Add Property"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:68
+msgid "add_property_label"
+msgstr "Lägg till egenskap"
+
+#. Default: "Add to Cart"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:113
+msgid "add_to_cart_label"
+msgstr "Lägg i kundvagn"
+
+#. Default: "This Article has been added to the cart"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:15
+msgid "added_to_cart_label"
+msgstr "Denna artikel har lagts in i kundvagnen"
+
+#. Default: "Addresses"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:30
+msgid "addresses_label"
+msgstr "Adresser"
+
+#. Default: "All"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:125
+msgid "all_label"
+msgstr "Alla"
+
+#. Default: "(If not, we will ask you soon)"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:376
+msgid "also_invoice_address_description"
+msgstr ""
+
+#. Default: "This is also the invoice address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:348
+msgid "also_invoice_address_label"
+msgstr "Detta är också faktureringsadress"
+
+#. Default: "Amount"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:94
+msgid "amount_label"
+msgstr "Summa"
+
+#. Default: "Amount of Criteria"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_methods.pt:42
+msgid "amount_of_criteria_label"
+msgstr "Antal kriterier"
+
+#. Default: "Amount of Items"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:51
+msgid "amount_of_items_label"
+msgstr "Antal objekt"
+
+#. Default: "Article ID"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:25
+msgid "article_id_label"
+msgstr "Artikel id"
+
+#. Default: "Article"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:16
+msgid "article_label"
+msgstr "Artikel"
+
+#. Default: "Ascending"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:64
+msgid "ascending_label"
+msgstr ""
+
+#. Default: "Availability"
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_view.pt:35
+msgid "availability_label"
+msgstr "Tillgänglighet"
+
+#. Default: "Available / Time Period"
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:36
+msgid "available_time_period_label"
+msgstr "Tillgänglig / tidsperiod"
+
+#. Default: "Back to overview"
+#: ../../../src/easyshop.order/easyshop/order/browser/order_view.pt:25
+msgid "back_to_overview_label"
+msgstr "Tillbaka till översikten"
+
+#. Default: "Bank accounts"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:31
+msgid "bank_accounts_label"
+msgstr "Bankkonton"
+
+#. Default: "Bank Code"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:212
+msgid "bank_code_label"
+msgstr "Clearingnummer"
+
+#. Default: "Bank Information"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:129
+msgid "bank_information_label"
+msgstr "Bankinformation"
+
+#. Default: "Bank Name"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:219
+msgid "bank_name_label"
+msgstr "Banknamn"
+
+#: extras | workflow state
+msgid "canceled"
+msgstr "avbruten"
+
+#. Default: "Canceled"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:61
+msgid "canceled_label"
+msgstr "Avbruten"
+
+#. Default: "Card Number"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:92
+msgid "card_number_label"
+msgstr "Kortnummer"
+
+#. Default: "Card Owner"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:82
+msgid "card_owner_label"
+msgstr "Kortägare"
+
+#. Default: "Cart ID"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:85
+msgid "cart_id_label"
+msgstr "Kundvagns id"
+
+#. Default: "Cart"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:20
+msgid "cart_label"
+msgstr "Kundvagn"
+
+#. Default: "Carts"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:14
+msgid "carts_label"
+msgstr "Kundvagnar"
+
+#. Default: "Categories"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:11
+msgid "categories_label"
+msgstr "Kategorier"
+
+#. Default: "Categories Tree"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:33
+msgid "catgories_tree_label"
+msgstr "Kategoriträd"
+
+#. Default: "Check Out"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:333
+msgid "checkout_label"
+msgstr "Till kassan"
+
+#. Default: "Please enter your friend's email address:"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:51
+msgid "checkout_recommendation_2"
+msgstr "Var god ange din väns e-postadress."
+
+#. Default: "Total Sum:"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:299
+msgid "checkout_total_sum_label"
+msgstr "Totalt:"
+
+#. Default: "Click to close the window"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
+msgid "click_to_close_window_label"
+msgstr "Klicka för att stänga fönstret"
+
+#: extras | workflow state
+msgid "closed"
+msgstr "stängd"
+
+#. Default: "Closed"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:56
+msgid "closed_label"
+msgstr "Stängd"
+
+#. Default: "Complete Order"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:40
+msgid "complete_order_label"
+msgstr ""
+
+#. Default: "Country"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:30
+msgid "country_label"
+msgstr "Land"
+
+#. Default: "Creation Date"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:41
+msgid "creation_date_label"
+msgstr ""
+
+#. Default: "Type"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:75
+msgid "credit_card_type_label"
+msgstr "Typ"
+
+#. Default: "Credit Cards"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:58
+msgid "credit_cards_label"
+msgstr "Kreditkort"
+
+#. Default: "Criteria"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_method.pt:37
+msgid "criteria_label"
+msgstr "Kriterium"
+
+#. Default: "Customer Name"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:120
+msgid "customer_name_label"
+msgstr "Kundnamn"
+
+#. Default: "Customers"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:12
+msgid "customers_label"
+msgstr "Kunder"
+
+#. Default: "This is an overview over all existing customers."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:17
+msgid "customers_view_description"
+msgstr "Detta är en översikt över alla kunder."
+
+#. Default: "Date"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:69
+msgid "date_label"
+msgstr "Datum"
+
+#. Default: "Delete Article"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:126
+msgid "delete_article_label"
+msgstr "Ta bort artikel"
+
+#. Default: "Delete"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:145
+msgid "delete_label"
+msgstr "Ta bort"
+
+#. Default: "Deliverable"
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:22
+msgid "deliverable_label"
+msgstr ""
+
+#. Default: "Delivery Period"
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:31
+msgid "delivery_period_label"
+msgstr "Leveransperiod"
+
+#. Default: "Depositor"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:236
+msgid "depositor_label"
+msgstr ""
+
+#. Default: "Descending"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:69
+msgid "descending_label"
+msgstr ""
+
+#. Default: "Description"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_method.pt:23
+msgid "description_label"
+msgstr "Beskrivning"
+
+#. Default: "Details"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:56
+msgid "details_label"
+msgstr "Detaljer"
+
+#. Default: "Direct Debit"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:196
+msgid "direct_debit_label"
+msgstr "Direktbetalning"
+
+#. Default: "Discount"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:203
+msgid "discount_label"
+msgstr "Rabatt"
+
+#. Default: "Discounts"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:274
+msgid "discounts_label"
+msgstr "Rabatter"
+
+#. Default: "Edit"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:134
+msgid "edit_label"
+msgstr "Ändra"
+
+#. Default: "Enabled"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:30
+msgid "enabled_label"
+msgstr "På"
+
+#. Default: "Expiration Date"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:99
+msgid "expiration_date_label"
+msgstr "Utgångsdatum"
+
+#. Default: "First"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:31
+msgid "first_label"
+msgstr "Första"
+
+#. Default: "EasyShop Formatter"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:5
+msgid "formatter_label"
+msgstr ""
+
+#. Default: "Name"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:74
+msgid "fullname_label"
+msgstr "Namn"
+
+#. Default: "General"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:66
+msgid "general_label"
+msgstr "Generell"
+
+#. Default: "Global Properties"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:10
+msgid "global_properties_label"
+msgstr "Globala inställningar"
+
+#. Default: "Go"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:76
+msgid "go_label"
+msgstr "Gå"
+
+#. Default: "Go on shopping"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:56
+msgid "go_on_shopping_label"
+msgstr "Fortsätt handla"
+
+#. Default: "Go to cart"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:62
+msgid "go_to_cart_label"
+msgstr "Till kundvagnen"
+
+#. Default: "Group"
+#: ../../../src/easyshop.groups/easyshop/groups/browser/groups_view.pt:41
+msgid "group_label"
+msgstr "Grupp"
+
+#. Default: "Groups"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:177
+msgid "groups_label"
+msgstr "Grupper"
+
+#. Default: "Groups overview"
+#: ../../../src/easyshop.groups/easyshop/groups/browser/group_view.pt:16
+msgid "groups_overview_label"
+msgstr "Gruppöversikt"
+
+#. Default: "Icon"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:29
+msgid "icon_label"
+msgstr "Ikon"
+
+#. Default: "ID"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:56
+msgid "id_label"
+msgstr ""
+
+#. Default: "Image Size"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:73
+msgid "image_size_label"
+msgstr "Bildstorlek"
+
+#. Default: "incl. Tax ="
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:310
+msgid "incl_tax_label"
+msgstr "inkl. moms ="
+
+#. Default: "Information"
+#: ../../../src/easyshop.shop/easyshop/shop/portlets/admin.pt:109
+msgid "information_label"
+msgstr ""
+
+#. Default: "Invoice Address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:109
+msgid "invoice_address_label"
+msgstr "Fakturaadress"
+
+#. Default: "Add Address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.py:62
+msgid "label_add_address"
+msgstr "Lägg till adress"
+
+#. Default: "Buy"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:78
+msgid "label_buy"
+msgstr "Köp"
+
+#. Default: "Cancel"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/address_forms.py:48
+msgid "label_cancel"
+msgstr "Avbryt"
+
+#. Default: "Next"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_add.py:25
+msgid "label_next"
+msgstr "Nästa"
+
+#. Default: "Save"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_edit.py:33
+msgid "label_save"
+msgstr "Spara"
+
+#. Default: "Last"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:67
+msgid "last_label"
+msgstr "Sista"
+
+#. Default: "Last Modification"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:36
+msgid "last_modification_label"
+msgstr "Senaste ändring"
+
+#. Default: "Lines Per Page"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:42
+msgid "lines_per_page_label"
+msgstr "Rader per sida"
+
+#. Default: "Local Properties"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:57
+msgid "local_properties_label"
+msgstr "Lokala inställningar"
+
+#. Default: "Login"
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:21
+msgid "login_label"
+msgstr "Logga in"
+
+#. Default: "Logout"
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:51
+msgid "logout_label"
+msgstr "Logga ut"
+
+#. Default: "Manage Account"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:16
+msgid "manage_account_label"
+msgstr "Hantera konto"
+
+#. Default: "Manage Addressbook"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_addressbook.pt:16
+msgid "manage_addressbook_label"
+msgstr "Hantera adressbok"
+
+#. Default: "Manage"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:103
+msgid "manage_label"
+msgstr "Hantera"
+
+#. Default: "Manage name and e-mail address"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:38
+msgid "manage_name_label"
+msgstr "Hantera namn och e-postadress"
+
+#. Default: "Manage Password"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_password.pt:16
+msgid "manage_password_label"
+msgstr "Hantera lösenord"
+
+#. Default: "Manage Payment"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:16
+msgid "manage_payment_label"
+msgstr "Hantera betalning"
+
+#. Default: "Manage Payment Methods"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:57
+msgid "manage_payment_methods_label"
+msgstr "Hantera betalningssätt"
+
+#. Default: "More orders"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:40
+msgid "more_orders_label"
+msgstr "Fler ordrar"
+
+#. Default: "Move Down"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:91
+msgid "move_down_label"
+msgstr "Flytta ner"
+
+#. Default: "Move Up"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:83
+msgid "move_up_label"
+msgstr "Flytta upp"
+
+#. Default: "My Account"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:38
+msgid "my_account_label"
+msgstr "Mitt konto"
+
+#. Default: "My Orders"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:16
+msgid "my_orders_label"
+msgstr "Min ordrar"
+
+#. Default: "Name descending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:23
+msgid "name-descending-label"
+msgstr ""
+
+#. Default: "Name ascending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:18
+msgid "name_ascending_label"
+msgstr ""
+
+#. Default: "Name"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_methods.pt:38
+msgid "name_label"
+msgstr "namn"
+
+#. Default: "Next"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:56
+msgid "next_label"
+msgstr "Nästa"
+
+#. Default: "There are no addresses"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:124
+msgid "no_addresses_label"
+msgstr "Det finns inga adresser"
+
+#. Default: "There are no bank information"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:155
+msgid "no_bank_information_label"
+msgstr "Det finns ingen bankinformation"
+
+#. Default: "This customer has no cart yet."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:192
+msgid "no_cart_label"
+msgstr "Denna kund har ingen kundvagn än."
+
+#. Default: "There are no carts."
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:26
+msgid "no_carts_label"
+msgstr "Det finns inga kundvagnar."
+
+#. Default: "There are no categories."
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:8
+msgid "no_categories_label"
+msgstr "Det finns inga kategorier."
+
+#. Default: "There are no criteria."
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_method.pt:30
+msgid "no_criteria_label"
+msgstr "Det finns inga kriterier."
+
+#. Default: "There are no customers."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:71
+msgid "no_customers_label"
+msgstr "Det finns inga kunder."
+
+#. Default: "There are no groups."
+#: ../../../src/easyshop.groups/easyshop/groups/browser/groups_view.pt:31
+msgid "no_groups_label"
+msgstr "Det finns inga grupper."
+
+#. Default: "There are no orders."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:178
+msgid "no_orders_label"
+msgstr "Det finns inga ordrar."
+
+#. Default: "There are no payment methods."
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_methods.pt:30
+msgid "no_payment_methods_label"
+msgstr "Det finns inga betalningssätt."
+
+#. Default: "There are no payment prices."
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:30
+msgid "no_payment_prices_label"
+msgstr "Det finns inga betalningskostnader."
+
+#. Default: "There are no products for the selected catagory"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:53
+msgid "no_products_for_category_label"
+msgstr "Det finns inga produkter i den valda kategorin."
+
+#. Default: "No products found."
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:97
+msgid "no_products_found_label"
+msgstr "Inga produkter hittades."
+
+#. Default: "There are no products."
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:92
+msgid "no_products_label"
+msgstr "Det finns inga produkter."
+
+#. Default: "There are no shipping methods."
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:24
+msgid "no_shipping_methods_label"
+msgstr "Det finns inga leveranssätt."
+
+#. Default: "There are no shipping prices."
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:24
+msgid "no_shipping_price_label"
+msgstr "Det finns inga leveranskostnader."
+
+#. Default: "There are no stock information."
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:24
+msgid "no_stock_information_label"
+msgstr "Det finns ingen lagerinformation."
+
+#. Default: "Not deliverable"
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:45
+msgid "not_deliverable_label"
+msgstr "Ej levererbar"
+
+#. Default: "of"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:49
+msgid "of_label"
+msgstr "av"
+
+#. Default: "Date"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:120
+msgid "order_date_label"
+msgstr "Datum"
+
+#. Default: "E-mail"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:87
+msgid "order_email_label"
+msgstr "E-post"
+
+#. Default: "ID"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:114
+msgid "order_id_label"
+msgstr ""
+
+#. Default: "The order can be found here."
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:58
+msgid "order_link_label"
+msgstr "Ordern finns här."
+
+#. Default: "Name"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:76
+msgid "order_name_label"
+msgstr "Namn"
+
+#. Default: "Phone"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:103
+msgid "order_phone_label"
+msgstr "Telefon"
+
+#. Default: "Please check the order. If you finished, confirm our terms and conditions and click on \"Complete order\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:38
+msgid "order_preview_description"
+msgstr ""
+
+#. Default: "State"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:132
+msgid "order_state_label"
+msgstr "Status"
+
+#. Default: "Total"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:150
+msgid "order_total_label"
+msgstr "Totalt"
+
+#. Default: "Orders"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:159
+msgid "orders_label"
+msgstr "Ordrar"
+
+#: extras | workflow state
+msgid "payed (not sent)"
+msgstr "betald (ej skickad)"
+
+#. Default: "Payed Not Sent"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:46
+msgid "payed_not_sent_label"
+msgstr "Betald ej skickad"
+
+#. Default: "Payment"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:37
+msgid "payment_label"
+msgstr "Betalning"
+
+#. Default: "Payment Method"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:36
+msgid "payment_method_label"
+msgstr "Betalningssätt"
+
+#. Default: "Payment Methods"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_methods.pt:12
+msgid "payment_methods_label"
+msgstr "Betalningssätt"
+
+#. Default: "Payment Price"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:59
+msgid "payment_price_label"
+msgstr "Betalningskostnad"
+
+#. Default: "Payment Prices"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:12
+msgid "payment_prices_label"
+msgstr "Betalningskostnader"
+
+#. Default: "PayPal"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:171
+msgid "paypal_label"
+msgstr ""
+
+#: extras | workflow state
+msgid "pending"
+msgstr "väntande"
+
+#. Default: "Pending"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:41
+msgid "pending_label"
+msgstr "Väntande"
+
+#. Default: "Personal informations"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:33
+msgid "personal_informations_label"
+msgstr "Personlig information"
+
+#. Default: "Complete Order"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:22
+msgid "preview_order_form_title"
+msgstr "Godkänn beställning"
+
+#. Default: "Previous"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:42
+msgid "previous_label"
+msgstr "Föregående"
+
+#. Default: "Price ascending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:28
+msgid "price_ascending"
+msgstr ""
+
+#. Default: "Price descending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:33
+msgid "price_descending_label"
+msgstr ""
+
+#. Default: "Price"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:99
+msgid "price_label"
+msgstr "Pris"
+
+#. Default: "Priority"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:50
+msgid "priority_label"
+msgstr "Prioritet"
+
+#. Default: "Product Height"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:87
+msgid "product_height_label"
+msgstr "Produktens höjd"
+
+#. Default: "Product"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:88
+msgid "product_label"
+msgstr "Produkt"
+
+#. Default: "Product Price"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:70
+msgid "product_price_label"
+msgstr "Produktens pris"
+
+#. Default: "Products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:50
+msgid "products_label"
+msgstr "Produkter"
+
+#. Default: "Products Per Line"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:60
+msgid "products_per_line_label"
+msgstr "Produkter per rad"
+
+#. Default: "This is an overview over all existing products."
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:19
+msgid "products_view_description"
+msgstr "Detta är en översikt över alla produkter."
+
+#. Default: "Properties"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:211
+msgid "properties_label"
+msgstr "Inställningar"
+
+#. Default: "Quantity"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:281
+msgid "quantity_label"
+msgstr "Antal"
+
+#. Default: "Redo payment"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:221
+msgid "redo_label"
+msgstr "Gör om betalningen"
+
+#. Default: "Refresh"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:76
+msgid "refresh_label"
+msgstr "Uppdatera"
+
+#. Default: "Related Products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:143
+msgid "related_products_label"
+msgstr "Relaterade produkter"
+
+#. Default: "Received at"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:46
+msgid "reveived_at_label"
+msgstr "Mottagen den"
+
+#. Default: "Save"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:150
+msgid "save_label"
+msgstr "Spara"
+
+#. Default: "Please select your addresses"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:17
+msgid "select_address_form_title"
+msgstr "Var god välj din adress."
+
+#. Default: "Select your shipping and invoice address and click on \"Next\". Or click on \"Add Address\" to add a new one."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:22
+msgid "select_form_description"
+msgstr ""
+
+#. Default: "Select"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:61
+msgid "select_label"
+msgstr "Välj"
+
+#. Default: "When finished, please click on \"Next\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:15
+msgid "select_payment_form_description_1"
+msgstr "När du är färdig var god klicka på \"Nästa\"."
+
+#. Default: "(The order can be checked at the end, before it will be sent.)"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:357
+msgid "select_payment_form_description_2"
+msgstr ""
+
+#. Default: "Please select you payment method"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:10
+msgid "select_payment_form_title"
+msgstr "Var god välj betalningssätt."
+
+#. Default: "When finished, please click on \"Next\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/shipping.pt:14
+msgid "select_shipping_form_description_1"
+msgstr "När du är färdig var god klicka på \"Nästa\"."
+
+#. Default: "Please select you shipping method"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/shipping.pt:9
+msgid "select_shipping_form_title"
+msgstr "Var god välj leveranssätt"
+
+#. Default: "Selected Products:"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:21
+msgid "selected_products_label"
+msgstr "Valda produkter"
+
+#: extras | workflow state
+msgid "sent (not payed)"
+msgstr "skickad (ej betald)"
+
+#. Default: "Sent Not Payed"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:51
+msgid "sent_not_payed_label"
+msgstr "Skickad ej betald"
+
+#. Default: "Sent Not Payed Orders"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:16
+msgid "sent_not_payed_orders_label"
+msgstr "Skickade men ej betalda beställningar"
+
+#. Default: "Shipping Address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:54
+msgid "shipping_address_label"
+msgstr "Leveransadress"
+
+#. Default: "Shipping"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:224
+msgid "shipping_label"
+msgstr "Leverans"
+
+#. Default: "Shipping Method"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:33
+msgid "shipping_method_label"
+msgstr "Leveranssätt"
+
+#. Default: "Shipping Methods"
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:12
+msgid "shipping_methods_label"
+msgstr "Leveranssätt"
+
+#. Default: "Shipping Price"
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_price.pt:29
+msgid "shipping_price_label"
+msgstr "Leveranskostnad"
+
+#. Default: "Shipping Prices"
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:12
+msgid "shipping_prices_label"
+msgstr "Leveranskostnader"
+
+#. Default: "Shop"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:19
+msgid "shop_label"
+msgstr "Affär"
+
+#. Default: "If you are contented with our service you can recommend us to a friend."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:47
+msgid "shop_recommendation_1"
+msgstr ""
+
+#. Default: "Show Chars"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:116
+msgid "show_chars_label"
+msgstr "Visa beställningar"
+
+#. Default: "Sorting"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:4
+msgid "sorting_label"
+msgstr "Sortering"
+
+#. Default: "State"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:54
+msgid "state_label"
+msgstr "Status"
+
+#. Default: "Stock Information"
+#: ../../../src/easyshop.shop/easyshop/shop/portlets/admin.pt:102
+msgid "stock_information_label"
+msgstr "Lagerinformation"
+
+#. Default: "Taxes"
+#: ../../../src/easyshop.shop/easyshop/shop/portlets/admin.pt:58
+msgid "taxes_label"
+msgstr "Skatter"
+
+#. Default: "Yes, I accept"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:383
+msgid "terms_and_conditions_label_1"
+msgstr "Ja godkänner"
+
+#. Default: "terms and conditions"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:386
+msgid "terms_and_conditions_label_2"
+msgstr "vilkor"
+
+#. Default: "of"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:390
+msgid "terms_and_conditions_label_3"
+msgstr "av"
+
+#. Default: "Text"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:129
+msgid "text_label"
+msgstr ""
+
+#. Default: "Your order has been successfully completed. You will get a confirmation e-mail very soon."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:15
+msgid "thank_you_description_1"
+msgstr ""
+
+#. Default: "We have accepted you order with number"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:25
+msgid "thank_you_description_2"
+msgstr ""
+
+#. Default: "You can see the status of your order at"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:34
+msgid "thank_you_description_3"
+msgstr ""
+
+#. Default: "Thank you for your shopping!"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:10
+msgid "thank_you_title"
+msgstr "Tack för din beställning!"
+
+#. Default: "Title"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:32
+msgid "title_label"
+msgstr "Titel"
+
+#. Default: "Total"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:104
+msgid "total_label"
+msgstr "Totalt"
+
+#. Default: "Unit Price"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:278
+msgid "unit_price_label"
+msgstr "Styckpris"
+
+#. Default: "Please add username and password."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.pt:17
+msgid "user_form_title"
+msgstr ""
+
+#. Default: "User"
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:5
+msgid "user_label"
+msgstr ""
+
+#. Default: "Value"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_method.pt:47
+msgid "value_label"
+msgstr ""
+
+#. Default: "Variants"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:10
+msgid "variants_label"
+msgstr ""
+
+#. Default: "View"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:84
+msgid "view_label"
+msgstr ""
+
+#. Default: "Welcome"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:27
+msgid "welcome_label"
+msgstr ""
+
+#. Default: "Zoom"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:106
+msgid "zoom_label"
+msgstr ""
+
+#. Default: "Zoom View"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
+msgid "zoom_view_label"
+msgstr ""
