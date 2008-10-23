@@ -83,8 +83,8 @@ msgid "Cart"
 msgstr "Kundvagn"
 
 #: extras | checkout-order-preview-view.py
-msgid "Cash on delivery"
-msgstr "Pengar vid leverans"
+msgid "Cash on Delivery"
+msgstr "Postförskott"
 
 #: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:40
 msgid "Changes saved"
@@ -679,7 +679,7 @@ msgstr "Stängd"
 #. Default: "Complete Order"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:40
 msgid "complete_order_label"
-msgstr ""
+msgstr "Slutför beställningen"
 
 #. Default: "Country"
 #: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:30
@@ -1144,7 +1144,7 @@ msgstr "Telefon"
 #. Default: "Please check the order. If you finished, confirm our terms and conditions and click on \"Complete order\"."
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:38
 msgid "order_preview_description"
-msgstr ""
+msgstr "Var god kontrollera beställningen. När du är färdig, godkänn våra vilkor och \"slutför beställningen\"."
 
 #. Default: "State"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:132
@@ -1332,7 +1332,7 @@ msgstr "När du är färdig var god klicka på \"Nästa\"."
 #. Default: "(The order can be checked at the end, before it will be sent.)"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:357
 msgid "select_payment_form_description_2"
-msgstr ""
+msgstr "(Beställningen kan verifieras på sista steget, innan den skickas.)"
 
 #. Default: "Please select you payment method"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:10
@@ -1406,7 +1406,7 @@ msgstr "Affär"
 #. Default: "If you are contented with our service you can recommend us to a friend."
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:47
 msgid "shop_recommendation_1"
-msgstr ""
+msgstr "Om du är nöjd med våra varor och vår butik får du gärna rekommendera oss till dina vänner."
 
 #. Default: "Show Chars"
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:116
@@ -1456,17 +1456,17 @@ msgstr ""
 #. Default: "Your order has been successfully completed. You will get a confirmation e-mail very soon."
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:15
 msgid "thank_you_description_1"
-msgstr ""
+msgstr "Din beställning har skickats. Inom kort kommer du få ett bekräftelsemail."
 
 #. Default: "We have accepted you order with number"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:25
 msgid "thank_you_description_2"
-msgstr ""
+msgstr "We har mottagit din beställning med nummer"
 
 #. Default: "You can see the status of your order at"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:34
 msgid "thank_you_description_3"
-msgstr ""
+msgstr "Du kan se status på din beställning om du går till"
 
 #. Default: "Thank you for your shopping!"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:10
@@ -1527,3 +1527,9 @@ msgstr ""
 #: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
 msgid "zoom_view_label"
 msgstr ""
+
+msgid "Send"
+msgstr "Skicka"
+
+msgid "welcome_label"
+msgstr "Välkomment till säker beställning"
