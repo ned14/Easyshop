@@ -29,13 +29,13 @@
         attribute="createProducts2"
         permission="cmf.ManagePortal" />
 
-    <browser:page
+    <!-- <browser:page
         name="cleanup-ratings"
         for="*"        
         class=".rating.RatingView"
         attribute="cleanupRatings"
         permission="cmf.ManagePortal" />
-
+ -->
     <browser:page
         name="cleanup-ids"
         for="*"        
