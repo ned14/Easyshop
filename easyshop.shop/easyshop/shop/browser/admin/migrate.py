@@ -16,3 +16,5 @@ class MigrateView(BrowserView):
         """
         """
         import pdb; pdb.set_trace()
+        from Products.CacheSetup.enabler import enableCacheFu
+        enableCacheFu(self, True)
