@@ -35,7 +35,6 @@ class ProductPrices(object):
     def getPriceForCustomer(self, effective=True, variant_price=True):
         """
         """
-        import pdb; pdb.set_trace()
         if self.has_variants and variant_price and \
            self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceForCustomer(effective)
