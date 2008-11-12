@@ -764,7 +764,7 @@ msgstr "Kategorienbaum"
 #. Default: "Check Out"
 #: ../../../src/easyshop.carts/easyshop/carts/portlets/cart.pt:33
 msgid "checkout_label"
-msgstr "Zur Kasse"
+msgstr "Kasse"
 
 #. Default: "Please enter your friend's email address:"
 #: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:51
