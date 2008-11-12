@@ -338,6 +338,7 @@ table.cart td {
 table.cart td.buttons {
     height:40px;
     vertical-align: top;
+    text-align: center;
 }
 
 table.shop-default {
@@ -412,7 +413,8 @@ img.product-details {
 
 /* Added to cart view */
 .added-to-cart-buttons {
-   padding-top:20px; 
+   padding-top:20px;
+   text-align:center;
 }
 
 .added-to-cart-image {
