@@ -37,7 +37,12 @@
 
         
             <dd class="portletFooter">
-                <a tal:attributes="href string:${view/getShopUrl}/checkout">
+                <a class="cart_button" tal:attributes="href string:${view/getShopUrl}/cart"
+                   i18n:translate="cart_label">
+                    Cart
+                 </a>
+                <a class="cart_checkout_button"
+                    tal:attributes="href string:${view/getShopUrl}/checkout">
                     <tal:block i18n:translate="checkout_label">
                         Check Out
                     </tal:block>

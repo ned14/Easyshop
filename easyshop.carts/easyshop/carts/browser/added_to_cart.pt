@@ -79,17 +79,15 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                <td colspan="3" style="text-align:right">
+                <td colspan="5" style="text-align:right">
                   <div class="product-price-info">
                      *Preis inkl. MwSt. und <a href="javascript: return false" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
                   </div>
                 </td>            
             </tr>
             <tr>
-                <td>
-                </td>
-                <td class="added-to-cart-buttons">
+                <td class="added-to-cart-buttons"
+                    colspan="5">
                     <input class="context"  
                            value="Go on shopping" 
                            type="button" 
@@ -102,14 +100,13 @@
                            tal:attributes="onclick string:window.location='${context/absolute_url}/cart'"
                            i18n:attributes="value go_to_cart_label;" />
                            
-                    <input class="context"  
+                    <input class="standalone"
                            value="Zur Kasse" 
                            type="button" 
                            tal:attributes="onclick string:window.location='${context/absolute_url}/checkout'" />
                            
                     
                 </td>
-                <td></td>
             </tr>
         </table>
 

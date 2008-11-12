@@ -322,7 +322,7 @@
                         </noscript>
                                     
                         <input tal:condition="not:goto"
-                               class="context"  
+                               class="standalone"  
                                name="checkout:method"
                                value="Check Out" 
                                type="button"
