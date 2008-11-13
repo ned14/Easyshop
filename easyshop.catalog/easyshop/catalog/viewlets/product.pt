@@ -440,7 +440,7 @@
                                            name="url"
                                            value="product_data/url" />
                                            
-                                    <input class="context"
+                                    <input class="standalone"
                                            id="add-product-bottom"
                                            name="addToCart:method" 
                                            value="Add To Cart"
