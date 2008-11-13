@@ -134,7 +134,7 @@ schema = Schema((
 
     FloatField(
         name='weight',
-        schemata="advanced",        
+        schemata="size",        
         default=0.0,
         widget=DecimalWidget(
             label="Weight",
@@ -144,7 +144,46 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
-    
+
+    FloatField(
+        name='length',
+        schemata="size",        
+        default=0.0,
+        widget=DecimalWidget(
+            label="Length",
+            label_msgid="schema_length_label",
+            description = "The length of the product.",
+            description_msgid="schema_length_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    FloatField(
+        name='height',
+        schemata="size",
+        default=0.0,
+        widget=DecimalWidget(
+            label="Height",
+            label_msgid="schema_height_label",
+            description = "The height of the product.",
+            description_msgid="schema_height_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    FloatField(
+        name='thickness',
+        schemata="size",
+        default=0.0,
+        widget=DecimalWidget(
+            label="Thickness",
+            label_msgid="schema_thickness_label",
+            description = "The thickness of the product.",
+            description_msgid="schema_thickness_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
     FloatField(
         name='price',
         default=0.0,
