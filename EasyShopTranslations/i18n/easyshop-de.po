@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2008-09-25 10:05+0000\n"
+"POT-Creation-Date: 2008-11-13 07:33+0000\n"
 "PO-Revision-Date: Tue Apr 25 00:00:00 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -47,7 +47,7 @@ msgstr "Bankverbindung hinzufügen"
 msgid "Add Credit Card"
 msgstr "Kreditkarte hinzufügen"
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:105
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:111
 msgid "Add Related Products Portlet"
 msgstr "Zugehörige Produkte"
 
@@ -199,7 +199,7 @@ msgstr "EasyShop: Informationen"
 msgid "EasyShop: Last Seen"
 msgstr "EasyShop: Zuletzt gesehen"
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:47
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:48
 msgid "EasyShop: Related Products"
 msgstr "EasyShop: Zugehörige Produkte"
 
@@ -231,7 +231,7 @@ msgstr "Benutzer bearbeiten"
 msgid "Edit EasyShop Categories Portlet"
 msgstr "EasyShop Kategorien Portlet bearbeiten"
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:115
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:121
 msgid "Edit Related Products Portlet"
 msgstr "Portlet Zugehörige Produkte bearbeiten"
 
@@ -267,7 +267,7 @@ msgstr "Vorname"
 msgid "For Sale"
 msgstr "Im Angebot"
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:29
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:30
 msgid "How many products to list. 0 for all."
 msgstr "Wieviele Produkte werden angezeigt. 0 für alle."
 
@@ -316,7 +316,7 @@ msgstr "Nein"
 msgid "None"
 msgstr "Ohne"
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:28
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:29
 msgid "Number of products to display"
 msgstr "Anzahl der Produkte die angezeigt werden."
 
@@ -512,7 +512,7 @@ msgstr "Der Angebotspreis"
 msgid "The weight of the product."
 msgstr "Das Gewicht des Produktes."
 
-#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:106
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:112
 msgid "This portlet displays related products."
 msgstr "Diese Portlet zeigt zugehörige Produkte an."
 
@@ -578,7 +578,7 @@ msgid "Zip Code"
 msgstr "Postleitzahl"
 
 #. Default: "Accessories"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:249
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:258
 msgid "accessories_label"
 msgstr "Zubehör"
 
@@ -623,7 +623,7 @@ msgid "add_property_label"
 msgstr "Eigenschaft hinzufügen"
 
 #. Default: "Add to Cart"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:146
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:150
 msgid "add_to_cart_label"
 msgstr "In den Warenkorb"
 
@@ -762,7 +762,7 @@ msgid "catgories_tree_label"
 msgstr "Kategorienbaum"
 
 #. Default: "Check Out"
-#: ../../../src/easyshop.carts/easyshop/carts/portlets/cart.pt:33
+#: ../../../src/easyshop.carts/easyshop/carts/portlets/cart.pt:46
 msgid "checkout_label"
 msgstr "Kasse"
 
@@ -851,12 +851,12 @@ msgid "delete_label"
 msgstr "Löschen"
 
 #. Default: "Deliverable"
-#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:22
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:17
 msgid "deliverable_label"
 msgstr "Lieferbar"
 
 #. Default: "Delivery Period"
-#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:31
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:32
 msgid "delivery_period_label"
 msgstr "Lieferzeit"
 
@@ -876,7 +876,7 @@ msgid "description_label"
 msgstr "Beschreibung"
 
 #. Default: "Details"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:85
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product_selector.pt:91
 msgid "details_label"
 msgstr "Details"
 
@@ -911,7 +911,7 @@ msgid "expiration_date_label"
 msgstr "Ablaufdatum"
 
 #. Default: "First"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:64
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:65
 msgid "first_label"
 msgstr "Erste"
 
@@ -941,12 +941,12 @@ msgid "go_label"
 msgstr "Los!"
 
 #. Default: "Go on shopping"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:84
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:91
 msgid "go_on_shopping_label"
 msgstr "Weiter einkaufen"
 
 #. Default: "Go to cart"
-#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:90
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:97
 msgid "go_to_cart_label"
 msgstr "Zum Warenkorb"
 
@@ -1026,7 +1026,7 @@ msgid "label_save"
 msgstr "Speichern"
 
 #. Default: "Last"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:100
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:101
 msgid "last_label"
 msgstr "Letzte"
 
@@ -1141,7 +1141,7 @@ msgid "name_label"
 msgstr "Name"
 
 #. Default: "Next"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:89
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:90
 msgid "next_label"
 msgstr "Nächste"
 
@@ -1236,12 +1236,12 @@ msgid "no_stock_information_label"
 msgstr "Es sind keine Lager information vorhanden"
 
 #. Default: "Not deliverable"
-#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:45
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:46
 msgid "not_deliverable_label"
 msgstr "Nicht lieferbar"
 
 #. Default: "of"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:82
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:83
 msgid "of_label"
 msgstr "von"
 
@@ -1542,6 +1542,11 @@ msgstr "Wenn Sie mit unserem Service zufrieden waren, empfehlen Sie uns doch wei
 msgid "show_chars_label"
 msgstr "Anzahl Buchstaben"
 
+#. Default: "Show Products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:85
+msgid "show_products_label"
+msgstr "Produkte anzeigen"
+
 #. Default: "Sorting"
 #: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:4
 msgid "sorting_label"
@@ -1648,7 +1653,7 @@ msgid "welcome_label"
 msgstr "Willkommen!"
 
 #. Default: "Zoom"
-#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:139
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:143
 msgid "zoom_label"
 msgstr "Zoom"
 
