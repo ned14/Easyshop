@@ -102,7 +102,7 @@
                                                    name="quantity"
                                                    value="1" />
             
-                                            <input class="context"
+                                            <input class="standalone"
                                                    name="addToCart:method" 
                                                    value="Add to Cart"
                                                    type="submit"

@@ -86,7 +86,7 @@
                                    class="context"
                                    value="Show Products"
                                    title="Show Products"
-                                   i18n:attributes="title show_products_label;"
+                                   i18n:attributes="title show_products_label; value show_products_label"
                                    tal:attributes="onclick string:location.href='${category/url}'" />
                        
                         </td>
