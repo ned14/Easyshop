@@ -147,7 +147,7 @@
                                                  i18n:attributes="title zoom_label;"
                                                  tal:attributes="onclick string:easyShopZoomWindow('$zoom_url', '935', '805')" />
           
-                                          <input class="context"
+                                          <input class="standalone"
                                                  id="add-product-top"
                                                  name="addToCart:method" 
                                                  value="Add to Cart"

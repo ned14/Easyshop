@@ -84,9 +84,9 @@
 
                             <input type="button"
                                    class="context"
-                                   value="Details"
-                                   title="Details"
-                                   i18n:attributes="title details_label;"
+                                   value="Show Products"
+                                   title="Show Products"
+                                   i18n:attributes="title show_products_label;"
                                    tal:attributes="onclick string:location.href='${category/url}'" />
                        
                         </td>
