@@ -28,6 +28,14 @@ class IGroupCriteria(ICriteria):
     """Marker interface to mark group criteria content objects.
     """
 
+class IHeightCriteria(ICriteria):
+    """Marker interface to mark height criteria content objects.
+    """
+
+class ILengthCriteria(ICriteria):
+    """Marker interface to mark length criteria content objects.
+    """
+
 class IPaymentMethodCriteria(ICriteria):
     """Marker interface to mark payment criteria content objects.
     """
@@ -51,7 +59,11 @@ class IShippingMethodCriteria(ICriteria):
 class IStockAmountCriteria(ICriteria):
     """Marker interface to mark stock criteria content objects.
     """
-    
+        
 class IWeightCriteria(ICriteria):
     """Marker interface to mark weight criteria content objects.
+    """
+    
+class IWidthCriteria(ICriteria):
+    """Marker interface to mark width criteria content objects.
     """
