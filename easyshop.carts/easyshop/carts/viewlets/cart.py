@@ -336,6 +336,16 @@ class CheckoutCartViewlet(ViewletBase):
         """
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         selected_shipping_id = customer.selected_shipping_method
+
+        # If the available shipping methods has been changed we must update the 
+        # selected shipping method of the customer 
+        shop = IShopManagement(self.context).getShop()
+        shipping_methods = IShippingMethodManagement(shop).getShippingMethods(check_validity=True)
+        shipping_methods_ids = [sm.getId() for sm in shipping_methods]
+
+        # Set selected shipping method
+        if selected_shipping_id not in shipping_methods_ids:
+            customer.selected_shipping_method = shipping_methods_ids[0]
         
         sm = IShippingMethodManagement(self.context)
         
