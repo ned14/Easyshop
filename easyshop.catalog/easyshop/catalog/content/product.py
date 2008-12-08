@@ -172,14 +172,14 @@ schema = Schema((
     ),
 
     FloatField(
-        name='thickness',
+        name='width',
         schemata="size",
         default=0.0,
         widget=DecimalWidget(
-            label="Thickness",
-            label_msgid="schema_thickness_label",
-            description = "The thickness of the product.",
-            description_msgid="schema_thickness_description",
+            label="Width",
+            label_msgid="schema_width_label",
+            description = "The width of the product.",
+            description_msgid="schema_width_description",
             i18n_domain="EasyShop",
         ),
     ),
