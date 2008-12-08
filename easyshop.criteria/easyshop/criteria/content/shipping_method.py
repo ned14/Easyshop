@@ -33,9 +33,9 @@ schema = Schema((
         default="current",   
         widget=SelectionWidget(
             label="Operator",
-            label_msgid="_operator_label",
+            label_msgid="schema_operator_label",
             description = "",
-            description_msgid = "_operator_description",
+            description_msgid = "schema_operator_description",
             i18n_domain="",        
         ),
     ),    
