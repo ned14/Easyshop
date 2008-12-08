@@ -99,6 +99,14 @@ msgstr ""
 msgid "schema_categoy_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+msgid "schema_combined_length_and_girth_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+msgid "schema_combined_length_and_girth_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
 msgid "schema_countries_description"
 msgstr ""
@@ -202,6 +210,16 @@ msgstr ""
 msgid "schema_groups_label"
 msgstr ""
 
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+msgid "schema_height_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+msgid "schema_height_label"
+msgstr ""
+
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
@@ -224,6 +242,16 @@ msgstr ""
 #: schema | ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
 #: schema | ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
 msgid "schema_image_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+msgid "schema_length_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+msgid "schema_length_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
@@ -285,6 +313,24 @@ msgstr ""
 #: schema | ../../../src/easyshop.payment/easyshop/payment/content/paypal.py
 #: schema | ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
 msgid "schema_note_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_operator_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_operator_label"
 msgstr ""
 
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/payment_method.py
@@ -522,7 +568,6 @@ msgstr ""
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/group.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/payment_method.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/product.py
-#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/stock_amount.py
 msgid "schema_title_label"
 msgstr ""
@@ -564,4 +609,14 @@ msgstr ""
 #: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
 #: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
 msgid "schema_weight_label"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_width_description"
+msgstr ""
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_width_label"
 msgstr ""
