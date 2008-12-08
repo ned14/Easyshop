@@ -16,17 +16,6 @@ from easyshop.core.interfaces import IShopManagement
 
 schema = Schema((
 
-    StringField(
-        name='title',
-        widget=StringWidget(
-            visible={'edit':'invisible', 'view':'invisible'},
-            label='Title',
-            label_msgid='schema_title_label',
-            i18n_domain='EasyShop',
-        ),
-        required=0
-    ),
-
     LinesField(
         name='shippingMethods',
         widget=MultiSelectionWidget(
@@ -37,7 +26,19 @@ schema = Schema((
         multiValued=1,
         vocabulary="_getShippingMethodsAsDL"
     ),
-
+    
+    StringField(
+        name="operator",
+        vocabulary=["current", "not valid"],
+        default="current",   
+        widget=SelectionWidget(
+            label="Operator",
+            label_msgid="_operator_label",
+            description = "",
+            description_msgid = "_operator_description",
+            i18n_domain="",        
+        ),
+    ),    
 ),
 )
 
@@ -49,15 +50,13 @@ class ShippingMethodCriteria(BaseContent):
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
 
-    def Title(self):
-        """
-        """
-        return "Shipping Method"
-
     def getValue(self):
         """
         """
-        return ", ".join(self.getShippingMethods())
+        value = "%s: " % self.getOperator()
+        value +=  ", ".join(self.getShippingMethods())
+
+        return value
 
     def _getShippingMethodsAsDL(self):
         """Returns all payment methods as DisplayList
@@ -68,15 +67,11 @@ class ShippingMethodCriteria(BaseContent):
         sm = IShippingMethodManagement(shop)
         
         for shipping_method in sm.getShippingMethods():
+            # Don't display the parent shipping method
+            if shipping_method == self.aq_parent:
+                continue
             dl.add(shipping_method.getId(), shipping_method.Title())
-        
+
         return dl
 
-    def _renameAfterCreation(self, check_auto_id=False):
-        """Overwritten to set the default value for id
-        """
-        transaction.commit()
-        new_id = "ShippingMethodCriteria"
-        self.setId(new_id)
-        
 registerType(ShippingMethodCriteria, PROJECTNAME)

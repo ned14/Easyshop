@@ -8,6 +8,9 @@
          
  <object name="CountryCriteria"
          meta_type="Factory-based Type Information"/>
+
+ <object name="CombinedLengthAndGirthCriteria"
+         meta_type="Factory-based Type Information"/>
          
  <object name="CustomerCriteria"
          meta_type="Factory-based Type Information"/>
@@ -24,6 +27,12 @@
  <object name="GroupCriteria"
          meta_type="Factory-based Type Information"/>
 
+ <object name="HeightCriteria"
+         meta_type="Factory-based Type Information"/>
+
+ <object name="LengthCriteria"
+         meta_type="Factory-based Type Information"/>
+
  <object name="PriceCriteria"
          meta_type="Factory-based Type Information"/>
 
@@ -37,6 +46,9 @@
          meta_type="Factory-based Type Information"/>
 
  <object name="WeightCriteria"
+         meta_type="Factory-based Type Information"/>
+
+ <object name="WidthCriteria"
          meta_type="Factory-based Type Information"/>
     
     

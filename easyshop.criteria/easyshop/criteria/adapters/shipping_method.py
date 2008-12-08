@@ -27,9 +27,22 @@ class ShippingMethodCriteriaValidity:
         shop = IShopManagement(self.context).getShop()
         sm = IShippingMethodManagement(shop)
         selected_method = sm.getSelectedShippingMethod()
-                
-        if selected_method is not None and \
-           selected_method.getId() in self.context.getShippingMethods():
-            return True
+        
+        if self.context.getOperator() == "current":
+            if selected_method is not None and \
+               selected_method.getId() in self.context.getShippingMethods():
+                return True
+            else:
+                return False
         else:
-            return False
+            for id in self.context.getShippingMethods():
+                
+                # Never check validity for itself (context)
+                if id == self.context.getId():
+                    continue
+                    
+                shipping_method = sm.getShippingMethod(id)
+                if IValidity(shipping_method).isValid() == True:
+                    return False
+            return True
+                

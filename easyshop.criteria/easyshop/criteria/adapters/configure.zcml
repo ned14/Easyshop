@@ -5,6 +5,9 @@
         factory=".category.CategoryCriteriaValidity" />
 
     <adapter
+        factory=".combined_length_and_girth.CombinedLengthAndGirthCriteriaValidity" />
+
+    <adapter
         factory=".country.CountryCriteriaValidity" />
 
     <adapter
@@ -12,6 +15,12 @@
 
     <adapter
         factory=".date.DateCriteriaValidity" />
+
+    <adapter  
+        factory=".height.HeightCriteriaValidity" /> 
+
+    <adapter  
+        factory=".length.LengthCriteriaValidity" /> 
 
     <adapter
         factory=".group.GroupCriteriaValidity" />
@@ -36,5 +45,8 @@
 
     <adapter  
         factory=".weight.WeightCriteriaValidity" /> 
+
+    <adapter  
+        factory=".width.WidthCriteriaValidity" /> 
     
 </configure>

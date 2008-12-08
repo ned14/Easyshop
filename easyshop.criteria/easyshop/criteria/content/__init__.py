@@ -1,8 +1,11 @@
 import category
+import combined_length_and_girth
 import country
 import customer
 import date
 import group
+import height
+import length
 import payment_method
 import price
 import product
@@ -10,3 +13,4 @@ import product_amount
 import shipping_method
 import stock_amount
 import weight
+import width

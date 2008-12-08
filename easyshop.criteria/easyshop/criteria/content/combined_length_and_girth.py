@@ -13,20 +13,21 @@ from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import IWeightCriteria
+from easyshop.core.interfaces import ICombinedLengthAndGirthCriteria
 
 schema = Schema((
     FloatField(
-        name='weight',
+        name='combinedLengthAndGirth',
         default=0.0,
         widget=DecimalWidget(
-            label="Weight",
-            label_msgid="schema_weight_label",
-            description = "The weight of the cart",
-            description_msgid="schema_weight_description",
+            label="Combinded length and girth",
+            label_msgid="schema_combined_length_and_girth_label",
+            description = "The combined_length_and_girth of the products of the cart",
+            description_msgid="schema_combined_length_and_girth_description",
             i18n_domain="EasyShop",
         ),
-    ),
+    ),    
+
     StringField(
         name="operator",
         vocabulary=[">=", "<"], 
@@ -42,10 +43,10 @@ schema = Schema((
 ),
 )
 
-class WeightCriteria(BaseContent):
+class CombinedLengthAndGirthCriteria(BaseContent):
     """
     """
-    implements(IWeightCriteria)
+    implements(ICombinedLengthAndGirthCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -53,11 +54,11 @@ class WeightCriteria(BaseContent):
     def Title(self):
         """
         """
-        return "Weight"
+        return "Combinded length and girth"
         
     def getValue(self):
         """
         """
-        return "%s%s" % (self.getOperator(), self.getWeight())
+        return "%s%s" % (self.getOperator(), self.getCombinedLengthAndGirth())
         
-registerType(WeightCriteria, PROJECTNAME)
+registerType(CombinedLengthAndGirthCriteria, PROJECTNAME)

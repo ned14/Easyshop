@@ -6,13 +6,17 @@
   <type type_id="CategoryCriteria"/>
   <type type_id="CountryCriteria"/>
   <type type_id="CustomerCriteria"/>
+  <type type_id="CombinedLengthAndGirthCriteria"/>
   <type type_id="DateCriteria"/>
   <type type_id="GroupCriteria"/>
+  <type type_id="HeightCriteria"/>
+  <type type_id="LengthCriteria"/>
   <type type_id="PaymentMethodCriteria"/>
   <type type_id="PriceCriteria"/>
   <type type_id="ProductCriteria"/>
   <type type_id="ProductAmountCriteria"/>
   <type type_id="ShippingMethodCriteria"/>
   <type type_id="WeightCriteria"/>
+  <type type_id="WidthCriteria"/>
  </bindings>
 </object>

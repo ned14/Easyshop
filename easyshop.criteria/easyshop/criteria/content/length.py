@@ -13,17 +13,17 @@ from Products.Archetypes.atapi import *
 
 # easyshop imports
 from easyshop.core.config import *
-from easyshop.core.interfaces import IWeightCriteria
+from easyshop.core.interfaces import ILengthCriteria
 
 schema = Schema((
     FloatField(
-        name='weight',
+        name='length',
         default=0.0,
         widget=DecimalWidget(
-            label="Weight",
-            label_msgid="schema_weight_label",
-            description = "The weight of the cart",
-            description_msgid="schema_weight_description",
+            label="Length",
+            label_msgid="schema_length_label",
+            description = "The most length of the products of the cart",
+            description_msgid="schema_length_description",
             i18n_domain="EasyShop",
         ),
     ),
@@ -42,10 +42,10 @@ schema = Schema((
 ),
 )
 
-class WeightCriteria(BaseContent):
+class LengthCriteria(BaseContent):
     """
     """
-    implements(IWeightCriteria)
+    implements(ILengthCriteria)
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = BaseSchema.copy() + schema.copy()
@@ -53,11 +53,11 @@ class WeightCriteria(BaseContent):
     def Title(self):
         """
         """
-        return "Weight"
+        return "Length"
         
     def getValue(self):
         """
         """
-        return "%s%s" % (self.getOperator(), self.getWeight())
+        return "%s%s" % (self.getOperator(), self.getLength())
         
-registerType(WeightCriteria, PROJECTNAME)
+registerType(LengthCriteria, PROJECTNAME)

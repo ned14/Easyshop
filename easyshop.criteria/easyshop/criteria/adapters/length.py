@@ -6,14 +6,14 @@ from zope.component import adapts
 from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IWeightCriteria
+from easyshop.core.interfaces import ILengthCriteria
 from easyshop.core.interfaces import IShopManagement
 
-class WeightCriteriaValidity:
-    """Adapter which provides IValidity for weight criteria content objects.
+class LengthCriteriaValidity:
+    """Adapter which provides IValidity for length criteria content objects.
     """
     implements(IValidity)
-    adapts(IWeightCriteria)
+    adapts(ILengthCriteria)
 
     def __init__(self, context):
         """
@@ -21,24 +21,24 @@ class WeightCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Returns True, if the total weight of the cart is greater than the
-        entered criteria weight.
+        """Returns True, if the total length of the cart is greater than the
+        entered criteria length.
         """
         shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
-                
-        # total weight
-        cart_weight = 0
-        if cart is not None:            
-            cart_weight = 0
+        
+        # max_length
+        cart_length = 0
+        if cart is not None:
             for item in IItemManagement(cart).getItems():
-                cart_weight += (item.getProduct().getWeight() * item.getAmount())
-
+                if item.getProduct().getLength() > cart_length:
+                    cart_length = item.getProduct().getLength()
+        
         if self.context.getOperator() == ">=":
-            if cart_weight >= self.context.getWeight():
+            if cart_length >= self.context.getLength():
                 return True
         else:
-            if cart_weight < self.context.getWeight():
+            if cart_length < self.context.getLength():
                 return True
-
-        return False
+            
+        return False        

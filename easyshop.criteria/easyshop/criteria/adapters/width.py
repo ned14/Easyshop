@@ -6,14 +6,14 @@ from zope.component import adapts
 from easyshop.core.interfaces import IValidity
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import IItemManagement
-from easyshop.core.interfaces import IWeightCriteria
+from easyshop.core.interfaces import IWidthCriteria
 from easyshop.core.interfaces import IShopManagement
 
-class WeightCriteriaValidity:
-    """Adapter which provides IValidity for weight criteria content objects.
+class WidthCriteriaValidity:
+    """Adapter which provides IValidity for width criteria content objects.
     """
     implements(IValidity)
-    adapts(IWeightCriteria)
+    adapts(IWidthCriteria)
 
     def __init__(self, context):
         """
@@ -21,24 +21,24 @@ class WeightCriteriaValidity:
         self.context = context
         
     def isValid(self, product=None):
-        """Returns True, if the total weight of the cart is greater than the
-        entered criteria weight.
+        """Returns True, if the total width of the cart is greater than the
+        entered criteria width.
         """
         shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
-                
-        # total weight
-        cart_weight = 0
-        if cart is not None:            
-            cart_weight = 0
+        
+        # max width
+        cart_width = 0
+        if cart is not None:
             for item in IItemManagement(cart).getItems():
-                cart_weight += (item.getProduct().getWeight() * item.getAmount())
-
+                if item.getProduct().getWidth() > cart_width:
+                    cart_width = item.getProduct().getWidth()
+            
         if self.context.getOperator() == ">=":
-            if cart_weight >= self.context.getWeight():
+            if cart_width >= self.context.getWidth():
                 return True
         else:
-            if cart_weight < self.context.getWeight():
+            if cart_width < self.context.getWidth():
                 return True
 
         return False
