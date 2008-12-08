@@ -1,15 +1,20 @@
 # Five imports
 from Products.Five.browser import BrowserView
 
+# CMFPlone imports
+from Products.CMFPlone.utils import safe_unicode
+
 # Easyshop imports
 from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICurrencyManagement
+from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IItemManagement
 from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IPropertyManagement
+from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShopManagement
 
 class AddedToCartView(BrowserView):
@@ -89,6 +94,23 @@ class AddedToCartView(BrowserView):
                 "properties" : properties,
             })
         
+        # Update selected shipping method. TODO: This should be factored out and
+        # made available via a event or similar. It is also used within 
+        # ajax/cart/_refresh_cart
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+            
+        shop = IShopManagement(self.context).getShop()
+        shipping_methods = IShippingMethodManagement(shop).getShippingMethods(check_validity=True)
+        shipping_methods_ids = [sm.getId() for sm in shipping_methods]
+        selected_shipping_method = self.request.get("selected_shipping_method")
+
+        # Set selected shipping method
+        if selected_shipping_method in shipping_methods_ids:
+            customer.selected_shipping_method = \
+                safe_unicode(self.request.get("selected_shipping_method"))
+        else:
+            customer.selected_shipping_method = shipping_methods_ids[0]
+        
         # Reset session
         if self.request.SESSION.has_key("added-to-cart"):
             del self.request.SESSION["added-to-cart"]
@@ -97,5 +119,4 @@ class AddedToCartView(BrowserView):
     def getShopURL(self):
         """
         """
-        return IShopManagement(self.context).getShop().absolute_url()           
-        
+        return IShopManagement(self.context).getShop().absolute_url()

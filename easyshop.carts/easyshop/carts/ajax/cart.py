@@ -15,6 +15,8 @@ from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IItemManagement 
 from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IProductVariantsManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.core.interfaces import IShippingMethodManagement
 
 class AjaxView(BrowserView):
     """
@@ -49,24 +51,6 @@ class AjaxView(BrowserView):
         """            
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         
-        # Set selected country global and within current selected invoice 
-        # address. Why? If a customer delete all addresses the current selected 
-        # country is still saved global and can be used to calculate the 
-        # shipping price.        
-        selected_country = safe_unicode(self.request.get("selected_country"))
-        customer.selected_country = selected_country
-        invoice_address = IAddressManagement(customer).getInvoiceAddress()
-        if invoice_address is not None:
-            invoice_address.country = selected_country
-
-        # Set selected shipping method
-        customer.selected_shipping_method = \
-            safe_unicode(self.request.get("selected_shipping_method"))
-
-        # Set selected payment method type
-        customer.selected_payment_method = \
-            safe_unicode(self.request.get("selected_payment_method"))
-            
         cart = ICartManagement(self.context).getCart()
         if cart is None:
             return
@@ -132,3 +116,29 @@ class AjaxView(BrowserView):
             else:
                 if selected_properties.has_key(cart_item.getId()):
                     cart_item.setProperties(selected_properties[cart_item.getId()])
+                    
+        # Set selected country global and within current selected invoice 
+        # address. Why? If a customer delete all addresses the current selected 
+        # country is still saved global and can be used to calculate the 
+        # shipping price.        
+        selected_country = safe_unicode(self.request.get("selected_country"))
+        customer.selected_country = selected_country
+        invoice_address = IAddressManagement(customer).getInvoiceAddress()
+        if invoice_address is not None:
+            invoice_address.country = selected_country
+
+        shop = IShopManagement(self.context).getShop()
+        shipping_methods = IShippingMethodManagement(shop).getShippingMethods(check_validity=True)
+        shipping_methods_ids = [sm.getId() for sm in shipping_methods]
+        selected_shipping_method = self.request.get("selected_shipping_method")
+
+        # Set selected shipping method
+        if selected_shipping_method in shipping_methods_ids:
+            customer.selected_shipping_method = \
+                safe_unicode(self.request.get("selected_shipping_method"))
+        else:
+            customer.selected_shipping_method = shipping_methods_ids[0]
+
+        # Set selected payment method type
+        customer.selected_payment_method = \
+            safe_unicode(self.request.get("selected_payment_method"))
