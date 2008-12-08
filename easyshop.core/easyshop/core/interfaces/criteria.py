@@ -11,6 +11,10 @@ class ICriteria(Interface):
 class ICategoryCriteria(ICriteria):
     """Marker interface to mark category criteria content objects.
     """
+
+class ICombinedLengthAndGirthCriteria(ICriteria):
+    """Marker interface to mark combined length and girth content objects.
+    """
     
 class ICountryCriteria(ICriteria):
     """Marker interface to mark country criteria content objects.
