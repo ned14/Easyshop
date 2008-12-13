@@ -9,7 +9,6 @@
     </dt>
 
     <dd class="portletItem">
-        
         <tal:block tal:condition="stock_information/available">
             <table cellspacing="0" cellpadding="0">
                 <tr>
@@ -43,8 +42,8 @@
                 </tr>
             </table>
         </tal:block>
-        <tal:block tal:condition="not:stock_information/available"
-                   i18n:translate="not_deliverable_label">
+        
+        <tal:block tal:condition="not:stock_information/available">
             <table cellspacing="0" cellpadding="0">
                 <tr>
                     <td style="width:16px">
