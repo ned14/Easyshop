@@ -45,9 +45,21 @@
         </tal:block>
         <tal:block tal:condition="not:stock_information/available"
                    i18n:translate="not_deliverable_label">
-            Not deliverable
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="width:16px">
+                        <img src="."            
+                             alt="Not deliverable"            
+                             tal:attributes="src string:${stock_information/url}/image;"
+                             i18n:attributes="alt not_deliverable_label;" />
+                    </td>
+                    <td style="padding-bottom:3px; padding-left:3px;">
+                        <tal:block i18n:translate="not_deliverable_label">
+                            Not Deliverable
+                        </tal:block>                        
+                    </td>
+                </tr>
+            </table>
         </tal:block>
-        
     </dd>
-
 </dl>
