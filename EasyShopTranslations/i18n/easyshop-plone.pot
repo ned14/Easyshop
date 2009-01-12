@@ -16,9 +16,6 @@ msgstr ""
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: plone\n"
 
-msgid "The amount of the product has been increased."
-msgstr ""
-
 msgid "Bank Account"
 msgstr ""
 
@@ -97,13 +94,13 @@ msgstr ""
 msgid "The product has been added to the cart."
 msgstr ""
 
-msgid "The amount of the product has been increased.",
+msgid "The amount of the product has been increased."
 msgstr ""
 
-msgid "Your order has been received. Thank you!",
+msgid "Your order has been received. Thank you!"
 msgstr ""
 
-msgid "No products found.",
+msgid "No products found."
 msgstr ""
 
 msgid "Variant has been added."
@@ -127,5 +124,5 @@ msgstr ""
 msgid "Property has been added"
 msgstr ""
 
-msgid "Option has been added",
+msgid "Option has been added"
 msgstr ""
