@@ -1,0 +1,136 @@
+# translation of @easyshop@.po to @fr@
+# Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>, 2006.
+# danielle d'avout <danielle.davout@gmail.com>, 2009.
+# ArchGenXML generated POT File
+msgid ""
+msgstr ""
+"Project-Id-Version: easyshop-plone-fr\n"
+"POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
+"PO-Revision-Date: 2009-01-13 20:28+0100\n"
+"Last-Translator: danielle d'avout <danielle.davout@gmail.com>\n"
+"Language-Team: français <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: plone\n"
+"X-Generator: KBabel 1.11.4\n"
+
+msgid "Bank Account"
+msgstr "Compte bancaire"
+
+msgid "Cart"
+msgstr "Panier"
+
+msgid "Carts"
+msgstr "Paniers"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "Products"
+msgstr "Produits"
+
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Customer"
+msgstr "Client"
+
+msgid "Customers"
+msgstr "Clients"
+
+msgid "Group"
+msgstr "Groupe"
+
+msgid "Groups"
+msgstr "Groupes"
+
+msgid "Information Page"
+msgstr "Page d'informations"
+
+msgid "Information Page Container"
+msgstr "Conteneur de Pages d'informations"
+
+msgid "Order"
+msgstr "Commande"
+
+msgid "Orders"
+msgstr "Commandes"
+
+msgid "Payment Method"
+msgstr "Méthode de paiement"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "Products Container"
+msgstr "Conteneur de Produits"
+
+msgid "Shipping Price"
+msgstr "Frais de port"
+
+msgid "Shipping Method"
+msgstr "Méthodes de Transport"
+
+msgid "Shipping"
+msgstr "Transport"
+
+msgid "Stock Information"
+msgstr "Information sur stock"
+
+msgid "Stock Information Container"
+msgstr "Conteneur d'Informations sur stock"
+
+msgid "Tax (Customer)"
+msgstr "Taxes (Clients)"
+
+msgid "Tax (Default)"
+msgstr "Taxes (par défaut)"
+
+msgid "Taxes"
+msgstr "Taxes"
+
+msgid "The product has been added to the cart."
+msgstr "L'article a été ajouté au panier."
+
+msgid "The amount of the product has been increased."
+msgstr "Le nombre de produits a été augmenté."
+
+msgid "Your order has been received. Thank you!"
+msgstr "Nous avons bien reçu votre commande et nous vous en remercions !"
+
+msgid "No products found."
+msgstr "Aucun produit trouvé."
+
+#, fuzzy
+msgid "Variant has been added."
+msgstr "Déclinaison de gamme ajoutée."
+
+#, fuzzy
+msgid "Variant already exists."
+msgstr "Cette déclinaison de gamme existe déjà."
+
+#, fuzzy
+msgid "Variant(s) deleted."
+msgstr "Déclinaison(s) de gamme effacées."
+
+#, fuzzy
+msgid "Variant(s) saved."
+msgstr "Déclinaison de gamme enregistrée."
+
+msgid "The selected combination of properties is not available."
+msgstr "Cette association de propriétés n'est pas disponible."
+
+msgid "Option(s) saved."
+msgstr "Options(s) enregistrées."
+
+msgid "Property has been added"
+msgstr "Propriété ajoutée"
+
+msgid "Option has been added"
+msgstr "Option ajoutée"
+
