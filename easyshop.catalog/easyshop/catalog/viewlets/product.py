@@ -398,6 +398,28 @@ class ProductViewlet(ViewletBase):
         """
         return IShopManagement(self.context).getShop().absolute_url()  
 
+
+    def getBreadCrumbs(self) :
+        """
+        """
+        categories = self.context.getCategories()
+        parents = [] 
+         
+        if len(categories) > 0 :
+          
+          category  = categories[0]         
+          
+          while category is not None:
+            parents.append({"title"         : category.Title(),
+                            "absolute_url"  : category.absolute_url()})
+           
+            category = category.getParentCategory() 
+        
+        parents.reverse()
+        
+        return parents
+
+
     @memoize
     def _getShop(self):
         """
