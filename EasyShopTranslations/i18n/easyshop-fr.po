@@ -1,0 +1,1676 @@
+# translation of @easyshop@.po to @fr@
+# Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>, 2006.
+# danielle d'avout <danielle.davout@gmail.com>, 2009.
+# ArchGenXML generated POT File
+msgid ""
+msgstr ""
+"Project-Id-Version: easyshop-fr\n"
+"POT-Creation-Date: 2008-12-08 09:49+0000\n"
+"PO-Revision-Date: 2009-01-13 01:38+0100\n"
+"Last-Translator: danielle d'avout <danielle.davout@gmail.com>\n"
+"Language-Team: français <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: fr\n"
+"Language-Name: Français\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: EasyShop\n"
+"X-Is-Fallback-For: fr-fr\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: EasyShop\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.py:75
+msgid " is required"
+msgstr "est obligatoire"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:118
+msgid "A short description, which is displayed in search results"
+msgstr "Une description brève montrée dans les résultats de recherche"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:139
+msgid "A short text of the product, which can be displayed in overviews"
+msgstr "Un texte court susceptible d'être montré lors d'un aperçu"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:146
+msgid "A text of the product, which is displayed in detailed views"
+msgstr "Un texte produit dans une vue détaillée"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:51
+msgid "Account Number"
+msgstr "Numéro de compte bancaire"
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_add.py:22
+msgid "Add Address"
+msgstr "Ajouter une adresse"
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/bank_account.py:68
+msgid "Add Bank Information"
+msgstr "Ajouter des informations bancaires"
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/credit_card.py:68
+msgid "Add Credit Card"
+msgstr "Ajouter une carte de paiement"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:111
+msgid "Add Related Products Portlet"
+msgstr "Ajouter un portlet d'articles en rapport "
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:65
+msgid "Add User"
+msgstr "Ajouter un utilisateur"
+
+#: extras | browser/templates/product_view.py
+msgid "Add to Cart"
+msgstr "Ajouter un panier"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:38
+msgid "Address 1"
+msgstr "Adresse 1"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:97
+msgid "American Express"
+msgstr "American Express"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:124
+msgid "Article Id"
+msgstr "Identifiant de l'article"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:58
+msgid "Bank Information Code"
+msgstr "Code de la banque"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:72
+msgid "Bank Name"
+msgstr "Nom de la banque"
+
+#: extras | browser/templates/product_view.py
+msgid "Buy Product"
+msgstr "Achat de l'article"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:95
+msgid "Card Number"
+msgstr "Numéro de la carte"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:88
+msgid "Card Owner"
+msgstr "Titulaire de la carte"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:82
+msgid "Card Type"
+msgstr "Type de cartes"
+
+#: ../../../src/easyshop.carts/easyshop/carts/portlets/cart.py:49
+msgid "Cart"
+msgstr "Panier"
+
+#: extras | checkout-order-preview-view.py
+msgid "Cash on delivery"
+msgstr "Paiement à la livraison"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:44
+msgid "Categories have been deleted."
+msgstr "Les catégories ont été effacées."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:47
+msgid "Categories have been deselected."
+msgstr "Les catégories ont été dé-sélectionnées."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:46
+msgid "Categories have been moved."
+msgstr "Les catégories ont été déplacées."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:45
+msgid "Categories have been selected."
+msgstr "Les catégories ont été sélectionnées."
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:40
+msgid "Changes saved"
+msgstr "Les changements ont été effectués."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:52
+msgid "City"
+msgstr "Ville"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:31
+msgid "Company Name"
+msgstr "Nom de l'entreprise"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:59
+msgid "Country"
+msgstr "Pays"
+
+#: ../../../src/easyshop.customers/easyshop/customers/content/address.py:50
+msgid "Create a new address"
+msgstr "Créer une adresse"
+
+#: ../../../src/easyshop.payment/easyshop/payment/content/bank_account.py:30
+msgid "Create a new bank account"
+msgstr "Créer un compte bancaire"
+
+#: ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py:84
+msgid "Create a new credit card."
+msgstr "Créer une carte de paiement"
+
+#: ../../../src/easyshop.customers/easyshop/customers/content/customer.py:78
+msgid "Create a new customer"
+msgstr "Créer un client"
+
+#: extras | checkout-order-preview-view.py
+msgid "Credit Card"
+msgstr "Carte de paiement"
+
+#: extras | stock information
+msgid "Day"
+msgstr "Jour"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:153
+msgid "Days"
+msgstr "Jours"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:65
+msgid "Depositor"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:117
+msgid "Description"
+msgstr "Description"
+
+#: extras | checkout-order-preview-view.py
+msgid "Direct Debit"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:64
+msgid "E-Mail"
+msgstr "Émail"
+
+#: ../../../src/easyshop.shop/easyshop/shop/portlets/admin.py:37
+msgid "EasyShop Manager"
+msgstr "Gérant de EasyShop"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:52
+msgid "EasyShop: Categories"
+msgstr "Catégories EasyShop"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.py:41
+msgid "EasyShop: Formatter"
+msgstr ""
+
+#: ../../../src/easyshop.information/easyshop/information/portlets/information.py:36
+msgid "EasyShop: Information"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/last_seen.py:34
+msgid "EasyShop: Last Seen"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:48
+msgid "EasyShop: Related Products"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.py:33
+msgid "EasyShop: Sorting"
+msgstr ""
+
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.py:36
+msgid "EasyShop: Stock Information"
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_edit.py:29
+msgid "Edit Address"
+msgstr "Éditer l'adresse"
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/bank_account.py:25
+msgid "Edit Bank Account"
+msgstr ""
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/credit_card.py:25
+msgid "Edit Credit Card"
+msgstr "Édition de la carte de paiement"
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:29
+msgid "Edit Customer"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:219
+msgid "Edit EasyShop Categories Portlet"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:121
+msgid "Edit Related Products Portlet"
+msgstr ""
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:57
+msgid "Edit canceled"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:25
+msgid "Expand all"
+msgstr "Tout déplier"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:102
+msgid "Expiration Date Month"
+msgstr "Mois de la date d'expiration"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:109
+msgid "Expiration Date Year"
+msgstr "Année de l'expiration"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:125
+msgid "External unique id of the product"
+msgstr "Identifiant de l'article"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/information.py:23
+msgid "File"
+msgstr "Fichier"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:17
+msgid "Firstname"
+msgstr "Prénom"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:187
+msgid "For Sale"
+msgstr "En promotion"
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:30
+msgid "How many products to list. 0 for all."
+msgstr "Nombre d'articles à afficher( 0 pour tous)."
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:26
+msgid "If selected all categories are expanded by default."
+msgstr "à sélectionner pour que par défaut la liste des catégories soit dépliée."
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:32
+msgid "If selected amount of product per categories is displayed."
+msgstr "à sélectionner pour que le nombre de produits dan une catégorie soit affiché."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:188
+msgid "If selected the sale price is active and displayed additionally."
+msgstr "à sélectionner pour que la promotion soit active et que le prix soit divulgué."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:160
+msgid "If selected, the stock amount of the product is not decreased."
+msgstr "à sélectionner si le montant du stock ne doit pas être diminué."
+
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_overwrites/es_folder_position.cpy:33
+msgid "Item's position has changed."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:24
+msgid "Lastname"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "Long Text"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:96
+msgid "MasterCard/EuroCard"
+msgstr "MasterCard/EuroCard"
+
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.py:40
+msgid "My Account"
+msgstr ""
+
+#. Default: "No"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:375
+msgid "No"
+msgstr ""
+
+#: extras | formatter.pt
+msgid "None"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:29
+msgid "Number of products to display"
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:31
+msgid "Password"
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:38
+msgid "Password Confirmation"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:71
+msgid "Phone"
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.py:138
+msgid "Please add a e-mail address."
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:69
+msgid "Please confirm our terms and conditions."
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:39
+msgid "Please confirm your password."
+msgstr ""
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customer_forms.py:30
+msgid "Please edit the form below and press save."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:73
+msgid "Please enter the bank name"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:66
+msgid "Please enter the depositor of the account"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:103
+msgid "Please enter the expiration date of the card."
+msgstr "Veuillez s'il vous plaît saisir la date d'expiration de la carte "
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:89
+msgid "Please enter the name of the card owner."
+msgstr "Veuillez saisir s'il vous plaît le nom du titulaire de la carte"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:52
+msgid "Please enter your account number"
+msgstr "Veuillez s'il vous plaît saisir le numéro du compte"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:39
+msgid "Please enter your address."
+msgstr "Veuillez saisir votre adresse, s'il vous plaît."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:59
+msgid "Please enter your bank information code"
+msgstr "Veuillez s'il vous plaît saisir le code de la banque"
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:53
+msgid "Please enter your city."
+msgstr "Veuillez s'il vous plaît saisir le nom de votre ville."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:32
+msgid "Please enter your company name."
+msgstr "Veuillez s'il vous plaît saisir le nom de votre entreprise."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:60
+msgid "Please enter your country."
+msgstr "Veuillez s'il vous plaît saisir le nom de votre pays."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:65
+msgid "Please enter your e-mail address."
+msgstr "Veuillez s'il vous plaît saisir votre adresse de courrier électronique."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:159
+msgid "Please enter your e-mail."
+msgstr "Veuillez s'il vous plaît saisir votre adresse de courrier électronique."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:18
+msgid "Please enter your firstname."
+msgstr "Veuillez s'il vous plaît saisir votre prénom."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:25
+msgid "Please enter your lastname."
+msgstr "Veuillez s'il vous plaît saisir votre nom de famille."
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:32
+msgid "Please enter your password."
+msgstr "Veuillez s'il vous plaît saisir votre mot de passe."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:72
+msgid "Please enter your phone number."
+msgstr "Veuillez s'il vous plaît saisir votre numéro de téléphone."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:96
+msgid "Please enter your the card number."
+msgstr "Veuillez s'il vous plaît saisir le numéro de la carte."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:46
+msgid "Please enter your zip code."
+msgstr "Veuillez s'il vous plaît saisir votre code postal."
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/payment.py:83
+msgid "Please select the type of the card."
+msgstr ""
+
+#: extras | checkout-order-preview-view.py
+msgid "Prepayment"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:180
+msgid "Price"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:194
+msgid "Sale Price"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.py:249
+msgid "Select"
+msgstr ""
+
+#: extras | browser/checkout/checkout.py
+msgid "Send invoice to this address"
+msgstr ""
+
+#: extras | browser/checkout/checkout.py
+msgid "Send products to this address"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:138
+msgid "Short Text"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:131
+msgid "Short Title"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:132
+msgid "Short title of the product, which can be displayed in overviews"
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:31
+msgid "Show quantity"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:166
+msgid "Stock Amount"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:145
+msgid "Text"
+msgstr ""
+
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_addressbook.py:27
+msgid "The address has been deleted."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:167
+msgid "The amount of this product in stock. This number is decreased automatically when the product has been sold."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:42
+msgid "The category aleady exits."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:43
+msgid "The category has been added."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/information.py:17
+msgid "The information as HTML"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/information.py:24
+msgid "The information as downloadable file."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:181
+msgid "The price of the product."
+msgstr ""
+
+#: extras | config.py
+msgid "The product has been added to the cart."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:195
+msgid "The sale price of the product."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:174
+msgid "The weight of the product."
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/related_products.py:112
+msgid "This portlet displays related products."
+msgstr ""
+
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/categories.py:220
+msgid "This portlet displays the categories of an EasyShop."
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_edit.py:30
+msgid "To change your address edit the form and press save."
+msgstr ""
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/bank_account.py:26
+msgid "To change your bank information edit the form and press save."
+msgstr ""
+
+#: ../../../src/easyshop.payment/easyshop/payment/browser/credit_card.py:26
+msgid "To change your credit card edit the form and press save."
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:159
+msgid "Unlimited Amount"
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.py:24
+msgid "Username"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:95
+msgid "Visa"
+msgstr ""
+
+#: extras | stock information
+msgid "Week"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/config.py:154
+msgid "Weeks"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/catalog.py:173
+msgid "Weight"
+msgstr ""
+
+#. Default: "Yes"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:362
+msgid "Yes"
+msgstr ""
+
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.py:161
+msgid "Your mail has been sent."
+msgstr ""
+
+#: ../../../src/easyshop.payment/easyshop/payment/adapters/payment_processing.py:91
+msgid "Your order has been payed."
+msgstr ""
+
+#: extras | config.py
+msgid "Your order has been received. Thank you!"
+msgstr ""
+
+#: ../../../src/easyshop.core/easyshop.core-0.1a1dev-r1301/easyshop/core/interfaces/customers.py:45
+msgid "Zip Code"
+msgstr ""
+
+#. Default: "Accessories"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:258
+msgid "accessories_label"
+msgstr ""
+
+#. Default: "Account-No."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:229
+msgid "account_no_label"
+msgstr ""
+
+#. Default: "Please add a new addresses"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:16
+msgid "add_address_form_title"
+msgstr ""
+
+#. Default: "Add Address"
+#: ../../../src/easyshop.customers/easyshop/customers/viewlets/addresses.pt:73
+msgid "add_address_label"
+msgstr ""
+
+#. Default: "Add Bank Account"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:85
+msgid "add_bank_information_label"
+msgstr ""
+
+#. Default: "Add Credit Card"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:149
+msgid "add_credit_card_label"
+msgstr ""
+
+#. Default: "When you are finish, please click on \"Next\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:21
+msgid "add_form_description"
+msgstr ""
+
+#. Default: "Add"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:186
+msgid "add_label"
+msgstr ""
+
+#. Default: "Add Property"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:68
+msgid "add_property_label"
+msgstr ""
+
+#. Default: "Add to Cart"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:150
+msgid "add_to_cart_label"
+msgstr ""
+
+#. Default: "This Articles have been added to the cart"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:15
+msgid "added_to_cart_label"
+msgstr ""
+
+#. Default: "Addresses"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:30
+msgid "addresses_label"
+msgstr ""
+
+#. Default: "All"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:125
+msgid "all_label"
+msgstr ""
+
+#. Default: "(If not, we will ask you soon)"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:376
+msgid "also_invoice_address_description"
+msgstr ""
+
+#. Default: "This is also the invoice address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:348
+msgid "also_invoice_address_label"
+msgstr ""
+
+#. Default: "Menge"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:29
+msgid "amount_label"
+msgstr ""
+
+#. Default: "Amount of Criteria"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:36
+msgid "amount_of_criteria_label"
+msgstr ""
+
+#. Default: "Amount of Items"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:51
+msgid "amount_of_items_label"
+msgstr ""
+
+#. Default: "Article ID"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:25
+msgid "article_id_label"
+msgstr ""
+
+#. Default: "Article"
+#: ../../../src/easyshop.carts/easyshop/carts/portlets/cart.pt:20
+msgid "article_label"
+msgstr ""
+
+#. Default: "Ascending"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:64
+msgid "ascending_label"
+msgstr ""
+
+#. Default: "Availability"
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_view.pt:35
+msgid "availability_label"
+msgstr ""
+
+#. Default: "Available / Time Period"
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:36
+msgid "available_time_period_label"
+msgstr ""
+
+#. Default: "Back to overview"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:29
+msgid "back_to_overview_label"
+msgstr ""
+
+#. Default: "Bank accounts"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:31
+msgid "bank_accounts_label"
+msgstr ""
+
+#. Default: "Bank Code"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:212
+msgid "bank_code_label"
+msgstr ""
+
+#. Default: "Bank Information"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:129
+msgid "bank_information_label"
+msgstr ""
+
+#. Default: "Bank Name"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:219
+msgid "bank_name_label"
+msgstr ""
+
+#: extras | workflow state
+msgid "canceled"
+msgstr ""
+
+#. Default: "Canceled"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:61
+msgid "canceled_label"
+msgstr ""
+
+#. Default: "Card Number"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:92
+msgid "card_number_label"
+msgstr ""
+
+#. Default: "Card Owner"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:82
+msgid "card_owner_label"
+msgstr ""
+
+#. Default: "Cart ID"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:85
+msgid "cart_id_label"
+msgstr ""
+
+#. Default: "Cart"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/cart.pt:65
+msgid "cart_label"
+msgstr ""
+
+#. Default: "Carts"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:14
+msgid "carts_label"
+msgstr ""
+
+#. Default: "Categories"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:11
+msgid "categories_label"
+msgstr ""
+
+#. Default: "Categories Tree"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:33
+msgid "catgories_tree_label"
+msgstr ""
+
+#. Default: "Check Out"
+#: ../../../src/easyshop.carts/easyshop/carts/portlets/cart.pt:46
+msgid "checkout_label"
+msgstr ""
+
+#. Default: "Please enter your friend's email address:"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:51
+msgid "checkout_recommendation_2"
+msgstr ""
+
+#. Default: "Total Sum:"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:284
+msgid "checkout_total_sum_label"
+msgstr ""
+
+#. Default: "Click to close the window"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
+msgid "click_to_close_window_label"
+msgstr ""
+
+#: extras | workflow state
+msgid "closed"
+msgstr ""
+
+#. Default: "Closed"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:56
+msgid "closed_label"
+msgstr ""
+
+#. Default: "Complete Order"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:40
+msgid "complete_order_label"
+msgstr ""
+
+#. Default: "Country"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:13
+msgid "country_label"
+msgstr ""
+
+#. Default: "Creation Date"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:41
+msgid "creation_date_label"
+msgstr ""
+
+#. Default: "Type"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:75
+msgid "credit_card_type_label"
+msgstr ""
+
+#. Default: "Credit Cards"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:58
+msgid "credit_cards_label"
+msgstr ""
+
+#. Default: "Criteria"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_page.pt:41
+msgid "criteria_label"
+msgstr ""
+
+#. Default: "Customer Name"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:120
+msgid "customer_name_label"
+msgstr ""
+
+#. Default: "Customers"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:12
+msgid "customers_label"
+msgstr ""
+
+#. Default: "This is an overview over all existing customers."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:17
+msgid "customers_view_description"
+msgstr ""
+
+#. Default: "Date"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:69
+msgid "date_label"
+msgstr ""
+
+#. Default: "Delete Article"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:112
+msgid "delete_article_label"
+msgstr ""
+
+#. Default: "Delete"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:145
+msgid "delete_label"
+msgstr ""
+
+#. Default: "Deliverable"
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:17
+msgid "deliverable_label"
+msgstr ""
+
+#. Default: "Delivery Period"
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:32
+msgid "delivery_period_label"
+msgstr ""
+
+#. Default: "Depositor"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:236
+msgid "depositor_label"
+msgstr ""
+
+#. Default: "Descending"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:69
+msgid "descending_label"
+msgstr ""
+
+#. Default: "Description"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_method.pt:23
+msgid "description_label"
+msgstr ""
+
+#. Default: "Details"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product_selector.pt:91
+msgid "details_label"
+msgstr ""
+
+#. Default: "Direct Debit"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:196
+msgid "direct_debit_label"
+msgstr ""
+
+#. Default: "Discount"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:188
+msgid "discount_label"
+msgstr ""
+
+#. Default: "Discounts"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:259
+msgid "discounts_label"
+msgstr ""
+
+#. Default: "Edit"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:134
+msgid "edit_label"
+msgstr ""
+
+#. Default: "Enabled"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:30
+msgid "enabled_label"
+msgstr ""
+
+#. Default: "Expiration Date"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:99
+msgid "expiration_date_label"
+msgstr ""
+
+#. Default: "First"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:65
+msgid "first_label"
+msgstr ""
+
+#. Default: "EasyShop Formatter"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:5
+msgid "formatter_label"
+msgstr ""
+
+#. Default: "Name"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:74
+msgid "fullname_label"
+msgstr ""
+
+#. Default: "General"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:66
+msgid "general_label"
+msgstr ""
+
+#. Default: "Global Properties"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:10
+msgid "global_properties_label"
+msgstr ""
+
+#. Default: "Go"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:76
+msgid "go_label"
+msgstr ""
+
+#. Default: "Go on shopping"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:91
+msgid "go_on_shopping_label"
+msgstr ""
+
+#. Default: "Go to cart"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:97
+msgid "go_to_cart_label"
+msgstr ""
+
+#. Default: "Group"
+#: ../../../src/easyshop.groups/easyshop/groups/browser/groups_view.pt:41
+msgid "group_label"
+msgstr ""
+
+#. Default: "Groups"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:177
+msgid "groups_label"
+msgstr ""
+
+#. Default: "Groups overview"
+#: ../../../src/easyshop.groups/easyshop/groups/browser/group_view.pt:16
+msgid "groups_overview_label"
+msgstr ""
+
+#. Default: "Icon"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:29
+msgid "icon_label"
+msgstr ""
+
+#. Default: "ID"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:56
+msgid "id_label"
+msgstr ""
+
+#. Default: "Image Size"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:73
+msgid "image_size_label"
+msgstr ""
+
+#. Default: "incl. Tax ="
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:295
+msgid "incl_tax_label"
+msgstr ""
+
+#. Default: "Information"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:12
+msgid "information_label"
+msgstr ""
+
+#. Default: "Information Page"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:49
+msgid "information_page_label"
+msgstr ""
+
+#. Default: "Invoice Address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:109
+msgid "invoice_address_label"
+msgstr ""
+
+#. Default: "Add Address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.py:62
+msgid "label_add_address"
+msgstr ""
+
+#. Default: "Buy"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.py:78
+msgid "label_buy"
+msgstr ""
+
+#. Default: "Cancel"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/address_forms.py:48
+msgid "label_cancel"
+msgstr ""
+
+#. Default: "Next"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_add.py:25
+msgid "label_next"
+msgstr ""
+
+#. Default: "Save"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_edit.py:33
+msgid "label_save"
+msgstr ""
+
+#. Default: "Last"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:101
+msgid "last_label"
+msgstr ""
+
+#. Default: "Last Modification"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:36
+msgid "last_modification_label"
+msgstr ""
+
+#. Default: "Last Seen"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/last_seen.pt:5
+msgid "last_seen_label"
+msgstr ""
+
+#. Default: "Lines Per Page"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:42
+msgid "lines_per_page_label"
+msgstr ""
+
+#. Default: "Local Properties"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:57
+msgid "local_properties_label"
+msgstr ""
+
+#. Default: "Login"
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:21
+msgid "login_label"
+msgstr ""
+
+#. Default: "Logout"
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:51
+msgid "logout_label"
+msgstr ""
+
+#. Default: "Manage Account"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:16
+msgid "manage_account_label"
+msgstr ""
+
+#. Default: "Manage Addressbook"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_addressbook.pt:16
+msgid "manage_addressbook_label"
+msgstr ""
+
+#. Default: "Manage"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:103
+msgid "manage_label"
+msgstr ""
+
+#. Default: "Manage name and e-mail address"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:38
+msgid "manage_name_label"
+msgstr ""
+
+#. Default: "Manage Password"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_password.pt:16
+msgid "manage_password_label"
+msgstr ""
+
+#. Default: "Manage Payment"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:16
+msgid "manage_payment_label"
+msgstr ""
+
+#. Default: "Manage Payment Methods"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:57
+msgid "manage_payment_methods_label"
+msgstr ""
+
+#. Default: "Message"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:407
+msgid "message_label"
+msgstr ""
+
+#. Default: "More orders"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:40
+msgid "more_orders_label"
+msgstr ""
+
+#. Default: "Move Down"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:84
+msgid "move_down_label"
+msgstr ""
+
+#. Default: "Move Up"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:76
+msgid "move_up_label"
+msgstr ""
+
+#. Default: "My Account"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:38
+msgid "my_account_label"
+msgstr ""
+
+#. Default: "My Orders"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:16
+msgid "my_orders_label"
+msgstr ""
+
+#. Default: "Name descending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:22
+msgid "name-descending-label"
+msgstr ""
+
+#. Default: "Name ascending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:17
+msgid "name_ascending_label"
+msgstr ""
+
+#. Default: "Name"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:32
+msgid "name_label"
+msgstr ""
+
+#. Default: "Next"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:90
+msgid "next_label"
+msgstr ""
+
+#. Default: "There are no addresses"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:124
+msgid "no_addresses_label"
+msgstr ""
+
+#. Default: "There are no bank information"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:155
+msgid "no_bank_information_label"
+msgstr ""
+
+#. Default: "This customer has no cart yet."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:192
+msgid "no_cart_label"
+msgstr ""
+
+#. Default: "There are no carts."
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:26
+msgid "no_carts_label"
+msgstr ""
+
+#. Default: "There are no categories."
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:8
+msgid "no_categories_label"
+msgstr ""
+
+#. Default: "There are no criteria."
+#: ../../../src/easyshop.information/easyshop/information/browser/information_page.pt:34
+msgid "no_criteria_label"
+msgstr ""
+
+#. Default: "There are no customers."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:71
+msgid "no_customers_label"
+msgstr ""
+
+#. Default: "There are no groups."
+#: ../../../src/easyshop.groups/easyshop/groups/browser/groups_view.pt:31
+msgid "no_groups_label"
+msgstr ""
+
+#. Default: "There are no information."
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:24
+msgid "no_information_label"
+msgstr ""
+
+#. Default: "There are no orders."
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:178
+msgid "no_orders_label"
+msgstr ""
+
+#. Default: "There are no payment methods."
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_methods.pt:30
+msgid "no_payment_methods_label"
+msgstr ""
+
+#. Default: "There are no payment prices."
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:30
+msgid "no_payment_prices_label"
+msgstr ""
+
+#. Default: "There are no products for the selected catagory"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:53
+msgid "no_products_for_category_label"
+msgstr ""
+
+#. Default: "No products found."
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:97
+msgid "no_products_found_label"
+msgstr ""
+
+#. Default: "There are no products."
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:92
+msgid "no_products_label"
+msgstr ""
+
+#. Default: "There are no shipping methods."
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:24
+msgid "no_shipping_methods_label"
+msgstr ""
+
+#. Default: "There are no shipping prices."
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:24
+msgid "no_shipping_price_label"
+msgstr ""
+
+#. Default: "There are no stock information."
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:24
+msgid "no_stock_information_label"
+msgstr ""
+
+#. Default: "Not deliverable"
+#: ../../../src/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:46
+msgid "not_deliverable_label"
+msgstr ""
+
+#. Default: "of"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:83
+msgid "of_label"
+msgstr ""
+
+#. Default: "Date"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:120
+msgid "order_date_label"
+msgstr ""
+
+#. Default: "E-mail"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:87
+msgid "order_email_label"
+msgstr ""
+
+#. Default: "ID"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:114
+msgid "order_id_label"
+msgstr ""
+
+#. Default: "The order can be found here."
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:58
+msgid "order_link_label"
+msgstr ""
+
+#. Default: "Name"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:76
+msgid "order_name_label"
+msgstr ""
+
+#. Default: "Phone"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:103
+msgid "order_phone_label"
+msgstr ""
+
+#. Default: "Please check the order. If you finished, confirm our terms and conditions and click on \"Complete order\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:38
+msgid "order_preview_description"
+msgstr ""
+
+#. Default: "State"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:132
+msgid "order_state_label"
+msgstr ""
+
+#. Default: "Total"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:150
+msgid "order_total_label"
+msgstr ""
+
+#. Default: "Orders"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/customers_container.pt:159
+msgid "orders_label"
+msgstr ""
+
+#: extras | workflow state
+msgid "payed (not sent)"
+msgstr ""
+
+#. Default: "Payed Not Sent"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:46
+msgid "payed_not_sent_label"
+msgstr ""
+
+#. Default: "Payment"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:37
+msgid "payment_label"
+msgstr ""
+
+#. Default: "Payment Method"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:19
+msgid "payment_method_label"
+msgstr ""
+
+#. Default: "Payment Methods"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_methods.pt:12
+msgid "payment_methods_label"
+msgstr ""
+
+#. Default: "Payment Price"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:59
+msgid "payment_price_label"
+msgstr ""
+
+#. Default: "Payment Prices"
+#: ../../../src/easyshop.payment/easyshop/payment/browser/payment_prices.pt:12
+msgid "payment_prices_label"
+msgstr ""
+
+#. Default: "PayPal"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:171
+msgid "paypal_label"
+msgstr ""
+
+#: extras | workflow state
+msgid "pending"
+msgstr ""
+
+#. Default: "Pending"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:41
+msgid "pending_label"
+msgstr ""
+
+#. Default: "Personal informations"
+#: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:33
+msgid "personal_informations_label"
+msgstr ""
+
+#. Default: "Complete Order"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:22
+msgid "preview_order_form_title"
+msgstr ""
+
+#. Default: "Previous"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:23
+msgid "previous_label"
+msgstr ""
+
+#. Default: "Price ascending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:27
+msgid "price_ascending"
+msgstr ""
+
+#. Default: "Price descending"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:32
+msgid "price_descending_label"
+msgstr ""
+
+#. Default: "Preis"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:33
+msgid "price_label"
+msgstr ""
+
+#. Default: "Priority"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_container_view.pt:40
+msgid "priority_label"
+msgstr ""
+
+#. Default: "Product Height"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:87
+msgid "product_height_label"
+msgstr ""
+
+#. Default: "Product"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:25
+msgid "product_label"
+msgstr ""
+
+#. Default: "Product Price"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:70
+msgid "product_price_label"
+msgstr ""
+
+#. Default: "Products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:50
+msgid "products_label"
+msgstr ""
+
+#. Default: "Products Per Line"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:60
+msgid "products_per_line_label"
+msgstr ""
+
+#. Default: "This is an overview over all existing products."
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:19
+msgid "products_view_description"
+msgstr ""
+
+#. Default: "Properties"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:211
+msgid "properties_label"
+msgstr ""
+
+#. Default: "Quantity"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:280
+msgid "quantity_label"
+msgstr ""
+
+#. Default: "Refresh"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:60
+msgid "refresh_label"
+msgstr ""
+
+#. Default: "Related Products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:143
+msgid "related_products_label"
+msgstr ""
+
+#. Default: "Received at"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:46
+msgid "reveived_at_label"
+msgstr ""
+
+#. Default: "Save"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:150
+msgid "save_label"
+msgstr ""
+
+#. Default: "Please select your addresses"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:17
+msgid "select_address_form_title"
+msgstr ""
+
+#. Default: "Select your shipping and invoice address and click on \"Next\". Or click on \"Add Address\" to add a new one."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:22
+msgid "select_form_description"
+msgstr ""
+
+#. Default: "Select"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:61
+msgid "select_label"
+msgstr ""
+
+#. Default: "When finished, please click on \"Next\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:15
+msgid "select_payment_form_description_1"
+msgstr ""
+
+#. Default: "(The order can be checked at the end, before it will be sent.)"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:357
+msgid "select_payment_form_description_2"
+msgstr ""
+
+#. Default: "Please select you payment method"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/payment.pt:10
+msgid "select_payment_form_title"
+msgstr ""
+
+#. Default: "When finished, please click on \"Next\"."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/shipping.pt:14
+msgid "select_shipping_form_description_1"
+msgstr ""
+
+#. Default: "Please select you shipping method"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/shipping.pt:9
+msgid "select_shipping_form_title"
+msgstr ""
+
+#. Default: "Selected Products:"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:21
+msgid "selected_products_label"
+msgstr ""
+
+#: extras | workflow state
+msgid "sent (not payed)"
+msgstr ""
+
+#. Default: "Sent Not Payed"
+#: ../../../src/easyshop.order/easyshop/order/browser/orders.pt:51
+msgid "sent_not_payed_label"
+msgstr ""
+
+#. Default: "Sent Not Payed Orders"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:16
+msgid "sent_not_payed_orders_label"
+msgstr ""
+
+#. Default: "Shipping Address"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_select.pt:54
+msgid "shipping_address_label"
+msgstr ""
+
+#. Default: "Shipping"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:209
+msgid "shipping_label"
+msgstr ""
+
+#. Default: "Shipping Method"
+#: ../../../src/easyshop.carts/easyshop/carts/viewlets/cart.pt:16
+msgid "shipping_method_label"
+msgstr ""
+
+#. Default: "Shipping Methods"
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:12
+msgid "shipping_methods_label"
+msgstr ""
+
+#. Default: "Shipping Price"
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_price.pt:29
+msgid "shipping_price_label"
+msgstr ""
+
+#. Default: "Shipping Prices"
+#: ../../../src/easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:12
+msgid "shipping_prices_label"
+msgstr ""
+
+#. Default: "Shop"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/carts_container.pt:19
+msgid "shop_label"
+msgstr ""
+
+#. Default: "If you are contented with our service you can recommend us to a friend."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:47
+msgid "shop_recommendation_1"
+msgstr ""
+
+#. Default: "Show Chars"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:118
+msgid "show_chars_label"
+msgstr ""
+
+#. Default: "Show Products"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:85
+msgid "show_products_label"
+msgstr ""
+
+#. Default: "Sorting"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:4
+msgid "sorting_label"
+msgstr ""
+
+#. Default: "State"
+#: ../../../src/easyshop.order/easyshop/order/browser/my_orders.pt:54
+msgid "state_label"
+msgstr ""
+
+#. Default: "Stock Information"
+#: ../../../src/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:12
+msgid "stock_information_label"
+msgstr ""
+
+#. Default: "Taxes"
+#: ../../../src/easyshop.shop/easyshop/shop/portlets/admin.pt:58
+msgid "taxes_label"
+msgstr ""
+
+#. Default: "Yes, I accept"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:383
+msgid "terms_and_conditions_label_1"
+msgstr ""
+
+#. Default: "terms and conditions"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:386
+msgid "terms_and_conditions_label_2"
+msgstr ""
+
+#. Default: "of"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:390
+msgid "terms_and_conditions_label_3"
+msgstr ""
+
+#. Default: "Text"
+#: ../../../src/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:131
+msgid "text_label"
+msgstr ""
+
+#. Default: "Your order has been successfully completed. You will get a confirmation e-mail very soon."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:15
+msgid "thank_you_description_1"
+msgstr ""
+
+#. Default: "We have accepted you order with number"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:25
+msgid "thank_you_description_2"
+msgstr ""
+
+#. Default: "You can see the status of your order at"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:34
+msgid "thank_you_description_3"
+msgstr ""
+
+#. Default: "Thank you for your shopping!"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:10
+msgid "thank_you_title"
+msgstr ""
+
+#. Default: "Title"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:32
+msgid "title_label"
+msgstr ""
+
+#. Default: "Gesamt"
+#: ../../../src/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:37
+msgid "total_label"
+msgstr ""
+
+#. Default: "Unit Price"
+#: ../../../src/easyshop.order/easyshop/order/browser/mail_order_sent.pt:277
+msgid "unit_price_label"
+msgstr ""
+
+#. Default: "Please add username and password."
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/user.pt:17
+msgid "user_form_title"
+msgstr ""
+
+#. Default: "User"
+#: ../../../src/easyshop.customers/easyshop/customers/portlets/my_account.pt:5
+msgid "user_label"
+msgstr ""
+
+#. Default: "Value"
+#: ../../../src/easyshop.information/easyshop/information/browser/information_page.pt:51
+msgid "value_label"
+msgstr ""
+
+#. Default: "Variants"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:10
+msgid "variants_label"
+msgstr ""
+
+#. Default: "View"
+#: ../../../src/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:84
+msgid "view_label"
+msgstr "Vue"
+
+#. Default: "Welcome"
+#: ../../../src/easyshop.checkout/easyshop/checkout/browser/address_form.pt:27
+msgid "welcome_label"
+msgstr "Bienvenue"
+
+#. Default: "Zoom"
+#: ../../../src/easyshop.catalog/easyshop/catalog/viewlets/product.pt:143
+msgid "zoom_label"
+msgstr "Gros plan"
+
+#. Default: "Zoom View"
+#: ../../../src/easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
+msgid "zoom_view_label"
+msgstr "Vue en gros plan"
+
