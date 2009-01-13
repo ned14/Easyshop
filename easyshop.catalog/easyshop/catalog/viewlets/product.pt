@@ -21,7 +21,6 @@
             }
         })     
     </script>
-         
 
     <form id="product_form"
           action="#"
@@ -110,7 +109,27 @@
                     </table>    
                 </td>
             </tr>                   
-           
+            <tr>
+             <td>
+               <!-- begin : breadcrumbs -->
+               <div style="margin-left:10px;margin-bottom:5px;font-size:smaller;" tal:define="breadcrumbs view/getBreadCrumbs">
+                 Sie sind hier: 
+                <ul style="display:inline">
+                <li style="display:inline">
+                  <a href="#" style="text-decoration:none" tal:attributes="
+                              href view/getShopURL"
+                  >Online-Shop</a> →    
+                </li>      
+                <li tal:repeat="link breadcrumbs" style="display:inline">
+                  <a href="#" style="text-decoration:none" tal:attributes="
+                              href link/absolute_url"
+                              tal:content="link/title">test</a> →
+                </li>
+                </ul>
+               </div>    
+               <!-- end : breadcrumbs -->               
+             </td>
+            </tr>
             <tr>
                 <td class="main-title"> 
                     <table class="shop-default">
