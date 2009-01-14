@@ -123,7 +123,12 @@
                 <li tal:repeat="link breadcrumbs" style="display:inline">
                   <a href="#" style="text-decoration:none" tal:attributes="
                               href link/absolute_url"
-                              tal:content="link/title">test</a> →
+                              tal:content="link/title">test</a> → 
+                </li>
+                <li style="display:inline">
+                 <a href="#" style="text-decoration:none"  
+			     	tal:attributes="href product_data/url"
+				tal:content="product_data/title">Product Title</a>
                 </li>
                 </ul>
                </div>    
@@ -272,7 +277,7 @@
                                                      <td colspan="5">
                                                          <h2 tal:condition="context/getAccessoriesTitle"
                                                              tal:content="context/getAccessoriesTitle">
-                                                             Accessories
+                                                             Accessories:
                                                          </h2>
                                                          <h2 i18n:translate="accessories_label"
                                                              tal:condition="not: context/getAccessoriesTitle">
