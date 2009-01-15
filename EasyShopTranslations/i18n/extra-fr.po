@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra-fr\n"
 "POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
-"PO-Revision-Date: 2009-01-13 06:40+0100\n"
+"PO-Revision-Date: 2009-01-14 22:57+0100\n"
 "Last-Translator: danielle d'avout <danielle.davout@gmail.com>\n"
-"Language-Team: d'avout <danielle.davout@gmail.com>\n"
+"Language-Team: français <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,10 +14,11 @@ msgstr ""
 "Language-Name: Français\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 "Domain: EasyShop\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: extras | config.py
 msgid "The product has been added to the cart."
-msgstr "L'article a été ajouté au panier."
+msgstr "L'article a été ajouté au panier. "
 
 #: extras | config.py
 msgid "Your order has been received. Thank you!"
@@ -81,7 +82,7 @@ msgstr "Aucun"
 
 #: extras | formatter.pt
 msgid "Description"
-msgstr "descriptif"
+msgstr "Descriptif"
 
 #: extras | formatter.pt
 msgid "Short Text"
