@@ -1,5 +1,13 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
+    
+    <!-- Note: this is the view of a selector. It shows the selected products
+         of a selector. -->           
+    <browser:page
+        name="ps-view"
+        for="easyshop.core.interfaces.IProductSelector"
+        template="ps_view.pt"
+        permission="zope.Public" />
 
     <!-- Product -->       
     <browser:page
@@ -9,6 +17,9 @@
         template="product_view.pt"
         permission="zope.Public" />
 
+    <!-- Note: this is the selector view for category and shop, means it shows 
+         the product selectors if a category or a shop has some.         
+         TODO: Rename to category_selector_view or something like that -->
     <browser:page
         name="product-selector-view"
         for="*"

@@ -1,6 +1,20 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+    <!-- PS  -->
+    <browser:viewletManager
+        name="easyshop.ps-manager"
+        provides=".interfaces.IPSViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        permission="zope.Public" />
+
+    <browser:viewlet
+        name="easyshop.ps-viewlet"
+        for="*"
+        manager=".interfaces.IPSViewletManager"
+        class=".ps.PSViewlet"
+        permission="zope.Public" />
+
     <!-- Category  -->
     <browser:viewletManager
         name="easyshop.products-manager"

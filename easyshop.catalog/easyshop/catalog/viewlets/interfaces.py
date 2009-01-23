@@ -1,5 +1,9 @@
 from zope.viewlet.interfaces import IViewletManager
 
+class IPSViewletManager(IViewletManager):
+    """Viewlet manager for ps view.
+    """
+
 class IProductsViewletManager(IViewletManager):
     """Viewlet manager for category selector view.
     """

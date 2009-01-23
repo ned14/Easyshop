@@ -69,7 +69,14 @@ class ProductSelector(BaseContent):
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
     schema = ProductSelector_schema
-
+    
+    def getLayout(self):
+        """
+        """
+        # Note needed for (not) refreshing via kss, when save format is applied
+        # to a product selector.
+        return "ps-view"
+        
     def getStartupDirectoryForProducts(self):
         """
         """
