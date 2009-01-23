@@ -138,7 +138,7 @@ class PSViewlet(ViewletBase):
         """
         return IShopManagement(self.context).getShop().absolute_url()
 
-    # @memoize
+    @memoize
     def getBackToOverViewUrl(self):
         """
         """
@@ -153,7 +153,7 @@ class PSViewlet(ViewletBase):
             
         return parent_url
         
-    # @memoize
+    @memoize
     def showEditLink(self):
         """
         """
