@@ -47,18 +47,17 @@
                      href view/getShopURL"
                      >Online-Shop</a>
                 </span>
-                <span  tal:condition="breadcrumbs" class="breadcrumbSeparator">&rarr;</span>    
-                
-                <span tal:repeat="link breadcrumbs">
-                  <a href="#" class="folder" tal:attributes="
-                              href link/absolute_url"
-                              tal:content="link/title">test</a>
+                <span tal:condition="not:info/root" class="breadcrumbSeparator">&rarr;</span>    
+                 <span tal:repeat="link breadcrumbs">
+                 <a href="#"
+                      tal:attributes="href link/absolute_url"
+                      tal:content="link/title">test</a>
                   <span class="breadcrumbSeparator">&rarr;</span> 
-                </span>
-                <span tal:condition="breadcrumbs">
-                 <a href="#"  
-			     	tal:attributes="href info/absolute_url"
-				tal:content="info/title">Title</a>
+                 </span>
+                <span tal:condition="not:info/root">
+                 <a href="#"
+         			     	tal:attributes="href info/absolute_url"
+            				tal:content="info/title">Title</a>
                 </span>                
                </div>    
                <!-- end : breadcrumbs -->           
