@@ -82,6 +82,8 @@ class ProductsViewlet(ViewletBase):
             "navigation_list"  : batch.navlist,
             "number_of_pages"  : batch.numpages,
             "page_number"      : batch.pagenumber,
+            "absolute_url"     : self.context.absolute_url(),
+            "title"            : self.context.Title()
         }
         
         sorting = self.request.SESSION.get("sorting")
@@ -220,6 +222,30 @@ class ProductsViewlet(ViewletBase):
 
         return result
 
+    def getShopURL(self):
+        """
+        """
+        return IShopManagement(self.context).getShop().absolute_url()  
+
+    def getBreadCrumbs(self) :
+        """
+        """
+        parents = []
+        
+        parent = self.context.getRefs("parent_category")
+        
+        while len(parent) > 0 :
+          parent = ICategory(parent[0])
+          parents.append({"title"   : parent.Title(),
+                          "absolute_url"  : parent.absolute_url()
+                         }
+                        )                            
+          parent = parent.getRefs("parent_category")
+
+        parents.reverse()
+        
+        return parents
+        
     @memoize
     def getTdWidth(self):
         """
