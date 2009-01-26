@@ -1,7 +1,8 @@
 <div id="categories-list"
      i18n:domain="EasyShop">
     <table class="products"
-           tal:define="lines view/getCategories;
+           tal:define="info view/getInfo;
+                       lines view/getCategories;
                        formats view/getFormats">
 
         <tr tal:condition="not:lines">
@@ -36,7 +37,33 @@
                 </table>
             </td>
         </tr>
-        
+        <tr>
+         <td>
+               <!-- begin : custom-breadcrumbs -->
+               <div id="custom-breadcrumbs" tal:define="breadcrumbs view/getBreadCrumbs">
+                <span class="custom-breadcrumbs-you-are-here"> Sie sind hier:</span>
+                <span>
+                 <a href="#" class="folder" tal:attributes="
+                     href view/getShopURL"
+                     >Online-Shop</a>
+                </span>
+                <span  tal:condition="breadcrumbs" class="breadcrumbSeparator">&rarr;</span>    
+                
+                <span tal:repeat="link breadcrumbs">
+                  <a href="#" class="folder" tal:attributes="
+                              href link/absolute_url"
+                              tal:content="link/title">test</a>
+                  <span class="breadcrumbSeparator">&rarr;</span> 
+                </span>
+                <span tal:condition="breadcrumbs">
+                 <a href="#"  
+			     	tal:attributes="href info/absolute_url"
+				tal:content="info/title">Title</a>
+                </span>                
+               </div>    
+               <!-- end : breadcrumbs -->           
+         </td>        
+        </tr>          
         <tr tal:repeat="line lines">
             <td tal:repeat="category line"
                 tal:attributes="width view/getTdWidth;
@@ -94,7 +121,7 @@
                     
                 </table>
             </td>    
-        </tr>    
+        </tr>          
         <tr tal:define="back_url view/getBackToOverViewUrl"
             tal:condition="back_url">
 
