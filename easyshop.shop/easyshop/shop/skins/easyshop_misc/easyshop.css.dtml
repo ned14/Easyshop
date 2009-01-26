@@ -428,4 +428,17 @@ span.invoice-field {
 .easyshop-hidden {
     display:none;
 }
+
+#custom-breadcrumbs{
+    padding-left: 2em;
+    padding-right: 2em;
+    text-transform: none;
+    line-height: 1.6em;
+    font-size:11px;
+}
+
+#custom-breadcrumbs a{text-decoration:none}
+
+#custom-breadcrumbs a.folder:link, a.folder:visited, a.folder:active{color: #436976;background-color: transparent;}
+
 /* </dtml-with> */
