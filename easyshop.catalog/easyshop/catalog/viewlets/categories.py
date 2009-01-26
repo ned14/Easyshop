@@ -20,9 +20,16 @@ class CategoriesViewlet(ViewletBase):
     def getInfo(self):
         """
         """
+        
+        if self.context.UID() is IShopManagement(self.context).getShop().UID() :
+          root  = True
+        else :
+          root  = False
+        
         ret = { 'title'         : self.context.Title(),
-                'absolute_url'  : self.context.absolute_url()
-              }
+                  'absolute_url'  : self.context.absolute_url(),
+                  'root'          : root
+              }         
     
         return ret
 
