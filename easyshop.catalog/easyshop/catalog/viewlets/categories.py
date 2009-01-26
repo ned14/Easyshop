@@ -6,6 +6,7 @@ from plone.memoize.instance import memoize
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # easyshop imports
+from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IFormats
 from easyshop.core.interfaces import IShop
@@ -15,6 +16,15 @@ class CategoriesViewlet(ViewletBase):
     """
     """
     render = ViewPageTemplateFile('categories.pt')
+
+    def getInfo(self):
+        """
+        """
+        ret = { 'title'         : self.context.Title(),
+                'absolute_url'  : self.context.absolute_url()
+              }
+    
+        return ret
 
     def getCategories(self):
         """
@@ -69,6 +79,38 @@ class CategoriesViewlet(ViewletBase):
             lines.append(line)
             
         return lines
+
+    def getShopURL(self):
+        """
+        """
+        return IShopManagement(self.context).getShop().absolute_url()
+
+    def getBreadCrumbs(self) :
+        """
+        """
+        parents = []
+        
+        parent = self.context.getRefs("parent_category")
+        
+        while len(parent) > 0 :
+          parent = ICategory(parent[0])
+          parents.append({"title"   : parent.Title(),
+                          "absolute_url"  : parent.absolute_url()
+                         }
+                        )                            
+          parent = parent.getRefs("parent_category")
+
+        parents.reverse()
+        
+        if len(parents) > 0 :
+          parents[(len(parents)+(-1))] = {
+                          "last"         : True,
+                          "absolute_url" : parents[(len(parents)+(-1))]['absolute_url'],
+                          "title"        : parents[(len(parents)+(-1))]['title']
+                          }
+        
+        return parents
+
 
     @memoize
     def getBackToOverViewUrl(self):
