@@ -81,6 +81,33 @@
             </td>
         </tr>
         <tr>
+         <td>
+               <!-- begin : custom-breadcrumbs -->
+               <div id="custom-breadcrumbs" tal:define="breadcrumbs view/getBreadCrumbs">
+                <span class="custom-breadcrumbs-you-are-here"> Sie sind hier:</span>
+                <span>
+                 <a href="#" class="folder" tal:attributes="
+                     href view/getShopURL"
+                     >Online-Shop</a>
+                </span>
+                <span class="breadcrumbSeparator">&rarr;</span>    
+                
+                <span tal:repeat="link breadcrumbs">
+                  <a href="#" class="folder" tal:attributes="
+                              href link/absolute_url"
+                              tal:content="link/title">test</a>
+                  <span class="breadcrumbSeparator">&rarr;</span> 
+                </span>
+                <span>
+                 <a href="#"  
+			                       	tal:attributes="href batch_info/absolute_url"
+		                          tal:content="batch_info/title">Product Title</a>
+                </span>
+               </div>    
+               <!-- end : breadcrumbs -->           
+         </td>        
+        </tr>
+        <tr>
             <td class="main-title" 
                 tal:content="context/Description"
                 tal:attributes="colspan format_info/products_per_line">                
