@@ -108,29 +108,30 @@
                         </tr>
                     </table>    
                 </td>
-            </tr>                   
+            </tr>
             <tr>
              <td>
-               <!-- begin : breadcrumbs -->
-               <div style="margin-left:10px;margin-bottom:5px;font-size:smaller;" tal:define="breadcrumbs view/getBreadCrumbs">
-                 Sie sind hier: 
-                <ul style="display:inline">
-                <li style="display:inline">
-                  <a href="#" style="text-decoration:none" tal:attributes="
-                              href view/getShopURL"
-                  >Online-Shop</a> →    
-                </li>      
-                <li tal:repeat="link breadcrumbs" style="display:inline">
-                  <a href="#" style="text-decoration:none" tal:attributes="
+               <!-- begin : custom-breadcrumbs -->
+               <div id="custom-breadcrumbs" tal:define="breadcrumbs view/getBreadCrumbs">
+                <span class="custom-breadcrumbs-you-are-here"> Sie sind hier:</span>
+                <span>
+                 <a href="#" class="folder" tal:attributes="
+                     href view/getShopURL"
+                     >Online-Shop</a>
+                </span>
+                <span class="breadcrumbSeparator">→</span>    
+                
+                <span tal:repeat="link breadcrumbs">
+                  <a href="#" class="folder" tal:attributes="
                               href link/absolute_url"
-                              tal:content="link/title">test</a> → 
-                </li>
-                <li style="display:inline">
-                 <a href="#" style="text-decoration:none"  
+                              tal:content="link/title">test</a>
+                  <span class="breadcrumbSeparator">→</span> 
+                </span>
+                <span>
+                 <a href="#"  
 			     	tal:attributes="href product_data/url"
 				tal:content="product_data/title">Product Title</a>
-                </li>
-                </ul>
+                </span>
                </div>    
                <!-- end : breadcrumbs -->               
              </td>
