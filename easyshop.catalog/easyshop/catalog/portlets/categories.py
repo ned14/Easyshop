@@ -16,6 +16,7 @@ from easyshop.core.config import _
 from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
+from easyshop.core.interfaces import IProductSelector
 from easyshop.core.interfaces import IShopManagement
 
 class ICategoriesPortlet(IPortletDataProvider):
@@ -66,7 +67,6 @@ class Renderer(base.Renderer):
         """
         """
         category = self.getStartingCategory()
-
         if category is None:
             return []
         else:
@@ -152,12 +152,24 @@ class Renderer(base.Renderer):
                 return False
             
             while ICategory.providedBy(product_category) == True:
-                if product_category.UID() == category.UID:
+                if product_category.UID() == category.UID():
                     return True
                 product_category = product_category.aq_inner.aq_parent
     
-        return False
+            return False
+        
+        if IProductSelector.providedBy(self.context) == True:
+            obj = self.context.aq_inner.aq_parent
+            while obj is not None:
+                if category == obj:
+                    return True
+                try:
+                    obj = obj.getRefs("parent_category")[0]
+                except IndexError:
+                    obj = None
 
+        return False
+            
     def _getSubCategories(self, category):
         """
         """
