@@ -35,6 +35,19 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
+
+    StringField(
+        name="operator",
+        vocabulary=[">=", "<", "="], 
+        default=">=",
+        widget=SelectionWidget(
+            label="Operator",
+            label_msgid="schema_operator_label",
+            description = "Read stock amount 'operator' Length",
+            description_msgid = "schema_operator_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
     
 ),
 )
@@ -55,7 +68,7 @@ class StockAmountCriteria(BaseContent):
     def getValue(self):
         """
         """
-        return self.getAmount()
+        return "%s %s" % (self.getOperator(), self.getAmount())
         
     def _renameAfterCreation(self, check_auto_id=False):
         """Overwritten to set the default value for id

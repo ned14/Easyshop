@@ -21,7 +21,13 @@ class StockAmountCriteriaValidity:
         """Returns True, if the stock amount of the product is equal or less then
         entered criteria stock amount.
         """
-        if product.getStockAmount() <= self.context.getAmount():
-            return True
-        else:
-            return False
+        if self.context.getOperator() == ">=":
+            if product.getStockAmount() >= self.context.getAmount():
+                return True
+        elif self.context.getOperator() == "<":
+            if product.getStockAmount() < self.context.getAmount():
+                return True
+        elif self.context.getOperator() == "=":
+            if product.getStockAmount() == self.context.getAmount():
+                return True
+        return False
