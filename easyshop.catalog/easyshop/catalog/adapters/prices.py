@@ -40,62 +40,62 @@ class ProductPrices(object):
     def getPriceForCustomer(self, effective=True, variant_price=True):
         """
         """
-        cache_key = "price-for-customer-%s" % effective
-        price = self.context.cache.get(cache_key)
-        if price is not None:
-            return price
-            
         if self.has_variants and variant_price and \
            self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceForCustomer(effective)
         else:
+            cache_key = "price-for-customer-%s" % effective
+            price = self.context.cache.get(cache_key)
+            if price is not None:
+                return price
+            
             if effective == True:
                 price = self._getEffectivePriceForCustomer()
             else:
                 price = self._getStandardPriceForCustomer()
         
-        self.context.cache[cache_key] = price
-        return price
-            
+            self.context.cache[cache_key] = price
+            return price
+
     def getPriceNet(self, effective=True, variant_price=True):
         """
         """
-        cache_key = "price-net-%s" % effective
-        price = self.context.cache.get(cache_key)
-        if price is not None:
-            return price
-        
         if self.has_variants and variant_price and \
            self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceNet(effective)
         else:
+            cache_key = "price-net-%s" % effective
+            price = self.context.cache.get(cache_key)
+            if price is not None:
+                return price
+            
             if effective == True:
                 return self._getEffectivePriceNet()
             else:
                 return self._getStandardPriceNet()
 
-        self.context.cache[cache_key] = price
-        return price
+            self.context.cache[cache_key] = price
+            return price
 
     def getPriceGross(self, effective=True, variant_price=True):
         """
         """
-        cache_key = "price-for-gross-%s" % effective
-        price = self.context.cache.get(cache_key)
-        if price is not None:
-            return price
-        
         if self.has_variants and variant_price and \
            self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceGross(effective)
         else:
+            cache_key = "price-for-gross-%s" % effective
+            price = self.context.cache.get(cache_key)
+            if price is not None:
+                return price
+            
             if effective == True:
                 price = self._getEffectivePriceGross()
             else:
                 price = self._getStandardPriceGross()
 
-        self.context.cache[cache_key] = price
-        return price
+            self.context.cache[cache_key] = price
+            return price
 
     # Effective Price
     def _getEffectivePriceForCustomer(self):
