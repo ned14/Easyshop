@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <metal:javascript_head fill-slot="javascript_head_slot">
+            <script>
+                jq(function() {
+                    jq("#select-all-products").livequery("click", function () {
+                        var checkedValue = jq('#select-all-products').attr('checked') ? 'checked' : ''; 
+                        jq(".new-products").each(function(){
+                            this.checked = checkedValue;
+                        });                    
+                    });
+
+                    jq("#select-all-accessories").livequery("click", function () {
+                        var checkedValue = jq('#select-all-accessories').attr('checked') ? 'checked' : ''; 
+                        jq(".accessories").each(function(){
+                            this.checked = checkedValue;
+                        });                    
+                    });
+                    jq(".move-down").livequery("click", function() {
+                        jq("#kss-spinner").css("display", "block");
+                        id = jq(this).attr("id");                         
+                        jq.post("ajax-move-accessory-down", { item : id }, function(data) {
+                            jq("#accessories").html(data);
+                            jq("#kss-spinner").css("display", "none"); 
+                        })
+                        return false;                         
+                    })
+                    
+                    jq(".move-up").livequery("click", function() {
+                        jq("#kss-spinner").css("display", "block");
+                        id = jq(this).attr("id");                         
+                        jq.post("ajax-move-accessory-up", { item : id }, function(data) {
+                            jq("#accessories").html(data);
+                            jq("#kss-spinner").css("display", "none"); 
+                        })
+                        return false;                         
+                    })
+                });
+
+            </script> 
+                         
+        </metal:javascript_head>
+        
+        <div metal:fill-slot="main">            
+            <div tal:replace="structure provider:easyshop.manage-accessories-manager" />
+        </div>    
+    </body>
+    
+</html>
+
+

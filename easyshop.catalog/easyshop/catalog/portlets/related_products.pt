@@ -1,0 +1,43 @@
+<dl class="portlet portletRelatedProducts"
+    i18n:domain="EasyShop">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <tal:block i18n:translate="related_products_label">
+            Related Products
+        </tal:block>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:block tal:repeat="product view/related_products">
+        <dd class="portletItem">
+            <a href="."
+               tal:attributes="href product/url">
+               
+                <img src="."
+                     tal:attributes="src product/image_url;
+                                     title product/title;
+                                     alt product/title" />
+                                 
+                <div tal:content="product/title">
+                    Title
+                </div>
+
+                <div tal:content="product/price"
+                     style="font-weight:bold">
+                    42,00
+                </div>
+
+            </a>
+        </dd>
+    </tal:block>    
+
+    <dd class="portletItem">
+     <div class="product-price-info">
+         *Preis inkl. MwSt. und <a href="javascript:return false" style="text-decoration:underline" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+     </div> 
+    </dd>
+
+    <span class="portletBottomLeft"></span>
+    <span class="portletBottomRight"></span>
+</dl>
