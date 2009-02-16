@@ -35,18 +35,27 @@ class ProductPrices(object):
     def getPriceForCustomer(self, effective=True, variant_price=True):
         """
         """
+        if self.context.getCachedPriceForCustomer() != 0:
+            return self.context.getCachedPriceForCustomer()
+            
         if self.has_variants and variant_price and \
            self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceForCustomer(effective)
         else:
             if effective == True:
-                return self._getEffectivePriceForCustomer()
+                price = self._getEffectivePriceForCustomer()
             else:
-                return self._getStandardPriceForCustomer()
+                price = self._getStandardPriceForCustomer()
+        
+        self.context.setCachedPriceForCustomer(price)
+        return price
             
     def getPriceNet(self, effective=True, variant_price=True):
         """
         """
+        if self.context.getCachedPriceNet() != 0:
+            return self.context.getCachedPriceNet()
+        
         if self.has_variants and variant_price and \
            self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceNet(effective)
@@ -56,17 +65,26 @@ class ProductPrices(object):
             else:
                 return self._getStandardPriceNet()
 
+        self.context.setCachedPriceNet(price)
+        return price
+
     def getPriceGross(self, effective=True, variant_price=True):
         """
         """
+        if self.context.getCachedPriceGross() != 0:
+            return self.context.getCachedPriceForCustomer()
+        
         if self.has_variants and variant_price and \
            self.product_variant.getPrice() != 0:
             return IPrices(self.product_variant).getPriceGross(effective)
         else:
             if effective == True:
-                return self._getEffectivePriceGross()
+                price = self._getEffectivePriceGross()
             else:
-                return self._getStandardPriceGross()
+                price = self._getStandardPriceGross()
+
+        self.context.setCachedPriceGross(price)
+        return price
 
     # Effective Price
     def _getEffectivePriceForCustomer(self):
@@ -148,26 +166,45 @@ class ProductVariantPrices(ProductPrices):
     def getPriceForCustomer(self, effective=True):
         """
         """
+        if self.context.getCachedPriceForCustomer() != 0:
+            return self.context.getCachedPriceForCustomer()
+        
         if self.context.getPrice() != 0:
             base = super(ProductVariantPrices, self)
-            return base.getPriceForCustomer(effective)
+            price = base.getPriceForCustomer(effective)
         else:
-            return IPrices(self.parent).getPriceForCustomer(variant_price=False)
+            price = IPrices(self.parent).getPriceForCustomer(variant_price=False)
+
+        self.context.setCachedPriceForCustomer(price)
+        return price
             
     def getPriceNet(self, effective=True):
         """
         """
+        if self.context.getCachedPriceNet() != 0:
+            return self.context.getCachedPriceNet()
+        
         if self.context.getPrice() != 0:
             base = super(ProductVariantPrices, self)
-            return base.getPriceNet(effective)
+            price = base.getPriceNet(effective)
         else:
-            return IPrices(self.parent).getPriceNet(variant_price=False)
+            price = IPrices(self.parent).getPriceNet(variant_price=False)
+
+        self.context.setCachedPriceNet(price)
+        return price
 
     def getPriceGross(self, effective=True):
         """
         """
+        if self.context.getCachedPriceGross() != 0:
+            return self.context.getCachedPriceGross()
+        
         if self.context.getPrice() != 0:
             base = super(ProductVariantPrices, self)
-            return base.getPriceGross(effective)
+            price = base.getPriceGross(effective)
         else:
-            return IPrices(self.parent).getPriceGross(variant_price=False)
+            price = IPrices(self.parent).getPriceGross(variant_price=False)
+            
+        self.context.setCachedPriceGross(price)
+        return price
+            

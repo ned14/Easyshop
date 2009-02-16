@@ -268,6 +268,41 @@ schema = Schema((
         ),
     ),
     
+    FloatField(
+        name='cachedPriceForCustomer',
+        schemata="advanced",
+        default=0.0,
+        widget=DecimalWidget(
+            size="10",
+            label='Sale Price',
+            label_msgid='schema_sale_price_gross_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+    FloatField(
+        name='cachedPriceGross',
+        schemata="advanced",
+        default=0.0,
+        widget=DecimalWidget(
+            size="10",
+            label='Sale Price',
+            label_msgid='schema_sale_price_gross_label',
+            i18n_domain='EasyShop',
+        )
+    ),
+
+    FloatField(
+        name='cachedPriceNet',
+        schemata="advanced",
+        default=0.0,
+        widget=DecimalWidget(
+            size="10",
+            label='Sale Price',
+            label_msgid='schema_sale_price_gross_label',
+            i18n_domain='EasyShop',
+        )
+    ),
     
 ),
 )
