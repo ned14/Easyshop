@@ -1,0 +1,69 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five">
+
+    <!-- IProductVariants -->
+    <adapter
+        factory=".data.ProductVariantData" />
+
+    <adapter
+        factory=".product_variants_management.ProductVariantsManagement" />
+
+    <adapter
+        factory=".prices.ProductVariantPrices" />
+
+    <adapter
+        factory=".taxes.ProductVariantTaxes" />
+
+    <!-- ICategoryManagement -->
+    <adapter
+        factory=".category_management.CategoryCategoryManagement" />
+    
+    <adapter        
+        factory=".category_management.ProductCategoryManagement" />
+
+    <adapter        
+        factory=".category_management.ProductVariantCategoryManagement" />
+
+    <adapter
+        factory=".category_management.ShopCategoryManagement" />
+
+
+    <!-- IData -->    
+    <adapter
+        factory=".data.ProductData" />
+
+
+    <!-- IFormat -->
+    <adapter
+        for="easyshop.core.interfaces.IFormatable"
+        factory=".formats.FormatterInfos" />
+
+    <!-- IPrices -->    
+    <adapter
+        factory=".prices.ProductPrices" />
+
+    <!-- IProductManagement -->
+    <adapter
+        factory=".product_management.CategoryProductManagement" />
+
+    <adapter
+        factory=".product_management.ProductsContainerProductManagement" />
+
+    <adapter 
+        factory=".product_management.ShopProductManagement" />
+
+    <!-- IPropertyManagement -->
+    <adapter
+        factory=".property_management.ProductPropertyManagement" />
+
+    <!-- IGroupManagement -->    
+    <adapter
+        factory=".group_management.ProductGroupManagement" />
+
+    <!-- ITaxes -->    
+    <adapter
+        factory=".taxes.ProductTaxes" />
+        
+</configure>
+

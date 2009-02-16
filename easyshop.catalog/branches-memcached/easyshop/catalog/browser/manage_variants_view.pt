@@ -1,0 +1,165 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <div metal:fill-slot="main"
+             tal:define="properties view/getProperties">
+             
+            <h1 class="documentFirstHeading"
+                i18n:translate="variants_label">
+                Variants
+            </h1>    
+            <form id="manage-variants"
+                  method="post"
+                  action="."
+                  tal:attributes="action context/REQUEST/URL">
+                  
+                <table class="listing">
+                    <tr>
+                        <th>
+                            <input type="checkbox"
+                                   onclick="javascript:myToggleSelect()" />
+                        </th>
+                        <th i18n:translate="article_id_label">
+                            Article ID
+                        </th>    
+                        <th i18n:translate="title_label">
+                            Title
+                        </th>
+                        <th tal:repeat="property properties"
+                            tal:content="property/title">
+                            Title
+                        </th>
+                        <th i18n:translate="price_label">
+                            Price
+                        </th>
+                        <th i18n:translate="manage_label">
+                            Manage
+                        </th>
+                    </tr>
+                    <tr tal:repeat="variant view/getVariants">
+                        <td>
+                            <input type="checkbox" 
+                                   name="paths:list"
+                                   tal:attributes="value variant/path" />
+                        </td>    
+                        <td>
+                            <input type="text"
+                                   tal:attributes="name string:article-id-${variant/id};
+                                                   value variant/article_id" />
+                        </td>                    
+                        <td>
+                            <input type="text"
+                                   tal:attributes="name string:title-${variant/id};
+                                                   value variant/title" />
+                        </td>
+                        <td tal:repeat="property view/getProperties">
+
+                            <select tal:attributes="name string:${property/name}|${variant/id}">
+                                <option i18n:translate="select_label">
+                                    Select
+                                </option>    
+                                <option tal:repeat="option property/options"
+                                        tal:attributes="value option/id;
+                                                        selected python:view.isOptionSelected(variant, property['id'], option['id'])"
+                                        tal:content="option/name">
+                                    Option Name                                        
+                                </option>
+                                
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text"                                   
+                                   tal:attributes="name string:price-${variant/id};
+                                                   value variant/price" />
+                        </td>
+                        <td>
+                            <a href="."
+                               tal:attributes="href string:${variant/url}/edit"
+                               i18n:translate="edit_label">
+                                Edit
+                            </a>|
+                            <a href="."
+                               tal:attributes="href string:${variant/url}/view"
+                               i18n:translate="view_label">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit"
+                                   value="Delete"
+                                   name="deleteVariants:method" 
+                                   i18n:attributes="value delete_label;" />
+                            
+                            <input type="submit"
+                                   value="Save" 
+                                   name="saveVariants:method"
+                                   i18n:attributes="value save_label;" />
+
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td tal:repeat="property properties">
+                        </td>    
+                        <td></td>
+                    </tr>     
+                    <tr>
+                        <td></td>                                                                        
+                        <td>
+                           <input type="text"
+                                  name="article_id" />
+                        </td>
+                        <td>
+                           <input type="text"
+                                  name="title" />
+                        </td>
+
+                        <tal:block tal:repeat="property properties">
+                            <td>
+                                <select tal:attributes="name string:add_property_${property/id}">
+                                    <option value="all"
+                                            i18n:translate="all_label">
+                                        All
+                                    </option>
+                                    <option tal:repeat="option property/options"
+                                            tal:attributes="value option/id"
+                                            tal:content="option/name">
+                                        Option Name                                        
+                                    </option>    
+                                </select>
+                            </td>    
+                        </tal:block>                    
+                        <td>
+                           <input type="text"
+                                  name="price" />
+                        </td>
+                        <td></td>                        
+                    </tr>           
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit"
+                                   value="Add" 
+                                   name="addVariants:method"
+                                   i18n:attributes="value add_label;" />                                   
+                                   
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td tal:repeat="property properties">
+                        </td>    
+                        <td></td>
+                    </tr>     
+                </table>
+            </form>    
+        </div>    
+    </body>
+    
+</html>
+
+

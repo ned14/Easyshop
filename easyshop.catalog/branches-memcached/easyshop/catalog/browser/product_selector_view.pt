@@ -1,0 +1,12 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+      
+    <body>
+        <div metal:fill-slot="main">
+            <div tal:replace="structure provider:easyshop.product-selector-manager" />
+        </div>    
+    </body>
+    
+</html>
