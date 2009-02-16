@@ -42,7 +42,6 @@ class ProductPrices(object):
     def getPriceForCustomer(self, effective=True, variant_price=True):
         """
         """
-        import pdb; pdb.set_trace()
         cache_key = "price-for-customer-%s-%s-%s" % (effective, variant_price, self.product_variant.UID())
         price = self.context.cache.get(cache_key)
         if price is not None:
