@@ -2,7 +2,15 @@
            xmlns:browser="http://namespaces.zope.org/browser">
     
     <!-- Note: this is the view of a selector. It shows the selected products
-         of a selector. -->           
+         of a selector. -->
+         
+    <browser:page
+        name="reset-cache"
+        for="*"
+        class=".cache.CacheView"
+        attribute="reset_cache"
+        permission="cmf.ManagePortal" />
+         
     <browser:page
         name="ps-view"
         for="easyshop.core.interfaces.IProductSelector"
