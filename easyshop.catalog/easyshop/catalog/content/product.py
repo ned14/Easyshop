@@ -1,3 +1,6 @@
+# ZODB imports
+from persistent.dict import PersistentDict
+
 # zope imports
 from zope.interface import implements
 
@@ -267,43 +270,6 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
-    
-    FloatField(
-        name='cachedPriceForCustomer',
-        schemata="advanced",
-        default=0.0,
-        widget=DecimalWidget(
-            size="10",
-            label='Sale Price',
-            label_msgid='schema_sale_price_gross_label',
-            i18n_domain='EasyShop',
-        )
-    ),
-
-    FloatField(
-        name='cachedPriceGross',
-        schemata="advanced",
-        default=0.0,
-        widget=DecimalWidget(
-            size="10",
-            label='Sale Price',
-            label_msgid='schema_sale_price_gross_label',
-            i18n_domain='EasyShop',
-        )
-    ),
-
-    FloatField(
-        name='cachedPriceNet',
-        schemata="advanced",
-        default=0.0,
-        widget=DecimalWidget(
-            size="10",
-            label='Sale Price',
-            label_msgid='schema_sale_price_gross_label',
-            i18n_domain='EasyShop',
-        )
-    ),
-    
 ),
 )
 
@@ -336,6 +302,12 @@ class Product(ATFolder):
     """
     implements(IProduct)
     schema = schema
+
+    def __init__(self, oid, **kwargs):
+        """
+        """
+        ATFolder.__init__(self, oid, **kwargs)
+        self.cache = PersistentDict()
     
     def setImage(self, data):
         """
