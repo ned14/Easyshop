@@ -1,3 +1,7 @@
+# zope imports
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
+            
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -182,6 +186,7 @@ class ManageVariantsView(BrowserView):
             properties[variant.getId()].sort()
             variant.setForProperties(properties[variant.getId()])
             variant.reindexObject()
+            notify(ObjectModifiedEvent(self.context))
             
         putils = getToolByName(self.context, "plone_utils")
         putils.addPortalMessage(MESSAGES["VARIANTS_SAVED"])
