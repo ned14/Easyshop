@@ -3,4 +3,7 @@
     <subscriber
         handler=".variants.deleteProperty" />
 
+    <subscriber
+        handler=".products.clearCache" />
+
 </configure>
