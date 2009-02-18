@@ -131,6 +131,8 @@ a:active { text-decoration:underline; color:#666666;}
         <tal:block tal:content="view/getCustomerFullname">Dirk Kommol</tal:block>,<br />
         <br />
         vielen Dank f&uuml;r Ihre Bestellung bei www.demmelhuber.net. Hiermit erhalten Sie Ihre Bestellbest&auml;tigung:
+	<br /><br />
+	Es gelten unsere Allgemeinen Gesch&auml;bedingungen f&uuml;r Verk&auml;ufe im Online-Shop. Diese finden Sie als Anhang. Das Dokument im Anhang ist ein Adobe PDF, das Programm zum &ouml;ffnen finden Sie kostenlos hier: <a href="http://www.adobe.de/products/acrobat/readstep2.html">Download Acrobat Reader</a>
     </p>
     <table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr>
@@ -347,11 +349,11 @@ a:active { text-decoration:underline; color:#666666;}
             </td>
         </tr>
     </table>
-    
+
     <p class="TextGrossGrauLinks">F&uuml;r Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 
     Bei R&uuml;ckfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
     <p class="TextGrossGrauLinks">Mit freundlichen Gr&uuml;&szlig;en<br />
-    DEMMELHUBER Holz &amp; Raum GmbH<br />
+    DEMMELHUBER Holz &amp; Raum Vertriebs GmbH<br />
     <img src="http://www.demmelhuber.net/logo.jpg" alt="Demmelhuber" width="327" height="60" longdesc="http://www.demmelhuber.net/laden" /></p>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
@@ -363,8 +365,8 @@ a:active { text-decoration:underline; color:#666666;}
             Online Shop: www.demmelhuber.net/laden</a></span></td>
         </tr>
     </table>
-    <p class="TextGrossGrauLinks"><span class="TextKleinGrauBlock"> Sitz der Gesellschaft: Demmelhuber Holz &amp; Raum GmbH, Am Gewerbegebiet 3, 09661 Hainichen/ OT Schlegel<br />
-    Gesch&auml;ftsf&uuml;hrer: R&uuml;diger Schmidt, Erf&uuml;llungsort und Gerichtsstand Hainichen, Registergericht: AG Chemnitz HRB 16407, Ust-ID: DE 812638837 </span></p>
+    <p class="TextGrossGrauLinks"><span class="TextKleinGrauBlock"> Sitz der Gesellschaft: Demmelhuber Holz &amp; Raum Vertriebs GmbH, Am Gewerbegebiet 3, 09661 Hainichen/ OT Schlegel<br />
+    Gesch&auml;ftsf&uuml;hrer: R&uuml;diger Schmidt,Dirk Kommol  Erf&uuml;llungsort und Gerichtsstand Hainichen, Registergericht: AG Chemnitz HRB 24597, Ust-ID: DE 262 479 868 </span></p>
     <p class="TextGrossGrauLinks"><br />
     </p>
     </body>
