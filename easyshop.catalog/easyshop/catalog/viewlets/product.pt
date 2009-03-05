@@ -9,7 +9,14 @@
                 jq("#image-large").attr({ src: path });
             });
 
-            jq(".property,.quantity,input.accessories").change(function () {
+            // jq(".property,.quantity,input.accessories").change(function () {
+            //    jq("#kss-spinner").css("display", "block");
+            //    jq('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product", success : function() {
+            //        jq("#kss-spinner").css("display", "none");
+            //    }});
+            // });
+
+            jq(".property,.quantity").change(function () {
                jq("#kss-spinner").css("display", "block");
                jq('#product_form').ajaxSubmit({url : "ajax-changed-property", target: "#product", success : function() {
                    jq("#kss-spinner").css("display", "none");
