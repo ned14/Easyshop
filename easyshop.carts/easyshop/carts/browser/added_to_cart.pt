@@ -46,7 +46,7 @@
                        tal:attributes="href product/url">
                         <img class="added-to-cart-image"
                              src="."
-                             tal:attributes="src string:${product/image_url}/image_mini;
+                             tal:attributes="src string:${product/image_url}/image_tile;
                                              alt product/title" />
                     </a>
                 </td>
