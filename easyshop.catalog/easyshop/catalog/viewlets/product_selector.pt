@@ -7,7 +7,8 @@
     </div>
     <tal:block tal:repeat="selector view/getSelectors">                   
 
-        <table class="products">
+        <table class="products"
+			tal:define="info view/getInfo">
             <tr tal:condition="view/showEditLink">
                 <td>
                     <a href="#"
@@ -40,7 +41,33 @@
                         </tr>
                     </table>
                 </td>
-            </tr>                        
+            </tr>
+            <tr>
+             <td>
+                   <!-- begin : custom-breadcrumbs  -->
+                   <div id="custom-breadcrumbs" tal:define="breadcrumbs view/getBreadCrumbs">
+                    <span class="custom-breadcrumbs-you-are-here"> Sie sind hier:</span>
+                    <span>
+                     <a href="#" class="folder" tal:attributes="
+                         href view/getShopURL"
+                         >Online-Shop</a>
+                    </span>
+                    <span tal:condition="not:info/root" class="breadcrumbSeparator">&rarr;</span>
+                     <span tal:repeat="link breadcrumbs">
+                     <a href="#"
+                          tal:attributes="href link/absolute_url"
+                          tal:content="link/title">test</a>
+                      <span class="breadcrumbSeparator">&rarr;</span>
+                     </span>
+                    <span tal:condition="not:info/root">
+                     <a href="#"
+                                        tal:attributes="href info/absolute_url"
+                                                tal:content="info/title">Title</a>
+                    </span>
+                   </div>
+                   <!-- end : breadcrumbs -->
+             </td>
+            </tr>
             <tr tal:condition="selector/show_title">
                 <td class="main-title"
                     tal:attributes="colspan selector/products_per_line"
