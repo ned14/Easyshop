@@ -45,7 +45,7 @@
             </tr>   
             <tr>
              <td>
-                   <!-- begin : custom-breadcrumbs -->
+                   <!-- begin : custom-breadcrumbs  -->
                    <div id="custom-breadcrumbs" tal:define="breadcrumbs view/getBreadCrumbs">
                     <span class="custom-breadcrumbs-you-are-here"> Sie sind hier:</span>
                     <span>
@@ -65,7 +65,7 @@
              			     	tal:attributes="href info/absolute_url"
                 				tal:content="info/title">Title</a>
                     </span>                
-                   </div>    
+                   </div>
                    <!-- end : breadcrumbs -->           
              </td>        
             </tr>                                  
