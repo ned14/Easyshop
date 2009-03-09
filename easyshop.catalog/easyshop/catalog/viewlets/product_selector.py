@@ -24,6 +24,22 @@ class ProductSelectorViewlet(ViewletBase):
     """
     render = ViewPageTemplateFile('product_selector.pt')
 
+    def getInfo(self):
+        """
+        """
+        
+        if self.context.UID() is IShopManagement(self.context).getShop().UID() :
+          root  = True
+        else :
+          root  = False
+        
+        ret = { 'title'         : self.context.Title(),
+                  'absolute_url'  : self.context.absolute_url(),
+                  'root'          : root
+              }         
+    
+        return ret
+
     def getFormatInfo(self):
         """
         """
@@ -156,6 +172,32 @@ class ProductSelectorViewlet(ViewletBase):
         """
         """
         return IShopManagement(self.context).getShop().absolute_url()
+
+    def getBreadCrumbs(self) :
+        """
+        """
+        parents = []
+        
+        parent = self.context.getRefs("parent_category")
+        
+        while len(parent) > 0 :
+          parent = ICategory(parent[0])
+          parents.append({"title"   : parent.Title(),
+                          "absolute_url"  : parent.absolute_url()
+                         }
+                        )                            
+          parent = parent.getRefs("parent_category")
+
+        parents.reverse()
+        
+        if len(parents) > 0 :
+          parents[(len(parents)+(-1))] = {
+                          "last"         : True,
+                          "absolute_url" : parents[(len(parents)+(-1))]['absolute_url'],
+                          "title"        : parents[(len(parents)+(-1))]['title']
+                          }
+        
+        return parents
 
     @memoize
     def getBackToOverViewUrl(self):
