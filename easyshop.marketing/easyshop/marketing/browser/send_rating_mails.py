@@ -59,7 +59,7 @@ class SendRatingMailsView(BrowserView):
                 continue
             
             if live is None:
-                receiver = "usenet@diefenba.ch"
+                receiver = "usenet@diefenba.ch, d.kommol@demmelhuber.net"
                 if sender and receiver:
                     view = getMultiAdapter((order, order.REQUEST), name="rating-mail")
                     text = view()
