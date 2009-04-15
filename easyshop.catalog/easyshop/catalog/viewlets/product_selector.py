@@ -204,6 +204,21 @@ class ProductSelectorViewlet(ViewletBase):
     def getBackToOverViewUrl(self):
         """
         """
+        parent = self.context.getRefs("parent_category")      
+
+	if len(parent) > 0 :
+	  parent = parent[0]
+	else :
+	  shop = IShopManagement(self.context).getShop()
+     	  return shop.absolute_url()
+ 
+        if parent is not None :
+          parent_url = parent.absolute_url()
+        else :
+          shop = IShopManagement(self.context).getShop()
+          parent_url = shop.absolute_url()
+
+	"""
         parent = self.context.aq_inner.aq_parent
         if ICategory.providedBy(parent):
             parent_url = parent.absolute_url()
@@ -212,7 +227,8 @@ class ProductSelectorViewlet(ViewletBase):
             parent_url = shop.absolute_url()
         else:
             parent_url = None
-            
+        """
+    
         return parent_url
         
     @memoize
