@@ -20,11 +20,9 @@ class ImageManagement:
         """Returns the main image. This is either the product itself or the 
         first image object within the product.
         """ 
-        # Returns the object, which contains the image field (not the image
-        # field itself), to be able to get image_shop_large. etc.
         image = self.context.getField("image").get(self.context)
         if len(image) != 0:
-            return self.context
+            return image
         else:
             try:
                 return self.context.objectValues("EasyShopImage")[0]
