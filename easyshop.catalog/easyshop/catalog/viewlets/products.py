@@ -269,6 +269,10 @@ class ProductsViewlet(ViewletBase):
             sorted_on  = "price"
             sort_order = "desc"
         
+        # TODO: Make it fixed for now
+        sorted_on  = "price"
+        sort_order = "asc"
+        
         pm = IProductManagement(self.context)
         products = pm.getAllProducts(sorted_on=sorted_on,
                                      sort_order = sort_order)

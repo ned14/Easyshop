@@ -13,18 +13,18 @@ from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProductManagement
 
 # Todo: Find out how an macro could be a template of a view.
-class INavigationMacroView(Interface):    
+class INavigationMacroView(Interface):
     """
     """
     def getProductURLs():
         """Returns the product urls.
         """
-           
+
 class NavigationMacroView(BrowserView):
     """
     """
     implements(INavigationMacroView)
-    
+
     def getProductURLs(self):
         """
         """
@@ -34,23 +34,27 @@ class NavigationMacroView(BrowserView):
         except (AttributeError, ValueError):
             sorted_on  = "price"
             sort_order = "desc"
-        
+
+        # TODO: Make it fixed for now
+        sorted_on  = "price"
+        sort_order = "asc"
+
         # all categories of the product
         cm = ICategoryManagement(self.context)
         categories = cm.getTopLevelCategories()
-        
+
         result = []
         for category in categories:
             pm = IProductManagement(category)
             products = pm.getAllProducts(
                 sorted_on=sorted_on,
                 sort_order = sort_order)
-            
+
             # determine position of product within category
             index = products.index(self.context)
-            
+
             # generate previous/next url
-            temp = {}            
+            temp = {}
             if index==0:
                 temp["previous"] = None
                 temp["first"] = None
@@ -69,8 +73,8 @@ class NavigationMacroView(BrowserView):
             temp["category_url"] = category.absolute_url()
             temp["category"] = category.Title()
             temp["position"] = index + 1
-            temp["amount"] = len(products)            
-            
+            temp["amount"] = len(products)
+
             result.append(temp)
-            
+
         return result
