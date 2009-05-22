@@ -143,7 +143,6 @@ class Renderer(base.Renderer):
                 except IndexError:
                     obj = None
                     
-
         if IProduct.providedBy(self.context) == True:
             cm = ICategoryManagement(self.context)
             try:
@@ -154,7 +153,11 @@ class Renderer(base.Renderer):
             while ICategory.providedBy(product_category) == True:
                 if product_category.UID() == category.UID():
                     return True
-                product_category = product_category.aq_inner.aq_parent
+                    
+                try:
+                    product_category = product_category.getRefs("parent_category")[0]
+                except IndexError:
+                    return False
     
             return False
         
