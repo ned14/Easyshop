@@ -27,3 +27,10 @@ class FormView(BrowserView):
         receiver = "usenet@diefenba.ch"
         subject = "Form"
         sendNonMultipartMail(self.context, sender=sender, receiver=receiver, subject=subject, text=text)
+        
+        putils = getToolByName(self.context, "plone_utils")
+        putils.addPortalMessage("Wir haben Ihre Mail empfangen. Vielen Dank!")
+        
+        url = self.context.absolute_url()
+        self.context.request.response.redirect(url)
+        
