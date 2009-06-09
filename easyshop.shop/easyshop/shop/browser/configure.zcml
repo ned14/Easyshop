@@ -11,4 +11,11 @@
         class=".sitemap.SitemapView"
         permission="zope2.Public" />
 
+    <browser:page
+        name="send-form"
+        for="*" 
+        class=".mailer.FormView"
+        attribute="sendForm"
+        permission="zope2.Public" />
+
 </configure>
