@@ -19,13 +19,16 @@ class FormView(BrowserView):
         text = []
 
         for key, value in self.request.form.items():
+            if key == "receiver":
+                continue
             text.append("%s: %s" % (key, value))
 
         text = "\n".join(text)
 
         sender = "info@demmelhuber.net"
-        receiver = "usenet@diefenba.ch"
-        subject = "Form"
+        receiver = self.request.get("receiver", "info@demmelhuber.net")
+        
+        subject = "Neue Nachricht von demmelhuber.net"
         sendNonMultipartMail(self.context, sender=sender, receiver=receiver, subject=subject, text=text)
         
         putils = getToolByName(self.context, "plone_utils")
