@@ -16,8 +16,14 @@ class FormView(BrowserView):
     def sendForm(self):
         """
         """
-        text = "\n".join(self.request.form.items())            
+        text = []
+
+        for key, value in self.request.form.items():
+            text.append("%s: %s" % (key, value))
+
+        text = "\n".join(text)
+
         sender = "info@demmelhuber.net"
         receiver = "usenet@diefenba.ch"
-        subject = "Form"        
+        subject = "Form"
         sendNonMultipartMail(self.context, sender=sender, receiver=receiver, subject=subject, text=text)
