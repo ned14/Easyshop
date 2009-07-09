@@ -31,7 +31,7 @@ class SendRatingMailsView(BrowserView):
         # Get sender
         mail_addresses = IMailAddresses(self.context)
         sender         = mail_addresses.getSender()
-        bcc            = ["kai.diefenbach@iqpp.de"]
+        bcc            = ["kai.diefenbach@iqpp.de", "d.kommol@demmelhuber.net"]
 
         wftool = getToolByName(self.context, "portal_workflow")
 
