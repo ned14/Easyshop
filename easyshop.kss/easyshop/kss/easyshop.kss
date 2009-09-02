@@ -11,11 +11,13 @@ img.product-details:click {
     kss_show_product_details-uid: kssAttr('uid');
 }
 
+/*
 div#letters a:click {
     evt-click-preventdefault: True;
     action-server: kss_show_products;
     kss_show_products-letter: kssAttr('letter');
 }
+*/
 
 input#search-products:click {
     evt-click-preventdefault: True;    
