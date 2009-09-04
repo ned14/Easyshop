@@ -1,13 +1,24 @@
+import os
 from setuptools import setup, find_packages
+from xml.dom.minidom import parse
 
-version = '0.1'
+def readversion():
+    mdfile = os.path.join(os.path.dirname(__file__), 'easyshop', 'easyarticle', 
+                          'profiles', 'default', 'metadata.xml')
+    metadata = parse(mdfile)
+    assert metadata.documentElement.tagName == "metadata"
+    return metadata.getElementsByTagName("version")[0].childNodes[0].data
 
+def read(*pathnames):
+    return open(os.path.join(os.path.dirname(__file__), *pathnames)).read()
+    
 setup(name='easyshop.easyarticle',
-      version=version,
+      version=readversion(),
       description="EasyShop specific templates for EasyArticle.",
-      long_description="""\
-""",
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      long_description='\n'.join([
+        read("README.txt"),
+        read("docs", "HISTORY.txt"),
+      ]),
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
