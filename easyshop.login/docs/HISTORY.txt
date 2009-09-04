@@ -2,7 +2,8 @@ Changelog for easyshop.login
 
     (name of developer listed in brackets)
 
-easyshop.login - 0.1 Unreleased
+0.1a1 Unreleased
+----------------
 
     - Initial package structure.
       [zopeskel]
