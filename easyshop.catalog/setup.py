@@ -13,7 +13,7 @@ def read(*pathnames):
     return open(os.path.join(os.path.dirname(__file__), *pathnames)).read()
 
 setup(name='easyshop.catalog',
-      version=version,
+      version=readversion(),
       description="Products and Categories for EasyShop",
       long_description='\n'.join([
         read("README.txt"),
