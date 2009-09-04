@@ -2,7 +2,7 @@ Changelog for easyshop.checkout
 
     (name of developer listed in brackets)
 
-0.1 Unreleased
+0.1a1 Unreleased
 --------------
 
     - fixed syntax error in payment validator [petschki]
