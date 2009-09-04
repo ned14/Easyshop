@@ -2,7 +2,7 @@
       lang="en-US"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="EasyShop">
-      
+    
     <body>
         <div metal:fill-slot="main">
             <tal:block tal:condition="view/showGlobalProperties">
@@ -25,6 +25,7 @@
                             Property Title
                         </h3>
                         <table class="listing shop-default">
+                            <thead>
                             <tr>
                                 <th i18n:translate="icon_label">
                                     Icon
@@ -36,6 +37,9 @@
                                     Price
                                 </th>
                             </tr>
+                            </thead>
+                            
+                            <tbody>
                             <tr tal:repeat="option property/options">
                                 <td> 
                                     <img tal:condition="option/image_url"
@@ -49,6 +53,7 @@
                                     Property Price
                                 </td>
                             </tr>
+                            </tbody>
                         </table>    
                     </tal:block>
                 </tal:block>
@@ -83,11 +88,13 @@
                                name="paths:list"
                                tal:attributes="value property/path" />
                         
-                        <span tal:content="property/title">
+                        <a tal:attributes="href string:${property/path}/folder_contents"
+                           tal:content="property/title">
                             Property Title
-                        </span>
+                        </a>
                     </h2>
-                    <table class="listing shop-default">
+                    <table class="listing shop-default propertyTable">
+                        <thead>
                         <tr>
                             <th>
                             </th>
@@ -102,8 +109,10 @@
                             </th>
                             <th i18n:translate="manage_label">
                                 Manage
-                            </th>                            
+                            </th>
                         </tr>
+                        </thead>
+                        <tbody>
                         <tr tal:repeat="option property/options">
                             <td>
                                 <input type="checkbox"
@@ -154,7 +163,7 @@
                             </td>
                             <td></td>
                             <td></td>
-                            <td></td>                            
+                            <td></td>
                         </tr>
                         
                         <tr>
@@ -177,12 +186,13 @@
                                 <input type="text"
                                        name="price" />                                
                             </td>
-                            <td>
-                            </td>                            
+                            <td></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>
+                                <input tal:replace="structure context/@@authenticator/authenticator|nothing" />
+                                
                                 <input type="submit"
                                        value="Add"
                                        name="addOption:method"

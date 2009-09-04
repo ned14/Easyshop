@@ -36,11 +36,13 @@ class ManagePropertiesView(BrowserView):
         except ValueError:
             price = 0.0
             
-        new_id = property.invokeFactory("ProductPropertyOption", new_id, title=title, 
-            image=file_name, price=price)
+        new_id = property.invokeFactory("ProductPropertyOption", new_id, title=title, price=price)
         
         option = property[new_id]
         option._renameAfterCreation(check_auto_id=True)
+        
+        # image saving doesn't go right with invokeFactory
+        option.setImage(file_name)
         
         putils = getToolByName(self.context, "plone_utils")
         putils.addPortalMessage(MESSAGES["ADDED_PRODUCT_OPTION"])

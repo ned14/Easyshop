@@ -1,7 +1,7 @@
 <div id="product"
      i18n:domain="EasyShop">
 
-    <script>
+    <script type="text/javascript">
         jq(function() {
             jq("img.thumbnail").click(function () {
                 var path = jq(this).attr("src");

@@ -1,9 +1,22 @@
 Changelog for easyshop.catalog
 
     (name of developer listed in brackets)
-
-easyshop.catalog - 0.1 Unreleased
-
-    - Initial package structure.
+    
+0.1a1 Unreleased
+----------------
+    
+    * minor xhtml validation fixes [petschki]
+    * product.py:
+        * fixed referencebrowser getStartupDirectoryForProducts function [petschki]
+    * manage_variants_view.py:
+        * allways set value of title and article_id, not only when values added [petschki]
+    * manage_properties_view.py:
+        * fixed initial adding of image (doesn't work via invokeFactory) [petschki]
+    * manage_properties_view.pt: 
+        * added link to property's folder_contents. 
+          users can sort their property options here [petschki]
+        * fixed required form authenticator [petschki]
+    * make setup.py read version from metadata.xml [petschki]
+    * Initial package structure.
       [zopeskel]
 

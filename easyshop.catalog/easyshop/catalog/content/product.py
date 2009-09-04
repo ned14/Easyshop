@@ -314,6 +314,8 @@ class Product(ATFolder):
         """
         shop = IShopManagement(self).getShop()
         shop_path = "/".join(shop.getPhysicalPath())
+        site_url = getToolByName(self, "portal_url")
+        portal_path = site_url.getPortalPath()
         
         catalog = getToolByName(self, "portal_catalog")
         brains = catalog.searchResults(
@@ -323,9 +325,9 @@ class Product(ATFolder):
         
         if len(brains) > 0:
             products_folder = brains[0]
-            return products_folder.getPath()
+            return products_folder.getPath().replace(portal_path,'')
         else:
-            return shop_path
+            return shop_path.replace(portal_path,'')
         
     def getStartupDirectoryForCategories(self):
         """

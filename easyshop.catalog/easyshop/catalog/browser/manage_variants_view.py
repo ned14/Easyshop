@@ -155,28 +155,12 @@ class ManageVariantsView(BrowserView):
         pvm = IProductVariantsManagement(self.context)
         for variant in pvm.getVariants():
             # Title
-            title = titles[variant.getId()]
-            
-            # Title is only set when it's different from parent product 
-            # variants. Otherwise we leave it empty ot display parent's title
-            if title != self.context.Title():
-                variant.setTitle(title)
-            else:
-                variant.setTitle("")
+            variant.setTitle(titles[variant.getId()])
             
             # Article ID
-            article_id = article_ids[variant.getId()]
-            
-            # Article ID is only set when it's different from parent product 
-            # variants. Otherwise we leave it empty ot display parent's article 
-            # id
-            if article_id != self.context.getArticleId():
-                variant.setArticleId(article_id)
-            else:
-                variant.setArticleId("")
+            variant.setArticleId(article_ids[variant.getId()])
                 
-            # Price can always be set, because 0.0 is considered as empty 
-            # anyway.
+            # Price
             variant.setPrice(prices[variant.getId()])
 
             properties[variant.getId()].sort()
