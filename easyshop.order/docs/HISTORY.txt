@@ -2,8 +2,11 @@ Changelog for easyshop.order
 
     (name of developer listed in brackets)
 
-easyshop.order - 0.1 Unreleased
+0.1a1 Unreleased
+----------------
 
+    - removed hardcoded "Demmelhuber" info in mailings [petschki]
+    - added article ID to mailings [petschki]
     - Initial package structure.
       [zopeskel]
 

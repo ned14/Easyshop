@@ -293,6 +293,10 @@
                         <div tal:content="item/product_title">
                             A Product
                         </div>
+                        <div class="discreet"
+                             tal:content="item/product_articleid">
+                            12345
+                        </div>
                         <div tal:condition="item/has_discount">
                             <tal:block i18n:translate="discount_label">
                                 Discount

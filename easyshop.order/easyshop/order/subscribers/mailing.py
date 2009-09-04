@@ -100,7 +100,7 @@ def mailOrderReceived(order):
     # Get receiver
     customer = order.getCustomer()
     address = IAddressManagement(customer).getShippingAddress()
-    receiver = address.email
+    receiver = address.email or customer.email
     
     if sender and receiver:
         view = getMultiAdapter((order, order.REQUEST), name="mail-order-received")
@@ -115,6 +115,6 @@ def mailOrderReceived(order):
             sender   = sender,
             receiver = receiver,
             bcc      = bcc,
-            subject  = "Bestellbestätigung Demmelhuber Holz & Raum",
+            subject  = "Bestellbestätigung %s" % shop.Title(),
             text     = text,
-            files    = [ (page.getFile().filename, page.getFile()) ])
+            files    = []) # (page.getFile().filename, page.getFile())

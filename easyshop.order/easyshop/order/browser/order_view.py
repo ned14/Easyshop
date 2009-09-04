@@ -126,6 +126,7 @@ class OrderView(BrowserView):
         
         items = []
         item_manager = IItemManagement(self.context)
+        
         for item in item_manager.getItems():
 
             product_price_gross = cm.priceToString(item.getProductPriceGross(), suffix=None)
@@ -138,8 +139,10 @@ class OrderView(BrowserView):
             product = item.getProduct()
             if product is None:
                 url = None
+                articleId = None
             else:
                 url = product.absolute_url()
+                articleId = product.getArticleId()
             
             # Properties 
             for property in item.getProperties():
@@ -152,6 +155,7 @@ class OrderView(BrowserView):
                 "product_title"        : item.getProductTitle(),
                 "product_quantity"     : item.getProductQuantity(),
                 "product_url"          : url,
+                "product_articleid"    : articleId,
                 "product_price_gross"  : product_price_gross,
                 "price_gross"          : price_gross,
                 "tax_rate"             : tax_rate,
