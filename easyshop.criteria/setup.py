@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from xml.dom.minidom import parse
 
 def readversion():
-    mdfile = os.path.join(os.path.dirname(__file__), 'easyshop', 'core', 
+    mdfile = os.path.join(os.path.dirname(__file__), 'easyshop', 'criteria', 
                           'profiles', 'default', 'metadata.xml')
     metadata = parse(mdfile)
     assert metadata.documentElement.tagName == "metadata"
