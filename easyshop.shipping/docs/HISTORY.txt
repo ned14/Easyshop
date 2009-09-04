@@ -1,0 +1,10 @@
+Changelog for easyshop.shipping
+
+    (name of developer listed in brackets)
+
+0.1a1 Unreleased
+----------------
+
+    - Initial package structure.
+      [zopeskel]
+
