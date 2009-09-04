@@ -1,0 +1,5 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+    <adapter factory=".payment_processing.mPAY24CardPaymentProcessor" />
+    <adapter factory=".completeness.mPAY24PaymentMethodCompleteness" />
+    <adapter factory=".type.mPAY24PaymentType" />
+</configure>

@@ -1,0 +1,36 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <include package="easyshop.checkout" />
+    <browser:page
+        name="checkout-order-preview"
+        for="easyshop.core.interfaces.IShop"
+        class=".order_preview.OrderPreviewForm"
+        layer="..interfaces.ImPAY24ProductLayer"
+        permission="easyshop.Checkout" />
+        
+    <browser:page
+        name="mpay24_success"
+        for="*"
+        template="response_success.pt"
+        permission="zope.Public" />
+        
+    <browser:page
+        name="mpay24_error"
+        for="*"
+        template="response_error.pt"
+        permission="zope.Public" />
+    
+    <browser:page
+        name="mpay24_cancel"
+        for="*"
+        template="response_cancel.pt"
+        permission="zope.Public" />
+        
+    <browser:page
+        name="mpay24_confirmation"
+        for="*"
+        class=".payment_response.PaymentConfirmation"
+        permission="zope.Public" />
+        
+</configure>

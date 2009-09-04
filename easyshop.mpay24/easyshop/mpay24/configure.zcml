@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <five:registerPackage package="." />
+    
+    <i18n:registerTranslations directory="locales" />
+    
+    <include package="plone.browserlayer" />
+    <include package=".browser" />
+    <include package=".adapters" />
+    <include package=".content" />
+
+    
+    <genericsetup:registerProfile
+        name="default"
+        title="EasyShop mPAY24 Payment Method"
+        directory="profiles/default"
+        description="mPAY24 Payment management for EasyShop"
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+        
+</configure>

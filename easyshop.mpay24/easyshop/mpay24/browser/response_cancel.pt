@@ -1,0 +1,21 @@
+<html metal:use-macro="context/main_template/macros/master"
+      i18n:domain="easyshop.mpay24">
+
+    <body>
+        <metal:main fill-slot="main">
+        <div id="content">
+            
+            <h1 class="documentFirstHeading"
+                i18n:translate="cancel_title">
+                Canceled payment
+            </h1>
+            
+            <p class="text" 
+               i18n:translate="cancel_body">
+                payment canceled    
+            </p>
+            
+        </div>
+        </metal:main>
+    </body>
+</html>

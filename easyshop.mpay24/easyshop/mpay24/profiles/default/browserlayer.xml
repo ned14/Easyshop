@@ -1,0 +1,6 @@
+<layers>
+ <layer
+     name="easyshop.mpay24"
+     interface="easyshop.mpay24.interfaces.ImPAY24ProductLayer"
+     />
+</layers>

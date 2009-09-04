@@ -1,0 +1,67 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2009-08-31 08:23+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: easyshop.mpay24\n"
+
+#: easyshop.mpay24/easyshop/mpay24/content/mpay24.py:28
+msgid "MDXI"
+msgstr ""
+
+#: easyshop.mpay24/easyshop/mpay24/content/mpay24.py:29
+msgid "Merchant Data Exchange Interface (XML Format)
+Use %(tid)s, %(price)s, %(site_url)s to replace cart values"
+msgstr ""
+
+#. Default: "payment canceled"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_cancel.pt:13
+msgid "cancel_body"
+msgstr ""
+
+#. Default: "Canceled payment"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_cancel.pt:8
+msgid "cancel_title"
+msgstr ""
+
+#. Default: "Please check your creditcard data!"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_error.pt:13
+msgid "error_body"
+msgstr ""
+
+#. Default: "Error in payment"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_error.pt:8
+msgid "error_title"
+msgstr ""
+
+#. Default: "Buy"
+#: easyshop.mpay24/easyshop/mpay24/browser/order_preview.py:35
+msgid "label_buy"
+msgstr ""
+
+#: easyshop.mpay24/easyshop/mpay24/adapters/payment_processing.py:90
+msgid "no data"
+msgstr ""
+
+#. Default: "Thank you!"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:14
+msgid "success_body"
+msgstr ""
+
+#. Default: "Order successfully payed"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:9
+msgid "success_title"
+msgstr ""
+

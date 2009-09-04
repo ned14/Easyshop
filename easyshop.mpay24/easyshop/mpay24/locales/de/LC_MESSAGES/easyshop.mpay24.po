@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop mPAY24 Plugin\n"
+"POT-Creation-Date: 2009-08-31 08:23+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Peter Mathis <peter.mathis@kombinat.at>\n"
+"Language-Team: Peter Mathis <peter.mathis@kombinat.at>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: AUSTRIA\n"
+
+#: easyshop.mpay24/easyshop/mpay24/content/mpay24.py:28
+msgid "MDXI"
+msgstr "Merchant Data Exchange Interface (MDXI)"
+
+#: easyshop.mpay24/easyshop/mpay24/content/mpay24.py:29
+msgid "Merchant Data Exchange Interface (XML Format"
+msgstr ""
+"Bitte geben Sie die MDXI Daten im XML Format an (siehe mPAY24 Dokumentation).<br />\n"
+"Folgende EasyShop Variablen stehen zur Verfügung: %(tid)s, %(price)s, %(site_url)s"
+
+#. Default: "payment canceled"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_cancel.pt:13
+msgid "cancel_body"
+msgstr "Ihre Zahlung wurde abgebrochen. Wir haben Ihren Warenkorb noch nicht gelöscht, Sie können also bequem weiter einkaufen."
+
+#. Default: "Canceled payment"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_cancel.pt:8
+msgid "cancel_title"
+msgstr "Bezahlung wurde Abgebrochen"
+
+#. Default: "Please check your creditcard data!"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_error.pt:13
+msgid "error_body"
+msgstr "Ihre mPAY24 Transaktion konnte leider nicht erfolgreich durchgeführt werden. Bitte versuchen Sie es noch einmal. Bei nochmaliger Ablehung wenden Sie sich bitte an Ihr Kreditkarten- oder Bankinstitut. Danke. "
+
+#. Default: "Error in payment"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_error.pt:8
+msgid "error_title"
+msgstr "Die Bezahlung ist fehlgeschlagen"
+
+#. Default: "Buy"
+#: easyshop.mpay24/easyshop/mpay24/browser/order_preview.py:35
+msgid "label_buy"
+msgstr "Bezahlen"
+
+#: easyshop.mpay24/easyshop/mpay24/adapters/payment_processing.py:90
+msgid "no data"
+msgstr "mPAY24 ist nicht ereichbar!"
+
+#. Default: "Thank you!"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:14
+msgid "success_body"
+msgstr "Vielen dank für Ihren Einkauf. Ihre mPAY24 Transaktion wurde erfolgreich abgeschlossen."
+
+#. Default: "Order successfully payed"
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:9
+msgid "success_title"
+msgstr "Bezahlung wurde Erfolgreich abgeschlossen"
+
+#~ msgid "confirmation_body"
+#~ msgstr "Bitte bestätigen Sie Ihre Bezahlung per E-Mail."
+#~ msgid "confirmation_title"
+#~ msgstr "Bezahlung bestätigen"
+
