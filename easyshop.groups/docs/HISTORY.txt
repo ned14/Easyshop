@@ -2,7 +2,8 @@ Changelog for easyshop.groups
 
     (name of developer listed in brackets)
 
-easyshop.groups - 0.1 Unreleased
+0.1a1 Unreleased
+----------------
 
     - Initial package structure.
       [zopeskel]
