@@ -1,14 +1,21 @@
 import os
 from setuptools import setup, find_packages
 
-version = '0.1a1'
+version = "0.1a1"
+
+def read(*pathnames):
+    return open(os.path.join(os.path.dirname(__file__), *pathnames)).read()
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.txt')).read()
 setup(name='easyshop.checkout',
       version=version,
       description="Checkout process for EasyShop",
-      long_description= README,      classifiers=[
+      long_description='\n'.join([
+        read("README.txt"),
+        read("docs", "HISTORY.txt"),
+      ]),
+      classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
         "Framework :: Zope3",

@@ -168,13 +168,15 @@
                        name="form.actions.next"                
                        class="standalone" 
                        type="submit" 
-                       value="Next" />
+                       value="Next"
+                       i18n:attributes="value label_next"/>
 
                 <input id="form.actions.add_address" 
                        name="form.actions.add_address"                
                        class="context" 
                        type="submit" 
-                       value="Add Address" />
+                       value="Add Address"
+                       i18n:attributes="value label_add_address"/>
                        
             </form>                
         </metal:main>    

@@ -82,7 +82,8 @@
                        name="form.actions.next"                
                        class="standalone" 
                        type="submit" 
-                       value="Next" />
+                       value="Next"
+                       i18n:attributes="value label_next" />
                 
             </form>
             

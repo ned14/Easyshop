@@ -352,7 +352,9 @@
                        name="form.actions.next"                
                        class="standalone" 
                        type="submit" 
-                       value="Next" />
+                       value="Next"
+                       i18n:attributes="value label_next"
+                       />
                                    
                 <span class="formHelp"
                       i18n:translate="select_payment_form_description_2">

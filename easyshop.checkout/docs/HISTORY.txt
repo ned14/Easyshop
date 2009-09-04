@@ -2,8 +2,11 @@ Changelog for easyshop.checkout
 
     (name of developer listed in brackets)
 
-easyshop.checkout - 0.1 Unreleased
+0.1 Unreleased
+--------------
 
+    - fixed syntax error in payment validator [petschki]
+    - added i18n attributes to buttons [petschki]
     - Initial package structure.
       [zopeskel]
 
