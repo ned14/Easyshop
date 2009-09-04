@@ -2,8 +2,10 @@ Changelog for easyshop.carts
 
     (name of developer listed in brackets)
 
-easyshop.carts - 0.1 Unreleased
-
+0.1a1 - Unreleased
+------------------
+    
+    - make setup.py read version from metadata.xml [petschki]
     - Initial package structure.
       [zopeskel]
 
