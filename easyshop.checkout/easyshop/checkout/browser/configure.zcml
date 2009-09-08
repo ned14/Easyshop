@@ -1,6 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
-
+    
+    <include package="easyshop.core" />
+    
     <!-- Checkout Start -->
     <browser:page
         name="checkout"

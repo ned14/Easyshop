@@ -33,6 +33,7 @@ setup(name='easyshop.checkout',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'easyshop.core',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
