@@ -34,6 +34,7 @@ setup(name='easyshop.mpay24',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'httplib2',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
