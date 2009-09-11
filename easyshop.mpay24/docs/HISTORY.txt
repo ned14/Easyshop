@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.1.1 - 2009-09-11
+------------------
+
+    * bugfix: invoice zip/city was shown at shipping address block [petschki]
+    
 0.1 - 2009-07-31
 ----------------
 
