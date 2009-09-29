@@ -5,6 +5,7 @@ Changelog for easyshop.order
 0.1a1 Unreleased
 ----------------
 
+    - removed hardcoded payment method information [petschki]
     - removed hardcoded "Demmelhuber" info in mailings [petschki]
     - added article ID to mailings [petschki]
     - Initial package structure.

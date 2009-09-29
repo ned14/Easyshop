@@ -124,16 +124,9 @@ a:active { text-decoration:underline; color:#666666;}
                       payment_information python:payment_data['information'];
                       payment_portal_type payment_data/portal_type">
 
-    <div align="right"><img src="http://www.demmelhuber.net/logo.jpg" width="327" height="60" alt="Demmelhuber" longdesc="http://www.demmelhuber.net/laden" /></div>
+    <div align="right"><img tal:define="logo_name context/base_properties/logoName|string:logo.jpg"
+                            tal:attributes="src logo_name" /></div>
     
-    <p class="TextGrossGrauLinks">
-        Sehr geehrte/r 
-        <tal:block tal:content="view/getCustomerFullname">Dirk Kommol</tal:block>,<br />
-        <br />
-        vielen Dank f&uuml;r Ihre Bestellung bei www.demmelhuber.net. Hiermit erhalten Sie Ihre Bestellbest&auml;tigung:
-	<br /><br />
-	Es gelten unsere Allgemeinen Gesch&auml;bedingungen f&uuml;r Verk&auml;ufe im Online-Shop. Diese finden Sie als Anhang. Das Dokument im Anhang ist ein Adobe PDF, das Programm zum &ouml;ffnen finden Sie kostenlos hier: <a href="http://www.adobe.de/products/acrobat/readstep2.html">Download Acrobat Reader</a>
-    </p>
     <table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr>
     <td colspan="4" class="HeadHintergrundMitteGross">BESTELLUNG <tal:block tal:content="context/id">1211793802901</tal:block></td>
@@ -222,33 +215,22 @@ a:active { text-decoration:underline; color:#666666;}
         </div>    
     </td>
     <td colspan="2" class="TextGrossGrauLinksFett">
-        <tal:block tal:condition="python:payment_portal_type == 'CreditCardPaymentType'">
-            <div tal:content="payment_information/card_type">Card Type</div>
-            <div tal:content="payment_information/card_number">Bank</div>
-            <div>      
-                <span tal:content="payment_information/card_expiration_date_month">Account-Number</span>/<span tal:content="payment_information/card_expiration_date_month">Account-Number</span>
-            </div>
-            <div tal:content="payment_information/card_owner">Depositor</div>
-        </tal:block>
-
-        <tal:block tal:condition="python:payment_portal_type == 'DirectDebitPaymentMethod'">
-            <div tal:content="payment_information/bank_name">Bank</div>
-            <div tal:content="payment_information/bank_identification_code">Bank</div>      
-            <div tal:content="payment_information/account_number">Account-Number</div>  
-            <div tal:content="payment_information/depositor">Depositor</div>
-        </tal:block>
-        
-        <tal:block tal:condition="python:payment_portal_type == 'PayPalPaymentMethod'">
-        <div i18n:translate="paypal_label">
-            PayPal
-        </div>
-        </tal:block>
-        
-        <tal:block tal:condition="python:payment_portal_type == 'GenericPaymentMethod'">
-            <div i18n:translate=""
-                 tal:content="payment_data/payment_method/Title">
-            </div>
-        </tal:block>                            
+        <dl>
+            <dt i18n:translate=""
+                tal:content="payment_data/payment_method/Title">
+                payment method
+            </dt>
+            <dd tal:condition="nocall:payment_information">
+                <ul>
+                    <li tal:repeat="info payment_information/displayInfo"
+                        tal:content="info">
+                        info
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </td>
+    </tr>
     </table>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
@@ -318,7 +300,7 @@ a:active { text-decoration:underline; color:#666666;}
             <td class="TextGrossGrauLinks"><div align="right" tal:content="shipping/price_gross">€ 17,95</div></td>
         </tr>
         <tr>
-            <td colspan="4" class="HeadHintergrundLinks"><div align="right">Gesamtwert Ihrer Bestellung inkl. 19% MwSt.:</div></td>
+            <td colspan="4" class="HeadHintergrundLinks"><div align="right">Gesamtwert Ihrer Bestellung inkl. MwSt.:</div></td>
             <td class="HeadHintergrundLinks"><div align="right" tal:content="view/getPriceForCustomer">€ 646,95</div></td>
         </tr>
         <tr>
@@ -350,24 +332,5 @@ a:active { text-decoration:underline; color:#666666;}
         </tr>
     </table>
 
-    <p class="TextGrossGrauLinks">F&uuml;r Fragen erreichen Sie uns unter unserer Kunden-Hotline +49(0)37207.683-66 oder per email an <a href="mailto:info@demmelhuber.net">info@demmelhuber.net</a>. 
-    Bei R&uuml;ckfragen geben Sie bitte immer Ihre Bestellnummer <tal:block tal:content="context/id">1211793802901</tal:block> an. Vielen Dank!</p>
-    <p class="TextGrossGrauLinks">Mit freundlichen Gr&uuml;&szlig;en<br />
-    DEMMELHUBER Holz &amp; Raum Vertriebs GmbH<br />
-    <img src="http://www.demmelhuber.net/logo.jpg" alt="Demmelhuber" width="327" height="60" longdesc="http://www.demmelhuber.net/laden" /></p>
-    <table width="100%" border="0" cellspacing="0" cellpadding="5">
-        <tr>
-            <td width="33%"><span class="TextGrossGrauLinks">Am Gewerbegebiet 3<br />
-            09661 Hainichen/ OT Schlegel</span></td>
-            <td width="33%"><span class="TextGrossGrauLinks">Telefon: +49(0)37207.683-66<br />
-            Telefax: +49(0)37207.683-50</span></td>
-            <td width="33%"><span class="TextGrossGrauLinks"><a href="http://www.demmelhuber.net">Homepage: www.demmelhuber.net</a><a href="http://www.demmelhuber.net/laden"><br />
-            Online Shop: www.demmelhuber.net/laden</a></span></td>
-        </tr>
-    </table>
-    <p class="TextGrossGrauLinks"><span class="TextKleinGrauBlock"> Sitz der Gesellschaft: Demmelhuber Holz &amp; Raum Vertriebs GmbH, Am Gewerbegebiet 3, 09661 Hainichen/ OT Schlegel<br />
-    Gesch&auml;ftsf&uuml;hrer: R&uuml;diger Schmidt,Dirk Kommol  Erf&uuml;llungsort und Gerichtsstand Hainichen, Registergericht: AG Chemnitz HRB 24597, Ust-ID: DE 262 479 868 </span></p>
-    <p class="TextGrossGrauLinks"><br />
-    </p>
     </body>
 </html>

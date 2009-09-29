@@ -190,39 +190,20 @@
                                        tal:attributes="onclick string:location.href='${context/absolute_url}/redo-payment'" /> -->
                         </legend>
                         
-                        <tal:block tal:condition="python:payment_portal_type == 'CreditCardPaymentType'">
-                            <div tal:content="payment_information/card_type">Card Type</div>
-                            <div tal:content="payment_information/card_number">Bank</div>
-                            <div>      
-                                <span tal:content="payment_information/card_expiration_date_month">Account-Number</span>/<span tal:content="payment_information/card_expiration_date_month">Account-Number</span>
-                            </div>
-                            <div tal:content="payment_information/card_owner">Depositor</div>
-                        </tal:block>
-
-                        <tal:block tal:condition="python:payment_portal_type == 'DirectDebitPaymentMethod'">
-                            <div tal:content="payment_information/bank_name">Bank</div>
-                            <div tal:content="payment_information/bank_identification_code">Bank</div>      
-                            <div tal:content="payment_information/account_number">Account-Number</div>  
-                            <div tal:content="payment_information/depositor">Depositor</div>
-                        </tal:block>
-                        
-                        <tal:block tal:condition="python:payment_portal_type == 'PayPalPaymentMethod'">
-                        <div i18n:translate="paypal_label">
-                            PayPal
-                        </div>
-                        </tal:block>
-                        
-                        <tal:block tal:condition="python:payment_portal_type == 'GenericPaymentMethod'">
-                            <div i18n:translate=""
-                                 tal:content="payment_data/payment_method/Title">
-                            </div>
-<!--
-                            <div i18n:translate=""
-                                 tal:content="payment_data/payment_method/Description">
-                            </div>
--->                            
-                        </tal:block>                            
-
+                        <dl>
+                            <dt i18n:translate=""
+                                tal:content="payment_data/payment_method/Title">
+                                payment method
+                            </dt>
+                            <dd tal:condition="nocall:payment_information">
+                                <ul>
+                                    <li tal:repeat="info payment_information/displayInfo"
+                                        tal:content="info">
+                                        info
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>                
                         
                     </fieldset>                
                 </td>
