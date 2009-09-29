@@ -25,10 +25,11 @@ class FormView(BrowserView):
 
         text = "\n".join(text)
 
-        sender = "info@demmelhuber.net"
-        receiver = self.request.get("receiver", "info@demmelhuber.net")
+        portal = getToolByName(self.context,'portal_url').getPortalObject()
+        sender = portal.email_from_address
+        receiver = self.request.get("receiver", sender)
         
-        subject = "Neue Nachricht von demmelhuber.net"
+        subject = "Neue Nachricht von %s" % portal.Title()
         sendNonMultipartMail(self.context, sender=sender, receiver=receiver, subject=subject, text=text)
         
         putils = getToolByName(self.context, "plone_utils")
