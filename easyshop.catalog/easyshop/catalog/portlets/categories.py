@@ -115,7 +115,6 @@ class Renderer(base.Renderer):
         """
         """
         # Could be use to show categories from a certain level on.
-        # See demmelhuber
         return self._getShop()
 
     def getTopLevelCategories(self):
