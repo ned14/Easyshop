@@ -5,6 +5,9 @@ Changelog for easyshop.payment
 0.1a1 Unreleased
 ----------------
 
+    - removed mail_order_received_old.pt [petschki]
+    - added new displayInfo() function to payment information objects
+      to remove hardcoded payment method type output [petschki]
     - Initial package structure.
       [zopeskel]
 

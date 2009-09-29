@@ -27,4 +27,12 @@ class BankAccount(Item):
         """
         return self.bank_name + " - " + self.account_number
         
+    def displayInfo(self):
+        """ returns relevant payment information as dictionary
+        """
+        return (self.account_number,
+                self.bank_identification_code,
+                self.bank_name,
+                self.depositor,)
+        
 bankAccountFactory = Factory(BankAccount, title=_(u"Create a new bank account"))       

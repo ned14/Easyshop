@@ -79,6 +79,15 @@ class CreditCard(Item):
         """
         """
         return "%s (%s)" % (self.card_number, self.card_type)
+        
+    def displayInfo(self):
+        """ returns relevant payment information as tuple
+        """
+        return (self.card_type,
+                self.card_owner,
+                self.card_number,
+                "%s/%s" % (self.card_expiration_date_month,
+                           self.card_expiration_date_year),)
 
 registerType(CreditCardPaymentMethod, PROJECTNAME)        
 creditCardFactory = Factory(CreditCard, title=_(u"Create a new credit card."))
