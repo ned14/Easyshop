@@ -15,8 +15,8 @@ class IPaymentMethod(Interface):
 
 class ISelectablePaymentMethod(Interface):
     """Marker interface for payment methods which can be selected by a customer.
-    """
-
+    """        
+        
 class IAsynchronPaymentMethod(Interface):
     """Marker interface for payment methods which redirect to the payment 
     service, e.g. PayPal.
@@ -43,6 +43,10 @@ class IGenericPaymentMethod(IPaymentMethod, ISelectablePaymentMethod):
 class IPaymentInformation(Interface):
     """Marker interface for payment information.
     """
+    
+    def displayInfo():
+        """ returns a dictionary with all the needed informations for an order
+        """
     
 class IBankAccount(IPaymentInformation):
     """Stores information of a bank account.
