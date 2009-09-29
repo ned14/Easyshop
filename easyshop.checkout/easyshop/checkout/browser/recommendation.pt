@@ -12,7 +12,8 @@
             
         <p>
             Schauen Sie doch einfach mal unverbindlich bei uns rein: 
-            <a href="http://demmelhuber.net/laden">http://demmelhuber.net/laden</a>
+            <a tal:attributes="href view/portal_url"
+               tal:content="view/portal_url">http://shop.com/</a>
         </p>
         
         <p>

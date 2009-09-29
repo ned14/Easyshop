@@ -59,6 +59,8 @@
                 </span>
             </div>
             
+            <div tal:replace="structure provider:easyshop.aboveorderpreviewinformation" />
+            
             <table id="order-preview-information">
                 <tr>
                     <td>              
@@ -135,7 +137,7 @@
                     </td>        
                     
                     <td>
-                        <fieldset>                
+                        <fieldset>
                             <legend>
                                 <span i18n:translate="payment_method_label">
                                    Payment Method
@@ -150,39 +152,27 @@
                     
                             </legend>            
                             
-                            <tal:block tal:condition="python:payment_method_type == 'CreditCardPaymentMethod'">
-                                <div tal:content="payment_information/card_type">Bank</div>
-                                <div tal:content="payment_information/card_number">Bank</div>
-                                <div>      
-                                    <span tal:content="payment_information/card_expiration_date_month">Month</span>/
-                                    <span tal:content="payment_information/card_expiration_date_year">Year</span>
-                                </div>  
-                                <div tal:content="payment_information/card_owner">Depositor</div>
-                            </tal:block>
-
-                            <tal:block tal:condition="python:payment_method_type == 'DirectDebitPaymentMethod'">
-                                <div tal:content="payment_information/bank_name">Bank</div>
-                                <div tal:content="payment_information/bank_identification_code">Bank</div>      
-                                <div tal:content="payment_information/account_number">Account-Number</div>  
-                                <div tal:content="payment_information/depositor">Depositor</div>
-                            </tal:block>
-                            
-                            <tal:block tal:condition="python:payment_method_type == 'PayPalPaymentMethod'">
-                                <div i18n:translate="paypal_label">
-                                    PayPal
-                                </div>
-                            </tal:block>
-
-                            <tal:block tal:condition="python:payment_method_type == 'GenericPaymentMethod'">
-                                <div i18n:translate=""
-                                     tal:content="payment_method_info/title">
-                                </div>
-                            </tal:block>                            
+                            <dl>
+                                <dt tal:content="payment_method_info/title|string:Payment Method"
+                                    i18n:translate="">
+                                    payment method
+                                </dt>
+                                <dd tal:condition="nocall:payment_information">
+                                    <ul>
+                                        <li tal:repeat="info payment_information/displayInfo"
+                                            tal:content="info">
+                                            info
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
                             
                         </fieldset>             
                     </td>        
                 </tr>
             </table>
+            
+            <div tal:replace="structure provider:easyshop.abovecheckoutcart" />
       
             <fieldset id="check-out-cart">
                 <legend>
@@ -359,6 +349,8 @@
                 </table>
             </fieldset>
 
+            <div tal:replace="structure provider:easyshop.belowcheckoutcart" />
+            
             <form action="." 
                   tal:attributes="action request/URL" 
                   method="post"

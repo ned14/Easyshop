@@ -264,14 +264,14 @@ class OrderPreviewForm(formbase.AddForm):
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         pm = IPaymentInformationManagement(customer)
         return pm.getSelectedPaymentInformation()
-        
+
     def getPaymentMethodInfo(self):
         """
         """
         # method
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         selected_payment_method = customer.selected_payment_method
-
+        
         pm = IPaymentMethodManagement(self.context)
         method = pm.getPaymentMethod(selected_payment_method)
         
@@ -287,7 +287,7 @@ class OrderPreviewForm(formbase.AddForm):
             "price"   : price,
             "display" : payment_price != 0,
         }
-
+        
     def getShippingAddress(self):
         """
         """

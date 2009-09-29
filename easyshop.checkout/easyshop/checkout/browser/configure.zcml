@@ -70,6 +70,28 @@
         for = "easyshop.core.interfaces.IShop"
         class = ".order_preview.OrderPreviewForm"
         permission="easyshop.Checkout" />
+        
+    <!-- order preview viewlet managers -->
+    <browser:viewletManager
+        name="easyshop.aboveorderpreviewinformation"
+        provides=".interfaces.IAboveOrderPreviewInformation"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.BaseOrderedViewletManager"
+        />
+        
+    <browser:viewletManager
+        name="easyshop.abovecheckoutcart"
+        provides=".interfaces.IAboveCheckoutCart"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.BaseOrderedViewletManager"
+        />
+    
+    <browser:viewletManager
+        name="easyshop.belowcheckoutcart"
+        provides=".interfaces.IBelowCheckoutCart"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.BaseOrderedViewletManager"
+        />
 
     <!-- Thank You Page -->
     <browser:page

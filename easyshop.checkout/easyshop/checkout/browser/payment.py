@@ -163,7 +163,8 @@ class PaymentForm(formbase.EditForm):
             selected_payment_information = \
                 pm.getSelectedPaymentInformation(check_validity=True)
                 
-            if selected_payment_information.getId() == credit_card.getId():
+            if selected_payment_information and \
+               selected_payment_information.getId() == credit_card.getId():
                 checked = True
             else:
                 checked = False            
@@ -199,7 +200,8 @@ class PaymentForm(formbase.EditForm):
             selected_payment_information = \
                 pm.getSelectedPaymentInformation(check_validity=True)
                 
-            if selected_payment_information.getId() == bank_account.getId():
+            if selected_payment_information and \
+               selected_payment_information.getId() == bank_account.getId():
                 checked = True
             else:
                 checked = False            

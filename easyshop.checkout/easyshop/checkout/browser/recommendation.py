@@ -1,3 +1,4 @@
+from zope.component import getMultiAdapter
 # Five imports
 from Products.Five.browser import BrowserView
 
@@ -30,3 +31,7 @@ class SendRecommendationView(BrowserView):
             "name"  : name,
         }
                 
+    def portal_url(self):
+        portal_state = getMultiAdapter((self.context,self.request),
+                                       name="plone_portal_state")
+        return portal_state.portal_url()

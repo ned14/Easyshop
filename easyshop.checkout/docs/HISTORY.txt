@@ -5,6 +5,10 @@ Changelog for easyshop.checkout
 0.1a1 Unreleased
 --------------
 
+    - removed hardcoded payment method type code in @@checkout-order-preview
+      [petschki]
+    - added useful viewlets to @@checkout-order-preview (needed for further
+      development of easyshop.coupon) [petschki]
     - fixed syntax error in payment validator [petschki]
     - added i18n attributes to buttons [petschki]
     - Initial package structure.
