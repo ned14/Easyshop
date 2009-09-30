@@ -1,0 +1,6 @@
+<layers>
+ <layer
+     name="easyshop.coupon"
+     interface="easyshop.coupon.interfaces.IEasyShopCouponLayer"
+     />
+</layers>

@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="easyshop.coupon">
+
+    <include package="plone.app.z3cform" />
+    <include package="plone.z3cform" />
+
+    <browser:viewlet
+        name="easyshop.coupon.form"
+        manager="easyshop.checkout.browser.interfaces.IAboveCheckoutCart"
+        class=".form.CouponCodeFormViewlet"
+        permission="zope2.View"
+        />
+
+</configure>

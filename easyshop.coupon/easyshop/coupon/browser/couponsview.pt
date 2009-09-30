@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="easyshop.coupon"
+      metal:use-macro="here/main_template/macros/master">
+
+  <head>
+  </head>
+
+  <body>
+
+    <div metal:fill-slot="main"
+        tal:define="coupons view/getCoupons">
+        
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"
+            tal:content="context/Title">
+            title
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <a href=""
+           class="link-parent"
+           tal:attributes="href context/aq_parent/absolute_url"
+           i18n:translate="shop_label">
+            Shop
+        </a>  
+        
+        <p class="documentDescription"
+           tal:content="here/Description"
+           tal:condition="here/Description">
+            Description
+        </p>
+
+        <div tal:condition="not:coupons"
+             i18n:translate="no_coupons_label">
+            There are no payment methods.
+        </div>
+        
+
+        <table tal:condition="coupons"
+               class="listing shop-default">
+          <tr>
+            <th width="50%"
+                i18n:translate="name_label">
+                Name
+            </th>
+            <th width="50%"
+                i18n:translate="amount_of_criteria_label">
+                Amount of Criteria
+            </th>                
+          </tr>
+
+          <tr tal:repeat="coupon coupons">
+            <td class="text">
+                <a href="." class="couponLink"
+                   tal:attributes="href coupon/url"
+                   tal:content="coupon/title"
+                   i18n:translate="">
+                    Default  
+                </a>
+            </td>
+            <td class="number"
+                tal:content="coupon/amount_of_criteria">
+                2
+            </td>
+          </tr>
+        </table>
+
+    </div>
+  </body>
+</html>

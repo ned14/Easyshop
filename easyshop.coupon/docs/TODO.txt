@@ -1,0 +1,7 @@
+To Do's and To Dont's
+=====================
+
+Do
+--
+
+- Add criterias to coupons

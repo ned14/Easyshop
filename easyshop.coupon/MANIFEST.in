@@ -1,0 +1,2 @@
+recursive-include easyshop *
+global-exclude *pyc

@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="easyshop.coupon">
+
+  <include package="plone.app.contentmenu" />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+      for="*"
+      name="coupons_view"
+      class=".couponsview.CouponsView"
+      template="couponsview.pt"
+      allowed_interface=".couponsview.ICouponsView"
+      permission="zope.Public"
+      />
+
+
+</configure>
