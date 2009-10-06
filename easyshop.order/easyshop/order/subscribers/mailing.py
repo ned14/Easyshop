@@ -26,7 +26,7 @@ def sendOrderMail(order, event):
     if state == "pending":
         mailOrderSubmitted(order)
         mailOrderReceived(order)
-        
+
     elif state in ("sent (not payed)", "sent"):
         mailOrderSent(order)
 
@@ -48,7 +48,7 @@ def mailOrderSent(order):
 
     # Get sender
     sender = IMailAddresses(shop).getSender()
-    
+
     sendMultipartMail(
         context  = order,
         sender   = sender,
@@ -82,26 +82,26 @@ def mailOrderSubmitted(order):
             subject  = "E-Shop: New order",
             text     = text,
             charset  = charset)
-            
+
 def mailOrderReceived(order):
     """Sends email to customer that the order has been received.
     """
     shop = IShopManagement(order).getShop()
-    
+
     # Get TOC
     shop = IShopManagement(order).getShop()
-    page = IInformationManagement(shop).getInformationPage("terms-and-conditions")    
-    
+    page = IInformationManagement(shop).getInformationPage("terms-and-conditions")
+
     # Get sender
     mail_addresses = IMailAddresses(shop)
     sender         = mail_addresses.getSender()
     bcc            = mail_addresses.getReceivers()
-    
+
     # Get receiver
     customer = order.getCustomer()
     address = IAddressManagement(customer).getShippingAddress()
     receiver = address.email or customer.email
-    
+
     if sender and receiver:
         view = getMultiAdapter((order, order.REQUEST), name="mail-order-received")
         text = view()
