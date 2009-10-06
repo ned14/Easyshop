@@ -20,6 +20,7 @@ METHODS = {
     "SELECTED_SHIPPING_METHOD" : "_selectedShipping",
     "SELECTED_PAYMENT_METHOD"  : "_selectedPayment",
     "BUYED_ORDER"              : "_gotoAfterBuyedOrder",
+    "ASYNCHRONOUS_PAYMENT"     : "_gotoAfterAsynchronPayment",
     "ERROR_PAYMENT"            : "_gotoAfterErrorPayment"
 }
 
@@ -36,17 +37,17 @@ class CheckoutManagement:
 
     def getNextURL(self, id):
         """Returns next URL by given id.
-        """        
+        """
         # If variable goto is set this takes precedence
         goto = self.context.REQUEST.get("goto", u"")
         if goto != u"":
             return goto
-        else:    
+        else:
             # Calculate next url from given id
             method = METHODS[id]
             method = getattr(self, method)
             return method()
-        
+
     def redirectToNextURL(self, id):
         """Redirects to next URL by given id.
         """
@@ -60,14 +61,14 @@ class CheckoutManagement:
             url = "/checkout-shipping"
         else:
             url = "/checkout-add-address?address_type=invoice"
-            
+
         return self.context.absolute_url() + url
 
     def _gotoUser(self):
         """
         """
         return self.context.absolute_url() + "/checkout-add-user"
-        
+
     def _editedAddress(self):
         """
         """
@@ -80,14 +81,14 @@ class CheckoutManagement:
                 url = self.context.absolute_url() + "/checkout-add-address?address_type=invoice"
             else:
                 url = invoice_address.absolute_url() + "/checkout-edit-address"
-                
+
         return url
 
     def _selectedAddresses(self):
         """
         """
         return self.context.absolute_url() + "/checkout-shipping"
-        
+
     def _selectedShipping(self):
         """
         """
@@ -103,24 +104,29 @@ class CheckoutManagement:
         """
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         shipping_address = IAddressManagement(customer).getShippingAddress()
-        
+
         mtool = getToolByName(self.context, "portal_membership")
         if mtool.isAnonymousUser():
             if shipping_address is None:
                 return self.context.absolute_url() + "/checkout-add-address"
             else:
                 return shipping_address.absolute_url() + "/checkout-edit-address"
-        else:    
+        else:
             if shipping_address is None:
                 return self.context.absolute_url() + "/checkout-add-address"
             else:
                 return self.context.absolute_url() + "/checkout-select-addresses"
-                
+
     def _gotoAfterBuyedOrder(self):
         """
         """
         return "%s/thank-you" % self.context.absolute_url()
-        
+
+    def _gotoAfterAsynchronPayment(self):
+        """
+        """
+        return "%s/checkout-asynchron-payment" % self.context.absolute_url()
+
     def _gotoAfterErrorPayment(self):
         """
         """

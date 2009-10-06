@@ -60,7 +60,7 @@ class OrderPreviewForm(formbase.AddForm):
     """
     template = pagetemplatefile.ZopeTwoPageTemplateFile("order_preview.pt")
     form_fields = form.Fields(IOrderPreviewForm)
-    
+
     def validator(self, action, data):
         """
         """
@@ -72,60 +72,69 @@ class OrderPreviewForm(formbase.AddForm):
             widget._error = error
             widget.error  = error_msg
             errors.append(error)
-        
+
         return errors
-            
-    @form.action(_(u"label_buy", default=u"Buy"), validator=validator, name=u'buy')
+
+    @form.action(_(u"label_buy", default=u"Buy"),
+                 validator=validator,
+                 name=u'buy')
     def handle_buy_action(self, action, data):
         """Buys a cart.
         """
         putils = getToolByName(self.context, "plone_utils")
-                
+
         # add order
         om = IOrderManagement(self.context)
         new_order = om.addOrder()
 
         # Set message to shop owner
         new_order.setMessage(self.context.request.get("form.message", ""))
-        
+
         # process payment
         result = IPaymentProcessing(new_order).process()
 
-        # Need error for payment methods for which the customer has to pay at 
-        # any case The order process should not go on if the customer is not 
+        # get payment menthod
+        customer = \
+            ICustomerManagement(self.context).getAuthenticatedCustomer()
+        selected_payment_method = \
+            IPaymentInformationManagement(customer).getSelectedPaymentMethod()
+
+        # Need error for payment methods for which the customer has to pay at
+        # any case The order process should not go on if the customer is not
         # able to pay.
         if result.code == ERROR:
             om.deleteOrder(new_order.id)
             putils.addPortalMessage(result.message, type=u"error")
             ICheckoutManagement(self.context).redirectToNextURL("ERROR_PAYMENT")
             return ""
-        else:
+
+        # if we have a synchronous payment method we delete cart and send mails
+        elif not IAsynchronPaymentMethod.providedBy(selected_payment_method):
             cm = ICartManagement(self.context)
 
             # Decrease stock
             IStockManagement(self.context).removeCart(cm.getCart())
-            
+
             # Delete cart
             cm.deleteCart()
 
             # Set order to pending (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
             wftool.doActionFor(new_order, "submit")
-            
+
             putils.addPortalMessage(MESSAGES["ORDER_RECEIVED"])
-                        
+
         if result.code == PAYED:
 
             # Set order to payed (Mails will be sent)
             wftool = getToolByName(self.context, "portal_workflow")
 
-            # We need a new security manager here, because this transaction 
+            # We need a new security manager here, because this transaction
             # should usually just be allowed by a Manager except here.
             old_sm = getSecurityManager()
             tmp_user = UnrestrictedUser(
                 old_sm.getUser().getId(),
-                '', ['Manager'], 
-                ''
+                '', ['Manager'], ''
             )
 
             portal = getToolByName(self.context, 'portal_url').getPortalObject()
@@ -133,18 +142,16 @@ class OrderPreviewForm(formbase.AddForm):
             newSecurityManager(None, tmp_user)
 
             wftool.doActionFor(new_order, "pay_not_sent")
-            
-            ## Reset security manager
+
+            # Reset security manager
             setSecurityManager(old_sm)
-            
-        # Redirect
-        customer = \
-            ICustomerManagement(self.context).getAuthenticatedCustomer()
-        selected_payment_method = \
-            IPaymentInformationManagement(customer).getSelectedPaymentMethod()
-        
-        if not IAsynchronPaymentMethod.providedBy(selected_payment_method):
-            ICheckoutManagement(self.context).redirectToNextURL("BUYED_ORDER")
+
+        next_url = \
+            IAsynchronPaymentMethod.providedBy(selected_payment_method) and \
+            "ASYNCHRONOUS_PAYMENT" or \
+            "BUYED_ORDER"
+
+        ICheckoutManagement(self.context).redirectToNextURL(next_url)
 
     def getCartItems(self):
         """Returns the items of the current cart.
@@ -153,14 +160,14 @@ class OrderPreviewForm(formbase.AddForm):
 
         cm = ICurrencyManagement(self.context)
         im = IItemManagement(cart)
-                
+
         result = []
         for cart_item in im.getItems():
             product = cart_item.getProduct()
-            
+
             product_price = IPrices(cart_item).getPriceForCustomer() / cart_item.getAmount()
             product_price = cm.priceToString(product_price)
-            
+
             price = IPrices(cart_item).getPriceForCustomer()
 
             # Todo: Think about to factoring out properties stuff
@@ -169,15 +176,15 @@ class OrderPreviewForm(formbase.AddForm):
             pm = IPropertyManagement(product)
             for selected_property in cart_item.getProperties():
                 property_price = pm.getPriceForCustomer(
-                    selected_property["id"], 
-                    selected_property["selected_option"]) 
+                    selected_property["id"],
+                    selected_property["selected_option"])
 
                 # Get titles of property and option
                 titles = getTitlesByIds(
                     product,
-                    selected_property["id"], 
+                    selected_property["id"],
                     selected_property["selected_option"])
-                    
+
                 if titles is None:
                     continue
 
@@ -206,10 +213,10 @@ class OrderPreviewForm(formbase.AddForm):
                 }
 
                 total_price = price - discount_price
-            
-            # Data    
+
+            # Data
             data = IData(product).asDict()
-            
+
             result.append({
                 "product_title" : data["title"],
                 "product_price" : product_price,
@@ -219,22 +226,22 @@ class OrderPreviewForm(formbase.AddForm):
                 "total_price"   : cm.priceToString(total_price),
                 "discount"      : discount,
             })
-        
+
         return result
 
     def getDiscounts(self):
         """
         """
         return []
-        
-        cart = self._getCart()        
 
-        if cart is None: 
+        cart = self._getCart()
+
+        if cart is None:
             return []
 
         cm = ICurrencyManagement(self.context)
         discounts = []
-        
+
         for cart_item in IItemManagement(cart).getItems():
             discount = IDiscountsCalculation(cart_item).getDiscount()
 
@@ -244,18 +251,18 @@ class OrderPreviewForm(formbase.AddForm):
                     "title" : discount.Title(),
                     "value" : cm.priceToString(value, prefix="-"),
                 })
-        
+
         return discounts
-        
+
     def getInvoiceAddress(self):
         """Returns invoice address of the current customer.
         """
         cm = ICustomerManagement(self.context)
         customer = cm.getAuthenticatedCustomer()
-        
+
         am = IAddressManagement(customer)
         address = am.getInvoiceAddress()
-        
+
         return addressToDict(address)
 
     def getSelectedPaymentInformation(self):
@@ -271,29 +278,29 @@ class OrderPreviewForm(formbase.AddForm):
         # method
         customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
         selected_payment_method = customer.selected_payment_method
-        
+
         pm = IPaymentMethodManagement(self.context)
         method = pm.getPaymentMethod(selected_payment_method)
-        
+
         # price
         pp = IPaymentPriceManagement(self.context)
         payment_price = pp.getPriceGross()
         cm = ICurrencyManagement(self.context)
         price = cm.priceToString(payment_price)
-        
+
         return {
             "type"    : method.portal_type,
             "title"   : method.Title(),
             "price"   : price,
             "display" : payment_price != 0,
         }
-        
+
     def getShippingAddress(self):
         """
         """
         cm = ICustomerManagement(self.context)
         customer = cm.getAuthenticatedCustomer()
-        
+
         am = IAddressManagement(customer)
         address = am.getShippingAddress()
 
@@ -308,13 +315,13 @@ class OrderPreviewForm(formbase.AddForm):
         cm = ICurrencyManagement(self.context)
         price = cm.priceToString(shipping_price)
         method = IShippingMethodManagement(self.context).getSelectedShippingMethod()
-                
+
         return {
             "price"       : price,
             "title"       : method.Title(),
             "description" : method.Description()
         }
-                
+
     def getTotalPrice(self):
         """
         """
@@ -325,7 +332,7 @@ class OrderPreviewForm(formbase.AddForm):
 
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(total)
-        
+
     def getTotalTax(self):
         """
         """
@@ -339,12 +346,12 @@ class OrderPreviewForm(formbase.AddForm):
         """
         """
         cart = self._getCart()
-        
+
         if cart is None:
             return False
-            
+
         im = IItemManagement(cart)
-        
+
         if im.hasItems():
             return True
         return False
@@ -354,7 +361,7 @@ class OrderPreviewForm(formbase.AddForm):
         """
         cm = ICustomerManagement(self.context)
         customer = cm.getAuthenticatedCustomer()
-        
+
         return ICompleteness(customer).isComplete()
 
     def test(self, error, result_true, result_false):
@@ -365,12 +372,12 @@ class OrderPreviewForm(formbase.AddForm):
         else:
             return result_false
 
-    @memoize        
+    @memoize
     def _getCart(self):
         """Returns current cart.
         """
         return ICartManagement(self.context).getCart()
-                
+
 def addressToDict(address):
     """
     """
