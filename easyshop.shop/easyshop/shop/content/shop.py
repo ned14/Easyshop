@@ -47,7 +47,7 @@ schema = Schema((
     BooleanField(
         name="grossPrices",
         default=True,
-        schemata="misc",        
+        schemata="misc",
         widget=BooleanWidget(
             description = "If selected, all prices are gross prices, else net prices.",
             label="Gross Prices",
@@ -56,7 +56,7 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
-        
+
     StringField(
         name="currency",
         schemata="misc",
@@ -76,14 +76,14 @@ schema = Schema((
         default=False,
         schemata="misc",
         widget = BooleanWidget(
-            description = "If selected, customers can select amount of products which are added to cart.",  
+            description = "If selected, customers can select amount of products which are added to cart.",
             label="Show Quantity",
             label_msgid="schema_show_quantity_label",
             description_msgid="schema_show_quantity_description",
             i18n_domain="EasyShop",
         ),
     ),
-    
+
     LinesField(
         name="countries",
         schemata="misc",
@@ -96,7 +96,7 @@ schema = Schema((
             i18n_domain="EasyShop",
         )
     ),
-        
+
     StringField(
         name="payPalId",
         schemata="payment",
@@ -107,7 +107,7 @@ schema = Schema((
             description_msgid="schema_paypal_id_description",
             i18n_domain="EasyShop",
         ),
-    ),    
+    ),
 
     StringField(
         name="mailFromName",
@@ -120,7 +120,7 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
-    
+
     StringField(
         name="mailFromAddress",
         schemata="mailing",
@@ -132,7 +132,7 @@ schema = Schema((
             i18n_domain="EasyShop",
         ),
     ),
-    
+
     LinesField(
         name="mailTo",
         schemata="mailing",
@@ -143,18 +143,18 @@ schema = Schema((
             description_msgid="schema_mailto_description",
             i18n_domain="EasyShop",
         ),
-    ),    
+    ),
 ),
 )
 
 # Move Plone's default fields into one tab, to make some place for own ones.
 schema = ATBTreeFolder.schema.copy() + schema
-    
+
 # Dates
 schema.changeSchemataForField('effectiveDate',  'plone')
 schema.changeSchemataForField('expirationDate', 'plone')
-schema.changeSchemataForField('creation_date', 'plone')    
-schema.changeSchemataForField('modification_date', 'plone')    
+schema.changeSchemataForField('creation_date', 'plone')
+schema.changeSchemataForField('modification_date', 'plone')
 
 # Categorization
 schema.changeSchemataForField('subject', 'plone')
@@ -187,8 +187,8 @@ class EasyShop(ATBTreeFolder):
         ctr.addPredicate("EasyShopImage", "extension")
         ctr.getPredicate("EasyShopImage").edit("jpg jpeg png gif")
         ctr.assignTypeName("EasyShopImage", "EasyShopImage")
-        
-        # Add left portlets 
+
+        # Add left portlets
         leftColumn = getUtility(IPortletManager, name=u'plone.leftcolumn', context=self)
         left = getMultiAdapter((self, leftColumn,), IPortletAssignmentMapping, context=self)
 
@@ -205,8 +205,8 @@ class EasyShop(ATBTreeFolder):
         # Block default portlets
         assignable = getMultiAdapter((self, leftColumn,), ILocalPortletAssignmentManager)
         assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
-        
-        # Add right portlets 
+
+        # Add right portlets
         rightColumn = getUtility(IPortletManager, name=u'plone.rightcolumn', context=self)
         right = getMultiAdapter((self, rightColumn,), IPortletAssignmentMapping, context=self)
 
@@ -238,28 +238,30 @@ class EasyShop(ATBTreeFolder):
         self.manage_addProduct["easyshop.core"].addDiscountsContainer(id="discounts", title="Discounts")
         self.manage_addProduct["easyshop.core"].addGroupsContainer(id="groups", title="Groups")
         self.manage_addProduct["easyshop.core"].addTaxesContainer(id="taxes", title="Taxes")
-        self.manage_addProduct["easyshop.core"].addStockInformationContainer(id="stock-information", 
-            title="Stock Information")    
-        
-        ### Information        
+        self.manage_addProduct["easyshop.core"].addStockInformationContainer(id="stock-information",
+            title="Stock Information")
+
+        ### Information
         self.manage_addProduct["easyshop.core"].addInformationContainer(id="information", title="Information")
         self.information.manage_addProduct["easyshop.core"].addInformationPage(
             id="terms-and-conditions", title="Terms And Conditions")
+        self.information.manage_addProduct["easyshop.core"].addInformationPage(
+            id="cancellation-instructions", title="Cancellation Instructions")
 
         ### Orders
         self.manage_addProduct["easyshop.core"].addOrdersContainer(id="orders", title="Orders")
         self.orders.manage_permission('Add portal content', ['Member'], 1)
 
-        ### Payment            
-        self.manage_addProduct["easyshop.core"].addPaymentMethodsContainer(id="paymentmethods", 
+        ### Payment
+        self.manage_addProduct["easyshop.core"].addPaymentMethodsContainer(id="paymentmethods",
             title="Payment Methods")
-            
+
         self.manage_addProduct["easyshop.core"].addPaymentPricesContainer(
-            id="paymentprices", title="Payment Prices")        
+            id="paymentprices", title="Payment Prices")
         self.paymentmethods.manage_addProduct["easyshop.core"].addGenericPaymentMethod(
-            id="cash-on-delivery", title="Cash on Delivery")                
+            id="cash-on-delivery", title="Cash on Delivery")
         self.paymentmethods.manage_addProduct["easyshop.core"].addCreditCardPaymentMethod(
-            id="credit-card", title="Credit Card")                
+            id="credit-card", title="Credit Card")
         self.paymentmethods.manage_addProduct["easyshop.core"].addDirectDebitPaymentMethod(
             id="direct-debit", title="Direct Debit")
         self.paymentmethods.manage_addProduct["easyshop.core"].addPayPalPaymentMethod(
@@ -271,8 +273,8 @@ class EasyShop(ATBTreeFolder):
         for payment_method in self.paymentmethods.objectValues():
             wftool.doActionFor(payment_method, "publish")
 
-        ### Shipping    
-        self.manage_addProduct["easyshop.core"].addShippingPricesContainer(id="shippingprices", 
+        ### Shipping
+        self.manage_addProduct["easyshop.core"].addShippingPricesContainer(id="shippingprices",
             title="Shipping Prices")
         self.manage_addProduct["easyshop.core"].addShippingMethodsContainer(id="shippingmethods",
             title="Shipping Methods")
@@ -281,22 +283,22 @@ class EasyShop(ATBTreeFolder):
 
         for shipping_method in self.shippingmethods.objectValues():
             wftool.doActionFor(shipping_method, "publish")
-                                
+
     def setImage(self, data):
         """
         """
         if data and data != "DELETE_IMAGE":
             data = IImageConversion(self).convertImage(data)
-        self.getField("image").set(self, data)        
-    
+        self.getField("image").set(self, data)
+
     def _getCurrenciesAsDL(self):
         """
         """
         dl = DisplayList()
-        
+
         keys = CURRENCIES.keys()
         keys.sort()
-        
+
         for key in keys:
             dl.add(key, CURRENCIES[key]["long"])
 
