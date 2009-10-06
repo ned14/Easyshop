@@ -6,9 +6,9 @@
 
         <metal:main fill-slot="main"
                     tal:define="customers view/getCustomers">
-  
+
             <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
+
             <h1 class="documentFirstHeading"
                 i18n:translate="customers_label">
                 Customers
@@ -24,8 +24,8 @@
                tal:attributes="href context/aq_parent/absolute_url"
                i18n:translate="shop_label">
                 Shop
-            </a>  
-    
+            </a>
+
             <div id="letters">
                 <a tal:repeat="letter view/getLetters"
                    tal:attributes="href string:${context/absolute_url}?letter=$letter;
@@ -44,11 +44,11 @@
                     <input id="search-customers"
                            type="submit"
                            value="OK" />
-                </form>              
+                </form>
             </div>
-                
+
             <div tal:replace="structure provider:plone.abovecontentbody" />
-            
+
             <table class="shop-default">
                 <tr>
                     <td width="50%">
@@ -57,30 +57,29 @@
                                 <li tal:repeat="customer customers">
                                     <a href="."
                                        tal:define="letter context/REQUEST/letter|nothing"
-                                       tal:attributes="href string:${context/absolute_url}?letter=$letter&amp;uid=${customer/uid}"
+                                       tal:attributes="href string:${context/absolute_url}?letter=$letter&amp;id=${customer/id}"
                                        tal:content="customer/name">
                                         Name
                                     </a> |
                                     <a href="."
                                       tal:attributes="href string:${customer/url}/my-account">
                                       Manage account
-                                    </a>  
+                                    </a>
                                 </li>
                             </ul>
-                    
+
                             <div tal:condition="not:customers"
                                  i18n:translate="no_customers_label">
                                 There are no customers.
-                            </div>                    
-                        </div>                        
+                            </div>
+                        </div>
                     </td>
                     <td>
-                        <div id="customer-details-box"                          
+                        <div id="customer-details-box"
                              tal:define="customer view/getCustomer;
                                          cart view/getCart;
                                          addresses view/getAddresses;
-                                         orders view/getOrders;
-                                         bank_information view/getBankInformation"
+                                         orders view/getOrders;"
                              tal:condition="customer">
                             <h1 class="documentFirstHeading">
                                 <a href="."
@@ -88,11 +87,11 @@
                                     <span tal:replace="customer/name">
                                         John Doe
                                     </span>
-                                </a>    
+                                </a>
                             </h1>
                             <div tal:content="customer/email">
                                 E-mail
-                            </div>                                
+                            </div>
                             <h1>
                                 <a href="."
                                    tal:attributes="href string:${customer/url}/manage-addressbook"
@@ -108,15 +107,15 @@
                                            tal:content="address/name">
                                            Name
                                         </a>
-                                    </div>    
+                                    </div>
                                     <div tal:content="address/address1">
                                         Address 1
-                                    </div>                                        
+                                    </div>
                                     <div tal:content="address/phone">
                                         Address 1
-                                    </div>                                        
+                                    </div>
                                 </li>
-                            </ul>    
+                            </ul>
                             <a href="."
                                tal:attributes="href string:${customer/url}/@@add-address?goto=${customer/goto}">
                                 Add Address
@@ -124,38 +123,7 @@
                             <div tal:condition="not:addresses"
                                  i18n:translate="no_addresses_label">
                                  There are no addresses
-                            </div> 
-                            <h1>
-                                <a href="."
-                                   tal:attributes="href string:${customer/url}/manage-payment-methods"
-                                   i18n:translate="bank_information_label">
-                                    Bank Information
-                                </a>
-                            </h1>
-                            <ul>
-                                <li tal:repeat="bi bank_information">
-                                    <div>
-                                        <a href="."
-                                           tal:attributes="href string:${bi/url}/@@edit?goto=${customer/goto}"
-                                           tal:content="bi/account_number">
-                                          Account Number
-                                        </a>
-                                    </div>
-                                    <div tal:content="bi/bic">
-                                        Bank Information Code
-                                    </div>                   
-                                    <div tal:content="bi/bank_name">
-                                        Bank Name
-                                    </div>                   
-                                    <div tal:content="bi/name">
-                                        Account Owner
-                                    </div>                                                                            
-                                </li>
-                            </ul>    
-                            <div tal:condition="not:bank_information"
-                                 i18n:translate="no_bank_information_label">
-                                 There are no bank information
-                            </div>  
+                            </div>
                             <h1 i18n:translate="orders_label">
                                 Orders
                             </h1>
@@ -163,22 +131,16 @@
                                 <li tal:repeat="order orders">
                                     <a href="."
                                        tal:attributes="href order/url">
-                                        <span tal:content="order/created" />                                    
+                                        <span tal:content="order/created" />
                                         / <span tal:content="order/id" />
-                                        / <span tal:content="order/review_state" /> 
-                                    </a>                                
-                                    <!-- <div style="cursor:pointer; text-decoration:underline"
-                                         tal:define="url order/url"
-                                         tal:attributes="onclick string:easyShopZoomWindow('$url', '935', '805')">
-                                        <span tal:content="order/id" />
-                                        (<span tal:content="order/review_state" />)
-                                    </div> -->
+                                        / <span tal:content="order/review_state" />
+                                    </a>
                                 </li>
                             </ul>
                             <div tal:condition="not: orders"
                                  i18n:translate="no_orders_label">
                                 There are no orders.
-                            </div>    
+                            </div>
                             <tal:block tal:condition="cart">
                                 <h1 i18n:translate="cart_label">
                                     Cart
@@ -187,17 +149,17 @@
                                    tal:attributes="href cart/url"
                                    i18n:translate="go_to_cart_label">
                                    Go to Cart
-                                </a>    
+                                </a>
                             </tal:block>
                             <div tal:condition="not:cart"
                                  i18n:translate="no_cart_label">
                                  This customer has no cart yet.
                             </div>
-                        </div>        
+                        </div>
                     </td>
                 </tr>
             </table>
         </metal:main>
-    
+
     </body>
 </html>

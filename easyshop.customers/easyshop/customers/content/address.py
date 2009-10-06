@@ -27,12 +27,12 @@ class Address(Item):
     email         = FieldProperty(IAddress["email"])
 
     country = u""
-    
+
     def Title(self):
         """
         """
         return self.getName()
-        
+
     def getName(self, reverse=False):
         """
         """
@@ -44,7 +44,8 @@ class Address(Item):
             name = self.firstname
             if name != "": name += " "
             name += self.lastname
-        
+
         return name
-        
+
+
 addressFactory = Factory(Address, title=_(u"Create a new address"))
