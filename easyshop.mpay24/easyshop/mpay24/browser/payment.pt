@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <head>
+        <metal:css fill-slot="style_slot">
+        <style type="text/css"
+               tal:content="structure string:&lt;!-- @import url(${portal_url}/++resource++easyshop.mpay24.styles.css); --&gt;"></style>
+        </metal:css>
+    </head>
+
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="format_info view/getFormatInfo;
+                                redir_url view/mpay24_redirect_url|nothing">
+
+            <tal:block condition="redir_url"
+                       i18n:domain="easyshop.mpay24">
+
+                <h1 class="documentFirstHeading"
+                    i18n:translate="mpay24_thank_you_title">
+                    Thank you for your shopping!
+                </h1>
+
+                <p class="check-out-description"
+                    i18n:translate="mpay24_thank_you_description">
+                    Fill in the form below
+                </p>
+
+                <iframe id="mpay24-payment" frameborder="0" border="0"
+                        tal:condition="redir_url"
+                        tal:attributes="src redir_url"></iframe>
+            </tal:block>
+
+            <span class="discreet"
+                  tal:condition="not:redir_url"
+                  i18n:translate="mpay24_payment_timeout">
+                session timed out
+            </span>
+
+            <div tal:replace="structure provider:plone.belowcontentbody" />
+
+        </metal:main>
+    </body>
+</html>

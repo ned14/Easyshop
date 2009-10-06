@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-08-31 08:23+0000\n"
+"POT-Creation-Date: 2009-10-05 15:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,22 +46,27 @@ msgstr ""
 msgid "error_title"
 msgstr ""
 
-#. Default: "Buy"
-#: easyshop.mpay24/easyshop/mpay24/browser/order_preview.py:35
-msgid "label_buy"
+#. Default: "Fill in the form below"
+#: easyshop.mpay24/easyshop/mpay24/browser/thank_you.pt:27
+msgid "mpay24_thank_you_description"
 msgstr ""
 
-#: easyshop.mpay24/easyshop/mpay24/adapters/payment_processing.py:90
+#. Default: "Thank you for your shopping!"
+#: easyshop.mpay24/easyshop/mpay24/browser/thank_you.pt:22
+msgid "mpay24_thank_you_title"
+msgstr ""
+
+#: easyshop.mpay24/easyshop/mpay24/adapters/payment_processing.py:100
 msgid "no data"
 msgstr ""
 
 #. Default: "Thank you!"
-#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:14
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:13
 msgid "success_body"
 msgstr ""
 
 #. Default: "Order successfully payed"
-#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:9
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:8
 msgid "success_title"
 msgstr ""
 

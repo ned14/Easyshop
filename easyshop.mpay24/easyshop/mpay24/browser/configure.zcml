@@ -2,35 +2,43 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
     <include package="easyshop.checkout" />
+    <include package="plone.browserlayer" />
+
     <browser:page
-        name="checkout-order-preview"
+        name="checkout-asynchron-payment"
         for="easyshop.core.interfaces.IShop"
-        class=".order_preview.OrderPreviewForm"
+        class=".payment.ThankYouPageView"
+        template="payment.pt"
         layer="..interfaces.ImPAY24ProductLayer"
         permission="easyshop.Checkout" />
-        
+
     <browser:page
         name="mpay24_success"
         for="*"
         template="response_success.pt"
         permission="zope.Public" />
-        
+
     <browser:page
         name="mpay24_error"
         for="*"
         template="response_error.pt"
         permission="zope.Public" />
-    
+
     <browser:page
         name="mpay24_cancel"
         for="*"
         template="response_cancel.pt"
         permission="zope.Public" />
-        
+
     <browser:page
         name="mpay24_confirmation"
         for="*"
         class=".payment_response.PaymentConfirmation"
         permission="zope.Public" />
-        
+
+    <browser:resource
+        name="easyshop.mpay24.styles.css"
+        file="styles.css"
+        />
+
 </configure>

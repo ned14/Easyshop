@@ -1,0 +1,11 @@
+#mpay24-payment {
+    width:100%;
+    height:400px;
+    border:none;
+    padding:0;
+    margin:0;
+}
+
+#mpay24-payment .ptype span {
+    color:#262626;
+}

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop mPAY24 Plugin\n"
-"POT-Creation-Date: 2009-08-31 08:23+0000\n"
+"POT-Creation-Date: 2009-10-05 15:54+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Peter Mathis <peter.mathis@kombinat.at>\n"
 "Language-Team: Peter Mathis <peter.mathis@kombinat.at>\n"
@@ -41,25 +41,32 @@ msgstr "Ihre mPAY24 Transaktion konnte leider nicht erfolgreich durchgeführt we
 msgid "error_title"
 msgstr "Die Bezahlung ist fehlgeschlagen"
 
-#. Default: "Buy"
-#: easyshop.mpay24/easyshop/mpay24/browser/order_preview.py:35
-msgid "label_buy"
-msgstr "Bezahlen"
+#. Default: "Fill in the form below"
+#: easyshop.mpay24/easyshop/mpay24/browser/thank_you.pt:27
+msgid "mpay24_thank_you_description"
+msgstr "Bitte füllen Sie die nachfolgenden Formulare aus"
 
-#: easyshop.mpay24/easyshop/mpay24/adapters/payment_processing.py:90
+#. Default: "Thank you for your shopping!"
+#: easyshop.mpay24/easyshop/mpay24/browser/thank_you.pt:22
+msgid "mpay24_thank_you_title"
+msgstr "Bezahlung mit MPAY24"
+
+#: easyshop.mpay24/easyshop/mpay24/adapters/payment_processing.py:100
 msgid "no data"
 msgstr "mPAY24 ist nicht ereichbar!"
 
 #. Default: "Thank you!"
-#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:14
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:13
 msgid "success_body"
 msgstr "Vielen dank für Ihren Einkauf. Ihre mPAY24 Transaktion wurde erfolgreich abgeschlossen."
 
 #. Default: "Order successfully payed"
-#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:9
+#: easyshop.mpay24/easyshop/mpay24/browser/response_success.pt:8
 msgid "success_title"
 msgstr "Bezahlung wurde Erfolgreich abgeschlossen"
 
+#~ msgid "label_buy"
+#~ msgstr "Bezahlen"
 #~ msgid "confirmation_body"
 #~ msgstr "Bitte bestätigen Sie Ihre Bezahlung per E-Mail."
 #~ msgid "confirmation_title"
