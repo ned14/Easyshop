@@ -1093,7 +1093,7 @@ msgstr "Zahlungsweisen verwalten"
 #. Default: "Manage Payment Methods"
 #: ../../../src/easyshop.customers/easyshop/customers/browser/my_account.pt:57
 msgid "manage_payment_methods_label"
-msgstr "Zahlemethoden verwalten"
+msgstr "Zahlungsmethoden verwalten"
 
 #. Default: "Message"
 #: ../../../src/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:407
