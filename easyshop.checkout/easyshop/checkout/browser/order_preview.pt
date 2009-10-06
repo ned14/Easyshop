@@ -1,0 +1,405 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <head> 
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+      
+    <body>
+        <div metal:fill-slot="main"
+             tal:define="payment_method_info view/getPaymentMethodInfo;
+                         payment_method_type payment_method_info/type;
+                         payment_information view/getSelectedPaymentInformation;
+                         shipping_information view/getShippingInfo;
+                         invoice_address view/getInvoiceAddress;
+                         shipping_address view/getShippingAddress;
+                         errors python:{};">
+            
+            <h1 class="documentFirstHeading"
+                i18n:translate="preview_order_form_title">
+                Complete Order
+            </h1> 
+
+<!-- 
+            <dl class="portalMessage error"
+                tal:define="status view/status"
+                tal:condition="status">
+                <dt i18n:translate="">
+                    Error
+                </dt>
+                <dd tal:content="status" />
+            </dl>
+-->
+
+            <p class="check-out-description"
+                i18n:translate="order_preview_description">
+                Please check the order. If you finished, confirm our terms and conditions and click on "Complete order".
+            </p>
+
+            <div id="payment-process">
+                <span i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span i18n:translate="addresses_label">
+                    Addresses
+                </span> - 
+                <span i18n:translate="shipping_label">
+                    Shipping
+                </span> -                 
+                <span i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span class="emphasized"
+    		          i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+            
+            <div tal:replace="structure provider:easyshop.aboveorderpreviewinformation" />
+            
+            <table id="order-preview-information">
+                <tr>
+                    <td>              
+                        <fieldset>
+                            <legend>
+                                <tal:block i18n:translate="shipping_address_label">
+                                    Shipping Address
+                                </tal:block>
+                                <!-- need form tag here, otherwise testbrowser complains about input before form -->
+                                <form>
+                                    <input type="button" 
+                                           class="context"                 
+                                           value="Edit"
+           	                               tal:attributes="onclick string:location.href='${context/absolute_url}/checkout-select-addresses?goto=${context/absolute_url}/checkout-order-preview'"
+                                           i18n:attributes="value edit_label;"/>
+                                </form>
+                            </legend>
+                            <div tal:content="shipping_address/name" />
+                            <div tal:content="shipping_address/address1" />        
+                            <div>      
+                                <span tal:content="invoice_address/zipcode" />                
+                                <span tal:content="invoice_address/city" />                                
+                            </div>    
+                            <div tal:content="shipping_address/country" />
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset>
+                            <legend>
+                                <span i18n:translate="invoice_address_label">
+                                    Invoice Address
+                                </span>
+                                <form>
+                                    <input type="button"
+                                           class="context"
+                                           value="Edit"
+           	                               tal:attributes="onclick string:location.href='${context/absolute_url}/checkout-select-addresses?goto=${context/absolute_url}/checkout-order-preview'"
+                                           i18n:attributes="value edit_label;"/>
+                                </form>       
+                                   
+                            </legend>              
+                            <div tal:content="invoice_address/name" />
+                            <div tal:content="invoice_address/address1" />        
+                            <div>
+                                <span tal:content="invoice_address/zipcode" />                
+                                <span tal:content="invoice_address/city" />                                
+                            </div>    
+                            <div tal:content="invoice_address/country" />
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset>                
+                            <legend>
+                                <span i18n:translate="shipping_method_label">
+                                   Shipping Method
+                               </span>
+                               <form>       
+                                   <input type="button"   
+        	                              class="context"
+        	                              value="Edit"
+        	                              tal:attributes="onclick string:location.href='${context/absolute_url}/checkout-shipping?goto=${context/absolute_url}/checkout-order-preview'"
+        	                              i18n:attributes="value edit_label;"/>
+                                </form>
+                            </legend>            
+                            <div>
+                                <div tal:content="shipping_information/title">
+                                    Express
+                                </div>
+                                <div tal:content="shipping_information/description">
+                                    (Order today get your product tomorrow)
+                                </div>                                    
+                            </div>    
+                        </fieldset>             
+                    </td>        
+                    
+                    <td>
+                        <fieldset>
+                            <legend>
+                                <span i18n:translate="payment_method_label">
+                                   Payment Method
+                               </span>
+                               <form>       
+                                   <input type="button"   
+        	                              class="context"
+        	                              value="Edit"
+        	                              tal:attributes="onclick string:location.href='${context/absolute_url}/checkout-payment?goto=${context/absolute_url}/checkout-order-preview'"
+        	                              i18n:attributes="value edit_label;"/>
+    	                        </form>      
+                    
+                            </legend>            
+                            
+                            <dl>
+                                <dt tal:content="payment_method_info/title|string:Payment Method"
+                                    i18n:translate="">
+                                    payment method
+                                </dt>
+                                <dd tal:condition="nocall:payment_information">
+                                    <ul>
+                                        <li tal:repeat="info payment_information/displayInfo"
+                                            tal:content="info">
+                                            info
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            
+                        </fieldset>             
+                    </td>        
+                </tr>
+            </table>
+            
+            <div tal:replace="structure provider:easyshop.abovecheckoutcart" />
+      
+            <fieldset id="check-out-cart">
+                <legend>
+                    <span i18n:translate="cart_label">  
+                        Cart
+                    </span> 
+                    <form>           
+                        <input class="context" 
+                               type="button"                    
+                               name="edit" 
+                               value="Edit"
+                               i18n:attributes="value edit_label;"
+                               tal:attributes="onclick string:location.href='${context/absolute_url}/cart?goto=order-preview'" />           
+                    </form>       
+                </legend>
+
+                <div tal:condition="not: view/hasCartItems"
+                     i18n:translate="no_products_label">
+                     There are no products. 
+                </div>
+                <table class="order-preview-cart"
+                       tal:condition="view/hasCartItems">
+                    <tr>
+                        <th class="text"
+       				        i18n:translate="product_label">Product</th>
+                        <th class="text"
+      				        i18n:translate="properties_label">Properties</th>
+                        <th class="number" 
+                            i18n:translate="amount_label">Amount</th>
+                        <th class="number" 
+                            i18n:translate="price_label">Price</th>
+                        <th class="number" 
+                            i18n:translate="total_label">Total</th>
+                    </tr>
+
+                    <tal:block tal:repeat="cart_item view/getCartItems">
+                        <tr>  
+                            <td class="text" 
+                                tal:content="cart_item/product_title">
+                                Deep Thought
+                            </td>    
+                            <td class="text">
+                                <div tal:repeat="property cart_item/properties">
+                                    <span tal:content="property/title" /> : 
+                                    <span tal:content="property/selected_option" />
+                                    <tal:block tal:condition="property/show_price">
+                                        (<span tal:content="property/price" />)
+                                    </tal:block>
+                                </div>                  
+                            </td> 
+                            <td class="number" 
+                                tal:content="cart_item/amount">
+                                1.0
+                            </td>    
+                            <td class="number" 
+                                tal:content="cart_item/product_price">
+                                42.0
+                            </td>            
+                            <td class="number" 
+                                tal:content="cart_item/price">
+                                42.0
+                            </td>                
+          
+                        </tr>
+
+                        <tr tal:define="discount cart_item/discount"
+                            tal:condition="discount">
+                            <td colspan="4"
+                                class="text">
+                                <div>
+                                    <tal:block i18n:translate="discount_label">
+                                        Discount
+                                    </tal:block>
+                                    (<tal:block tal:content="discount/title">
+                                        Title</tal:block>)
+                                </div>
+                            
+                            </td>
+                            <td class="number">
+                                <span tal:content="discount/value">
+                                    11.0
+                                </span> 
+                            </td>
+                        </tr>
+                        
+                    </tal:block>
+<!-- Shipping -->                        
+                        <tr>
+                            <td colspan="5">
+                                 <h3 i18n:translate="shipping_label">
+                                     Shipping
+                                 </h3>
+                            </td>    
+                        </tr>       
+
+                        <tr tal:condition="view/getCartItems">
+                            <td colspan="4"
+                                nowrap="nowrap"
+                                class="text">
+            		            <span tal:content="shipping_information/title">
+            		                Express
+            		            </span>
+            		        </td> 
+                            <td nowrap="nowrap"
+                                class="number"
+                                tal:content="shipping_information/price" />
+                        </tr>  
+                    
+<!-- Payment -->
+
+                    <tr tal:condition="payment_method_info/display">
+                        <td class="text"
+    				        i18n:translate=""
+    				        tal:content="payment_method_info/title">
+    				         Payment
+    				    </td> 
+                        <td class="text"
+    				        colspan="3">
+                        </td>
+                        <td class="number"
+    				        tal:content="payment_method_info/price">
+                            42.0
+                        </td>    
+                    </tr>  
+
+<!-- Discounts -->
+                        <tal:block tal:define="discounts view/getDiscounts"
+                                   tal:condition="discounts">
+                            <tr>
+                                <td colspan="5">
+                                    <h3 i18n:translate="discounts_label">
+                                        Discounts
+                                    </h3>    
+                               </td>    
+                            </tr>       
+                            <tr tal:repeat="discount discounts">
+                                <td colspan="4"
+                                    class="text"
+                                    tal:content="discount/title">
+                                     Title
+                                </td>
+                                <td class="number"
+                                    tal:content="discount/value">
+                                     Value
+                                </td>                                
+                            </tr>
+                        </tal:block>
+                    
+                    <tr>
+                        <td colspan="5"><hr /></td>
+                    </tr>        
+                    <tr>
+                        <td class="total-sum"
+    				        colspan="5">
+    				        <span i18n:translate="checkout_total_sum_label">
+    				            Total Sum:
+    				        </span>    
+                            <span tal:content="view/getTotalPrice">
+                                42.00
+                            </span>
+                        </td>                
+                    </tr>
+                    <tr>
+                        <td class="formHelp number"
+                            colspan="5">
+                            <span i18n:translate="incl_tax_label">
+                                incl. Tax =
+                            </span> 
+                            <span tal:content="view/getTotalTax">                
+                                0.42
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <div tal:replace="structure provider:easyshop.belowcheckoutcart" />
+            
+            <form action="." 
+                  tal:attributes="action request/URL" 
+                  method="post"
+                  class="add-form" 
+                  enctype="multipart/form-data"
+                  id="zc.page.browser_form">
+
+                <div tal:define="widgets view/widgets;
+                                         widget widgets/confirmation;
+                                         error widgets/confirmation/error"
+                     tal:attributes="class python:view.test(len(error)>0, 'field error', 'field')">
+
+
+                    <div tal:condition="error"
+                          tal:content="error">
+                        Error
+                    </div>
+                        
+                    <input type="checkbox"
+                           name="form.confirmation" />
+                    <span>
+                        <tal:block i18n:translate="terms_and_conditions_label_1">
+                            Yes, I accept
+                        </tal:block>    
+                        <a class="terms-and-conditions"
+                           i18n:translate="terms_and_conditions_label_2"
+                           onclick="easyShopZoomWindow('information-page-popup?page_id=terms-and-conditions', '800', '800')">
+                           terms and conditions</a>
+                        <tal:block i18n:translate="terms_and_conditions_label_3">                           
+                           of
+                        </tal:block>
+                        <tal:block tal:content="context/getShopOwner">
+                            iqplusplus 
+                        </tal:block>
+                    </span>
+                    
+                </div>
+                                     
+                <div>
+                    <input tal:condition="view/isCustomerComplete"
+                           id="form.actions.buy"
+                           name="form.actions.buy"                
+                           class="standalone" 
+                           type="submit" 
+                           i18n:attributes="value complete_order_label;"                           
+                           value="Complete Order" />
+                </div>
+                           
+            </form>
+        </div>
+    </body>
+</html>

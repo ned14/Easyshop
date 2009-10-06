@@ -1,0 +1,406 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">      
+    <head>
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+
+    <body>
+        <div metal:fill-slot="main">
+
+            <h1 class="documentFirstHeading"
+                i18n:translate="add_address_form_title">
+                Please add a new addresses
+            </h1> 
+
+            <p class="check-out-description"
+                i18n:translate="add_form_description">
+                When you are finish, please click on "Next".
+            </p>
+
+            <div id="payment-process">
+                <span i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span class="emphasized"
+    		          i18n:translate="addresses_label">
+                    Addresses
+                </span> - 
+                <span i18n:translate="shipping_label">
+                    Shipping
+                </span> -                 
+                <span i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+            
+            <form action="." 
+                  metal:define-macro="master"
+                  tal:attributes="action request/URL" method="post"
+                  class="edit-form" enctype="multipart/form-data"
+                  id="zc.page.browser_form">
+          
+                <dl class="portalMessage error"
+                    tal:define="status view/status"
+                    tal:condition="status">
+                    <dd tal:content="status" />
+                </dl>
+
+                <table tal:define="widgets view/widgets">
+                
+                    <tr tal:define="widget python:widgets['firstname'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr tal:define="widget python:widgets['lastname'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr tal:define="widget python:widgets['company_name'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr tal:define="widget python:widgets['address_1'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr tal:define="widget python:widgets['zip_code'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr tal:define="widget python:widgets['city'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr tal:define="widget python:widgets['country'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr><td height="20px"></td></tr>
+                    
+                    <tr tal:condition="isAnon"
+                        tal:define="widget python:widgets['email'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr tal:define="widget python:widgets['phone'];
+                                    description widget/hint;
+                                    error widget/error"> 
+                        <td class="field"
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widget/name">
+                                <span i18n:translate=""
+                                      tal:content="widget/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+                                        
+                    <tr><td height="20px"></td></tr>
+                </table>
+                                    
+                <table>        
+                    <tal:block tal:condition="view/isShippingAddress">
+                    <tr>
+                        <td class="address_label"> 
+                            <label for="name" 
+                                   i18n:translate="also_invoice_address_label"> 
+                                   This is also the invoice address
+                            </label>                         
+                        </td>
+                        <td>
+                             <input type="radio" 
+                                    class="noborder"                       
+                                    name="also_invoice_address" 
+                                    id="also_invoice_address" 
+                                    value="yes"
+                                    checked="checked"
+                                    tabindex="" 
+                                    tal:attributes="tabindex 
+                                                   tabindex/next;" /><span i18n:translate="Yes">Yes</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="radio" 
+                                   class="noborder"                       
+                                   name="also_invoice_address" 
+                                   id="also_invoice_address"
+                                   value="no"
+                                   tabindex="" 
+                                   tal:attributes="tabindex 
+                                                   tabindex/next;" /><span i18n:translate="No">No</span>
+                                   <span class="formHelp"
+                                         i18n:translate="also_invoice_address_description">
+                                       (If not, we will ask you soon)
+                                   </span>
+                        </td>
+                    </tr>
+                    </tal:block>
+                </table>
+                
+                <input type="hidden"
+                       name="address_type"
+                       tal:attributes="value view/getAddressType" />
+
+                <input type="hidden"
+                       name="goto"
+                       tal:attributes="value context/REQUEST/goto|nothing" />
+                       
+                <div id="actionsView">
+                    <span class="actionButtons"
+                          tal:condition="view/availableActions"
+                          metal:define-slot="bottom_buttons">
+                        <input tal:repeat="action view/actions"
+                               tal:replace="structure action/render" />
+                    </span>
+                </div>
+                
+            </form>
+
+        </div>
+    </body>
+</html>

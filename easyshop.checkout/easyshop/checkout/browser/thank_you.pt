@@ -1,0 +1,192 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+    <body>
+
+        <metal:main fill-slot="main"
+                    tal:define="format_info view/getFormatInfo">
+
+            <h1 class="documentFirstHeading"
+                i18n:translate="thank_you_title">
+                Thank you for your shopping!
+            </h1> 
+
+            <p class="check-out-description"
+                i18n:translate="thank_you_description_1">
+                Your order has been successfully completed. 
+                You will get a confirmation e-mail very soon.
+            </p>
+
+            <tal:block tal:condition="not:isAnon">
+                <div tal:define="order view/getLatestOrder"    
+                     id="checkout-last-order">
+
+                    <tal:block i18n:translate="thank_you_description_2">
+                        We have accepted you order with number
+                    </tal:block>
+
+                    <a href="."
+                       tal:content="order/id"
+                       tal:attributes="href order/url">
+                       4711</a>.
+
+                    <tal:block i18n:translate="thank_you_description_3">
+                        You can see the status of your order at 
+                    </tal:block>
+            
+                    <a href="."
+                       tal:attributes="href view/getMyAccountURL"
+                       i18n:translate="my_account_label">    
+                        My Account</a>.    
+                </div>    
+            </tal:block>
+
+            <div id="checkout-recommendation">
+            
+                <p i18n:translate="shop_recommendation_1">
+                    If you are contented with our service you can recommend us to a friend.
+                </p>
+                <div>
+                    <tal:block i18n:translate="checkout_recommendation_2">
+                        Please enter your friend's email address:
+                    </tal:block>
+                    <form action="."
+                          tal:attributes="action string:${context/absolute_url}/@@send-recommendation"
+                          style="display:inline"
+                          method="post">
+
+                        <input type="text"
+                               class="standalong"
+                               name="email" />
+
+                        <input type="submit"
+                               value="Absenden" /> 
+                    </form>           
+                </div> 
+            </div>
+                   
+            <table class="products"
+                   tal:repeat="selector view/getSelectors">
+                <tr tal:condition="selector/show_title">
+                    <td class="main-title"
+                        tal:attributes="colspan selector/products_per_line">
+                        <a href="#"
+                           tal:omit-tag="not:view/showEditLink"
+                           tal:attributes="href selector/edit_url"
+                           tal:content="selector/title">
+                           Title
+                        </a> 
+                    </td>
+                </tr>                       
+                <tr tal:repeat="line selector/lines">
+                    <td tal:attributes="width selector/td_width;
+                                        class product/class"
+                        tal:repeat="product line">
+                        <div class="sub-title">
+                            <a href="#"
+                               title="#"
+                               tal:content="product/short_title"
+                               tal:attributes="href product/url;
+                                                title product/title">
+                               Product Name
+                            </a>
+                        </div>
+                        <table class="product-content">
+                            <tr>
+                                <td class="product-image"
+                                    tal:attributes="height format_info/product_height">
+                                    
+                                    <a href="#"
+                                       tal:attributes="href product/url;
+                                                       title product/title;
+                                                       alt product/title">
+                                        <img tal:attributes="src product/image" />
+                                    </a>
+                                </td>
+                                <td class="product-text"
+                                    tal:content="structure product/text">
+                                    Text
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="product-control"
+                                    colspan="2">
+
+                                    <input type="button"
+                                           class="context"
+                                           id="product-details"
+                                           value="Details"
+                                           title="Details"
+                                           i18n:attributes="title details_label;"
+                                           tal:attributes="tabindex tabindex/next;
+                                                           onclick string:location.href='${product/url}'" />
+                               
+                                    <form action="#"                                  
+                                          tal:attributes="action product/url"
+                                          method="post">
+
+                                       <input type="hidden"
+                                              name="quantity"
+                                              value="1" />
+
+                                        <input class="context"
+                                               id="add-product"
+                                               name="addToCart:method" 
+                                               value="Add to Cart"
+                                               type="submit"
+                                               title="Add to Cart"
+                                               i18n:attributes="title add_to_cart_label;
+                                                                value add_to_cart_label;"
+                                               tal:attributes="tabindex tabindex/next;" />
+                                    </form>
+                   
+                                    <span class="product-price"
+                                          tal:content="product/price">
+                                        42.00
+                                    </span>
+                                
+                                </td>
+                            </tr>
+                        </table>                            
+                    </td>    
+                </tr>                        
+            </table>    
+<!--             
+            <form style="display:none"
+                  name="utmform">
+                <textarea id="utmtrans"
+                          tal:define="transaction order/google_transaction;
+                                      items order/google_items">
+                    UTM:T
+                    | <span tal:replace="transaction/order_id">[order-id]</span>
+                    | <span tal:replace="transaction/affiliation">[affiliation]</span>                    
+                    | <span tal:replace="transaction/total">[total]</span>                    
+                    | <span tal:replace="transaction/tax">[tax]</span>
+                    | <span tal:replace="transaction/shipping">[shipping]</span>
+                    | <span tal:replace="transaction/city">[city]</span>
+                    | <span tal:replace="transaction/state">[state]</span>
+                    | <span tal:replace="transaction/country">[country]</span>
+                                        
+                    <tal:block tal:repeat="item items">
+                        UTM:I
+                        | <span tal:replace="item/order_id">[order-id]</span>
+                        | <span tal:replace="item/sku">[sku/code]</span>
+                        | <span tal:replace="item/productname">[productname]</span>
+                        | <span tal:replace="item/category">[category]</span>
+                        | <span tal:replace="item/price">[price]</span>
+                        | <span tal:replace="item/quantity">[quantity]</span>
+                    </tal:block>
+                    
+                </textarea>
+            </form>   
+            
+            <script type="text/javascript">
+                __utmSetTrans();
+            </script>
+-->    
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+        
+        </metal:main> 
+    </body>
+</html>

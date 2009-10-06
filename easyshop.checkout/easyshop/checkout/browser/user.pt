@@ -1,0 +1,173 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+     i18n:domain="EasyShop">      
+
+    <head>
+        <metal:block fill-slot="top_slot">
+            <span tal:define="dummy context/@@disable-border" />
+        </metal:block>
+    </head>  
+
+    <body>
+        <div metal:fill-slot="main">
+
+            <h1 class="documentFirstHeading"
+                i18n:translate="user_form_title">
+                Please add username and password.
+            </h1> 
+
+            <p class="check-out-description"
+                i18n:translate="add_form_description">
+                When you are finish, please click on "Next".
+            </p>
+
+            <div id="payment-process">
+                <span class="emphasized"
+    		          i18n:translate="welcome_label">
+                    Welcome
+                </span> -	
+                <span i18n:translate="addresses_label">
+                    Addresses
+                </span> - 
+                <span i18n:translate="shipping_label">
+                    Shipping
+                </span> -                 
+                <span i18n:translate="payment_label">
+                    Payment
+                </span> - 
+                <span i18n:translate="complete_order_label">
+                    Complete Order
+                </span>
+            </div>
+            
+            <form action="." 
+                  metal:define-macro="master"
+                  tal:attributes="action request/URL" method="post"
+                  class="edit-form" enctype="multipart/form-data"
+                  id="zc.page.browser_form"
+                  tal:define="widgets view/widgets">
+          
+                <dl class="portalMessage"
+                    tal:define="status view/status"
+                    tal:condition="status">
+                    <dd tal:content="status" />
+                </dl>
+
+                <table>
+                    <tr tal:define="widget widgets/username;
+                                    description widgets/username/hint;
+                                    error widgets/username/error"> 
+
+                        <td class="field"
+                            tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widgets/username/name">
+                                <span i18n:translate=""
+                                      tal:content="widgets/username/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widgets/username/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+                    <tr tal:define="widget widgets/password_1;
+                                    description widgets/password_1/hint;
+                                    error widgets/password_1/error"> 
+
+                        <td class="field"
+                            tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widgets/password_1/name">
+                                <span i18n:translate=""
+                                      tal:content="widgets/password_1/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widgets/password_1/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+                    <tr tal:define="widget widgets/password_2;
+                                    description widgets/password_2/hint;
+                                    error widgets/password_2/error"> 
+
+                        <td class="field"
+                            tal:attributes="class python:'field'+(error and ' error' or '')">
+                        
+                            <label tal:attributes="for widgets/password_2/name">
+                                <span i18n:translate=""
+                                      tal:content="widgets/password_2/label">
+                                    label
+                                </span>
+                            </label>
+  
+                            <span class="fieldRequired" 
+                                  title="Required" 
+                                  tal:condition="widgets/password_2/required">
+                                (Required)
+                            </span>
+                        </td>
+                        <td>
+                            <div tal:condition="error"
+                                 tal:content="error">
+                                The Error
+                            </div>
+                            <div class="widget" 
+                                 tal:content="structure widget">
+                                 Widget goes here
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </table>
+                
+                <input type="hidden"
+                       name="goto"
+                       tal:attributes="value context/REQUEST/goto|nothing" />
+                       
+                <div id="actionsView">
+                    <span class="actionButtons"
+                          tal:condition="view/availableActions"
+                          metal:define-slot="bottom_buttons">
+                        <input tal:repeat="action view/actions"
+                               tal:replace="structure action/render" />
+                    </span>
+                </div>
+                
+            </form>
+
+        </div>
+    </body>
+</html>
