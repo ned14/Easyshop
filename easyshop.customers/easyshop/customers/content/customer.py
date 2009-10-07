@@ -70,8 +70,8 @@ class Customer(OrderSupport, Container):
                 text.append(address.zip_code)
             if address.city:
                 text.append(address.city)
-            if address.country_title:
-                text.append(address.country_title)
+            if address.country_title():
+                text.append(address.country_title())
 
         return " ".join(text)
 
