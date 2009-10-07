@@ -43,11 +43,11 @@ msgstr "Gutschein Code"
 
 #: easyshop/coupon/content/coupon.py:63
 msgid "coupon_effective"
-msgstr "Gültig ab: ${effective}"
+msgstr "Gültig ab: ${date}"
 
 #: easyshop/coupon/content/coupon.py:67
 msgid "coupon_expires"
-msgstr "Gültig bis: ${expires}"
+msgstr "Gültig bis: ${date}"
 
 #. Default: "easyshop coupon"
 #: easyshop/coupon/profiles/default/types/Coupon.xml

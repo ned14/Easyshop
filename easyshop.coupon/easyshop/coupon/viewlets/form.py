@@ -30,7 +30,7 @@ class CouponCodeForm(form.Form):
     @button.buttonAndHandler(_("apply code"))
     def apply_code(self,action):
         data, errors = self.extractData()
-        coupon_id = data.get('couponId','').strip()
+        coupon_id = data.get('couponId','')
         context = aq_inner(self.context)
         cm = ICouponManagement(context)
         sm = IStatusMessage(self.request)
@@ -40,7 +40,7 @@ class CouponCodeForm(form.Form):
             return
 
         try:
-            cm.saveCouponConsumer(coupon_id)
+            cm.saveCouponConsumer(coupon_id.strip())
             sm.addStatusMessage(_("valid coupon consumed"))
 
             template_id = component.getMultiAdapter(

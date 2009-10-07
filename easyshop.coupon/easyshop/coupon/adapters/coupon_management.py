@@ -2,6 +2,7 @@ from base64 import encodestring, decodestring
 from urllib import quote, unquote
 from datetime import datetime, timedelta
 
+from zope.i18n import translate
 from zope.interface import implements
 from zope.component import adapts, getMultiAdapter
 
@@ -33,12 +34,16 @@ class CouponManagement:
         customer = ICustomerManagement(self.shop).getAuthenticatedCustomer()
 
         if customer is None:
-            raise Exception, _("invalid customer")
+            raise Exception, translate(
+                _("invalid customer"),
+                target_language=self.shop.REQUEST.get('LANGUAGE','de'))
 
         coupon = self.getCoupon(couponId)
 
         if not coupon:
-            raise Exception, _("no coupon found")
+            raise Exception, translate(
+                _("no coupon found"),
+                target_language=self.shop.REQUEST.get('LANGUAGE','de'))
 
         old_consumers = coupon.getConsumers()
         if customer.id not in old_consumers:
@@ -57,7 +62,9 @@ class CouponManagement:
             )
 
         else:
-            raise Exception, _("coupon already consumed")
+            raise Exception, translate(
+                _("coupon already consumed"),
+                target_language=self.shop.REQUEST.get('LANGUAGE','de'))
 
 
     def getCoupon(self, couponId):

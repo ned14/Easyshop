@@ -1,11 +1,14 @@
 """Definition of the Coupon content type
 """
 
+import zope.i18n
+
 from random import choice
 
 from zope.interface import implements
 
 from Products.Archetypes import atapi
+from Products.CMFCore.utils import getToolByName
 
 from easyshop.coupon import couponMessageFactory as _
 from easyshop.coupon.interfaces import ICoupon
@@ -57,15 +60,26 @@ class Coupon(atapi.BaseContent):
 
     def getValue(self):
         value = []
+        ts = getToolByName(self,'translation_service')
 
-        if self.effective:
-            value.append(
-                _("coupon_effective", mapping=dict(effective=self.effective)))
+        if self.getEffectiveDate():
+            localized_effective = ts.ulocalized_time(self.getEffectiveDate(),
+                                                     context=self,
+                                                     request=self.REQUEST)
+            value.append(zope.i18n.translate(
+                _("coupon_effective",
+                  mapping=dict(date=localized_effective)),
+                target_language=self.REQUEST.get('LANGUAGE','de')))
 
-        if self.expires:
-            value.append(
-                _("coupon_expires", mapping=dict(expires=self.expires)))
+        if self.getExpirationDate():
+            localized_expires = ts.ulocalized_time(self.getExpirationDate(),
+                                                   context=self,
+                                                   request=self.REQUEST)
+            value.append(zope.i18n.translate(
+                _("coupon_expires",
+                  mapping=dict(date=localized_expires)),
+                target_language=self.REQUEST.get('LANGUAGE','de')))
 
-        return ','.join(value)
+        return ', '.join(value)
 
 atapi.registerType(Coupon, PROJECTNAME)
