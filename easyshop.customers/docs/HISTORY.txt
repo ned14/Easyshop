@@ -5,6 +5,7 @@ Changelog for easyshop.customers
 0.1a1 Unreleased
 ----------------
 
+    - fixed admin screens for customer container [petschki]
     - Initial package structure.
       [zopeskel]
 
