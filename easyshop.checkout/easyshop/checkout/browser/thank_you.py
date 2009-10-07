@@ -52,7 +52,7 @@ class ThankYouPageView(BrowserView):
                 "shipping"    : order.getShippingPriceGross(),
                 "city"        : address.city,
                 "state"       : "",
-                "country"     : address.country_title,
+                "country"     : address.country_title(),
         }
 
         items = []

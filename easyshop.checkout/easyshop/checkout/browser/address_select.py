@@ -149,6 +149,6 @@ class AddressSelectForm(formbase.EditForm):
             "address1"    : address.address_1,
             "zipcode"     : address.zip_code,
             "city"        : address.city,
-            "country"     : address.country_title,
+            "country"     : address.country_title(),
             "phone"       : address.phone,
             }
