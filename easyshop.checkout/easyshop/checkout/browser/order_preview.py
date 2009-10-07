@@ -386,7 +386,7 @@ def addressToDict(address):
         "address1"    : address.address_1,
         "zipcode"     : address.zip_code,
         "city"        : address.city,
-        "country"     : address.country,
+        "country"     : address.country_title,
         "url"         : address.absolute_url(),
         "is_complete" : ICompleteness(address).isComplete(),
     }

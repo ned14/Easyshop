@@ -33,17 +33,17 @@ class ThankYouPageView(BrowserView):
         """Returns the last order id of authenticated customer
         """
         om = IOrderManagement(self.context)
-        orders = om.getOrdersForAuthenticatedCustomer()        
+        orders = om.getOrdersForAuthenticatedCustomer()
         orders.sort(lambda a, b: cmp(b.created(), a.created()))
 
         order = orders[0]
-        
+
         # Address
         customer = order.getCustomer()
         address  = IAddressManagement(customer).getInvoiceAddress()
 
         prices = IPrices(order)
-        
+
         transaction = {
                 "order_id"    : order.getId(),
                 "affiliation" : "",
@@ -52,22 +52,22 @@ class ThankYouPageView(BrowserView):
                 "shipping"    : order.getShippingPriceGross(),
                 "city"        : address.city,
                 "state"       : "",
-                "country"     : address.country,
+                "country"     : address.country_title,
         }
-        
+
         items = []
         for item in IItemManagement(order).getItems():
 
             # Product
             product = item.getProduct()
-            
+
             # Category
             try:
                 category = product.getCategories()[0]
                 category_title = category.Title()
             except IndexError:
                 category_title = u""
-            
+
             items.append({
                 "order_id"    : order.getId(),
                 "sku"         : product.getArticleId(),
@@ -76,14 +76,14 @@ class ThankYouPageView(BrowserView):
                 "price"       : item.getProductPriceGross(),
                 "quantity"    : item.getProductQuantity()
             })
-        
+
         result = {
             "id"                 : order.getId(),
             "url"                : order.absolute_url(),
-            "google_transaction" : transaction, 
+            "google_transaction" : transaction,
             "google_items"       : items,
         }
-        
+
         return result
 
     def getMyAccountURL(self):
@@ -91,17 +91,17 @@ class ThankYouPageView(BrowserView):
         """
         shop = IShopManagement(self.context).getShop()
         customer = ICustomerManagement(shop).getAuthenticatedCustomer()
-        
+
         return customer.absolute_url() + "/" + "my-account"
-        
+
     def getProducts(self):
         """
         """
         selector = getattr(self.context, "thank-you", None)
         if selector is None: return []
-        
+
         mtool = getToolByName(self.context, "portal_membership")
-        
+
         result = []
         for product in selector.getRefs():
 
@@ -122,7 +122,7 @@ class ThankYouPageView(BrowserView):
 
             result.append({
                 "title"                    : product.Title(),
-                "short_title"              : product.getShortTitle() or product.Title(),                    
+                "short_title"              : product.getShortTitle() or product.Title(),
                 "url"                      : product.absolute_url(),
                 "price"                    : price,
                 "image"                    : image,
@@ -133,9 +133,9 @@ class ThankYouPageView(BrowserView):
     def sendRecommendation(self):
         """
         """
-        if self.request.get("email", "") == "":        
+        if self.request.get("email", "") == "":
             utool = getToolByName(self.context, "plone_utils")
-            utool.addPortalMessage(_("Please add a e-mail address."))                        
+            utool.addPortalMessage(_("Please add a e-mail address."))
             url = "%s/thank-you" % self.context.absolute_url()
 
         else:
@@ -146,9 +146,9 @@ class ThankYouPageView(BrowserView):
             template = getMultiAdapter(
                 (self.context, self.request),
                 name="send-recommendation-template")
-                
+
             text = template()
-            
+
             sendMultipartMail(
                 context = self.context,
                 from_   = self.context.getMailFrom(),
@@ -162,17 +162,17 @@ class ThankYouPageView(BrowserView):
             url = "%s/thank-you" % self.context.absolute_url()
 
         self.request.response.redirect(url)
-        
-    # Todo: Optimize. Factor out. This code (similar) is also used in 
+
+    # Todo: Optimize. Factor out. This code (similar) is also used in
     # selector_view.py
     def getSelectors(self):
         """
         """
         fi = self.getFormatInfo()
         products_per_line = fi.get("products_per_line")
-        
+
         mtool = getToolByName(self.context, "portal_membership")
-            
+
         selectors = []
         for selector in self.context.objectValues("ProductSelector"):
 
@@ -182,7 +182,7 @@ class ThankYouPageView(BrowserView):
 
             products_per_line = products_per_line
 
-            lines = []            
+            lines = []
             products = []
             for index, product in enumerate(selector.getRefs()):
 
@@ -192,7 +192,7 @@ class ThankYouPageView(BrowserView):
                 cm    = ICurrencyManagement(self.context)
                 price = IPrices(product).getPriceForCustomer()
                 price = cm.priceToString(price)
-                
+
                 # image
                 image = IImageManagement(product).getMainImage()
                 if image is not None:
@@ -208,22 +208,22 @@ class ThankYouPageView(BrowserView):
                 else:
                     text = ""
 
-                n = len(selector.getRefs())    
+                n = len(selector.getRefs())
                 if index == n-1 and n > 1 and products_per_line > 1:
                     klass = "last"
                 else:
                     klass = "notlast"
-                                        
+
                 products.append({
                     "title"                    : product.Title(),
-                    "short_title"              : product.getShortTitle() or product.Title(),                    
+                    "short_title"              : product.getShortTitle() or product.Title(),
                     "url"                      : product.absolute_url(),
                     "price"                    : price,
                     "image"                    : image,
                     "text"                     : text,
                     "class"                    : klass,
                 })
-    
+
                 if (index+1) % products_per_line == 0:
                     lines.append(products)
                     products = []
@@ -237,15 +237,15 @@ class ThankYouPageView(BrowserView):
                 "title"            : selector.Title(),
                 "lines"            : lines,
                 "products_per_line" : products_per_line,
-                "td_width"         : "%s%%" % (100 / products_per_line),                
+                "td_width"         : "%s%%" % (100 / products_per_line),
             })
 
-        return selectors      
-          
+        return selectors
+
     def showEditLink(self):
         """
         """
         mtool = getToolByName(self.context, "portal_membership")
         if mtool.checkPermission("Manage portal", self.context):
             return True
-        return False        
+        return False
