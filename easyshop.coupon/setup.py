@@ -60,6 +60,7 @@ setup(name='easyshop.coupon',
       install_requires=[
         'setuptools',
         'collective.monkeypatcher',
+        'plone.app.z3cform',
       ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
