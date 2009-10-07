@@ -31,39 +31,39 @@ class IOrderView(Interface):
     def getCreationDate():
         """Returns the creation date.
         """
-        
+
     def getCustomerFullname():
-        """Returns the customer name.        
+        """Returns the customer name.
         It is taken from the invoice address of the order.
         """
 
     def getEmail():
         """Returns email of the order's customer.
         """
-        
+
     def getItems():
         """Returns the items.
         """
 
     def getPaymentValues():
         """Returns prices and taxes for selectec payment method.
-        """    
-        
+        """
+
     def getSelectedPaymentData():
         """Returns the payment method of the current customer.
         """
-        
+
     def getPriceForCustomer():
         """Returns the total price for the customer.
         """
 
     def getInvoiceAddress():
         """Returns the invoice address.
-        """    
-    
+        """
+
     def getShippingAddress():
         """Returns the shipping address.
-        """    
+        """
 
     def getShipping():
         """Returns the shipping prices as dict.
@@ -76,15 +76,15 @@ class IOrderView(Interface):
     def isPaymentAllowed():
         """Returns True if the redo of a payment is allowed.
         """
-            
+
     def pay():
         """Does the payment process.
 
         This is used for payment with paypal, at the moment, when the customer
-        knows that something has gone wrong (broken connection, etc.) for the 
+        knows that something has gone wrong (broken connection, etc.) for the
         first time.
-        """    
-        
+        """
+
 class OrderView(BrowserView):
     """
     """
@@ -93,40 +93,40 @@ class OrderView(BrowserView):
     def getCreationDate(self, long_format=True):
         """
         """
-        date = self.context.created()        
-        
+        date = self.context.created()
+
         tool = getToolByName(self.context, 'translation_service')
         return tool.ulocalized_time(date, long_format=long_format)
-                
+
     def getCustomerFullname(self):
         """
         """
-        # Todo: Create an adapter Address Management for IOrder         
+        # Todo: Create an adapter Address Management for IOrder
         customer = self.context.getCustomer()
         am = IAddressManagement(customer)
         address = am.getInvoiceAddress()
-        
+
         return address.getName()
 
     def getEmail(self):
         """
-        """                
+        """
         # Todo: Create an adapter Address Management for IOrder
         customer = self.context.getCustomer()
         am = IAddressManagement(customer)
         address = am.getShippingAddress()
-        
+
         return address.email
-                
+
     def getItems(self):
         """
-        """    
+        """
         nc = queryUtility(INumberConverter)
         cm = ICurrencyManagement(self.context)
-        
+
         items = []
         item_manager = IItemManagement(self.context)
-        
+
         for item in item_manager.getItems():
 
             product_price_gross = cm.priceToString(item.getProductPriceGross(), suffix=None)
@@ -134,7 +134,7 @@ class OrderView(BrowserView):
             tax = cm.priceToString(item.getTax(), suffix=None)
             price_gross = cm.priceToString(item.getPriceGross(), suffix=None)
 
-            # Get url. Takes care of, if the product has been deleted in the 
+            # Get url. Takes care of, if the product has been deleted in the
             # meanwhile.
             product = item.getProduct()
             if product is None:
@@ -143,14 +143,14 @@ class OrderView(BrowserView):
             else:
                 url = product.absolute_url()
                 articleId = product.getArticleId()
-            
-            # Properties 
+
+            # Properties
             for property in item.getProperties():
                 if IProductVariant.providedBy(product) == True:
                     property["show_price"] = False
                 else:
                     property["show_price"] = True
-                
+
             temp = {
                 "product_title"        : item.getProductTitle(),
                 "product_quantity"     : item.getProductQuantity(),
@@ -165,7 +165,7 @@ class OrderView(BrowserView):
                 "discount_description" : item.getDiscountDescription(),
                 "discount"             : cm.priceToString(item.getDiscountGross(), prefix="-", suffix=None),
             }
-            
+
             items.append(temp)
 
         return items
@@ -180,23 +180,23 @@ class OrderView(BrowserView):
         price_gross = cm.priceToString(self.context.getPaymentPriceGross(), suffix=None)
         tax_rate = nc.floatToTaxString(self.context.getPaymentTaxRate())
         tax = cm.priceToString(self.context.getPaymentTax(), suffix=None)
-        
+
         return {
             "display" : self.context.getPaymentPriceGross() != 0,
             "price_net" : price_net,
             "price_gross" : price_gross,
             "tax_rate" : tax_rate,
-            "tax" : tax, 
+            "tax" : tax,
             "title" : "Cash on Delivery"
         }
 
     def getSelectedPaymentData(self):
-        """Returns selected payment method type and corresponding selected 
+        """Returns selected payment method type and corresponding selected
         payment information.
         """
         customer = self.context.getCustomer()
         pm = IPaymentInformationManagement(customer)
-        
+
         payment_information     = pm.getSelectedPaymentInformation()
         selected_payment_method = pm.getSelectedPaymentMethod()
 
@@ -205,32 +205,32 @@ class OrderView(BrowserView):
             "portal_type"    : selected_payment_method.portal_type,
             "payment_method" : selected_payment_method
         }
-        
+
     def getPriceForCustomer(self):
         """
         """
-        p = IPrices(self.context)        
+        p = IPrices(self.context)
         price = p.getPriceForCustomer()
 
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price, suffix=None)
-        
+
     def getInvoiceAddress(self):
         """
         """
-        # Todo: Create an adapter Address Management for IOrder 
+        # Todo: Create an adapter Address Management for IOrder
         customer = self.context.getCustomer()
         am = IAddressManagement(customer)
         address = am.getInvoiceAddress()
-        
+
         return {
             "name" : address.getName(),
             "company_name" : address.company_name,
             "address1" : address.address_1,
             "zipcode" : address.zip_code,
             "city": address.city,
-            "country" : address.country,
-            "phone" : address.phone           
+            "country" : address.country_title,
+            "phone" : address.phone
         }
 
     def getOverviewURL(self):
@@ -239,23 +239,23 @@ class OrderView(BrowserView):
         shop = IShopManagement(self.context).getShop()
         customer = ICustomerManagement(shop).getAuthenticatedCustomer()
         return "%s/my-orders" % customer.absolute_url()
-                
+
     def getShippingAddress(self):
         """
         """
-        # Todo: Create an adapter Address Management for IOrder         
+        # Todo: Create an adapter Address Management for IOrder
         customer = self.context.getCustomer()
         am = IAddressManagement(customer)
         address = am.getShippingAddress()
-        
+
         return {
             "name" : address.getName(),
             "company_name" : address.company_name,
             "address1" : address.address_1,
             "zipcode" : address.zip_code,
             "city": address.city,
-            "country" : address.country,
-            "phone" : address.phone           
+            "country" : address.country_title,
+            "phone" : address.phone
         }
 
     def getShipping(self):
@@ -268,14 +268,14 @@ class OrderView(BrowserView):
         price_gross = cm.priceToString(self.context.getShippingPriceGross(), suffix=None)
         tax_rate = nc.floatToTaxString(self.context.getShippingTaxRate())
         tax = cm.priceToString(self.context.getShippingTax(), suffix=None)
-        
+
         return {
             "price_net" : price_net,
             "price_gross" : price_gross,
             "tax_rate" : tax_rate,
-            "tax" : tax,    
+            "tax" : tax,
         }
-    
+
     def getState(self):
         """
         """
@@ -287,19 +287,19 @@ class OrderView(BrowserView):
         """
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(self.context.getTax(), suffix=None)
-        
+
     def isPaymentAllowed(self):
         """
         """
         pm = IPaymentInformationManagement(self.context.getCustomer())
         m = pm.getSelectedPaymentMethod()
-        
+
         if IType(m).getType() not in REDO_PAYMENT_PAYMENT_METHODS:
             return False
 
         wftool = getToolByName(self.context, "portal_workflow")
         state = wftool.getInfoFor(self.context, "review_state")
-        
+
         if state not in REDO_PAYMENT_STATES:
             return False
 
