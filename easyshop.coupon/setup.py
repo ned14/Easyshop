@@ -12,7 +12,7 @@ def read(*rnames):
 
 
 def readversion():
-    mdfile = os.path.join(os.path.dirname(__file__), 'easyshop', 'coupon', 
+    mdfile = os.path.join(os.path.dirname(__file__), 'easyshop', 'coupon',
                           'profiles', 'default', 'metadata.xml')
     metadata = parse(mdfile)
     assert metadata.documentElement.tagName == "metadata"
@@ -40,7 +40,7 @@ setup(name='easyshop.coupon',
       version=readversion(),
       description="",
       long_description=long_description,
-      # Get more strings from 
+      # Get more strings from
       # http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         'Framework :: Plone',
@@ -59,12 +59,13 @@ setup(name='easyshop.coupon',
       zip_safe=False,
       install_requires=[
         'setuptools',
+        'collective.monkeypatcher',
       ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       test_suite = 'easyshop.coupon.tests.test_docs.test_suite',
       entry_points="""
-      # -*- entry_points -*- 
+      # -*- entry_points -*-
       [distutils.setup_keywords]
       paster_plugins = setuptools.dist:assert_string_list
 

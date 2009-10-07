@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    i18n_domain="collective.monkeypatcher">
+
+    <include package="collective.monkeypatcher" />
+
+    <monkey:patch
+        description="checkout redirectToNextURL"
+        class="easyshop.checkout.adapters.checkout_management.CheckoutManagement"
+        original="redirectToNextURL"
+        replacement=".checkout_management.redirectToNextURL"
+        />
+
+</configure>
