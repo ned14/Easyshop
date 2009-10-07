@@ -6,7 +6,9 @@ def redirectToNextURL(obj, id):
     """Redirects to next URL by given id.
     """
     # expire coupon cookie
-    obj.context.REQUEST.RESPONSE.expireCookie(COUPON_COOKIE_NAME,path="/")
+    if id in ['BUYED_ORDER', 'ASYNCHRONOUS_PAYMENT']:
+        obj.context.REQUEST.RESPONSE.expireCookie(COUPON_COOKIE_NAME,path="/")
+
     # redirect to next url
     next_url = obj.getNextURL(id)
     obj.context.REQUEST.RESPONSE.redirect(next_url)

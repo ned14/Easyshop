@@ -43,11 +43,11 @@ class CouponCodeForm(form.Form):
             cm.saveCouponConsumer(coupon_id)
             sm.addStatusMessage(_("valid coupon consumed"))
 
-            view_id = component.getMultiAdapter(
+            template_id = component.getMultiAdapter(
                 (self.context,self.request),
-                name="plone_context_state").view_template_id()
+                name="plone_context_state").current_page_url().split('/').pop()
 
-            return self.request.response.redirect(view_id)
+            return self.request.response.redirect(template_id)
         except Exception, msg:
             # see easyshop.coupon.adapters.coupon_management for exceptions
             self.status = msg
