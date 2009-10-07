@@ -53,8 +53,13 @@ class Address(Item):
         """
         """
         vocab = queryUtility(IVocabularyFactory, name="easyshop.countries")
-        country = vocab(self).getTerm(self.country)
-        return country.title
+        try:
+            country = vocab(self).getTerm(self.country)
+            return country.title
+        except:
+            # country was not found in vocab. happens sometimes
+            # if ES is updated from old revision to r1634 or newer
+            return self.country
 
 
 addressFactory = Factory(Address, title=_(u"Create a new address"))
