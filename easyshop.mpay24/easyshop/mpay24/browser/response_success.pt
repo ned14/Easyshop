@@ -1,20 +1,28 @@
 <html metal:use-macro="context/main_template/macros/master"
       i18n:domain="easyshop.mpay24">
 
+    <metal:js fill-slot="javascript_head_slot">
+    <script type="text/javascript">
+    if(window.top!=window) {
+        window.top.location.href = window.location.href;
+    }
+    </script>
+    </metal:js>
+
     <body>
         <metal:main fill-slot="main">
         <div id="content">
-            
+
             <h1 class="documentFirstHeading"
                 i18n:translate="success_title">
                 Order successfully payed
             </h1>
-            
+
             <p class="text"
                i18n:translate="success_body">
                 Thank you!
             </p>
-            
+
         </div>
         </metal:main>
     </body>
