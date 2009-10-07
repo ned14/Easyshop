@@ -11,7 +11,7 @@ from easyshop.core.interfaces import IShopManagement
 
 class CountryCriteriaValidity:
     """Adapter which provides IValidity for country criteria content objects.
-    """    
+    """
     implements(IValidity)
     adapts(ICountryCriteria)
 
@@ -19,21 +19,21 @@ class CountryCriteriaValidity:
         """
         """
         self.context = context
-        
+
     def isValid(self, product=None):
-        """Returns True if the selected country of the current customer is 
+        """Returns True if the selected country of the current customer is
         within selected countries of the criterion.
         """
         shop             = IShopManagement(self.context).getShop()
         customer         = ICustomerManagement(shop).getAuthenticatedCustomer()
         shipping_address = IAddressManagement(customer).getShippingAddress()
-        
+
         if shipping_address is not None:
             country = shipping_address.country
         else:
             country = customer.selected_country
-            
+
         if country in self.context.getCountries():
             return True
         else:
-            return False        
+            return False
