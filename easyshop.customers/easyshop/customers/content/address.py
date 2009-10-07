@@ -1,7 +1,9 @@
 # zope imports
 from zope.component.factory import Factory
 from zope.interface import implements
+from zope.component import queryUtility
 from zope.schema.fieldproperty import FieldProperty
+from zope.schema.interfaces import IVocabularyFactory
 
 # plone imports
 from plone.app.content.item import Item
@@ -46,6 +48,13 @@ class Address(Item):
             name += self.lastname
 
         return name
+
+    def country_title(self):
+        """
+        """
+        vocab = queryUtility(IVocabularyFactory, name="easyshop.countries")
+        country = vocab(self).getTerm(self.country)
+        return country.title
 
 
 addressFactory = Factory(Address, title=_(u"Create a new address"))
