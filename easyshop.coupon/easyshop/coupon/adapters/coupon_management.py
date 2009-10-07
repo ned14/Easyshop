@@ -85,7 +85,7 @@ class CouponManagement:
         coupon = self.getCoupon(coupon_id)
         customer = ICustomerManagement(self.shop).getAuthenticatedCustomer()
 
-        if coupon_id and customer and \
+        if coupon and customer and \
            customer.id in coupon.getConsumers():
             return coupon
 
