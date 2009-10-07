@@ -51,7 +51,7 @@ setup(name='easyshop.coupon',
       keywords='',
       author='petschki',
       author_email='pedrotschki@gmail.com',
-      url='http://svn.plone.org/svn/plone/plone.example',
+      url='http://code.google.com/p/easyshop-for-plone/source/browse/easyshop.coupon/trunk/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['easyshop', ],
@@ -73,5 +73,5 @@ setup(name='easyshop.coupon',
       [egg_info.writers]
       paster_plugins.txt = setuptools.command.egg_info:write_arg
       """,
-      paster_plugins = ["ZopeSkel"],
+      paster_plugins = [],
       )

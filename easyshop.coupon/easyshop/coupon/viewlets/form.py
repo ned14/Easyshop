@@ -35,8 +35,6 @@ class CouponCodeForm(form.Form):
         cm = ICouponManagement(context)
         sm = IStatusMessage(self.request)
 
-        import pdb; pdb.set_trace()
-
         if not coupon_id:
             self.status = _("please enter a valid coupon id")
             return
