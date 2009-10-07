@@ -30,7 +30,7 @@ class CouponCodeForm(form.Form):
     @button.buttonAndHandler(_("apply code"))
     def apply_code(self,action):
         data, errors = self.extractData()
-        coupon_id = data.get('couponId')
+        coupon_id = data.get('couponId','').strip()
         context = aq_inner(self.context)
         cm = ICouponManagement(context)
         sm = IStatusMessage(self.request)
