@@ -4,7 +4,8 @@ Changelog for easyshop.core
 
 0.1a1 Unreleased
 ----------------
-    
+
+    - unicode character support for country vocabulary [petschki]
     - added displayInfo() to IPaymentInformation to remove hardcoded
       payment method type output in templates [petschki]
     - make setup.py read version from metadata.xml [petschki]
