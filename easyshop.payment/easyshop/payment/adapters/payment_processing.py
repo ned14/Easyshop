@@ -204,7 +204,7 @@ class PayPalPaymentProcessor:
             "last_name" : shipping_address.getName(),
             "address1" : shipping_address.address_1,
             "city" : shipping_address.city,
-            "state" : shipping_address.country,
+            "state" : shipping_address.country_title,
             "zip" : shipping_address.zip_code,
             "shipping_1" : order.getShippingPriceNet(),
             "tax_1" : pc.getPriceGross() - pc.getPriceNet()
@@ -275,7 +275,7 @@ class PayPalSimplePaymentProcessor:
             "address1" : invoice_address.address_1.encode(site_encoding),
             "address2" : "",
             "city" : invoice_address.city.encode(site_encoding),
-            "state" : invoice_address.country.encode(site_encoding),
+            "state" : invoice_address.country_title.encode(site_encoding),
             "zip" : invoice_address.zip_code.encode(site_encoding),
             "no_shipping" : "1",
             "item_name" : shop.getShopOwner(),
