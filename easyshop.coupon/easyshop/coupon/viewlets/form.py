@@ -1,6 +1,7 @@
 from Acquisition import aq_inner
 
 from zope import interface, schema, component
+from zope.i18n import translate
 from z3c.form import form, field, button
 
 from plone.z3cform import layout
@@ -50,7 +51,8 @@ class CouponCodeForm(form.Form):
             return self.request.response.redirect(template_id)
         except Exception, msg:
             # see easyshop.coupon.adapters.coupon_management for exceptions
-            self.status = msg
+            self.status = translate(_(str(msg)),
+                target_language=self.request.get('LANGUAGE','de'))
 
 
 class CouponCodeFormViewlet(ViewletBase, layout.FormWrapper):

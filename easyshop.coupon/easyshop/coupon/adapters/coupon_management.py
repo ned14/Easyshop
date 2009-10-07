@@ -2,7 +2,6 @@ from base64 import encodestring, decodestring
 from urllib import quote, unquote
 from datetime import datetime, timedelta
 
-from zope.i18n import translate
 from zope.interface import implements
 from zope.component import adapts, getMultiAdapter
 
@@ -34,16 +33,12 @@ class CouponManagement:
         customer = ICustomerManagement(self.shop).getAuthenticatedCustomer()
 
         if customer is None:
-            raise Exception, translate(
-                _("invalid customer"),
-                target_language=self.shop.REQUEST.get('LANGUAGE','de'))
+            raise Exception, "invalid customer"
 
         coupon = self.getCoupon(couponId)
 
         if not coupon:
-            raise Exception, translate(
-                _("no coupon found"),
-                target_language=self.shop.REQUEST.get('LANGUAGE','de'))
+            raise Exception, "no coupon found"
 
         old_consumers = coupon.getConsumers()
         if customer.id not in old_consumers:
@@ -62,10 +57,7 @@ class CouponManagement:
             )
 
         else:
-            raise Exception, translate(
-                _("coupon already consumed"),
-                target_language=self.shop.REQUEST.get('LANGUAGE','de'))
-
+            raise Exception, "coupon already consumed"
 
     def getCoupon(self, couponId):
         """
@@ -97,3 +89,8 @@ class CouponManagement:
             return coupon
 
         return
+
+# messagefactories for i18ndude
+_("invalid customer")
+_("no coupon found")
+_("coupon already consumed")
