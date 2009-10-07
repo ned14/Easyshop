@@ -12,7 +12,14 @@ from easyshop.coupon.interfaces import ICoupon
 from easyshop.coupon.config import PROJECTNAME, COUPON_ID_PATTERN, \
                                    COUPON_ID_LENGTH
 
-CouponSchema = atapi.OrderedBaseFolderSchema.copy() + atapi.Schema((
+schema = atapi.BaseSchema.copy() + atapi.Schema((
+
+    atapi.StringField('title',
+        widget=atapi.StringWidget(
+            visible={'edit':'invisible', 'view':'invisible'},
+        ),
+        required=False
+    ),
 
     atapi.StringField('couponId',
         default_method='generate_cid',
@@ -21,20 +28,7 @@ CouponSchema = atapi.OrderedBaseFolderSchema.copy() + atapi.Schema((
             label=_('coupon ID'),
         ),
     ),
-    
-    atapi.FloatField('discount',
-        widget=atapi.StringWidget(
-            label=_('coupon discount'),
-            description=_('discount value as percent or amount'),
-        ),
-    ),
-    
-    atapi.BooleanField('isPercentage',
-        widget=atapi.BooleanWidget(
-            label=_('coupon discount value is percentage'),
-        ),
-    ),
-    
+
     atapi.LinesField('consumers',
         widget=atapi.LinesWidget(
             visible=dict(
@@ -45,19 +39,33 @@ CouponSchema = atapi.OrderedBaseFolderSchema.copy() + atapi.Schema((
     ),
 ))
 
-CouponSchema.changeSchemataForField('effectiveDate','default')
-CouponSchema.changeSchemataForField('expirationDate','default')
+schema.changeSchemataForField('effectiveDate','default')
+schema.changeSchemataForField('expirationDate','default')
 
-CouponSchema.moveField('couponId',before='title')
-
-class Coupon(atapi.OrderedBaseFolder):
+class Coupon(atapi.BaseContent):
     """easyshop coupon"""
     implements(ICoupon)
     _at_rename_after_creation = True
-    schema = CouponSchema
+    schema = schema.copy()
 
     def generate_cid(self):
-        return ''.join([choice(COUPON_ID_PATTERN) for i 
+        return ''.join([choice(COUPON_ID_PATTERN) for i
                         in range(COUPON_ID_LENGTH)])
-        
+
+    def Title(self):
+        return "Coupon Code: %s" % self.getCouponId()
+
+    def getValue(self):
+        value = []
+
+        if self.effective:
+            value.append(
+                _("coupon_effective", mapping=dict(effective=self.effective)))
+
+        if self.expires:
+            value.append(
+                _("coupon_expires", mapping=dict(expires=self.expires)))
+
+        return ','.join(value)
+
 atapi.registerType(Coupon, PROJECTNAME)

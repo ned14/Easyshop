@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: easyshop.coupon\n"
+"POT-Creation-Date: 2009-10-07 09:50+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Peter Mathis <peter.mathis@kombinat.at>\n"
+"Language-Team: Peter Mathis <peter.mathis@kombinat.at>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: AUSTRIA\n"
+
+#. Default: "Coupon"
+#: easyshop/coupon/profiles/default/types/Coupon.xml
+msgid "Coupon"
+msgstr "Gutschein"
+
+#: easyshop/coupon/viewlets/form.py:28
+msgid "If you have a Coupon Code please enter it here"
+msgstr "Geben Sie Ihren Gutschein Code hier ein"
+
+#. Default: "Amount of Criteria"
+#: easyshop/coupon/browser/couponsview.pt:51
+msgid "amount_of_criteria_label"
+msgstr "Kriterien"
+
+#: easyshop/coupon/viewlets/form.py:30
+msgid "apply code"
+msgstr "Code einlösen"
+
+#: easyshop/coupon/content/coupon.py:28
+msgid "coupon ID"
+msgstr "Gutschein ID"
+
+#: easyshop/coupon/adapters/coupon_management.py:60
+msgid "coupon already consumed"
+msgstr "Der Gutschein wurde bereits von Ihnen eingelöst"
+
+#: easyshop/coupon/viewlets/form.py:19
+msgid "coupon code"
+msgstr "Gutschein Code"
+
+#: easyshop/coupon/content/coupon.py:63
+msgid "coupon_effective"
+msgstr "Gültig ab: ${effective}"
+
+#: easyshop/coupon/content/coupon.py:67
+msgid "coupon_expires"
+msgstr "Gültig bis: ${expires}"
+
+#. Default: "easyshop coupon"
+#: easyshop/coupon/profiles/default/types/Coupon.xml
+msgid "easyshop coupon"
+msgstr ""
+
+#: easyshop/coupon/adapters/coupon_management.py:36
+msgid "invalid customer"
+msgstr "Sie müssen sich anmelden, um Gutscheine verwenden zu können"
+
+#. Default: "Name"
+#: easyshop/coupon/browser/couponsview.pt:47
+msgid "name_label"
+msgstr ""
+
+#: easyshop/coupon/adapters/coupon_management.py:41
+msgid "no coupon found"
+msgstr "Der Gutschein Code wurde nicht gefunden"
+
+#. Default: "There are no payment methods."
+#: easyshop/coupon/browser/couponsview.pt:38
+msgid "no_coupons_label"
+msgstr ""
+
+#: easyshop/coupon/viewlets/form.py:41
+msgid "please enter a valid coupon id"
+msgstr "Bitte geben Sie einen gültigen Gutschein Code ein"
+
+#. Default: "Shop"
+#: easyshop/coupon/browser/couponsview.pt:25
+msgid "shop_label"
+msgstr ""
+
+#: easyshop/coupon/viewlets/form.py:46
+msgid "valid coupon consumed"
+msgstr "Ihr Gutschein ist gültig!"
+
+#. Default: "Your coupon code:"
+#: easyshop/coupon/viewlets/couponcode_viewlet.pt:11
+msgid "valid_coupon_title"
+msgstr "Ihr Gutschein Code:"
+
+#~ msgid "coupon code is already used"
+#~ msgstr "Der Gutschein wurde bereits eingelöst"
+#~ msgid "coupon code is invalid"
+#~ msgstr "Der Gutschein Code ist ungültig"
+#~ msgid "Coupon Manager"
+#~ msgstr "Gutscheinmanager"
+#~ msgid "CouponContainer"
+#~ msgstr "Gutschein Ordner"
+#~ msgid "coupon discount"
+#~ msgstr "Rabattwert"
+#~ msgid "coupon discount value is percentage"
+#~ msgstr "Rabattwert entspricht Prozentwert"
+#~ msgid "discount value as percent or amount"
+#~ msgstr "Wert in Prozent oder Cash"
+

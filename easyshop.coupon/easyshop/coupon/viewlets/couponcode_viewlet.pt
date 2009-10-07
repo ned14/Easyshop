@@ -1,5 +1,17 @@
-<div id="easyshop-couponcode-viewlet">
+<div id="easyshop-couponcode-viewlet"
+     tal:define="valid_coupon view/get_coupon"
+     i18n:domain="easyshop.coupon">
 
-    <div tal:replace="structure view/contents" />
+    <tal:block condition="python:not valid_coupon">
+        <div tal:replace="structure view/contents" />
+    </tal:block>
 
+    <div tal:condition="python:valid_coupon">
+        <dl>
+            <dt i18n:translate="valid_coupon_title">Your coupon code:</dt>
+            <dd tal:content="valid_coupon/getCouponId">
+                ASDlkmwerG
+            </dd>
+        </dl>
+    </div>
 </div>

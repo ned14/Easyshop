@@ -1,0 +1,98 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2009-10-07 09:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: easyshop.coupon\n"
+
+#. Default: "Coupon"
+#: ./easyshop/coupon/profiles/default/types/Coupon.xml
+msgid "Coupon"
+msgstr ""
+
+#: ./easyshop/coupon/viewlets/form.py:28
+msgid "If you have a Coupon Code please enter it here"
+msgstr ""
+
+#. Default: "Amount of Criteria"
+#: ./easyshop/coupon/browser/couponsview.pt:51
+msgid "amount_of_criteria_label"
+msgstr ""
+
+#: ./easyshop/coupon/viewlets/form.py:30
+msgid "apply code"
+msgstr ""
+
+#: ./easyshop/coupon/content/coupon.py:28
+msgid "coupon ID"
+msgstr ""
+
+#: ./easyshop/coupon/adapters/coupon_management.py:60
+msgid "coupon already consumed"
+msgstr ""
+
+#: ./easyshop/coupon/viewlets/form.py:19
+msgid "coupon code"
+msgstr ""
+
+#: ./easyshop/coupon/content/coupon.py:63
+msgid "coupon_effective"
+msgstr ""
+
+#: ./easyshop/coupon/content/coupon.py:67
+msgid "coupon_expires"
+msgstr ""
+
+#. Default: "easyshop coupon"
+#: ./easyshop/coupon/profiles/default/types/Coupon.xml
+msgid "easyshop coupon"
+msgstr ""
+
+#: ./easyshop/coupon/adapters/coupon_management.py:36
+msgid "invalid customer"
+msgstr ""
+
+#. Default: "Name"
+#: ./easyshop/coupon/browser/couponsview.pt:47
+msgid "name_label"
+msgstr ""
+
+#: ./easyshop/coupon/adapters/coupon_management.py:41
+msgid "no coupon found"
+msgstr ""
+
+#. Default: "There are no payment methods."
+#: ./easyshop/coupon/browser/couponsview.pt:38
+msgid "no_coupons_label"
+msgstr ""
+
+#: ./easyshop/coupon/viewlets/form.py:41
+msgid "please enter a valid coupon id"
+msgstr ""
+
+#. Default: "Shop"
+#: ./easyshop/coupon/browser/couponsview.pt:25
+msgid "shop_label"
+msgstr ""
+
+#: ./easyshop/coupon/viewlets/form.py:46
+msgid "valid coupon consumed"
+msgstr ""
+
+#. Default: "Your coupon code:"
+#: ./easyshop/coupon/viewlets/couponcode_viewlet.pt:11
+msgid "valid_coupon_title"
+msgstr ""
+

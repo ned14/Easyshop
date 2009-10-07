@@ -10,6 +10,4 @@
   <!-- -*- extra stuff goes here -*- -->
   <object name="Coupon"
     meta_type="Factory-based Type Information" />
-  <object name="CouponContainer"
-    meta_type="Factory-based Type Information" />
 </object>

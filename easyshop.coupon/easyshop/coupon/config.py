@@ -12,3 +12,6 @@ ADD_PERMISSIONS = {
 
 COUPON_ID_PATTERN = letters
 COUPON_ID_LENGTH = 10
+COUPON_COOKIE_NAME = "easyshop-couponcode"
+COUPON_COOKIE_DURATION_SEC = 900 # cookie is 15 min valid
+

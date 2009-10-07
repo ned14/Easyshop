@@ -1,5 +1,8 @@
-<configure 
+<configure
     xmlns="http://namespaces.zope.org/zope">
 
+    <adapter factory=".coupon.CouponValidity" />
+
+    <adapter factory=".coupon_management.CouponManagement" />
 
 </configure>

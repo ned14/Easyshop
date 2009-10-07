@@ -6,9 +6,5 @@
       <role name="Manager" />
       <role name="Contributor" />
     </permission>
-    <permission name="easyshop.coupon: Add CouponContainer" acquire="False">
-      <role name="Manager" />
-      <role name="Contributor" />
-    </permission>
   </permissions>
 </rolemap>
