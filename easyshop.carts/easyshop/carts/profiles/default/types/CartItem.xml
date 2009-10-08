@@ -3,7 +3,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Item</property>
  <property
-    name="description">A CartItem holds a Product and the quantity of the Product which the 
+    name="description">A CartItem holds a Product and the quantity of the Product which the
          customer intends to buy.
       </property>
  <property name="content_icon">document_icon.gif</property>
@@ -15,6 +15,7 @@
  <property name="filter_content_types">False</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
+ <alias from="(Default)" to="base_view"/>
  <alias from="edit" to="base_edit"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}/base_view" visible="True">
