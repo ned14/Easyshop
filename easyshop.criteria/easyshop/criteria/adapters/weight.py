@@ -19,26 +19,25 @@ class WeightCriteriaValidity:
         """
         """
         self.context = context
-        
+
     def isValid(self, product=None):
         """Returns True, if the total weight of the cart is greater than the
         entered criteria weight.
         """
         shop = IShopManagement(self.context).getShop()
         cart = ICartManagement(shop).getCart()
-                
+
         # total weight
-        cart_weight = 0
-        if cart is not None:            
+        if cart is not None:
             cart_weight = 0
             for item in IItemManagement(cart).getItems():
                 cart_weight += (item.getProduct().getWeight() * item.getAmount())
 
-        if self.context.getOperator() == ">=":
-            if cart_weight >= self.context.getWeight():
-                return True
-        else:
-            if cart_weight < self.context.getWeight():
-                return True
+            if self.context.getOperator() == ">=":
+                if cart_weight >= self.context.getWeight():
+                    return True
+            else:
+                if cart_weight < self.context.getWeight():
+                    return True
 
         return False
