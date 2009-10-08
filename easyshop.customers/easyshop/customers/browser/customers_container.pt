@@ -81,24 +81,24 @@
                                          addresses view/getAddresses;
                                          orders view/getOrders;"
                              tal:condition="customer">
-                            <h1 class="documentFirstHeading">
+                            <h2 class="documentFirstHeading">
                                 <a href="."
                                    tal:attributes="href string:${customer/url}/@@edit?goto=${customer/goto}">
                                     <span tal:replace="customer/name">
                                         John Doe
                                     </span>
                                 </a>
-                            </h1>
+                            </h2>
                             <div tal:content="customer/email">
                                 E-mail
                             </div>
-                            <h1>
+                            <h2>
                                 <a href="."
                                    tal:attributes="href string:${customer/url}/manage-addressbook"
                                    i18n:translate="addresses_label">
                                     Addresses
                                 </a>
-                            </h1>
+                            </h2>
                             <ul>
                                 <li tal:repeat="address addresses">
                                     <div>
@@ -124,9 +124,9 @@
                                  i18n:translate="no_addresses_label">
                                  There are no addresses
                             </div>
-                            <h1 i18n:translate="orders_label">
+                            <h2 i18n:translate="orders_label">
                                 Orders
-                            </h1>
+                            </h2>
                             <ul>
                                 <li tal:repeat="order orders">
                                     <a href="."
@@ -141,10 +141,10 @@
                                  i18n:translate="no_orders_label">
                                 There are no orders.
                             </div>
+                            <h2 i18n:translate="cart_label">
+                                Cart
+                            </h2>
                             <tal:block tal:condition="cart">
-                                <h1 i18n:translate="cart_label">
-                                    Cart
-                                </h1>
                                 <a href="."
                                    tal:attributes="href cart/url"
                                    i18n:translate="go_to_cart_label">
