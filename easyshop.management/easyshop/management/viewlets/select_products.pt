@@ -1,7 +1,7 @@
 <form action="manage-products"
       tal:attributes="action string: ${context/absolute_url}/manage-products"
       method="post">
-     
+
     <table class="easyshop-management">
         <tr>
             <th i18n:translate="search_phrase">
@@ -16,37 +16,37 @@
             <td>
                 <input name="search_text"
                        type="text"
-                       tal:attributes="value context/REQUEST/search_text|nothing" />                
+                       tal:attributes="value context/REQUEST/search_text|nothing" />
             </td>
             <td>
                 <select name="search_category"
                         multiple="multiple"
                         size="5"
                         tal:define="selected_categories view/getSelectedCategories">
-                    <option tal:repeat="category context/@@manage-products/getCategories"                            
+                    <option tal:repeat="category context/@@manage-products/getCategories"
                             tal:attributes="value category/UID;
                                             selected python: category['UID'] in selected_categories"
                             tal:content="category/Title">
                        Category Title
-                    </option>    
-                </select>                
+                    </option>
+                </select>
             </td>
             <td>
                 <input type="hidden"
                        name="form-sent"
                        value="1" />
-                       
+
                 <input type="submit"
-                       value="Go!">                
+                       value="Go!">
             </td>
         </tr>
-    </table>                          
+    </table>
 </form>
 
 <!-- Found products and actions -->
 <div id="products"
      tal:define="products view/getProducts">
-     
+
     <form tal:condition="products"
           action="manage-products"
           method="post">
@@ -54,21 +54,21 @@
                id="selected-products">
             <tr>
                 <th class="text">
-                    <input type="checkbox" 
-                           id="select-all" 
+                    <input type="checkbox"
+                           id="select-all"
                            name="select-all"
                            tal:attributes="checked python:context.REQUEST.get('select-all') != None" />
-                           
+
                 </th>
-                <th class="text" 
+                <th class="text"
                     i18n:translate="title_label">
                     Title
                 </th>
-                <th class="text" 
+                <th class="text"
                     i18n:translate="categories_label">
                     Categories
                 </th>
-                <th class="text" 
+                <th class="text"
                     i18n:translate="price_label">
                     Price
                 </th>
@@ -77,37 +77,41 @@
                 <td class="text">
                     <input type="checkbox"
                            name="selected_uids"
-                           tal:attributes="value product/uid;
-                                           checked python:product['uid'] in context.REQUEST.get('selected_uids', [])" />
+                           tal:attributes="value product/UID;
+                                           checked python:product.UID in context.REQUEST.get('selected_uids', [])" />
+                </td>
+                <td class="text">
+                    <a tal:attributes="href product/getURL"
+                       tal:content="product/Title">
+                        Product Title
+                    </a>
+                </td>
+                <td class="text">
+                    <span tal:replace="python:', '.join([c.Title() for c in product.getCategories])">
+                        categories
+                    </span>
                 </td>
                 <td class="text"
-                    tal:content="product/title">
-                    Product Title
-                </td>
-                <td class="text" tal:content="product/categories">
-                    Categories
-                </td>
-                <td class="text"
-                    tal:content="product/price">
+                    tal:content="product/getPrice">
                     Price
                 </td>
             </tr>
-        </table>    
+        </table>
 
         <select name="action">
 
             <option value="change_price"
                     tal:attributes="selected python:context.REQUEST.get('action') == 'change_price'">
                 Change Price
-            </option>    
+            </option>
 
             <option value="rename"
-                    tal:attributes="selected python:context.REQUEST.get('action') == 'rename'">                
+                    tal:attributes="selected python:context.REQUEST.get('action') == 'rename'">
                 Rename
             </option>
 
             <option value="add_to_group"
-                    tal:attributes="selected python:context.REQUEST.get('action') == 'add_to_group'">                
+                    tal:attributes="selected python:context.REQUEST.get('action') == 'add_to_group'">
                 Add to group
             </option>
 
@@ -125,12 +129,12 @@
         <input type="hidden"
                name="search_text"
                tal:attributes="value context/REQUEST/search_text|nothing" />
-                
-        <input type="hidden"               
+
+        <input type="hidden"
                name="search_category"
                tal:repeat="category view/getSelectedCategories"
                tal:attributes="value category" />
-        
+
         <input type="submit" />
-    </form>    
+    </form>
 </div>
