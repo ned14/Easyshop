@@ -21,27 +21,27 @@ class ProductVariantsManagement:
         """
         """
         article_id = article_id.replace("%A", self.context.getArticleId())
-        article_id = article_id.replace("%T", self.context.Title())        
+        article_id = article_id.replace("%T", self.context.Title())
 
         title = title.replace("%A", self.context.getArticleId())
         title = title.replace("%T", self.context.Title())
-        
+
         i=0
         for properties in self._cartesian_product(*properties):
-            
+
             if self.hasVariant(properties):
                 continue
-            
+
             # format string
             i += 1
             new_article_id = article_id.replace("%N", str(i))
             new_title = title.replace("%N", str(i))
-            
+
             new_id = self.context.generateUniqueId("ProductVariant")
             self.context.invokeFactory(
-                "ProductVariant", 
-                id=new_id, 
-                title=new_title,                 
+                "ProductVariant",
+                id=new_id,
+                title=new_title,
                 articleId=new_article_id,
                 price=price,
                 forProperties=properties)
@@ -51,17 +51,17 @@ class ProductVariantsManagement:
         """
         if not isinstance(ids, (list, tuple)):
             ids = (ids,)
-        
+
         self.context.manage_delObjects(ids)
-                
+
     def getDefaultVariant(self):
         """
         """
-        try:        
+        try:
             return self.getVariants()[0]
         except IndexError:
             return None
-                
+
     def getVariants(self):
         """
         """
@@ -75,11 +75,11 @@ class ProductVariantsManagement:
             for name, value in self.context.REQUEST.items():
                 if name.startswith("property_%s" % self.context.UID()):
                     selected_properties[name[42:]] = value
-        
+
         result = []
         for key, value in selected_properties.items():
             result.append("%s:%s" % (key, value))
-            
+
         for variant in self.getVariants():
             found = True
             for selected_property in result:
@@ -87,10 +87,10 @@ class ProductVariantsManagement:
                     found = False
                     break
             if found == True:
-                return variant    
-                    
+                return variant
+
         return None
-        
+
     def hasVariant(self, properties):
         """
         """
@@ -109,7 +109,7 @@ class ProductVariantsManagement:
             return True
         else:
             return False
-        
+
     def _cartesian_product(self, *seqin):
         """Calculates the cartesian product of given lists.
         """
@@ -122,5 +122,5 @@ class ProductVariantsManagement:
                         yield item
             else:
                 yield comb
-        
+
         return rloop(seqin, [])

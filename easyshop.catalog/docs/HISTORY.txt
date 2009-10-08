@@ -1,10 +1,15 @@
 Changelog for easyshop.catalog
 
     (name of developer listed in brackets)
-    
+
 0.1a1 Unreleased
 ----------------
-    
+
+    * usability enhancements for product variants management [petschki]
+      * require variant title on "add"
+      * move properties befor variants, becaus they has to be provided first
+      * tell the user, that he has to provide properties first
+
     * minor xhtml validation fixes [petschki]
     * product.py:
         * fixed referencebrowser getStartupDirectoryForProducts function [petschki]
@@ -12,8 +17,8 @@ Changelog for easyshop.catalog
         * allways set value of title and article_id, not only when values added [petschki]
     * manage_properties_view.py:
         * fixed initial adding of image (doesn't work via invokeFactory) [petschki]
-    * manage_properties_view.pt: 
-        * added link to property's folder_contents. 
+    * manage_properties_view.pt:
+        * added link to property's folder_contents.
           users can sort their property options here [petschki]
         * fixed required form authenticator [petschki]
     * make setup.py read version from metadata.xml [petschki]

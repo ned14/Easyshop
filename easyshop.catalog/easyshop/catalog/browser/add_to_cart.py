@@ -26,19 +26,19 @@ class ProductAddToCartView(BrowserView):
         """
         shop = IShopManagement(self.context).getShop()
         cm = ICartManagement(shop)
-        
+
         cart = cm.getCart()
         if cart is None:
             cart = cm.createCart()
-        
+
         pvm = IProductVariantsManagement(self.context)
         if pvm.hasVariants():
 
             # Get the actual "product"
             product = pvm.getSelectedVariant() or pvm.getDefaultVariant()
-            
+
             # Using here the selected product ensures that we save the right
-            # properties. This is important when the selected variant doesn't 
+            # properties. This is important when the selected variant doesn't
             # exist.
             properties = []
             for property in product.getForProperties():
@@ -49,63 +49,68 @@ class ProductAddToCartView(BrowserView):
                     }
                 )
         else:
-            
+
             # The product is the context
             product = self.context
 
-            # Unlike above we take the properties out of the request, because 
+            # Unlike above we take the properties out of the request, because
             # there is no object wich stores the different properties.
             properties = []
             for property in IPropertyManagement(product).getProperties():
                 selected_option_id = self.request.get("property_%s_%s" % (product.UID(), property.getId()))
-                
-                # If nothing is selected we take the first option of the 
+
+                # If nothing is selected we take the first option of the
                 # property
                 if (selected_option_id is None) or (selected_option_id == "select"):
                     property = IPropertyManagement(product).getProperty(property.getId())
-                    selected_option = property.getOptions()[0]
-                    selected_option_id = selected_option["id"]
-                 
+                    property_options = property.getOptions()
+
+                    if property_options:
+                        selected_option = property.getOptions()[0]
+                        selected_option_id = selected_option["id"]
+                    else:
+                        selected_option_id = ""
+
                 properties.append(
-                    {"id" : property.getId(), 
+                    {"id" : property.getId(),
                      "selected_option" : selected_option_id
                     }
                 )
-            
+
         # get quantity
         quantity = int(self.context.request.get("%s_quantity" % self.context.UID(), 1))
 
-        # returns true if the product was already within the cart    
+        # returns true if the product was already within the cart
         result, item_id = IItemManagement(cart).addItem(product, tuple(properties), quantity)
-        
+
         # Add product to session (for display on add to cart view)
         if self.request.SESSION.get("added-to-cart") is None:
             self.request.SESSION["added-to-cart"] = []
         self.request.SESSION["added-to-cart"].append(item_id)
-        
+
         # Add the accessories
         if add_accessories == True:
             catalog = getToolByName(self.context, "portal_catalog")
             accessories = tuplize(self.request.get("accessories", []))
-            for uid in accessories:            
+            for uid in accessories:
                 try:
                     brain = catalog.searchResults(UID=uid)[0]
                 except IndexError:
                     continue
-                
-                # We reuse the same view with an other context. The context are 
+
+                # We reuse the same view with an other context. The context are
                 # the accessories
                 product = brain.getObject()
                 view = getMultiAdapter((product, self.request), name="addToCart")
                 view.addToCart(redirect=False, add_accessories=False)
-        
+
         if redirect == True:
             # Set portal message
-            # putils = getToolByName(self.context, "plone_utils")        
+            # putils = getToolByName(self.context, "plone_utils")
             # if result == True:
-            #     putils.addPortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])            
+            #     putils.addPortalMessage(MESSAGES["CART_INCREASED_AMOUNT"])
             # else:
             #     putils.addPortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
 
             url = "%s/added-to-cart" % shop.absolute_url()
-            self.context.request.response.redirect(url)        
+            self.context.request.response.redirect(url)

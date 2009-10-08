@@ -7,13 +7,13 @@ from Products.CMFCore.utils import getToolByName
 # easyshop.imports
 from easyshop.catalog.adapters.property_management import getTitlesByIds
 from easyshop.catalog.adapters.property_management import getOptionsForProperty
-from easyshop.core.config import MESSAGES
+from easyshop.core.config import MESSAGES, _
 from easyshop.core.interfaces import IProductVariantsManagement
 from easyshop.core.interfaces import IPropertyManagement
 
 class ManageVariantsView(BrowserView):
     """
-    """ 
+    """
     def isOptionSelected(self, variant, property_id, option_id):
         """
         """
@@ -21,50 +21,55 @@ class ManageVariantsView(BrowserView):
             selected_option_id = variant['properties_ids'][property_id]
         except KeyError:
             return False
-            
+
         if selected_option_id == option_id:
             return True
         else:
             return False
-            
+
     def addProperty(self):
         """
         """
         pass
-        # id = self.context.generateUniqueId("Property")                
+        # id = self.context.generateUniqueId("Property")
         # property = ProductProperty(id)
         # self.context._setObject(id, property)
-        # 
+        #
         # url = self.context.absolute_url() + "/manage-variants-view"
         # self.request.response.redirect(url)
-        
+
     def addVariants(self):
         """
         """
         putils = getToolByName(self.context, "plone_utils")
-                
+
         title = self.request.get("title", "")
+        url = self.context.absolute_url() + "/manage-variants-view"
+
+        if not title:
+            putils.addPortalMessage("Please provide a variant title")
+            return self.request.response.redirect(url)
+
         article_id = self.request.get("article_id", "")
         price = self.request.get("price", 0.0)
-        
-        try:        
+
+        try:
             price = float(price)
         except ValueError:
             price = 0.0
-            
+
         properties = self._getPropertiesAsList()
-        
+
         pvm = IProductVariantsManagement(self.context)
         result = pvm.addVariants(properties, title, article_id, price)
-        
+
         if result == False:
             putils.addPortalMessage(MESSAGES["VARIANT_ALREADY_EXISTS"])
         else:
             putils.addPortalMessage(MESSAGES["VARIANT_ADDED"])
-        
-        url = self.context.absolute_url() + "/manage-variants-view"
+
         self.request.response.redirect(url)
-        
+
     def deleteVariants(self):
         """
         """
@@ -89,25 +94,25 @@ class ManageVariantsView(BrowserView):
             options = property.getOptions()
             if len(options) == 0:
                 continue
-                
+
             result.append({
                 "id"      : property.getId(),
                 "name"    : "property_" + property.getId(),
                 "title"   : property.Title(),
                 "options" : options,
             })
-        
+
         return result
-    
+
     def getVariants(self):
         """
         """
         result = []
         pvm = IProductVariantsManagement(self.context)
-        
+
         for variant in pvm.getVariants():
-            
-            # Options 
+
+            # Options
             properties = []
             properties_ids = {}
             for property in variant.getForProperties():
@@ -123,19 +128,19 @@ class ManageVariantsView(BrowserView):
                 "path"           : "/".join(variant.getPhysicalPath()),
                 "article_id"     : variant.getArticleId(),
                 "title"          : variant.Title(),
-                "url"            : variant.absolute_url(),                
+                "url"            : variant.absolute_url(),
                 "properties"     : properties,
                 "properties_ids" : properties_ids,
                 "price"          : variant.getPrice(),
-            })                
+            })
         return result
-        
+
     def saveVariants(self):
         """Saves all variants.
         """
-        article_ids = {}                
+        article_ids = {}
         prices = {}
-        properties = {}                
+        properties = {}
         titles = {}
 
         for id, value in self.request.form.items():
@@ -151,28 +156,28 @@ class ManageVariantsView(BrowserView):
                 if properties.has_key(variant_id) == False:
                     properties[variant_id] = []
                 properties[variant_id].append("%s:%s" % (property_id, value))
-        
+
         pvm = IProductVariantsManagement(self.context)
         for variant in pvm.getVariants():
             # Title
             variant.setTitle(titles[variant.getId()])
-            
+
             # Article ID
             variant.setArticleId(article_ids[variant.getId()])
-                
+
             # Price
             variant.setPrice(prices[variant.getId()])
 
             properties[variant.getId()].sort()
             variant.setForProperties(properties[variant.getId()])
             variant.reindexObject()
-            
+
         putils = getToolByName(self.context, "plone_utils")
         putils.addPortalMessage(MESSAGES["VARIANTS_SAVED"])
-        
+
         url = self.context.absolute_url() + "/manage-variants-view"
         self.request.response.redirect(url)
-        
+
     def _getPropertiesAsList(self):
         """
         """
@@ -187,6 +192,6 @@ class ManageVariantsView(BrowserView):
                     selected_properties.append(temp)
                 else:
                     selected_properties.append(["%s:%s" % (name, value)])
-    
-        selected_properties.sort()    
+
+        selected_properties.sort()
         return selected_properties
