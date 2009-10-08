@@ -11,7 +11,7 @@ from zope.component import getMultiAdapter
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName
 
-# easyshop imports 
+# easyshop imports
 from easyshop.core.config import *
 from base import EasyShopTestCase
 from easyshop.core.tests import utils
@@ -25,19 +25,19 @@ class TestImageManagement_1(EasyShopTestCase):
         """
         super(TestImageManagement_1, self).afterSetUp()
         self.logout()
-        
+
     def testGetMainImage(self):
         """
         """
         pm = IImageManagement(self.product_1)
         self.assertEqual(pm.getMainImage(), None)
-        
+
     def testGetImages(self):
         """
         """
         pm = IImageManagement(self.product_1)
         self.assertEqual(pm.getImages(), [])
-                        
+
     def testHasImages(self):
         """
         """
@@ -52,23 +52,23 @@ class TestImageManagement_2(EasyShopTestCase):
         """
         super(TestImageManagement_2, self).afterSetUp()
         self.product_1.invokeFactory("EasyShopImage", id="image_1")
-        self.product_1.invokeFactory("EasyShopImage", id="image_2")        
+        self.product_1.invokeFactory("EasyShopImage", id="image_2")
         self.logout()
-        
+
     def testGetMainImage(self):
         """
         """
         pm = IImageManagement(self.product_1)
         self.assertEqual(pm.getMainImage().getId(), "image_1")
-        
+
     def testGetImages(self):
         """
         """
         pm = IImageManagement(self.product_1)
         ids = [p.getId() for p in pm.getImages()]
-        
+
         self.assertEqual(ids, ["image_1", "image_2"])
-                        
+
     def testHasImage(self):
         """
         """
@@ -81,28 +81,28 @@ class TestImageManagement_3(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        super(TestImageManagement_3, self).afterSetUp()                        
-                
+        super(TestImageManagement_3, self).afterSetUp()
+
         img = os.path.join(package_home(globals()), 'test.jpg')
         img = open(img)
-        
+
         self.product_1.setImage(img)
         self.logout()
-        
+
     def testGetMainImage(self):
         """
         """
         pm = IImageManagement(self.product_1)
         self.assertEqual(pm.getMainImage().getId(), "product_1")
-        
+
     def testGetImages(self):
         """
         """
         pm = IImageManagement(self.product_1)
         ids = [p.getId() for p in pm.getImages()]
-        
+
         self.assertEqual(ids, ["product_1"])
-                        
+
     def testHasImages(self):
         """
         """
@@ -115,43 +115,42 @@ class TestImageManagement_4(EasyShopTestCase):
     def afterSetUp(self):
         """
         """
-        super(TestImageManagement_4, self).afterSetUp()                    
-                
+        super(TestImageManagement_4, self).afterSetUp()
+
         img = os.path.join(package_home(globals()), 'test.jpg')
         img = open(img)
-        
+
         self.product_1.setImage(img)
         self.product_1.invokeFactory("EasyShopImage", id="image_1")
         self.product_1.invokeFactory("EasyShopImage", id="image_2")
-                                
+
         self.logout()
-        
+
     def testGetMainImage(self):
         """
         """
         pm = IImageManagement(self.product_1)
         self.assertEqual(pm.getMainImage().getId(), "product_1")
-        
+
     def testGetImages(self):
         """
         """
         pm = IImageManagement(self.product_1)
         ids = [p.getId() for p in pm.getImages()]
-        
+
         self.assertEqual(ids, ["product_1", "image_1", "image_2"])
-                        
+
     def testHasImages(self):
         """
         """
         pm = IImageManagement(self.product_1)
         self.assertEqual(pm.hasImages(), True)
-    
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestImageManagement_1))
     suite.addTest(makeSuite(TestImageManagement_2))
-    suite.addTest(makeSuite(TestImageManagement_3))    
-    suite.addTest(makeSuite(TestImageManagement_4))        
+    suite.addTest(makeSuite(TestImageManagement_3))
+    suite.addTest(makeSuite(TestImageManagement_4))
     return suite
-                                               

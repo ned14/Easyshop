@@ -25,7 +25,6 @@ class TestCartManagement(EasyShopTestCase):
         """Create cart for anonymous.
         """
         self.logout()
-        sid = self.portal.REQUEST.SESSION = utils.TestSession("123")    
         cart = self.cm.createCart()        
         
         self.assertEqual(cart.getId(), "123")
@@ -62,8 +61,6 @@ class TestCartManagement(EasyShopTestCase):
         """Cart for anonmyous. There is no cart yet.
         """
         self.logout()
-        sid = self.portal.REQUEST.SESSION = utils.TestSession("123")
-
         cart = self.cm.getCart()
         self.assertEqual(cart, None)
             
@@ -71,7 +68,6 @@ class TestCartManagement(EasyShopTestCase):
         """Cart for anonymous. There is a cart
         """
         self.logout()
-        sid = self.portal.REQUEST.SESSION = utils.TestSession("123")
         self.cm.createCart()
         
         cart = self.cm.getCart()
@@ -90,7 +86,6 @@ class TestCartManagement(EasyShopTestCase):
         """Cart for member. There is an anonymous cart.
         """
         self.logout()
-        sid = self.portal.REQUEST.SESSION = utils.TestSession("123")
         
         # create cart for anonymous
         self.cm.createCart()
@@ -153,7 +148,6 @@ class TestCartManagement(EasyShopTestCase):
         """
         """
         self.logout()
-        sid = self.portal.REQUEST.SESSION = utils.TestSession("123")
         cart_id = self.cm._getCartId()        
         self.assertEqual(cart_id, "123")
         

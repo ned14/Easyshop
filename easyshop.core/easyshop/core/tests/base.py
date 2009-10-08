@@ -19,6 +19,7 @@ from Products.Five.testbrowser import Browser as BaseBrowser
 from Products.Five import zcml
 
 import easyshop.core
+import utils
 
 PloneTestCase.setupPloneSite(
     products=["easyshop.core",
@@ -51,10 +52,10 @@ class Browser(BaseBrowser):
         """ add an authorization header using the given or default credentials """
         self.addHeader('Authorization', 'Basic %s:%s' % (user, password))
         return self
-    
+
     def dc(self, filename="/Users/Kai/Downloads/test-output.html"):
         open(filename, 'w').write(self.contents)
-            
+
 class EasyShopLayer(PloneSite):
     """
     """
@@ -79,7 +80,7 @@ class EasyShopLayer(PloneSite):
         ZopeTestCase.installPackage("easyshop.shipping")
         ZopeTestCase.installPackage("easyshop.stocks")
         ZopeTestCase.installPackage("easyshop.taxes")
-        
+
         setup_tool = getToolByName(portal, 'portal_setup')
         setup_tool.runAllImportStepsFromProfile('profile-easyshop.core:default')
         setup_tool.runAllImportStepsFromProfile('profile-easyshop.shop:default')
@@ -105,14 +106,14 @@ class EasyShopLayer(PloneSite):
         newSecurityManager(None, user)
 
         utils.createTestEnvironment(portal)
-        
+
         commit()
         ZopeTestCase.close(app)
 
     @classmethod
     def tearDown(cls):
         pass
-        
+
 class EasyShopMixin(object):
     """
     """
@@ -128,6 +129,9 @@ class EasyShopMixin(object):
         self.group_1    = self.portal.group_1
         self.group_2    = self.portal.group_2
 
+        # setup dummy session
+        self.sid = self.portal.REQUEST.SESSION = utils.TestSession("123")
+
 class EasyShopFunctionalMixin(EasyShopMixin):
     """
     """
@@ -137,22 +141,22 @@ class EasyShopFunctionalMixin(EasyShopMixin):
         super(EasyShopFunctionalMixin, self).afterSetUp()
 
         # let users join themselves
-        self.portal.manage_permission('Add portal member', roles=["Anonymous", "Manager"], acquire=0)        
-        
-        # let users select their own password        
-        self.portal.manage_changeProperties(validate_email=False)    
+        self.portal.manage_permission('Add portal member', roles=["Anonymous", "Manager"], acquire=0)
+
+        # let users select their own password
+        self.portal.manage_changeProperties(validate_email=False)
 
         workflow = self.portal.portal_workflow
         workflow.doActionFor(self.portal.myshop, 'publish')
         workflow.doActionFor(self.portal.myshop.products.product_1, 'publish')
         workflow.doActionFor(self.portal.myshop.products.product_2, 'publish')
         workflow.doActionFor(self.portal.myshop.products.product_42, 'publish')
-        
+
 class EasyShopTestCase(EasyShopMixin, PloneTestCase.PloneTestCase):
     """Base class for integration tests for the 'iqpp.rating' product.
     """
     layer = EasyShopLayer
-  
+
 class EasyShopFunctionalTestCase(EasyShopFunctionalMixin, PloneTestCase.FunctionalTestCase):
     """Base class for functional integration tests for the 'iqpp.rating' product.
     """
