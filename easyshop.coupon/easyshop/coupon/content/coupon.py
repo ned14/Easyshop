@@ -19,7 +19,10 @@ schema = atapi.BaseSchema.copy() + atapi.Schema((
 
     atapi.StringField('title',
         widget=atapi.StringWidget(
-            visible={'edit':'invisible', 'view':'invisible'},
+            visible=dict(
+                edit='invisible',
+                view='invisible',
+            ),
         ),
         required=False
     ),
@@ -42,9 +45,6 @@ schema = atapi.BaseSchema.copy() + atapi.Schema((
     ),
 ))
 
-schema.changeSchemataForField('effectiveDate','default')
-schema.changeSchemataForField('expirationDate','default')
-
 class Coupon(atapi.BaseContent):
     """easyshop coupon"""
     implements(ICoupon)
@@ -56,30 +56,10 @@ class Coupon(atapi.BaseContent):
                         in range(COUPON_ID_LENGTH)])
 
     def Title(self):
-        return "Coupon Code: %s" % self.getCouponId()
+        return "Coupon Code"
 
     def getValue(self):
-        value = []
-        ts = getToolByName(self,'translation_service')
+        return self.getCouponId()
 
-        if self.getEffectiveDate():
-            localized_effective = ts.ulocalized_time(self.getEffectiveDate(),
-                                                     context=self,
-                                                     request=self.REQUEST)
-            value.append(zope.i18n.translate(
-                _("coupon_effective",
-                  mapping=dict(date=localized_effective)),
-                target_language=self.REQUEST.get('LANGUAGE','de')))
-
-        if self.getExpirationDate():
-            localized_expires = ts.ulocalized_time(self.getExpirationDate(),
-                                                   context=self,
-                                                   request=self.REQUEST)
-            value.append(zope.i18n.translate(
-                _("coupon_expires",
-                  mapping=dict(date=localized_expires)),
-                target_language=self.REQUEST.get('LANGUAGE','de')))
-
-        return ', '.join(value)
 
 atapi.registerType(Coupon, PROJECTNAME)
