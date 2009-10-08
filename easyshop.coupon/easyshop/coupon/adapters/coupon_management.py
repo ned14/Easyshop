@@ -67,8 +67,7 @@ class CouponManagement:
 
         coupons = catalog(
             portal_type="Coupon",
-            getCouponId=couponId,
-            effectiveRange=datetime.now().isoformat())
+            getCouponId=couponId)
 
         return len(coupons)>0 and coupons[0].getObject() or None
 
