@@ -10,42 +10,42 @@
            tal:define="info view/getInfo;
                        lines info/products;
                        batch_info info/batch_info;
-                       format_info info/format_info">    
+                       format_info info/format_info">
         <tr>
             <td tal:attributes="colspan format_info/products_per_line">
 
                 <table class="shop-default product-navigation">
-                    <tr>    
+                    <tr>
                         <td class="left"
                             tal:condition="batch_info/parent_url">
                             <a href="#"
                                tal:attributes="href batch_info/parent_url">
-                               
-                                <img src="navigation_previous.gif" 
+
+                                <img src="navigation_previous.gif"
                                      alt="Navigation Previous"
                                      title="Previous"
                                      tal:attributes="src string:navigation_previous_small.gif"
                                      i18n:attributes="title previous_label;" />
-                                
-                                <span i18n:translate="back_to_overview_label">                                  
+
+                                <span i18n:translate="back_to_overview_label">
                                     Back to overview
                                 </span>
-                                
+
                             </a>
                         </td>
-                        
+
                         <td class="right">
                             <a tal:omit-tag="not:batch_info/previous"
-                               tal:attributes="href context/absolute_url"> 
-                               <img src="navigation_first.gif" 
+                               tal:attributes="href context/absolute_url">
+                               <img src="navigation_first.gif"
                                     alt="Navigation First"
                                     title="First"
                                     tal:attributes="src string:navigation_first_small.gif"
                                     i18n:attributes="title first_label;" />
                             </a>
                             <a tal:omit-tag="not:batch_info/previous"
-                               tal:attributes="href batch_info/previous_url"> 
-                                <img src="navigation_previous_small.gif" 
+                               tal:attributes="href batch_info/previous_url">
+                                <img src="navigation_previous_small.gif"
                                      alt="Navigation Previous"
                                      title="Previous"
                                      tal:attributes="src string:navigation_previous_small.gif"
@@ -54,13 +54,13 @@
                             <span tal:condition="batch_info/navigation_list"
                                   tal:omit-tag="">
                                  <span tal:content="batch_info/page_number">Current page number</span>
-                                 <tal:block i18n:translate="of_label">of</tal:block>                                 
+                                 <tal:block i18n:translate="of_label">of</tal:block>
                                  <span tal:content="batch_info/number_of_pages">Total Number of pages</span>
                             </span>
                             <a tal:omit-tag="not:batch_info/next"
                                href="#"
                                tal:attributes="href batch_info/next_url">
-                                <img src="navigation_next_small.gif" 
+                                <img src="navigation_next_small.gif"
                                      alt="Navigation Next"
                                      Title="Next"
                                      tal:attributes="src string:navigation_next_small.gif"
@@ -69,7 +69,7 @@
                             <a tal:omit-tag="not:batch_info/next"
                                href="#"
                                tal:attributes="href batch_info/last_url">
-                              <img src="navigation_last_small.gif" 
+                              <img src="navigation_last_small.gif"
                                    alt="Navigation Last"
                                    Title="Last"
                                    tal:attributes="src string:navigation_last_small.gif"
@@ -86,32 +86,31 @@
                <div id="custom-breadcrumbs" tal:define="breadcrumbs view/getBreadCrumbs">
                 <span class="custom-breadcrumbs-you-are-here"> Sie sind hier:</span>
                 <span>
-                 <a href="#" class="folder" tal:attributes="
-                     href view/getShopURL"
+                 <a href="#" class="folder" tal:attributes="href view/getShopURL"
                      >Online-Shop</a>
                 </span>
-                <span class="breadcrumbSeparator">&rarr;</span>    
-                
+                <span class="breadcrumbSeparator">&rarr;</span>
+
                 <span tal:repeat="link breadcrumbs">
                   <a href="#" class="folder" tal:attributes="
                               href link/absolute_url"
                               tal:content="link/title">test</a>
-                  <span class="breadcrumbSeparator">&rarr;</span> 
+                  <span class="breadcrumbSeparator">&rarr;</span>
                 </span>
                 <span>
-                 <a href="#"  
-			                       	tal:attributes="href batch_info/absolute_url"
-		                          tal:content="batch_info/title">Product Title</a>
+                 <a href="#"
+                    tal:attributes="href batch_info/absolute_url"
+		            tal:content="batch_info/title">Product Title</a>
                 </span>
-               </div>    
-               <!-- end : breadcrumbs -->           
-         </td>        
+               </div>
+               <!-- end : breadcrumbs -->
+         </td>
         </tr>
         <tr>
-            <td class="main-title" 
+            <td class="main-title"
                 tal:content="context/Description"
-                tal:attributes="colspan format_info/products_per_line">                
-                Description                                        
+                tal:attributes="colspan format_info/products_per_line">
+                Description
             </td>
         </tr>
         <tr tal:repeat="line lines">
@@ -120,7 +119,7 @@
                 tal:repeat="product line">
                 <!-- Todo: Try to get rid of this table -->
                 <table class="product-content">
-                    <tr>                        
+                    <tr>
                        <td class="sub-title"
                            colspan="2">
                            <h1 class="shop-title">
@@ -130,15 +129,15 @@
                                   tal:attributes="href product/url;
                                                   title product/title">
                                    Product Name
-                               </a>                                    
+                               </a>
                            </h1>
-                       </td> 
+                       </td>
                     </tr>
                     <tr style="cursor:pointer"
                         tal:attributes="onclick string:window.location='${product/url}'"
                         onmouseover="javascript:this.style.background = '#f9f9f9'"
                         onmouseout="javascript:this.style.background = 'white'">
-                        
+
                         <td class="product-image"
                             tal:attributes="height format_info/product_height">
                             <a tal:condition="product/image"
@@ -164,16 +163,16 @@
                                                title="Details"
                                                i18n:attributes="title details_label;"
                                                tal:attributes="onclick string:location.href='${product/url}'" />
-            
+
                                         <form tal:attributes="action product/url"
                                               method="post">
-            
+
                                             <input type="hidden"
                                                    name="quantity"
                                                    value="1" />
-            
+
                                             <input class="standalone"
-                                                   name="addToCart:method" 
+                                                   name="addToCart:method"
                                                    value="Add to Cart"
                                                    type="submit"
                                                    title="Add to Cart"
@@ -191,13 +190,13 @@
                                                   tal:content="product/price">
                                                 42.00
                                             </span>
-                                        </tal:block>                        
+                                        </tal:block>
                                         <tal:block tal:condition="not:product/for_sale">
                                             <span class="product-price"
                                                   tal:content="product/price">
                                                 42.00
-                                            </span>                                    
-                                        </tal:block> 
+                                            </span>
+                                        </tal:block>
                               </div>
                                <div class="product-price-info">
                                  Preis inkl. MwSt. und <a href="javascript:return false" tal:attributes="onclick string:easyShopZoomWindow('${info/shopurl}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
@@ -206,42 +205,42 @@
                         </td>
                     </tr>
                 </table>
-            </td>    
-        </tr>    
+            </td>
+        </tr>
         <tr>
             <td tal:attributes="colspan format_info/products_per_line">
                 <table class="shop-default product-navigation">
-                    <tr>    
+                    <tr>
                         <td class="left"
                             tal:condition="batch_info/parent_url">
                             <a href="#"
                                tal:attributes="href batch_info/parent_url">
-                               
-                                <img src="navigation_previous.gif" 
+
+                                <img src="navigation_previous.gif"
                                      alt="Navigation Previous"
                                      title="Previous"
                                      tal:attributes="src string:navigation_previous_small.gif"
                                      i18n:attributes="title previous_label;" />
-                                
-                                <span i18n:translate="back_to_overview_label">                                  
+
+                                <span i18n:translate="back_to_overview_label">
                                     Back to overview
                                 </span>
-                                
+
                             </a>
                         </td>
-                        
+
                         <td class="right">
                             <a tal:omit-tag="not:batch_info/previous"
-                               tal:attributes="href context/absolute_url"> 
-                               <img src="navigation_first.gif" 
+                               tal:attributes="href context/absolute_url">
+                               <img src="navigation_first.gif"
                                     alt="Navigation First"
                                     title="First"
                                     tal:attributes="src string:navigation_first_small.gif"
                                     i18n:attributes="title first_label;" />
                             </a>
                             <a tal:omit-tag="not:batch_info/previous"
-                               tal:attributes="href batch_info/previous_url"> 
-                                <img src="navigation_previous_small.gif" 
+                               tal:attributes="href batch_info/previous_url">
+                                <img src="navigation_previous_small.gif"
                                      alt="Navigation Previous"
                                      title="Previous"
                                      tal:attributes="src string:navigation_previous_small.gif"
@@ -250,13 +249,13 @@
                             <span tal:condition="batch_info/navigation_list"
                                   tal:omit-tag="">
                                  <span tal:content="batch_info/page_number">Current page number</span>
-                                 <tal:block i18n:translate="of_label">of</tal:block>                                 
+                                 <tal:block i18n:translate="of_label">of</tal:block>
                                  <span tal:content="batch_info/number_of_pages">Total Number of pages</span>
                             </span>
                             <a tal:omit-tag="not:batch_info/next"
                                href="#"
                                tal:attributes="href batch_info/next_url">
-                                <img src="navigation_next_small.gif" 
+                                <img src="navigation_next_small.gif"
                                      alt="Navigation Next"
                                      Title="Next"
                                      tal:attributes="src string:navigation_next_small.gif"
@@ -265,7 +264,7 @@
                             <a tal:omit-tag="not:batch_info/next"
                                href="#"
                                tal:attributes="href batch_info/last_url">
-                              <img src="navigation_last_small.gif" 
+                              <img src="navigation_last_small.gif"
                                    alt="Navigation Last"
                                    Title="Last"
                                    tal:attributes="src string:navigation_last_small.gif"
@@ -275,6 +274,6 @@
                     </tr>
                 </table>
             </td>
-        </tr>        
-    </table>    
+        </tr>
+    </table>
 </div>
