@@ -71,7 +71,7 @@ class CouponManagement:
 
         return len(coupons)>0 and coupons[0].getObject() or None
 
-    def getValidCoupon(self):
+    def getValidCoupon(self, check_coupon=None):
         """
         """
         stored_coupon_id = self.shop.REQUEST.get(COUPON_COOKIE_NAME)
@@ -81,9 +81,14 @@ class CouponManagement:
 
         coupon_id = decodestring(unquote(stored_coupon_id))
         coupon = self.getCoupon(coupon_id)
+
+        if check_coupon is not None:
+            if coupon!=check_coupon:
+                return
+
         customer = ICustomerManagement(self.shop).getAuthenticatedCustomer()
 
-        if coupon and customer and \
+        if customer and \
            customer.id in coupon.getConsumers():
             return coupon
 

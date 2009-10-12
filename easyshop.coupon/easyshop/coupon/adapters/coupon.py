@@ -26,7 +26,7 @@ class CouponValidity:
         shop = IShopManagement(self.context).getShop()
         cm = ICouponManagement(shop)
 
-        if cm.getValidCoupon():
+        if cm.getValidCoupon(self.context):
             return True
         else:
             return False

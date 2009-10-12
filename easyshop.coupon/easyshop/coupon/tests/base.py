@@ -50,6 +50,7 @@ def setup_product():
     # We may also need to load dependencies, e.g.:
     #   ztc.installPackage('borg.localrole')
 
+    ztc.installPackage('easyshop.core')
     ztc.installPackage('easyshop.coupon')
 
 # The order here is important: We first call the (deferred) function
@@ -57,7 +58,7 @@ def setup_product():
 # PloneTestCase set up this product on installation.
 
 setup_product()
-ptc.setupPloneSite(products=['easyshop.coupon'])
+ptc.setupPloneSite(products=['easyshop.core','easyshop.coupon'])
 
 class TestCase(ptc.PloneTestCase):
     """We use this base class for all the tests in this package. If
