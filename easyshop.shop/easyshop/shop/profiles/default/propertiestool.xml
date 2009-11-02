@@ -1,5 +1,25 @@
 <?xml version="1.0"?>
 <object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="navtree_properties" meta_type="Plone Property Sheet">
+  <property name="metaTypesNotToList" type="lines" purge="false">
+   <element value="CartsContainer" />
+   <element value="CategoriesContainer" />
+   <element value="EasyShopImage" />
+   <element value="ProductsContainer" />
+   <element value="CustomersContainer"/>
+   <element value="SessionsContainer"/>
+   <element value="PaymentPricesContainer" />
+   <element value="PaymentMethodsContainer" />
+   <element value="DiscountsContainer" />
+   <element value="GroupsContainer" />
+   <element value="InformationContainer" />
+   <element value="OrdersContainer" />
+   <element value="ShippingMethodsContainer" />
+   <element value="ShippingPricesContainer" />
+   <element value="StockInformationContainer" />
+   <element value="TaxesContainer" />
+  </property>
+ </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
   <property name="types_not_searched" type="lines" purge="false">
    <element value="Cart"/>
