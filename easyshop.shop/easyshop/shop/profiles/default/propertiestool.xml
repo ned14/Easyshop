@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_properties" meta_type="Plone Properties Tool">
  <object name="navtree_properties" meta_type="Plone Property Sheet">
-  <property name="metaTypesNotToList" type="lines" purge="false">
+  <property name="metaTypesNotToList" type="lines" purge="False">
    <element value="CartsContainer" />
    <element value="CategoriesContainer" />
    <element value="EasyShopImage" />
@@ -21,7 +21,7 @@
   </property>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
-  <property name="types_not_searched" type="lines" purge="false">
+  <property name="types_not_searched" type="lines" purge="False">
    <element value="Cart"/>
    <element value="CartItem"/>
    <element value="CartsContainer" />
