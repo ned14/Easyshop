@@ -1,0 +1,25 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+     <browser:page
+        name="ajax-move-category-up"
+        for="*"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="moveCategoryUp"
+        permission="cmf.ManagePortal" />
+
+     <browser:page
+        name="ajax-move-category-down"
+        for="*"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="moveCategoryDown"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="ajax-add-category"
+        for="*"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="addCategory"
+        permission="cmf.ManagePortal" />
+
+</configure>

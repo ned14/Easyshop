@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="easyshop.management">
+
+    <five:registerPackage
+        package="." 
+        initialize=".initialize" />
+
+    <include
+        package=".ajax" />
+
+    <include
+        package=".browser" />
+
+    <include
+        package=".scripts" />
+
+    <include
+        package=".viewlets" />
+        
+    <genericsetup:registerProfile
+        name="default"
+        title="easyshop.management"
+        directory="profiles/default"
+        description="Management Screens for EasyShop"
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+</configure>

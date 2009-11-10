@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:block metal:fill-slot="javascript_head_slot">
+
+    <script>
+         (function($) { 
+
+            $(function(){
+
+                $("#select-all").click(function () {
+
+                    var checkedValue = $('#select-all').attr('checked') ? 'checked' : ''; 
+                    $("#selected-products").find("input[@type$='checkbox']").each(function(){
+                        this.checked = checkedValue;
+                    });                    
+                });
+            })          
+                
+         })(jQuery);
+    
+    </script>
+    
+</metal:block>
+
+<metal:main fill-slot="main"
+            tal:define="info view/getProducts">
+            
+    <tal:main-macro metal:define-macro="main">
+
+        <h1 class="documentFirstHeading"> 
+            Manage Products
+        </h1>
+
+        <a href="."
+           tal:attributes="href info/previous_url">
+           Previous</a>
+        |
+        <a href="."
+           tal:attributes="href info/next_url">
+           Next</a>
+        
+        <form action=".">
+            <table>
+                <tr tal:repeat="product info/batch">
+                    <td>
+                        <input type="checkbox"
+                               name="product_uids"
+                               tal:attributes="value product/uid" />
+                    </td>
+                    <td tal:content="product/title">
+                        Title
+                    </td>
+                </tr>
+            </table>    
+            <input type="submit"
+                   value="save"
+                   name="add-products:method" />
+        </form>    
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

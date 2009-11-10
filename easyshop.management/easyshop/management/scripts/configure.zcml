@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+        name="delete-carts"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_sessions.ManageSessions"
+        attribute="deleteCarts"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="delete-customers"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_sessions.ManageSessions"
+        attribute="deleteCustomers"
+        permission="cmf.ManagePortal" />
+
+</configure>

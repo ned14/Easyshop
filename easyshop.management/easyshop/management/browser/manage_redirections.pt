@@ -1,0 +1,142 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+<body>
+
+<metal:javascript_head fill-slot="javascript_head_slot">
+    <script>
+        jq(function() {
+            jq("#select-all-paths").livequery("click", function () {
+                var checkedValue = jq('#select-all-paths').attr('checked') ? 'checked' : ''; 
+                jq(".paths").each(function(){
+                    this.checked = checkedValue;
+                });                    
+            });
+        });
+    </script>            
+</metal:javascript_head>    
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+                    tal:define="batch view/getRedirections;
+                                batch_base_url string:${context/absolute_url}/manage-redirections">
+
+        <h1 class="documentFirstHeading"
+            i18n:translate="manage_redirections_label"> 
+            Manage Redirections
+        </h1>
+        
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+        <form method="post"
+              action="#"
+              tal:attributes="action string:${context/absolute_url}/@@add-redirection"
+              class="add-redirection-form">
+            
+            <label i18n:translate="paths_label">
+                Old Path / New Path
+            </label>
+
+            <input type="hidden"
+                   name="amount"
+                   tal:attributes="value context/REQUEST/amount|nothing" />
+
+            <input type="hidden"
+                   name="b_start"
+                   tal:attributes="value context/REQUEST/b_start|nothing" />
+              
+            <input type="text"
+                   name="old_path" />
+
+            <input type="text"
+                   name="new_path" />
+
+            <input type="submit"
+                   value="Add Redirection"
+                   i18n:attributes="value add_redirection_label;" />
+        </form>
+        
+        <form method="post"
+              action="#"
+              tal:attributes="action string:${context/absolute_url}/@@remove-redirections">
+        
+            <table class="listing">
+                <tr>
+                    <th>
+                        <input type="checkbox"
+                               id="select-all-paths" />
+                    </th>
+                    <th i18n:translate="old_path_label">
+                        Old Path
+                    </th>
+                    <th i18n:translate="new_path_label">
+                        New Path
+                    </th>
+                </tr>
+                <tr tal:repeat="redirection batch">
+                    <td>
+                        <input type="checkbox"
+                               class="paths"
+                               name="paths"
+                               tal:attributes="value redirection/old_path">
+                    </td>
+                    <td tal:content="redirection/old_path">
+                        Old Path
+                    </td>
+                    <td tal:content="redirection/new_path">
+                        New Path
+                    </td>
+                </tr>
+            </table>
+
+            <input type="hidden"
+                   name="amount"
+                   tal:attributes="value context/REQUEST/amount|nothing" />
+
+            <input type="hidden"
+                   name="b_start"
+                   tal:attributes="value context/REQUEST/b_start|nothing" />
+                   
+            <input type="submit"
+                   value="Delete Redirections" 
+                   i18n:attributes="value delete_redirections_label;" />
+
+        </form>
+
+        <h1 i18n:translate="advanced_label">
+            Advanced
+        </h1>
+
+        <form method="post"
+              action="#"
+              tal:attributes="action string:${context/absolute_url}/@@remove-redirections"
+              class="remove-redirections-form">
+             
+            <label i18n:translate="regex_label">
+                RegEx
+            </label>
+            <input type="text"
+                   name="regex" />
+
+            <input type="hidden"
+                   name="amount"
+                   tal:attributes="value context/REQUEST/amount|nothing" />
+
+            <input type="hidden"
+                   name="b_start"
+                   tal:attributes="value context/REQUEST/b_start|nothing" />
+
+            <input type="submit"
+                   value="Remove Redirections"
+                   i18n:attributes="value remove_redirections_label;" />              
+        </form>
+        
+        
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

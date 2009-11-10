@@ -1,0 +1,162 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+
+    <browser:page
+        name="manage-redirections"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        template="manage_redirections.pt"
+        permission="cmf.ManagePortal" />
+        
+    <browser:page
+        name="add-redirection"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        attribute="addRedirection"
+        permission="cmf.ManagePortal" />
+        
+    <browser:page
+        name="remove-redirection"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        attribute="removeRedirection"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="remove-redirections"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        attribute="removeRedirections"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="cleanup-redirections"
+        for="*"
+        class=".manage_redirections.ManageRedirectionsView"
+        attribute="cleanupRedirections"
+        permission="cmf.ManagePortal" />
+
+    <!-- Product -->       
+    <browser:page
+        name="manage-products"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_products.ManageProductsView"
+        template="manage_products.pt"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="change-price"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_products.ManageProductsView"
+        attribute="changePrice"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="rename"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_products.ManageProductsView"
+        attribute="rename"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="add-to-group"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_products.ManageProductsView"
+        attribute="addToGroup"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="add-to-category"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_products.ManageProductsView"
+        attribute="addToCategory"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="move-to-category"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_products.ManageProductsView"
+        attribute="moveToCategory"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="delete-categories"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_products.ManageProductsView"
+        attribute="deleteCategories"
+        permission="cmf.ManagePortal" />
+
+    <!-- Category -->
+    <browser:page
+        name="manage-categories"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        template="manage_categories.pt"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="move-category-to-category"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="moveToCategory"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="manage-categories-add-category"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="addCategory"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="manage-categories-delete-categories"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="deleteCategories"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="manage-categories-select-categories"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="deselectCategories"
+        permission="cmf.ManagePortal" />
+        
+    <browser:page
+        name="move-category-up"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="moveCategoryUp"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="move-category-down"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="moveCategoryDown"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="set-collapsile-state"
+        for="easyshop.core.interfaces.IShop"
+        class=".manage_categories.ManageCategoriesView"
+        attribute="setCollapsileState"
+        permission="cmf.ManagePortal" />
+
+    <!-- For Categories -->    
+    <browser:page
+        name="manage-products"
+        for="easyshop.core.interfaces.ICategory"
+        class=".category_manage_products.ManageProductsView"
+        template="category_manage_products.pt"
+        permission="cmf.ManagePortal" />
+
+    <browser:page
+        name="add-products"
+        for="easyshop.core.interfaces.ICategory"
+        class=".category_manage_products.ManageProductsView"
+        attribute="addProducts"
+        permission="cmf.ManagePortal" />
+
+</configure>

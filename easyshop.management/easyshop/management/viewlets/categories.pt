@@ -1,0 +1,5 @@
+<div id="manage-categories">
+    <div tal:repeat="category view/getCategories">
+        <div metal:use-macro="context/categories_macros/macros/category2" />
+    </div>
+</div>

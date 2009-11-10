@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="EasyShop">
+
+    <metal:javascript_head fill-slot="javascript_head_slot">
+        <script>
+            jq(function() {
+                jq("span.toggle").livequery("click", function() {
+
+                    var children = jq(this).siblings('.children');
+                    var is_visible = children.is(":visible");
+                    children.slideToggle("fast");
+
+                    var children = jq(this).toggleClass("extended")
+
+                    var uid = jq(this).siblings("input").val();
+                    jq.post("set-collapsile-state", { set_state : is_visible, uid:uid });
+                    return false;
+                });
+            
+                jq("#add-category-submit").livequery("click", function() {
+                    var name = jq("#category_name").val()
+                    jq.post("ajax-add-category", {name : name}, function(data) {
+                        jq("#manage-categories").html(data);
+                        jq("#category_name").val("");
+                    });
+
+                    return false;
+                });
+
+                jq("a.move_category_down").livequery("click" ,function() {
+                    var uid = jq(this).attr("id");
+                    jq.post("ajax-move-category-down", { uid : uid }, function(data) {
+                        jq("#manage-categories").html(data);
+                    });
+            
+                    return false;
+                });
+                jq("a.move_category_up").livequery("click", function() {
+                    var uid = jq(this).attr("id");
+                    jq.post("ajax-move-category-up", { uid : uid }, function(data) {
+                        jq("#manage-categories").html(data);
+                    });
+                    
+                    return false;
+                });
+            });
+
+        </script>   
+    
+    </metal:javascript_head>    
+      
+    <body>
+        
+        <metal:main fill-slot="main">  
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+            <h1 class="documentFirstHeading"
+                i18n:translate="categories_label">
+                Categories
+            </h1>
+
+            <a href="#"
+               class="link-parent"
+               tal:attributes="href context/aq_parent/absolute_url"
+               i18n:translate="shop_label">
+                Shop
+            </a>  
+
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+            
+            <form action="manage-categories-add-category"
+                  method="post">
+                <input type="text"
+                       id="category_name"
+                       name="category_name" />
+
+                <input id="add-category-submit"
+                       class="allowMultiSubmit"
+                       type="submit"
+                       value="Add category">
+                       
+                <input tal:repeat="selected_category view/getSelectedCategories"
+                       type="hidden"
+                       name="selected_category" 
+                       tal:attributes="value selected_category" />
+                       
+            </form>
+                
+            <form action="."
+                  method="post">
+                
+                <input tal:repeat="selected_category view/getSelectedCategories"
+                       type="hidden"
+                       name="selected_category" 
+                       tal:attributes="value selected_category" />
+                
+                <tal:block tal:condition="view/hasSelectedCategories">
+                    <input style="margin:3px 0; display:inline" 
+                           type="radio"
+                           name="target_category"
+                           value="no-category" />
+                    <span>
+                        Shop
+                    </span>
+                </tal:block>
+
+                <div tal:replace="structure provider:easyshop.management.categories-management" />
+                
+                <div style="margin-top:20px">
+
+                    <input tal:condition="not:view/hasSelectedCategories"
+                           value="Select categories"
+                           type="submit"
+                           name="manage-categories:method" />
+
+                    <input tal:condition="view/hasSelectedCategories"
+                           type="submit" 
+                           value="Deselect categories"
+                           name="manage-categories-select-categories:method" />
+
+                    <input tal:condition="view/hasSelectedCategories"
+                           type="submit" 
+                           value="Move categories"
+                           name="move-category-to-category:method" />
+                       
+                    <input tal:condition="view/hasSelectedCategories"
+                           type="submit" 
+                           value="Delete categories"
+                           name="manage-categories-delete-categories:method" />
+                </div>
+                
+            </form>
+                
+        </metal:main>
+
+    </body>
+</html>

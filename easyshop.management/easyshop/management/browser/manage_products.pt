@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:block metal:fill-slot="javascript_head_slot">
+
+    <script>
+         (function($) { 
+
+            $(function(){
+
+                $("#select-all").click(function () {
+
+                    var checkedValue = $('#select-all').attr('checked') ? 'checked' : ''; 
+                    $("#selected-products").find("input[@type$='checkbox']").each(function(){
+                        this.checked = checkedValue;
+                    });                    
+                });
+            })          
+                
+         })(jQuery);
+    
+    </script>
+    
+</metal:block>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <h1 class="documentFirstHeading"> 
+            Manage Products
+        </h1>
+<!--
+        <p class="documentDescription"
+           i18n:translate="manage_products_label">
+            Manage products
+        </p>
+-->
+        <div tal:replace="structure provider:easyshop.management.products-management" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

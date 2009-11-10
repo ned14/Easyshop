@@ -1,0 +1,272 @@
+<tal:block i18n:domain="EasyShop"
+           tal:define="selected_products view/getSelectedProducts"
+           tal:condition="selected_products">
+    <div tal:condition="view/showChangePrice">
+        <h1>Change Price</h1>
+        <form action="."
+              method="post">
+        
+            <table class="shop-default">
+                <tr>
+                    <th class="text" 
+                        i18n:translate="product_label">
+                        Product
+                    </th>
+                    <th class="number" 
+                        i18n:translate="current_price">
+                        Current price
+                    </th>
+                    <th class="number" 
+                        i18n:translate="new_price_label">
+                        New price
+                    </th>
+                </tr>    
+                <tr tal:repeat="product selected_products">
+                    <td class="text"
+                        tal:content="product/title">
+                        Title
+                    </td>
+                    <td class="number" 
+                        tal:content="product/price">
+                        Price
+                    </td>
+                    <td class="number">
+                        <input type="text"
+                               tal:attributes="name product/uid" />
+                           
+                        <input type="hidden"
+                               name="selected_uids"
+                               tal:attributes="value product/uid">
+                    </td>
+                </tr>
+            </table>  
+
+            <input type="submit"
+                   value="Change Price"
+                   name="change-price:method"
+                   i18n:attributes="value change_price_label">
+
+            <input type="hidden"
+                   name="form-sent"
+                   value="1" />
+
+            <input type="hidden"
+                   name="search_text"
+                   tal:attributes="value context/REQUEST/search_text|nothing" />
+
+            <input type="hidden"
+                   name="search_category"
+                   tal:repeat="category view/getSelectedCategories" 
+                   tal:attributes="value category" />
+        
+            <input type="hidden"
+                   name="action"
+                   tal:attributes="value context/REQUEST/action|nothing" />
+
+        </form>
+    </div>
+
+    <div tal:condition="view/showRename">
+        <h1>Rename</h1>
+        <form action="."
+              method="post">
+        
+            <table class="shop-default">
+                <tr>
+                    <th class="text" 
+                        i18n:translate="id_label">
+                        ID
+                    </th>
+                    <th class="text" 
+                        i18n:translate="title_label">
+                        Title
+                    </th>
+                    <th class="text" 
+                        i18n:translate="new_id_label">
+                       New ID 
+                    </th>
+                    <th class="text" 
+                        i18n:translate="new_title_label">
+                        New Title
+                    </th>
+                </tr>
+                <tr tal:repeat="product selected_products">
+                    <td class="text" 
+                        tal:content="product/id">
+                        ID
+                    </td>                
+                    <td class="text" 
+                        tal:content="product/title">
+                        Title
+                    </td>
+                    <td class="text">
+                        <input type="text"
+                               name="id"
+                               tal:attributes="name string:id-${product/uid}" />
+                    </td>                
+                    <td class="text">
+                        <input type="text"
+                               name="title"
+                               tal:attributes="name string:title-${product/uid}" />
+                           
+                        <input type="hidden"
+                               name="selected_uids"
+                               tal:attributes="value product/uid">
+                                                      
+                    </td>
+                </tr>
+            </table>  
+
+            <input type="submit"
+                   value="Rename"
+                   name="rename:method"
+                   i18n:attributes="value rename_label;">
+
+            <input type="hidden"
+                   name="form-sent"
+                   value="1" />
+        
+            <input type="hidden"
+                   name="search_text"
+                   tal:attributes="value context/REQUEST/search_text|nothing" />
+
+            <input type="hidden"               
+                   name="search_category"
+                   tal:repeat="category view/getSelectedCategories" 
+                   tal:attributes="value category" />
+        
+            <input type="hidden"
+                   name="action"
+                   tal:attributes="value context/REQUEST/action|nothing" />
+        
+        </form>
+    </div>
+    
+    <div tal:condition="view/showAddToGroup">
+        <h1>Add to Group</h1>
+        <form action="."
+              method="post">
+
+            <table>
+                <tr tal:repeat="product selected_products">
+                    <td tal:content="product/title">
+                        Title
+                    </td>
+                    <td>
+                        <input type="hidden"
+                               name="selected_uids"
+                               tal:attributes="value product/uid">
+                    </td>
+                </tr>
+            </table>  
+            
+            <input type="text"
+                   name="group_name" />
+                   
+            <input type="submit"
+                   value="Add to group"
+                   name="add-to-group:method"
+                   i18n:attributes="value add_to_group_label">
+
+            <input type="hidden"
+                   name="form-sent"
+                   value="1" />
+                   
+            <input type="hidden"
+                   name="search_text"
+                   tal:attributes="value context/REQUEST/search_text|nothing" />
+
+            <input type="hidden"               
+                   name="search_category"
+                   tal:repeat="category view/getSelectedCategories" 
+                   tal:attributes="value category" />
+        
+            <input type="hidden"
+                   name="action"
+                   tal:attributes="value context/REQUEST/action|nothing" />
+
+        </form>
+    </div>
+
+    <div tal:condition="view/showChangeCategory">
+        <h1>Change category</h1>
+        
+        <form action="."
+              method="post">
+            
+            <table class="shop-default">
+                <tr>
+                    <th class="text">
+                        New Category
+                    </th>
+                    <th class="text">
+                        Existing Categories
+                    </th>
+                    <th class="text">
+                        Action
+                    </th>
+                </tr>
+                <tr>
+                    <td class="text">
+                        <input tal:repeat="product selected_products"
+                               type="hidden"
+                               name="selected_uids"
+                               tal:attributes="value product/uid">
+                               
+                        <input type="text" 
+                               name="new_target_category" />
+                        
+                    </td>
+                    <td class="text">
+                        <select name="target_category"
+                                multiple="multiple">
+                            <option tal:repeat="category context/@@manage-products/getCategories"
+                                    tal:attributes="value category/UID;
+                                                    selected python: category['UID'] == context.REQUEST.get('target_category')"
+                                    tal:content="category/Title">
+                               Category Title
+                            </option>    
+                        </select>                        
+                    </td>
+                    <td class="text">
+                        
+                        <input type="hidden"
+                               name="form-sent"
+                               value="1" />
+                        
+                        <input type="submit"
+                               value="Add to category"
+                               name="add-to-category:method"
+                               i18n:attributes="value add_to_group_label">
+                   
+                        <input type="submit"
+                               value="Move to category"
+                               name="move-to-category:method"
+                               i18n:attributes="value move_to_category_label" />
+
+                        <input type="submit"
+                               value="Delete from categories"
+                               name="delete-categories:method"
+                               i18n:attributes="value delete-from-categories-label" />
+                   
+                        <input type="hidden"
+                               name="search_text"
+                               tal:attributes="value context/REQUEST/search_text|nothing" />
+
+                        <input type="hidden"               
+                               name="search_category"
+                               tal:repeat="category view/getSelectedCategories" 
+                               tal:attributes="value category" />
+        
+                        <input type="hidden"
+                               name="action"
+                               tal:attributes="value context/REQUEST/action|nothing" />
+                        
+                    </td>
+                </tr>
+            </table>
+                                      
+        </form>
+    </div>
+    
+</tal:block>    

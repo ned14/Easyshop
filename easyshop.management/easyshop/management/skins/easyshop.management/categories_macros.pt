@@ -1,0 +1,82 @@
+<div metal:define-macro="category">
+    <div>
+        <a href="."
+           tal:attributes="href string:${category/url}/manage-categories-view?category_uid=${category/uid};
+                           class category/class"
+           tal:content="category/title">
+            Title
+        </a> 
+<!--         
+        |        
+        <a href="."
+           tal:attributes="href category/url">
+            Details
+        </a>
+-->
+                
+    </div>
+    <div tal:repeat="category category/children">
+        <div style="padding-left:10px; border-left: 2px solid #AAA">
+            <div metal:use-macro="context/categories_macros/macros/category" />
+        </div>    
+    </div>    
+</div>
+
+<div class="category"
+     metal:define-macro="category2">
+
+    <span tal:condition="not:category/children"
+          class="toggle-empty"></span>
+     
+    <span tal:condition="category/children"
+          tal:attributes="class string:toggle ${category/children_class}"></span>
+    
+    <tal:block tal:condition="not:view/hasSelectedCategories">
+        <input tal:condition="not:category/selected"
+               type="checkbox" 
+               style="display:inline" 
+               name="selected_category"
+               tal:attributes="value category/uid" />
+               
+    </tal:block>
+
+    <tal:block tal:condition="view/hasSelectedCategories">
+    
+        <img tal:condition="category/selected"
+             src="selected_category_icon.png" />
+             
+        <input tal:condition="category/display_checkbox"
+               type="radio" 
+               style="margin:3px 0; display:inline" 
+               name="target_category"
+               tal:attributes="value category/uid" />
+        
+    </tal:block>
+
+    <a href="."
+       tal:attributes="href string:${category/url}/manage-categories-view?category_uid=${category/uid};
+                       class category/class;
+                       id string:${category/uid}-title"
+       tal:content="category/title">
+        Title
+    </a> 
+
+    <a class="move_category_down"
+       href="."
+       tal:attributes="href string:${context/absolute_url}/move-category-down?category_uid=${category/uid};
+                       id category/uid">&darr;</a>
+    
+    <a class="move_category_up"
+       href="."
+       tal:attributes="href string:${context/absolute_url}/move-category-up?category_uid=${category/uid};
+                       id category/uid">&uarr;</a>
+    
+                       
+    <div class="children"
+         tal:attributes="class string:children ${category/children_class}">
+        <div tal:repeat="category category/children"
+             style="padding-left:35px">
+            <div metal:use-macro="context/categories_macros/macros/category2" />
+        </div>    
+    </div>    
+</div>

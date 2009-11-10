@@ -1,0 +1,34 @@
+table.easyshop-management td {
+    vertical-align:top;
+}
+
+a.move_category_down,
+a.move_category_up {
+    text-decoration: none;
+    color: blue;
+}
+
+.toggle-empty  {
+    padding-left:15px;
+}
+
+.toggle  {
+    padding-left:15px;
+    background: url(&dtml-portal_url;/collapsed.gif) no-repeat;
+}
+
+.toggle.extended {
+    background: url(&dtml-portal_url;/extended.gif) no-repeat;
+}
+
+div.children {
+    display:block;
+}
+
+.children.collapsed {
+    display:none;
+}
+
+#categories div.category a {
+    text-decoration:none;
+}
