@@ -8,6 +8,7 @@ from Products.CMFCore.utils import getToolByName
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
+from Products.TemplateFields import ZPTField
 
 # plone.portlets imports
 from plone.portlets.constants import CONTEXT_CATEGORY
@@ -143,6 +144,21 @@ schema = Schema((
             description_msgid="schema_mailto_description",
             i18n_domain="EasyShop",
         ),
+    ),
+
+    ZPTField('body_pt',
+        schemata="mailing",
+        widget=TextAreaWidget(description = 'This is a Zope Page Template '
+            'used for rendering of the mail-body. You don\'t need to modify '
+            'it, but if you know TAL (Zope\'s Template Attribute Language) '
+            'you have the full power to customize your outgoing mails.',
+            description_msgid = "help_mailtemplate_body_pt",
+            label = 'Mail-Body Template',
+            label_msgid = "label_mailtemplate_body_pt",
+            i18n_domain = "EasyShop",
+            rows = 20,
+            ) ,
+        validators=('zptvalidator',),
     ),
 ),
 )
