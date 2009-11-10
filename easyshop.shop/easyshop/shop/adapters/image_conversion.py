@@ -7,17 +7,17 @@ from zope.component import adapts
 from easyshop.core.interfaces import IImageConversion
 
 class ImageConversion:
-    """Dummy adapter to convert image before saving. 
-    
+    """Dummy adapter to convert image before saving.
+
     3rd-party developers can provide their own adapter to convert/add images
-    before they are saved. See a example in DemmelhuberShop.
+    before they are saved.
     """
     implements(IImageConversion)
     adapts(Interface)
 
     def __init__(self, context):
         self.context = context
-    
+
     def convertImage(self, data):
         """
         """

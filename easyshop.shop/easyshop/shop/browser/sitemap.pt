@@ -25,12 +25,12 @@
     over an item for a few seconds to get its description.
     </p>
 
-    <ul id="portal-sitemap" 
+    <ul id="portal-sitemap"
         class="navTreeLevel0 visualNoMarker">
         <li class="navTreeItem">
             <div>
             <a href="#"
-               class="visualIconPadding"               
+               class="visualIconPadding"
                title="Shop"
                tal:attributes="href view/getShopUrl">
                   Shop
@@ -38,7 +38,7 @@
             </div>
             <ul class="navTree navTreeLevel2 visualNoMarker">
                 <li tal:define="level python:1"
-                    i18n:domain="EasyShop"> 
+                    i18n:domain="EasyShop">
 
                     <tal:categories tal:repeat="category view/getCategories">
                       <ul class="navTree">
@@ -61,22 +61,19 @@
                                      tal:attributes="href product/url"
                                      tal:content="product/title">
                                      Product Title
-                                  </a>   
+                                  </a>
                               </li>
                           </ul>
                           <div metal:use-macro="context/sitemap_macros/macros/subcategories" />
                          </li>
-                      </ul> 
-                    </tal:categories>                 
+                      </ul>
+                    </tal:categories>
                 </li>
-            </ul>    
-        </li>    
-        <tal:block tal:define="view context/@@sitemap_view;">
-            <tal:sitemap replace="structure view/createSiteMap" />
-        </tal:block>
+            </ul>
+        </li>
     </ul>
-    
-        
+
+
 </metal:main>
 </body>
 </html>

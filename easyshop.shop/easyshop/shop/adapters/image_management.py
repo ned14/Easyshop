@@ -10,25 +10,25 @@ class ImageManagement:
     """Provides IImageManagement for several classes.
     """
     implements(IImageManagement)
-    
+
     def __init__(self, context):
         """
         """
         self.context = context
 
     def getMainImage(self):
-        """Returns the main image. This is either the product itself or the 
+        """Returns the main image. This is either the product itself or the
         first image object within the product.
-        """ 
+        """
         image = self.context.getField("image").get(self.context)
         if len(image) != 0:
-            return image
+            return self.context
         else:
             try:
                 return self.context.objectValues("EasyShopImage")[0]
             except IndexError:
                 return None
-                
+
     def getImages(self):
         """Returns all images.
         """
@@ -36,22 +36,22 @@ class ImageManagement:
         image = self.context.getField("image").get(self.context)
         if len(image) != 0:
             result.append(self.context)
-        
+
         result.extend(self.context.objectValues("EasyShopImage"))
         return result
-        
+
     def hasImages(self):
         """Returns True if at least one image exists.
         """
         return len(self.getImages()) > 0
-        
-        
+
+
 class ProductVariantImageManagement:
     """Provides IImageManagement for ProductVariant.
     """
     implements(IImageManagement)
     adapts(IProductVariant)
-    
+
     def __init__(self, context):
         """
         """
@@ -61,11 +61,11 @@ class ProductVariantImageManagement:
     def getMainImage(self):
         """Returns the main image. This is either the product itself or the
         first image object within the product.
-        """ 
+        """
         # Returns the object, which contains the image field (not the image
         # field itself), to be able to get image_shop_large. etc.
-        
-        # 1. Try to get the image out of the variant object or the parent 
+
+        # 1. Try to get the image out of the variant object or the parent
         # product object
         image = self.context.getField("image").get(self.context)
         if len(image) == 0:
@@ -79,15 +79,15 @@ class ProductVariantImageManagement:
         images = self.context.objectValues("EasyShopImage")
         if len(images) == 0:
             images = self.parent.objectValues("EasyShopImage")
-            
+
         if len(images) != 0:
             return images[0]
-            
+
         return None
-            
+
     def getImages(self):
         """Returns all images.
-        """        
+        """
         result = []
         image = self.getMainImage()
         if image is not None:
@@ -95,11 +95,11 @@ class ProductVariantImageManagement:
 
         images = self.context.objectValues("EasyShopImage")
         if len(images) == 0:
-            images = self.parent.objectValues("EasyShopImage")        
+            images = self.parent.objectValues("EasyShopImage")
         result.extend(images)
-        
+
         return result
-        
+
     def hasImages(self):
         """Returns True if at least one image exists.
         """

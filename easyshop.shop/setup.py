@@ -37,7 +37,6 @@ setup(name='easyshop.shop',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Products.TemplateFields',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

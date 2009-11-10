@@ -6,14 +6,14 @@
 
     <browser:page
         name="sitemap"
-        for="*" 
+        for="easyshop.core.interfaces.IShop"
         template="sitemap.pt"
         class=".sitemap.SitemapView"
         permission="zope2.Public" />
 
     <browser:page
         name="send-form"
-        for="*" 
+        for="*"
         class=".mailer.FormView"
         attribute="sendForm"
         permission="zope2.Public" />
