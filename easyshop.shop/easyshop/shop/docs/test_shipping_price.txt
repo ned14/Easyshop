@@ -1,0 +1,43 @@
+First, some set-up:
+
+    >>> self.loginAsPortalOwner()    
+    >>> from easyshop.core.tests.base import Browser
+    >>> browser = Browser()
+    >>> browser = browser.addAuthorizationHeader()
+    >>> self.portal.error_log._ignored_exceptions = ()
+    
+View the shop
+------------------------------
+    >>> browser.open(self.portal.myshop.absolute_url())
+    >>> browser.contents
+    '...MyShop...'
+    
+
+Now we add a new shipping price.
+
+    >>> browser.getLink('Shipping Prices').click()
+    
+    >>> browser.getLink('Add Shipping Price').click()
+    >>> browser.getControl('Title').value = 'Default'
+    >>> browser.getControl('Price').value = '42.00'
+    >>> browser.getControl('Save').click()
+    
+The inital state should be private.
+    
+    >>> browser.contents
+    '...Private...'    
+    
+Now we publish the payment price.
+
+    >>> browser.getLink('Publish').click()
+    >>> browser.contents
+    '...Item state changed...'
+    
+    >>> browser.contents
+    '...Published...'
+
+Now we go back to the overview and test whether the new payment method is there.
+
+    >>> browser.getLink('Back to overview').click()    
+    >>> browser.contents
+    '...Default...'

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+    <index name="amount_of_categories" meta_type="FieldIndex">
+        <indexed_attr value="amount_of_categories"/>
+    </index>
+
+    <index name="fullname" meta_type="FieldIndex">
+        <indexed_attr value="fullname"/>
+    </index>
+
+    <index name="getShortText" meta_type="FieldIndex">
+        <indexed_attr value="getShortText"/>
+    </index>
+
+    <index name="getParentCategory" meta_type="FieldIndex">
+        <indexed_attr value="getParentCategory"/>
+    </index>
+
+    <index name="categories" meta_type="KeywordIndex">
+        <indexed_attr value="categories"/>
+    </index>
+
+    <index name="getPositionInParent" meta_type="FieldIndex">
+        <indexed_attr value="getPositionInParent"/>
+    </index>
+
+    <index name="getForSale" meta_type="FieldIndex">
+        <indexed_attr value="getForSale"/>
+    </index>
+
+    <column value="getParentCategory" />
+    <column value="getPositionInParent" />
+    <column value="amount_of_categories" />
+    <column value="fullname" />
+    <column value="getShortText" />    
+    <column value="total_amount_of_products" />
+ 
+</object>

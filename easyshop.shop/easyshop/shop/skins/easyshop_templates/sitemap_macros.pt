@@ -1,0 +1,38 @@
+<metal:main metal:define-macro="subcategories"
+            tal:define="level python:level+1">
+
+    <tal:subcategories tal:repeat="category category/subcategories">
+                       
+        <ul class="navTree"
+            tal:attributes="class string:navTree navTreeLevel$level">
+          <li class="navTreeItem visualNoMarker">
+            <div class="visualIcon contenttype-easyshopcategory">
+              <a href="#"
+                 class="visualIconPadding"
+                 tal:attributes="href category/url;
+                                 title category/description;">
+                  <span tal:replace="category/title">
+                    A Category
+                  </span>             
+              </a>
+            </div>  
+
+            <ul tal:define="products category/products"
+                tal:condition="products">
+  
+                <li tal:attributes="class string:navTree navTreeLevel$level"
+                    tal:repeat="product products">
+                    <a href="."
+                       tal:attributes="href product/url;
+                                       title product/title"
+                       tal:content="product/title">
+                       Product Title
+                    </a>   
+                </li>
+            </ul>
+            <div metal:use-macro="context/sitemap_macros/macros/subcategories" />
+            </li>          
+        </ul>
+    </tal:subcategories>                        
+  
+</metal:main>

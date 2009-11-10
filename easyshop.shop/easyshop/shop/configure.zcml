@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="easyshop.shop">
+
+    <five:registerPackage 
+        package="." 
+        initialize=".initialize" />
+
+    <include 
+        file="profiles.zcml" />
+
+    <include 
+        package=".adapters" />
+
+    <include 
+        package=".browser" />
+
+    <include
+        package=".portlets" />
+
+    <include
+        package=".utilities" />
+
+    <include
+        package=".migrations" />
+
+</configure>

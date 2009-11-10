@@ -1,0 +1,56 @@
+Please note, that a test environment is created via the test base class. See 
+tests/utils.py for more.
+
+First, some set-up:
+
+    >>> self.loginAsPortalOwner()    
+    >>> from easyshop.core.tests.base import Browser
+    >>> browser = Browser()
+    >>> browser = browser.addAuthorizationHeader()
+    >>> self.portal.error_log._ignored_exceptions = ()
+    
+First we want to add a category criteria to the default tax, so we first open
+the default tax
+
+    >>> browser.open(self.portal.myshop.taxes.default.absolute_url())
+    >>> browser.contents
+    '...Tax Rate...'
+
+Then we add a category criteria and select category 3. This means the tax is only
+valid for products with category_3. In our example this is product_42.
+
+    >>> browser.getLink(id="categorycriteria").click()
+
+    >>> browser.getControl('Categories').value = ('/plone/myshop/categories/category_3',)
+    >>> browser.getControl('Save').click()
+    >>> browser.contents
+    '.../plone/myshop/categories/category_3...'
+    
+Now we can check the included taxes of the products. First we add product_42
+into the card. For that product, there have to be a included tax.
+
+    >>> browser.open(self.portal.myshop.products.product_42.absolute_url())
+    >>> browser.contents
+    '...19,00...'
+    
+    >>> browser.getControl('Add to Cart').click()
+    >>> browser.contents
+    '...The product has been added to the cart...'
+        
+    >>> browser.open('http://nohost/plone/myshop/cart')
+    >>> browser.contents
+    '...3,03...'
+    
+Now we add another product and as for this there is no valid tax the included 
+tax will not be increased.    
+
+    >>> browser.open(self.portal.myshop.products.product_1.absolute_url())
+    >>> browser.getControl('Add to Cart').click()
+    >>> browser.contents
+    '...The product has been added to the cart...'
+
+The included tax is still 3,03
+    
+    >>> browser.open('http://nohost/plone/myshop/cart')
+    >>> browser.contents
+    '...3,03...'

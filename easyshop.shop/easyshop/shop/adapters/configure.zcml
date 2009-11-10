@@ -1,0 +1,75 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope">
+
+    <!-- ICurrencyManagement -->
+    <adapter
+        factory=".currency_management.CurrencyManagement" />
+
+    <!-- IImageConversion  -->
+    <adapter
+        factory=".image_conversion.ImageConversion" />
+
+    <!-- IMailAddresses  -->
+    <adapter
+        factory=".mail_addresses.ShopMailAddresses" />
+
+    <!-- IImageManagement -->
+    <adapter
+        for="easyshop.core.interfaces.IProduct"        
+        factory=".image_management.ImageManagement" />
+    
+    <adapter
+        for="easyshop.core.interfaces.ICategory"
+        factory=".image_management.ImageManagement" />
+
+    <adapter
+        factory=".image_management.ProductVariantImageManagement" />
+
+    <!-- IShopManagement -->
+    <adapter
+        factory=".shop_management.ShopManagement" />
+
+    <!-- IValidity -->
+    <adapter
+        for="easyshop.core.interfaces.IDiscount"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IInformationPage"
+        factory=".validity.Validity" />
+    
+    <adapter
+        for="easyshop.core.interfaces.IPaymentInformation"
+        factory=".validity.Validity" />
+        
+    <adapter
+        for="easyshop.core.interfaces.IPaymentMethod"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IPaymentPrice"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IShippingPrice"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IShippingMethod"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.IStockInformation"
+        factory=".validity.Validity" />
+
+    <adapter
+        for="easyshop.core.interfaces.ITax"
+        factory=".validity.Validity" />
+
+    <!-- PayPal has own validity adapter -->
+    <adapter
+        for="easyshop.core.interfaces.IPayPalPaymentMethod"
+        factory=".validity.PayPalValidity" />
+
+
+</configure>

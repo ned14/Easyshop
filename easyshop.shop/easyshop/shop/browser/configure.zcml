@@ -1,0 +1,21 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <include package=".admin" />
+
+    <browser:page
+        name="sitemap"
+        for="*" 
+        template="sitemap.pt"
+        class=".sitemap.SitemapView"
+        permission="zope2.Public" />
+
+    <browser:page
+        name="send-form"
+        for="*" 
+        class=".mailer.FormView"
+        attribute="sendForm"
+        permission="zope2.Public" />
+
+</configure>

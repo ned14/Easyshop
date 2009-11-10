@@ -1,0 +1,42 @@
+First, some set-up:
+
+    >>> self.loginAsPortalOwner()    
+    >>> from easyshop.core.tests.base import Browser
+    >>> browser = Browser()
+    >>> browser = browser.addAuthorizationHeader()
+    >>> self.portal.error_log._ignored_exceptions = ()
+    
+View the shop
+------------------------------
+    >>> browser.open(self.portal.myshop.absolute_url())
+    >>> browser.contents
+    '...MyShop...'
+    
+Now we add a new shipping method
+
+    >>> browser.getLink('Shipping Methods').click()
+    
+    >>> browser.getLink('Add Shipping Method').click()
+    >>> browser.getControl('Title').value = 'Express'
+    >>> browser.getControl('Description').value = 'Delivery within 24 hours.'
+    >>> browser.getControl('Save').click()
+    
+The inital state should be private.
+    
+    >>> browser.contents
+    '...Private...'    
+    
+Now we publish the payment method.
+
+    >>> browser.getLink('Publish').click()
+    >>> browser.contents
+    '...Item state changed...'
+    
+    >>> browser.contents
+    '...Published...'
+
+Now we go back to the overview and test whether the new payment method is there.
+
+    >>> browser.getLink('Back to overview').click()    
+    >>> browser.contents
+    '...Express...'

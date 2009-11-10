@@ -1,0 +1,115 @@
+<dl class="portlet" 
+    id="portlet-easyshop-administration"
+    tal:define="shop_url view/getShopURL"
+   i18n:domain="EasyShop">
+
+    <dt class="portletHeader">
+        <a href="."
+           tal:attributes="href shop_url">
+            EasyShop Manager
+        </a>            
+    </dt>
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/manage-categories"
+           i18n:translate="categories_label">
+            Categories
+        </a>                    
+    </dd>                                        
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/manage-products"
+           i18n:translate="products_label">
+            Products
+        </a>                    
+    </dd>
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/groups"
+           i18n:translate="groups_label">
+            Groups
+        </a>                    
+    </dd> 
+
+    <dd class="portletItem even">
+        <a href="."
+           tal:attributes="href string:$shop_url/customers"
+           i18n:translate="customers_label">
+            Customers
+        </a>                    
+    </dd>
+    <dd class="portletItem even">
+        <a href="."
+           tal:attributes="href string:$shop_url/orders"
+           i18n:translate="orders_label">
+            Orders
+        </a>                    
+    </dd>
+
+    <dd class="portletItem even">
+        <a href="."
+           tal:attributes="href string:$shop_url/carts"
+           i18n:translate="carts_label">
+            Carts
+        </a>                    
+    </dd>                        
+    
+    <dd class="portletItem even">
+        <a href="."
+           tal:attributes="href string:$shop_url/taxes"
+           i18n:translate="taxes_label">
+            Taxes
+        </a>                    
+    </dd>
+
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/shippingmethods"
+           i18n:translate="shipping_methods_label">
+            Shipping Methods
+        </a>                    
+    </dd>        
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/shippingprices"
+           i18n:translate="shipping_prices_label">
+            Shipping Prices
+        </a>                    
+    </dd>        
+
+    <dd class="portletItem even">
+        <a href="."
+           tal:attributes="href string:$shop_url/paymentmethods"
+           i18n:translate="payment_methods_label">
+            Payment Methods
+        </a>                    
+    </dd>        
+    <dd class="portletItem even">
+        <a href="."
+           tal:attributes="href string:$shop_url/paymentprices"
+           i18n:translate="payment_prices_label">
+            Payment Prices
+        </a>                    
+    </dd>                        
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/discounts"
+           i18n:translate="discounts_label">
+            Discounts
+        </a>                    
+    </dd>                        
+    <dd class="portletItem even">
+        <a href="."
+           tal:attributes="href string:$shop_url/stock-information"
+           i18n:translate="stock_information_label">
+            Stock Information
+        </a>                    
+    </dd>                        
+    <dd class="portletItem">
+        <a href="."
+           tal:attributes="href string:$shop_url/information"
+           i18n:translate="information_label">
+            Information
+        </a>                    
+    </dd>                            
+</dl>

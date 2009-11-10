@@ -1,0 +1,107 @@
+First, some set-up:
+    
+    >>> from easyshop.core.tests.base import Browser
+    >>> browser = Browser()
+    >>> self.portal.error_log._ignored_exceptions = ()
+    >>> self.logout()
+    
+View the shop
+------------------------------
+    >>> browser.open(self.portal.myshop.absolute_url())
+    >>> browser.contents
+    '...MyShop...'
+
+Buy a product
+------------------------------
+We browse to the document, we want to buy.
+
+    >>> browser.open(self.portal.myshop.products.product_42.absolute_url())
+    >>> browser.contents
+    '...19,00...'
+
+And add it to the cart
+     
+    >>> browser.getControl('Add to Cart').click()
+    >>> browser.contents
+    '...The product has been added to the cart...'
+
+------------------------------
+To check out we click on the check out link.
+
+    >>> browser.getLink('Check Out').click()
+    
+Since we not logged in yet, we get the login form.
+    
+    >>> browser.contents
+    '...registration form...'
+
+As we have no login yet we click on registration form 
+
+    >>> browser.getLink('registration form').click()
+    >>> browser.contents
+    '...Registration Form...'
+    
+And join the site.
+    
+    >>> browser.getControl('Full Name').value = 'John Doe'
+    >>> browser.getControl('User Name').value = 'doe'
+    >>> browser.getControl('E-mail').value = 'john@doe.com'
+    >>> browser.getControl('Password').value = '11111'
+    >>> browser.getControl('Confirm password').value = '11111'
+    >>> browser.getControl('Register').click()
+                
+    >>> browser.contents
+    '...You are now logged in...'
+
+Now we add a new address.
+
+    >>> browser.contents
+    '...Please add a new addresses...'
+    
+    >>> browser.getControl('Firstname').value = 'John'
+    >>> browser.getControl('Lastname').value = 'Doe'
+    >>> browser.getControl('Address 1').value = 'John Doe Street 1'
+    >>> browser.getControl('Zip Code').value = '99099'
+    >>> browser.getControl('City').value = 'Doe City'
+    >>> browser.getControl('Phone').value = '555 1112222'    
+    >>> browser.getControl('Next').click()
+
+Confirm default shipping method. 
+   
+    >>> browser.contents
+    '...Please select you shipping method...'
+    
+    >>> browser.getControl('Next').click()
+    
+Now we select the payment method. This time we choose Direct Debit and fill in 
+the form details.
+
+    >>> browser.getControl(name="form.bank_identification_code").value = "1000000"
+    >>> browser.getControl(name="form.account_number").value = "111111"
+    >>> browser.getControl(name="form.bank_name").value = "German Bank"
+    >>> browser.getControl(name="form.depositor").value = "John Doe"
+    
+    >>> browser.getControl(name='form.id').getControl(value='bank_account_new').selected = True
+    >>> browser.getControl('Next').click()
+    
+Now we find our inputs within the overview.
+
+    >>> browser.contents
+    '...1000000...'
+
+    >>> browser.contents
+    '...111111...'
+
+    >>> browser.contents
+    '...German Bank...'
+
+Now we confirm terms and conditions and complete the order.
+
+    >>> browser.contents
+    '...Complete Order...'
+
+    >>> browser.getControl(name='form.confirmation').value = True
+    >>> browser.getControl('Complete Order').click()
+
+    >>> browser.contents
+    '...Your order has been successfully completed...'

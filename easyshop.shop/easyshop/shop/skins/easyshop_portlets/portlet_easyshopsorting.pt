@@ -1,0 +1,53 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="EasyShop">
+<body>
+<div metal:define-macro="portlet"
+     tal:condition="python:context.portal_type in ('Category', 'Product')">
+
+    <dl class="portlet" id="portlet-sorting">
+
+        <dt class="portletHeader"
+            i18n:translate="sorting_label">
+               Sorting
+        </dt>
+
+        <dd class="portletItem">            
+            <form action="#"
+                  name="sorting"
+                  onchange="javascript:document.sorting.submit()"
+                  tal:attributes="action context/absolute_url"
+                  tal:define="selected_id context/REQUEST/sorting|nothing;
+                              selected_id python: str(selected_id)">
+                          
+                <select name="sorting">
+                    <option value="name-asc"
+                            tal:attributes="selected python:'name-asc' == selected_id"
+                            i18n:translate="name_ascending_label">
+                        Name ascending
+                    </option>
+                    <option value="name-desc"
+                            tal:attributes="selected python:'name-desc' == selected_id"
+                            i18n:translate="name-descending-label">
+                        Name descending
+                    </option>                    
+                    <option value="price-asc"
+                            tal:attributes="selected python:'price-asc' == selected_id"
+                            i18n:translate="price_ascending">
+                        Price ascending
+                    </option>
+                    <option value="price-desc"
+                            tal:attributes="selected python:('price-desc' == selected_id) or (selected_id == 'None')"
+                            i18n:translate="price_descending_label">
+                        Price descending
+                    </option>
+                </select>
+                <!-- <input type="submit" value="go!" /> -->
+            </form>
+        </dd>
+
+    </dl>
+
+</div>
+</body>
+</html>

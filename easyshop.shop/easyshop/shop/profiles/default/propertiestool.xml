@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="site_properties" meta_type="Plone Property Sheet">
+  <property name="types_not_searched" type="lines">
+   <element value="ATBooleanCriterion"/>
+   <element value="ATDateCriteria"/>
+   <element value="ATDateRangeCriterion"/>
+   <element value="ATListCriterion"/>
+   <element value="ATPortalTypeCriterion"/>
+   <element value="ATReferenceCriterion"/>
+   <element value="ATSelectionCriterion"/>
+   <element value="ATSimpleIntCriterion"/>
+   <element value="ATSimpleStringCriterion"/>
+   <element value="ATSortCriterion"/>
+   <element value="ChangeSet"/>
+   <element value="Discussion Item"/>
+   <element value="Plone Site"/>
+   <element value="TempFolder"/>
+   <element value="ATCurrentAuthorCriterion"/>
+   <element value="ATPathCriterion"/>
+   <element value="ATRelativePathCriterion"/>
+
+   <element value="Cart"/>
+   <element value="CartItem"/>   
+   <element value="CartsContainer" />   
+
+   <element value="CategoriesContainer" />   
+   <element value="EasyShopImage" />
+
+   <element value="ProductsContainer" /> 
+   <element value="ProductProperty" />   
+   <element value="ProductPropertyOption" />   
+   <element value="ProductSelector" />   
+       
+   <element value="Customer"/>
+   <element value="Address"/>
+   <element value="CustomersContainer"/>   
+   <element value="SessionsContainer"/>
+
+   <element value="BankAccount"/>
+   <element value="CreditCard"/>   
+   <element value="CreditCardPaymentMethod" />
+   <element value="DirectDebitPaymentMethod" />
+   <element value="PayPalPaymentMethod" />
+   <element value="GenericPaymentMethod" />
+   <element value="PaymentPrice" />
+   <element value="PaymentPricesContainer" />
+   <element value="PaymentMethodsContainer" />
+   
+   <element value="CategoryCriteria" />
+   <element value="CountryCriteria" />
+   <element value="CustomerCriteria" />
+   <element value="PaymentMethodCriteria" />
+   <element value="ShippingMethodCriteria" />
+   <element value="DateCriteria" />
+   <element value="GroupCriteria" />
+   <element value="PriceCriteria" />
+   <element value="ProductAmountCriteria" />
+   <element value="ProductCriteria" />
+   <element value="StockAmountCriteria" />
+   <element value="WeightCriteria" />
+
+   <element value="Discount" />
+   <element value="DiscountsContainer" />
+
+   <element value="ProductGroup" />
+   <element value="GroupsContainer" />
+   
+   <element value="InformationContainer" />
+
+   <element value="Order" />
+   <element value="OrderItem" />
+   <element value="OrdersContainer" />
+   
+   <element value="ShippingMethodsContainer" />
+   <element value="ShippingPricesContainer" />
+   <element value="ShippingMethod" />
+   <element value="ShippingPrice" />
+
+   <element value="StockInformation" />
+   <element value="StockInformationContainer" />
+
+   <element value="CustomerTax" />
+   <element value="DefaultTax" />
+   <element value="TaxesContainer" />
+   
+  </property>
+ </object>
+</object>

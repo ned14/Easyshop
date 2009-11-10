@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <portletmanager 
+    name="easyshop.top"
+    type="easyshop.core.interfaces.IEasyShopTop" />
+
+ <portletmanager 
+    name="easyshop.bottom"
+    type="easyshop.core.interfaces.IEasyShopBottom" />
+
+ <portlet 
+     addview="portlets.Admin"
+     title="EasyShop Manager"
+     description="Portlet to admin EasyShop." />
+
+</portlets>

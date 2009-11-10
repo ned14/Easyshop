@@ -1,0 +1,53 @@
+First, some set-up:
+    
+    >>> from easyshop.core.tests.base import Browser
+    >>> browser = Browser()
+        
+Let us log all exceptions, which is useful for debugging.
+
+    >>> self.portal.error_log._ignored_exceptions = ()
+
+Login as a customer
+
+    >>> browser = browser.addAuthorizationHeader(user="newmember", password="secret")
+    
+View the shop
+------------------------------
+    >>> browser.open(self.portal.myshop.absolute_url())
+    >>> browser.contents
+    '...MyShop...'
+
+We add new address
+
+    >>> browser.getLink('My Account').click()
+    >>> browser.getLink('Manage Addressbook').click()
+    >>> browser.getControl('Add Address').click()
+    
+    >>> browser.contents
+    '...Add Address...'
+    
+    >>> browser.getControl('Lastname').value = 'Doe'
+    >>> browser.getControl('Address 1').value = 'John Doe Str. 1'
+    >>> browser.getControl('Zip Code').value = '99099'
+    >>> browser.getControl('City').value = 'Erfurt'
+        
+    >>> browser.getControl('Save').click()
+    
+Since we left firstname empty we should should get an error.
+
+    >>> browser.contents
+    '...There were errors...'
+    
+    >>> browser.getControl('Firstname').value = 'John'
+    >>> browser.getControl('Save').click()
+    >>> browser.contents
+    '...John Doe Str. 1...'
+
+    >>> browser.getControl('Edit').click()
+    
+    >>> browser.getControl('Address 1').value = 'John Doe Str. 2'
+    >>> browser.getControl('Save').click()
+    >>> browser.contents
+    '...John Doe Str. 2...'
+
+    >>> browser.getControl('Delete').click()
