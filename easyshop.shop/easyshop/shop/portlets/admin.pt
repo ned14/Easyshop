@@ -11,14 +11,14 @@
     </dt>
     <dd class="portletItem">
         <a href="."
-           tal:attributes="href string:$shop_url/manage-categories"
+           tal:attributes="href string:$shop_url/categories/manage-categories"
            i18n:translate="categories_label">
             Categories
         </a>                    
     </dd>                                        
     <dd class="portletItem">
         <a href="."
-           tal:attributes="href string:$shop_url/manage-products"
+           tal:attributes="href string:$shop_url/products/manage-products"
            i18n:translate="products_label">
             Products
         </a>                    
