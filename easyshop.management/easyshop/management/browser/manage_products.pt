@@ -33,7 +33,7 @@
     <tal:main-macro metal:define-macro="main">
 
         <h1 class="documentFirstHeading"> 
-            Manage Products
+            Manage Products .
         </h1>
 <!--
         <p class="documentDescription"
