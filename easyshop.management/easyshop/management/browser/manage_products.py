@@ -15,6 +15,7 @@ from plone.app.layout.globals.interfaces import IViewView
 # easyshop imports
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IGroupManagement
+from easyshop.core.interfaces import IShopManagement
 
 def _getContext(self):
     """
@@ -39,13 +40,17 @@ class ManageProductsView(BrowserView):
     def getCategories(self):
         """
         """
-        cm = ICategoryManagement(self.context)
+        pstate = getMultiAdapter((self.context, self.request), name='plone_portal_state')
+        portal = pstate.portal()
+        ptools = getMultiAdapter((self.context, self.request), name='plone_tools')
+        catalog = ptools.catalog()
+
+        shop = IShopManagement(self.context).getShop()
+        cm = ICategoryManagement(shop)
         
         result = []
-        
-        catalog = getToolByName(self.context, "portal_catalog")
         brains = catalog.searchResults(
-            path = "/".join(self.context.getPhysicalPath()),
+            path = "/".join(shop.getPhysicalPath()) + '/categories',
             object_provides="easyshop.core.interfaces.catalog.ICategory",
             sort_on = "sortable_title")
         
