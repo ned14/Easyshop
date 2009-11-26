@@ -16,7 +16,7 @@ On this Sprint we will improve the Easyshop and make it easier to install and us
 
  We will sprint on 2 Days (09.12.09 and 10.12.09) @ Banality in Essen/Germany.
 
- ==On board are:==
+== On board are: ==
 
  * Thomas Massmann ( [http://inqbus.de Inqbus] )
  * Maik Derstappen ( [http://inqbus.de Inqbus] )
