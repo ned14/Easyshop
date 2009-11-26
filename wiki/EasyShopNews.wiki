@@ -1,5 +1,5 @@
 #labels Featured
-===09th/10th December 2009===
+===08th/09th December 2009===
   * [http://code.google.com/p/easyshop-for-plone/wiki/EasyshopSprint Easyshop sprint]
 ===11th January 2008===
   * http://diefenba.ch/blog/archive/2008/01/11/easyshop-news
