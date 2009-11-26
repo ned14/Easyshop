@@ -18,8 +18,8 @@ On this Sprint we will improve the Easyshop and make it easier to install and us
 
 == On board are: ==
 
- * Thomas Massmann ( [http://inqbus.de Inqbus] )
- * Maik Derstappen ( [http://inqbus.de Inqbus] )
+ * Thomas Massmann ( [http://www.inqbus-hosting.de/support/unser-team Inqbus] )
+ * Maik Derstappen ( [http://www.inqbus-hosting.de/support/unser-team Inqbus] )
  * Simon Pamiés ( [http://www.banality.de banality] )
  * and you?   ;)
  * ...
