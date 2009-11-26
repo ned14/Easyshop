@@ -1,0 +1,26 @@
+#Easyshop Sprint in Essen/Germany on 9./10. December 
+
+= Introduction =
+
+On this Sprint we will improve the Easyshop and make it easier to install and use the Shop.
+
+= Things that we can do on the Sprint =
+
+ * create mail templates as ZPT, that are customizable in plone, like PloneFormGen does
+ * use nested categories to created the structure of categories, not references
+ * products should reference there categories, not categories reference products
+ * create real Membrane based user/customer on checkout and put the user objects in customers
+ * ...
+
+= Event Details =
+
+ We will sprint on 2 Days (09.12.09 and 10.12.09) @ Banality in Essen/Germany.
+
+ ==On board are:==
+
+ * Thomas Massmann ( [http://inqbus.de Inqbus] )
+ * Maik Derstappen ( [http://inqbus.de Inqbus] )
+ * Simon Pamiés ( [http://www.banality.de banality] )
+ * and you?   ;)
+ * ...
+ 
