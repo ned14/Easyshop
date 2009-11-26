@@ -24,3 +24,5 @@ On this Sprint we will improve the Easyshop and make it easier to install and us
  * and you?   ;)
  * ...
  
+
+If you have questions and/or you will join us on this sprint, feel free to contact us.
