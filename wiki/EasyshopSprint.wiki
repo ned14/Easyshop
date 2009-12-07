@@ -1,4 +1,4 @@
-#Easyshop Sprint in Essen/Germany on 08./09. December 
+#Easyshop Sprint in Leipzig/Germany on 08./09. December 
 
 = Introduction =
 
@@ -14,15 +14,16 @@ On this Sprint we will improve the Easyshop and make it easier to install and us
 
 = Event Details =
 
- We will sprint on 2 Days (08.12.09 and 09.12.09) @ Banality in Essen/Germany.
+ We will sprint on 2 Days (08.12.09 and 09.12.09) @ Inqbus in Leipzig/Germany.
 
 == On board are: ==
 
  * Thomas Massmann ( [http://www.inqbus-hosting.de/support/unser-team Inqbus] )
  * Maik Derstappen ( [http://www.inqbus-hosting.de/support/unser-team Inqbus] )
- * Simon Pamiés ( [http://www.banality.de banality] )
  * and you?   ;)
  * ...
  
 
 If you have questions and/or you will join us on this sprint, feel free to contact us.
+
+_Comment: location has changed, from Essen to Leipzig!_
