@@ -18,6 +18,7 @@ def readversion():
     assert metadata.documentElement.tagName == "metadata"
     return metadata.getElementsByTagName("version")[0].childNodes[0].data
 
+
 long_description = (
     read('docs','README.txt')
     + '\n' +
@@ -59,8 +60,6 @@ setup(name='easyshop.coupon',
       zip_safe=False,
       install_requires=[
         'setuptools',
-        'collective.monkeypatcher',
-        'plone.app.z3cform',
       ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
