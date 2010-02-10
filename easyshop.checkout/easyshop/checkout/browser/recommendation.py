@@ -17,8 +17,6 @@ class SendRecommendation(BrowserView):
     def __call__(self):
         """
         """
-        import pdb; pdb.set_trace()
-
         utool = getToolByName(self.context, "plone_utils")
 
         if self.request.get("email", "") == "":
