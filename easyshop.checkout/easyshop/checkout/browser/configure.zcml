@@ -1,8 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
-    
+
     <include package="easyshop.core" />
-    
+
     <!-- Checkout Start -->
     <browser:page
         name="checkout"
@@ -41,7 +41,7 @@
 
     <adapter
         factory=".address_select.ShopAddressSelectForm" />
-        
+
     <!-- Shipping -->
     <browser:page
         name="checkout-shipping"
@@ -53,11 +53,11 @@
     <adapter
         factory=".shipping.ShopShippingSelectForm" />
 
-    <!-- Payment -->    
+    <!-- Payment -->
     <browser:page
-        name = "checkout-payment"
-        for = "easyshop.core.interfaces.IShop"
-        class = ".payment.PaymentForm"
+        name="checkout-payment"
+        for="easyshop.core.interfaces.IShop"
+        class=".payment.PaymentForm"
         template = "payment.pt"
         permission="easyshop.Checkout" />
 
@@ -66,11 +66,11 @@
 
     <!-- Order Preview -->
     <browser:page
-        name = "checkout-order-preview"
-        for = "easyshop.core.interfaces.IShop"
-        class = ".order_preview.OrderPreviewForm"
+        name="checkout-order-preview"
+        for="easyshop.core.interfaces.IShop"
+        class=".order_preview.OrderPreviewForm"
         permission="easyshop.Checkout" />
-        
+
     <!-- order preview viewlet managers -->
     <browser:viewletManager
         name="easyshop.aboveorderpreviewinformation"
@@ -78,14 +78,14 @@
         permission="zope2.View"
         class="plone.app.viewletmanager.manager.BaseOrderedViewletManager"
         />
-        
+
     <browser:viewletManager
         name="easyshop.abovecheckoutcart"
         provides=".interfaces.IAboveCheckoutCart"
         permission="zope2.View"
         class="plone.app.viewletmanager.manager.BaseOrderedViewletManager"
         />
-    
+
     <browser:viewletManager
         name="easyshop.belowcheckoutcart"
         provides=".interfaces.IBelowCheckoutCart"
@@ -95,25 +95,17 @@
 
     <!-- Thank You Page -->
     <browser:page
-        name = "thank-you"
-        for = "easyshop.core.interfaces.IShop"
-        class = ".thank_you.ThankYouPageView"
+        name="thank-you"
+        for="easyshop.core.interfaces.IShop"
+        class=".thank_you.ThankYouPageView"
         template = "thank_you.pt"
         permission="easyshop.Checkout" />
 
-    <!-- Recommendation -->    
+    <!-- Recommendation -->
     <browser:page
-        name = "send-recommendation"
-        for = "easyshop.core.interfaces.IShop"
-        class = ".thank_you.ThankYouPageView"
-        attribute="sendRecommendation"
-        permission="easyshop.Checkout" />
-
-    <browser:page
-        name = "send-recommendation-template"
-        for = "easyshop.core.interfaces.IShop"
-        class = ".recommendation.SendRecommendationView"
-        template="recommendation.pt"
+        name="send-recommendation"
+        for="easyshop.core.interfaces.IShop"
+        class=".recommendation.SendRecommendation"
         permission="easyshop.Checkout" />
 
 </configure>

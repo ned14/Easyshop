@@ -1,37 +1,68 @@
-from zope.component import getMultiAdapter
-# Five imports
+from zope.i18n import translate
 from Products.Five.browser import BrowserView
-
-# CMFCore imports
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
-
-# easyshop imports
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShopManagement
+from easyshop.shop.utilities.misc import sendMultipartMail
+from easyshop.core.config import _
 
-class SendRecommendationView(BrowserView):
+
+class SendRecommendation(BrowserView):
     """
     """
+    render = ViewPageTemplateFile('recommendation.pt')
+
+    def __call__(self):
+        """
+        """
+        import pdb; pdb.set_trace()
+
+        utool = getToolByName(self.context, "plone_utils")
+
+        if self.request.get("email", "") == "":
+            utool.addPortalMessage(_("Please add a e-mail address."))
+            url = "%s/thank-you" % self.context.absolute_url()
+        else:
+            # Get charset
+            props = getToolByName(self.context,
+                "portal_properties").site_properties
+            charset = props.getProperty("default_charset")
+            text = self.render()
+
+            sendMultipartMail(
+                context = self.context,
+                sender = self.context.getMailFromAddress(),
+                receiver = self.request.get("email"),
+                subject = translate(_("EasyShop recommendation"),
+                    target_language=self.request.get('LANGUAGE', 'de')),
+                text = text,
+                charset = charset)
+
+            utool.addPortalMessage(_("Your mail has been sent."))
+            url = "%s/thank-you" % self.context.absolute_url()
+
+        self.request.response.redirect(url)
+
     def getMailInfo(self):
         """
         """
         cm = ICustomerManagement(self.context)
+        sm = IShopManagement(self.context)
+        shop = sm.getShop()
         customer = cm.getAuthenticatedCustomer()
         am = IAddressManagement(customer)
         shipping_address = am.getShippingAddress()
 
-        mtool = getToolByName(self.context, "portal_membership")        
+        mtool = getToolByName(self.context, "portal_membership")
         member = mtool.getAuthenticatedMember()
-        
-        name  = shipping_address.getFirstname() + " "
+
+        name = shipping_address.getFirstname() + " "
         name += shipping_address.getLastname()
-                
-        return {
-            "email" : member.getProperty("email"),
-            "name"  : name,
-        }
-                
-    def portal_url(self):
-        portal_state = getMultiAdapter((self.context,self.request),
-                                       name="plone_portal_state")
-        return portal_state.portal_url()
+
+        return dict(
+            email=member.getProperty("email"),
+            name=name,
+            shop_title=shop.Title(),
+            shop_url=shop.absolute_url())

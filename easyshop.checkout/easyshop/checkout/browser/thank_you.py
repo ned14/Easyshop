@@ -19,7 +19,6 @@ from easyshop.core.interfaces import IImageManagement
 from easyshop.core.interfaces import IPrices
 from easyshop.core.interfaces import IShopManagement
 
-from easyshop.shop.utilities.misc import sendMultipartMail
 
 class ThankYouPageView(BrowserView):
     """
@@ -40,19 +39,19 @@ class ThankYouPageView(BrowserView):
 
         # Address
         customer = order.getCustomer()
-        address  = IAddressManagement(customer).getInvoiceAddress()
+        address = IAddressManagement(customer).getInvoiceAddress()
 
         prices = IPrices(order)
 
         transaction = {
-                "order_id"    : order.getId(),
-                "affiliation" : "",
-                "total"       : prices.getPriceForCustomer(),
-                "tax"         : (prices.getPriceForCustomer() - prices.getPriceNet()),
-                "shipping"    : order.getShippingPriceGross(),
-                "city"        : address.city,
-                "state"       : "",
-                "country"     : address.country_title(),
+                "order_id": order.getId(),
+                "affiliation": "",
+                "total": prices.getPriceForCustomer(),
+                "tax": (prices.getPriceForCustomer() - prices.getPriceNet()),
+                "shipping": order.getShippingPriceGross(),
+                "city": address.city,
+                "state": "",
+                "country": address.country_title(),
         }
 
         items = []
@@ -69,19 +68,19 @@ class ThankYouPageView(BrowserView):
                 category_title = u""
 
             items.append({
-                "order_id"    : order.getId(),
-                "sku"         : product.getArticleId(),
-                "productname" : product.Title(),
-                "category"    : category_title,
-                "price"       : item.getProductPriceGross(),
-                "quantity"    : item.getProductQuantity()
+                "order_id": order.getId(),
+                "sku": product.getArticleId(),
+                "productname": product.Title(),
+                "category": category_title,
+                "price": item.getProductPriceGross(),
+                "quantity": item.getProductQuantity()
             })
 
         result = {
-            "id"                 : order.getId(),
-            "url"                : order.absolute_url(),
-            "google_transaction" : transaction,
-            "google_items"       : items,
+            "id": order.getId(),
+            "url": order.absolute_url(),
+            "google_transaction": transaction,
+            "google_items": items,
         }
 
         return result
@@ -116,52 +115,19 @@ class ThankYouPageView(BrowserView):
             else:
                 image = "%s/image_shop_small" % image.absolute_url()
 
-            cm    = ICurrencyManagement(self.context)
+            cm = ICurrencyManagement(self.context)
             price = IPrices(product).getPriceForCustomer()
             price = cm.priceToString(price)
 
             result.append({
-                "title"                    : product.Title(),
-                "short_title"              : product.getShortTitle() or product.Title(),
-                "url"                      : product.absolute_url(),
-                "price"                    : price,
-                "image"                    : image,
+                "title": product.Title(),
+                "short_title": product.getShortTitle() or product.Title(),
+                "url": product.absolute_url(),
+                "price": price,
+                "image": image,
             })
 
         return result
-
-    def sendRecommendation(self):
-        """
-        """
-        if self.request.get("email", "") == "":
-            utool = getToolByName(self.context, "plone_utils")
-            utool.addPortalMessage(_("Please add a e-mail address."))
-            url = "%s/thank-you" % self.context.absolute_url()
-
-        else:
-            # Get charset
-            props = getToolByName(self.context, "portal_properties").site_properties
-            charset = props.getProperty("default_charset")
-
-            template = getMultiAdapter(
-                (self.context, self.request),
-                name="send-recommendation-template")
-
-            text = template()
-
-            sendMultipartMail(
-                context = self.context,
-                from_   = self.context.getMailFrom(),
-                to      = self.request.get("email"),
-                subject = "Empfehlung Demmelhuber Holz und Raum GmbH",
-                text    = text,
-                charset = charset)
-
-            utool = getToolByName(self.context, "plone_utils")
-            utool.addPortalMessage(_("Your mail has been sent."))
-            url = "%s/thank-you" % self.context.absolute_url()
-
-        self.request.response.redirect(url)
 
     # Todo: Optimize. Factor out. This code (similar) is also used in
     # selector_view.py
@@ -189,7 +155,7 @@ class ThankYouPageView(BrowserView):
                 if mtool.checkPermission("View", product) is None:
                     continue
 
-                cm    = ICurrencyManagement(self.context)
+                cm = ICurrencyManagement(self.context)
                 price = IPrices(product).getPriceForCustomer()
                 price = cm.priceToString(price)
 
@@ -215,13 +181,13 @@ class ThankYouPageView(BrowserView):
                     klass = "notlast"
 
                 products.append({
-                    "title"                    : product.Title(),
-                    "short_title"              : product.getShortTitle() or product.Title(),
-                    "url"                      : product.absolute_url(),
-                    "price"                    : price,
-                    "image"                    : image,
-                    "text"                     : text,
-                    "class"                    : klass,
+                    "title": product.Title(),
+                    "short_title": product.getShortTitle() or product.Title(),
+                    "url": product.absolute_url(),
+                    "price": price,
+                    "image": image,
+                    "text": text,
+                    "class": klass,
                 })
 
                 if (index+1) % products_per_line == 0:
@@ -232,12 +198,12 @@ class ThankYouPageView(BrowserView):
             lines.append(products)
 
             selectors.append({
-                "edit_url"         : "%s/base_edit" % selector.absolute_url(),
-                "show_title"       : selector.getShowTitle(),
-                "title"            : selector.Title(),
-                "lines"            : lines,
-                "products_per_line" : products_per_line,
-                "td_width"         : "%s%%" % (100 / products_per_line),
+                "edit_url": "%s/base_edit" % selector.absolute_url(),
+                "show_title": selector.getShowTitle(),
+                "title": selector.Title(),
+                "lines": lines,
+                "products_per_line": products_per_line,
+                "td_width": "%s%%" % (100 / products_per_line),
             })
 
         return selectors

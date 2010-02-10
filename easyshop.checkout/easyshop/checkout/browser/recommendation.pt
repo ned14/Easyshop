@@ -1,28 +1,28 @@
 <html i18n:domain="EasyShop">
     <body tal:define="mail_info view/getMailInfo">
 
-        <p>
-            Hallo <span tal:content="request/email">john@doe.com</span>,
+        <p i18n:translate="recommendation_header">
+            Hello <span i18n:name="email"><span tal:replace="request/email">john@doe.com</span></span>,
         </p>
-        
-        <p>
-            <span tal:content="mail_info/name" /> (<span tal:content="mail_info/email" />) 
-            hat bei uns eingekauft und möchte uns gerne an Sie weiterempfehlen.
+
+        <p i18n:translate="recommendation_body">
+            <span i18n:name="customer_name"><span tal:replace="mail_info/name" /></span>
+            (<span i18n:name="customer_email"><span tal:replace="mail_info/email" /></span>)
+            recommends our shop to you
         </p>
-            
-        <p>
-            Schauen Sie doch einfach mal unverbindlich bei uns rein: 
-            <a tal:attributes="href view/portal_url"
-               tal:content="view/portal_url">http://shop.com/</a>
+
+        <p i18n:translate="recommendation_footer">
+            if you like come and visit us at
+            <span i18n:name="shop_url">
+                <a tal:attributes="href mail_info/shop_url"
+                   tal:content="mail_info/shop_url">http://shop.com/</a>
+            </span>
         </p>
-        
-        <p>
-            Mit freundlichen Grüßen
+
+        <p style="font-weight:bold"
+           tal:content="mail_info/shop_title">
+            EasyShop
         </p>
-        
-        <p style="font-weight:bold">
-            Ihr Demmelhuber Holz &amp; Raum Team
-        </p>
-                        
+
   </body>
 </html>
