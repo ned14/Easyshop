@@ -4,6 +4,7 @@ Changelog for easyshop.catalog
 
 0.1a1 Unreleased
 ----------------
+    * fixed missing translations [petschki]
 
     * usability enhancements for product variants management [petschki]
       * require variant title on "add"
