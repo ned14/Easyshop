@@ -1,5 +1,5 @@
 <dl class="portlet portlet-stock-information"
-    i18n:domain="EasyShop" 
+    i18n:domain="EasyShop"
     tal:define="stock_information view/stock_information"
     tal:condition="view/available">
 
@@ -13,15 +13,15 @@
             <table cellspacing="0" cellpadding="0">
                 <tr>
                     <td style="width:16px">
-                        <img src="."            
-                             alt="Deliverable"            
+                        <img src="."
+                             alt="Deliverable"
                              tal:attributes="src string:${stock_information/url}/image;"
                              i18n:attributes="alt deliverable_label;" />
                     </td>
                     <td style="padding-bottom:3px; padding-left:3px;">
                         <tal:block i18n:translate="deliverable_label">
                             Deliverable
-                        </tal:block>                        
+                        </tal:block>
                     </td>
                 </tr>
                 <tr>
@@ -32,30 +32,30 @@
                                 Delivery Period</tal:block>:
                             <tal:block tal:content="stock_information/time_period">
                                 2-3 Weeks
-                            </tal:block>    
+                            </tal:block>
                             <tal:block i18n:translate=""
                                        tal:content="stock_information/time_unit">
                                 Weeks
-                            </tal:block>    
-                        </div>                            
+                            </tal:block>
+                        </div>
                     </td>
                 </tr>
             </table>
         </tal:block>
-        
+
         <tal:block tal:condition="not:stock_information/available">
             <table cellspacing="0" cellpadding="0">
                 <tr>
                     <td style="width:16px">
-                        <img src="."            
-                             alt="Not deliverable"            
+                        <img src="."
+                             alt="Not deliverable"
                              tal:attributes="src string:${stock_information/url}/image;"
                              i18n:attributes="alt not_deliverable_label;" />
                     </td>
                     <td style="padding-bottom:3px; padding-left:3px;">
                         <tal:block i18n:translate="not_deliverable_label">
-                            Not Deliverable
-                        </tal:block>                        
+                            Not deliverable
+                        </tal:block>
                     </td>
                 </tr>
             </table>
