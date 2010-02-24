@@ -8,7 +8,7 @@
                 tal:define="groups view/getGroups">
 
             <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
+
             <h1 class="documentFirstHeading"
                 i18n:translate="groups_label">
                 Groups
@@ -19,20 +19,20 @@
                tal:attributes="href context/aq_parent/absolute_url"
                i18n:translate="shop_label">
                 Shop
-            </a>  
-    
+            </a>
+
             <p class="documentDescription"
                tal:content="context/Description">
                 Description
             </p>
-    
+
             <div tal:replace="structure provider:plone.abovecontentbody" />
 
             <div tal:condition="not:groups"
                  i18n:translate="no_groups_label">
                 There are no groups.
-            </div>    
-        
+            </div>
+
             <table tal:condition="groups"
                    class="shop-default">
                 <tr>
@@ -43,7 +43,7 @@
                                  alt="Group Icon"
                                  title="Group"
                                  i18n:attributes="title group_label;" />
-                    
+
                             <a href="."
                                tal:content="group/Title"
                                tal:attributes="href string:${context/absolute_url}?group_id=${group/id}">
@@ -53,9 +53,9 @@
                             <a href="."
                                tal:attributes="href string:${group/absolute_url}/view"
                                i18n:translate="view_label">
-                                [View]
+                                View
                             </a>
-                            
+
                         </div>
                     </td>
                     <td tal:define="group view/getGroup"
@@ -72,7 +72,7 @@
                         </p>
                         <h1 i18n:translate="products_label">
                             Products
-                        </h1>        
+                        </h1>
 
                         <table>
                             <tr tal:repeat="line group/products">
@@ -88,19 +88,19 @@
                                         <a href="."
                                            target="_blank"
                                            tal:attributes="href product/url">
-                                        
+
                                             <img src="."
-                                                tal:attributes="src string:${product/url}/image_tile" />                                            
-                                        </a>    
-                                    </div>                                            
+                                                tal:attributes="src string:${product/url}/image_tile" />
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
-                        </table>    
-                    </td>                      
+                        </table>
+                    </td>
                 </tr>
-            </table>        
-            
+            </table>
+
         </metal:main>
-    
+
     </body>
 </html>

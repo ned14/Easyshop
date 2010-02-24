@@ -5,6 +5,7 @@ Changelog for easyshop.groups
 0.1a1 Unreleased
 ----------------
 
+    - fixed translations [petschki]
     - Initial package structure.
       [zopeskel]
 
