@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2010-02-09 21:18+0000\n"
+"POT-Creation-Date: 2010-02-24 11:12+0000\n"
 "PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -16,51 +16,53 @@ msgstr ""
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: EasyShop\n"
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.py:75
+#: easyshop.checkout/easyshop/checkout/browser/payment.py:75
 msgid " is required"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.py:86
+#: easyshop.checkout/easyshop/checkout/browser/payment.py:86
 msgid "%s is required"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:118
+#: easyshop.core/easyshop/core/interfaces/catalog.py:118
 msgid "A short description, which is displayed in search results"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:139
+#: easyshop.core/easyshop/core/interfaces/catalog.py:139
 msgid "A short text of the product, which can be displayed in overviews"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:146
+#: easyshop.core/easyshop/core/interfaces/catalog.py:146
 msgid "A text of the product, which is displayed in detailed views"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/content/discount.py:79
+#: easyshop.discounts/easyshop/discounts/content/discount.py:79
 msgid "Absolute"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:55
+#: easyshop.core/easyshop/core/interfaces/payment.py:55
 msgid "Account Number"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_add.py:22
+#: easyshop.checkout/easyshop/checkout/browser/address_add.py:22
+#: easyshop.customers/easyshop/customers/browser/address_forms.py:73
+#: easyshop.kss/easyshop/kss/customers/address.py:133
 msgid "Add Address"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/bank_account.py:68
+#: easyshop.payment/easyshop/payment/browser/bank_account.py:68
 msgid "Add Bank Information"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/credit_card.py:68
+#: easyshop.payment/easyshop/payment/browser/credit_card.py:68
 msgid "Add Credit Card"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/related_products.py:111
+#: easyshop.catalog/easyshop/catalog/portlets/related_products.py:111
 msgid "Add Related Products Portlet"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/user.py:65
+#: easyshop.checkout/easyshop/checkout/browser/user.py:65
 msgid "Add User"
 msgstr ""
 
@@ -68,23 +70,23 @@ msgstr ""
 msgid "Add to Cart"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:38
+#: easyshop.core/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:97
+#: easyshop.core/easyshop/core/config.py:97
 msgid "American Express"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:124
+#: easyshop.core/easyshop/core/interfaces/catalog.py:124
 msgid "Article Id"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:62
+#: easyshop.core/easyshop/core/interfaces/payment.py:62
 msgid "Bank Information Code"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:76
+#: easyshop.core/easyshop/core/interfaces/payment.py:76
 msgid "Bank Name"
 msgstr ""
 
@@ -92,23 +94,23 @@ msgstr ""
 msgid "Buy Product"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:99
+#: easyshop.core/easyshop/core/interfaces/payment.py:99
 msgid "Card Number"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:92
+#: easyshop.core/easyshop/core/interfaces/payment.py:92
 msgid "Card Owner"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:86
+#: easyshop.core/easyshop/core/interfaces/payment.py:86
 msgid "Card Type"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/portlets/cart.py:49
+#: easyshop.carts/easyshop/carts/portlets/cart.py:49
 msgid "Cart"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/content/discount.py:89
+#: easyshop.discounts/easyshop/discounts/content/discount.py:89
 msgid "Cart Item"
 msgstr ""
 
@@ -116,51 +118,51 @@ msgstr ""
 msgid "Cash on delivery"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:44
+#: easyshop.core/easyshop/core/config.py:44
 msgid "Categories have been deleted."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:47
+#: easyshop.core/easyshop/core/config.py:47
 msgid "Categories have been deselected."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:46
+#: easyshop.core/easyshop/core/config.py:46
 msgid "Categories have been moved."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:45
+#: easyshop.core/easyshop/core/config.py:45
 msgid "Categories have been selected."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customer_forms.py:40
+#: easyshop.customers/easyshop/customers/browser/customer_forms.py:40
 msgid "Changes saved"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:52
+#: easyshop.core/easyshop/core/interfaces/customers.py:52
 msgid "City"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:31
+#: easyshop.core/easyshop/core/interfaces/customers.py:31
 msgid "Company Name"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:59
+#: easyshop.core/easyshop/core/interfaces/customers.py:59
 msgid "Country"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/content/address.py:65
+#: easyshop.customers/easyshop/customers/content/address.py:65
 msgid "Create a new address"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/content/bank_account.py:38
+#: easyshop.payment/easyshop/payment/content/bank_account.py:38
 msgid "Create a new bank account"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/content/credit_card.py:93
+#: easyshop.payment/easyshop/payment/content/credit_card.py:93
 msgid "Create a new credit card."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/content/customer.py:98
+#: easyshop.customers/easyshop/customers/content/customer.py:98
 msgid "Create a new customer"
 msgstr ""
 
@@ -172,15 +174,15 @@ msgstr ""
 msgid "Day"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:153
+#: easyshop.core/easyshop/core/config.py:153
 msgid "Days"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:69
+#: easyshop.core/easyshop/core/interfaces/payment.py:69
 msgid "Depositor"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:117
+#: easyshop.core/easyshop/core/interfaces/catalog.py:117
 msgid "Description"
 msgstr ""
 
@@ -188,127 +190,128 @@ msgstr ""
 msgid "Direct Debit"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:64
+#: easyshop.core/easyshop/core/interfaces/customers.py:64
 msgid "E-Mail"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.shop/easyshop/shop/portlets/admin.py:37
+#: easyshop.shop/easyshop/shop/portlets/admin.py:37
 msgid "EasyShop Manager"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/recommendation.py:35
+#: easyshop.checkout/easyshop/checkout/browser/recommendation.py:36
 msgid "EasyShop recommendation"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/categories.py:53
+#: easyshop.catalog/easyshop/catalog/portlets/categories.py:53
 msgid "EasyShop: Categories"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.py:41
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.py:41
 msgid "EasyShop: Formatter"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.information/easyshop/information/portlets/information.py:36
+#: easyshop.information/easyshop/information/portlets/information.py:36
 msgid "EasyShop: Information"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/last_seen.py:34
+#: easyshop.catalog/easyshop/catalog/portlets/last_seen.py:34
 msgid "EasyShop: Last Seen"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/related_products.py:48
+#: easyshop.catalog/easyshop/catalog/portlets/related_products.py:48
 msgid "EasyShop: Related Products"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/sorting.py:33
+#: easyshop.catalog/easyshop/catalog/portlets/sorting.py:33
 msgid "EasyShop: Sorting"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/portlets/stock_information.py:36
+#: easyshop.stocks/easyshop/stocks/portlets/stock_information.py:36
 msgid "EasyShop: Stock Information"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_edit.py:29
+#: easyshop.checkout/easyshop/checkout/browser/address_edit.py:29
+#: easyshop.customers/easyshop/customers/browser/address_forms.py:27
 msgid "Edit Address"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/bank_account.py:25
+#: easyshop.payment/easyshop/payment/browser/bank_account.py:25
 msgid "Edit Bank Account"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/credit_card.py:25
+#: easyshop.payment/easyshop/payment/browser/credit_card.py:25
 msgid "Edit Credit Card"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customer_forms.py:29
+#: easyshop.customers/easyshop/customers/browser/customer_forms.py:29
 msgid "Edit Customer"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/categories.py:230
+#: easyshop.catalog/easyshop/catalog/portlets/categories.py:230
 msgid "Edit EasyShop Categories Portlet"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/related_products.py:121
+#: easyshop.catalog/easyshop/catalog/portlets/related_products.py:121
 msgid "Edit Related Products Portlet"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customer_forms.py:57
+#: easyshop.customers/easyshop/customers/browser/customer_forms.py:57
 msgid "Edit canceled"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/categories.py:26
+#: easyshop.catalog/easyshop/catalog/portlets/categories.py:26
 msgid "Expand all"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:106
+#: easyshop.core/easyshop/core/interfaces/payment.py:106
 msgid "Expiration Date Month"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:113
+#: easyshop.core/easyshop/core/interfaces/payment.py:113
 msgid "Expiration Date Year"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:125
+#: easyshop.core/easyshop/core/interfaces/catalog.py:125
 msgid "External unique id of the product"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/information.py:23
+#: easyshop.core/easyshop/core/interfaces/information.py:23
 msgid "File"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:17
+#: easyshop.core/easyshop/core/interfaces/customers.py:17
 msgid "Firstname"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:187
+#: easyshop.core/easyshop/core/interfaces/catalog.py:187
 msgid "For Sale"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/related_products.py:30
+#: easyshop.catalog/easyshop/catalog/portlets/related_products.py:30
 msgid "How many products to list. 0 for all."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/categories.py:27
+#: easyshop.catalog/easyshop/catalog/portlets/categories.py:27
 msgid "If selected all categories are expanded by default."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/categories.py:33
+#: easyshop.catalog/easyshop/catalog/portlets/categories.py:33
 msgid "If selected amount of product per categories is displayed."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:188
+#: easyshop.core/easyshop/core/interfaces/catalog.py:188
 msgid "If selected the sale price is active and displayed additionally."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:160
+#: easyshop.core/easyshop/core/interfaces/catalog.py:160
 msgid "If selected, the stock amount of the product is not decreased."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.shop/easyshop/shop/skins/easyshop_overwrites/es_folder_position.cpy:33
+#: easyshop.shop/easyshop/shop/skins/easyshop_overwrites/es_folder_position.cpy:33
 msgid "Item's position has changed."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:24
+#: easyshop.core/easyshop/core/interfaces/customers.py:24
 msgid "Lastname"
 msgstr ""
 
@@ -316,16 +319,15 @@ msgstr ""
 msgid "Long Text"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:96
+#: easyshop.core/easyshop/core/config.py:96
 msgid "MasterCard/EuroCard"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/portlets/my_account.py:40
+#: easyshop.customers/easyshop/customers/portlets/my_account.py:40
 msgid "My Account"
 msgstr ""
 
-#. Default: "No"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_form.pt:375
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:375
 msgid "No"
 msgstr ""
 
@@ -333,119 +335,119 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/related_products.py:29
+#: easyshop.catalog/easyshop/catalog/portlets/related_products.py:29
 msgid "Number of products to display"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/user.py:31
+#: easyshop.checkout/easyshop/checkout/browser/user.py:31
 msgid "Password"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/user.py:38
+#: easyshop.checkout/easyshop/checkout/browser/user.py:38
 msgid "Password Confirmation"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/content/discount.py:80
+#: easyshop.discounts/easyshop/discounts/content/discount.py:80
 msgid "Percentage"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:71
+#: easyshop.core/easyshop/core/interfaces/customers.py:71
 msgid "Phone"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/recommendation.py:22
+#: easyshop.checkout/easyshop/checkout/browser/recommendation.py:23
 msgid "Please add a e-mail address."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.py:69
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.py:69
 msgid "Please confirm our terms and conditions."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/user.py:39
+#: easyshop.checkout/easyshop/checkout/browser/user.py:39
 msgid "Please confirm your password."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customer_forms.py:30
+#: easyshop.customers/easyshop/customers/browser/customer_forms.py:30
 msgid "Please edit the form below and press save."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.kss/easyshop/kss/customers/address.py:134
+#: easyshop.kss/easyshop/kss/customers/address.py:134
 msgid "Please enter a new address and click save."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:77
+#: easyshop.core/easyshop/core/interfaces/payment.py:77
 msgid "Please enter the bank name"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:70
+#: easyshop.core/easyshop/core/interfaces/payment.py:70
 msgid "Please enter the depositor of the account"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:107
+#: easyshop.core/easyshop/core/interfaces/payment.py:107
 msgid "Please enter the expiration date of the card."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:93
+#: easyshop.core/easyshop/core/interfaces/payment.py:93
 msgid "Please enter the name of the card owner."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:56
+#: easyshop.core/easyshop/core/interfaces/payment.py:56
 msgid "Please enter your account number"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:39
+#: easyshop.core/easyshop/core/interfaces/customers.py:39
 msgid "Please enter your address."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:63
+#: easyshop.core/easyshop/core/interfaces/payment.py:63
 msgid "Please enter your bank information code"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:53
+#: easyshop.core/easyshop/core/interfaces/customers.py:53
 msgid "Please enter your city."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:32
+#: easyshop.core/easyshop/core/interfaces/customers.py:32
 msgid "Please enter your company name."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:60
+#: easyshop.core/easyshop/core/interfaces/customers.py:60
 msgid "Please enter your country."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:65
+#: easyshop.core/easyshop/core/interfaces/customers.py:65
 msgid "Please enter your e-mail address."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:159
+#: easyshop.core/easyshop/core/interfaces/customers.py:159
 msgid "Please enter your e-mail."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:18
+#: easyshop.core/easyshop/core/interfaces/customers.py:18
 msgid "Please enter your firstname."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:25
+#: easyshop.core/easyshop/core/interfaces/customers.py:25
 msgid "Please enter your lastname."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/user.py:32
+#: easyshop.checkout/easyshop/checkout/browser/user.py:32
 msgid "Please enter your password."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:72
+#: easyshop.core/easyshop/core/interfaces/customers.py:72
 msgid "Please enter your phone number."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:100
+#: easyshop.core/easyshop/core/interfaces/payment.py:100
 msgid "Please enter your the card number."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:46
+#: easyshop.core/easyshop/core/interfaces/customers.py:46
 msgid "Please enter your zip code."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/payment.py:87
+#: easyshop.core/easyshop/core/interfaces/payment.py:87
 msgid "Please select the type of the card."
 msgstr ""
 
@@ -453,19 +455,19 @@ msgstr ""
 msgid "Prepayment"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:180
+#: easyshop.core/easyshop/core/interfaces/catalog.py:180
 msgid "Price"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/content/discount.py:88
+#: easyshop.discounts/easyshop/discounts/content/discount.py:88
 msgid "Product"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:194
+#: easyshop.core/easyshop/core/interfaces/catalog.py:194
 msgid "Sale Price"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/product.py:252
+#: easyshop.catalog/easyshop/catalog/viewlets/product.py:252
 msgid "Select"
 msgstr ""
 
@@ -477,55 +479,56 @@ msgstr ""
 msgid "Send products to this address"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:138
+#: easyshop.core/easyshop/core/interfaces/catalog.py:138
 msgid "Short Text"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:131
+#: easyshop.core/easyshop/core/interfaces/catalog.py:131
 msgid "Short Title"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:132
+#: easyshop.core/easyshop/core/interfaces/catalog.py:132
 msgid "Short title of the product, which can be displayed in overviews"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/categories.py:32
+#: easyshop.catalog/easyshop/catalog/portlets/categories.py:32
 msgid "Show quantity"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:166
+#: easyshop.core/easyshop/core/interfaces/catalog.py:166
 msgid "Stock Amount"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:145
+#: easyshop.core/easyshop/core/interfaces/catalog.py:145
+#: easyshop.core/easyshop/core/interfaces/information.py:16
 msgid "Text"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/manage_addressbook.py:27
+#: easyshop.customers/easyshop/customers/browser/manage_addressbook.py:27
 msgid "The address has been deleted."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:167
+#: easyshop.core/easyshop/core/interfaces/catalog.py:167
 msgid "The amount of this product in stock. This number is decreased automatically when the product has been sold."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:42
+#: easyshop.core/easyshop/core/config.py:42
 msgid "The category aleady exits."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:43
+#: easyshop.core/easyshop/core/config.py:43
 msgid "The category has been added."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/information.py:17
+#: easyshop.core/easyshop/core/interfaces/information.py:17
 msgid "The information as HTML"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/information.py:24
+#: easyshop.core/easyshop/core/interfaces/information.py:24
 msgid "The information as downloadable file."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:181
+#: easyshop.core/easyshop/core/interfaces/catalog.py:181
 msgid "The price of the product."
 msgstr ""
 
@@ -533,43 +536,44 @@ msgstr ""
 msgid "The product has been added to the cart."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:195
+#: easyshop.core/easyshop/core/interfaces/catalog.py:195
 msgid "The sale price of the product."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:174
+#: easyshop.core/easyshop/core/interfaces/catalog.py:174
 msgid "The weight of the product."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/related_products.py:112
+#: easyshop.catalog/easyshop/catalog/portlets/related_products.py:112
 msgid "This portlet displays related products."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/categories.py:231
+#: easyshop.catalog/easyshop/catalog/portlets/categories.py:231
 msgid "This portlet displays the categories of an EasyShop."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_edit.py:30
+#: easyshop.checkout/easyshop/checkout/browser/address_edit.py:30
+#: easyshop.customers/easyshop/customers/browser/address_forms.py:28
 msgid "To change your address edit the form and press save."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/bank_account.py:26
+#: easyshop.payment/easyshop/payment/browser/bank_account.py:26
 msgid "To change your bank information edit the form and press save."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/credit_card.py:26
+#: easyshop.payment/easyshop/payment/browser/credit_card.py:26
 msgid "To change your credit card edit the form and press save."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:159
+#: easyshop.core/easyshop/core/interfaces/catalog.py:159
 msgid "Unlimited Amount"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/user.py:24
+#: easyshop.checkout/easyshop/checkout/browser/user.py:24
 msgid "Username"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:95
+#: easyshop.core/easyshop/core/config.py:95
 msgid "Visa"
 msgstr ""
 
@@ -577,24 +581,23 @@ msgstr ""
 msgid "Week"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/config.py:154
+#: easyshop.core/easyshop/core/config.py:154
 msgid "Weeks"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/catalog.py:173
+#: easyshop.core/easyshop/core/interfaces/catalog.py:173
 msgid "Weight"
 msgstr ""
 
-#. Default: "Yes"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_form.pt:362
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:362
 msgid "Yes"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/recommendation.py:39
+#: easyshop.checkout/easyshop/checkout/browser/recommendation.py:41
 msgid "Your mail has been sent."
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/adapters/payment_processing.py:91
+#: easyshop.payment/easyshop/payment/adapters/payment_processing.py:91
 msgid "Your order has been payed."
 msgstr ""
 
@@ -602,157 +605,176 @@ msgstr ""
 msgid "Your order has been received. Thank you!"
 msgstr ""
 
-#: ../../../svn-eggs/easyshop.core/easyshop/core/interfaces/customers.py:45
+#: easyshop.core/easyshop/core/interfaces/customers.py:45
 msgid "Zip Code"
 msgstr ""
 
 #. Default: "Accessories"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/product.pt:283
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:283
 msgid "accessories_label"
 msgstr ""
 
 #. Default: "Account-No."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:230
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:229
 msgid "account_no_label"
 msgstr ""
 
 #. Default: "Please add a new addresses"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_form.pt:16
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:16
 msgid "add_address_form_title"
 msgstr ""
 
 #. Default: "Add Address"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/viewlets/addresses.pt:73
+#: easyshop.customers/easyshop/customers/viewlets/addresses.pt:73
 msgid "add_address_label"
 msgstr ""
 
 #. Default: "Add Bank Account"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:85
+#: easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:85
 msgid "add_bank_information_label"
 msgstr ""
 
 #. Default: "Add Credit Card"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:149
+#: easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:149
 msgid "add_credit_card_label"
 msgstr ""
 
 #. Default: "When you are finish, please click on \"Next\"."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_form.pt:21
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:21
+#: easyshop.checkout/easyshop/checkout/browser/user.pt:22
 msgid "add_form_description"
 msgstr ""
 
 #. Default: "Add"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:196
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:196
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:79
 msgid "add_label"
 msgstr ""
 
 #. Default: "Add Property"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:73
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:73
 msgid "add_property_label"
 msgstr ""
 
 #. Default: "Add Redirection"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:57
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:57
 msgid "add_redirection_label"
 msgstr ""
 
 #. Default: "Add to Cart"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/ps.pt:105
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:175
+#: easyshop.catalog/easyshop/catalog/viewlets/product_selector.pt:133
+#: easyshop.catalog/easyshop/catalog/viewlets/products.pt:174
 msgid "add_to_cart_label"
 msgstr ""
 
+#. Default: "Add to category"
+#: easyshop.management/easyshop/management/viewlets/actions.pt:237
+msgid "add_to_category_label"
+msgstr ""
+
 #. Default: "Add to group"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:166
+#: easyshop.management/easyshop/management/viewlets/actions.pt:166
 msgid "add_to_group_label"
 msgstr ""
 
 #. Default: "This Articles have been added to the cart"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:15
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:15
 msgid "added_to_cart_label"
 msgstr ""
 
 #. Default: "Addresses"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:31
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:30
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:31
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:47
 msgid "addresses_label"
 msgstr ""
 
 #. Default: "Advanced"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:109
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:109
 msgid "advanced_label"
 msgstr ""
 
 #. Default: "All"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:62
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:62
+#: easyshop.order/easyshop/order/browser/orders.pt:36
 msgid "all_label"
 msgstr ""
 
 #. Default: "(If not, we will ask you soon)"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_form.pt:376
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:376
 msgid "also_invoice_address_description"
 msgstr ""
 
 #. Default: "This is also the invoice address"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_form.pt:348
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:348
 msgid "also_invoice_address_label"
 msgstr ""
 
-#. Default: "Menge"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:29
+#. Default: "Amount"
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:29
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:79
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:296
 msgid "amount_label"
 msgstr ""
 
 #. Default: "Amount of Criteria"
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:40
+#: easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:40
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:36
+#: easyshop.payment/easyshop/payment/browser/payment_methods.pt:42
 msgid "amount_of_criteria_label"
 msgstr ""
 
 #. Default: "Amount of Items"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:51
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:51
 msgid "amount_of_items_label"
 msgstr ""
 
 #. Default: "Article ID"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:28
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:28
 msgid "article_id_label"
 msgstr ""
 
 #. Default: "Article"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/portlets/cart.pt:20
+#: easyshop.carts/easyshop/carts/portlets/cart.pt:19
 msgid "article_label"
 msgstr ""
 
 #. Default: "Ascending"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:64
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:64
+#: easyshop.order/easyshop/order/browser/orders.pt:92
 msgid "ascending_label"
 msgstr ""
 
 #. Default: "Availability"
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/browser/stock_information_view.pt:35
+#: easyshop.stocks/easyshop/stocks/browser/stock_information_view.pt:35
 msgid "availability_label"
 msgstr ""
 
 #. Default: "Available / Time Period"
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:36
+#: easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:36
 msgid "available_time_period_label"
 msgstr ""
 
 #. Default: "Back to overview"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/ps.pt:34
+#: easyshop.catalog/easyshop/catalog/viewlets/categories.pt:30
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:52
+#: easyshop.catalog/easyshop/catalog/viewlets/product_selector.pt:36
 msgid "back_to_overview_label"
 msgstr ""
 
 #. Default: "Bank accounts"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:31
+#: easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:31
 msgid "bank_accounts_label"
 msgstr ""
 
 #. Default: "Bank Code"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:214
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:212
 msgid "bank_code_label"
 msgstr ""
 
 #. Default: "Bank Name"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:222
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:219
 msgid "bank_name_label"
 msgstr ""
 
@@ -761,67 +783,81 @@ msgid "canceled"
 msgstr ""
 
 #. Default: "Canceled"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:61
+#: easyshop.order/easyshop/order/browser/orders.pt:61
 msgid "canceled_label"
 msgstr ""
 
 #. Default: "Card Number"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:89
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:92
 msgid "card_number_label"
 msgstr ""
 
 #. Default: "Card Owner"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:81
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:82
 msgid "card_owner_label"
 msgstr ""
 
 #. Default: "Cart ID"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:85
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:85
 msgid "cart_id_label"
 msgstr ""
 
 #. Default: "Cart"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:105
+#: easyshop.carts/easyshop/carts/browser/cart.pt:65
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:105
+#: easyshop.carts/easyshop/carts/portlets/cart.pt:7
 msgid "cart_label"
 msgstr ""
 
+#. Default: "*Preis inkl. MwSt. und ${shippingcost_link}"
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:86
+#: easyshop.carts/easyshop/carts/portlets/cart.pt:35
+msgid "cart_price_info"
+msgstr ""
+
 #. Default: "Carts"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:14
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:14
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:50
 msgid "carts_label"
 msgstr ""
 
 #. Default: "Categories"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:11
+#: easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:11
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:161
+#: easyshop.catalog/easyshop/catalog/portlets/categories.pt:7
 msgid "categories_label"
 msgstr ""
 
 #. Default: "Categories Tree"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:33
+#: easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:33
 msgid "catgories_tree_label"
 msgstr ""
 
 #. Default: "Change Price"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:44
+#: easyshop.management/easyshop/management/viewlets/actions.pt:44
 msgid "change_price_label"
 msgstr ""
 
 #. Default: "Check Out"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:324
+#: easyshop.carts/easyshop/carts/portlets/cart.pt:51
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:324
 msgid "checkout_label"
 msgstr ""
 
 #. Default: "Please enter your friend's email address:"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:51
+#: easyshop.checkout/easyshop/checkout/browser/thank_you.pt:51
 msgid "checkout_recommendation_2"
 msgstr ""
 
 #. Default: "Total Sum:"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:284
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:284
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:330
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:373
 msgid "checkout_total_sum_label"
 msgstr ""
 
 #. Default: "Click to close the window"
-#: ../../../svn-eggs/easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
+#: easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
 msgid "click_to_close_window_label"
 msgstr ""
 
@@ -830,592 +866,661 @@ msgid "closed"
 msgstr ""
 
 #. Default: "Closed"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:56
+#: easyshop.order/easyshop/order/browser/orders.pt:56
 msgid "closed_label"
 msgstr ""
 
 #. Default: "Complete Order"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:41
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:40
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:41
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:56
 msgid "complete_order_label"
 msgstr ""
 
 #. Default: "Country"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:13
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:13
 msgid "country_label"
 msgstr ""
 
 #. Default: "Creation Date"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:41
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:41
 msgid "creation_date_label"
 msgstr ""
 
 #. Default: "Type"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:74
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:75
 msgid "credit_card_type_label"
 msgstr ""
 
 #. Default: "Credit Cards"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:57
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:58
+#: easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:94
 msgid "credit_cards_label"
 msgstr ""
 
 #. Default: "Criteria"
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discount.pt:43
+#: easyshop.discounts/easyshop/discounts/browser/discount.pt:43
+#: easyshop.information/easyshop/information/browser/information_page.pt:41
+#: easyshop.payment/easyshop/payment/browser/payment_method.pt:49
 msgid "criteria_label"
 msgstr ""
 
 #. Default: "Current price"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:15
+#: easyshop.management/easyshop/management/viewlets/actions.pt:15
 msgid "current_price"
 msgstr ""
 
 #. Default: "Customer Name"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:120
+#: easyshop.order/easyshop/order/browser/orders.pt:120
 msgid "customer_name_label"
 msgstr ""
 
 #. Default: "Customer Taxes"
-#: ../../../svn-eggs/easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:107
+#: easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:107
 msgid "customer_taxes_label"
 msgstr ""
 
 #. Default: "Customers"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customers_container.pt:12
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:12
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:35
 msgid "customers_label"
 msgstr ""
 
 #. Default: "This is an overview over all existing customers."
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customers_container.pt:17
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:17
 msgid "customers_view_description"
 msgstr ""
 
 #. Default: "Date"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:69
+#: easyshop.order/easyshop/order/browser/orders.pt:69
 msgid "date_label"
 msgstr ""
 
 #. Default: "Default Taxes"
-#: ../../../svn-eggs/easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:40
+#: easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:40
 msgid "default_taxes_label"
 msgstr ""
 
 #. Default: "Delete from categories"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:247
+#: easyshop.management/easyshop/management/viewlets/actions.pt:247
 msgid "delete-from-categories-label"
 msgstr ""
 
 #. Default: "Delete Article"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:112
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:112
 msgid "delete_article_label"
 msgstr ""
 
 #. Default: "Delete"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:154
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:154
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:140
+#: easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:66
 msgid "delete_label"
 msgstr ""
 
 #. Default: "Delete Redirections"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:103
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:103
 msgid "delete_redirections_label"
 msgstr ""
 
 #. Default: "Deliverable"
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:16
+#: easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:16
 msgid "deliverable_label"
 msgstr ""
 
 #. Default: "Delivery Period"
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:31
+#: easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:31
 msgid "delivery_period_label"
 msgstr ""
 
 #. Default: "Depositor"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:238
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:236
 msgid "depositor_label"
 msgstr ""
 
 #. Default: "Descending"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:69
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:69
+#: easyshop.order/easyshop/order/browser/orders.pt:97
 msgid "descending_label"
 msgstr ""
 
 #. Default: "Description"
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/payment_method.pt:23
+#: easyshop.payment/easyshop/payment/browser/payment_method.pt:23
 msgid "description_label"
 msgstr ""
 
 #. Default: "Details"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/ps.pt:91
+#: easyshop.catalog/easyshop/catalog/viewlets/product_selector.pt:119
+#: easyshop.catalog/easyshop/catalog/viewlets/products.pt:160
+#: easyshop.catalog/easyshop/catalog/viewlets/ps.pt:91
 msgid "details_label"
 msgstr ""
 
 #. Default: "Direct Debit"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:197
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:196
 msgid "direct_debit_label"
 msgstr ""
 
 #. Default: "Discount"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:188
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:188
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:246
+#: easyshop.discounts/easyshop/discounts/browser/discount.pt:29
 msgid "discount_label"
 msgstr ""
 
 #. Default: "Discounts"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:259
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:259
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:306
+#: easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:12
 msgid "discounts_label"
 msgstr ""
 
 #. Default: "Edit"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:143
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:143
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:125
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:93
 msgid "edit_label"
 msgstr ""
 
 #. Default: "Enabled"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:30
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:30
 msgid "enabled_label"
 msgstr ""
 
-#. Default: "new direct debit information"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:259
-msgid "enter_directdebit_information"
-msgstr ""
-
-#. Default: "new credit card informations"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:118
-msgid "enter_new_creditcard"
-msgstr ""
-
 #. Default: "Expiration Date"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:97
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:99
 msgid "expiration_date_label"
 msgstr ""
 
 #. Default: "First"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/product.pt:64
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:64
+#: easyshop.catalog/easyshop/catalog/viewlets/products.pt:40
+#: easyshop.shop/easyshop/shop/skins/easyshop_macros/dh_batch_macros.pt:21
 msgid "first_label"
 msgstr ""
 
 #. Default: "EasyShop Formatter"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:5
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:5
 msgid "formatter_label"
 msgstr ""
 
 #. Default: "Name"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:74
+#: easyshop.order/easyshop/order/browser/orders.pt:74
 msgid "fullname_label"
 msgstr ""
 
 #. Default: "General"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:66
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:66
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:66
+#: easyshop.order/easyshop/order/browser/order_view.pt:33
 msgid "general_label"
 msgstr ""
 
 #. Default: "Global Properties"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:10
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:10
 msgid "global_properties_label"
 msgstr ""
 
 #. Default: "Go"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:76
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:76
+#: easyshop.order/easyshop/order/browser/orders.pt:104
 msgid "go_label"
 msgstr ""
 
 #. Default: "Go on shopping"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:91
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:97
 msgid "go_on_shopping_label"
 msgstr ""
 
 #. Default: "Go to cart"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:97
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:103
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:148
 msgid "go_to_cart_label"
 msgstr ""
 
 #. Default: "Group"
-#: ../../../svn-eggs/easyshop.groups/easyshop/groups/browser/groups_view.pt:41
+#: easyshop.groups/easyshop/groups/browser/groups_view.pt:41
 msgid "group_label"
 msgstr ""
 
 #. Default: "Groups"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:177
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:177
+#: easyshop.groups/easyshop/groups/browser/group_view.pt:11
+#: easyshop.groups/easyshop/groups/browser/groups_view.pt:12
 msgid "groups_label"
 msgstr ""
 
 #. Default: "Groups overview"
-#: ../../../svn-eggs/easyshop.groups/easyshop/groups/browser/group_view.pt:16
+#: easyshop.groups/easyshop/groups/browser/group_view.pt:16
 msgid "groups_overview_label"
 msgstr ""
 
 #. Default: "Icon"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:30
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:30
 msgid "icon_label"
 msgstr ""
 
 #. Default: "ID"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:56
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:56
+#: easyshop.management/easyshop/management/viewlets/actions.pt:76
+#: easyshop.order/easyshop/order/browser/orders.pt:84
 msgid "id_label"
 msgstr ""
 
 #. Default: "Image Size"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:73
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:73
 msgid "image_size_label"
 msgstr ""
 
 #. Default: "incl. Tax ="
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:295
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:295
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:341
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:381
 msgid "incl_tax_label"
 msgstr ""
 
 #. Default: "Information"
-#: ../../../svn-eggs/easyshop.information/easyshop/information/browser/information_container_view.pt:12
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:12
+#: easyshop.information/easyshop/information/portlets/information.pt:5
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:109
 msgid "information_label"
 msgstr ""
 
 #. Default: "Information Page"
-#: ../../../svn-eggs/easyshop.information/easyshop/information/browser/information_container_view.pt:49
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:49
 msgid "information_page_label"
 msgstr ""
 
 #. Default: "Invoice Address"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:109
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:109
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:93
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:168
 msgid "invoice_address_label"
 msgstr ""
 
 #. Default: "Add Address"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:174
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:174
+#: easyshop.checkout/easyshop/checkout/browser/address_select.py:62
 msgid "label_add_address"
 msgstr ""
 
 #. Default: "Buy"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.py:78
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.py:78
 msgid "label_buy"
 msgstr ""
 
 #. Default: "Cancel"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/address_forms.py:48
+#: easyshop.customers/easyshop/customers/browser/address_forms.py:48
+#: easyshop.customers/easyshop/customers/browser/customer_forms.py:50
+#: easyshop.payment/easyshop/payment/browser/bank_account.py:44
 msgid "label_cancel"
 msgstr ""
 
 #. Default: "Next"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:167
+#: easyshop.checkout/easyshop/checkout/browser/address_add.py:25
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:167
+#: easyshop.checkout/easyshop/checkout/browser/address_select.py:52
 msgid "label_next"
 msgstr ""
 
 #. Default: "Save"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_edit.py:33
+#: easyshop.checkout/easyshop/checkout/browser/address_edit.py:33
+#: easyshop.checkout/easyshop/checkout/browser/user.py:68
+#: easyshop.customers/easyshop/customers/browser/address_forms.py:31
 msgid "label_save"
 msgstr ""
 
 #. Default: "Last"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/product.pt:100
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:100
+#: easyshop.catalog/easyshop/catalog/viewlets/products.pt:72
+#: easyshop.shop/easyshop/shop/skins/easyshop_macros/dh_batch_macros.pt:88
 msgid "last_label"
 msgstr ""
 
 #. Default: "Last Modification"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:36
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:36
 msgid "last_modification_label"
 msgstr ""
 
 #. Default: "Last Seen"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/last_seen.pt:5
+#: easyshop.catalog/easyshop/catalog/portlets/last_seen.pt:5
 msgid "last_seen_label"
 msgstr ""
 
 #. Default: "Lines Per Page"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:42
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:42
 msgid "lines_per_page_label"
 msgstr ""
 
 #. Default: "Local Properties"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:62
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:62
 msgid "local_properties_label"
 msgstr ""
 
 #. Default: "Login"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/portlets/my_account.pt:21
+#: easyshop.customers/easyshop/customers/portlets/my_account.pt:21
 msgid "login_label"
 msgstr ""
 
 #. Default: "Logout"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/portlets/my_account.pt:51
+#: easyshop.customers/easyshop/customers/portlets/my_account.pt:51
 msgid "logout_label"
 msgstr ""
 
 #. Default: "Manage Account"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/my_account.pt:16
+#: easyshop.customers/easyshop/customers/browser/my_account.pt:16
 msgid "manage_account_label"
 msgstr ""
 
 #. Default: "Manage Addressbook"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/my_account.pt:51
+#: easyshop.customers/easyshop/customers/browser/manage_addressbook.pt:16
+#: easyshop.customers/easyshop/customers/browser/my_account.pt:51
 msgid "manage_addressbook_label"
 msgstr ""
 
 #. Default: "Manage"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:110
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:110
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:41
 msgid "manage_label"
 msgstr ""
 
 #. Default: "Manage name and e-mail address"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/my_account.pt:38
+#: easyshop.customers/easyshop/customers/browser/my_account.pt:38
 msgid "manage_name_label"
 msgstr ""
 
 #. Default: "Manage Password"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/my_account.pt:45
+#: easyshop.customers/easyshop/customers/browser/manage_password.pt:16
+#: easyshop.customers/easyshop/customers/browser/my_account.pt:45
 msgid "manage_password_label"
 msgstr ""
 
 #. Default: "Manage Payment"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:16
+#: easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:16
 msgid "manage_payment_label"
 msgstr ""
 
 #. Default: "Manage Payment Methods"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/my_account.pt:57
+#: easyshop.customers/easyshop/customers/browser/my_account.pt:57
 msgid "manage_payment_methods_label"
 msgstr ""
 
 #. Default: "Manage Redirections"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:27
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:27
 msgid "manage_redirections_label"
 msgstr ""
 
 #. Default: "Message"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:391
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:391
+#: easyshop.order/easyshop/order/browser/order_view.pt:361
 msgid "message_label"
 msgstr ""
 
 #. Default: "More orders"
-#: ../../../svn-eggs/easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:40
+#: easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:40
 msgid "more_orders_label"
 msgstr ""
 
 #. Default: "Move Down"
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:92
+#: easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:92
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:84
+#: easyshop.payment/easyshop/payment/browser/payment_prices.pt:91
 msgid "move_down_label"
 msgstr ""
 
 #. Default: "Move to category"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:242
+#: easyshop.management/easyshop/management/viewlets/actions.pt:242
 msgid "move_to_category_label"
 msgstr ""
 
 #. Default: "Move Up"
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:84
+#: easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:84
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:76
+#: easyshop.payment/easyshop/payment/browser/payment_prices.pt:83
 msgid "move_up_label"
 msgstr ""
 
 #. Default: "My Account"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:38
+#: easyshop.checkout/easyshop/checkout/browser/thank_you.pt:38
+#: easyshop.customers/easyshop/customers/browser/manage_addressbook.pt:21
+#: easyshop.customers/easyshop/customers/browser/manage_payment_methods.pt:21
 msgid "my_account_label"
 msgstr ""
 
 #. Default: "My Orders"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/my_orders.pt:16
+#: easyshop.order/easyshop/order/browser/my_orders.pt:16
 msgid "my_orders_label"
 msgstr ""
 
 #. Default: "Name descending"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:22
+#: easyshop.catalog/easyshop/catalog/portlets/sorting.pt:22
+#: easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshopsorting.pt:29
 msgid "name-descending-label"
 msgstr ""
 
 #. Default: "Name ascending"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:17
+#: easyshop.catalog/easyshop/catalog/portlets/sorting.pt:17
+#: easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshopsorting.pt:24
 msgid "name_ascending_label"
 msgstr ""
 
 #. Default: "Name"
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:32
+#: easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:32
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:32
+#: easyshop.payment/easyshop/payment/browser/payment_methods.pt:38
 msgid "name_label"
 msgstr ""
 
 #. Default: "New ID"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:84
+#: easyshop.management/easyshop/management/viewlets/actions.pt:84
 msgid "new_id_label"
 msgstr ""
 
 #. Default: "New Path"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:75
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:75
 msgid "new_path_label"
 msgstr ""
 
 #. Default: "New price"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:19
+#: easyshop.management/easyshop/management/viewlets/actions.pt:19
 msgid "new_price_label"
 msgstr ""
 
 #. Default: "New Title"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:88
+#: easyshop.management/easyshop/management/viewlets/actions.pt:88
 msgid "new_title_label"
 msgstr ""
 
 #. Default: "Next"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/product.pt:89
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:89
+#: easyshop.catalog/easyshop/catalog/viewlets/products.pt:63
+#: easyshop.shop/easyshop/shop/skins/easyshop_macros/dh_batch_macros.pt:67
 msgid "next_label"
 msgstr ""
 
 #. Default: "There are no addresses"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customers_container.pt:123
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:123
 msgid "no_addresses_label"
 msgstr ""
 
 #. Default: "This customer has no cart yet."
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customers_container.pt:154
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:154
 msgid "no_cart_label"
 msgstr ""
 
 #. Default: "There are no carts."
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:26
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:26
 msgid "no_carts_label"
 msgstr ""
 
 #. Default: "There are no categories."
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:9
+#: easyshop.catalog/easyshop/catalog/viewlets/categories.pt:9
 msgid "no_categories_label"
 msgstr ""
 
 #. Default: "There are no criteria."
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discount.pt:36
+#: easyshop.discounts/easyshop/discounts/browser/discount.pt:36
+#: easyshop.information/easyshop/information/browser/information_page.pt:34
+#: easyshop.payment/easyshop/payment/browser/payment_method.pt:42
 msgid "no_criteria_label"
 msgstr ""
 
 #. Default: "There are no customers."
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customers_container.pt:71
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:71
 msgid "no_customers_label"
 msgstr ""
 
 #. Default: "There are no discounts."
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:24
+#: easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:24
 msgid "no_discount_label"
 msgstr ""
 
 #. Default: "There are no groups."
-#: ../../../svn-eggs/easyshop.groups/easyshop/groups/browser/groups_view.pt:31
+#: easyshop.groups/easyshop/groups/browser/groups_view.pt:31
 msgid "no_groups_label"
 msgstr ""
 
 #. Default: "There are no information."
-#: ../../../svn-eggs/easyshop.information/easyshop/information/browser/information_container_view.pt:24
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:24
 msgid "no_information_label"
 msgstr ""
 
 #. Default: "There are no orders."
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/customers_container.pt:140
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:140
+#: easyshop.order/easyshop/order/browser/my_orders.pt:28
+#: easyshop.order/easyshop/order/browser/orders.pt:27
 msgid "no_orders_label"
 msgstr ""
 
 #. Default: "There are no payment methods."
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/payment_methods.pt:30
+#: easyshop.payment/easyshop/payment/browser/payment_methods.pt:30
 msgid "no_payment_methods_label"
 msgstr ""
 
 #. Default: "There are no payment prices."
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/payment_prices.pt:30
+#: easyshop.payment/easyshop/payment/browser/payment_prices.pt:30
 msgid "no_payment_prices_label"
 msgstr ""
 
 #. Default: "There are no products for the selected catagory"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:53
+#: easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:53
 msgid "no_products_for_category_label"
 msgstr ""
 
 #. Default: "No products found."
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:97
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:97
 msgid "no_products_found_label"
 msgstr ""
 
 #. Default: "There are no products."
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:92
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:92
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:192
 msgid "no_products_label"
 msgstr ""
 
 #. Default: "There are no shipping methods."
-#: ../../../svn-eggs/easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:24
+#: easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:24
 msgid "no_shipping_methods_label"
 msgstr ""
 
 #. Default: "There are no shipping prices."
-#: ../../../svn-eggs/easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:24
+#: easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:24
 msgid "no_shipping_price_label"
 msgstr ""
 
 #. Default: "There are no stock information."
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:24
+#: easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:24
 msgid "no_stock_information_label"
 msgstr ""
 
 #. Default: "There are no taxes."
-#: ../../../svn-eggs/easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:43
+#: easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:43
 msgid "no_taxes_label"
 msgstr ""
 
 #. Default: "Not deliverable"
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:50
+#: easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:50
 msgid "not_deliverable_label"
 msgstr ""
 
 #. Default: "of"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/product.pt:82
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:82
+#: easyshop.catalog/easyshop/catalog/viewlets/products.pt:57
 msgid "of_label"
 msgstr ""
 
 #. Default: "Old Path"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:72
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:72
 msgid "old_path_label"
 msgstr ""
 
 #. Default: "Date"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:120
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:120
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:120
+#: easyshop.order/easyshop/order/browser/order_view.pt:87
 msgid "order_date_label"
 msgstr ""
 
 #. Default: "E-mail"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:87
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:87
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:87
+#: easyshop.order/easyshop/order/browser/order_view.pt:54
 msgid "order_email_label"
 msgstr ""
 
 #. Default: "ID"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:114
+#: easyshop.order/easyshop/order/browser/orders.pt:114
 msgid "order_id_label"
 msgstr ""
 
 #. Default: "The order can be found here."
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:58
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:58
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:58
 msgid "order_link_label"
 msgstr ""
 
 #. Default: "Name"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:76
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:76
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:76
+#: easyshop.order/easyshop/order/browser/order_view.pt:43
 msgid "order_name_label"
 msgstr ""
 
 #. Default: "Phone"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:103
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:103
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:103
+#: easyshop.order/easyshop/order/browser/order_view.pt:70
 msgid "order_phone_label"
 msgstr ""
 
 #. Default: "Please check the order. If you finished, confirm our terms and conditions and click on \"Complete order\"."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:38
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:38
 msgid "order_preview_description"
 msgstr ""
 
 #. Default: "State"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:132
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:132
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:132
+#: easyshop.order/easyshop/order/browser/order_view.pt:99
 msgid "order_state_label"
 msgstr ""
 
 #. Default: "Total"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:150
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:150
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:150
+#: easyshop.order/easyshop/order/browser/order_view.pt:114
 msgid "order_total_label"
 msgstr ""
 
 #. Default: "Orders"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/my_account.pt:21
+#: easyshop.customers/easyshop/customers/browser/customers_container.pt:127
+#: easyshop.customers/easyshop/customers/browser/my_account.pt:21
+#: easyshop.order/easyshop/order/browser/orders.pt:15
 msgid "orders_label"
 msgstr ""
 
 #. Default: "Old Path / New Path"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:39
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:39
 msgid "paths_label"
 msgstr ""
 
@@ -1424,32 +1529,38 @@ msgid "payed (not sent)"
 msgstr ""
 
 #. Default: "Payed Not Sent"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:46
+#: easyshop.order/easyshop/order/browser/orders.pt:46
 msgid "payed_not_sent_label"
 msgstr ""
 
 #. Default: "Payment"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:38
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:37
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:38
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:53
 msgid "payment_label"
 msgstr ""
 
 #. Default: "Payment Method"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:19
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:19
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:142
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:217
 msgid "payment_method_label"
 msgstr ""
 
 #. Default: "Payment Methods"
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/payment_methods.pt:12
+#: easyshop.payment/easyshop/payment/browser/payment_methods.pt:12
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:81
 msgid "payment_methods_label"
 msgstr ""
 
 #. Default: "Payment Price"
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/payment_prices.pt:59
+#: easyshop.payment/easyshop/payment/browser/payment_prices.pt:59
 msgid "payment_price_label"
 msgstr ""
 
 #. Default: "Payment Prices"
-#: ../../../svn-eggs/easyshop.payment/easyshop/payment/browser/payment_prices.pt:12
+#: easyshop.payment/easyshop/payment/browser/payment_prices.pt:12
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:88
 msgid "payment_prices_label"
 msgstr ""
 
@@ -1458,182 +1569,202 @@ msgid "pending"
 msgstr ""
 
 #. Default: "Pending"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:41
+#: easyshop.order/easyshop/order/browser/orders.pt:41
 msgid "pending_label"
 msgstr ""
 
 #. Default: "Personal informations"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/browser/my_account.pt:33
+#: easyshop.customers/easyshop/customers/browser/my_account.pt:33
 msgid "personal_informations_label"
 msgstr ""
 
 #. Default: "Complete Order"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:22
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:22
 msgid "preview_order_form_title"
 msgstr ""
 
 #. Default: "Previous"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/ps.pt:28
+#: easyshop.catalog/easyshop/catalog/viewlets/categories.pt:24
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:46
+#: easyshop.catalog/easyshop/catalog/viewlets/product_selector.pt:30
 msgid "previous_label"
 msgstr ""
 
 #. Default: "Price ascending"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:27
+#: easyshop.catalog/easyshop/catalog/portlets/sorting.pt:27
+#: easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshopsorting.pt:34
 msgid "price_ascending"
 msgstr ""
 
 #. Default: "Price descending"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:32
+#: easyshop.catalog/easyshop/catalog/portlets/sorting.pt:32
+#: easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshopsorting.pt:39
 msgid "price_descending_label"
 msgstr ""
 
 #. Default: "Price"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:46
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:33
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:46
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:84
 msgid "price_label"
 msgstr ""
 
 #. Default: "Priority"
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:44
+#: easyshop.discounts/easyshop/discounts/browser/discounts_container.pt:44
+#: easyshop.information/easyshop/information/browser/information_container_view.pt:40
+#: easyshop.payment/easyshop/payment/browser/payment_prices.pt:50
 msgid "priority_label"
 msgstr ""
 
 #. Default: "Product Height"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:87
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:87
 msgid "product_height_label"
 msgstr ""
 
 #. Default: "Product"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:25
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:25
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:73
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:291
 msgid "product_label"
 msgstr ""
 
 #. Default: "Product Price"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/my_orders.pt:70
+#: easyshop.order/easyshop/order/browser/my_orders.pt:70
+#: easyshop.order/easyshop/order/browser/order_view.pt:220
 msgid "product_price_label"
 msgstr ""
 
 #. Default: "Products"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:50
+#: easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:50
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:14
+#: easyshop.groups/easyshop/groups/browser/groups_view.pt:73
 msgid "products_label"
 msgstr ""
 
 #. Default: "Products Per Line"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:60
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:60
 msgid "products_per_line_label"
 msgstr ""
 
 #. Default: "This is an overview over all existing products."
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:19
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:19
 msgid "products_view_description"
 msgstr ""
 
 #. Default: "Properties"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:201
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:201
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:258
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:257
 msgid "properties_label"
 msgstr ""
 
 #. Default: "Quantity"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/my_orders.pt:67
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:264
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:263
+#: easyshop.order/easyshop/order/browser/my_orders.pt:67
 msgid "quantity_label"
 msgstr ""
 
 #. Default: "Rate"
-#: ../../../svn-eggs/easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:55
+#: easyshop.taxes/easyshop/taxes/browser/taxes_view.pt:55
 msgid "rate_label"
 msgstr ""
 
 #. Default: "${customer_name} (${customer_email}) recommends our shop to you"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/recommendation.pt:10
+#: easyshop.checkout/easyshop/checkout/browser/recommendation.pt:10
 msgid "recommendation_body"
 msgstr ""
 
 #. Default: "if you like come and visit us at ${shop_url}"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/recommendation.pt:16
+#: easyshop.checkout/easyshop/checkout/browser/recommendation.pt:16
 msgid "recommendation_footer"
 msgstr ""
 
 #. Default: "Hello ${email},"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/recommendation.pt:5
+#: easyshop.checkout/easyshop/checkout/browser/recommendation.pt:5
 msgid "recommendation_header"
 msgstr ""
 
 #. Default: "Refresh"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:60
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:60
 msgid "refresh_label"
 msgstr ""
 
 #. Default: "RegEx"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:118
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:118
 msgid "regex_label"
 msgstr ""
 
 #. Default: "Related Products"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:143
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:143
+#: easyshop.catalog/easyshop/catalog/portlets/related_products.pt:6
 msgid "related_products_label"
 msgstr ""
 
 #. Default: "Remove Redirections"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/browser/manage_redirections.pt:132
+#: easyshop.management/easyshop/management/browser/manage_redirections.pt:132
 msgid "remove_redirections_label"
 msgstr ""
 
 #. Default: "Rename"
-#: ../../../svn-eggs/easyshop.management/easyshop/management/viewlets/actions.pt:120
+#: easyshop.management/easyshop/management/viewlets/actions.pt:120
 msgid "rename_label"
 msgstr ""
 
 #. Default: "Received at"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/my_orders.pt:46
+#: easyshop.order/easyshop/order/browser/my_orders.pt:46
 msgid "reveived_at_label"
 msgstr ""
 
 #. Default: "Save"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:159
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:159
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:145
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:151
 msgid "save_label"
 msgstr ""
 
 #. Default: "Please select your addresses"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:17
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:17
 msgid "select_address_form_title"
 msgstr ""
 
 #. Default: "Select your shipping and invoice address and click on \"Next\". Or click on \"Add Address\" to add a new one."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:22
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:22
 msgid "select_form_description"
 msgstr ""
 
 #. Default: "Select"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:107
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:107
 msgid "select_label"
 msgstr ""
 
 #. Default: "When finished, please click on \"Next\"."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:15
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:15
 msgid "select_payment_form_description_1"
 msgstr ""
 
 #. Default: "(The order can be checked at the end, before it will be sent.)"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:358
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:359
 msgid "select_payment_form_description_2"
 msgstr ""
 
 #. Default: "Please select you payment method"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/payment.pt:10
+#: easyshop.checkout/easyshop/checkout/browser/payment.pt:10
 msgid "select_payment_form_title"
 msgstr ""
 
 #. Default: "When finished, please click on \"Next\"."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/shipping.pt:14
+#: easyshop.checkout/easyshop/checkout/browser/shipping.pt:14
 msgid "select_shipping_form_description_1"
 msgstr ""
 
 #. Default: "Please select you shipping method"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/shipping.pt:9
+#: easyshop.checkout/easyshop/checkout/browser/shipping.pt:9
 msgid "select_shipping_form_title"
 msgstr ""
 
 #. Default: "Selected Products:"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:21
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:21
 msgid "selected_products_label"
 msgstr ""
 
@@ -1642,182 +1773,214 @@ msgid "sent (not payed)"
 msgstr ""
 
 #. Default: "Sent Not Payed"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/orders.pt:51
+#: easyshop.order/easyshop/order/browser/orders.pt:51
 msgid "sent_not_payed_label"
 msgstr ""
 
 #. Default: "Sent Not Payed Orders"
-#: ../../../svn-eggs/easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:16
+#: easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshoporders_sent_not_payed.pt:16
 msgid "sent_not_payed_orders_label"
 msgstr ""
 
 #. Default: "Shipping Address"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:54
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:54
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:69
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:192
 msgid "shipping_address_label"
 msgstr ""
 
 #. Default: "Shipping"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:209
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:209
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:34
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:35
 msgid "shipping_label"
 msgstr ""
 
 #. Default: "Shipping Method"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/viewlets/cart.pt:16
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:16
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:117
+#: easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:45
 msgid "shipping_method_label"
 msgstr ""
 
 #. Default: "Shipping Methods"
-#: ../../../svn-eggs/easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:12
+#: easyshop.shipping/easyshop/shipping/browser/shipping_methods.pt:12
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:66
 msgid "shipping_methods_label"
 msgstr ""
 
 #. Default: "Shipping Price"
-#: ../../../svn-eggs/easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:53
+#: easyshop.shipping/easyshop/shipping/browser/shipping_price.pt:29
+#: easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:53
+#: easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:53
 msgid "shipping_price_label"
 msgstr ""
 
 #. Default: "Shipping Prices"
-#: ../../../svn-eggs/easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:12
+#: easyshop.shipping/easyshop/shipping/browser/shipping_prices.pt:12
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:73
 msgid "shipping_prices_label"
 msgstr ""
 
+#. Default: "Versandkosten"
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:87
+#: easyshop.carts/easyshop/carts/portlets/cart.pt:36
+msgid "shippingcost_link_label"
+msgstr ""
+
 #. Default: "Shop"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/carts_container.pt:19
+#: easyshop.carts/easyshop/carts/browser/carts_container.pt:19
+#: easyshop.catalog/easyshop/catalog/browser/manage_categories_view.pt:16
+#: easyshop.catalog/easyshop/catalog/browser/manage_products_view.pt:24
 msgid "shop_label"
 msgstr ""
 
 #. Default: "If you are contented with our service you can recommend us to a friend."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:47
+#: easyshop.checkout/easyshop/checkout/browser/thank_you.pt:47
 msgid "shop_recommendation_1"
 msgstr ""
 
 #. Default: "Show Chars"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:118
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:118
 msgid "show_chars_label"
 msgstr ""
 
 #. Default: "Show Products"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/categories.pt:111
+#: easyshop.catalog/easyshop/catalog/viewlets/categories.pt:111
 msgid "show_products_label"
 msgstr ""
 
 #. Default: "Sorting"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/sorting.pt:4
+#: easyshop.catalog/easyshop/catalog/portlets/sorting.pt:4
+#: easyshop.shop/easyshop/shop/skins/easyshop_portlets/portlet_easyshopsorting.pt:10
 msgid "sorting_label"
 msgstr ""
 
 #. Default: "State"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/my_orders.pt:54
+#: easyshop.order/easyshop/order/browser/my_orders.pt:54
+#: easyshop.order/easyshop/order/browser/orders.pt:79
 msgid "state_label"
 msgstr ""
 
 #. Default: "Stock Information"
-#: ../../../svn-eggs/easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:12
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:102
+#: easyshop.stocks/easyshop/stocks/browser/stock_information_container_view.pt:12
+#: easyshop.stocks/easyshop/stocks/portlets/stock_information.pt:6
 msgid "stock_information_label"
 msgstr ""
 
 #. Default: "Tax Rate"
-#: ../../../svn-eggs/easyshop.taxes/easyshop/taxes/browser/tax.pt:28
+#: easyshop.taxes/easyshop/taxes/browser/tax.pt:28
 msgid "tax_rate_label"
 msgstr ""
 
 #. Default: "Taxes"
-#: ../../../svn-eggs/easyshop.shop/easyshop/shop/portlets/admin.pt:58
+#: easyshop.shop/easyshop/shop/portlets/admin.pt:58
 msgid "taxes_label"
 msgstr ""
 
 #. Default: "Yes, I accept"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:375
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:375
 msgid "terms_and_conditions_label_1"
 msgstr ""
 
 #. Default: "terms and conditions"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:378
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:378
 msgid "terms_and_conditions_label_2"
 msgstr ""
 
 #. Default: "of"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/order_preview.pt:382
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:382
 msgid "terms_and_conditions_label_3"
 msgstr ""
 
 #. Default: "Text"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/portlets/formatter.pt:131
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:131
 msgid "text_label"
 msgstr ""
 
 #. Default: "Your order has been successfully completed. You will get a confirmation e-mail very soon."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:15
+#: easyshop.checkout/easyshop/checkout/browser/thank_you.pt:15
 msgid "thank_you_description_1"
 msgstr ""
 
 #. Default: "We have accepted you order with number"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:25
+#: easyshop.checkout/easyshop/checkout/browser/thank_you.pt:25
 msgid "thank_you_description_2"
 msgstr ""
 
 #. Default: "You can see the status of your order at"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:34
+#: easyshop.checkout/easyshop/checkout/browser/thank_you.pt:34
 msgid "thank_you_description_3"
 msgstr ""
 
 #. Default: "Thank you for your shopping!"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/thank_you.pt:10
+#: easyshop.checkout/easyshop/checkout/browser/thank_you.pt:10
 msgid "thank_you_title"
 msgstr ""
 
 #. Default: "Title"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:33
+#: easyshop.catalog/easyshop/catalog/browser/manage_properties_view.pt:33
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:31
+#: easyshop.catalog/easyshop/catalog/portlets/formatter.pt:100
 msgid "title_label"
 msgstr ""
 
-#. Default: "Gesamt"
-#: ../../../svn-eggs/easyshop.carts/easyshop/carts/browser/added_to_cart.pt:37
+#. Default: "Total"
+#: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:37
+#: easyshop.carts/easyshop/carts/viewlets/cart.pt:89
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:207
 msgid "total_label"
 msgstr ""
 
 #. Default: "Unit Price"
-#: ../../../svn-eggs/easyshop.order/easyshop/order/browser/mail_order_submitted.pt:260
+#: easyshop.order/easyshop/order/browser/mail_order_sent.pt:261
+#: easyshop.order/easyshop/order/browser/mail_order_submitted.pt:260
 msgid "unit_price_label"
 msgstr ""
 
 #. Default: "Please add username and password."
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/user.pt:17
+#: easyshop.checkout/easyshop/checkout/browser/user.pt:17
 msgid "user_form_title"
 msgstr ""
 
 #. Default: "User"
-#: ../../../svn-eggs/easyshop.customers/easyshop/customers/portlets/my_account.pt:5
+#: easyshop.customers/easyshop/customers/portlets/my_account.pt:5
 msgid "user_label"
 msgstr ""
 
 #. Default: "Value"
-#: ../../../svn-eggs/easyshop.discounts/easyshop/discounts/browser/discount.pt:53
+#: easyshop.discounts/easyshop/discounts/browser/discount.pt:53
+#: easyshop.information/easyshop/information/browser/information_page.pt:51
+#: easyshop.payment/easyshop/payment/browser/payment_method.pt:59
 msgid "value_label"
 msgstr ""
 
 #. Default: "Variants"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:10
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:10
 msgid "variants_label"
 msgstr ""
 
 #. Default: "View"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:130
+#: easyshop.catalog/easyshop/catalog/browser/manage_variants_view.pt:130
+#: easyshop.groups/easyshop/groups/browser/groups_view.pt:53
 msgid "view_label"
 msgstr ""
 
 #. Default: "Welcome"
-#: ../../../svn-eggs/easyshop.checkout/easyshop/checkout/browser/address_select.pt:28
+#: easyshop.checkout/easyshop/checkout/browser/address_form.pt:27
+#: easyshop.checkout/easyshop/checkout/browser/address_select.pt:28
+#: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:44
 msgid "welcome_label"
 msgstr ""
 
 #. Default: "Zoom"
-#: ../../../svn-eggs/easyshop.catalog/easyshop/catalog/viewlets/product.pt:168
+#: easyshop.catalog/easyshop/catalog/viewlets/product.pt:168
 msgid "zoom_label"
 msgstr ""
 
 #. Default: "Zoom View"
-#: ../../../svn-eggs/easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
+#: easyshop.shop/easyshop/shop/skins/easyshop_templates/easyshopphoto_zoomview.pt:11
 msgid "zoom_view_label"
 msgstr ""
 
