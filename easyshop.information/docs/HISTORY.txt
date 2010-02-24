@@ -5,6 +5,7 @@ Changelog for easyshop.information
 0.1a1 Unreleased
 ----------------
 
+    - removed another hardcoded "Demmelhuber" [petschki]
     - Initial package structure.
       [zopeskel]
 
