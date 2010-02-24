@@ -148,7 +148,7 @@
                                 <a href="."
                                    tal:attributes="href cart/url"
                                    i18n:translate="go_to_cart_label">
-                                   Go to Cart
+                                   Go to cart
                                 </a>
                             </tal:block>
                             <div tal:condition="not:cart"
