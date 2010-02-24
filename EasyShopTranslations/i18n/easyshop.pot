@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2010-02-24 11:12+0000\n"
+"POT-Creation-Date: 2010-02-24 11:43+0000\n"
 "PO-Revision-Date: Tue Apr 25 11:18:19 2006\n"
 "Last-Translator: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
@@ -72,6 +72,10 @@ msgstr ""
 
 #: easyshop.core/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
+msgstr ""
+
+#: easyshop.customers/easyshop/customers/adapters/completeness.py:93
+msgid "Adress data is missing. Pleas check your Address"
 msgstr ""
 
 #: easyshop.core/easyshop/core/config.py:97

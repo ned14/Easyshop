@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EasyShop\n"
-"POT-Creation-Date: 2010-02-24 11:12+0000\n"
-"PO-Revision-Date: 2010-02-10 08:47+0100\n"
+"POT-Creation-Date: 2010-02-24 11:43+0000\n"
+"PO-Revision-Date: 2010-02-24 12:20+0100\n"
 "Last-Translator: Peter Mathis <peter.mathis@kombinat.at>\n"
 "Language-Team: Kai Diefenbach - iqplusplus <kai.diefenbach <at> iqpp.de>\n"
 "MIME-Version: 1.0\n"
@@ -72,6 +72,10 @@ msgstr "In den Warenkorb"
 #: easyshop.core/easyshop/core/interfaces/customers.py:38
 msgid "Address 1"
 msgstr "Straße/Hausnr."
+
+#: easyshop.customers/easyshop/customers/adapters/completeness.py:93
+msgid "Adress data is missing. Pleas check your Address"
+msgstr ""
 
 #: easyshop.core/easyshop/core/config.py:97
 msgid "American Express"
@@ -716,7 +720,6 @@ msgstr "Das ist auch meine Rechnungsadresse"
 #: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:29
 #: easyshop.carts/easyshop/carts/viewlets/cart.pt:79
 #: easyshop.catalog/easyshop/catalog/viewlets/product.pt:296
-#, fuzzy
 msgid "amount_label"
 msgstr "Menge"
 
@@ -1828,7 +1831,7 @@ msgstr "Preise für Lieferarten"
 #: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:87
 #: easyshop.carts/easyshop/carts/portlets/cart.pt:36
 msgid "shippingcost_link_label"
-msgstr ""
+msgstr "Versandkosten"
 
 #. Default: "Shop"
 #: easyshop.carts/easyshop/carts/browser/carts_container.pt:19
@@ -1932,7 +1935,6 @@ msgstr "Titel"
 #: easyshop.carts/easyshop/carts/browser/added_to_cart.pt:37
 #: easyshop.carts/easyshop/carts/viewlets/cart.pt:89
 #: easyshop.checkout/easyshop/checkout/browser/order_preview.pt:207
-#, fuzzy
 msgid "total_label"
 msgstr "Gesamt"
 
