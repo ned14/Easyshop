@@ -33,8 +33,8 @@
                   i18n:translate="cart_price_info">
                  *Preis inkl. MwSt. und
                  <span i18n:name="shippingcost_link">
-                    <a href="javascript:void(0)"
-                       tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800'); return false;"
+                    <a href="javascript:return false"
+                       tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')"
                        i18n:translate="shippingcost_link_label">
                         Versandkosten</a></span>
              </div>
