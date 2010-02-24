@@ -2,8 +2,7 @@
      i18n:domain="EasyShop">
 
     <dl id="portlet-cart"
-        class="portlet"   
-         i18n:domain="EasyShop">
+        class="portlet">
             <dt class="portletHeader">
                 <a tal:attributes="href string:${view/getShopUrl}/cart"
                    i18n:translate="cart_label">
@@ -19,23 +18,29 @@
                     </span>
                     <span i18n:translate="article_label">
                         Article
-                    </span>    
+                    </span>
                 </div>
-                <div class="price" 
+                <div class="price"
                      align="center"
                      tal:content="view/getCartPrice">
                     42.0
                 </div>
-                
+
             </dd>
 
             <dd class="portletItem">
-             <div class="product-price-info" style="line-height:10px">
-                 *Preis inkl. MwSt. und <a href="javascript:return false" style="text-decoration:underline" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
-             </div> 
+             <div class="product-price-info" style="line-height:10px"
+                  i18n:translate="cart_price_info">
+                 *Preis inkl. MwSt. und
+                 <span i18n:name="shippingcost_link">
+                    <a href="javascript:void(0)"
+                       tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800'); return false;"
+                       i18n:translate="shippingcost_link_label">
+                        Versandkosten</a></span>
+             </div>
             </dd>
 
-        
+
             <dd class="portletFooter">
                 <a class="cart_button" tal:attributes="href string:${view/getShopUrl}/cart"
                    i18n:translate="cart_label">

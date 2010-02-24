@@ -4,7 +4,8 @@ Changelog for easyshop.carts
 
 0.1a1 - Unreleased
 ------------------
-    
+
+    - fixed tranlsations [petschki]
     - make setup.py read version from metadata.xml [petschki]
     - Initial package structure.
       [zopeskel]

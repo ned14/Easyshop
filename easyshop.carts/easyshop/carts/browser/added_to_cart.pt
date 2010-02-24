@@ -13,7 +13,7 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading"
-            i18n:translate="added_to_cart_label"> 
+            i18n:translate="added_to_cart_label">
             This Articles have been added to the cart
         </h1>
 
@@ -28,15 +28,15 @@
                 </th>
                 <th class="number"
                     i18n:translate="amount_label">
-                    Menge
-                </th>                
+                    Amount
+                </th>
                 <th class="number"
                     i18n:translate="price_label">
-                    Preis
+                    Price
                 </th>
                 <th class="number"
                     i18n:translate="total_label">
-                    Gesamt
+                    Total
                 </th>
             </tr>
             <tr tal:repeat="product view/getProducts">
@@ -63,7 +63,7 @@
                             (<span tal:content="property/price" />)
                         </tal:block>
                     </div>
-                    
+
                 </td>
                 <td class="number"
                     tal:content="product/amount">
@@ -80,32 +80,38 @@
             </tr>
             <tr>
                 <td colspan="5" style="text-align:right">
-                  <div class="product-price-info">
-                     *Preis inkl. MwSt. und <a href="javascript: return false" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
-                  </div>
-                </td>            
+                    <div class="product-price-info" style="line-height:10px"
+                         i18n:translate="cart_price_info">
+                        *Preis inkl. MwSt. und
+                        <span i18n:name="shippingcost_link">
+                            <a href="javascript:void(0)"
+                               tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800'); return false;"
+                               i18n:translate="shippingcost_link_label">
+                                Versandkosten</a></span>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td class="added-to-cart-buttons"
                     colspan="5">
-                    <input class="context"  
-                           value="Go on shopping" 
-                           type="button" 
+                    <input class="context"
+                           value="Go on shopping"
+                           type="button"
                            tal:attributes="onclick string:window.location='${context/REQUEST/HTTP_REFERER}'"
                            i18n:attributes="value go_on_shopping_label;" />
 
-                    <input class="context"  
-                           value="Go to cart" 
-                           type="button" 
+                    <input class="context"
+                           value="Go to cart"
+                           type="button"
                            tal:attributes="onclick string:window.location='${context/absolute_url}/cart'"
                            i18n:attributes="value go_to_cart_label;" />
-                           
+
                     <input class="standalone"
-                           value="Zur Kasse" 
-                           type="button" 
+                           value="Zur Kasse"
+                           type="button"
                            tal:attributes="onclick string:window.location='${context/absolute_url}/checkout'" />
-                           
-                    
+
+
                 </td>
             </tr>
         </table>
