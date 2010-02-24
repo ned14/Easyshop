@@ -5,6 +5,7 @@ Changelog for easyshop.management
 0.1a1 Unreleased
 ----------------
 
+    - fixed translation [petschki]
     - Initial package structure.
       [zopeskel]
 
