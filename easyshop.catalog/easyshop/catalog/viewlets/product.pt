@@ -113,7 +113,7 @@
              <td>
                <!-- begin : custom-breadcrumbs -->
                <div id="custom-breadcrumbs" tal:define="breadcrumbs view/getBreadCrumbs">
-                <span class="custom-breadcrumbs-you-are-here"> Sie sind hier:</span>
+                <span class="custom-breadcrumbs-you-are-here" i18n:translate="custom-breadcrumbs-you-are-here-label">You are here:</span>
                 <span>
                  <a href="#" class="folder" tal:attributes="
                      href view/getShopURL"
@@ -201,7 +201,7 @@
 
                                         </div>
                                         <div class="product-price-info">
-                                           Preis inkl. MwSt. und <a href="javascript:return false" tal:attributes="onclick string:easyShopZoomWindow('${shop_url}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+                                           Price includes Taxes and <a href="javascript:return false" tal:attributes="onclick string:easyShopZoomWindow('${shop_url}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Delivery</a>
                                        </div>
 
                             </td>
@@ -493,7 +493,7 @@
                                     </tal:block>
                                   </div>
                                   <div class="product-price-info">
-                                     Preis inkl. MwSt. und <a href="#" tal:attributes="onclick string:easyShopZoomWindow('${shop_url}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+                                     Price includes Taxes and <a href="#" tal:attributes="onclick string:easyShopZoomWindow('${shop_url}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Delivery</a>
                                  </div>
                           </td>
                         </tr>

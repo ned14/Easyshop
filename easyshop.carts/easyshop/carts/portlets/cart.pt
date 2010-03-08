@@ -31,12 +31,12 @@
             <dd class="portletItem">
              <div class="product-price-info" style="line-height:10px"
                   i18n:translate="cart_price_info">
-                 *Preis inkl. MwSt. und
+                 *Price includes Taxes and
                  <span i18n:name="shippingcost_link">
                     <a href="javascript:return false"
                        tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')"
                        i18n:translate="shippingcost_link_label">
-                        Versandkosten</a></span>
+                        Delivery</a></span>
              </div>
             </dd>
 
@@ -49,7 +49,7 @@
                 <a class="cart_checkout_button"
                     tal:attributes="href string:${view/getShopUrl}/checkout">
                     <tal:block i18n:translate="checkout_label">
-                        Check Out
+                        Checkout
                     </tal:block>
                 </a>
             </dd>

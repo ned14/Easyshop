@@ -15,7 +15,7 @@
 
             <h1 class="documentFirstHeading"
                 i18n:translate="add_address_form_title">
-                Please add a new addresses
+                Please add a new address
             </h1> 
 
             <p class="check-out-description"

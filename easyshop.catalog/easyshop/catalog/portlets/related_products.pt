@@ -34,7 +34,7 @@
 
     <dd class="portletItem">
      <div class="product-price-info">
-         *Preis inkl. MwSt. und <a href="javascript:return false" style="text-decoration:underline" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Versandkosten</a> deutschlandweit
+         *Price includes Taxes and <a href="javascript:return false" style="text-decoration:underline" tal:attributes="onclick string:easyShopZoomWindow('${view/getShopURL}/information-page-popup?page_id=terms-and-conditions#para4', '800', '800')">Delivery</a>
      </div> 
     </dd>
 
