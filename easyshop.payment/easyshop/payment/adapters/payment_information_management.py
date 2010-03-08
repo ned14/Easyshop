@@ -84,8 +84,14 @@ class PaymentInformationManagement:
             selected_payment_method = \
                 self.context.paymentmethods[self.context.selected_payment_method]
         except (AttributeError, KeyError):
-            # Return prepayment as fallback
-            return self.context.paymentmethods["prepayment"]
+            # Try prepayment as fallback
+            if self.context.paymentmethods.has_key("prepayment"):
+                return self.context.paymentmethods["prepayment"]
+            elif len(self.context.paymentmethods):
+                # Any will do
+                return self.context.paymentmethods.values()[0];
+            else:
+                return None
 
         # Check vor validity
         if check_validity == False or \

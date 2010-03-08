@@ -41,7 +41,8 @@ class CurrencyManagement:
         """
         """
         price = "%.2f" % price
-        price = price.replace(".", ",")
+        # How do you determine the current rendition language? If it's not english you want this
+        #price = price.replace(".", ",")
         
         if symbol == "short":
             currency = self.getShortName()    

@@ -72,7 +72,12 @@ class OrderManagement(object):
         new_id = self._createOrderId()
         self.orders.invokeFactory("Order", id=new_id)
         new_order = getattr(self.orders, new_id)
-        
+
+        # Copy Customer to Order
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        cm = ICopyManagement(customer)
+        cm.copyTo(new_order)
+                    
         # Add cart items to order
         IItemManagement(new_order).addItemsFromCart(cart)
 
@@ -82,22 +87,17 @@ class OrderManagement(object):
         # Add shipping values to order
         sm = IShippingPriceManagement(self.context)
         new_order.setShippingPriceNet(sm.getPriceNet())
-        new_order.setShippingPriceGross(sm.getPriceGross())
+        new_order.setShippingPriceGross(sm.getPriceForCustomer())
         new_order.setShippingTax(sm.getTaxForCustomer())
         new_order.setShippingTaxRate(sm.getTaxRateForCustomer())
 
         # Add payment price values to order 
         pp = IPaymentPriceManagement(self.context)
-        new_order.setPaymentPriceGross(pp.getPriceGross())
+        new_order.setPaymentPriceGross(pp.getPriceForCustomer())
         new_order.setPaymentPriceNet(pp.getPriceNet())
         new_order.setPaymentTax(pp.getTaxForCustomer())
         new_order.setPaymentTaxRate(pp.getTaxRateForCustomer())
         
-        # Copy Customer to Order
-        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
-        cm = ICopyManagement(customer)
-        cm.copyTo(new_order)
-                    
         ## Reset security manager
         setSecurityManager(old_sm)
         

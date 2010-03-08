@@ -1,10 +1,12 @@
 # zope imports
 from zope.formlib import form
+from zope.component import queryUtility
 
 from Products.Five.browser import pagetemplatefile
 
 # plone imports
 from plone.app.form import base
+from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 # easyshop imports
 from easyshop.core.config import _
@@ -12,6 +14,7 @@ from easyshop.core.interfaces import IAddress
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICheckoutManagement
 from easyshop.core.interfaces import ICustomerManagement
+from easyshop.core.interfaces import IShopManagement
 
 class AddressAddForm(base.AddForm):
     """
@@ -43,6 +46,12 @@ class AddressAddForm(base.AddForm):
         # Set email of the superior customer object.
         if len(customer.email) == 0:
             customer.email = data.get("email", u"")
+            
+        # Reset country selection.
+        shop = IShopManagement(self.context).getShop()
+        for country in shop.getCountries():
+            if queryUtility(IIDNormalizer).normalize(country) == data.get("country"):
+                customer.selected_country = country
                     
         am.addAddress(data)
 

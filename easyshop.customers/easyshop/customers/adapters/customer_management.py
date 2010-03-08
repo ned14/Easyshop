@@ -40,7 +40,7 @@ class CustomerManagement(object):
         else:
             return False
 
-    def getAuthenticatedCustomer(self):
+    def getAuthenticatedCustomer(self, createIfNotExist=True):
         """Returns the customer or a session customer for anonymous user. If it
         doesn't already exist, creates a new one.
         """        
@@ -49,13 +49,15 @@ class CustomerManagement(object):
 
         sm = getUtility(ISessionManagement)
         sid = sm.getSID(self.context.REQUEST)
+        notify = False
         
         if mid is None:
-            if base_hasattr(self.sessions, sid) == False:
+            if createIfNotExist and base_hasattr(self.sessions, sid) == False:
                 customer = Customer(id=sid)
                 self.sessions._setObject(sid, customer)
+                notify = True
                 
-            customer = self.sessions[sid]
+            customer = self.sessions.get(sid)
         else:
             if base_hasattr(self.sessions, sid) == True:
                 self.transformCustomer(mid, sid)
@@ -63,6 +65,7 @@ class CustomerManagement(object):
             if base_hasattr(self.customers, mid) == False:
                 customer = Customer(id=mid)
                 self.customers._setObject(mid, customer)
+                notify = True
                 
                 # Set customers info
                 customer = self.customers[mid]
@@ -71,8 +74,9 @@ class CustomerManagement(object):
             customer = self.customers[mid]        
 
         # Update roles and mappings
-        wftool = getToolByName(self.context, "portal_workflow")
-        wftool.notifyCreated(customer)
+        if notify:
+            wftool = getToolByName(self.context, "portal_workflow")
+            wftool.notifyCreated(customer)
 
         return customer
 
@@ -128,3 +132,4 @@ class CustomerManagement(object):
         member = mtool.getMemberById(customer.id)
         if member is not None:
             customer.email = safe_unicode(member.getProperty("email"))
+                 

@@ -1,6 +1,11 @@
 # zope imports
 from zope.interface import implements
 from zope.component import adapts
+from zope.component import queryUtility
+
+# Plone imports
+from Products.CMFPlone.utils import safe_unicode
+from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement
@@ -32,6 +37,10 @@ class CountryCriteriaValidity:
             country = shipping_address.country
         else:
             country = customer.selected_country
+
+        # Need to convert country into an id
+        country = safe_unicode(country)
+        country = queryUtility(IIDNormalizer).normalize(country)
 
         if country in self.context.getCountries():
             return True
