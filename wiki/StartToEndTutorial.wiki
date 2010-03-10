@@ -1,0 +1,126 @@
+#summary Gives a step by step tutorial taking you from the start to end of deploying an Easyshop inside a standard Plone installation
+#labels Featured,Phase-Deploy
+#sidebar TableOfContents
+
+= Prerequisites: =
+  # A standard buildout based installation of [http://www.plone.org/ Plone]. We tested on Plone v3.3.4.
+  # [http://subversion.tigris.org/ Subversion] installed. On Unices such as Debian Linux et al, this is easiest installed using something like `apt-get install subversion`.
+  # You probably need root access on your deployment machine.
+  # And you really, _really_ ought to test this on a local test machine first in case something really bad happens. We personally run [http://www.virtualbox.org/ VirtualBox] based copies of our internet services which we synchronise using a 1-to-1 rsync, so it lets us play and undo any damage we do with real server copies (it also acts as a convenient backup which can always be rsynced the other way if needs be).
+
+Be aware that some parts of Easyshop is of alpha code quality at present: it generally mostly works, but there are occasional bugs and glitches most of which are listed on [http://code.google.com/p/easyshop-for-plone/issues/list the issue tracker]. I personally ([http://code.google.com/u/nialldouglas14/ Niall Douglas]) will happily fix any bugs you find in the Paypal payment deployment only as it's the only one I use myself and my business depends upon, and I would judge the Paypal payment deployment to be of beta quality approaching deployment quality. You can of course pay [http://code.google.com/p/easyshop-for-plone/people/list any of the contributors to Easyshop] to improve things that you particularly need.
+
+= Installation: =
+Your Plone installation is probably in something like `/usr/local/Plone/zeocluster` if you used the default settings for a ZEO deployment, so we'll assume that. Firstly you need a copy of SVN HEAD of Easyshop as it is still at beta quality, and you'll probably find a bug we haven't as it always seems to be, so as root:
+
+{{{
+cd /usr/local/Plone/zeocluster/src
+svn checkout https://svn.plone.org/svn/archetypes/Products.DataGridField/trunk DataGridField-1.7
+svn checkout http://easyshop-for-plone.googlecode.com/svn/buildout/3.0-Anonymous/ easyshop.buildout
+}}}
+
+Leave that run till it's done, then:
+
+{{{
+cd ..
+nano buildout.cfg
+}}}
+
+We now need to add a lot of easyshop stuff to the buildout process, so:
+
+{{{
+eggs =
+    ...
+    easyshop.core
+    easyshop.carts
+    easyshop.catalog
+    easyshop.checkout
+    easyshop.criteria
+    easyshop.customers
+    easyshop.discounts
+    easyshop.groups
+    easyshop.information
+    easyshop.kss
+    easyshop.login
+    easyshop.management
+    easyshop.order
+    easyshop.payment
+    easyshop.shipping
+    easyshop.shop
+    easyshop.stocks
+    easyshop.taxes
+    Products.DataGridField
+    ...
+
+zcml =
+    ...
+    easyshop.core
+    easyshop.carts
+    easyshop.catalog
+    easyshop.checkout
+    easyshop.criteria
+    easyshop.customers
+    easyshop.discounts
+    easyshop.groups
+    easyshop.information
+    easyshop.kss
+    easyshop.login
+    easyshop.management
+    easyshop.order
+    easyshop.payment
+    easyshop.shipping
+    easyshop.shop
+    easyshop.stocks
+    easyshop.taxes
+    ...
+
+develop =
+    ...
+    src/DataGridField-1.7
+    src/easyshop.buildout/src/easyshop.core
+    src/easyshop.buildout/src/easyshop.carts
+    src/easyshop.buildout/src/easyshop.catalog
+    src/easyshop.buildout/src/easyshop.checkout
+    src/easyshop.buildout/src/easyshop.criteria
+    src/easyshop.buildout/src/easyshop.customers
+    src/easyshop.buildout/src/easyshop.discounts
+    src/easyshop.buildout/src/easyshop.groups
+    src/easyshop.buildout/src/easyshop.information
+    src/easyshop.buildout/src/easyshop.kss
+    src/easyshop.buildout/src/easyshop.login
+    src/easyshop.buildout/src/easyshop.management
+    src/easyshop.buildout/src/easyshop.order
+    src/easyshop.buildout/src/easyshop.payment
+    src/easyshop.buildout/src/easyshop.shipping
+    src/easyshop.buildout/src/easyshop.shop
+    src/easyshop.buildout/src/easyshop.stocks
+    src/easyshop.buildout/src/easyshop.taxes
+    ...
+
+# You probably want this on:
+debug-mode = on
+}}}
+
+The need for DataGridField as source rather than egg is because the latest version in the egg repos is Plone 4 only and Plone 3.x will puke with it. Thus you can either pin the version or keep a src copy from subversion - I just tend to prefer the latter as I find it less prone to buildout -n suddenly breaking everything.
+
+Lastly:
+{{{
+cd products
+ln -s ../src/easyshop.buildout/products/EasyShopTranslations EasyShopTranslations
+cd ..
+bin/buildout
+}}}
+
+You should now be ready to run.
+
+= Running Zope directly: =
+Personally I find that running Zope directly instead of using bin/plonectl is the easiest for debugging, so do:
+
+{{{
+parts/zeoserver/bin/runzeo &
+parts/client1/bin/runzope &
+}}}
+
+... to start and a simple `killall python` to stop. This method prints all debug output to the terminal so you can see exception backtraces and such: very useful.
+
+= Creating an Easyshop instance: =
