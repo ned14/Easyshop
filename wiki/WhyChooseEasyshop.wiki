@@ -1,0 +1,19 @@
+#summary Summarises some of the E-Commerce solutions for Plone and why one might choose EasyShop
+
+= Introduction =
+This article is entirely a personal opinion - I won't pretend that it is not. So take it
+
+[http://www.plone.org/ Plone] has a few very basic shopping cart solutions:
+
+  * [http://www.plonegetpaid.com/ GetPaid] is the most well known, and indeed it can be made to work well for very simple types of shopping cart. I will freely admit that I don't keep up with the latest developments in this project, but when I evaluated it at the end of 2009 it had no VAT support (one can find a sales tax plugin at http://www.mail-archive.com/getpaid-dev@googlegroups.com/msg00638.html, but sales tax is an additive tax whereas VAT is an acquistion tax), and worse when I reviewed its implementation structure I could see no easy way of adding full VAT support. Also at that time its Paypal plugin wasn't functional, nor does GetPaid's structure easily allow a proper implementation (as its contributors have found) which is another major deal breaker for me. To summarise, GetPaid is fine for private individuals or very small businesses selling the odd item, but I don't think it would be a good idea to base your entire company around it.
+
+  * [http://plone.org/products/simplecartitem/ SimpleCartItem]
+
+... most of which are too basic for usage outside a private individual selling the odd item. There is however ample full system ERP and CRM deployments for Zope into which Plone can be integrated (see [http://www.contentmanagementsoftware.info/zope/e-commerce this list for a few of them]), but these require an external database and are usually too full featured for the typical eBay sized retailer.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
