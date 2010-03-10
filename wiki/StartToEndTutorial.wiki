@@ -111,7 +111,13 @@ cd ..
 bin/buildout
 }}}
 
-You should now be ready to run.
+You should now be ready to run, but if you want a currency other than Euro, British Sterling and US Dollars then you need to do one more thing:
+
+{{{
+nano src/easyshop.buildout/src/easyshop.core/easyshop/core/config.py
+}}}
+
+Here you can adjust various parameters for Easyshop, so if you want an extra currency you simply add it to the CURRENCIES section. You may also wish to edit VAT_COUNTRIES if you don't live in the EU, and DEFAULT_COUNTRIES if the countries you wish to deliver to aren't in the EU or USA. Lastly at the bottom is the all important PAYPAL_URL which lets you choose the Paypal Sandbox which is absolutely essential for testing that the shop absolutely & definitely will work with your customers in every conceivable scenario (e.g. if they are rejected, or they are using a stolen credit card etc).
 
 = Running Zope directly: =
 Personally I find that running Zope directly instead of using bin/plonectl is the easiest for debugging, so do:
@@ -124,3 +130,10 @@ parts/client1/bin/runzope &
 ... to start and a simple `killall python` to stop. This method prints all debug output to the terminal so you can see exception backtraces and such: very useful.
 
 = Creating an Easyshop instance: =
+Get into the ZMI and create a Plone site - you probably don't want to do this first time with an existing site until you've familiarised yourself with Easyshop's quirks. Once in the site, go to portal_quickinstaller or View/Site Setup/Add-on Products and add the Easyshop product.
+
+Now you'll get an "EasyShop" item in the Add New drop down menu. So go ahead and add an EasyShop, giving it a title of "Shop" and a Shop Owner of whatever you want to appear on your product invoices. On the Misc tab most options are fairly self explanatory, but to clarify some of them you can choose "Gross Prices" if all the product prices you enter already include taxes, but for most people it's easiest to leave this turned off. If you are VAT registered and wish to allow VAT registered entities not in your local economy to have your local VAT rate removed, you can choose your local VAT country ID so Easyshop knows when it ought to charge VAT or not. Lastly, if you want Paypal as a payment option, you MUST fill in the Paypal account email address on the Payment tab.
+
+So there you have it: your first Easyshop shop! After publishing it you ought to test it with an anonymous browser (i.e. one not logged in). I personally use IE8 for that as I never use IE for anything else :)
+
+= 
