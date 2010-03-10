@@ -132,8 +132,15 @@ parts/client1/bin/runzope &
 = Creating an Easyshop instance: =
 Get into the ZMI and create a Plone site - you probably don't want to do this first time with an existing site until you've familiarised yourself with Easyshop's quirks. Once in the site, go to portal_quickinstaller or View/Site Setup/Add-on Products and add the Easyshop product.
 
-Now you'll get an "EasyShop" item in the Add New drop down menu. So go ahead and add an EasyShop, giving it a title of "Shop" and a Shop Owner of whatever you want to appear on your product invoices. On the Misc tab most options are fairly self explanatory, but to clarify some of them you can choose "Gross Prices" if all the product prices you enter already include taxes, but for most people it's easiest to leave this turned off. If you are VAT registered and wish to allow VAT registered entities not in your local economy to have your local VAT rate removed, you can choose your local VAT country ID so Easyshop knows when it ought to charge VAT or not. Lastly, if you want Paypal as a payment option, you MUST fill in the Paypal account email address on the Payment tab.
+Now you'll get an "Easyshop" item in the Add New drop down menu. So go ahead and add an Easyshop, giving it a title of "Shop" and a Shop Owner of whatever you want to appear on your product invoices. On the Misc tab most options are fairly self explanatory, but to clarify some of them you can choose "Gross Prices" if all the product prices you enter already include taxes, but for most people it's easiest to leave this turned off. If you are VAT registered and wish to allow VAT registered entities not in your local economy to have your local VAT rate removed, you can choose your local VAT country ID so Easyshop knows when it ought to charge VAT or not. Lastly, if you want Paypal as a payment option, you MUST fill in the Paypal account email address on the Payment tab.
 
 So there you have it: your first Easyshop shop! After publishing it you ought to test it with an anonymous browser (i.e. one not logged in). I personally use IE8 for that as I never use IE for anything else :)
 
-= 
+= Creating your first category and product: =
+Easyshop uses categories to group products for your customers, whereas it uses groups to group products for you the admin only. Hence you always need at least one category.
+
+Before creating a category, you firstly need a Product to go into it. Click on Products in the Manager menu and do Add New/Product. Give it a Title of "Widget", a description, image and base price (say 100). Choosing the Advanced tab lets you choose Stock Amount, whether the stock is unlimited (for say an electronic good or service), whether the item is for sale and its sale price, whether it has accessories and so on. Choosing the Size tab lets you enter the all important weight and box dimensions which are so crucial to calculating Shipping. Give it a stock amount of 5 and a weight of 10kg, then hit Save.
+
+Next we'll add some product options. Choose Product Properties and type "Case" and add the property. In the new Case field type "Gold Plated" in the Title field and type 50 into its price before hitting Add. Return to the view, and don't forget to publish it.
+
+In the Easyshop view, choose Categories from the Manager menu on the left. Type something like "Appliances" into the box and click on Add Category. Next c
