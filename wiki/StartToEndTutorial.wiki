@@ -4,10 +4,10 @@
 Table of Contents:
   # [StartToEndTutorial#Prerequisites:]
   # [StartToEndTutorial#Introduction:]
-  # [StartToEndTutorial#Running-Zope-directly:]
-  # [StartToEndTutorial#Creating-an-Easyshop-instance:]
-  # [StartToEndTutorial#Creating-your-first-category-and-product:]
-  # [StartToEndTutorial#Setting-up-shipping-prices-and-which-rate-of-VAT-is-to-be-applied-according-to-destination:]
+  # [StartToEndTutorial#Running_Zope_directly:]
+  # [StartToEndTutorial#Creating_an_Easyshop_instance:]
+  # [StartToEndTutorial#Creating_your_first_category_and_product:]
+  # [StartToEndTutorial#Setting_up_shipping_prices_and_which_rate_of_VAT_is_to_be_applied_according_to_destination:]
 
 = Prerequisites: =
   # A standard buildout based installation of [http://www.plone.org/ Plone]. We tested on Plone v3.3.4.
@@ -15,7 +15,7 @@ Table of Contents:
   # You probably need root access on your deployment machine.
   # And you really, _really_ ought to test this on a local test machine first in case something really bad happens. We personally run [http://www.virtualbox.org/ VirtualBox] based copies of our internet services which we synchronise using a 1-to-1 rsync, so it lets us play and undo any damage we do with real server copies (it also acts as a convenient backup which can always be rsynced the other way if needs be).
 
-Be aware that some parts of Easyshop is of alpha code quality at present: it generally mostly works, but there are occasional bugs and glitches most of which are listed on [http://code.google.com/p/easyshop-for-plone/issues/list the issue tracker]. I personally ([http://code.google.com/u/nialldouglas14/ Niall Douglas]) will happily fix any bugs you find in the Paypal payment deployment only as it's the only one I use myself and my business depends upon, and I would judge the Paypal payment deployment to be of beta quality approaching deployment quality. You can of course pay [http://code.google.com/p/easyshop-for-plone/people/list any of the contributors to Easyshop] to improve things that you particularly need.
+Be aware that some parts of Easyshop is of alpha code quality at present: it generally mostly works, but there are occasional bugs and glitches most of which are listed on [http://code.google.com/p/easyshop-for-plone/issues/list the issue tracker]. I personally ([http://code.google.com/u/nialldouglas14/ Niall Douglas]) will happily fix any bugs you find in the Paypal payment deployment only as it's the only one I use myself and my business depends upon, and I would judge the Paypal payment deployment to be of beta quality approaching deployment quality. You can of course contract [http://code.google.com/p/easyshop-for-plone/people/list any of the contributors to Easyshop] to improve things that you particularly need.
 
 = Installation: =
 Your Plone installation is probably in something like `/usr/local/Plone/zeocluster` if you used the default settings for a ZEO deployment, so we'll assume that. Firstly you need a copy of SVN HEAD of Easyshop as it is still at beta quality, and you'll probably find a bug we haven't as it always seems to be, so as root:
@@ -137,7 +137,7 @@ parts/client1/bin/runzope &
 ... to start and a simple `killall python` to stop. This method prints all debug output to the terminal so you can see exception backtraces and such: very useful.
 
 = Creating an Easyshop instance: =
-Get into the ZMI and create a Plone site - you probably don't want to do this first time with an existing site until you've familiarised yourself with Easyshop's quirks. Once in the site, go to portal_quickinstaller or View/Site Setup/Add-on Products and add the Easyshop product.
+Get into the ZMI and create a Plone site - you probably don't want to do this first time with an existing site until you've familiarised yourself with Easyshop's quirks. Once in the site, go to portal_quickinstaller or View/Site Setup/Add-on Products and add the Easyshop product. Make SURE you fill in the Mail section of Site Setup with CORRECT values as Easyshop will need to send email to you and the customer, and having wrong details here will prevent many site error exceptions later.
 
 Now you'll get an "Easyshop" item in the Add New drop down menu. So go ahead and add an Easyshop, giving it a title of "Shop" and a Shop Owner of whatever you want to appear on your product invoices. On the Misc tab most options are fairly self explanatory, but to clarify some of them you can choose "Gross Prices" if all the product prices you enter already include taxes, but for most people it's easiest to leave this turned off. If you are VAT registered and wish to allow VAT registered entities not in your local economy to have your local VAT rate removed, you can choose your local VAT country ID so Easyshop knows when it ought to charge VAT or not. Lastly, if you want Paypal as a payment option, you MUST fill in the Paypal account email address on the Payment tab.
 
@@ -151,13 +151,13 @@ Before creating a category, you firstly need a Product to go into it. Click on P
 Next we'll add some product options. Choose Product Properties and type "Case" and add the property. In the new Case field type "Gold Plated" in the Title field and type 50 into its price before hitting Add. Note that you can have product properties inherited from groups, so if you were selling say T-Shirts then you'd have a group of T-Shirts defining a common product property of "Size" which enables all products in that group to have the same product properties. Return to the view, and don't forget to publish it.
 
 After all that you should see something like this:
-<table style="width:auto;"><tr><td><a href="http://picasaweb.google.com/lh/photo/1Hm-PRPn5WMzplv8uyPCEQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_b8qB9CsK-a4/S5gOLGRnZVI/AAAAAAAAACc/srIU4hpLI3s/s800/Easyshop%20-%20Newly%20Added%20Product.png" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="http://picasaweb.google.com/nialldouglas14/EasyshopTutorial?feat=embedwebsite">Easyshop Tutorial</a></td></tr></table>
+<a href="http://picasaweb.google.com/lh/photo/1Hm-PRPn5WMzplv8uyPCEQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_b8qB9CsK-a4/S5gOLGRnZVI/AAAAAAAAACc/srIU4hpLI3s/s800/Easyshop%20-%20Newly%20Added%20Product.png" /></a>
 
 You'll surely note that the price is €125 rather than the €100 originally specified - this is because of the default VAT customer tax which is defined to be 25% in a new Easyshop installation (you can remove this simply by choosing Taxes from the Manager menu, then the Contents tab and delete as usual). Note also that your "Case" property is available, and if you choose the drop down menu you'll see "Gold Plated" as an option costing an extra €50. If you choose this, note that the overall product price is now €187.50 which is (base price + option) x (100 + customer taxes).
 
 Now you need a category, so choose Categories from the Manager menu on the left. Type something like "Appliances" into the box and click on Add Category. Now choose the link that appears below it, then the Products tab and tick Widget before saving. Choose Appliances in the Categories list on the left and you should see your Widget. Publish the category now, and check that everything works using a non-logged-in browser by entering the Appliances category, choosing a Widget and adding it to your cart. If you view the cart using the cart summary in the right column you should see something like this:
 
-<table style="width:auto;"><tr><td><a href="http://picasaweb.google.com/lh/photo/iMDEwP6mWN4h_Cyau68s0A?feat=embedwebsite"><img src="http://lh6.ggpht.com/_b8qB9CsK-a4/S5gVtWW8UgI/AAAAAAAAAC0/HdfudLwGcLM/s800/Easyshop%20-%20First%20Shopping%20Cart.png" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="http://picasaweb.google.com/nialldouglas14/EasyshopTutorial?feat=embedwebsite">Easyshop Tutorial</a></td></tr></table>
+<a href="http://picasaweb.google.com/lh/photo/iMDEwP6mWN4h_Cyau68s0A?feat=embedwebsite"><img src="http://lh6.ggpht.com/_b8qB9CsK-a4/S5gVtWW8UgI/AAAAAAAAAC0/HdfudLwGcLM/s800/Easyshop%20-%20First%20Shopping%20Cart.png" /></a>
 
 You'll surely note a few things from this. Firstly, shipping and payment method both cost €0 no matter what options you choose from the drop down box - this is because we haven't set these up yet. Secondly, there is a bug where the incl. Tax value isn't correct - I'll get round to fixing this soon.
 
@@ -184,3 +184,24 @@ By applying similar criteria you can configure different VAT rates according to 
 Remember that shipping prices are chosen in consecutive priority, so the "Courier to Rest of World" we added above was added last and is therefore placed at lowest priority. As it has no criteria, it will always be chosen if no other prior shipping price has its criteria met.
 
 Lastly, setting up Payment Prices is identical to Shipping Prices. Easyshop comes with a range of default payment methods - simply delete those you don't need. For any reasonably small shop, deleting all but Paypal is a good idea as Paypal will also process credit and debit cards for you if you register the account as a business account and unless you're processing serious volume, Paypal's fees will usually be cheaper than a merchant services account.
+
+= The ordering process: =
+You now have a fairly complete shop, albeit with just one product. Now let's try placing an order in the non-logged-in browser by hitting the Checkout button. The standard Plone login page will now appear and the site will have to allow registration to permit a new user to register. Once completed Easyshop will show the "Please add a new address" page which rather annoyingly currently requires the user to reenter their name and country.
+
+You now get to choose between shipping methods, then between payment methods before being presented with the final order summary screen like this:
+<a href="http://picasaweb.google.com/lh/photo/yo4Gb04AVGrKS9aI5-X3dA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_b8qB9CsK-a4/S50PbVYv6XI/AAAAAAAAAC8/QKVqH1xDbjE/s800/Easyshop%20-%20Final%20Order%20Confirmation.png" /></a>
+
+Hitting "Complete Order" brings you to the standard Paypal order screen where you either fill in your credit/debit card info or your Paypal account details. After completing the order you are returned to this screen:
+<a href="http://picasaweb.google.com/lh/photo/cZsI8DxxzzzrZNWKz-Pm0A?feat=embedwebsite"><img src="http://lh5.ggpht.com/_b8qB9CsK-a4/S50UJlMNUcI/AAAAAAAAADE/8I_i_unBofo/s800/Easyshop%20-%20Order%20Placed.png" /></a>
+
+Easyshop has an account and order management screen, so let's look at that using the "My Account" link:
+<a href="http://picasaweb.google.com/lh/photo/46rZ5gVlOYNp4wl6AwcfWA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_b8qB9CsK-a4/S50UJ3lKzdI/AAAAAAAAADI/vhKV7zPp_FY/s800/Easyshop%20-%20My%20Account.png" /></a>
+
+Choosing Orders shows the details of the order you just placed:
+<a href="http://picasaweb.google.com/lh/photo/WOo2rB2O9DqkcfG4Te923A?feat=embedwebsite"><img src="http://lh4.ggpht.com/_b8qB9CsK-a4/S50UKWk97oI/AAAAAAAAADM/RW0bcSE31Kw/s800/Easyshop%20-%20My%20Orders.png" /></a>
+
+So far so good. If you check your email you will find that the Plone site administrator (unless you overrode it in the Shop settings) will have received an order placed email.
+
+Return to your admin view of your Plone - in your 
+
+= Setting up intra-EU B2B VAT zero rating with VIES EU VAT registration validation support =
