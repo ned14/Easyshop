@@ -2,12 +2,14 @@
 #labels Featured,Phase-Deploy
 
 Table of Contents:
-  # [StartToEndTutorial#Prerequisites:]
-  # [StartToEndTutorial#Introduction:]
-  # [StartToEndTutorial#Running_Zope_directly:]
-  # [StartToEndTutorial#Creating_an_Easyshop_instance:]
-  # [StartToEndTutorial#Creating_your_first_category_and_product:]
-  # [StartToEndTutorial#Setting_up_shipping_prices_and_which_rate_of_VAT_is_to_be_applied_according_to_destination:]
+  # [StartToEndTutorial#Prerequisites: Prerequisites]
+  # [StartToEndTutorial#Introduction: Introduction]
+  # [StartToEndTutorial#Running_Zope_directly: Running Zope directly]
+  # [StartToEndTutorial#Creating_an_Easyshop_instance: Creating an Easyshop instance]
+  # [StartToEndTutorial#Creating_your_first_category_and_product: Creating your first category and product]
+  # [StartToEndTutorial#Setting_up_shipping_prices_and_which_rate_of_VAT_is_to_be_applied_according_to_destination: Setting up shipping prices and which rate of VAT is to be applied according to destination]
+  # [StartToEndTutorial#The_ordering_process: The ordering process]
+  # [StartToEndTutorial#Setting_up_intra-EU_B2B_VAT_zero_rating_with_VIES_EU_VAT_registration_validation_support: Setting up intra-EU B2B VAT zero rating with VIES EU VAT registration validation support]
 
 = Prerequisites: =
   # A standard buildout based installation of [http://www.plone.org/ Plone]. We tested on Plone v3.3.4.
@@ -151,6 +153,7 @@ Before creating a category, you firstly need a Product to go into it. Click on P
 Next we'll add some product options. Choose Product Properties and type "Case" and add the property. In the new Case field type "Gold Plated" in the Title field and type 50 into its price before hitting Add. Note that you can have product properties inherited from groups, so if you were selling say T-Shirts then you'd have a group of T-Shirts defining a common product property of "Size" which enables all products in that group to have the same product properties. Return to the view, and don't forget to publish it.
 
 After all that you should see something like this:
+
 <a href="http://picasaweb.google.com/lh/photo/1Hm-PRPn5WMzplv8uyPCEQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_b8qB9CsK-a4/S5gOLGRnZVI/AAAAAAAAACc/srIU4hpLI3s/s800/Easyshop%20-%20Newly%20Added%20Product.png" /></a>
 
 You'll surely note that the price is €125 rather than the €100 originally specified - this is because of the default VAT customer tax which is defined to be 25% in a new Easyshop installation (you can remove this simply by choosing Taxes from the Manager menu, then the Contents tab and delete as usual). Note also that your "Case" property is available, and if you choose the drop down menu you'll see "Gold Plated" as an option costing an extra €50. If you choose this, note that the overall product price is now €187.50 which is (base price + option) x (100 + customer taxes).
@@ -189,19 +192,60 @@ Lastly, setting up Payment Prices is identical to Shipping Prices. Easyshop come
 You now have a fairly complete shop, albeit with just one product. Now let's try placing an order in the non-logged-in browser by hitting the Checkout button. The standard Plone login page will now appear and the site will have to allow registration to permit a new user to register. Once completed Easyshop will show the "Please add a new address" page which rather annoyingly currently requires the user to reenter their name and country.
 
 You now get to choose between shipping methods, then between payment methods before being presented with the final order summary screen like this:
+
 <a href="http://picasaweb.google.com/lh/photo/yo4Gb04AVGrKS9aI5-X3dA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_b8qB9CsK-a4/S50PbVYv6XI/AAAAAAAAAC8/QKVqH1xDbjE/s800/Easyshop%20-%20Final%20Order%20Confirmation.png" /></a>
 
 Hitting "Complete Order" brings you to the standard Paypal order screen where you either fill in your credit/debit card info or your Paypal account details. After completing the order you are returned to this screen:
+
 <a href="http://picasaweb.google.com/lh/photo/cZsI8DxxzzzrZNWKz-Pm0A?feat=embedwebsite"><img src="http://lh5.ggpht.com/_b8qB9CsK-a4/S50UJlMNUcI/AAAAAAAAADE/8I_i_unBofo/s800/Easyshop%20-%20Order%20Placed.png" /></a>
 
 Easyshop has an account and order management screen, so let's look at that using the "My Account" link:
+
 <a href="http://picasaweb.google.com/lh/photo/46rZ5gVlOYNp4wl6AwcfWA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_b8qB9CsK-a4/S50UJ3lKzdI/AAAAAAAAADI/vhKV7zPp_FY/s800/Easyshop%20-%20My%20Account.png" /></a>
 
 Choosing Orders shows the details of the order you just placed:
+
 <a href="http://picasaweb.google.com/lh/photo/WOo2rB2O9DqkcfG4Te923A?feat=embedwebsite"><img src="http://lh4.ggpht.com/_b8qB9CsK-a4/S50UKWk97oI/AAAAAAAAADM/RW0bcSE31Kw/s800/Easyshop%20-%20My%20Orders.png" /></a>
 
 So far so good. If you check your email you will find that the Plone site administrator (unless you overrode it in the Shop settings) will have received an order placed email.
 
-Return to your admin view of your Plone - in your 
+Return to your admin view of your Plone - in your Review List there is now an order:
+
+<a href="http://picasaweb.google.com/lh/photo/Ky_-tZixWltDf6clWTDXKA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_b8qB9CsK-a4/S51D1sh0g6I/AAAAAAAAADU/wyC2eLp7-vE/s800/Easyshop%20-%20Review%20List.png" /></a>
+
+Choosing this order shows the following order summary screen:
+
+<a href="http://picasaweb.google.com/lh/photo/q8b7zUXNwNYTVcp_oAX5Ng?feat=embedwebsite"><img src="http://lh6.ggpht.com/_b8qB9CsK-a4/S51cnjqWgdI/AAAAAAAAADw/oaV9cmU54iw/s800/Easyshop%20-%20Pending%20Order.png" /></a>
+
+You'll note the State of "pending" at the top right. This is the standard Plone workflow customised for ordering, so "pending" means that we are awaiting payment and/or the user didn't pay for the order. This becomes "paid" when the payment processor sets it as such (or you do so manually), and "sent" when you have dispatched the item whereupon another email is sent to the customer telling them so. You can also cancel or close the order if you wish.
 
 = Setting up intra-EU B2B VAT zero rating with VIES EU VAT registration validation support =
+The final section of this start-to-finish tutorial is how to set up the zero rating B2B VAT support. Firstly I ought to explain/refresh your mind about VAT - what it is and how it works in the EU.
+
+== A quick explanation of VAT in the EU ==
+In the EU, because governments like to have their own special VAT regimes with completely different rules as to what VAT rate is charged for what product for their own economy, there is no way of mapping VAT rates between countries. So say for example that the UK has a VAT rate of 17.5% and Denmark has a rate of 25% - a luxury product like a computer will likely attract the full rate for each country. However a book (if educational/literary) gets a special 0% rate in the UK, whereas in Denmark it still gets 25%. Worse still in some countries the _purpose_ of the item matters, so the UK traditionally reduces the rate to 5% when an item is used for repair even if when used in a different context it would be full rated.
+
+When say a German person buys a product in a shop in say France then they pay the French VAT for that product and the French government pockets the cash. For the average citizen this is fine because all consumers are supposed to pay VAT somewhere and most consumers buy locally rather than from the lowest VAT rated country (excepting the internet, but new rules have just been brought in in 2010 setting completely different VAT charging rules for distance selling in order to avoid countries using low VAT to attract business). However, VAT is never supposed to be applied to business consumption, but to avoid consumers dodging paying VAT what happens is that everyone including businesses pays VAT and then the business reclaims the VAT they paid from the government.
+
+Of course this is fine for when a German business is reclaiming VAT they paid on goods bought in Germany. It is not so good when a German business has paid VAT on goods bought in France because now they must reclaim that specially from the French government. Needless to say most governments have a huge incentive to make reclaiming VAT by non-local businesses as difficult as possible, and most businesses simply don't bother especially as it takes nine to twelve months before they repay you (and you must absorb any currency exchanges losses which occur in the meantime).
+
+Rather than fix this problem by forcing local governments to refund all VAT claims no matter the source (the government services loudly objected), or even better to harmonise VAT across all of the EU (not the rates, just what rate is applied to which product categories), they came up with yet another scheme which is to allow VAT registered entities to zero-rate the VAT they charge when selling to another VAT registered entity NOT based in the same country according to a series of complex rules. So, to clarify, a German business must charge VAT when selling to other German businesses, but it may zero-rate the VAT tax when selling to any EU business that isn't German.
+
+`<rant on>`<br/>
+Complex no? Well it gets even better, because what I just wrote applies to physical products which are conveyed physically only. Other rules apply if one is supplying services, and still other rules again apply for certain categories of good or service such as gasoline and insurance. All of these extremely complex rules are designed to avoid VAT fraud but to be honest, this is very much building a skyscraper out of straw because you wouldn't have any of this efficiency-killing bureaucracy if European governments weren't so selfish and prone to believing that their particular slightly different implementation of VAT is sacrosanct.<br/>
+`<rant off>`<br/>
+
+If you want to know more about whatever insane rules are currently in force, please consult http://en.wikipedia.org/wiki/European_Union_Value_Added_Tax which will probably remain fairly current.
+
+== The Easyshop Implementation ==
+What I have implemented into Easyshop is a drastic simplification of the rules: you tell Easyshop in which country you're VAT registered in the Shop settings which enables a new VAT id box in the cart. Customers filling this in - if the country code is different - cause ALL consumer taxes to be disabled which is an effective zero-rating. Note that default taxes continue to be applied i.e. not the consumer ones.
+
+Under the current rules for any business with typical revenues to another country not exceeding €100,000 in a year then this simplification ought to work just fine. If you do exceed it then you're required to register yourself for VAT in that foreign country and to charge that country's VAT rate using that country's native currency.
+
+Currently Easyshop cannot handle this situation as it only knows of one "home" country - however support would not be hard to add. Also, currently Easyshop cannot handle multiple currencies simultaneously which is a problem only with the UK, Sweden and the Eastern European countries. Support for this would be harder to add, but it could be done.
+
+Once you have VAT support turned on you'll get the following in the order screen instead:
+
+<a href="http://picasaweb.google.com/lh/photo/W-QOwbF8VK24wU4e8eSAHA?feat=embedwebsite"><img src="http://lh5.ggpht.com/_b8qB9CsK-a4/S51cn5q8-QI/AAAAAAAAAD0/mP2WVLheXn4/s800/Easyshop%20-%20VATed%20order.png" /></a>
+
+As you can see, it inserts an iframe containing a query of the VAT number with the EU's VIES service which will tell you if the VAT number is valid or not. Seeing as you have the legal responsibility for checking the validity of VAT numbers, this particular feature saves a LOT of time.
