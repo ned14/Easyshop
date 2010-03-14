@@ -1,6 +1,13 @@
 #summary Gives a step by step tutorial taking you from the start to end of deploying an Easyshop inside a standard Plone installation
 #labels Featured,Phase-Deploy
-#sidebar TableOfContents
+
+Table of Contents:
+  # [StartToEndTutorial#Prerequisites:]
+  # [StartToEndTutorial#Introduction:]
+  # [StartToEndTutorial#Running-Zope-directly:]
+  # [StartToEndTutorial#Creating-an-Easyshop-instance:]
+  # [StartToEndTutorial#Creating-your-first-category-and-product:]
+  # [StartToEndTutorial#Setting-up-shipping-prices-and-which-rate-of-VAT-is-to-be-applied-according-to-destination:]
 
 = Prerequisites: =
   # A standard buildout based installation of [http://www.plone.org/ Plone]. We tested on Plone v3.3.4.
@@ -137,20 +144,43 @@ Now you'll get an "Easyshop" item in the Add New drop down menu. So go ahead and
 So there you have it: your first Easyshop shop! After publishing it you ought to test it with an anonymous browser (i.e. one not logged in). I personally use IE8 for that as I never use IE for anything else :)
 
 = Creating your first category and product: =
-Easyshop uses categories to group products for your customers, whereas it uses groups to group products for you the admin only. Hence you always need at least one category.
+Easyshop uses categories to group products for your customers, whereas it uses groups to group products for you the admin only. Hence your products must always belong to at least one category for customers to find your product.
 
 Before creating a category, you firstly need a Product to go into it. Click on Products in the Manager menu and do Add New/Product. Give it a Title of "Widget", a description, image and base price (say 100). Choosing the Advanced tab lets you choose Stock Amount, whether the stock is unlimited (for say an electronic good or service), whether the item is for sale and its sale price, whether it has accessories and so on. Choosing the Size tab lets you enter the all important weight and box dimensions which are so crucial to calculating Shipping. Give it a stock amount of 5 and a weight of 10kg, then hit Save.
 
-Next we'll add some product options. Choose Product Properties and type "Case" and add the property. In the new Case field type "Gold Plated" in the Title field and type 50 into its price before hitting Add. Return to the view, and don't forget to publish it.
+Next we'll add some product options. Choose Product Properties and type "Case" and add the property. In the new Case field type "Gold Plated" in the Title field and type 50 into its price before hitting Add. Note that you can have product properties inherited from groups, so if you were selling say T-Shirts then you'd have a group of T-Shirts defining a common product property of "Size" which enables all products in that group to have the same product properties. Return to the view, and don't forget to publish it.
 
 After all that you should see something like this:
 <table style="width:auto;"><tr><td><a href="http://picasaweb.google.com/lh/photo/1Hm-PRPn5WMzplv8uyPCEQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_b8qB9CsK-a4/S5gOLGRnZVI/AAAAAAAAACc/srIU4hpLI3s/s800/Easyshop%20-%20Newly%20Added%20Product.png" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="http://picasaweb.google.com/nialldouglas14/EasyshopTutorial?feat=embedwebsite">Easyshop Tutorial</a></td></tr></table>
 
-You'll surely note that the price is €125 rather than the €100 originally specified - this is because of the VAT tax which is defined to be 25% in a new Easyshop installation. Note also that your "Case" property is available, and if you choose the drop down menu you'll see "Gold Plated" as an option costing an extra €50. If you choose this, note that the overall product price is now €187.50.
+You'll surely note that the price is €125 rather than the €100 originally specified - this is because of the default VAT customer tax which is defined to be 25% in a new Easyshop installation (you can remove this simply by choosing Taxes from the Manager menu, then the Contents tab and delete as usual). Note also that your "Case" property is available, and if you choose the drop down menu you'll see "Gold Plated" as an option costing an extra €50. If you choose this, note that the overall product price is now €187.50 which is (base price + option) x (100 + customer taxes).
 
-Now you need a category, so choose Categories from the Manager menu on the left. Type something like "Appliances" into the box and click on Add Category. Now choose the link that appears below it, then the Products tab and tick Widget before saving. Choose Appliances in the Categories list on the left and you should see your Widget. Publish the category now, and check using a non-logged in browser. You should see something like this:
+Now you need a category, so choose Categories from the Manager menu on the left. Type something like "Appliances" into the box and click on Add Category. Now choose the link that appears below it, then the Products tab and tick Widget before saving. Choose Appliances in the Categories list on the left and you should see your Widget. Publish the category now, and check that everything works using a non-logged-in browser by entering the Appliances category, choosing a Widget and adding it to your cart. If you view the cart using the cart summary in the right column you should see something like this:
 
 <table style="width:auto;"><tr><td><a href="http://picasaweb.google.com/lh/photo/iMDEwP6mWN4h_Cyau68s0A?feat=embedwebsite"><img src="http://lh6.ggpht.com/_b8qB9CsK-a4/S5gVtWW8UgI/AAAAAAAAAC0/HdfudLwGcLM/s800/Easyshop%20-%20First%20Shopping%20Cart.png" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="http://picasaweb.google.com/nialldouglas14/EasyshopTutorial?feat=embedwebsite">Easyshop Tutorial</a></td></tr></table>
 
+You'll surely note a few things from this. Firstly, shipping and payment method both cost €0 no matter what options you choose from the drop down box - this is because we haven't set these up yet. Secondly, there is a bug where the incl. Tax value isn't correct - I'll get round to fixing this soon.
 
-TO BE COMPLETED TOMORROW
+Before we leave this section you should choose "Carts" from the Manager menu. You'll see a list of carts with their items along with their last modification dates - these are the carts which your website's visitors created but never sent to order. Most of the time this is because your customer went elsewhere, maybe because you didn't have a certain item in stock or maybe because they found a cheaper price elsewhere. Sometimes though it can be because the customer is building a cart over a few days. Either way, watching this can be an invaluable source of data when monitoring the performance of your shop.
+
+= Setting up shipping prices and which rate of VAT is to be applied according to destination: =
+One of the best parts of Easyshop is its comprehensive support for differing shipping methods and prices. Setting these up is extremely easy, so start by choosing Shipping Prices from the Manager menu which will show you "There are no shipping prices".
+
+Remedy this by adding the following Shipping Prices:
+  # "Electronic Delivery" costing €0. Once in the shipping price item page add a new weight criteria choosing < 0.01, then a further "Combined Length and Girth" criteria choosing < 0.01.
+  # "Courier to Ireland" costing €15. Once in the shipping price item page add a new "Country Criteria" choosing Ireland.
+  # "Courier to UK" costing €20. Once in the shipping price item page add a new "Country Criteria" choosing the United Kingdom.
+  # "Courier to Europe" costing €35. Once in the shipping price item page add a new "Country Criteria" choosing all European countries except Ireland and the UK.
+  # "Courier to Rest of World" costing €75. Don't add any criteria here.
+
+Enter the Shipping Prices Contents tab and select all the items and click on "Change State". Tick "Include contained items" and change the state to "Publish".
+
+Now refresh the view in your not-logged-in web browser - you should see that shipping now has a value! Try choosing different countries using the Country drop down box: choosing Ireland should choose a shipping of €18.75 (€15 + VAT) via AJAX, some European country such as Austria should be €43.75 (€35 + VAT) and choosing the USA should be €62.50 (€50 + VAT).
+
+Those familiar with VAT will know that VAT is not to be applied to customers outside the EU, so to fix this choose the Taxes option from the Manager menu and then choose VAT. Add a new country criteria including all European countries (so all but the USA). Note how VAT is now applied only when the destination is a European country, but is no longer applied when the destination is the USA.
+
+By applying similar criteria you can configure different VAT rates according to destination country (which is now the law if your sales exceed a certain amount annually). You can also apply criteria which change price according to item weight or size, or have one set of customers get preferential shipping rates (e.g. if they regularly buy in bulk from you). One of the most obvious criteria is to set up two shipping methods i.e. "Standard 2-3 day delivery" and "Expedited next day delivery" and then have the shipping prices select on shipping method.
+
+Remember that shipping prices are chosen in consecutive priority, so the "Courier to Rest of World" we added above was added last and is therefore placed at lowest priority. As it has no criteria, it will always be chosen if no other prior shipping price has its criteria met.
+
+Lastly, setting up Payment Prices is identical to Shipping Prices. Easyshop comes with a range of default payment methods - simply delete those you don't need. For any reasonably small shop, deleting all but Paypal is a good idea as Paypal will also process credit and debit cards for you if you register the account as a business account and unless you're processing serious volume, Paypal's fees will usually be cheaper than a merchant services account.
