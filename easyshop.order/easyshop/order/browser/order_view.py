@@ -185,13 +185,14 @@ class OrderView(BrowserView):
         tax_rate = nc.floatToTaxString(self.context.getPaymentTaxRate())
         tax = cm.priceToString(self.context.getPaymentTax(), suffix=None)
 
+        transtool = getToolByName(self.context, 'translation_service')
         return {
             "display" : self.context.getPaymentPriceGross() != 0,
             "price_net" : price_net,
             "price_gross" : price_gross,
             "tax_rate" : tax_rate,
             "tax" : tax,
-            "title" : "Cash on Delivery"
+            "title" : transtool.utranslate("plone", u"Cash on Delivery").encode('utf-8')
         }
 
     def getSelectedPaymentData(self):
