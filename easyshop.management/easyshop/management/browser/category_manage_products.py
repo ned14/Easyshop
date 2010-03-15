@@ -32,6 +32,8 @@ class ManageProductsView(BrowserView):
         
         # Get start page                             
         b_start  = self.request.get('b_start', 0);
+        if b_start == "None":
+            b_start = 0
 
         batch = Batch(result, 20, int(b_start), orphan=0)
         
