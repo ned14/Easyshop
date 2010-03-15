@@ -146,6 +146,13 @@ class OrderPreviewForm(formbase.AddForm):
         if not IAsynchronPaymentMethod.providedBy(selected_payment_method):
             ICheckoutManagement(self.context).redirectToNextURL("BUYED_ORDER")
 
+    def getVATRegistration(self):
+        """Returns the VAT registration (if any) of the current customer.
+        """
+        customer = ICustomerManagement(self.context).getAuthenticatedCustomer()
+        vatreg = customer.getVATRegistration()
+        return vatreg
+                
     def getCartItems(self):
         """Returns the items of the current cart.
         """

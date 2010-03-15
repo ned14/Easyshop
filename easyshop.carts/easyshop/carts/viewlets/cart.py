@@ -13,6 +13,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
 
 # easyshop imports
+from easyshop.core.config import VAT_COUNTRIES
 from easyshop.core.interfaces import IAddressManagement
 from easyshop.core.interfaces import ICartManagement
 from easyshop.core.interfaces import ICustomerManagement
@@ -32,6 +33,7 @@ from easyshop.core.interfaces import IShippingMethodManagement
 from easyshop.core.interfaces import IShippingPriceManagement
 from easyshop.core.interfaces import IShopManagement
 from easyshop.core.interfaces import ITaxes
+from easyshop.core.interfaces import ITaxManagement
 
 class CheckoutCartViewlet(ViewletBase):
     """
@@ -122,7 +124,7 @@ class CheckoutCartViewlet(ViewletBase):
 
     def getCartPrice(self):
         """Returns the price of the current cart.
-        """        
+        """
         cart = self._getCart()
         
         if cart is None: 
@@ -188,6 +190,28 @@ class CheckoutCartViewlet(ViewletBase):
                 "id"       : payment_method.getId(),
                 "title"    : payment_method.Title(),
                 "selected" : selected,
+            })
+
+        return result
+                
+    def getVATRegistration(self):
+        """Returns the VAT registration (if any) of the current customer.
+        """
+        result = []
+        shop = IShopManagement(self.context).getShop()
+        if shop.__dict__.has_key('VATCountry') and shop.VATCountry != "None" and len(ITaxManagement(self.context).getCustomerTaxes()):
+        
+            customermgmt = ICustomerManagement(self.context)
+            customer = customermgmt.getAuthenticatedCustomer()
+            vatreg = customer.getVATRegistration()
+            if not vatreg: vatreg = ""
+            vatcountries = VAT_COUNTRIES.keys()
+            vatcountries.sort()
+            
+            result.append({
+                "country"   : vatreg[:2],
+                "number"    : vatreg[2:],
+                "countries" : vatcountries,
             })
 
         return result
@@ -419,18 +443,39 @@ class CheckoutCartViewlet(ViewletBase):
         # shipping price.        
         selected_country = safe_unicode(self.request.get("selected_country"))
         customer.selected_country = selected_country
-        invoice_address = IAddressManagement(customer).getInvoiceAddress()
-        if invoice_address is not None:
-            invoice_address.country = selected_country
+        #invoice_address = IAddressManagement(customer).getInvoiceAddress()
+        #if invoice_address is not None:
+        #    invoice_address.country = selected_country
+        shipping_address = IAddressManagement(customer).getShippingAddress()
+        if shipping_address is not None:
+            shipping_address.country = queryUtility(IIDNormalizer).normalize(selected_country)
+
+        shop = IShopManagement(self.context).getShop()
+        shipping_methods = IShippingMethodManagement(shop).getShippingMethods(check_validity=True)
+        shipping_methods_ids = [sm.getId() for sm in shipping_methods]
+        selected_shipping_method = self.request.get("selected_shipping_method")
 
         # Set selected shipping method
-        customer.selected_shipping_method = \
-            safe_unicode(self.request.get("selected_shipping_method"))
+        if selected_shipping_method in shipping_methods_ids:
+            customer.selected_shipping_method = \
+                safe_unicode(self.request.get("selected_shipping_method"))
+        else:
+            customer.selected_shipping_method = shipping_methods_ids[0]
 
         # Set selected payment method type
         customer.selected_payment_method = \
             safe_unicode(self.request.get("selected_payment_method"))
-            
+        
+        # Set selected VAT registration
+        selected_vat_country = safe_unicode(self.request.get("selected_vat_country"))
+        selected_vat_number  = safe_unicode(self.request.get("selected_vat_number"))
+        if selected_vat_country == "" or selected_vat_country is None or selected_vat_number is None:
+            customer.vatreg = None
+        elif selected_vat_country == "XX":
+            customer.vatreg = selected_vat_country
+        else:
+            customer.vatreg = selected_vat_country + selected_vat_number
+        
         cart = self._getCart()
         if cart is None:
             url = "%s/cart" % self.context.absolute_url()

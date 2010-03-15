@@ -24,6 +24,7 @@
             <tr>
                 <td>
                     <select name="selected_country">
+                        <option value="" i18n:translate="selected-country-choose-label">Choose</option>
                         <option tal:repeat="country view/getCountries"
                                 tal:attributes="selected country/selected"
                                 tal:content="country/title"
@@ -290,8 +291,61 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <span tal:condition="view/getVATRegistration" i18n:translate="vat_registration_label">
+                            VAT registration:
+                        </span>
+                    </td>
+                    <td colspan="2">
+                      <div tal:repeat="vat_registration view/getVATRegistration">
+                        <select name="selected_vat_country" id="selected_vat_country">
+                            <option value="">None</option>
+                            <option tal:repeat="country vat_registration/countries"
+                                tal:attributes="value country; selected python:country==vat_registration['country']"
+                                tal:content="country" ></option>
+                            <option value="XX" tal:attributes="selected python:'XX'==vat_registration['country']">Non-EU</option>
+                        </select>
+                        <input type="text" size="12" name="selected_vat_number" id="selected_vat_number"
+                                   tal:attributes="value vat_registration/number" />
+                        <span id="invalidvatnumbermsg" class="fieldRequired" style="display:none;color:red;">(<span i18n:translate="invalid-vat-format-label">Invalid VAT number format</span>)</span>
+                        <input type="button" id="vatviescheck" style="display:none"
+                                   class="standalone"
+                                   value="Check with VIES for validity" i18n:translate="vat-vies-check-label"/>
+                        <script type="text/javascript" tal:content="structure string:// <![CDATA[ <!--
+                            var vatcheckbtn = jq('input#vatviescheck');
+                            var selected_vat_country = jq('select#selected_vat_country');
+                            var selected_vat_number = jq('input#selected_vat_number');
+                            var invalidvatnumber = jq('span#invalidvatnumbermsg');
+                            vatcheckbtn.click(function() {
+                                window.open('http://ec.europa.eu/taxation_customs/vies/viesquer.do?ms='
+                                    +selected_vat_country.val()+'&vat='+selected_vat_number.val());
+                            });
+                            function vatnumberchanged() {
+                                vatcountry = selected_vat_country.val();
+                                vatnumber = selected_vat_number.val();
+                                if(vatcountry.length==2 && vatcountry!='XX') {
+                                    selected_vat_number.show();
+                                    vatreg = vatcountry + vatnumber;
+                                    if(vatreg.match(/^$$|^XX$$|^[a-zA-Z][a-zA-Z][a-zA-Z0-9]{8,12}?$$/)) {
+                                        invalidvatnumber.hide();
+                                        vatcheckbtn.show();
+                                    } else {
+                                        invalidvatnumber.show();
+                                        vatcheckbtn.hide();
+                                    }
+                                } else {
+                                    selected_vat_number.hide();
+                                    invalidvatnumber.hide();
+                                    vatcheckbtn.hide();
+                                }
+                            };
+                            selected_vat_number.keyup(vatnumberchanged);
+                            selected_vat_country.change(vatnumberchanged).change();
+                        // --> ]]>"></script>
+                      </div>
+                    </td>
                     <td class="formHelp number"
-                        colspan="5">
+                        colspan="3">
                         <span i18n:translate="incl_tax_label">
                             incl. Tax =
                         </span>
@@ -313,13 +367,11 @@
                                id="total_amount_of_items"
                                tal:attributes="value cart_items/total_amount" />
 
-                        <noscript>
-                            <input class="context"
-                                    name="refreshCart:method"
-                                    value="Refresh"
-                                    type="submit"
-                                    i18n:attributes="value refresh_label;" />
-                        </noscript>
+                        <input class="context"
+                               name="refreshCart:method"
+                               value="Refresh"
+                               type="submit"
+                               i18n:attributes="value refresh_label;" />
 
                         <input tal:condition="not:goto"
                                class="standalone"

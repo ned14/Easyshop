@@ -70,21 +70,56 @@ TEXTS = (
                          
 CURRENCIES = {
     "euro" : {
-        "long"   : "Euro",
-        "short"  : "EUR",
-        "symbol" : "€"
+        "long"   : u"Euro",
+        "short"  : u"EUR",
+        "symbol" : u"€"
     },
     
     "usd" : {
-        "long"   : "US-Dollar",
-        "short"  : "USD",
-        "symbol" : "$"
+        "long"   : u"US Dollar",
+        "short"  : u"USD",
+        "symbol" : u"$"
     },    
+
+    "gbp" : {
+        "long"   : u"British Sterling",
+        "short"  : u"GBP",
+        "symbol" : u"£"
+    },
 }
+
+VAT_COUNTRIES = { 'AT' : 'Austria',
+                  'BE' : 'Belgium',
+                  'BG' : 'Bulgaria',
+                  'CY' : 'Cyprus',
+                  'CZ' : 'Czech Republic',
+                  'DE' : 'Germany',
+                  'DK' : 'Denmark',
+                  'EE' : 'Estonia',
+                  'EL' : 'Greece',
+                  'ES' : 'Spain',
+                  'FI' : 'Finland',
+                  'FR' : 'France',
+                  'GB' : 'United Kingdom',
+                  'HU' : 'Hungary',
+                  'IE' : 'Ireland',
+                  'IT' : 'Italy',
+                  'LT' : 'Lithuania',
+                  'LU' : 'Luxembourg',
+                  'LV' : 'Latvia',
+                  'MT' : 'Malta',
+                  'NL' : 'Netherlands',
+                  'PL' : 'Poland',
+                  'PT' : 'Portugal',
+                  'RO' : 'Romania',
+                  'SE' : 'Sweden',
+                  'SI' : 'Slovenia',
+                  'SK' : 'Slovakia'
+                 }
 
 REDO_PAYMENT_STATES = [
     "pending",
-    "sent (not payed)",
+    "sent (not paid)",
 ]
 
 REDO_PAYMENT_PAYMENT_METHODS = [
@@ -118,10 +153,46 @@ CREDIT_CARD_YEARS_CHOICES = (
     (u"2009", u"2009"),
     (u"2010", u"2010"),    
     (u"2011", u"2011"),
+    (u"2012", u"2012"),
+    (u"2013", u"2013"),
+    (u"2014", u"2014"),
+    (u"2015", u"2015"),
+    (u"2016", u"2016"),
+    (u"2017", u"2017"),
+    (u"2018", u"2018"),
+    (u"2019", u"2019"),
+    (u"2020", u"2020"),
 )
 
 DEFAULT_COUNTRIES = (
+    "Austria",
+    "Belgium",
+    "Bulgaria",
+    "Cyprus",
+    "Czech Republic",
+    "Denmark",
+    "Estonia",
+    "Finland",
+    "France",
     "Germany",
+    "Greece",
+    "Hungary",
+    "Ireland",
+    "Italy",
+    "Latvia",
+    "Lithuania",
+    "Luxembourg",
+    "Malta",
+    "Netherlands",
+    "Poland",
+    "Portugal",
+    "Romania",
+    "Slovakia",
+    "Slovenia",
+    "Spain",
+    "Sweden",
+    "United Kingdom",
+    "USA",
 )
 
 
@@ -154,5 +225,5 @@ DELIVERY_TIMES_UNIT = (
     (u"Weeks",  _(u"Weeks")),
 )
 
-# PAYPAL_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
+#PAYPAL_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
 PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr"

@@ -26,6 +26,7 @@ class Customer(OrderSupport, Container):
 
     firstname = FieldProperty(ICustomer["firstname"])
     lastname  = FieldProperty(ICustomer["lastname"])
+    vatreg    = FieldProperty(ICustomer["vatreg"])
     email     = FieldProperty(ICustomer["email"])
 
     selected_invoice_address     = u""
@@ -39,7 +40,7 @@ class Customer(OrderSupport, Container):
         """
         """
         super(Customer, self).__init__(id)
-        self.selected_country = u"Deutschland"
+        self.selected_country = u""
 
     def Title(self):
         """
@@ -84,6 +85,11 @@ class Customer(OrderSupport, Container):
         """
         """
         return self.lastname
+
+    def getVATRegistration(self):
+        """
+        """
+        return self.vatreg
 
     def getEmail(self):
         """

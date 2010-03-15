@@ -1,9 +1,11 @@
 # zope imports
 from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewletManager
+from zope.component import queryUtility
 
 # CMFPlone imports
 from Products.CMFPlone.utils import safe_unicode
+from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -123,9 +125,12 @@ class AjaxView(BrowserView):
         # shipping price.        
         selected_country = safe_unicode(self.request.get("selected_country"))
         customer.selected_country = selected_country
-        invoice_address = IAddressManagement(customer).getInvoiceAddress()
-        if invoice_address is not None:
-            invoice_address.country = selected_country
+        #invoice_address = IAddressManagement(customer).getInvoiceAddress()
+        #if invoice_address is not None:
+        #    invoice_address.country = selected_country
+        shipping_address = IAddressManagement(customer).getShippingAddress()
+        if shipping_address is not None:
+            shipping_address.country = queryUtility(IIDNormalizer).normalize(selected_country)
 
         shop = IShopManagement(self.context).getShop()
         shipping_methods = IShippingMethodManagement(shop).getShippingMethods(check_validity=True)
@@ -142,3 +147,14 @@ class AjaxView(BrowserView):
         # Set selected payment method type
         customer.selected_payment_method = \
             safe_unicode(self.request.get("selected_payment_method"))
+        
+        # Set selected VAT registration
+        selected_vat_country = safe_unicode(self.request.get("selected_vat_country"))
+        selected_vat_number  = safe_unicode(self.request.get("selected_vat_number"))
+        if selected_vat_country == "" or selected_vat_country is None or selected_vat_number is None:
+            customer.vatreg = None
+        elif selected_vat_country == "XX":
+            customer.vatreg = selected_vat_country
+        else:
+            customer.vatreg = selected_vat_country + selected_vat_number
+        

@@ -57,6 +57,10 @@ class IOrderView(Interface):
         """Returns the total price for the customer.
         """
 
+    def getVATRegistration():
+        """Returns the VAT registration (if any) of the current customer.
+        """                
+
     def getInvoiceAddress():
         """Returns the invoice address.
         """
@@ -153,7 +157,7 @@ class OrderView(BrowserView):
 
             temp = {
                 "product_title"        : item.getProductTitle(),
-                "product_quantity"     : item.getProductQuantity(),
+                "product_quantity"     : "%.0f" % item.getProductQuantity(),
                 "product_url"          : url,
                 "product_articleid"    : articleId,
                 "product_price_gross"  : product_price_gross,
@@ -215,6 +219,14 @@ class OrderView(BrowserView):
         cm = ICurrencyManagement(self.context)
         return cm.priceToString(price, suffix=None)
 
+    def getVATRegistration(self):
+        """Returns the VAT registration (if any) of the current customer.
+        """
+        customer = self.context.getCustomer()
+        vatreg = customer.getVATRegistration()
+        if not vatreg: vatreg=""
+        return vatreg
+                
     def getInvoiceAddress(self):
         """
         """

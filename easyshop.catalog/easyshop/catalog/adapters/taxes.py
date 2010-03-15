@@ -3,6 +3,7 @@ from zope.interface import implements
 from zope.component import adapts
 
 # easyshop imports
+from easyshop.core.interfaces import ICustomerManagement
 from easyshop.core.interfaces import IProduct
 from easyshop.core.interfaces import IProductVariant
 from easyshop.core.interfaces import IShopManagement
@@ -129,12 +130,23 @@ class ProductTaxes(object):
     def _calcTaxRateForCustomer(self):
         """Calculates the special tax for a given product and customer.
         """
+        
+        # If the customer has a VAT registration and the shop has a VAT
+        # registration, and his country ID is different to the shop's
+        # country ID, then don't apply customer taxes (default taxes
+        # still apply)
+        customer = ICustomerManagement(self.shop).getAuthenticatedCustomer(createIfNotExist=False)
+        if customer is not None:
+            vatreg = customer.getVATRegistration()
+        else:
+            vatreg = None
+        if not self.shop.__dict__.has_key('VATCountry') or self.shop.VATCountry == "None" or not vatreg or vatreg[:2] == self.shop.VATCountry:
 
-        # 1. Try to find a Tax for actual Customer
-        tm = ITaxManagement(self.shop)
-        for tax in tm.getCustomerTaxes():
-            if IValidity(tax).isValid(self.context) == True:
-                return tax.getRate()
+            # 1. Try to find a Tax for actual Customer
+            tm = ITaxManagement(self.shop)
+            for tax in tm.getCustomerTaxes():
+                if IValidity(tax).isValid(self.context) == True:
+                    return tax.getRate()
 
         # 2. If nothing is found, returns the default tax for the product.
         return self._calcTaxRateForProduct()

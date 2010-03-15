@@ -46,10 +46,10 @@ schema = Schema((
 
     BooleanField(
         name="grossPrices",
-        default=True,
+        default=False,
         schemata="misc",
         widget=BooleanWidget(
-            description = "If selected, all prices are gross prices, else net prices.",
+            description = "If selected, all prices you enter are gross prices including taxes, else net prices.",
             label="Gross Prices",
             label_msgid="schema_gross_prices_label",
             description_msgid="schema_gross_prices_description",
@@ -80,6 +80,20 @@ schema = Schema((
             label="Show Quantity",
             label_msgid="schema_show_quantity_label",
             description_msgid="schema_show_quantity_description",
+            i18n_domain="EasyShop",
+        ),
+    ),
+
+    StringField(
+        name="VATCountry",
+        schemata="misc",
+        vocabulary="_getVATCountriesAsDL",
+        default="None",
+        widget=SelectionWidget(
+            label="VAT Country ID",
+            label_msgid="schema_vatcountry_label",
+            description = "If you are VAT registered, the country ID of your registration number.",
+            description_msgid="schema_vatcountry_description",
             i18n_domain="EasyShop",
         ),
     ),
@@ -237,10 +251,9 @@ class EasyShop(ATBTreeFolder):
         self.manage_addProduct["easyshop.core"].addSessionsContainer(id="sessions", title="Sessions")
         self.manage_addProduct["easyshop.core"].addDiscountsContainer(id="discounts", title="Discounts")
         self.manage_addProduct["easyshop.core"].addGroupsContainer(id="groups", title="Groups")
-        self.manage_addProduct["easyshop.core"].addTaxesContainer(id="taxes", title="Taxes")
         self.manage_addProduct["easyshop.core"].addStockInformationContainer(id="stock-information",
             title="Stock Information")
-
+        
         ### Information
         self.manage_addProduct["easyshop.core"].addInformationContainer(id="information", title="Information")
         self.information.manage_addProduct["easyshop.core"].addInformationPage(
@@ -284,6 +297,15 @@ class EasyShop(ATBTreeFolder):
         for shipping_method in self.shippingmethods.objectValues():
             wftool.doActionFor(shipping_method, "publish")
 
+        ### Taxes
+        self.manage_addProduct["easyshop.core"].addTaxesContainer(id="taxes", title="Taxes")
+        self.taxes.manage_addProduct["easyshop.core"].addCustomerTax(id="vat", title="VAT")
+        self.taxes.vat.rate = 25.0
+
+        for customer_tax in self.taxes.objectValues():
+            wftool.doActionFor(customer_tax, "publish")
+
+
     def setImage(self, data):
         """
         """
@@ -301,6 +323,22 @@ class EasyShop(ATBTreeFolder):
 
         for key in keys:
             dl.add(key, CURRENCIES[key]["long"])
+
+        return dl
+
+    def _getVATCountriesAsDL(self):
+        """
+        """
+        dl = DisplayList()
+
+        keys = VAT_COUNTRIES.keys()
+        keys.sort()
+        keys.insert(0, 'None')
+
+        for key in keys:
+            keydesc = key
+            if key in VAT_COUNTRIES: keydesc += " - " + VAT_COUNTRIES[key]
+            dl.add(key, keydesc)
 
         return dl
 

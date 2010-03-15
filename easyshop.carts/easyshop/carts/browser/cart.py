@@ -395,13 +395,24 @@ class CartFormView(BrowserView):
         # shipping price.        
         selected_country = safe_unicode(self.request.get("selected_country"))
         customer.selected_country = selected_country
-        invoice_address = IAddressManagement(customer).getInvoiceAddress()
-        if invoice_address is not None:
-            invoice_address.country = selected_country
+        #invoice_address = IAddressManagement(customer).getInvoiceAddress()
+        #if invoice_address is not None:
+        #    invoice_address.country = selected_country
+        shipping_address = IAddressManagement(customer).getShippingAddress()
+        if shipping_address is not None:
+            shipping_address.country = queryUtility(IIDNormalizer).normalize(selected_country)
+
+        shop = IShopManagement(self.context).getShop()
+        shipping_methods = IShippingMethodManagement(shop).getShippingMethods(check_validity=True)
+        shipping_methods_ids = [sm.getId() for sm in shipping_methods]
+        selected_shipping_method = self.request.get("selected_shipping_method")
 
         # Set selected shipping method
-        customer.selected_shipping_method = \
-            safe_unicode(self.request.get("selected_shipping_method"))
+        if selected_shipping_method in shipping_methods_ids:
+            customer.selected_shipping_method = \
+                safe_unicode(self.request.get("selected_shipping_method"))
+        else:
+            customer.selected_shipping_method = shipping_methods_ids[0]
 
         # Set selected payment method type
         customer.selected_payment_method = \

@@ -61,7 +61,7 @@
                                name="email" />
 
                         <input type="submit"
-                               value="Absenden" /> 
+                               value="Submit" /> 
                     </form>           
                 </div> 
             </div>

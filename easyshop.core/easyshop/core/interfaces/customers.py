@@ -1,3 +1,5 @@
+import re
+
 # zope imports
 from zope.interface import Interface
 from zope.interface import Attribute
@@ -154,6 +156,13 @@ class ICustomer(Interface):
         required=True,
     )
 
+    vatreg = schema.TextLine(
+        title=_(u'VAT reg'),
+        description=_(u"Please enter your VAT registration number."),
+        default=u'',
+        required=False,
+    )
+
     email = schema.TextLine(
         title=_(u'E-Mail'),
         description=_(u"Please enter your e-mail."),
@@ -201,3 +210,4 @@ class ICustomerManagement(Interface):
         """Transforms a session customer with the given session id (sid) to a 
         personalized customer with the given member id (mid)
         """
+            

@@ -172,6 +172,15 @@
                 </tr>
             </table>
             
+            <fieldset tal:condition="view/getVATRegistration">
+                <legend>
+                    <span tal:condition="view/getVATRegistration" i18n:translate="vat_registration_label">
+                        VAT registration:
+                    </span>
+                </legend>
+                <div tal:content="view/getVATRegistration" />
+            </fieldset>
+            
             <div tal:replace="structure provider:easyshop.abovecheckoutcart" />
       
             <fieldset id="check-out-cart">

@@ -125,6 +125,18 @@
                 </tr>
             </table>    
          </fieldset>                                       
+
+         <fieldset tal:define="vatreg view/getVATRegistration" tal:condition="python:len(vatreg)">
+            <legend>
+                <span i18n:translate="vat_registration_label">
+                    VAT registration:
+                </span>
+                <span tal:content="vatreg" />
+            </legend>
+            <iframe width="800" height="400"
+                tal:attributes="src python:'http://ec.europa.eu/taxation_customs/vies/viesquer.do?ms='+vatreg[:2]+'&vat='+vatreg[2:]" ></iframe>
+         </fieldset>
+            
          <table class="order-info shop-default">
             <tr>
                 <td>
@@ -304,7 +316,7 @@
                 </td>
                 <td nowrap="nowrap" 
                     class="number">
-                    1.0
+                    1
                 </td>                
                 <td nowrap="nowrap" 
                     class="number"                    
@@ -326,7 +338,7 @@
                 </td>                
                 <td nowrap="nowrap" 
                     class="number">
-                    1.0
+                    1
                 </td>
                 <td nowrap="nowrap" 
                     class="number"                    
