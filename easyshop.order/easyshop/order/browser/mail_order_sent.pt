@@ -305,7 +305,7 @@
                     <td nowrap="nowrap" 
                         class="number"
                         tal:content="item/product_quantity">
-                        1.0
+                        1
                     </td>
                     <td nowrap="nowrap"
                         class="number">
@@ -335,7 +335,7 @@
                 </td>
                 <td nowrap="nowrap" 
                     class="number">
-                    1.0
+                    1
                 </td>                
                 <td nowrap="nowrap" 
                     class="number"                    
@@ -357,7 +357,7 @@
                 </td>                
                 <td nowrap="nowrap" 
                     class="number">
-                    1.0
+                    1
                 </td>
                 <td nowrap="nowrap" 
                     class="number"                    

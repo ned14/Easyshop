@@ -6,7 +6,7 @@
 
 <style type="text/css">
 
-.HeadGrossGrauLinks {
+.HeadBigGrayLeft {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 18px;
 font-weight: bold;
@@ -14,7 +14,7 @@ text-align: left;
 color: #666666;
 
 }
-.HeadGrossGrauMitte {
+.HeadBigGrayMiddle {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 18px;
 font-weight: bold;
@@ -23,7 +23,7 @@ color: #666666;
 
 
 }
-.TextGrossGrauLinks {
+.TextBigGrayLeft {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 14px;
 font-weight: normal;
@@ -32,7 +32,7 @@ color: #666666;
 line-height: 22px;
 
 }
-.TextGrossGrauMitte {
+.TextBigGrayMiddle {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 14px;
 font-weight: normal;
@@ -40,7 +40,7 @@ text-align: center;
 color: #666666;
 }
 
-.TextKleinGrauLinks {
+.TextSmallGrayLeft {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 10px;
 font-weight: normal;
@@ -48,7 +48,7 @@ text-align: left;
 color: #666666;
 }
 
-.HeadHintergrundLinks {
+.HeadBackgroundLeft {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 16px;
 font-weight: bold;
@@ -58,7 +58,7 @@ background-color: #F2F2F2;
 padding-left: 10px;
 vertical-align: middle;
 }
-.HeadHintergrundMitte {
+.HeadBackgroundMiddle {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 18px;
 font-weight: bold;
@@ -67,7 +67,7 @@ color: #666666;
 background-color: #F2F2F2;
 vertical-align: middle;
 }
-.HeadHintergrundLinksGross {
+.HeadBackgroundLeftBig {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 18px;
 font-weight: bold;
@@ -79,7 +79,7 @@ padding-left: 10px;
 vertical-align: middle;
 
 }
-.HeadHintergrundMitteGross {
+.HeadBackgroundMiddleBig {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 18px;
 font-weight: bold;
@@ -89,7 +89,7 @@ background-color: #F2F2F2;
 font-variant: small-caps;
 vertical-align: middle;
 }
-.RahmenGrossGrau {
+.FrameBigGray {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 16px;
 font-weight: bold;
@@ -99,7 +99,7 @@ color: #666666;
 text-indent: 0pt;
 padding-top: 8px;
 }
-.TextGrossGrauLinksFett {
+.TextBigGrayLeftBold {
 
 font-family: Arial, Helvetica, sans-serif;
 font-size: 14px;
@@ -129,17 +129,20 @@ a:active { text-decoration:underline; color:#666666;}
     
     <table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
     <tr>
-    <td colspan="4" class="HeadHintergrundMitteGross">BESTELLUNG <tal:block tal:content="context/id">1211793802901</tal:block></td>
+    <td colspan="4" class="HeadBackgroundMiddleBig"><span i18n:translate="order_label_capitals">ORDER</span> <tal:block tal:content="context/id">1211793802901</tal:block></td>
     </tr>
     <tr>
-    <td width="15%" class="TextGrossGrauLinksFett">Name:</td>
-    <td width="35%" bordercolor="#000000" class="TextGrossGrauLinks" tal:content="view/getCustomerFullname"></td>
-    <td width="15%" class="TextGrossGrauLinksFett">Datum</td>
-    <td width="35%" class="TextGrossGrauLinks" tal:content="view/getCreationDate"></td>
+    <td width="15%" class="TextBigGrayLeftBold"><tal:block i18n:translate="order_name_label">
+                                            Name</tal:block>:</td>
+    <td width="35%" bordercolor="#000000" class="TextBigGrayLeft" tal:content="view/getCustomerFullname"></td>
+    <td width="15%" class="TextBigGrayLeftBold"><tal:block i18n:translate="order_date_label">
+                                            Date</tal:block>:</td>
+    <td width="35%" class="TextBigGrayLeft" tal:content="view/getCreationDate"></td>
     </tr>
     <tr>
-    <td width="15%" class="TextGrossGrauLinksFett">E-Mail</td>
-    <td width="35%" class="TextGrossGrauLinks" 
+    <td width="15%" class="TextBigGrayLeftBold"><tal:block i18n:translate="order_email_label">
+                                            E-mail</tal:block>:</td>
+    <td width="35%" class="TextBigGrayLeft" 
         tal:define="email view/getEmail">
         <a href="."
            tal:condition="email"
@@ -148,29 +151,32 @@ a:active { text-decoration:underline; color:#666666;}
            usenet@diefenba.ch
         </a>        
     </td>
-    <td width="15%" class="TextGrossGrauLinksFett">Status:</td>
-    <td width="35%" class="TextGrossGrauLinks" i18n:translate="" tal:content="view/getState">In Bearbeitung</td>
+    <td width="15%" class="TextBigGrayLeftBold"><tal:block i18n:translate="order_state_label">
+                                            State</tal:block>:</td>
+    <td width="35%" class="TextBigGrayLeft" tal:content="view/getState">In Process</td>
     </tr>
     <tr>
-    <td width="15%" class="TextGrossGrauLinksFett">Telefon: </td>
-    <td width="35%" class="TextGrossGrauLinks" tal:content="shipping_address/phone"></td>
-    <td width="15%" class="TextGrossGrauLinksFett">Betrag:</td>
-    <td width="35%" class="TextGrossGrauLinks" tal:content="view/getPriceForCustomer">42</td>
+    <td width="15%" class="TextBigGrayLeftBold"><tal:block i18n:translate="order_phone_label">
+                                            Phone</tal:block>:</td>
+    <td width="35%" class="TextBigGrayLeft" tal:content="shipping_address/phone"></td>
+    <td width="15%" class="TextBigGrayLeftBold"><tal:block i18n:translate="order_total_label">
+                                            Total</tal:block>:</td>
+    <td width="35%" class="TextBigGrayLeft" tal:content="view/getPriceForCustomer">42</td>
     </tr>
     <tr>
-    <td colspan="4" class="TextGrossGrauLinksFett">&nbsp;</td>
+    <td colspan="4" class="TextBigGrayLeftBold">&nbsp;</td>
     </tr>
     </table>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
     <tr>
-    <td class="HeadHintergrundLinks">Rechnungsadresse</td>
-    <td class="HeadHintergrundLinks">Lieferadresse</td>
-    <td class="HeadHintergrundLinks">Zahlungsweise</td>
-    <td class="HeadHintergrundLinks"><div align="center">
+    <td class="HeadBackgroundLeft" i18n:translate="invoice_address_label">Invoice Address</td>
+    <td class="HeadBackgroundLeft" i18n:translate="shipping_address_label">Shipping Address</td>
+    <td class="HeadBackgroundLeft" i18n:translate="payment_method_label">Payment Method</td>
+    <td class="HeadBackgroundLeft"><div align="center">
     </div></td>
     </tr>
     <tr>
-    <td class="TextGrossGrauLinks">
+    <td class="TextBigGrayLeft">
         <div tal:content="invoice_address/name">
             John Doe
         </div>    
@@ -192,7 +198,7 @@ a:active { text-decoration:underline; color:#666666;}
             Wonderland
         </div>
     </td>
-    <td class="TextGrossGrauLinks">
+    <td class="TextBigGrayLeft">
         <div tal:content="shipping_address/name">
             John Doe                                
         </div>
@@ -214,7 +220,7 @@ a:active { text-decoration:underline; color:#666666;}
             Wonderland                                
         </div>    
     </td>
-    <td colspan="2" class="TextGrossGrauLinksFett">
+    <td colspan="2" class="TextBigGrayLeftBold">
         <dl>
             <dt i18n:translate=""
                 tal:content="payment_data/payment_method/Title">
@@ -234,15 +240,15 @@ a:active { text-decoration:underline; color:#666666;}
     </table>
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
-            <td class="HeadHintergrundLinks">Produkt</td>
-            <td class="HeadHintergrundLinks">Eigenschaften</td>
-            <td class="HeadHintergrundMitte">E - Preis</td>
-            <td class="HeadHintergrundMitte">Menge</td>
-            <td class="HeadHintergrundMitte">G - Preis</td>
+            <td class="HeadBackgroundLeft" i18n:translate="product_label">Product</td>
+            <td class="HeadBackgroundLeft" i18n:translate="properties_label">Properties</td>
+            <td class="HeadBackgroundMiddle" i18n:translate="unit_price_label">Unit Price</td>
+            <td class="HeadBackgroundMiddle" i18n:translate="quantity_label">Quantity</td>
+            <td class="HeadBackgroundMiddle" i18n:translate="order_total_label">Total</td>
         </tr>
         <tal:block tal:repeat="item view/getItems">
             <tr>
-                <td class="TextGrossGrauLinks">
+                <td class="TextBigGrayLeft">
                     <div tal:content="item/product_title">
                         A Product
                     </div>
@@ -255,7 +261,7 @@ a:active { text-decoration:underline; color:#666666;}
                     </div>    
                     
                 </td>
-                <td class="TextGrossGrauLinks">
+                <td class="TextBigGrayLeft">
                     <div tal:repeat="property item/properties">
                         <span tal:content="property/title">
                             Color
@@ -265,9 +271,9 @@ a:active { text-decoration:underline; color:#666666;}
                         </span>
                     </div>                
                 </td>
-                <td class="TextGrossGrauLinks"><div align="right" tal:content="item/product_price_gross">€ 629,00</div></td>
-                <td class="TextGrossGrauLinks"><div align="right" tal:content="item/product_quantity">1,0</div></td>
-                <td class="TextGrossGrauLinks"><div align="right">
+                <td class="TextBigGrayLeft"><div align="right" tal:content="item/product_price_gross">€ 629,00</div></td>
+                <td class="TextBigGrayLeft"><div align="right" tal:content="item/product_quantity">1</div></td>
+                <td class="TextBigGrayLeft"><div align="right">
                     <div tal:content="item/price_gross">
                         42.0
                     </div>
@@ -280,45 +286,45 @@ a:active { text-decoration:underline; color:#666666;}
         </tal:block>
         <tr tal:define="payment view/getPaymentValues"
             tal:condition="payment/display">
-            <td class="TextGrossGrauLinks">
+            <td class="TextBigGrayLeft">
             <div i18n:translate=""
                  tal:content="payment_data/payment_method/Title">
             </div>
                 
             </td>
-            <td class="TextGrossGrauLinks">&nbsp;</td>
-            <td class="TextGrossGrauLinks"><div align="right" tal:content="payment/price_gross">€ 17,95</div></td>
-            <td class="TextGrossGrauLinks"><div align="right" >1,0</div></td>
-            <td class="TextGrossGrauLinks"><div align="right" tal:content="payment/price_gross">€ 17,95</div></td>
+            <td class="TextBigGrayLeft">&nbsp;</td>
+            <td class="TextBigGrayLeft"><div align="right" tal:content="payment/price_gross">€ 17,95</div></td>
+            <td class="TextBigGrayLeft"><div align="right" >1</div></td>
+            <td class="TextBigGrayLeft"><div align="right" tal:content="payment/price_gross">€ 17,95</div></td>
         </tr>
 
         <tr tal:define="shipping view/getShipping">
-            <td class="TextGrossGrauLinks">Versandkosten</td>
-            <td class="TextGrossGrauLinks">&nbsp;</td>
-            <td class="TextGrossGrauLinks"><div align="right" tal:content="shipping/price_gross">€ 17,95</div></td>
-            <td class="TextGrossGrauLinks"><div align="right" >1,0</div></td>
-            <td class="TextGrossGrauLinks"><div align="right" tal:content="shipping/price_gross">€ 17,95</div></td>
+            <td class="TextBigGrayLeft" i18n:translate="shipping_label">Shipping</td>
+            <td class="TextBigGrayLeft">&nbsp;</td>
+            <td class="TextBigGrayLeft"><div align="right" tal:content="shipping/price_gross">€ 17,95</div></td>
+            <td class="TextBigGrayLeft"><div align="right" >1</div></td>
+            <td class="TextBigGrayLeft"><div align="right" tal:content="shipping/price_gross">€ 17,95</div></td>
         </tr>
         <tr>
-            <td colspan="4" class="HeadHintergrundLinks"><div align="right">Gesamtwert Ihrer Bestellung inkl. MwSt.:</div></td>
-            <td class="HeadHintergrundLinks"><div align="right" tal:content="view/getPriceForCustomer">€ 646,95</div></td>
+            <td colspan="4" class="HeadBackgroundLeft"><div align="right" i18n:translate="checkout_total_sum_label">Total Sum:</div></td>
+            <td class="HeadBackgroundLeft"><div align="right" tal:content="view/getPriceForCustomer">€ 646,95</div></td>
         </tr>
         <tr>
             <td colspan="5">&nbsp;</td>
         </tr>
     </table>
 
-    <p class="RahmenGrossGrau"
+    <p class="FrameBigGray"
         tal:content="structure view/getNote">
     </p>
         
     <table tal:condition="context/getMessage"
            width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
-            <td class="HeadHintergrundLinks">Hinweis zur Bestellung</td>
+            <td class="HeadBackgroundLeft" i18n:translate="message_label">Message</td>
         </tr>
         <tr>
-            <td class="TextGrossGrauLinks" tal:content="context/getMessage">
+            <td class="TextBigGrayLeft" tal:content="context/getMessage">
                 Message
             </td>
         </tr>
@@ -326,7 +332,7 @@ a:active { text-decoration:underline; color:#666666;}
 
     <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
-            <td class="TextGrossGrauLinks" tal:content="structure view/getCancellationInstruction">
+            <td class="TextBigGrayLeft" tal:content="structure view/getCancellationInstruction">
                 Cancellation Instruction
             </td>
         </tr>
