@@ -112,6 +112,8 @@ debug-mode = on
 
 The need for DataGridField as source rather than egg is because the latest version in the egg repos is Plone 4 only and Plone 3.x will puke with it. Thus you can either pin the version or keep a src copy from subversion - I just tend to prefer the latter as I find it less prone to buildout -n suddenly breaking everything.
 
+*NOTE* that if you are running an earlier Plone e.g. v3.3.1, you MUST use DataGridField no newer than v1.6.1. This is because DataGridField v1.7.x compatibility was added only in the very most recent Plones.
+
 Lastly:
 {{{
 cd products
