@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
       tal:define="information view/getInformation">
 
 <head>
@@ -8,7 +8,7 @@
 
     <div tal:define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % 'utf-8')" />
 
-    <title talcontent="imformation/title|nothing">TaC Easyshop</title>
+    <title talcontent="information/title|nothing">TaC Easyshop</title>
 
     <style type="text/css" media="print">
         .hide { display:none; }
@@ -21,7 +21,7 @@
         <div class="hide">
             [
             <a style="text-decoration:underline; cursor:pointer"
-                onclick="javascript:print()">Drucken</a> |
+                onclick="javascript:print()">Print</a> |
             <a tal:condition="information"
                href=""
                tal:attributes="href information/url">Download</a> ]
@@ -47,12 +47,12 @@
         <div class="hide">
             [
             <a style="text-decoration:underline; cursor:pointer"
-                onclick="javascript:print()">Drucken</a> |
+                onclick="javascript:print()">Print</a> |
             <a tal:condition="information"
                href=""
                tal:attributes="href information/url">Download</a> |
             <a style="text-decoration:underline; cursor:pointer"
-                onclick="javascript:window.close()">Fenster schließen</a> ]
+                onclick="javascript:window.close()">Close window</a> ]
         </div>
 
     </body>

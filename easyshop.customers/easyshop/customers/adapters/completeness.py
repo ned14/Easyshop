@@ -90,6 +90,6 @@ class AddressCompleteness:
             return True
 
         self.context.plone_utils.addPortalMessage(
-            _("Adress data is missing. Pleas check your Address"))
+            _("Some address data is missing. Please check your Address"))
 
         return False
