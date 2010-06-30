@@ -37,6 +37,7 @@ setup(name='easyshop.core',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          "Plone<4.0a1",
           # -*- Extra requirements: -*-
           "easyshop.carts",
           "easyshop.catalog",
@@ -56,7 +57,7 @@ setup(name='easyshop.core',
           "easyshop.stocks",
           "easyshop.taxes",
           "zc.authorizedotnet",
-          "Products.DataGridField"          
+          "Products.DataGridField<=1.7"          
       ],
       entry_points="""
       # -*- Entry points: -*-
