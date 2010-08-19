@@ -1,0 +1,120 @@
+# translation of @easyshop@.po to @es@
+# Manuel Gualda Caballero <manuel@utopiaverde.org> and Lôc Cosnier <loc@lapatadeoca.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: extra-es\n"
+"POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
+"PO-Revision-Date: 2010-05-14 14:53+0100\n"
+"Last-Translator: Manuel Gualda Caballero <manuel@utopiaverde.org>\n"
+"Language-Team: Manuel Gualda Caballero <manuel@utopiaverde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: EasyShop\n"
+
+#: extras | config.py
+msgid "The product has been added to the cart."
+msgstr "El artículo ha sido añadido al carrito."
+
+#: extras | config.py
+msgid "Your order has been received. Thank you!"
+msgstr "Su pedido ha sido recibido. Gracias."
+
+#: extras | browser/checkout/checkout.py
+msgid "Send products to this address"
+msgstr "Enviar los artículos a esta dirección."
+
+#: extras | browser/checkout/checkout.py
+msgid "Send invoice to this address"
+msgstr "Enviar la factura a esta dirección"
+
+#: extras | browser/templates/product_view.py
+msgid "Buy Product"
+msgstr "Comprar artículo"
+
+#: extras | browser/templates/product_view.py
+msgid "Add to Cart"
+msgstr "Añadir al carrito"
+
+#: extras | workflow state
+msgid "pending"
+msgstr "pendiente"
+
+#: extras | workflow state
+msgid "closed"
+msgstr "cerrado"
+
+#: extras | workflow state
+msgid "canceled"
+msgstr "anulado"
+
+#: extras | workflow state
+msgid "payed (not sent)"
+msgstr "pagado (no enviado)"
+
+#: extras | workflow state
+msgid "sent (not payed)"
+msgstr "enviado (no pagado)"
+
+#: extras | checkout-order-preview-view.py
+msgid "Prepayment"
+msgstr "Pago por adelantado"
+
+#: extras | checkout-order-preview-view.py
+msgid "Cash on delivery"
+msgstr "Contra reembolso"
+
+#: extras | checkout-order-preview-view.py
+msgid "Direct Debit"
+msgstr "Domiciliación bancaria"
+
+#: extras | checkout-order-preview-view.py
+msgid "Credit Card"
+msgstr "Tarjeta de crédito"
+
+#: extras | formatter.pt
+msgid "None"
+msgstr "Ninguno"
+
+#: extras | formatter.pt
+msgid "Description"
+msgstr "Descripción"
+
+#: extras | formatter.pt
+msgid "Short Text"
+msgstr "Texto breve"
+
+#: extras | formatter.pt
+msgid "Long Text"
+msgstr "Texto largo"
+
+#: extras | stock information
+msgid "Day"
+msgstr "Día"
+
+#: extras | stock information
+msgid "Days"
+msgstr "Días"
+
+#: extras | stock information
+msgid "Week"
+msgstr "Semana"
+
+#: extras | stock information
+msgid "Weeks"
+msgstr "Semanas"
+
+# AÑADIDOS PORQUE NO APARECÍAN EN NINGÚN OTRO FICHERO
+
+#: extras | breadcrumb
+msgid "custom-breadcrumbs-you-are-here-label"
+msgstr "Usted está aquí:"
+
+#: extras | registro de IVA
+msgid "vat_registration_label"
+msgstr "Registro de IVA:"

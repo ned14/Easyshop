@@ -1,0 +1,130 @@
+# translation of @easyshop@.po to @es@
+# Manuel Gualda Caballero <manuel@utopiaverde.org> and Lôc Cosnier <loc@lapatadeoca.com>, 2009.
+# ArchGenXML generated POT File
+msgid ""
+msgstr ""
+"Project-Id-Version: easyshop-plone-es\n"
+"POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
+"PO-Revision-Date: 2010-05-14 14:53+0100\n"
+"Last-Translator: Manuel Gualda Caballero <manuel@utopiaverde.org>\n"
+"Language-Team: Manuel Gualda Caballero <manuel@utopiaverde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+msgid "Bank Account"
+msgstr "Cuenta bancaria"
+
+msgid "Cart"
+msgstr "Carrito"
+
+msgid "Carts"
+msgstr "Carritos"
+
+msgid "Category"
+msgstr "Categoría"
+
+msgid "Products"
+msgstr "Productos"
+
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "Customers"
+msgstr "Clientes"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Groups"
+msgstr "Grupos"
+
+msgid "Information Page"
+msgstr "Página de información"
+
+msgid "Information Page Container"
+msgstr "Contenedor de página de información"
+
+msgid "Order"
+msgstr "Pedido"
+
+msgid "Orders"
+msgstr "Pedidos"
+
+msgid "Payment Method"
+msgstr "Método de pago"
+
+msgid "Product"
+msgstr "Artículo"
+
+msgid "Products Container"
+msgstr "Contenedor de artículos"
+
+msgid "Shipping Price"
+msgstr "Gastos de envío"
+
+msgid "Shipping Method"
+msgstr "Método de envío"
+
+msgid "Shipping Price"
+msgstr "Costes de envío"
+
+msgid "Stock Information"
+msgstr "Información de existencias"
+
+msgid "Stock Information Container"
+msgstr "Contenedor de información de existencias"
+
+msgid "Tax (Customer)"
+msgstr "Impuesto (cliente)"
+
+msgid "Tax (Default)"
+msgstr "Impuesto (por defecto)"
+
+msgid "Taxes"
+msgstr "Impuestos"
+
+msgid "The product has been added to the cart."
+msgstr "El artículo ha sido añadido al carrito."
+
+msgid "The amount of the product has been increased."
+msgstr "La cantidad de unidades del artículo ha sido aumentada."
+
+msgid "Your order has been received. Thank you!"
+msgstr "Su pedido ha sido recibido. ¡Gracias!"
+
+msgid "No products found."
+msgstr "No se han encontrado artículos."
+
+msgid "Variant has been added."
+msgstr "Variante añadida."
+
+msgid "Variant already exists."
+msgstr "Esta variante ya existe."
+
+msgid "Variant(s) deleted."
+msgstr "Variante/s eliminada/s."
+
+msgid "Variant(s) saved."
+msgstr "Variante/s guardada/s."
+
+msgid "The selected combination of properties is not available."
+msgstr "La combinación de propiedades seleccionada no está disponible."
+
+msgid "Option(s) saved."
+msgstr "Opción(es) guardada(s)"
+
+msgid "Property has been added"
+msgstr "La propiedad ha sido añadida"
+
+msgid "Option has been added"
+msgstr "La opción ha sido añadida"
