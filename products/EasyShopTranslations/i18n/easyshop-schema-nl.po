@@ -1,0 +1,653 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop\n"
+"POT-Creation-Date: 2007-05-09 16:00+0000\n"
+"PO-Revision-Date: 2010-07-10 20:25+0100\n"
+"Last-Translator: Olav Peeters <opeeters@gmail.com>\n"
+"Language-Team: Olav Peeters <opeeters@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: EasyShop\n"
+"X-Is-Fallback-For: nl-nl nl-be\n"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "accessories_description"
+msgstr "accessoires_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "accessories_label"
+msgstr "accessoires_label"
+
+#: schema |
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
+msgid "help_description"
+msgstr "hulp_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
+msgid "label_description"
+msgstr "label_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "schema_accessories_title_description"
+msgstr "schema_accessoires_titel_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "schema_accessories_title_label"
+msgstr "schema_accessoires_titel_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/stock_amount.py
+msgid "schema_amount_description"
+msgstr "schema_aantal_beschrijving"
+
+#: schema | ../../../src/easyshop.carts/easyshop/carts/content/cart_item.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/stock_amount.py
+msgid "schema_amount_label"
+msgstr "schema_aantal_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/product_amount.py
+msgid "schema_amount_of_products_description"
+msgstr "schema_aantal_van_producten_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/product_amount.py
+msgid "schema_amount_of_products_label"
+msgstr "schema_aantal_van_producten_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_article_id_description"
+msgstr "schema_artikel_ID_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_article_id_label"
+msgstr "schema_artikel_ID_label"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_available_description"
+msgstr "schema_beschikbaar_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_available_label"
+msgstr "schema_beschikbaar_label"
+
+#: schema |
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_base_description"
+msgstr "schema_basis_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_base_label"
+msgstr "schema_basis_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/category.py
+msgid "schema_categories_label"
+msgstr "schema_categorieen_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_category_description"
+msgstr "schema_categorie_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_categoy_label"
+msgstr "schema_categorie_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+msgid "schema_combined_length_and_girth_description"
+msgstr "schema_gecombineerde_lengte_en_omtrek_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+msgid "schema_combined_length_and_girth_label"
+msgstr "schema_gecombineerde_lengte_en_omtrek_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_countries_description"
+msgstr "schema_landen_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_countries_label"
+msgstr "schema_landen_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_currency_description"
+msgstr "schema_munteenheid_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_currency_label"
+msgstr "schema_munteenheid_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/customer.py
+msgid "schema_customers_label"
+msgstr "schema_klanten_label"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_delivery_time_max_description"
+msgstr "schema_levering_tijd_max_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_delivery_time_max_label"
+msgstr "schema_levering_tijd_max_label"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_delivery_time_min_description"
+msgstr "schema_levering_tijd_min_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_delivery_time_min_label"
+msgstr "schema_levering_tijd_min_label"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_delivery_time_unit_description"
+msgstr "schema_levering_tijd_eenheid_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_delivery_time_unit_label"
+msgstr "schema_levering_tijd_eenheid_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_description_label"
+msgstr "schema_afslag_beschrijving"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_gross_label"
+msgstr "schema_korting_bruto_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_discount_net_label"
+msgstr "schema_korting_netto_label"
+
+#: schema | ../../../src/easyshop.carts/easyshop/carts/content/cart_item.py
+#: ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_easyshop_products_label"
+msgstr "schema_easyshop_producten_label"
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/date.py
+msgid "schema_end_label"
+msgstr "schema_einde_label"
+
+#: schema |
+#: ../../../src/easyshop.information/easyshop/information/content/information_page.py
+msgid "schema_file_description"
+msgstr "schema_bestand_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.information/easyshop/information/content/information_page.py
+msgid "schema_file_label"
+msgstr "schema_bestand_label"
+
+#: schema |
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_properties_description"
+msgstr "schema_voor_eigenschappen_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_properties_label"
+msgstr "schema_voor_eigenschappen_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_sale_description"
+msgstr "schema_voor_solden_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_for_sale_label"
+msgstr "schema_voor_solden_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_gross_prices_description"
+msgstr "schema_bruto_prijzen_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_gross_prices_label"
+msgstr "schema_bruto_prijzen_label"
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/group.py
+msgid "schema_groups_label"
+msgstr "schema_groepen_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+msgid "schema_height_description"
+msgstr "schema_hoogte_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+msgid "schema_height_label"
+msgstr "schema_hoogte_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+#: ../../../src/easyshop.groups/easyshop/groups/content/group.py
+msgid "schema_help_description"
+msgstr "schema_hulp_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_property_option.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/paypal.py
+#: ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
+#: ../../../src/easyshop.stocks/easyshop/stocks/content/stock_information.py
+msgid "schema_image_label"
+msgstr "schema_afbeelding_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+msgid "schema_length_description"
+msgstr "schema_lengte_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+msgid "schema_length_label"
+msgstr "schema_lengte_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_long_description_description"
+msgstr "schema_lang_beschrijving_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_long_text_label"
+msgstr "schema_lang_tekst_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_mail_from_address_label"
+msgstr "schema_mail_van_adres_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_mail_from_description"
+msgstr "schema_mail_van_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_mail_from_name_label"
+msgstr "schema_mail_van_naam_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_mailto_description"
+msgstr "schema_mailnaar_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_mailto_label"
+msgstr "schema_mailnaar_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_marketing_info_description"
+msgstr "schema_marketing_info_beschrijving"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_marketing_info_label"
+msgstr "schema_marketing_info_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_message_description"
+msgstr "schema_boodschap_beschrijving"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_message_label"
+msgstr "schema_boodschap_label"
+
+#: schema |
+#: ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/paypal.py
+#: ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
+msgid "schema_note_description"
+msgstr "schema_nota_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.payment/easyshop/payment/content/credit_card.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/direct_debit.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/paypal.py
+#: ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_method.py
+msgid "schema_note_label"
+msgstr "schema_nota_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_operator_description"
+msgstr "schema_operator_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/combined_length_and_girth.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/height.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/length.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_operator_label"
+msgstr "schema_operator_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/payment_method.py
+msgid "schema_payment_methods_label"
+msgstr "schema_betaalmethode_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_payment_price_gross_label"
+msgstr "schema_betaling_prijs_bruto_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_payment_price_net_label"
+msgstr "schema_betaling_prijs_netto_label"
+
+#: schema |
+#: ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+msgid "schema_payment_state_description"
+msgstr "schema_betaling_status_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.payment/easyshop/payment/content/generic_payment_method.py
+msgid "schema_payment_state_label"
+msgstr "schema_betaling_status_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_payment_tax_label"
+msgstr "schema_betaling_belasting_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_payment_tax_rate_label"
+msgstr "schema_betaling_belasting_tarief_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_paypal_id_description"
+msgstr "schema_paypal_ID_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_paypal_id_label"
+msgstr "schema_paypal_ID_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_position_in_parent_description"
+msgstr "schema_positie_in_bron_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+msgid "schema_position_in_parent_label"
+msgstr "schema_positie_in_bron_label"
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
+msgid "schema_price_description"
+msgstr "schema_prijs_beschrijving"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_price_gross_label"
+msgstr "schema_prijs_bruto_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_property_option.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
+#: ../../../src/easyshop.payment/easyshop/payment/content/payment_price.py
+#: ../../../src/easyshop.shipping/easyshop/shipping/content/shipping_price.py
+msgid "schema_price_label"
+msgstr "schema_prijs_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_price_net_label"
+msgstr "schema_prijs_netto_label"
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/price.py
+msgid "schema_price_type_description"
+msgstr "schema_prijs_type_beschrijving"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_id_label"
+msgstr "schema_product_ID_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_price_gross_label"
+msgstr "schema_product_prijs_bruto_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_price_net_label"
+msgstr "schema_product_prijs_netto_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_quantity_label"
+msgstr "schema_product_hoeveelheid_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_tax_label"
+msgstr "schema_product_belasting_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_product_title_label"
+msgstr "schema_product_titel_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
+#: ../../../src/easyshop.groups/easyshop/groups/content/group.py
+msgid "schema_products_description"
+msgstr "schema_products_beschrijven"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/product.py
+#: ../../../src/easyshop.groups/easyshop/groups/content/group.py
+msgid "schema_products_label"
+msgstr "schema_producten_label"
+
+#: schema | ../../../src/easyshop.taxes/easyshop/taxes/content/customer_tax.py
+#: ../../../src/easyshop.taxes/easyshop/taxes/content/default_tax.py
+msgid "schema_rate_label"
+msgstr "schema_tarief_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+msgid "schema_related_products_label"
+msgstr "schema_gerelateerde_producten_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_sale_price_gross_label"
+msgstr "schema_solden_prijs_bruto_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/shipping_method.py
+msgid "schema_shipping_methods_label"
+msgstr "schema_verzendmethoden_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_shipping_price_gross_label"
+msgstr "schema_verzendkosten_bruto_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_shipping_price_net_label"
+msgstr "schema_verzendkosten_netto_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_shipping_tax_label"
+msgstr "schema_verzendkosten_belasting_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+msgid "schema_shipping_tax_rate_label"
+msgstr "schema_verzendkosten_belasting_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_shop_owner_description"
+msgstr "schema_winkel_eigenaar_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_shop_owner_label"
+msgstr "schema_winkel_eigenaar_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_short_description_description"
+msgstr "schema_korte_beschrijving_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/category.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_short_text_label"
+msgstr "schema_korte_tekst_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_short_title_description"
+msgstr "schema_korte_titel_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_short_title_label"
+msgstr "schema_korte_titel_label"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_show_quantity_description"
+msgstr "schema_toon_hoeveelheid_beschrijving"
+
+#: schema | ../../../src/easyshop.shop/easyshop/shop/content/shop.py
+msgid "schema_show_quantity_label"
+msgstr "schema_toon_hoeveelheid_label"
+
+#: schema |
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
+msgid "schema_showtitle_description"
+msgstr "schema_toon_titel_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_selector.py
+msgid "schema_showtitle_label"
+msgstr "schema_toon_titel_label"
+
+#: schema | ../../../src/easyshop.criteria/easyshop/criteria/content/date.py
+msgid "schema_start_label"
+msgstr "schema_start_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_stock_amount_description"
+msgstr "schema_voorraad_hoeveelheid_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_stock_amount_label"
+msgstr "schema_voorraad_hoeveelheid_label"
+
+#: schema |
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/easyshop_image.py
+msgid "schema_subtitle_description"
+msgstr "schema_subtitel_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/easyshop_image.py
+msgid "schema_subtitle_label"
+msgstr "schema_subtitel_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order.py
+#: ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_tax_label"
+msgstr "schema_belasting_label"
+
+#: schema | ../../../src/easyshop.order/easyshop/order/content/order_item.py
+msgid "schema_tax_rate_label"
+msgstr "schema_belasting_tarief_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_text_description"
+msgstr "schema_tekst_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_text_label"
+msgstr "schema_tekst_label"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/category.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/customer.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/date.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/group.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/payment_method.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/product.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/stock_amount.py
+msgid "schema_title_label"
+msgstr "schema_titel_label"
+
+#: schema |
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_type_description"
+msgstr "schema_type_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_type_label"
+msgstr "schema_type_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_unlimited_amount_description"
+msgstr "schema_onbeperkte_hoeveelheid_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+msgid "schema_unlimited_amount_label"
+msgstr "schema_onbeperkte_hoeveelheid_label"
+
+#: schema |
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_value_description"
+msgstr "schema_waarde_beschrijving"
+
+#: schema |
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/country.py
+#: ../../../src/easyshop.discounts/easyshop/discounts/content/discount.py
+msgid "schema_value_label"
+msgstr "schema_waarde_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
+msgid "schema_weight_description"
+msgstr "schema_gewicht_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.catalog/easyshop/catalog/content/product_variant.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/weight.py
+msgid "schema_weight_label"
+msgstr "schema_gewicht_label"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_width_description"
+msgstr "schema_breedte_beschrijving"
+
+#: schema | ../../../src/easyshop.catalog/easyshop/catalog/content/product.py
+#: ../../../src/easyshop.criteria/easyshop/criteria/content/width.py
+msgid "schema_width_label"
+msgstr "schema_breedte_label"

@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop\n"
+"POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
+"PO-Revision-Date: 2010-07-09 16:15+0100\n"
+"Last-Translator: Olav Peeters <opeeters@gmail.com>\n"
+"Language-Team: Olav Peeters <opeeters@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: EasyShop\n"
+"X-Is-Fallback-For: nl-nl nl-be\n"
+
+#: extras | config.py
+msgid "The product has been added to the cart."
+msgstr "Het product werd toegevoegd aan het winkelwagentje"
+
+#: extras | config.py
+msgid "Your order has been received. Thank you!"
+msgstr "Uw bestelling werd ontvangen. Bedankt!"
+
+#: extras | browser/checkout/checkout.py
+msgid "Send products to this address"
+msgstr "Stuur producten naar dit adres"
+
+#: extras | browser/checkout/checkout.py
+msgid "Send invoice to this address"
+msgstr "Stuur factuur naar dit adres."
+
+#: extras | browser/templates/product_view.py
+msgid "Buy Product"
+msgstr "koop product"
+
+#: extras | browser/templates/product_view.py
+msgid "Add to Cart"
+msgstr "toevoegen aan winkelwagentje"
+
+#: extras | workflow state
+msgid "pending"
+msgstr "in afwachting van"
+
+#: extras | workflow state
+msgid "closed"
+msgstr "gesloten"
+
+#: extras | workflow state
+msgid "canceled"
+msgstr "geannuleerd"
+
+#: extras | workflow state
+msgid "payed (not sent)"
+msgstr "betaald (niet verzonden)"
+
+#: extras | workflow state
+msgid "sent (not payed)"
+msgstr "verzonden (niet betaald)"
+
+#: extras | checkout-order-preview-view.py
+msgid "Prepayment"
+msgstr "vooruitbetaling"
+
+#: extras | checkout-order-preview-view.py
+msgid "Cash on delivery"
+msgstr "rembours"
+
+#: extras | checkout-order-preview-view.py
+msgid "Direct Debit"
+msgstr "domiciliëring"
+
+#: extras | checkout-order-preview-view.py
+msgid "Credit Card"
+msgstr "kredietkaart"
+
+#: extras | formatter.pt
+msgid "None"
+msgstr "geen"
+
+#: extras | formatter.pt
+msgid "Description"
+msgstr "beschrijving"
+
+#: extras | formatter.pt
+msgid "Short Text"
+msgstr "korte tekst"
+
+#: extras | formatter.pt
+msgid "Long Text"
+msgstr "lange tekst"
+
+#: extras | stock information
+msgid "Day"
+msgstr "dag"
+
+#: extras | stock information
+msgid "Days"
+msgstr "dagen"
+
+#: extras | stock information
+msgid "Week"
+msgstr "week"
+
+#: extras | stock information
+msgid "Weeks"
+msgstr "weken"

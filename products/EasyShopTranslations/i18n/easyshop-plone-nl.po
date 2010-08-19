@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyShop\n"
+"POT-Creation-Date: Tue Apr 25 11:18:19 2006\n"
+"PO-Revision-Date: 2010-07-10 20:43+0100\n"
+"Last-Translator: Olav Peeters <opeeters@gmail.com>\n"
+"Language-Team: Olav Peeters <opeeters@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: nl-nl nl-be\n"
+
+msgid "Bank Account"
+msgstr "bankrekening"
+
+msgid "Cart"
+msgstr "winkelwagentje"
+
+msgid "Carts"
+msgstr "winkelwagentjes"
+
+msgid "Category"
+msgstr "categorie"
+
+msgid "Products"
+msgstr "producten"
+
+msgid "Categories"
+msgstr "categorie‘n"
+
+msgid "Customer"
+msgstr "klant"
+
+msgid "Customers"
+msgstr "klanten"
+
+msgid "Group"
+msgstr "groep"
+
+msgid "Groups"
+msgstr "groepen"
+
+msgid "Information Page"
+msgstr "informatie pagina"
+
+msgid "Information Page Container"
+msgstr "informatie pagina container"
+
+msgid "Order"
+msgstr "bestelling"
+
+msgid "Orders"
+msgstr "bestellingen"
+
+msgid "Payment Method"
+msgstr "betaalwijze"
+
+msgid "Product"
+msgstr "product"
+
+msgid "Products Container"
+msgstr "producten container"
+
+msgid "Shipping Price"
+msgstr "verzendprijs"
+
+msgid "Shipping Method"
+msgstr "verzendwijze"
+
+msgid "Shipping"
+msgstr "verzending"
+
+msgid "Stock Information"
+msgstr "voorraad informatie"
+
+msgid "Stock Information Container"
+msgstr "voorraad informatie container"
+
+msgid "Tax (Customer)"
+msgstr "belasting (klant)"
+
+msgid "Tax (Default)"
+msgstr "belasting (standaard)"
+
+msgid "Taxes"
+msgstr "balastingen"
+
+msgid "The product has been added to the cart."
+msgstr "Het product werd toegevoegd aan uw winkelwagentje."
+
+msgid "The amount of the product has been increased."
+msgstr "Het bedrag van het product werd verhoogd."
+
+msgid "Your order has been received. Thank you!"
+msgstr "Uw bestelling werd goed ontvangen. Bedankt!"
+
+msgid "No products found."
+msgstr "Geen producten gevonden"
+
+msgid "Variant has been added."
+msgstr "Variant is toegevoegd."
+
+msgid "Variant already exists."
+msgstr "Variant bestaat reeds."
+
+msgid "Variant(s) deleted."
+msgstr "Variant(en) geschrapt."
+
+msgid "Variant(s) saved."
+msgstr "Variant(en) opgeslagen."
+
+msgid "The selected combination of properties is not available."
+msgstr "De gekozen combinatie van eigenschappen is niet beschikbaar."
+
+msgid "Option(s) saved."
+msgstr "Optie(s) opgeslagen."
+
+msgid "Property has been added"
+msgstr "Eigenschap werd toegevoegd"
+
+msgid "Option has been added"
+msgstr "Optie werd toegevoegd"
