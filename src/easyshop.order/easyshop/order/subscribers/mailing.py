@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # zope imports
 from zope.component import adapter
 from zope.component import getMultiAdapter

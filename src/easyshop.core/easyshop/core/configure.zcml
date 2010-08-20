@@ -25,6 +25,11 @@
         factory=".profile.HiddenProducts" 
         name="hidden.products" />
 
+    <adapter name="total_amount_of_products" factory=".catalog.total_amount_of_products" />
+    <adapter name="amount_of_categories" factory=".catalog.amount_of_categories" />
+    <adapter name="categories" factory=".catalog.categories" />
+    <adapter name="getParentCategory" factory=".catalog.getParentCategory" />
+
     <include package="easyshop.core" />
     <include package="easyshop.carts" />        
     <include package="easyshop.catalog" />

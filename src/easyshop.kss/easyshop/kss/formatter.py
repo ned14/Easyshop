@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 # zope imports
-from zope.component.exceptions import ComponentLookupError
+from zope.component.interfaces import ComponentLookupError
 
 # kss imports
 from plone.app.kss.plonekssview import PloneKSSView

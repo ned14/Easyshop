@@ -1,15 +1,18 @@
+# -*- coding: utf-8 -*-
 # zope imports
-from zope.component.exceptions import ComponentLookupError
+import zope.interface
+from zope.component.interfaces import ComponentLookupError
+
+# plone imports
+from plone.indexer.decorator import indexer
 
 # iqpp.rating imports
 from easyshop.core.interfaces import ICategory
 from easyshop.core.interfaces import ICategoryManagement
 from easyshop.core.interfaces import IProduct
 
-# CMFPlone imports
-from Products.CMFPlone.CatalogTool import registerIndexableAttribute
-
-def total_amount_of_products(object, portal, **kwargs):
+@indexer(zope.interface.Interface)
+def total_amount_of_products(object, **kwargs):
     try:
         # This has to be done without the help of the catalog. Otherwise it
         # counts before all to counted objects are in the catalog. That is at
@@ -25,9 +28,8 @@ def total_amount_of_products(object, portal, **kwargs):
     except (ComponentLookupError, TypeError, ValueError):
         raise AttributeError
 
-registerIndexableAttribute('total_amount_of_products', total_amount_of_products)
-
-def amount_of_categories(object, portal, **kwargs):
+@indexer(zope.interface.Interface)
+def amount_of_categories(object, **kwargs):
     try:
         # This has to be done without the help of the catalog. Otherwise it
         # counts before all to counted objects are in the catalog. That is at
@@ -42,9 +44,8 @@ def amount_of_categories(object, portal, **kwargs):
     except (ComponentLookupError, TypeError, ValueError):
         raise AttributeError
 
-registerIndexableAttribute('amount_of_categories', amount_of_categories)
-
-def categories(object, portal, **kwargs):
+@indexer(zope.interface.Interface)
+def categories(object, **kwargs):
     """Indexes all categories and parent categories of a product.
     """
     try:
@@ -64,8 +65,6 @@ def categories(object, portal, **kwargs):
     except (ComponentLookupError, TypeError, ValueError):
         raise AttributeError
 
-registerIndexableAttribute('categories', categories)
-
 def countCategories(category, counter):
     """
     """
@@ -74,7 +73,8 @@ def countCategories(category, counter):
         counter = countCategories(category, counter)
     return counter
     
-def getParentCategory(object, portal, **kwargs):
+@indexer(zope.interface.Interface)
+def getParentCategory(object, **kwargs):
     try:
         if ICategory.providedBy(object):
             parent_category = object.getParentCategory()
@@ -86,5 +86,4 @@ def getParentCategory(object, portal, **kwargs):
     except (ComponentLookupError, TypeError, ValueError):
         raise AttributeError
 
-registerIndexableAttribute('getParentCategory', getParentCategory)
     
