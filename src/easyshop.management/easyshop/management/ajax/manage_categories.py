@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 # imports
 from zope.component import getMultiAdapter
 from zope.component import queryUtility
-from zope.viewlet.interfaces import IViewletManager
+from zope.viewlet.interfaces import IViewletManager, IViewlet
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -56,7 +57,8 @@ class ManageCategoriesView(BrowserView):
     def _refreshViewlet(self):
         """
         """
-        renderer = getMultiAdapter((self.context, self.request, self), IViewletManager, name="easyshop.management.categories-management")
+        manager = getMultiAdapter((self.context, self.request, self), IViewletManager, name="easyshop.management.categories-management")
+        renderer = getMultiAdapter((self.context, self.request, self, manager), IViewlet, name="easyshop.management.categories")
         renderer = renderer.__of__(self.context)
 
         renderer.update()
