@@ -96,7 +96,7 @@
 				                        name="form.button.edit"
 				                        value="Edit"
 				                        i18n:attributes="value edit_label;"
-				                        tal:attributes="tabindex tabindex/next;
+				                        tal:attributes="tabindex tabindex/next|nothing;
 									 				    onclick string:location.href='${address/url}/@@edit?goto=$template_url'" />
 
 			                  </div>
@@ -151,7 +151,7 @@
      				                       name="form.button.edit"
      				                       value="Edit"
      				                       i18n:attributes="value edit_label;"
-				                           tal:attributes="tabindex tabindex/next;
+				                           tal:attributes="tabindex tabindex/next|nothing;
 									 	   			       onclick string:location.href='${address/url}/@@edit?goto=$template_url'" />
 
                                 </div>

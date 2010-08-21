@@ -119,7 +119,7 @@
                                            value="Details"
                                            title="Details"
                                            i18n:attributes="title details_label;"
-                                           tal:attributes="tabindex tabindex/next;
+                                           tal:attributes="tabindex tabindex/next|nothing;
                                                            onclick string:location.href='${product/url}'" />
                                
                                     <form action="#"                                  
@@ -138,7 +138,7 @@
                                                title="Add to Cart"
                                                i18n:attributes="title add_to_cart_label;
                                                                 value add_to_cart_label;"
-                                               tal:attributes="tabindex tabindex/next;" />
+                                               tal:attributes="tabindex tabindex/next|nothing;" />
                                     </form>
                    
                                     <span class="product-price"
