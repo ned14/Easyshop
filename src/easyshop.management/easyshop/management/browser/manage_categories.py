@@ -216,7 +216,7 @@ class ManageCategoriesView(BrowserView):
     def _showView(self):
         """
         """        
-        view = getMultiAdapter((self.context, self.context.request), name="manage-categories")
+        view = getMultiAdapter((self.context, self.request), name="manage-categories")
         return view()
         
     def _redirect(self):

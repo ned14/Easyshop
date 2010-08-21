@@ -48,7 +48,7 @@ class ManagePropertiesView(BrowserView):
         putils.addPortalMessage(MESSAGES["ADDED_PRODUCT_OPTION"])
         
         url = self.context.absolute_url() + "/" + "manage-properties-view"
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
         
     def addProperty(self):
         """
@@ -65,7 +65,7 @@ class ManagePropertiesView(BrowserView):
         putils.addPortalMessage(MESSAGES["ADDED_PRODUCT_PROPERTY"])
         
         url = self.context.absolute_url() + "/" + "manage-properties-view"
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
 
     def deletePaths(self):
         """
@@ -86,7 +86,7 @@ class ManagePropertiesView(BrowserView):
             putils.addPortalMessage(MESSAGES["VARIANTS_DELETED"])
 
         url = self.context.absolute_url() + "/" + "manage-properties-view"
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
 
     def getGlobalProperties(self):
         """Returns properties which are provided from groups of the product.

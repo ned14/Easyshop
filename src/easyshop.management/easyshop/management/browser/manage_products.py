@@ -223,5 +223,5 @@ class ManageProductsView(BrowserView):
     def _showView(self):
         """
         """
-        products_view = getMultiAdapter((self.context, self.context.request), name="manage-products")
+        products_view = getMultiAdapter((self.context, self.request), name="manage-products")
         return products_view()

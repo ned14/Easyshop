@@ -59,7 +59,7 @@ class AjaxView(BrowserView):
 
         # Collect cart item properties for lookup
         selected_properties = {}
-        for key, value in self.context.request.items():
+        for key, value in self.request.items():
             if key.startswith("property_"):
                 property_id, cart_item_id = key.split(":")
                 property_id = property_id[42:]

@@ -78,7 +78,7 @@ class ProductAddToCartView(BrowserView):
                 )
 
         # get quantity
-        quantity = int(self.context.request.get("%s_quantity" % self.context.UID(), 1))
+        quantity = int(self.request.get("%s_quantity" % self.context.UID(), 1))
 
         # returns true if the product was already within the cart
         result, item_id = IItemManagement(cart).addItem(product, tuple(properties), quantity)
@@ -113,4 +113,4 @@ class ProductAddToCartView(BrowserView):
             #     putils.addPortalMessage(MESSAGES["CART_ADDED_PRODUCT"])
 
             url = "%s/added-to-cart" % shop.absolute_url()
-            self.context.request.response.redirect(url)
+            self.request.response.redirect(url)

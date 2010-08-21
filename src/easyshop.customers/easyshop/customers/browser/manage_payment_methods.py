@@ -18,7 +18,7 @@ class ManagePaymentMethodsView(BrowserView):
         putils = getToolByName(self.context, "plone_utils")
 
         # delete address
-        payment_method_id = self.context.request.get("id")
+        payment_method_id = self.request.get("id")
         pm = IPaymentInformationManagement(self.context)
         pm.deletePaymentInformation(payment_method_id)
 
@@ -33,7 +33,7 @@ class ManagePaymentMethodsView(BrowserView):
 
         # Redirect to overview
         url = "%s/manage-payment-methods" % self.context.absolute_url()
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
 
     def getDirectDebitAccounts(self):
         """

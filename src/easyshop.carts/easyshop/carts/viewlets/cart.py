@@ -54,7 +54,7 @@ class CheckoutCartViewlet(ViewletBase):
         goto = self.request.get("goto", "")
         if goto != "": url += "?goto=%s" % goto
                     
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
     
     @memoize
     def getCartItems(self):
@@ -430,7 +430,7 @@ class CheckoutCartViewlet(ViewletBase):
     def getGoto(self):
         """
         """
-        return self.context.request.get("HTTP_REFERER")
+        return self.request.get("HTTP_REFERER")
                 
     def refreshCart(self):
         """
@@ -479,12 +479,12 @@ class CheckoutCartViewlet(ViewletBase):
         cart = self._getCart()
         if cart is None:
             url = "%s/cart" % self.context.absolute_url()
-            self.context.request.response.redirect(url)
+            self.request.response.redirect(url)
             return
 
         # Collect cart item properties for lookup
         selected_properties = {}
-        for key, value in self.context.request.items():
+        for key, value in self.request.items():
             if key.startswith("property_"):
                 property_id, cart_item_id = key.split(":")
                 property_id = property_id[42:]
@@ -549,7 +549,7 @@ class CheckoutCartViewlet(ViewletBase):
         else:
             url = "%s/cart" % self.context.absolute_url()
 
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
 
     def showCheckOutButton(self):
         """

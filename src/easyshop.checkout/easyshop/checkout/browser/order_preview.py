@@ -86,7 +86,7 @@ class OrderPreviewForm(formbase.AddForm):
         new_order = om.addOrder()
 
         # Set message to shop owner
-        new_order.setMessage(self.context.request.get("form.message", ""))
+        new_order.setMessage(self.request.get("form.message", ""))
         
         # process payment
         result = IPaymentProcessing(new_order).process()

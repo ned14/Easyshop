@@ -18,7 +18,7 @@ class ManageAddressBookView(BrowserView):
         """
         """
         # delete address
-        toDeleteAddressId = self.context.request.get("id")
+        toDeleteAddressId = self.request.get("id")
         am = IAddressManagement(self.context)
         am.deleteAddress(toDeleteAddressId)
         
@@ -28,5 +28,5 @@ class ManageAddressBookView(BrowserView):
                                         
         # redirect to addressbook
         url = "%s/manage-addressbook" % self.context.absolute_url()
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
             

@@ -36,5 +36,5 @@ class FormView(BrowserView):
         putils.addPortalMessage("Wir haben Ihre Mail empfangen. Vielen Dank!")
         
         url = self.context.absolute_url()
-        self.context.request.response.redirect(url)
+        self.request.response.redirect(url)
         
