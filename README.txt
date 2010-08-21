@@ -1,6 +1,6 @@
 Easyshop v1.0a
 -=-=-=-=-=-=-=
-An E-Commerce solution for Plone v2.5-v3.3 supporting a shopping
+An E-Commerce solution for Plone v2.5-v4.0 supporting a shopping
 basket, stock quantities, differing delivery and taxation rules
 based on criteria, product variants and Paypal payment processing.
 
