@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Zope imports
 from AccessControl import ClassSecurityInfo
 
@@ -6,7 +7,7 @@ from zope.interface import implements
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
+from archetypes.referencebrowserwidget.widget import *
 
 # easyshop imports
 from easyshop.core.interfaces import IProductGroup

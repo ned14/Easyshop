@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # zope imports
 from zope.interface import implements
 
@@ -9,7 +10,7 @@ from Products.ATContentTypes.content.folder import ATFolder
 from Products.CMFCore.utils import getToolByName
 
 # ATReferenceBrowserWidget imports
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
 
 # easyshop imports
 from easyshop.core.config import *

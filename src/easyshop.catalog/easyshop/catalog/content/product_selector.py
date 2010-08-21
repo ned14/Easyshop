@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Zope imports
 from AccessControl import ClassSecurityInfo
 
@@ -11,7 +12,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.atapi import *
 
 # ReferenceBrowserWidget imports
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
+from archetypes.referencebrowserwidget.widget import *
 
 # easyshop imports
 from easyshop.core.config import *

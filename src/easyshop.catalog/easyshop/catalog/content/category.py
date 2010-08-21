@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 # zope imports
 from zope.interface import implements
 
 # Archetypes imports
 from Products.Archetypes.atapi import *
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import *
+from archetypes.referencebrowserwidget.widget import *
 
 # CMFCore imports
 from Products.CMFCore.utils import getToolByName

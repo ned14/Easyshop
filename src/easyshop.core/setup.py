@@ -57,7 +57,9 @@ setup(name='easyshop.core',
           "easyshop.shop",
           "easyshop.stocks",
           "easyshop.taxes",
+          "zope.app.file",
           "zc.authorizedotnet",
+          "Products.AdvancedQuery",
           "Products.DataGridField"          
       ],
       entry_points="""

@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 # Python imports
 import random
 import os 
 
 # Zope imports
-from Globals import package_home
+from App.Common import package_home
 
 # Five imports
 from Products.Five.browser import BrowserView

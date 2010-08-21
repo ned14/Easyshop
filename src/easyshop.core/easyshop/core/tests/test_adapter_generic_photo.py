@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 # Python imports
 import os
 
 # Zope imports
 from DateTime import DateTime
-from Globals import package_home
+from App.Common import package_home
 
 # zope imports
 from zope.component import getMultiAdapter

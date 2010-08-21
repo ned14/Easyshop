@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 from Testing.ZopeTestCase import FunctionalDocFileSuite
-from Globals import package_home
+from App.Common import package_home
 from base import EasyShopFunctionalTestCase
 from unittest import TestSuite
 from os.path import join, split
