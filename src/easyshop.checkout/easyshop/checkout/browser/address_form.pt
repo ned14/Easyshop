@@ -11,7 +11,8 @@
     </head>  
 
     <body>
-        <div metal:fill-slot="main">
+        <div metal:fill-slot="main"
+             tal:define="isAnon context/@@plone_portal_state/anonymous">
 
             <h1 class="documentFirstHeading"
                 i18n:translate="add_address_form_title">

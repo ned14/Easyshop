@@ -5,7 +5,8 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="format_info view/getFormatInfo">
+                    tal:define="isAnon context/@@plone_portal_state/anonymous;
+                                format_info view/getFormatInfo">
 
             <h1 class="documentFirstHeading"
                 i18n:translate="thank_you_title">
