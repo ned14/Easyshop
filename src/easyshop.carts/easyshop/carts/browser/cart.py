@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 # zope imports
-from zope.component import getMultiAdapter
-from zope.component import getUtility
+from zope.component import getMultiAdapter, getUtility, queryUtility
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -10,6 +10,7 @@ from Products.CMFPlone.utils import safe_unicode
 
 # plone imports
 from plone.memoize.instance import memoize
+from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 # easyshop imports
 from easyshop.core.interfaces import IAddressManagement

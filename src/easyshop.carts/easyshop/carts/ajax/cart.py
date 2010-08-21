@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 # zope imports
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, queryUtility
 from zope.viewlet.interfaces import IViewletManager
-from zope.component import queryUtility
 
 # CMFPlone imports
 from Products.CMFPlone.utils import safe_unicode

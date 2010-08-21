@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 # zope imports
-from zope.component import getMultiAdapter
-from zope.component import getUtility
+from zope.component import getMultiAdapter, getUtility
 
 # Five imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -11,6 +11,7 @@ from Products.CMFPlone.utils import safe_unicode
 # plone imports
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
+from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 # easyshop imports
 from easyshop.core.config import VAT_COUNTRIES
