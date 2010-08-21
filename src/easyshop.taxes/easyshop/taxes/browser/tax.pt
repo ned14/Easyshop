@@ -5,7 +5,8 @@
     <body>
 
         <metal:main fill-slot="main"
-                    tal:define="criteria view/getCriteria">
+                    tal:define="object_title context/@@plone_context_state/object_title;
+                                criteria view/getCriteria">
                     
             <h1 tal:content="object_title" class="documentFirstHeading">
                 Title or id

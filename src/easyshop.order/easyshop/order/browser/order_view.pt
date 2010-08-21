@@ -11,7 +11,8 @@
     </head>  
         
     <metal:main fill-slot="main"
-                tal:define="invoice_address view/getInvoiceAddress;
+                tal:define="object_title context/@@plone_context_state/object_title;
+                            invoice_address view/getInvoiceAddress;
                             shipping_address view/getShippingAddress;
                             payment_data view/getSelectedPaymentData;
                             payment_information python:payment_data['information'];
