@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 # zope imports
 from zope.component import getMultiAdapter
-from zope.viewlet.interfaces import IViewletManager
+from zope.viewlet.interfaces import IViewletManager, IViewlet
 
 # Five imports
 from Products.Five.browser import BrowserView
@@ -59,7 +60,8 @@ class AccessoriesView(BrowserView):
         return self.refreshViewletManager()
         
     def refreshViewletManager(self):
-        renderer = getMultiAdapter((self.context, self.request, self), IViewletManager, name="easyshop.manage-accessories-manager")
+        manager = getMultiAdapter((self.context, self.request, self), IViewletManager, name="easyshop.manage-accessories-manager")
+        renderer = getMultiAdapter((self.context, self.request, self, manager), IViewlet, name="easyshop.manage-accessories-viewlet")
         renderer = renderer.__of__(self.context)
         
         renderer.update()

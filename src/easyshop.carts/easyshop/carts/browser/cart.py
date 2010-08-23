@@ -400,7 +400,7 @@ class CartFormView(BrowserView):
         #if invoice_address is not None:
         #    invoice_address.country = selected_country
         shipping_address = IAddressManagement(customer).getShippingAddress()
-        if shipping_address is not None:
+        if shipping_address is not None and selected_country is not None:
             shipping_address.country = queryUtility(IIDNormalizer).normalize(selected_country)
 
         shop = IShopManagement(self.context).getShop()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # zope imports
 from zope.component import getMultiAdapter, queryUtility
-from zope.viewlet.interfaces import IViewletManager
+from zope.viewlet.interfaces import IViewletManager, IViewlet
 
 # CMFPlone imports
 from Products.CMFPlone.utils import safe_unicode
@@ -42,7 +42,8 @@ class AjaxView(BrowserView):
     def _render(self):
         """
         """
-        renderer = getMultiAdapter((self.context, self.request, self), IViewletManager, name="easyshop.carts.cart-manager")
+        manager = getMultiAdapter((self.context, self.request, self), IViewletManager, name="easyshop.carts.cart-manager")
+        renderer = getMultiAdapter((self.context, self.request, self, manager), IViewlet, name="easyshop.carts.cart-viewlet")
         renderer = renderer.__of__(self.context)
                 
         renderer.update()        
@@ -132,7 +133,7 @@ class AjaxView(BrowserView):
         #if invoice_address is not None:
         #    invoice_address.country = selected_country
         shipping_address = IAddressManagement(customer).getShippingAddress()
-        if shipping_address is not None:
+        if shipping_address is not None and selected_country is not None:
             shipping_address.country = queryUtility(IIDNormalizer).normalize(selected_country)
 
         shop = IShopManagement(self.context).getShop()
