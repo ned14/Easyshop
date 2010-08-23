@@ -79,10 +79,13 @@ class AjaxView(BrowserView):
             ci = "cart_item_%s" % i
             amount = self.context.REQUEST.get(ci)
                         
-            try:
-                amount = int(amount)
-            except ValueError:
-                continue
+            if amount is None:
+	        continue
+	    else:
+                try:
+                    amount = int(amount)
+                except ValueError:
+                    continue
             
             if amount < 0:
                 continue
