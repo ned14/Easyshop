@@ -1,0 +1,10 @@
+bin
+develop-eggs
+downloads
+eggs
+parts
+var
+*.py[oc]
+*.egg-info
+.*
+
