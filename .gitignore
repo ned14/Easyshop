@@ -6,5 +6,6 @@ parts
 var
 *.py[oc]
 *.egg-info
+*.mo
 .*
 
